@@ -4,54 +4,6 @@ focus = "graphs, intervals, heaps, trees, arrays, and core data structures."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Convert Sorted List to Binary Search Tree"
-url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
-
-[[entries]]
-title = "Check Completeness of a Binary Tree"
-url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
-
-[[entries]]
-title = "Smallest Range Covering Elements from K Lists"
-url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
-
-[[entries]]
-title = "Max Stack"
-url = "https://leetcode.com/problems/max-stack/"
-
-[[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
-
-[[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
-
-[[entries]]
-title = "Decode Ways"
-url = "https://leetcode.com/problems/decode-ways/"
-
-[[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
@@ -108,6 +60,10 @@ title = "Minimum Height Trees"
 url = "https://leetcode.com/problems/minimum-height-trees/"
 
 [[entries]]
+title = "Car Pooling"
+url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
@@ -156,48 +112,92 @@ title = "Interleaving String"
 url = "https://leetcode.com/problems/interleaving-string/"
 
 [[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
 title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
 
 [[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+title = "Check Completeness of a Binary Tree"
+url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
-title = "Water and Jug Problem"
-url = "https://leetcode.com/problems/water-and-jug-problem/"
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
 title = "Coordinate With Maximum Network Quality"
 url = "https://leetcode.com/problems/coordinate-with-maximum-network-quality/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Max Stack"
+url = "https://leetcode.com/problems/max-stack/"
+
+[[entries]]
+title = "Smallest Range Covering Elements from K Lists"
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Maximum Candies You Can Get from Boxes"
 url = "https://leetcode.com/problems/maximum-candies-you-can-get-from-boxes/"
 
 [[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
+
+[[entries]]
+title = "Water and Jug Problem"
+url = "https://leetcode.com/problems/water-and-jug-problem/"
+
+[[entries]]
 title = "Sort List"
 url = "https://leetcode.com/problems/sort-list/"
 
 [[entries]]
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
+
+[[entries]]
+title = "Detonate the Maximum Bombs"
+url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
 title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
 title = "Letter Combinations of a Phone Number"

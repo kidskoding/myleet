@@ -4,102 +4,6 @@ focus = "strings, graphs, trees, heaps, backtracking, and standard interview pro
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
-
-[[entries]]
-title = "Optimal Account Balancing"
-url = "https://leetcode.com/problems/optimal-account-balancing/"
-
-[[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
-
-[[entries]]
-title = "Shortest Way to Form String"
-url = "https://leetcode.com/problems/shortest-way-to-form-string/"
-
-[[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
-
-[[entries]]
-title = "Split Array Largest Sum"
-url = "https://leetcode.com/problems/split-array-largest-sum/"
-
-[[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Add Two Numbers II"
-url = "https://leetcode.com/problems/add-two-numbers-ii/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Delete Nodes And Return Forest"
-url = "https://leetcode.com/problems/delete-nodes-and-return-forest/"
-
-[[entries]]
-title = "Design A Leaderboard"
-url = "https://leetcode.com/problems/design-a-leaderboard/"
-
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "Put Boxes Into the Warehouse I"
-url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
-
-[[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
-title = "Shortest Path in a Grid with Obstacles Elimination"
-url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
-
-[[entries]]
-title = "Count Subarrays With Score Less Than K"
-url = "https://leetcode.com/problems/count-subarrays-with-score-less-than-k/"
-
-[[entries]]
-title = "Count and Say"
-url = "https://leetcode.com/problems/count-and-say/"
-
-[[entries]]
-title = "Is Subsequence"
-url = "https://leetcode.com/problems/is-subsequence/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Longest Word in Dictionary"
-url = "https://leetcode.com/problems/longest-word-in-dictionary/"
-
-[[entries]]
-title = "Target Sum"
-url = "https://leetcode.com/problems/target-sum/"
-
-[[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
-
-[[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
@@ -136,8 +40,8 @@ title = "Kth Largest Element in a Stream"
 url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
 
 [[entries]]
-title = "Palindrome Linked List"
-url = "https://leetcode.com/problems/palindrome-linked-list/"
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "Sort Colors"
@@ -146,10 +50,6 @@ url = "https://leetcode.com/problems/sort-colors/"
 [[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
-
-[[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
 
 [[entries]]
 title = "Generate Parentheses"
@@ -202,3 +102,103 @@ url = "https://leetcode.com/problems/open-the-lock/"
 [[entries]]
 title = "Best Time to Buy and Sell Stock III"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "Shortest Way to Form String"
+url = "https://leetcode.com/problems/shortest-way-to-form-string/"
+
+[[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
+
+[[entries]]
+title = "Optimal Account Balancing"
+url = "https://leetcode.com/problems/optimal-account-balancing/"
+
+[[entries]]
+title = "Bus Routes"
+url = "https://leetcode.com/problems/bus-routes/"
+
+[[entries]]
+title = "Count Subarrays With Score Less Than K"
+url = "https://leetcode.com/problems/count-subarrays-with-score-less-than-k/"
+
+[[entries]]
+title = "Delete Nodes And Return Forest"
+url = "https://leetcode.com/problems/delete-nodes-and-return-forest/"
+
+[[entries]]
+title = "Put Boxes Into the Warehouse I"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
+
+[[entries]]
+title = "Longest Word in Dictionary"
+url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+
+[[entries]]
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
+
+[[entries]]
+title = "Put Boxes Into the Warehouse II"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-ii/"
+
+[[entries]]
+title = "Design A Leaderboard"
+url = "https://leetcode.com/problems/design-a-leaderboard/"
+
+[[entries]]
+title = "Shortest Path in a Grid with Obstacles Elimination"
+url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
+
+[[entries]]
+title = "Count and Say"
+url = "https://leetcode.com/problems/count-and-say/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Find Minimum Time to Finish All Jobs"
+url = "https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Meeting Rooms III"
+url = "https://leetcode.com/problems/meeting-rooms-iii/"
+
+[[entries]]
+title = "Sparse Matrix Multiplication"
+url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
+
+[[entries]]
+title = "Add Two Numbers II"
+url = "https://leetcode.com/problems/add-two-numbers-ii/"
+
+[[entries]]
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
+
+[[entries]]
+title = "Candy Crush"
+url = "https://leetcode.com/problems/candy-crush/"

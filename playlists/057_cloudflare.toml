@@ -4,46 +4,6 @@ focus = "bit manipulation and IP math, tries for prefix matching, string hashing
 review_modules = ["15_bit_manipulation", "14_tries", "13_intervals", "01_arrays_and_hashing", "17_advanced"]
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Reaching Points"
-url = "https://leetcode.com/problems/reaching-points/"
-
-[[entries]]
-title = "Design a Stack With Increment Operation"
-url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "4Sum"
-url = "https://leetcode.com/problems/4sum/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Number of 1 Bits"
 url = "https://leetcode.com/problems/number-of-1-bits/"
 
@@ -54,10 +14,6 @@ url = "https://leetcode.com/problems/hamming-distance/"
 [[entries]]
 title = "Power of Two"
 url = "https://leetcode.com/problems/power-of-two/"
-
-[[entries]]
-title = "Reverse Bits"
-url = "https://leetcode.com/problems/reverse-bits/"
 
 [[entries]]
 title = "Single Number III"
@@ -108,8 +64,8 @@ title = "Repeated String Match"
 url = "https://leetcode.com/problems/repeated-string-match/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "LFU Cache"
@@ -160,5 +116,69 @@ title = "Longest Duplicate Substring"
 url = "https://leetcode.com/problems/longest-duplicate-substring/"
 
 [[entries]]
+title = "Design a Stack With Increment Operation"
+url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Reaching Points"
+url = "https://leetcode.com/problems/reaching-points/"
+
+[[entries]]
+title = "4Sum"
+url = "https://leetcode.com/problems/4sum/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"

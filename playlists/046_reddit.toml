@@ -4,26 +4,6 @@ focus = "strings, graphs, trees, heaps, backtracking, and clean implementation."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "10_graphs", "07_trees"]
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Number of Ways to Buy Pens and Pencils"
-url = "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
@@ -68,16 +48,16 @@ title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
 title = "Design Search Autocomplete System"
 url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "First Missing Positive"
 url = "https://leetcode.com/problems/first-missing-positive/"
-
-[[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
 
 [[entries]]
 title = "Trim a Binary Search Tree"
@@ -100,10 +80,6 @@ title = "Maximum Performance of a Team"
 url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
 
 [[entries]]
-title = "Single Number"
-url = "https://leetcode.com/problems/single-number/"
-
-[[entries]]
 title = "Find Eventual Safe States"
 url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
@@ -124,17 +100,85 @@ title = "Best Time to Buy and Sell Stock II"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
 [[entries]]
-title = "Add Binary"
-url = "https://leetcode.com/problems/add-binary/"
-
-[[entries]]
 title = "Longest Palindromic Subsequence"
 url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
 
 [[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
+title = "Number of Ways to Buy Pens and Pencils"
+url = "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/"
 
 [[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"

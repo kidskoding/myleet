@@ -4,38 +4,6 @@ focus = "graph pathfinding, grids, heaps, binary search, intervals, greedy sched
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals"]
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Degree of an Array"
-url = "https://leetcode.com/problems/degree-of-an-array/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Rotate String"
-url = "https://leetcode.com/problems/rotate-string/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Max Increase to Keep City Skyline"
-url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
 title = "Path With Minimum Effort"
 url = "https://leetcode.com/problems/path-with-minimum-effort/"
 
@@ -62,6 +30,10 @@ url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
 [[entries]]
 title = "Critical Connections in a Network"
 url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Max Area of Island"
@@ -150,3 +122,63 @@ url = "https://leetcode.com/problems/product-of-array-except-self/"
 [[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Degree of an Array"
+url = "https://leetcode.com/problems/degree-of-an-array/"
+
+[[entries]]
+title = "Rotate String"
+url = "https://leetcode.com/problems/rotate-string/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"

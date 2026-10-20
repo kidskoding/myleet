@@ -4,78 +4,6 @@ focus = "strings, arrays, graphs, trees, hashing, and core interview algorithms.
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "10_graphs", "08_heaps", "07_trees"]
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
-
-[[entries]]
-title = "Minimize Malware Spread"
-url = "https://leetcode.com/problems/minimize-malware-spread/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Letter Combinations of a Phone Number"
-url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
-
-[[entries]]
-title = "Grid Illumination"
-url = "https://leetcode.com/problems/grid-illumination/"
-
-[[entries]]
-title = "Find Duplicate File in System"
-url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
-
-[[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
-
-[[entries]]
-title = "Number of Valid Words for Each Puzzle"
-url = "https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/"
-
-[[entries]]
-title = "Word Pattern"
-url = "https://leetcode.com/problems/word-pattern/"
-
-[[entries]]
-title = "Word Pattern II"
-url = "https://leetcode.com/problems/word-pattern-ii/"
-
-[[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
-
-[[entries]]
-title = "Check If It Is a Good Array"
-url = "https://leetcode.com/problems/check-if-it-is-a-good-array/"
-
-[[entries]]
-title = "Seat Reservation Manager"
-url = "https://leetcode.com/problems/seat-reservation-manager/"
-
-[[entries]]
-title = "Minimize Malware Spread II"
-url = "https://leetcode.com/problems/minimize-malware-spread-ii/"
-
-[[entries]]
-title = "Candy"
-url = "https://leetcode.com/problems/candy/"
-
-[[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 
@@ -136,6 +64,10 @@ title = "House Robber III"
 url = "https://leetcode.com/problems/house-robber-iii/"
 
 [[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
@@ -184,5 +116,69 @@ title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Grid Illumination"
+url = "https://leetcode.com/problems/grid-illumination/"
+
+[[entries]]
+title = "Number of Valid Words for Each Puzzle"
+url = "https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/"
+
+[[entries]]
+title = "Minimize Malware Spread II"
+url = "https://leetcode.com/problems/minimize-malware-spread-ii/"
+
+[[entries]]
+title = "Seat Reservation Manager"
+url = "https://leetcode.com/problems/seat-reservation-manager/"
+
+[[entries]]
+title = "Word Pattern II"
+url = "https://leetcode.com/problems/word-pattern-ii/"
+
+[[entries]]
+title = "Check If It Is a Good Array"
+url = "https://leetcode.com/problems/check-if-it-is-a-good-array/"
+
+[[entries]]
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+
+[[entries]]
+title = "Design a Text Editor"
+url = "https://leetcode.com/problems/design-a-text-editor/"
+
+[[entries]]
+title = "Minimize Malware Spread"
+url = "https://leetcode.com/problems/minimize-malware-spread/"
+
+[[entries]]
+title = "Simple Bank System"
+url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
+title = "Word Break II"
+url = "https://leetcode.com/problems/word-break-ii/"
+
+[[entries]]
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Candy"
+url = "https://leetcode.com/problems/candy/"
+
+[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"

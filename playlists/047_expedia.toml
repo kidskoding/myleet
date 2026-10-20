@@ -4,96 +4,28 @@ focus = "mostly medium. Heavy on binary-search-on-answer, monotonic stacks, heap
 review_modules = ["03_stacks_and_queues", "05_binary_search", "08_heaps", "01_arrays_and_hashing", "04_sliding_window", "07_trees", "10_graphs", "13_intervals", "11_dp"]
 
 [[entries]]
-title = "Using a Robot to Print the Lexicographically Smallest String"
-url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Remove Stones to Minimize the Total"
-url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
-
-[[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Maximum Frequency Stack"
-url = "https://leetcode.com/problems/maximum-frequency-stack/"
-
-[[entries]]
-title = "Capacity To Ship Packages Within D Days"
-url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Find the Smallest Divisor Given a Threshold"
-url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Divide Players Into Teams of Equal Skill"
-url = "https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/"
-
-[[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
 title = "Valid Parentheses"
 url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Count and Say"
-url = "https://leetcode.com/problems/count-and-say/"
-
-[[entries]]
 title = "Roman to Integer"
 url = "https://leetcode.com/problems/roman-to-integer/"
 
 [[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Count and Say"
+url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
 title = "Container With Most Water"
@@ -104,12 +36,44 @@ title = "K-diff Pairs in an Array"
 url = "https://leetcode.com/problems/k-diff-pairs-in-an-array/"
 
 [[entries]]
+title = "Divide Players Into Teams of Equal Skill"
+url = "https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
 title = "Trapping Rain Water"
 url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
+
+[[entries]]
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+
+[[entries]]
 title = "Koko Eating Bananas"
 url = "https://leetcode.com/problems/koko-eating-bananas/"
+
+[[entries]]
+title = "Capacity To Ship Packages Within D Days"
+url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+
+[[entries]]
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
 
 [[entries]]
 title = "Search in Rotated Sorted Array"
@@ -128,8 +92,20 @@ title = "Maximum Points You Can Obtain from Cards"
 url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
 
 [[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
 title = "Maximum Number of Events That Can Be Attended"
 url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Max Area of Island"
@@ -164,12 +140,16 @@ title = "Letter Combinations of a Phone Number"
 url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
 
 [[entries]]
-title = "The kth Factor of n"
-url = "https://leetcode.com/problems/the-kth-factor-of-n/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Valid Triangle Number"
-url = "https://leetcode.com/problems/valid-triangle-number/"
+title = "Unique Substrings With Equal Digit Frequency"
+url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
+
+[[entries]]
+title = "Number of Good Binary Strings"
+url = "https://leetcode.com/problems/number-of-good-binary-strings/"
 
 [[entries]]
 title = "The Earliest Moment When Everyone Become Friends"
@@ -180,25 +160,45 @@ title = "Minimum Swaps to Group All 1's Together"
 url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
 
 [[entries]]
+title = "Rearrange Words in a Sentence"
+url = "https://leetcode.com/problems/rearrange-words-in-a-sentence/"
+
+[[entries]]
 title = "Break a Palindrome"
 url = "https://leetcode.com/problems/break-a-palindrome/"
 
 [[entries]]
-title = "Unique Substrings With Equal Digit Frequency"
-url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
+title = "Minimum One Bit Operations to Make Integers Zero"
+url = "https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/"
 
 [[entries]]
-title = "Valid Word"
-url = "https://leetcode.com/problems/valid-word/"
+title = "The kth Factor of n"
+url = "https://leetcode.com/problems/the-kth-factor-of-n/"
 
 [[entries]]
 title = "Minimum Replacements to Sort the Array"
 url = "https://leetcode.com/problems/minimum-replacements-to-sort-the-array/"
 
 [[entries]]
-title = "Rearrange Words in a Sentence"
-url = "https://leetcode.com/problems/rearrange-words-in-a-sentence/"
+title = "Valid Triangle Number"
+url = "https://leetcode.com/problems/valid-triangle-number/"
 
 [[entries]]
-title = "Number of Good Binary Strings"
-url = "https://leetcode.com/problems/number-of-good-binary-strings/"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
+
+[[entries]]
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
+
+[[entries]]
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
+
+[[entries]]
+title = "Flip String to Monotone Increasing"
+url = "https://leetcode.com/problems/flip-string-to-monotone-increasing/"
+
+[[entries]]
+title = "Verify Preorder Sequence in Binary Search Tree"
+url = "https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/"

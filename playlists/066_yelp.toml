@@ -4,108 +4,12 @@ focus = "search/ranking, heaps, strings, graphs, intervals, tries, trees, and DP
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Destination City"
-url = "https://leetcode.com/problems/destination-city/"
-
-[[entries]]
-title = "Remove Colored Pieces if Both Neighbors are the Same Color"
-url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
-
-[[entries]]
-title = "Filter Restaurants by Vegan-Friendly, Price and Distance"
-url = "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
-
-[[entries]]
-title = "Reverse Words in a String"
-url = "https://leetcode.com/problems/reverse-words-in-a-string/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "The Skyline Problem"
-url = "https://leetcode.com/problems/the-skyline-problem/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1) - Duplicates allowed"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
-url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
-
-[[entries]]
-title = "Find the Closest Palindrome"
-url = "https://leetcode.com/problems/find-the-closest-palindrome/"
-
-[[entries]]
-title = "Minimum Index Sum of Two Lists"
-url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
-
-[[entries]]
-title = "Letter Case Permutation"
-url = "https://leetcode.com/problems/letter-case-permutation/"
-
-[[entries]]
 title = "Design Search Autocomplete System"
 url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
 title = "K Closest Points to Origin"
@@ -116,8 +20,16 @@ title = "Find K Closest Elements"
 url = "https://leetcode.com/problems/find-k-closest-elements/"
 
 [[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
 title = "Minimum Window Substring"
 url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -132,6 +44,10 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
 title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
 
@@ -144,6 +60,14 @@ title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
 title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
 
@@ -154,6 +78,10 @@ url = "https://leetcode.com/problems/reconstruct-itinerary/"
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Employee Free Time"
@@ -196,9 +124,61 @@ title = "Random Pick with Weight"
 url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
+title = "Filter Restaurants by Vegan-Friendly, Price and Distance"
+url = "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/"
+
+[[entries]]
+title = "Remove Colored Pieces if Both Neighbors are the Same Color"
+url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
+
+[[entries]]
+title = "Find the Closest Palindrome"
+url = "https://leetcode.com/problems/find-the-closest-palindrome/"
+
+[[entries]]
+title = "Letter Case Permutation"
+url = "https://leetcode.com/problems/letter-case-permutation/"
+
+[[entries]]
+title = "The Skyline Problem"
+url = "https://leetcode.com/problems/the-skyline-problem/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1) - Duplicates allowed"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
+
+[[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
+
+[[entries]]
 title = "Shortest and Lexicographically Smallest Beautiful String"
 url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
 
 [[entries]]
-title = "Minimum Value to Get Positive Step by Step Sum"
-url = "https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/"
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
+url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
+
+[[entries]]
+title = "Minimum Index Sum of Two Lists"
+url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

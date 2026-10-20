@@ -4,26 +4,6 @@ focus = "string comparison and edit-distance DP, palindromes, word-list hashing 
 review_modules = ["01_arrays_and_hashing", "11_dp", "09_backtracking", "14_tries", "12_greedy_algorithms", "10_graphs"]
 
 [[entries]]
-title = "Encrypt and Decrypt Strings"
-url = "https://leetcode.com/problems/encrypt-and-decrypt-strings/"
-
-[[entries]]
-title = "K Radius Subarray Averages"
-url = "https://leetcode.com/problems/k-radius-subarray-averages/"
-
-[[entries]]
-title = "Minimum Number of People to Teach"
-url = "https://leetcode.com/problems/minimum-number-of-people-to-teach/"
-
-[[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
-
-[[entries]]
-title = "Task Scheduler II"
-url = "https://leetcode.com/problems/task-scheduler-ii/"
-
-[[entries]]
 title = "Valid Palindrome"
 url = "https://leetcode.com/problems/valid-palindrome/"
 
@@ -34,22 +14,6 @@ url = "https://leetcode.com/problems/reverse-string/"
 [[entries]]
 title = "Assign Cookies"
 url = "https://leetcode.com/problems/assign-cookies/"
-
-[[entries]]
-title = "Can Place Flowers"
-url = "https://leetcode.com/problems/can-place-flowers/"
-
-[[entries]]
-title = "Shortest Word Distance"
-url = "https://leetcode.com/problems/shortest-word-distance/"
-
-[[entries]]
-title = "Verifying an Alien Dictionary"
-url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
-
-[[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
 title = "Letter Case Permutation"
@@ -142,3 +106,79 @@ url = "https://leetcode.com/problems/wildcard-matching/"
 [[entries]]
 title = "Regular Expression Matching"
 url = "https://leetcode.com/problems/regular-expression-matching/"
+
+[[entries]]
+title = "Encrypt and Decrypt Strings"
+url = "https://leetcode.com/problems/encrypt-and-decrypt-strings/"
+
+[[entries]]
+title = "K Radius Subarray Averages"
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+
+[[entries]]
+title = "Minimum Number of People to Teach"
+url = "https://leetcode.com/problems/minimum-number-of-people-to-teach/"
+
+[[entries]]
+title = "Task Scheduler II"
+url = "https://leetcode.com/problems/task-scheduler-ii/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"

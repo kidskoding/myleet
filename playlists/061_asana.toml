@@ -4,26 +4,6 @@ focus = "task graphs, topological ordering, intervals, strings, design data stru
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
-
-[[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
-
-[[entries]]
-title = "Maximum Repeating Substring"
-url = "https://leetcode.com/problems/maximum-repeating-substring/"
-
-[[entries]]
-title = "Minimum Cost Path with Edge Reversals"
-url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
-
-[[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
@@ -104,6 +84,10 @@ title = "Binary Tree Right Side View"
 url = "https://leetcode.com/problems/binary-tree-right-side-view/"
 
 [[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
 title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
 
@@ -138,3 +122,63 @@ url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 [[entries]]
 title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Minimum Cost Path with Edge Reversals"
+url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
+
+[[entries]]
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Maximum Repeating Substring"
+url = "https://leetcode.com/problems/maximum-repeating-substring/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"

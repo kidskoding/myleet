@@ -4,14 +4,6 @@ focus = "meeting and interval scheduling, heaps for servers and tasks, sliding w
 review_modules = ["13_intervals", "08_heaps", "04_sliding_window", "03_stacks_and_queues", "10_graphs"]
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
 title = "Maximum Average Subarray I"
 url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
@@ -22,10 +14,6 @@ url = "https://leetcode.com/problems/number-of-recent-calls/"
 [[entries]]
 title = "Moving Average from Data Stream"
 url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Summary Ranges"
-url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
 title = "K Radius Subarray Averages"
@@ -42,14 +30,6 @@ url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
 [[entries]]
 title = "Longest Repeating Character Replacement"
 url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
-
-[[entries]]
-title = "Last Stone Weight"
-url = "https://leetcode.com/problems/last-stone-weight/"
-
-[[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
 
 [[entries]]
 title = "Design Circular Queue"
@@ -130,3 +110,75 @@ url = "https://leetcode.com/problems/sliding-window-median/"
 [[entries]]
 title = "Minimum Interval to Include Each Query"
 url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"

@@ -4,50 +4,6 @@ focus = "string building and parsing, stack-based expression evaluation, input v
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "09_backtracking", "11_dp"]
 
 [[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
-
-[[entries]]
-title = "Maximize Greatness of an Array"
-url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
-
-[[entries]]
-title = "Reformat Date"
-url = "https://leetcode.com/problems/reformat-date/"
-
-[[entries]]
-title = "Univalued Binary Tree"
-url = "https://leetcode.com/problems/univalued-binary-tree/"
-
-[[entries]]
-title = "Count Vowel Strings in Ranges"
-url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Ways to Make a Fair Array"
-url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
-
-[[entries]]
-title = "Furthest Building You Can Reach"
-url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
-
-[[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
 title = "Add Strings"
 url = "https://leetcode.com/problems/add-strings/"
 
@@ -58,14 +14,6 @@ url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a
 [[entries]]
 title = "Repeated Substring Pattern"
 url = "https://leetcode.com/problems/repeated-substring-pattern/"
-
-[[entries]]
-title = "Greatest Common Divisor of Strings"
-url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
-
-[[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
 
 [[entries]]
 title = "String Compression"
@@ -84,8 +32,8 @@ title = "Encode and Decode TinyURL"
 url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
 
 [[entries]]
 title = "Simplify Path"
@@ -98,10 +46,6 @@ url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 [[entries]]
 title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
-
-[[entries]]
-title = "Substrings of Size Three with Distinct Characters"
-url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
 
 [[entries]]
 title = "Permutation in String"
@@ -166,3 +110,75 @@ url = "https://leetcode.com/problems/word-break-ii/"
 [[entries]]
 title = "Expression Add Operators"
 url = "https://leetcode.com/problems/expression-add-operators/"
+
+[[entries]]
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
+
+[[entries]]
+title = "Count Vowel Strings in Ranges"
+url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
+
+[[entries]]
+title = "Ways to Make a Fair Array"
+url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
+
+[[entries]]
+title = "Furthest Building You Can Reach"
+url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
+
+[[entries]]
+title = "Search Suggestions System"
+url = "https://leetcode.com/problems/search-suggestions-system/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"

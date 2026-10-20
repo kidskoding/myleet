@@ -4,42 +4,6 @@ focus = "heaps, routing-style graphs, intervals, sliding windows, arrays, greedy
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "17_advanced"]
 
 [[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
-title = "Find First and Last Position of Element in Sorted Array"
-url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
-
-[[entries]]
-title = "Average Waiting Time"
-url = "https://leetcode.com/problems/average-waiting-time/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Check if Every Row and Column Contains All Numbers"
-url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
-
-[[entries]]
-title = "Wildcard Matching"
-url = "https://leetcode.com/problems/wildcard-matching/"
-
-[[entries]]
-title = "Find the Length of the Longest Common Prefix"
-url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
-
-[[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
 title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
@@ -58,6 +22,10 @@ url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lis
 [[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
@@ -154,3 +122,63 @@ url = "https://leetcode.com/problems/find-median-from-data-stream/"
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Average Waiting Time"
+url = "https://leetcode.com/problems/average-waiting-time/"
+
+[[entries]]
+title = "Find First and Last Position of Element in Sorted Array"
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+
+[[entries]]
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"
+
+[[entries]]
+title = "Find the Length of the Longest Common Prefix"
+url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
+
+[[entries]]
+title = "Simple Bank System"
+url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
+title = "Check if Every Row and Column Contains All Numbers"
+url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"

@@ -4,98 +4,6 @@ focus = "trees, tries, range queries, hash maps, design data structures, graph t
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
-
-[[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
-
-[[entries]]
-title = "Intersection of Two Arrays"
-url = "https://leetcode.com/problems/intersection-of-two-arrays/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
-
-[[entries]]
-title = "Stock Price Fluctuation"
-url = "https://leetcode.com/problems/stock-price-fluctuation/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Merge Two Binary Trees"
-url = "https://leetcode.com/problems/merge-two-binary-trees/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree III"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Compare Version Numbers"
-url = "https://leetcode.com/problems/compare-version-numbers/"
-
-[[entries]]
 title = "Design In-Memory File System"
 url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
@@ -108,12 +16,24 @@ title = "Design Add and Search Words Data Structure"
 url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
 title = "Word Search II"
 url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
 title = "Prefix and Suffix Search"
 url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
@@ -164,6 +84,10 @@ title = "Binary Search Tree Iterator"
 url = "https://leetcode.com/problems/binary-search-tree-iterator/"
 
 [[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
@@ -180,6 +104,10 @@ title = "Word Ladder"
 url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
@@ -188,5 +116,69 @@ title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Compare Version Numbers"
+url = "https://leetcode.com/problems/compare-version-numbers/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree III"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
+title = "Word Break II"
+url = "https://leetcode.com/problems/word-break-ii/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"

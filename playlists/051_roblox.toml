@@ -4,110 +4,6 @@ focus = "graphs, grids, simulation, design data structures, heaps, backtracking,
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "16_math_geometry"]
 
 [[entries]]
-title = "Candy Crush"
-url = "https://leetcode.com/problems/candy-crush/"
-
-[[entries]]
-title = "Maximize Distance to Closest Person"
-url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Number of Ways to Wear Different Hats to Each Other"
-url = "https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/"
-
-[[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Integer to English Words"
-url = "https://leetcode.com/problems/integer-to-english-words/"
-
-[[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Count Number of Nice Subarrays"
-url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
-
-[[entries]]
-title = "Group the People Given the Group Size They Belong To"
-url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
-
-[[entries]]
-title = "Magnetic Force Between Two Balls"
-url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
-
-[[entries]]
-title = "Subdomain Visit Count"
-url = "https://leetcode.com/problems/subdomain-visit-count/"
-
-[[entries]]
-title = "Convert Binary Number in a Linked List to Integer"
-url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
-
-[[entries]]
-title = "Maximum Number of Occurrences of a Substring"
-url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
-
-[[entries]]
-title = "Minimum Operations to Write the Letter Y on a Grid"
-url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
-
-[[entries]]
-title = "Minimum Absolute Difference Between Elements With Constraint"
-url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
-
-[[entries]]
-title = "Number of Black Blocks"
-url = "https://leetcode.com/problems/number-of-black-blocks/"
-
-[[entries]]
 title = "Design Snake Game"
 url = "https://leetcode.com/problems/design-snake-game/"
 
@@ -132,12 +28,20 @@ title = "Snakes and Ladders"
 url = "https://leetcode.com/problems/snakes-and-ladders/"
 
 [[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Path With Minimum Effort"
@@ -154,6 +58,10 @@ url = "https://leetcode.com/problems/top-k-frequent-elements/"
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
 title = "Design Twitter"
@@ -196,9 +104,101 @@ title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
-title = "Find the Length of the Longest Common Prefix"
-url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
 
 [[entries]]
 title = "Maximum Performance of a Team"
 url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
+
+[[entries]]
+title = "Min Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "The Maze"
+url = "https://leetcode.com/problems/the-maze/"
+
+[[entries]]
+title = "Sliding Puzzle"
+url = "https://leetcode.com/problems/sliding-puzzle/"
+
+[[entries]]
+title = "Candy Crush"
+url = "https://leetcode.com/problems/candy-crush/"
+
+[[entries]]
+title = "Number of Ways to Wear Different Hats to Each Other"
+url = "https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/"
+
+[[entries]]
+title = "Maximize Distance to Closest Person"
+url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+
+[[entries]]
+title = "Subdomain Visit Count"
+url = "https://leetcode.com/problems/subdomain-visit-count/"
+
+[[entries]]
+title = "Group the People Given the Group Size They Belong To"
+url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
+
+[[entries]]
+title = "Count Number of Nice Subarrays"
+url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
+
+[[entries]]
+title = "Minimum Operations to Write the Letter Y on a Grid"
+url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Magnetic Force Between Two Balls"
+url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+
+[[entries]]
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "Minimum Absolute Difference Between Elements With Constraint"
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
+
+[[entries]]
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Brightest Position on Street"
+url = "https://leetcode.com/problems/brightest-position-on-street/"
+
+[[entries]]
+title = "Number of Adjacent Elements With the Same Color"
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
+
+[[entries]]
+title = "Integer to English Words"
+url = "https://leetcode.com/problems/integer-to-english-words/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"
+
+[[entries]]
+title = "Number of Flowers in Full Bloom"
+url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
