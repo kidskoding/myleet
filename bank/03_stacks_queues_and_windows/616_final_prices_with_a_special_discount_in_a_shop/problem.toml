@@ -1,0 +1,7 @@
+id = "final-prices-with-a-special-discount-in-a-shop"
+title = "Final Prices With a Special Discount in a Shop"
+difficulty = "easy"
+leetcode = 1475
+url = "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/"
+key_idea = "Each item's discount is the next price to its right that is <= it, which a monotonic stack of indices finds in one pass."
+hints = ["For every item you need the first later item that is not more expensive.", "Keep the items still waiting for their discount on a stack."]

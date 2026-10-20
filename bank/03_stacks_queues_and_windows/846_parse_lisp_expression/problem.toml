@@ -1,0 +1,7 @@
+id = "parse-lisp-expression"
+title = "Parse Lisp Expression"
+difficulty = "hard"
+leetcode = 736
+url = "https://leetcode.com/problems/parse-lisp-expression/"
+key_idea = "Recursive descent over tokens with a stack of scope dictionaries: push a scope on let, assign variables in order, evaluate the body, then pop."
+hints = ["Tokenize first: parentheses and space-separated words.", "Each let opens a new scope that inner expressions can shadow and that disappears when it ends."]

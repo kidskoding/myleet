@@ -1,0 +1,7 @@
+id = "shortest-unsorted-continuous-subarray"
+title = "Shortest Unsorted Continuous Subarray"
+difficulty = "medium"
+leetcode = 581
+url = "https://leetcode.com/problems/shortest-unsorted-continuous-subarray/"
+key_idea = "Scanning left to right, the last index below the running max is the right end; scanning right to left, the last index above the running min is the left end."
+hints = ["Sorting a copy and comparing works in O(n log n); can you find the ends without sorting?", "An element must move if something before it is larger, or something after it is smaller."]

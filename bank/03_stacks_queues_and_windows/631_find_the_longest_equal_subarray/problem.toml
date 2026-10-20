@@ -1,0 +1,7 @@
+id = "find-the-longest-equal-subarray"
+title = "Find the Longest Equal Subarray"
+difficulty = "medium"
+leetcode = 2831
+url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
+key_idea = "Group indices by value; for each value slide a window over its index list, keeping it valid while the elements to delete, (pos[r] - pos[l]) - (r - l), stay at most k."
+hints = ["The final equal run consists of copies of one value, so treat each value separately.", "Between two kept copies of a value, every other element has to be deleted."]

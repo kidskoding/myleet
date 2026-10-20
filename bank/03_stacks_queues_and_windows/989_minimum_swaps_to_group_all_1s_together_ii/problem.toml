@@ -1,0 +1,7 @@
+id = "minimum-swaps-to-group-all-1s-together-ii"
+title = "Minimum Swaps to Group All 1's Together II"
+difficulty = "medium"
+leetcode = 2134
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/"
+key_idea = "With t ones in total, slide a window of length t around the circular array; the swaps needed are the zeros inside the best window."
+hints = ["If all ones end up together, they fill a window whose length you already know.", "Handle the wrap-around by letting the window index modulo n, and count zeros as it slides."]

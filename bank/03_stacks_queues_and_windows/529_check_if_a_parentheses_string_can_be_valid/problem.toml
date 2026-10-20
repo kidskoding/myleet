@@ -1,0 +1,7 @@
+id = "check-if-a-parentheses-string-can-be-valid"
+title = "Check if a Parentheses String Can Be Valid"
+difficulty = "medium"
+leetcode = 2116
+url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
+key_idea = "Require even length, then scan left to right treating unlocked characters as '(' so ')' never outnumbers, and right to left treating them as ')' so '(' never outnumbers."
+hints = ["An odd-length string can never balance.", "Unlocked characters are wildcards; check that closers never run ahead from the left and openers never run ahead from the right."]

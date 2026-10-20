@@ -1,0 +1,7 @@
+id = "count-subarrays-with-score-less-than-k"
+title = "Count Subarrays With Score Less Than K"
+difficulty = "hard"
+leetcode = 2302
+url = "https://leetcode.com/problems/count-subarrays-with-score-less-than-k/"
+key_idea = "Positive numbers make the score grow with the window, so slide a window: shrink from the left while sum * length >= k, then every subarray ending here and starting in the window counts."
+hints = ["All values are positive, so extending a subarray never lowers its score.", "For each right end, find the furthest-left start that still has score below k; everything between counts."]

@@ -1,0 +1,48 @@
+id = "binary-searchable-numbers-in-an-unsorted-array"
+title = "Binary Searchable Numbers in an Unsorted Array"
+difficulty = "medium"
+leetcode = 1966
+url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
+key_idea = "A value is always found exactly when it is larger than everything to its left and smaller than everything to its right; compare prefix maxima with suffix minima."
+hints = ["Think about which pivot choices could wrongly throw the target away.", "A pivot to the left of the target that is bigger than it is a problem, and so is a smaller one to its right."]
+prompt = """
+A randomized search runs on a sequence of distinct numbers looking for `target`:
+
+```
+while the sequence is not empty:
+    pick any element of the sequence as the pivot
+    if pivot == target: return True
+    if pivot < target: delete the pivot and everything to its left
+    else: delete the pivot and everything to its right
+return False
+```
+
+On a sorted sequence this always finds a target that is present. On an unsorted one it
+may fail, depending on the pivots chosen.
+
+Implement `binary_searchable_numbers(nums)`, which returns how many values in `nums` are
+guaranteed to be found no matter which pivots are picked.
+
+**Example 1:**
+
+```
+Input: nums = [7]
+Output: 1
+```
+
+**Example 2:**
+
+```
+Input: nums = [-1,5,2]
+Output: 1
+```
+
+Only `-1` is safe. Searching for `5` fails if `2` is picked first, since `5` lies to its
+left and gets deleted; searching for `2` fails if `5` is picked first.
+
+**Constraints:**
+
+- `1 <= len(nums) <= 10^5`
+- `-10^5 <= nums[i] <= 10^5`
+- All values in `nums` are distinct
+"""

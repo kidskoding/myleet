@@ -1,0 +1,7 @@
+id = "longest-absolute-file-path"
+title = "Longest Absolute File Path"
+difficulty = "medium"
+leetcode = 388
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
+key_idea = "Split into lines; the tab count is the depth, and a stack (or depth-indexed array) of cumulative path lengths gives each entry's full length in O(1)."
+hints = ["The number of leading tabs tells you how deep an entry is. What do you need to remember about its ancestors?", "Only lengths matter, not names. When you go back up to a shallower depth, what can you forget?"]

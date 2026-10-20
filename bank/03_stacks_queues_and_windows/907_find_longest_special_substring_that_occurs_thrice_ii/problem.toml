@@ -1,0 +1,7 @@
+id = "find-longest-special-substring-that-occurs-thrice-ii"
+title = "Find Longest Special Substring That Occurs Thrice II"
+difficulty = "medium"
+leetcode = 2982
+url = "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/"
+key_idea = "Group maximal runs per letter and keep the three longest run lengths a >= b >= c; the best length for that letter is max(a - 2, min(a - 1, b), c)."
+hints = ["A special substring lives entirely inside one maximal run of a single letter. How many copies of length L does a run of length r contain?", "Per letter, only the few longest runs can matter."]

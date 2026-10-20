@@ -1,0 +1,7 @@
+id = "using-a-robot-to-print-the-lexicographically-smallest-string"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+difficulty = "medium"
+leetcode = 2434
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
+key_idea = "t is a stack: push each character of s, then pop while the stack top is <= the smallest character still left in s (precompute suffix minimums)."
+hints = ["The robot's string t only ever changes at its end; name that data structure.", "Before writing a character, ask whether a smaller one is still waiting in s."]

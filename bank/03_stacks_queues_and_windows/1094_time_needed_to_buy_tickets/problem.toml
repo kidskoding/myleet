@@ -1,0 +1,7 @@
+id = "time-needed-to-buy-tickets"
+title = "Time Needed to Buy Tickets"
+difficulty = "easy"
+leetcode = 2073
+url = "https://leetcode.com/problems/time-needed-to-buy-tickets/"
+key_idea = "Person k finishes on round tickets[k]: everyone at or before k buys min(t, tickets[k]) tickets by then and everyone after k buys min(t, tickets[k] - 1)."
+hints = ["Simulating the queue works for the limits here.", "Ask how many tickets each other person buys before person k buys their last one."]

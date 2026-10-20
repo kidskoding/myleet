@@ -1,0 +1,7 @@
+id = "alternating-groups-ii"
+title = "Alternating Groups II"
+difficulty = "medium"
+leetcode = 3208
+url = "https://leetcode.com/problems/alternating-groups-ii/"
+key_idea = "Walk n + k - 1 positions around the circle tracking the length of the current alternating run; every position where that run reaches k ends one group."
+hints = ["Unroll the circle by iterating past the end with index i % n.", "Keep a running count of consecutive alternating tiles and reset it when two neighbors match."]

@@ -1,0 +1,40 @@
+id = "maximum-frequency-score-of-a-subarray"
+title = "Maximum Frequency Score of a Subarray"
+difficulty = "hard"
+leetcode = 2524
+url = "https://leetcode.com/problems/maximum-frequency-score-of-a-subarray/"
+key_idea = "Slide a window of size k with a count map; when a value's count goes from c to c + 1, swap its x^c term for x^(c + 1) in the running score mod 10^9 + 7."
+hints = ["Adjacent windows differ by one element leaving and one entering.", "Only the term for the changed value moves when its frequency changes."]
+prompt = """
+Implement `max_frequency_score(nums, k)`.
+
+The frequency score of an array is the sum, over each distinct value `x` in it, of
+`x` raised to the number of times `x` appears, taken modulo `10^9 + 7`. For example,
+`[5, 4, 5, 7, 4, 4]` has score `(4^3 + 5^2 + 7^1) mod (10^9 + 7) = 96`.
+
+Return the largest frequency score among all contiguous subarrays of `nums` with length
+exactly `k`. Compare the scores after taking the modulo, not their true sizes.
+
+**Example 1:**
+
+```
+Input: nums = [1,1,1,2,1,2], k = 3
+Output: 5
+```
+
+The subarray `[2,1,2]` scores `2^2 + 1^1 = 5`, the best of all length-3 windows.
+
+**Example 2:**
+
+```
+Input: nums = [1,1,1,1,1,1], k = 4
+Output: 1
+```
+
+Every window is four `1`s, scoring `1^4 = 1`.
+
+**Constraints:**
+
+- `1 <= k <= nums.length <= 10^5`
+- `1 <= nums[i] <= 10^6`
+"""

@@ -1,0 +1,7 @@
+id = "length-of-longest-subarray-with-at-most-k-frequency"
+title = "Length of Longest Subarray With at Most K Frequency"
+difficulty = "medium"
+leetcode = 2958
+url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
+key_idea = "Sliding window with a frequency map: extend right, and while the new element's count exceeds k shrink from the left."
+hints = ["If a window is good, every window inside it is good too.", "Only the element you just added can push a count above k."]

@@ -1,0 +1,7 @@
+id = "maximum-number-of-tasks-you-can-assign"
+title = "Maximum Number of Tasks You Can Assign"
+difficulty = "hard"
+leetcode = 2071
+url = "https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/"
+key_idea = "Binary search the answer k: try the k easiest tasks with the k strongest workers, scanning workers weakest-first with a deque of tasks they could handle with a pill; take the easiest task without a pill, else the hardest pill-reachable task."
+hints = ["If k tasks can be done, so can any k - 1, which suggests searching on k.", "For a fixed k, which tasks and which workers should you use?"]

@@ -1,0 +1,7 @@
+id = "maximum-length-substring-with-two-occurrences"
+title = "Maximum Length Substring With Two Occurrences"
+difficulty = "easy"
+leetcode = 3090
+url = "https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/"
+key_idea = "Sliding window with letter counts: extend the right end, and while the new letter appears three times, shrink from the left."
+hints = ["Think about the longest valid substring ending at each index.", "When a window breaks the rule, only one letter is over the limit."]

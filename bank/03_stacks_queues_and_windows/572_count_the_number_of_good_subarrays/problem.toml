@@ -1,0 +1,7 @@
+id = "count-the-number-of-good-subarrays"
+title = "Count the Number of Good Subarrays"
+difficulty = "medium"
+leetcode = 2537
+url = "https://leetcode.com/problems/count-the-number-of-good-subarrays/"
+key_idea = "Sliding window tracking the number of equal pairs (adding x adds freq[x] pairs); for each right end, shrink while the window is still good, and every start before left counts."
+hints = ["If a subarray is good, every subarray containing it is good too.", "Adding a copy of x creates freq[x] new pairs, and removing one destroys freq[x] - 1, so the pair count updates in O(1)."]

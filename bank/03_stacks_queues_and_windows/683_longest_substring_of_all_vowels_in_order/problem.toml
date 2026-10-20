@@ -1,0 +1,7 @@
+id = "longest-substring-of-all-vowels-in-order"
+title = "Longest Substring Of All Vowels in Order"
+difficulty = "medium"
+leetcode = 1839
+url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
+key_idea = "Single pass: extend the current run while letters never decrease, reset when one drops, count distinct letters in the run, and record its length when all five appear."
+hints = ["A valid substring is a run where each letter is >= the previous one.", "Track how many distinct vowels the current run has seen."]

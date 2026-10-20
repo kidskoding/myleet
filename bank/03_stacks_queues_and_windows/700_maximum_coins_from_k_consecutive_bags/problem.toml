@@ -1,0 +1,7 @@
+id = "maximum-coins-from-k-consecutive-bags"
+title = "Maximum Coins From K Consecutive Bags"
+difficulty = "medium"
+leetcode = 3413
+url = "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/"
+key_idea = "Some optimal window starts at a segment's left end or ends at a segment's right end, so sort segments and slide a two-pointer window both ways, counting the partly covered last segment."
+hints = ["Shifting a window that starts and ends mid-segment never needs to stay there.", "Try windows anchored at every segment start, then mirror the coordinates to handle windows anchored at segment ends."]

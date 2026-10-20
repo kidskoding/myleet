@@ -1,0 +1,7 @@
+id = "alternating-groups-i"
+title = "Alternating Groups I"
+difficulty = "easy"
+leetcode = 3206
+url = "https://leetcode.com/problems/alternating-groups-i/"
+key_idea = "For each index, compare it with its circular neighbours (i - 1) % n and (i + 1) % n; count the centres that differ from both."
+hints = ["Each group is identified by its middle tile.", "Use modular indexing so the first and last tiles are neighbours."]

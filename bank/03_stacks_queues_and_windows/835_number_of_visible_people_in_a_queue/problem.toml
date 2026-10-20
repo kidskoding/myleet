@@ -1,0 +1,7 @@
+id = "number-of-visible-people-in-a-queue"
+title = "Number of Visible People in a Queue"
+difficulty = "hard"
+leetcode = 1944
+url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"
+key_idea = "Scan right to left with a decreasing monotonic stack: each person sees everyone they pop (shorter) plus the next taller person left on the stack."
+hints = ["A person hidden behind someone taller nearby can never be seen by anyone further left.", "Process the queue from the right and keep only people who could still be visible."]

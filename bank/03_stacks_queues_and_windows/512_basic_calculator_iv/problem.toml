@@ -1,0 +1,7 @@
+id = "basic-calculator-iv"
+title = "Basic Calculator IV"
+difficulty = "hard"
+leetcode = 770
+url = "https://leetcode.com/problems/basic-calculator-iv/"
+key_idea = "Parse with precedence (expression -> terms -> factors) where every value is a polynomial dict from a sorted tuple of variables to a coefficient, then sort terms by degree descending and variables lexicographically."
+hints = ["Represent a polynomial as a map from a monomial (sorted variables) to its coefficient; adding and multiplying such maps is straightforward.", "Recursive descent handles parentheses and makes '*' bind tighter than '+' and '-'."]

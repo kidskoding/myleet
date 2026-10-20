@@ -1,0 +1,7 @@
+id = "shortest-and-lexicographically-smallest-beautiful-string"
+title = "Shortest and Lexicographically Smallest Beautiful String"
+difficulty = "medium"
+leetcode = 2904
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
+key_idea = "Every shortest beautiful substring starts and ends on a 1, so slide over k consecutive positions of 1s and keep the best by (length, string)."
+hints = ["A shortest substring with exactly k ones never has a 0 at either end.", "List the indices of the 1s; each window of k consecutive indices gives one candidate."]

@@ -1,0 +1,7 @@
+id = "mini-parser"
+title = "Mini Parser"
+difficulty = "medium"
+leetcode = 385
+url = "https://leetcode.com/problems/mini-parser/"
+key_idea = "Scan once with a stack of open lists: '[' pushes a new list, digits build a number, and ',' or ']' flushes the number into the top list; ']' also pops the finished list into its parent."
+hints = ["A bare number with no brackets is its own special case.", "Each ']' closes the most recently opened list, which is exactly what a stack gives you."]

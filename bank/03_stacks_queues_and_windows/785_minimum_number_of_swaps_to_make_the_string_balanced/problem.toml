@@ -1,0 +1,7 @@
+id = "minimum-number-of-swaps-to-make-the-string-balanced"
+title = "Minimum Number of Swaps to Make the String Balanced"
+difficulty = "medium"
+leetcode = 1963
+url = "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/"
+key_idea = "Scan while matching brackets; the unmatched ']' count m left over needs (m + 1) // 2 swaps, since each swap fixes two unmatched pairs."
+hints = ["Cancel out every bracket pair that already matches.", "What is left looks like ']]]...[[['. How many pairs does one swap repair?"]

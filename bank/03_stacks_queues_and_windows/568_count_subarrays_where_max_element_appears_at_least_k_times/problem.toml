@@ -1,0 +1,7 @@
+id = "count-subarrays-where-max-element-appears-at-least-k-times"
+title = "Count Subarrays Where Max Element Appears at Least K Times"
+difficulty = "medium"
+leetcode = 2962
+url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
+key_idea = "Sliding window on occurrences of the global max: for each right end, shrink the left until fewer than k maxes remain; every start before that left boundary works."
+hints = ["Only one value matters here: the maximum of the whole array.", "For a fixed right end, if a window with at least k maxes starts at some index, so does every window starting further left."]

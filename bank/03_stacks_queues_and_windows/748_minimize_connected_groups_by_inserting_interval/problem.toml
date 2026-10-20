@@ -1,0 +1,41 @@
+id = "minimize-connected-groups-by-inserting-interval"
+title = "Minimize Connected Groups by Inserting Interval"
+difficulty = "medium"
+leetcode = 3323
+url = "https://leetcode.com/problems/minimize-connected-groups-by-inserting-interval/"
+key_idea = "Merge the intervals into groups; a new interval starting at the end of group i reaches end + k, so binary search the last group starting by then and maximise how many groups one insertion swallows."
+hints = ["First collapse overlapping or touching intervals into the existing groups.", "The best new interval can always start exactly where some group ends."]
+prompt = """
+Write `min_connected_groups(intervals, k)`. Each `intervals[i] = [start_i, end_i]` is a closed
+interval on the number line. A connected group is a maximal set of intervals whose union is one
+unbroken range with no gaps. Intervals that only share an endpoint, like `[1, 3]` and `[3, 5]`,
+are connected; `[1, 3]` and `[4, 5]` are not, because the points strictly between `3` and `4`
+are uncovered.
+
+You must add exactly one new interval `[start_new, end_new]` with `end_new - start_new <= k`.
+Return the smallest possible number of connected groups after adding it.
+
+**Example 1:**
+
+```
+Input: intervals = [[1,3],[5,6],[8,10]], k = 3
+Output: 2
+```
+
+Adding `[3, 5]` joins the first two intervals, leaving groups `[1, 6]` and `[8, 10]`.
+
+**Example 2:**
+
+```
+Input: intervals = [[5,10],[1,1],[3,3]], k = 1
+Output: 3
+```
+
+No interval of length at most `1` can bridge any of the gaps, so there are still three groups.
+
+**Constraints:**
+
+- `1 <= len(intervals) <= 10^5`
+- `1 <= start_i <= end_i <= 10^9`
+- `1 <= k <= 10^9`
+"""

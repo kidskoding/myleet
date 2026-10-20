@@ -1,0 +1,7 @@
+id = "count-good-subarrays"
+title = "Count Good Subarrays"
+difficulty = "hard"
+leetcode = 3878
+url = "https://leetcode.com/problems/count-good-subarrays/"
+key_idea = "A subarray is good iff some element contains every bit of the OR; credit each good subarray to its leftmost such element i, which can extend left until a non-submask or an equal value and right until a non-submask, found with per-bit last/next positions."
+hints = ["The OR equals an element exactly when every other element is a submask of it.", "Fix the element that equals the OR; how far can the subarray stretch on each side, and how do you avoid counting a subarray twice when that value repeats?"]

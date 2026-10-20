@@ -1,0 +1,46 @@
+id = "minimum-swaps-to-group-all-1s-together"
+title = "Minimum Swaps to Group All 1's Together"
+difficulty = "medium"
+leetcode = 1151
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
+key_idea = "Let k be the number of 1s; slide a window of length k and find the one holding the most 1s. The 0s inside that window are the swaps needed."
+hints = ["The final group of 1s occupies a block of a known length.", "For each possible block position, how many swaps does it need?"]
+prompt = """
+Implement `min_swaps(data)`. The array `data` contains only `0`s and `1`s. A swap exchanges
+the values at any two positions, which do not need to be adjacent.
+
+Return the fewest swaps needed so that all the `1`s in the array sit next to each other in one
+unbroken block, anywhere in the array.
+
+**Example 1:**
+
+```
+Input: data = [1,0,1,0,1]
+Output: 1
+```
+
+Swapping positions `1` and `4` gives `[1,1,1,0,0]`.
+
+**Example 2:**
+
+```
+Input: data = [0,0,0,1,0]
+Output: 0
+```
+
+A single `1` is already grouped.
+
+**Example 3:**
+
+```
+Input: data = [1,0,1,0,1,0,0,1,1,0,1]
+Output: 3
+```
+
+One optimal result is `[0,0,0,0,0,1,1,1,1,1,1]`.
+
+**Constraints:**
+
+- `1 <= data.length <= 10^5`
+- `data[i]` is `0` or `1`
+"""

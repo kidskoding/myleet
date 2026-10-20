@@ -1,0 +1,7 @@
+id = "minimum-operations-to-reduce-x-to-zero"
+title = "Minimum Operations to Reduce X to Zero"
+difficulty = "medium"
+leetcode = 1658
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/"
+key_idea = "Removing from both ends leaves a middle subarray summing to total - x; find the longest such subarray with a sliding window (all values are positive)."
+hints = ["Instead of thinking about what you remove, think about what is left in the middle.", "With positive numbers, a window whose sum is too big only needs to shrink from the left."]

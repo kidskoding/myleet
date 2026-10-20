@@ -1,0 +1,7 @@
+id = "minimum-size-subarray-in-infinite-array"
+title = "Minimum Size Subarray in Infinite Array"
+difficulty = "medium"
+leetcode = 2875
+url = "https://leetcode.com/problems/minimum-size-subarray-in-infinite-array/"
+key_idea = "Whole copies of nums contribute target // sum(nums) * n elements; the remainder target % sum(nums) is found with a positive-number sliding window over nums + nums."
+hints = ["If target is much larger than sum(nums), most of the subarray is complete copies of nums.", "After removing full copies, a subarray with the leftover sum spans at most two copies."]

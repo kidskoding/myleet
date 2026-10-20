@@ -1,0 +1,7 @@
+id = "count-zero-request-servers"
+title = "Count Zero Request Servers"
+difficulty = "medium"
+leetcode = 2747
+url = "https://leetcode.com/problems/count-zero-request-servers/"
+key_idea = "Process queries offline in increasing time with a sliding window over logs sorted by time, keeping a per-server request count and the number of servers with a nonzero count."
+hints = ["Answering queries in sorted order lets each log enter and leave a window exactly once.", "Track how many distinct servers are inside the window, not just how many logs."]

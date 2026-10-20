@@ -1,0 +1,7 @@
+id = "minimum-string-length-after-removing-substrings"
+title = "Minimum String Length After Removing Substrings"
+difficulty = "easy"
+leetcode = 2696
+url = "https://leetcode.com/problems/minimum-string-length-after-removing-substrings/"
+key_idea = "Scan with a stack and pop whenever the top and the current character form AB or CD, since removals can cascade."
+hints = ["A removal can create a new AB or CD across the gap. Which structure handles that naturally?", "Compare each new character with the last kept character."]

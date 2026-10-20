@@ -1,0 +1,7 @@
+id = "divide-an-array-into-subarrays-with-minimum-cost-ii"
+title = "Divide an Array Into Subarrays With Minimum Cost II"
+difficulty = "hard"
+leetcode = 3013
+url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-ii/"
+key_idea = "The answer is nums[0] plus the minimum, over every window of dist + 1 consecutive indices in [1, n-1], of the sum of its k - 1 smallest values; slide the window while maintaining that sum (two heaps with lazy deletion, or a Fenwick tree over compressed values)."
+hints = ["The k - 1 later starting indices must all fit inside a window of length dist + 1.", "As the window slides one step, only one value enters and one leaves; keep the sum of the k - 1 smallest up to date instead of re-sorting."]

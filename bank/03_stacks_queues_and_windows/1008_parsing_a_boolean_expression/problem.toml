@@ -1,0 +1,7 @@
+id = "parsing-a-boolean-expression"
+title = "Parsing A Boolean Expression"
+difficulty = "hard"
+leetcode = 1106
+url = "https://leetcode.com/problems/parsing-a-boolean-expression/"
+key_idea = "Push characters on a stack; on ')' pop operands back to '(' and apply the operator just before it, pushing the single result."
+hints = ["Operands of an operator are only known once its closing parenthesis arrives.", "Commas carry no information and can be skipped."]

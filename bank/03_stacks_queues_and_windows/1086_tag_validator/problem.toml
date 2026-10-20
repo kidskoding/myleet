@@ -1,0 +1,7 @@
+id = "tag-validator"
+title = "Tag Validator"
+difficulty = "hard"
+leetcode = 591
+url = "https://leetcode.com/problems/tag-validator/"
+key_idea = "Scan left to right with a stack of open tag names: CDATA blocks are skipped whole, end tags must match the stack top, and the stack may only be empty at the very start and the very end."
+hints = ["Check CDATA first, then end tags, then start tags, since their prefixes overlap.", "Any character seen while no tag is open, except at position 0, means the code is not wrapped in one closed tag."]

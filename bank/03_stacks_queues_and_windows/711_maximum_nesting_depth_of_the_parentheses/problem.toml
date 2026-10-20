@@ -1,0 +1,7 @@
+id = "maximum-nesting-depth-of-the-parentheses"
+title = "Maximum Nesting Depth of the Parentheses"
+difficulty = "easy"
+leetcode = 1614
+url = "https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/"
+key_idea = "Walk the string with a counter that goes up on '(' and down on ')'; the answer is the counter's peak."
+hints = ["You do not need a real stack, only its size.", "Characters other than parentheses can be ignored."]

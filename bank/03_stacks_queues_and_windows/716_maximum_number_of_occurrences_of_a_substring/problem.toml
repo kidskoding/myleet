@@ -1,0 +1,7 @@
+id = "maximum-number-of-occurrences-of-a-substring"
+title = "Maximum Number of Occurrences of a Substring"
+difficulty = "medium"
+leetcode = 1297
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+key_idea = "Only substrings of length minSize matter (any longer valid one contains a valid minSize one occurring at least as often), so count fixed-length windows with at most maxLetters distinct letters."
+hints = ["If a long substring occurs many times, what about its prefixes?", "That lets you ignore maxSize and slide a fixed-size window."]

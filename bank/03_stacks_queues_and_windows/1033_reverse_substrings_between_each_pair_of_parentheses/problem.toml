@@ -1,0 +1,7 @@
+id = "reverse-substrings-between-each-pair-of-parentheses"
+title = "Reverse Substrings Between Each Pair of Parentheses"
+difficulty = "medium"
+leetcode = 1190
+url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
+key_idea = "Use a stack of partial strings: on '(' push a new buffer, on ')' pop it, reverse it, and append it to the buffer below."
+hints = ["The innermost parentheses must be reversed first.", "When a group closes, its reversed contents become plain text in the enclosing group."]

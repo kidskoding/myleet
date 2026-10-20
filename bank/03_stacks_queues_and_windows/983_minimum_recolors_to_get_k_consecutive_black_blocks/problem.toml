@@ -1,0 +1,7 @@
+id = "minimum-recolors-to-get-k-consecutive-black-blocks"
+title = "Minimum Recolors to Get K Consecutive Black Blocks"
+difficulty = "easy"
+leetcode = 2379
+url = "https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/"
+key_idea = "Slide a window of length k and track how many whites it contains; the minimum white count is the answer."
+hints = ["The k consecutive blacks must occupy some window of length k. What does it cost to make a given window all black?", "Update the white count as the window slides instead of recounting."]

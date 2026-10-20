@@ -1,0 +1,7 @@
+id = "find-the-winner-of-the-circular-game"
+title = "Find the Winner of the Circular Game"
+difficulty = "medium"
+leetcode = 1823
+url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
+key_idea = "Simulate with a queue by rotating k - 1 friends to the back and dropping the k-th, or use the Josephus recurrence f(i) = (f(i - 1) + k) % i."
+hints = ["A queue can model the circle: moving the front to the back is one step around it.", "After one elimination, the game restarts with one fewer friend; can you relate the two answers?"]

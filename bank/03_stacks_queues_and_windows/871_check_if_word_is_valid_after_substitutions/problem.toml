@@ -1,0 +1,7 @@
+id = "check-if-word-is-valid-after-substitutions"
+title = "Check If Word Is Valid After Substitutions"
+difficulty = "medium"
+leetcode = 1003
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
+key_idea = "Push characters on a stack; whenever the top three are 'a', 'b', 'c' pop them. The string is valid iff the stack ends empty."
+hints = ["Undo the insertions: any valid string contains an 'abc' you can delete.", "A stack lets you delete each 'abc' as soon as it completes."]

@@ -1,0 +1,7 @@
+id = "remove-all-occurrences-of-a-substring"
+title = "Remove All Occurrences of a Substring"
+difficulty = "medium"
+leetcode = 1910
+url = "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/"
+key_idea = "Build the result like a stack, appending each character and chopping off the tail whenever it ends with part."
+hints = ["Removing an occurrence can create a new one that spans the gap.", "Process characters left to right and check only the end of what you have built."]

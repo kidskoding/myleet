@@ -1,0 +1,7 @@
+id = "swap-for-longest-repeated-character-substring"
+title = "Swap For Longest Repeated Character Substring"
+difficulty = "medium"
+leetcode = 1156
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
+key_idea = "Compress text into runs and count each letter; a run can grow by one if a spare copy exists elsewhere, and two runs of the same letter separated by a single other character can join, all capped by that letter's total count."
+hints = ["A swap can extend a run by at most one character, and only if the letter appears somewhere else.", "Also look for the pattern run, one different character, run of the same letter; the cap is always the letter's total count."]

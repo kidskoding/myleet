@@ -1,0 +1,48 @@
+id = "ternary-expression-parser"
+title = "Ternary Expression Parser"
+difficulty = "medium"
+leetcode = 439
+url = "https://leetcode.com/problems/ternary-expression-parser/"
+key_idea = "Scan from right to left pushing characters on a stack; when the next character is a condition and the stack top is '?', pop the two branches and push the chosen one."
+hints = ["Ternaries group right to left, so the innermost one is always the rightmost.", "Reading backwards, a condition is always followed by '?', a branch, ':', and a branch."]
+prompt = """
+Implement `parse_ternary(expression)`, which evaluates a nested ternary expression and
+returns the result as a one-character string.
+
+The expression uses single digits `0`-`9`, the letters `T` (true) and `F` (false), and the
+symbols `?` and `:`. `c?a:b` gives `a` when `c` is `T` and `b` when `c` is `F`. A
+condition is always `T` or `F`, never a digit. Ternaries group from right to left, as in
+most programming languages, so `T?1:F?2:3` means `T ? 1 : (F ? 2 : 3)`. The input is
+always well formed, and the result is a digit, `T`, or `F`.
+
+**Example 1:**
+
+```
+Input: expression = "T?2:3"
+Output: "2"
+```
+
+**Example 2:**
+
+```
+Input: expression = "F?1:T?4:5"
+Output: "4"
+```
+
+The `F` sends evaluation to `T?4:5`, which gives `4`.
+
+**Example 3:**
+
+```
+Input: expression = "T?T?F:5:3"
+Output: "F"
+```
+
+It groups as `T ? (T ? F : 5) : 3`.
+
+**Constraints:**
+
+- `5 <= expression.length <= 10^4`
+- `expression` contains only digits, `T`, `F`, `?`, and `:`
+- `expression` is a valid ternary expression
+"""

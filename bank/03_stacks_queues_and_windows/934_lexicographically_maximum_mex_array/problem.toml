@@ -1,0 +1,7 @@
+id = "lexicographically-maximum-mex-array"
+title = "Lexicographically Maximum MEX Array"
+difficulty = "hard"
+leetcode = 3948
+url = "https://leetcode.com/problems/lexicographically-maximum-mex-array/"
+key_idea = "Greedy: the best next value is the MEX of the whole remaining suffix (precomputed right to left); cut at the shortest prefix that reaches it, or take a single element when that MEX is 0."
+hints = ["The MEX of a prefix only grows as the prefix gets longer. What is the largest value the next element of result can be?", "Once you know that value, should you take the shortest or the longest prefix achieving it? Think about what is left for later."]

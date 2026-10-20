@@ -1,0 +1,7 @@
+id = "stamping-the-sequence"
+title = "Stamping The Sequence"
+difficulty = "hard"
+leetcode = 936
+url = "https://leetcode.com/problems/stamping-the-sequence/"
+key_idea = "Work backwards from target: repeatedly find a window that matches the stamp where every non-wildcard letter agrees, turn it into wildcards, and reverse the order of those windows at the end."
+hints = ["The last stamp placed is fully visible in target; start from the end of the process.", "Once a cell is overwritten by a later stamp, it can match anything; treat undone cells as wildcards."]

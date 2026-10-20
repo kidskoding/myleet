@@ -1,0 +1,7 @@
+id = "reverse-prefix-of-word"
+title = "Reverse Prefix of Word"
+difficulty = "easy"
+leetcode = 2000
+url = "https://leetcode.com/problems/reverse-prefix-of-word/"
+key_idea = "Find the first index of ch; if present, reverse word[:i + 1] and append the rest."
+hints = ["Only the first occurrence of ch matters.", "If ch does not occur, nothing changes."]

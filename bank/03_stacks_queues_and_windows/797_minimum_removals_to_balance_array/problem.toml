@@ -1,0 +1,7 @@
+id = "minimum-removals-to-balance-array"
+title = "Minimum Removals to Balance Array"
+difficulty = "medium"
+leetcode = 3634
+url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
+key_idea = "Sort, then use a sliding window where the smallest kept value is nums[left] and the largest is nums[right]; keep the longest window with nums[right] <= k * nums[left] and remove the rest."
+hints = ["Once you choose the minimum and maximum you keep, which elements can stay?", "After sorting, the kept elements form a contiguous block."]

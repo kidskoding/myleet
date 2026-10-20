@@ -1,0 +1,7 @@
+id = "maximum-number-of-visible-points"
+title = "Maximum Number of Visible Points"
+difficulty = "hard"
+leetcode = 1610
+url = "https://leetcode.com/problems/maximum-number-of-visible-points/"
+key_idea = "Convert each point to its polar angle around the location, sort, append every angle + 360 to handle wraparound, and slide a window of width angle; points at the location are always visible."
+hints = ["Visibility only depends on the direction to each point.", "A circular range is easier if you unroll the circle once."]
