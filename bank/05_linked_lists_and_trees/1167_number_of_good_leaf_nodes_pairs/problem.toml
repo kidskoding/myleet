@@ -1,0 +1,7 @@
+id = "number-of-good-leaf-nodes-pairs"
+title = "Number of Good Leaf Nodes Pairs"
+difficulty = "medium"
+leetcode = 1530
+url = "https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/"
+key_idea = "Post-order DFS returns, for each node, how many leaves sit at each depth below it (up to distance); at every node pair the left and right counts whose depths sum to at most distance."
+hints = ["The shortest path between two leaves turns at their lowest common ancestor.", "Since distance is at most 10, a small count-by-depth array per subtree is enough."]

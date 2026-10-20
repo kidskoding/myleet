@@ -1,0 +1,48 @@
+id = "convert-binary-search-tree-to-sorted-doubly-linked-list"
+title = "Convert Binary Search Tree to Sorted Doubly Linked List"
+difficulty = "medium"
+leetcode = 426
+url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
+key_idea = "In-order traversal visits nodes in sorted order; link each visited node to the previously visited one, then close the ring between the first and last nodes."
+hints = ["Which traversal of a BST visits values in increasing order?", "While traversing, remember the node you visited just before the current one."]
+prompt = """
+Implement `tree_to_doubly_list(root)`, which takes the root of a binary search tree and
+rearranges its nodes, in place, into a sorted circular doubly linked list.
+
+Reuse the tree nodes themselves: after the conversion, a node's `left` pointer points to its
+predecessor in sorted order and its `right` pointer points to its successor. The list is
+circular, so the smallest node's predecessor is the largest node, and the largest node's
+successor is the smallest node.
+
+Return the smallest node of the list, or `None` if the tree is empty. Do not create new nodes.
+
+**Example 1:**
+
+```
+Input: root = [4,2,5,1,3]
+Output: [1,2,3,4,5]
+```
+
+Following `right` pointers from the returned node visits `1,2,3,4,5` and then returns to `1`;
+following `left` pointers visits the same values in reverse.
+
+**Example 2:**
+
+```
+Input: root = [2,1,3]
+Output: [1,2,3]
+```
+
+**Example 3:**
+
+```
+Input: root = []
+Output: []
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[0, 2000]`
+- `-1000 <= Node.val <= 1000`
+- All values are unique
+"""

@@ -1,0 +1,7 @@
+id = "remove-zero-sum-consecutive-nodes-from-linked-list"
+title = "Remove Zero Sum Consecutive Nodes from Linked List"
+difficulty = "medium"
+leetcode = 1171
+url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+key_idea = "Equal prefix sums bracket a zero-sum run: record the last node for each prefix sum, then walk again from a dummy and link each node to the node after the last occurrence of its prefix sum."
+hints = ["A run sums to zero exactly when the prefix sums before and after it are equal.", "A dummy head with value 0 handles runs that start at the head."]

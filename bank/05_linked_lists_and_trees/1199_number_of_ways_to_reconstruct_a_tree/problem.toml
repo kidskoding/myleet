@@ -1,0 +1,7 @@
+id = "number-of-ways-to-reconstruct-a-tree"
+title = "Number Of Ways To Reconstruct A Tree"
+difficulty = "hard"
+leetcode = 1719
+url = "https://leetcode.com/problems/number-of-ways-to-reconstruct-a-tree/"
+key_idea = "Treat pairs as a graph: the root must touch every node, and each node's parent is its neighbor with the smallest degree that is still at least its own; that parent's neighbor set must contain the child's, and equal degrees mean the two can swap, giving more than one way."
+hints = ["An ancestor is related to every node its descendants are related to, and then some.", "Sort nodes by how many pairs they appear in, and for each node look at its neighbors with a larger or equal count."]

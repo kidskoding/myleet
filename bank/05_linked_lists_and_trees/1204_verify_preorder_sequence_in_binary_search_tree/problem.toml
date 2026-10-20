@@ -1,0 +1,43 @@
+id = "verify-preorder-sequence-in-binary-search-tree"
+title = "Verify Preorder Sequence in Binary Search Tree"
+difficulty = "medium"
+leetcode = 255
+url = "https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/"
+key_idea = "Keep a decreasing stack and a lower bound; when a value exceeds the stack top, pop and raise the bound to the popped values (we moved into a right subtree), and fail if any value falls below the bound."
+hints = ["Once the traversal moves into some node's right subtree, every later value must exceed that node.", "Values going down a chain of left children form a decreasing sequence you can keep on a stack."]
+prompt = """
+Implement `verify_preorder(preorder)`, which takes an array of distinct integers and
+returns `True` if it could be the preorder traversal of some binary search tree, and
+`False` otherwise.
+
+In a binary search tree, every value in a node's left subtree is smaller than the node
+and every value in its right subtree is larger. A preorder traversal visits a node,
+then its whole left subtree, then its whole right subtree.
+
+**Example 1:**
+
+```
+Input: preorder = [5,2,1,3,6]
+Output: true
+```
+
+The tree has root `5`, left child `2` (with children `1` and `3`), and right child `6`.
+
+**Example 2:**
+
+```
+Input: preorder = [5,2,6,1,3]
+Output: false
+```
+
+Once `6` appears, the traversal has moved into the right subtree of `5`, so a later `1`
+cannot be placed anywhere.
+
+**Constraints:**
+
+- `1 <= preorder.length <= 10^4`
+- `1 <= preorder[i] <= 10^4`
+- All values in `preorder` are unique
+
+**Follow up:** Can you do it using only constant extra space?
+"""
