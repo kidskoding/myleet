@@ -1,11 +1,15 @@
 package tui
 
 import (
+	"fmt"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
 	tea "charm.land/bubbletea/v2"
 
+	"github.com/kidskoding/myleet/internal/catalog"
 	"github.com/kidskoding/myleet/internal/progress"
 )
 
@@ -116,4 +120,74 @@ func TestNotesCardShowsProgress(t *testing.T) {
 
 func TestMapGoldenWide(t *testing.T) {
 	assertGolden(t, "map_wide", plain(send(mapModel(t, 120), key("l"))))
+}
+
+func guideMapModel(t *testing.T, width int) tea.Model {
+	t.Helper()
+	a := newTestApp(t)
+	dir := t.TempDir()
+	for i, title := range []string{"How to Prepare", "Interview Python"} {
+		path := filepath.Join(dir, fmt.Sprintf("0%d_note.md", i+1))
+		if err := os.WriteFile(path, []byte("# "+title+"\n\nBody of "+title+".\n"), 0o644); err != nil {
+			t.Fatal(err)
+		}
+		a.Catalog.Guide = append(a.Catalog.Guide, catalog.GuideNote{Title: title, Path: path})
+	}
+	s := newTestShared(t, a, &fakeRunner{})
+	m := send(New(s, ""), tea.WindowSizeMsg{Width: width, Height: 24})
+	return send(m, key("m"))
+}
+
+func TestMapGuideIsFirstRowWithoutMeter(t *testing.T) {
+	view := plain(guideMapModel(t, 80))
+	var rows []string
+	for _, l := range strings.Split(view, "\n") {
+		if strings.Contains(l, "Start here") || strings.Contains(l, "Alpha") {
+			rows = append(rows, l)
+		}
+	}
+	if len(rows) != 2 || !strings.Contains(rows[0], "Start here") {
+		t.Fatalf("Start here should be the first map row:\n%s", view)
+	}
+	if strings.Contains(rows[0], "%") || !strings.Contains(rows[0], "2 notes") {
+		t.Fatalf("Start here should count notes instead of showing a meter: %q", rows[0])
+	}
+}
+
+func TestMapGuideOpensNotes(t *testing.T) {
+	m := send(guideMapModel(t, 80), key("right"))
+	if !strings.Contains(plain(m), "Interview Python") {
+		t.Fatalf("drilling into Start here should list its notes:\n%s", plain(m))
+	}
+	m = send(m, key("down"), key("enter"))
+	n, ok := m.(Model).top().(*Notes)
+	if !ok || !strings.HasSuffix(n.path, "02_note.md") {
+		t.Fatalf("enter on a guide note should open it, top is %T", m.(Model).top())
+	}
+	m = send(m, key("esc"), key("left"), key("down"), key("right"))
+	if !strings.Contains(plain(m), "One") {
+		t.Fatalf("the first module should follow Start here:\n%s", plain(m))
+	}
+}
+
+func TestMapGuideNotesKey(t *testing.T) {
+	m := send(guideMapModel(t, 80), key("n"))
+	if n, ok := m.(Model).top().(*Notes); !ok || !strings.HasSuffix(n.path, "01_note.md") {
+		t.Fatalf("n on Start here should open its first note, top is %T", m.(Model).top())
+	}
+}
+
+func TestMapGuideWide(t *testing.T) {
+	view := plain(send(guideMapModel(t, 120), key("right")))
+	if !strings.Contains(view, "╭─ start here") || !strings.Contains(view, "How to Prepare") {
+		t.Fatalf("wide map should show the guide notes in the second card:\n%s", view)
+	}
+	assertFits(t, view, 120, 24)
+}
+
+func TestMapGuidePreviewsSelectedNote(t *testing.T) {
+	view := plain(send(guideMapModel(t, 120), key("right"), key("down")))
+	if !strings.Contains(view, "Body of Interview Python.") || strings.Contains(view, "Body of How to Prepare.") {
+		t.Fatalf("the third card should preview the selected guide note:\n%s", view)
+	}
 }

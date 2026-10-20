@@ -8,6 +8,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
 
 	"github.com/kidskoding/myleet/internal/catalog"
 	"github.com/kidskoding/myleet/internal/progress"
@@ -37,9 +38,22 @@ func (m *Map) Help() []string {
 	return []string{"→/enter  drill in (enter on a problem opens it)", "←/esc    back out", "n        open the note for this module or technique"}
 }
 
-func (m *Map) module() *catalog.Module { return m.s.App.Catalog.Modules[m.mod] }
+func (m *Map) guide() []catalog.GuideNote { return m.s.App.Catalog.Guide }
+
+// onGuide reports whether the cursor is on Start here, the row above the modules.
+func (m *Map) onGuide() bool { return len(m.guide()) > 0 && m.mod == 0 }
+
+func (m *Map) module() *catalog.Module {
+	if len(m.guide()) > 0 {
+		return m.s.App.Catalog.Modules[max(m.mod-1, 0)]
+	}
+	return m.s.App.Catalog.Modules[m.mod]
+}
 
 func (m *Map) technique() *catalog.Technique {
+	if m.onGuide() {
+		return nil
+	}
 	ts := m.module().Techniques
 	if len(ts) == 0 {
 		return nil
@@ -59,8 +73,15 @@ func (m *Map) cursor() *int { return [...]*int{&m.mod, &m.tech, &m.prob}[m.level
 func (m *Map) size(level int) int {
 	switch level {
 	case 0:
-		return len(m.s.App.Catalog.Modules)
+		n := len(m.s.App.Catalog.Modules)
+		if len(m.guide()) > 0 {
+			n++
+		}
+		return n
 	case 1:
+		if m.onGuide() {
+			return len(m.guide())
+		}
 		return len(m.module().Techniques)
 	}
 	return len(m.problems())
@@ -78,6 +99,9 @@ func (m *Map) Update(msg tea.Msg) (Screen, tea.Cmd) {
 	case "k", "up":
 		*c = max(*c-1, 0)
 	case "l", "enter", "right":
+		if m.onGuide() && m.level == 1 {
+			return m, push(NewNotes(m.s, m.guide()[m.tech].Path))
+		}
 		if m.level == 2 {
 			if ps := m.problems(); m.prob < len(ps) && k.String() == "enter" {
 				return m, push(NewFocus(m.s, ps[m.prob], progress.Practice))
@@ -100,7 +124,7 @@ func (m *Map) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		if note := m.note(); note != "" {
 			return m, push(NewNotes(m.s, note))
 		}
-		m.s.Toast("no notes for " + m.module().Title)
+		m.s.Toast("no notes for " + m.title())
 	}
 	if m.level == 0 {
 		m.tech, m.prob = 0, 0
@@ -110,7 +134,17 @@ func (m *Map) Update(msg tea.Msg) (Screen, tea.Cmd) {
 	return m, nil
 }
 
+func (m *Map) title() string {
+	if m.onGuide() {
+		return "Start here"
+	}
+	return m.module().Title
+}
+
 func (m *Map) note() string {
+	if m.onGuide() {
+		return m.guide()[min(m.tech, len(m.guide())-1)].Path
+	}
 	if m.level > 0 {
 		if t := m.technique(); t != nil && t.Note != "" {
 			return t.Note
@@ -130,6 +164,10 @@ func (m *Map) dueBy(now time.Time) time.Time {
 func (m *Map) moduleRows(states map[string]schedule.State, width int) []string {
 	th := m.s.Theme
 	var rows []string
+	if n := len(m.guide()); n > 0 {
+		meta := th.Muted.Render(fmt.Sprintf(" %d notes", n))
+		rows = append(rows, ui.Pad(th.Accent.Render("Start here"), max(width-lipgloss.Width(meta), 4))+meta)
+	}
 	for _, mod := range m.s.App.Catalog.Modules {
 		mastered, total := 0, 0
 		for _, t := range mod.Techniques {
@@ -153,6 +191,12 @@ func (m *Map) moduleRows(states map[string]schedule.State, width int) []string {
 func (m *Map) techniqueRows(states map[string]schedule.State, today time.Time, width int) []string {
 	th := m.s.Theme
 	var rows []string
+	if m.onGuide() {
+		for _, g := range m.guide() {
+			rows = append(rows, ui.Pad(g.Title, width))
+		}
+		return rows
+	}
 	for _, t := range m.module().Techniques {
 		mastered, due := 0, 0
 		for _, p := range t.Problems {
@@ -181,6 +225,33 @@ func (m *Map) problemRows(states map[string]schedule.State, width int) []string 
 		rows = append(rows, glyph(th, statusOf(states, p.ID).Status)+" "+ui.Pad(p.Title, max(width-2-lipgloss.Width(badge), 4))+badge)
 	}
 	return rows
+}
+
+// guidePreview is the opening paragraph of the selected guide note.
+func (m *Map) guidePreview(width int) []string {
+	data, err := readFile(m.note())
+	if err != nil {
+		return []string{err.Error()}
+	}
+	var para []string
+	for _, line := range strings.Split(data, "\n") {
+		line = strings.TrimSpace(line)
+		switch {
+		case strings.HasPrefix(line, "#"):
+		case line == "" && len(para) > 0:
+			return m.previewRows(para, width)
+		case line != "":
+			para = append(para, strings.NewReplacer("**", "", "`", "").Replace(line))
+		}
+	}
+	return m.previewRows(para, width)
+}
+
+func clip(lines []string, n int) []string { return lines[:min(len(lines), max(n, 0))] }
+
+func (m *Map) previewRows(para []string, width int) []string {
+	rows := strings.Split(ansi.Wordwrap(strings.Join(para, " "), max(width, 1), ""), "\n")
+	return append(rows, "", m.s.Theme.Muted.Render("enter to read"))
 }
 
 // column marks the selection in levels above the current one so the path stays visible.
@@ -221,14 +292,17 @@ func (m *Map) View(w, h int) string {
 		widths := [3]int{mod, tech, avail - mod - tech}
 		cols := []string{
 			m.column(0, "modules", m.moduleRows(states, widths[0]-6), widths[0], height),
-			m.column(1, strings.ToLower(m.module().Title), m.techniqueRows(states, today, widths[1]-6), widths[1], height),
+			m.column(1, strings.ToLower(m.title()), m.techniqueRows(states, today, widths[1]-6), widths[1], height),
 			m.column(2, techTitle, m.problemRows(states, widths[2]-6), widths[2], height),
+		}
+		if m.onGuide() {
+			cols[2] = ui.Card(m.s.Theme, strings.ToLower(m.guide()[m.tech].Title), strings.Join(padLines(clip(m.guidePreview(widths[2]-4), height-2), height-2), "\n"), widths[2], false)
 		}
 		return "\n" + strings.Join(indent(ui.Columns(columnGap, cols...), 2), "\n")
 	}
 	crumbs := []string{"map"}
 	if m.level >= 1 {
-		crumbs = append(crumbs, strings.ToLower(m.module().Title))
+		crumbs = append(crumbs, strings.ToLower(m.title()))
 	}
 	if m.level == 2 {
 		crumbs = append(crumbs, techTitle)
