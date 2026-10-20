@@ -1,0 +1,7 @@
+id = "maximum-rows-covered-by-columns"
+title = "Maximum Rows Covered by Columns"
+difficulty = "medium"
+leetcode = 2397
+url = "https://leetcode.com/problems/maximum-rows-covered-by-columns/"
+key_idea = "Encode each row as a bitmask of its 1-columns; enumerate every column mask with exactly numSelect bits and count rows whose mask is a subset (row & ~chosen == 0)."
+hints = ["With at most 12 columns, how many ways are there to choose the columns?", "Represent rows and the chosen columns as bitmasks so the coverage check is one operation."]

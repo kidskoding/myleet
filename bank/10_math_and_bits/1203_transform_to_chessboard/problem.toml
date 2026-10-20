@@ -1,0 +1,7 @@
+id = "transform-to-chessboard"
+title = "Transform to Chessboard"
+difficulty = "hard"
+leetcode = 782
+url = "https://leetcode.com/problems/transform-to-chessboard/"
+key_idea = "A solvable board has only two row types that are bitwise complements in near-equal numbers (same for columns); then count the rows and columns out of place against the 0101... pattern, choosing the even-swap parity option, and halve."
+hints = ["Swapping rows or columns never changes which patterns appear, only their order; what must every row look like relative to the first?", "Once the board is known to be solvable, rows and columns can be fixed independently by counting misplaced positions."]

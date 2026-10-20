@@ -1,0 +1,51 @@
+id = "count-the-number-of-good-subsequences"
+title = "Count the Number of Good Subsequences"
+difficulty = "medium"
+leetcode = 2539
+url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
+key_idea = "Fix the common frequency f; each letter with count c contributes (1 + C(c, f)) choices (skip it or pick f of its copies), so add the product minus 1 over every f, using precomputed factorials mod p."
+hints = ["Try fixing the frequency every chosen letter must have.", "For a fixed frequency, each letter is chosen independently: either not at all, or some fixed number of its copies."]
+prompt = """
+Implement `count_good_subsequences(s)`.
+
+A subsequence of `s` is **good** if it is non-empty and every character in it appears the
+same number of times. Subsequences are counted by the positions they use, so two
+subsequences that pick different positions count separately even if they spell the same
+string.
+
+Return the number of good subsequences of `s`. Since the answer can be very large, return it
+modulo `10^9 + 7`.
+
+**Example 1:**
+
+```
+Input: s = "aabb"
+Output: 11
+```
+
+All `2^4 - 1 = 15` non-empty subsequences except the four that use three positions
+(`"aab"` twice and `"abb"` twice) are good.
+
+**Example 2:**
+
+```
+Input: s = "leet"
+Output: 12
+```
+
+The non-empty subsequences that are not good are `"lee"` and `"eet"` and `"leet"`.
+
+**Example 3:**
+
+```
+Input: s = "abcd"
+Output: 15
+```
+
+Every non-empty subsequence has distinct characters, so all `15` are good.
+
+**Constraints:**
+
+- `1 <= s.length <= 10^4`
+- `s` consists of lowercase English letters
+"""

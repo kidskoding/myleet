@@ -1,0 +1,7 @@
+id = "consecutive-numbers-sum"
+title = "Consecutive Numbers Sum"
+difficulty = "hard"
+leetcode = 829
+url = "https://leetcode.com/problems/consecutive-numbers-sum/"
+key_idea = "A run of k consecutive integers starting at x sums to k*x + k*(k-1)/2, so count every k with k*(k+1)/2 <= n where n - k*(k-1)/2 is divisible by k."
+hints = ["Fix the length of the run instead of its starting point.", "For a fixed length, the starting value is determined; only a small range of lengths is possible."]

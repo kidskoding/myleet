@@ -1,0 +1,7 @@
+id = "minimum-moves-to-capture-the-queen"
+title = "Minimum Moves to Capture The Queen"
+difficulty = "medium"
+leetcode = 3001
+url = "https://leetcode.com/problems/minimum-moves-to-capture-the-queen/"
+key_idea = "The answer is 1 if the rook shares a row or column, or the bishop shares a diagonal, with the queen and the other white piece is not strictly between them; otherwise the rook always needs exactly 2."
+hints = ["Can the rook always reach any square in at most two moves?", "For a one-move capture, check the line between attacker and queen for the other white piece."]

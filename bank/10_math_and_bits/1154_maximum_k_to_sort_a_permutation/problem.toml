@@ -1,0 +1,7 @@
+id = "maximum-k-to-sort-a-permutation"
+title = "Maximum K to Sort a Permutation"
+difficulty = "medium"
+leetcode = 3644
+url = "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/"
+key_idea = "Every misplaced value must take part in a swap, and a swap's AND is a submask of both values, so k must be a submask of every misplaced value; the AND of all misplaced values achieves it."
+hints = ["Which elements must be swapped at least once? What does that force about k?", "The AND of two numbers only keeps bits they both have."]

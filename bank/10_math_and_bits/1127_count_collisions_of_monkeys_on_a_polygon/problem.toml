@@ -1,0 +1,7 @@
+id = "count-collisions-of-monkeys-on-a-polygon"
+title = "Count Collisions of Monkeys on a Polygon"
+difficulty = "medium"
+leetcode = 2550
+url = "https://leetcode.com/problems/count-collisions-of-monkeys-on-a-polygon/"
+key_idea = "Only the two moves where every monkey goes the same direction avoid a collision, so the answer is 2^n - 2 computed with fast modular exponentiation."
+hints = ["Count the complement: how many ways are collision-free?", "If two neighbours pick different directions, what happens somewhere around the polygon?"]

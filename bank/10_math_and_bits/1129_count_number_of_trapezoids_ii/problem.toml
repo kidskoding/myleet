@@ -1,0 +1,7 @@
+id = "count-number-of-trapezoids-ii"
+title = "Count Number of Trapezoids II"
+difficulty = "hard"
+leetcode = 3625
+url = "https://leetcode.com/problems/count-number-of-trapezoids-ii/"
+key_idea = "Count pairs of point-pair segments with the same slope on different lines (each trapezoid once, each parallelogram twice), then subtract parallelograms, found as pairs of segments sharing a midpoint but not a slope."
+hints = ["A trapezoid is two parallel segments that do not lie on the same line.", "A parallelogram has two pairs of parallel sides; its diagonals share a midpoint."]

@@ -1,0 +1,7 @@
+id = "pyramid-transition-matrix"
+title = "Pyramid Transition Matrix"
+difficulty = "medium"
+leetcode = 756
+url = "https://leetcode.com/problems/pyramid-transition-matrix/"
+key_idea = "Map each bottom pair to its allowed tops, then DFS row by row, generating every possible next row and memoising rows already proven impossible."
+hints = ["Index the allowed patterns by their bottom two letters.", "The same intermediate row can be reached many ways; remember which rows fail."]
