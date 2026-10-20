@@ -1,0 +1,196 @@
+title = "Akuna Capital"
+group = "Quant"
+focus = "graphs and shortest paths, sliding windows, streaming stats, design classes, dp"
+review_modules = ["03_stacks_and_queues", "10_graphs", "11_dp", "17_advanced", "18_mixed_interview_practice"]
+
+[[entries]]
+title = "Maximum Star Sum of a Graph"
+url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Can Make Palindrome from Substring"
+url = "https://leetcode.com/problems/can-make-palindrome-from-substring/"
+
+[[entries]]
+title = "Map Sum Pairs"
+url = "https://leetcode.com/problems/map-sum-pairs/"
+
+[[entries]]
+title = "Delete and Earn"
+url = "https://leetcode.com/problems/delete-and-earn/"
+
+[[entries]]
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Create Sorted Array through Instructions"
+url = "https://leetcode.com/problems/create-sorted-array-through-instructions/"
+
+[[entries]]
+title = "Minimum Initial Energy to Finish Tasks"
+url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
+
+[[entries]]
+title = "Constrained Subsequence Sum"
+url = "https://leetcode.com/problems/constrained-subsequence-sum/"
+
+[[entries]]
+title = "Dice Roll Simulation"
+url = "https://leetcode.com/problems/dice-roll-simulation/"
+
+[[entries]]
+title = "Number of Different Subsequences GCDs"
+url = "https://leetcode.com/problems/number-of-different-subsequences-gcds/"
+
+[[entries]]
+title = "Number of Operations to Make Network Connected"
+url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
+
+[[entries]]
+title = "Minimum Number of Taps to Open to Water a Garden"
+url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
+
+[[entries]]
+title = "Reduce Array Size to The Half"
+url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
+
+[[entries]]
+title = "Increasing Decreasing String"
+url = "https://leetcode.com/problems/increasing-decreasing-string/"
+
+[[entries]]
+title = "Shortest and Lexicographically Smallest Beautiful String"
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
+
+[[entries]]
+title = "Break a Palindrome"
+url = "https://leetcode.com/problems/break-a-palindrome/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Max Stack"
+url = "https://leetcode.com/problems/max-stack/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "Longest Substring with At Most K Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+
+[[entries]]
+title = "Longest Repeating Character Replacement"
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+
+[[entries]]
+title = "Count of Smaller Numbers After Self"
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+
+[[entries]]
+title = "Reverse Pairs"
+url = "https://leetcode.com/problems/reverse-pairs/"
+
+[[entries]]
+title = "Couples Holding Hands"
+url = "https://leetcode.com/problems/couples-holding-hands/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Shortest Path in Binary Matrix"
+url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+
+[[entries]]
+title = "Boats to Save People"
+url = "https://leetcode.com/problems/boats-to-save-people/"
+
+[[entries]]
+title = "Max Number of K-Sum Pairs"
+url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

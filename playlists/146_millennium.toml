@@ -1,0 +1,192 @@
+title = "Millennium"
+group = "Quant"
+focus = "parentheses and strings, trees, intervals, hashing, cache design"
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "11_dp"]
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Count Palindromic Subsequences"
+url = "https://leetcode.com/problems/count-palindromic-subsequences/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Collect Coins in a Tree"
+url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Path Sum III"
+url = "https://leetcode.com/problems/path-sum-iii/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Find All Anagrams in a String"
+url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+
+[[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Kth Smallest Element in a BST"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

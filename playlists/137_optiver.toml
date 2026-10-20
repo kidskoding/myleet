@@ -1,0 +1,196 @@
+title = "Optiver"
+group = "Quant"
+focus = "data structure design, order books and streams, sliding windows, currency graphs, dates"
+review_modules = ["03_stacks_and_queues", "04_sliding_window", "08_heaps", "11_dp", "18_mixed_interview_practice"]
+
+[[entries]]
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Number of Days Between Two Dates"
+url = "https://leetcode.com/problems/number-of-days-between-two-dates/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "Design Order Management System"
+url = "https://leetcode.com/problems/design-order-management-system/"
+
+[[entries]]
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
+
+[[entries]]
+title = "Validate Binary Tree Nodes"
+url = "https://leetcode.com/problems/validate-binary-tree-nodes/"
+
+[[entries]]
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Max Stack"
+url = "https://leetcode.com/problems/max-stack/"
+
+[[entries]]
+title = "Implement Queue using Stacks"
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
+
+[[entries]]
+title = "Design Circular Deque"
+url = "https://leetcode.com/problems/design-circular-deque/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Minimum Size Subarray Sum"
+url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+
+[[entries]]
+title = "Maximum Average Subarray I"
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Online Stock Span"
+url = "https://leetcode.com/problems/online-stock-span/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Maximize Amount After Two Days of Conversions"
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+
+[[entries]]
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Design a Food Rating System"
+url = "https://leetcode.com/problems/design-a-food-rating-system/"
+
+[[entries]]
+title = "Design Task Manager"
+url = "https://leetcode.com/problems/design-task-manager/"
+
+[[entries]]
+title = "Implement Router"
+url = "https://leetcode.com/problems/implement-router/"
+
+[[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+
+[[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
+title = "Process Tasks Using Servers"
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
+
+[[entries]]
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock III"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"

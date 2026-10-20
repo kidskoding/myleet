@@ -1,0 +1,184 @@
+title = "Virtu Financial"
+group = "Quant"
+focus = "arrays and strings, stacks, linked lists, hashing, basic design"
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "05_binary_search", "06_linked_lists"]
+
+[[entries]]
+title = "Array Transformation"
+url = "https://leetcode.com/problems/array-transformation/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "How Many Apples Can You Put into the Basket"
+url = "https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/"
+
+[[entries]]
+title = "Count Substrings with Only One Distinct Letter"
+url = "https://leetcode.com/problems/count-substrings-with-only-one-distinct-letter/"
+
+[[entries]]
+title = "Hexspeak"
+url = "https://leetcode.com/problems/hexspeak/"
+
+[[entries]]
+title = "Count Number of Homogenous Substrings"
+url = "https://leetcode.com/problems/count-number-of-homogenous-substrings/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Count Binary Substrings"
+url = "https://leetcode.com/problems/count-binary-substrings/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Max Consecutive Ones III"
+url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
+
+[[entries]]
+title = "Roman to Integer"
+url = "https://leetcode.com/problems/roman-to-integer/"
+
+[[entries]]
+title = "String to Integer (atoi)"
+url = "https://leetcode.com/problems/string-to-integer-atoi/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Implement Queue using Stacks"
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
+
+[[entries]]
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Linked List Cycle"
+url = "https://leetcode.com/problems/linked-list-cycle/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
