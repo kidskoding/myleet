@@ -1,12 +1,14 @@
 package tui
 
 import (
+	"path/filepath"
 	"strings"
 	"testing"
 	"time"
 
 	tea "charm.land/bubbletea/v2"
 
+	"github.com/kidskoding/myleet/internal/catalog"
 	"github.com/kidskoding/myleet/internal/progress"
 	tu "github.com/kidskoding/myleet/internal/testutil"
 )
@@ -93,13 +95,36 @@ func TestGreetingByHour(t *testing.T) {
 	}
 }
 
-func TestHomeSelectedRowIsCard(t *testing.T) {
-	for _, l := range strings.Split(plain(homeModel(t)), "\n") {
-		if strings.Contains(l, "▸") && strings.Contains(l, "│") {
-			return
-		}
+func TestHomeQueueIsOneCard(t *testing.T) {
+	view := plain(homeModel(t))
+	if n := strings.Count(view, "╭"); n != 1 || !strings.Contains(view, "╭─ today") {
+		t.Fatalf("today's queue should be one titled card, found %d cards:\n%s", n, view)
 	}
-	t.Fatalf("selected row should sit inside a card:\n%s", plain(homeModel(t)))
+	if !strings.Contains(view, "▸ ") {
+		t.Fatalf("the selected row should be marked:\n%s", view)
+	}
+}
+
+func TestHomeTitlesUseTheRoom(t *testing.T) {
+	root, _ := filepath.Abs(filepath.Join("..", ".."))
+	c, err := catalog.Load(root)
+	if err != nil {
+		t.Skip("real curriculum unavailable")
+	}
+	a := newTestApp(t)
+	a.Catalog = c
+	m := send(New(newTestShared(t, a, &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 80, Height: 24})
+	view := plain(m)
+	if strings.Contains(view, "…   NEW") || !strings.Contains(view, "Range Sum Query - Immutable") {
+		t.Fatalf("at 80 columns titles should not be cut while the reason column has room:\n%s", view)
+	}
+}
+
+func TestHomeShowsUpcomingReviews(t *testing.T) {
+	view := plain(homeModel(t, passedEvents("p-two", 19)...)) // finished today, due tomorrow
+	if !strings.Contains(view, "1 review due this week") {
+		t.Fatalf("today should preview the reviews coming up:\n%s", view)
+	}
 }
 
 func TestHomeShowsStreakAndMastery(t *testing.T) {

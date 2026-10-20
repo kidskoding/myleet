@@ -6,6 +6,7 @@ import (
 	"time"
 
 	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
 
 	"github.com/kidskoding/myleet/internal/progress"
 	"github.com/kidskoding/myleet/internal/schedule"
@@ -75,7 +76,7 @@ func greeting(now time.Time) string {
 	return "Good evening"
 }
 
-func (h *Home) row(it session.Item, now time.Time, titleW int, selected bool) string {
+func (h *Home) row(it session.Item, now time.Time, titleW, reasonW int, selected bool) string {
 	th := h.s.Theme
 	title := ui.Pad(it.Problem.Title, titleW)
 	marker := "  "
@@ -95,7 +96,7 @@ func (h *Home) row(it session.Item, now time.Time, titleW int, selected bool) st
 			age = th.Due.Render("due")
 		}
 	}
-	return marker + title + "  " + kind + "  " + difficultyBadge(th, it.Problem.Difficulty) + "  " + age
+	return marker + title + "  " + kind + "  " + difficultyBadge(th, it.Problem.Difficulty) + "  " + ui.Truncate(age, reasonW)
 }
 
 func (h *Home) reason(it session.Item) string {
@@ -136,23 +137,51 @@ func (h *Home) View(w, ht int) string {
 		"      " + th.Muted.Render("mastery ") + ui.Bar(th, frac(sum.Mastery[0], sum.Mastery[1]), 10, ui.TonePass) +
 		th.Muted.Render(fmt.Sprintf("  %d/%d", sum.Mastery[0], sum.Mastery[1]))}
 
+	if n := h.upcoming(states, now); n > 0 {
+		footer = append([]string{"  " + th.Muted.Render(plural(n, "review", "reviews")+" due this week")}, footer...)
+	}
 	avail := max(ht-len(lines)-len(footer), 3)
 	if len(items) == 0 {
 		lines = append(lines, indent(ui.Card(th, "all caught up", "Pick something from the map (2) or run a mock interview (3).", w-4, false), 2)...)
 	} else {
 		cardW := w - 4
-		titleW := max(cardW-58, 14)
-		h.offset = scrollWindow(h.cursor, h.offset, max(avail-2, 1))
-		for i := h.offset; i < len(items) && len(lines) < ht-len(footer); i++ {
-			if i == h.cursor {
-				lines = append(lines, indent(ui.Card(th, "", h.row(items[i], now, titleW, true), cardW, true), 2)...)
-				continue
-			}
-			lines = append(lines, "    "+h.row(items[i], now, titleW, false))
+		inner := cardW - 4
+		const fixed = 2 + 2 + 8 + 2 + 4 + 2 // marker, gaps, kind badge, difficulty
+		longest, reasonNeed := 0, 0
+		for _, it := range items {
+			longest = max(longest, lipgloss.Width(it.Problem.Title))
+			reasonNeed = max(reasonNeed, lipgloss.Width(h.reason(it)))
 		}
+		titleW := max(min(longest, inner-fixed-min(reasonNeed, 16)), 14)
+		reasonW := max(inner-fixed-titleW, 0)
+		visible := max(min(avail-2, len(items)), 1)
+		h.offset = scrollWindow(h.cursor, h.offset, visible)
+		var rows []string
+		for i := h.offset; i < len(items) && len(rows) < visible; i++ {
+			rows = append(rows, h.row(items[i], now, titleW, reasonW, i == h.cursor))
+		}
+		title := "today"
+		if len(items) > visible {
+			title = fmt.Sprintf("today · %d/%d", h.cursor+1, len(items))
+		}
+		lines = append(lines, indent(ui.Card(th, title, strings.Join(rows, "\n"), cardW, true), 2)...)
 	}
 	lines = padLines(lines, ht-len(footer))
 	return strings.Join(append(lines[:max(ht-len(footer), 0)], footer...), "\n")
+}
+
+// upcoming counts reviews that come due in the next seven days, after today.
+func (h *Home) upcoming(states map[string]schedule.State, now time.Time) int {
+	y, m, d := now.Date()
+	today := time.Date(y, m, d, 0, 0, 0, 0, now.Location())
+	week := today.AddDate(0, 0, 7)
+	n := 0
+	for _, st := range states {
+		if st.Status != schedule.Unseen && st.Due.After(today) && !st.Due.After(week) {
+			n++
+		}
+	}
+	return n
 }
 
 func (h *Home) streakDots(sum stats.Summary, now time.Time) string {
