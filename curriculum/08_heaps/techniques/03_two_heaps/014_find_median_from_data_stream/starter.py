@@ -1,5 +1,5 @@
 class MedianFinder:
-    # Problem 14: Find Median From Data Stream
+    # Problem 14: Find Median from Data Stream
 
     def __init__(self) -> None:
         # Time:

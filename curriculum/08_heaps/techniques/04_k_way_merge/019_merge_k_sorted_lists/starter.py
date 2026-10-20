@@ -9,7 +9,7 @@ class ListNode:
 
 
 def merge_k_lists(lists: list[ListNode | None]) -> ListNode | None:
-    # Problem 19: Merge K Sorted Lists
+    # Problem 19: Merge k Sorted Lists
     # Time:
     # Space:
 

@@ -1,5 +1,5 @@
 class KthLargest:
-    # Problem 4: Kth Largest Element In A Stream
+    # Problem 4: Kth Largest Element in a Stream
 
     def __init__(self, k: int, nums: list[int]) -> None:
         # Time:

@@ -1,5 +1,5 @@
 def min_refuel_stops(target: int, start_fuel: int, stations: list[list[int]]) -> int:
-    # Problem 31: Minimum Number Of Refueling Stops
+    # Problem 31: Minimum Number of Refueling Stops
     # Time:
     # Space:
 
