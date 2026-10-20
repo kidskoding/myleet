@@ -126,9 +126,9 @@ func (h *Home) View(w, ht int) string {
 
 	avail := max(ht-len(lines)-len(footer), 3)
 	if len(items) == 0 {
-		lines = append(lines, indent(ui.Card(th, "all caught up", "Pick something from the map (2) or run a mock interview (3).", min(w-4, 72), false), 2)...)
+		lines = append(lines, indent(ui.Card(th, "all caught up", "Pick something from the map (2) or run a mock interview (3).", w-4, false), 2)...)
 	} else {
-		cardW := min(w-4, 96)
+		cardW := w - 4
 		titleW := max(cardW-40, 10)
 		h.offset = scrollWindow(h.cursor, h.offset, max(avail-2, 1))
 		for i := h.offset; i < len(items) && len(lines) < ht-len(footer); i++ {

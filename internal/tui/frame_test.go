@@ -127,3 +127,38 @@ func TestPlaylistsArrowNavigation(t *testing.T) {
 		t.Fatal("← should go back to the list")
 	}
 }
+
+func TestCardsStretchFullWidth(t *testing.T) {
+	const w = 180
+	screens := map[string]tea.Model{
+		"today":     homeModel(t),
+		"interview": send(homeModel(t), key("3")),
+		"playlists": send(homeModel(t), key("4")),
+		"stats":     statsWithHistory(t, w),
+		"search":    send(homeModel(t), key("/")),
+	}
+	for name, m := range screens {
+		m = send(m, tea.WindowSizeMsg{Width: w, Height: 40})
+		found := false
+		for _, l := range strings.Split(plain(m), "\n") {
+			if i := strings.Index(l, "╭"); i >= 0 {
+				found = true
+				if got := len([]rune(strings.TrimRight(l, " "))); got != w-2 {
+					t.Errorf("%s: card ends at column %d, want %d (full width)", name, got, w-2)
+				}
+				break
+			}
+		}
+		if !found {
+			t.Errorf("%s: no card found", name)
+		}
+	}
+}
+
+func TestHeatmapGrowsWithWidth(t *testing.T) {
+	narrow := strings.Count(plain(statsWithHistory(t, 80)), "·")
+	wide := strings.Count(plain(statsWithHistory(t, 160)), "·")
+	if wide <= narrow {
+		t.Fatalf("heatmap should show more weeks on a wider terminal (%d vs %d cells)", wide, narrow)
+	}
+}

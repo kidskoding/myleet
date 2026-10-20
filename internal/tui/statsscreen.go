@@ -13,8 +13,6 @@ import (
 	"github.com/kidskoding/myleet/internal/tui/ui"
 )
 
-const heatmapWeeks = 20
-
 type Stats struct{ s *Shared }
 
 func NewStats(s *Shared) Screen { return &Stats{s: s} }
@@ -30,17 +28,17 @@ func (st *Stats) Update(msg tea.Msg) (Screen, tea.Cmd) {
 	return st, nil
 }
 
-func (st *Stats) heatmap(sum stats.Summary, now time.Time) []string {
+func (st *Stats) heatmap(sum stats.Summary, now time.Time, width int) (rows []string, weeks int) {
+	weeks = min(max((width-6)/2, 8), 52)
 	th := st.s.Theme
 	y, m, d := now.Date()
 	today := time.Date(y, m, d, 0, 0, 0, 0, now.Location())
 	monday := today.AddDate(0, 0, -((int(today.Weekday()) + 6) % 7))
-	first := monday.AddDate(0, 0, -7*(heatmapWeeks-1))
+	first := monday.AddDate(0, 0, -7*(weeks-1))
 	labels := []string{"mon", "", "wed", "", "fri", "", "sun"}
-	var rows []string
 	for wd := 0; wd < 7; wd++ {
 		row := ui.Pad(labels[wd], 4)
-		for week := 0; week < heatmapWeeks; week++ {
+		for week := 0; week < weeks; week++ {
 			day := first.AddDate(0, 0, week*7+wd)
 			if day.After(today) {
 				row += "  "
@@ -60,7 +58,7 @@ func (st *Stats) heatmap(sum stats.Summary, now time.Time) []string {
 		}
 		rows = append(rows, row)
 	}
-	return rows
+	return rows, weeks
 }
 
 func (st *Stats) Keys() []ui.Key { return []ui.Key{{Key: "1-5", Label: "tabs"}} }
@@ -83,7 +81,7 @@ func (st *Stats) View(w, h int) string {
 	now := st.s.Now()
 	attempts := st.s.App.Attempts()
 	sum := stats.Compute(st.s.App.Catalog, st.s.States(), attempts, now, st.s.App.Loc)
-	cardW := min(w-4, 100)
+	cardW := w - 4
 	finished := 0
 	for _, a := range attempts {
 		if a.Outcome != schedule.OutcomeNone {
@@ -91,7 +89,7 @@ func (st *Stats) View(w, h int) string {
 		}
 	}
 	if finished == 0 {
-		empty := ui.Card(th, "stats", "No attempts yet. Finish a problem and your stats start here.", min(cardW, 72), false)
+		empty := ui.Card(th, "stats", "No attempts yet. Finish a problem and your stats start here.", cardW, false)
 		return "\n" + strings.Join(indent(empty, 2), "\n")
 	}
 
@@ -100,10 +98,11 @@ func (st *Stats) View(w, h int) string {
 	tiles := ui.Columns(2,
 		ui.Card(th, "streak", th.Title.Render(plural(sum.Streak, "day", "days")), tileW, false),
 		ui.Card(th, "mastered", th.Title.Render(fmt.Sprintf("%d / %d", sum.Counts[schedule.Mastered], total)), tileW, false),
-		ui.Card(th, "median", st.median(sum), tileW, false),
+		ui.Card(th, "median", st.median(sum), cardW-4-2*tileW, false),
 	)
 	lines := append([]string{""}, indent(tiles, 2)...)
-	lines = append(lines, indent(ui.Card(th, "last 20 weeks", strings.Join(st.heatmap(sum, now), "\n"), cardW, false), 2)...)
+	heat, weeks := st.heatmap(sum, now, cardW-4)
+	lines = append(lines, indent(ui.Card(th, fmt.Sprintf("last %d weeks", weeks), strings.Join(heat, "\n"), cardW, false), 2)...)
 	if len(sum.Weakest) > 0 {
 		var rows []string
 		for _, ws := range sum.Weakest {

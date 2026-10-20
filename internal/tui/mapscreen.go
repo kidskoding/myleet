@@ -270,7 +270,7 @@ func (n *Notes) render(w int) {
 		n.lines = []string{err.Error()}
 		return
 	}
-	n.lines = strings.Split(renderMarkdown(data, min(w-4, 100)), "\n")
+	n.lines = strings.Split(renderMarkdown(data, w-4), "\n")
 }
 
 func (n *Notes) Update(msg tea.Msg) (Screen, tea.Cmd) {

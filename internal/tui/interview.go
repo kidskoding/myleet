@@ -274,7 +274,7 @@ func (iv *Interview) Keys() []ui.Key {
 
 func (iv *Interview) View(w, h int) string {
 	th := iv.s.Theme
-	cardW := min(w-4, 72)
+	cardW := w - 4
 	switch iv.phase {
 	case phaseSetup:
 		pills := iv.choice(1) + " " + iv.choice(2) + " " + iv.choice(3)

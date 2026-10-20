@@ -89,7 +89,7 @@ func (sr *Search) Keys() []ui.Key {
 func (sr *Search) View(w, h int) string {
 	th := sr.s.Theme
 	states := sr.s.States()
-	cardW := min(w-4, 96)
+	cardW := w - 4
 	inner := cardW - 4
 	body := []string{th.Accent.Render("/ ") + sr.query + th.Muted.Render("█"), ""}
 	res := sr.results()

@@ -55,7 +55,7 @@ func TestStatsTiles(t *testing.T) {
 }
 
 func TestStatsHeatmapCard(t *testing.T) {
-	if view := plain(statsWithHistory(t, 100)); !strings.Contains(view, "╭─ last 20 weeks") {
+	if view := plain(statsWithHistory(t, 100)); !strings.Contains(view, "╭─ last ") || !strings.Contains(view, " weeks ─") {
 		t.Fatalf("view:\n%s", view)
 	}
 }

@@ -98,7 +98,7 @@ func (pl *Playlists) Keys() []ui.Key {
 func (pl *Playlists) View(w, h int) string {
 	th := pl.s.Theme
 	states := pl.s.States()
-	cardW := min(w-4, 96)
+	cardW := w - 4
 	inner := cardW - 6
 	var rows []string
 	cursor := pl.cursor
