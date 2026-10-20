@@ -1,5 +1,5 @@
 class Codec:
-    # Problem 8: Encode And Decode Strings
+    # Problem 8: Encode and Decode Strings
 
     def encode(self, strs: list[str]) -> str:
         # Time:

@@ -1,5 +1,5 @@
 def find_duplicate(nums: list[int]) -> int:
-    # Problem 23: Find The Duplicate Number
+    # Problem 23: Find the Duplicate Number
     # Time:
     # Space:
 
