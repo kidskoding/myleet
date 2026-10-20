@@ -38,7 +38,7 @@ func TestTodayNewSlotsShrinkAfterStartingNew(t *testing.T) {
 	states := map[string]schedule.State{
 		"p-one": {Status: schedule.Learning, Rung: 0, FirstFinished: tu.Day(19).Add(-time.Hour), Due: tu.Midnight(20)},
 	}
-	if got := summary(Today(c, states, tu.Day(19), 3)); got != "new:two-sum,new:p-two" {
+	if got := summary(Today(c, states, tu.Day(19), 3)); got != "new:p-two,new:p-three" {
 		t.Fatalf("queue = %s", got)
 	}
 	if got := summary(Today(c, states, tu.Day(19), 1)); got != "" {

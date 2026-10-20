@@ -83,7 +83,7 @@ func (h *Home) row(it session.Item, now time.Time, titleW int, selected bool) st
 		marker, title = th.Accent.Render("▸ "), th.Selected.Render(title)
 	}
 	kind := ui.Badge(th, "NEW", ui.BadgeNew) + "   "
-	age := ""
+	age := h.reason(it)
 	if it.Kind == session.Review {
 		kind = ui.Badge(th, "REVIEW", ui.BadgeReview)
 		switch days := daysSince(it.State, now); {
@@ -96,6 +96,18 @@ func (h *Home) row(it session.Item, now time.Time, titleW int, selected bool) st
 		}
 	}
 	return marker + title + "  " + kind + "  " + difficultyBadge(th, it.Problem.Difficulty) + "  " + age
+}
+
+func (h *Home) reason(it session.Item) string {
+	th := h.s.Theme
+	style := th.Muted
+	switch it.Reason {
+	case session.ReasonWeak:
+		style = th.Fail
+	case session.ReasonInProgress:
+		style = th.Accent
+	}
+	return style.Render(string(it.Reason)) + th.Muted.Render(" · "+strings.ToLower(it.Problem.Technique.Title))
 }
 
 func (h *Home) View(w, ht int) string {
@@ -129,7 +141,7 @@ func (h *Home) View(w, ht int) string {
 		lines = append(lines, indent(ui.Card(th, "all caught up", "Pick something from the map (2) or run a mock interview (3).", w-4, false), 2)...)
 	} else {
 		cardW := w - 4
-		titleW := max(cardW-40, 10)
+		titleW := max(cardW-58, 14)
 		h.offset = scrollWindow(h.cursor, h.offset, max(avail-2, 1))
 		for i := h.offset; i < len(items) && len(lines) < ht-len(footer); i++ {
 			if i == h.cursor {

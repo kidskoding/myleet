@@ -118,3 +118,21 @@ func TestHomeGolden120x32(t *testing.T) {
 	assertFits(t, view, 120, 32)
 	assertGolden(t, "home_wide", view)
 }
+
+func TestHomeShowsWhyNewProblemsWerePicked(t *testing.T) {
+	view := plain(send(homeModel(t), tea.WindowSizeMsg{Width: 120, Height: 30}))
+	if !strings.Contains(view, "new topic · one") {
+		t.Fatalf("new problems should say why they were picked:\n%s", view)
+	}
+	a := newTestApp(t)
+	for i := 0; i < 2; i++ {
+		att := progress.NewAttemptID()
+		at := testNow.AddDate(0, 0, -3+i)
+		a.Record(progress.Event{Time: at, Kind: progress.Opened, Problem: "p-one", Attempt: att, Mode: progress.Practice})
+		a.Record(progress.Event{Time: at.Add(time.Minute), Kind: progress.GaveUp, Problem: "p-one", Attempt: att, Mode: progress.Practice})
+	}
+	m := send(New(newTestShared(t, a, &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 120, Height: 30})
+	if view := plain(m); !strings.Contains(view, "weak spot · one") {
+		t.Fatalf("a technique you keep failing should be called out:\n%s", view)
+	}
+}

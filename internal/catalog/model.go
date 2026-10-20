@@ -30,7 +30,7 @@ var DefaultSayAloud = []string{"brute force", "why it dies", "complexity"}
 
 type Module struct {
 	ID, Title, Description, Dir string
-	Number, Priority            int
+	Number                      int
 	Bank                        bool // problems outside the lessons, reachable from playlists and search
 	Notes                       []string
 	Techniques                  []*Technique

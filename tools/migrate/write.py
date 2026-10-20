@@ -14,27 +14,6 @@ from tools.migrate.split import split_file
 
 LIB_MODULES = {"list_node.py", "tree_node.py", "binary_tree.py"}
 HELPER_IMPORTS = {"preorder_traversal": "tree_helpers", "inorder_traversal": "tree_helpers"}
-PRIORITY = {
-    "arrays_and_hashing": 1,
-    "two_pointers": 1,
-    "sliding_window": 1,
-    "stacks_and_queues": 2,
-    "binary_search": 2,
-    "trees": 2,
-    "heaps": 3,
-    "backtracking": 3,
-    "graphs": 3,
-    "intervals": 3,
-    "dp": 4,
-    "greedy_algorithms": 4,
-    "linked_lists": 5,
-    "tries": 5,
-    "bit_manipulation": 6,
-    "math_geometry": 6,
-    "advanced": 6,
-}
-DEFAULT_PRIORITY = 7
-
 TREE_HELPERS = '''"""Trusted traversals that tests use to inspect trees built by a solution."""
 
 from __future__ import annotations
@@ -144,7 +123,6 @@ def migrate(
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "module.toml").write_text(
             f"title = {toml_str(module_title(module_dir))}\n"
-            f"priority = {PRIORITY.get(mid, DEFAULT_PRIORITY)}\n"
             f"description = {toml_str(module_description(module_dir))}\n"
         )
         if (module_dir / "README.md").exists():

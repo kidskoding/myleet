@@ -141,7 +141,10 @@ func (m *Map) moduleRows(states map[string]schedule.State, width int) []string {
 			}
 		}
 		meter := " " + ui.Bar(th, frac(mastered, total), 10, ui.TonePass) + th.Muted.Render(fmt.Sprintf(" %3.0f%%", 100*frac(mastered, total)))
-		name := th.Muted.Render(fmt.Sprintf("%02d ", mod.Number)) + mod.Title
+		name := mod.Title
+		if !mod.Bank {
+			name = th.Muted.Render(fmt.Sprintf("%02d ", mod.Number)) + name
+		}
 		rows = append(rows, ui.Pad(name, max(width-lipgloss.Width(meter), 4))+meter)
 	}
 	return rows

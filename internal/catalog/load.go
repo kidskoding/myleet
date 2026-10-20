@@ -21,7 +21,6 @@ var (
 
 type moduleFile struct {
 	Title       string `toml:"title"`
-	Priority    int    `toml:"priority"`
 	Description string `toml:"description"`
 }
 
@@ -94,7 +93,7 @@ func Load(root string) (*Catalog, error) {
 			report(md.path, "module.toml: %v", err)
 			continue
 		}
-		mod := &Module{ID: md.id, Title: mf.Title, Description: mf.Description, Dir: md.path, Number: md.number, Priority: mf.Priority}
+		mod := &Module{ID: md.id, Title: mf.Title, Description: mf.Description, Dir: md.path, Number: md.number}
 		notes, _ := filepath.Glob(filepath.Join(md.path, "notes", "*.md"))
 		slices.Sort(notes)
 		mod.Notes = notes
@@ -103,12 +102,7 @@ func Load(root string) (*Catalog, error) {
 	}
 	c.loadBank(filepath.Join(root, "bank"), report)
 
-	slices.SortStableFunc(c.Modules, func(a, b *Module) int {
-		if a.Priority != b.Priority {
-			return a.Priority - b.Priority
-		}
-		return a.Number - b.Number
-	})
+	slices.SortStableFunc(c.Modules, func(a, b *Module) int { return a.Number - b.Number })
 	for _, m := range c.Modules {
 		for _, t := range m.Techniques {
 			for _, p := range t.Problems {
@@ -125,9 +119,6 @@ func Load(root string) (*Catalog, error) {
 	return c, nil
 }
 
-// bankPriority sorts the bank after every curriculum module.
-const bankPriority = 1 << 20
-
 func (c *Catalog) loadBank(dir string, report func(string, string, ...any)) {
 	var bf struct {
 		Title string `toml:"title"`
@@ -138,7 +129,7 @@ func (c *Catalog) loadBank(dir string, report func(string, string, ...any)) {
 		}
 		return
 	}
-	bank := &Module{ID: "bank", Title: bf.Title, Dir: dir, Number: 99, Priority: bankPriority, Bank: true}
+	bank := &Module{ID: "bank", Title: bf.Title, Dir: dir, Number: 1 << 20, Bank: true}
 	c.loadTechniques(bank, dir, report)
 	c.Modules = append(c.Modules, bank)
 }

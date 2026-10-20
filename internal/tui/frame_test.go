@@ -97,7 +97,7 @@ func TestHelpIsModal(t *testing.T) {
 }
 
 func TestMapNoNotesIsToast(t *testing.T) {
-	m := send(homeModel(t), key("2"), key("n"))
+	m := send(homeModel(t), key("2"), key("j"), key("n")) // beta has no notes
 	if !strings.Contains(ansi.Strip(lastLine(plain(m))), "no notes") {
 		t.Fatalf("missing-notes message should be a toast:\n%s", plain(m))
 	}
@@ -108,7 +108,7 @@ func TestKeyBarShowsArrows(t *testing.T) {
 		"today":     homeModel(t),
 		"map":       send(homeModel(t), key("2"), key("l")),
 		"playlists": send(homeModel(t), key("4"), key("enter")),
-		"notes":     send(homeModel(t), key("2"), key("j"), key("n")),
+		"notes":     send(homeModel(t), key("2"), key("n")),
 	}
 	for name, m := range bars {
 		bar := lastLine(plain(m))

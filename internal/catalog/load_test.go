@@ -27,7 +27,7 @@ func ids(ps []*Problem) []string {
 
 func TestLoadGood(t *testing.T) {
 	c := load(t, "good")
-	if got, want := strings.Join(ids(c.Problems()), ","), "two-sum,p-one,p-two,p-three,logger-rate-limiter"; got != want {
+	if got, want := strings.Join(ids(c.Problems()), ","), "p-one,p-two,p-three,two-sum,logger-rate-limiter"; got != want {
 		t.Fatalf("order = %s, want %s", got, want)
 	}
 	for i, p := range c.Problems() {
@@ -166,5 +166,16 @@ func TestBankLoadsAsItsOwnModule(t *testing.T) {
 	}
 	if e := c.Playlists[0].Entries[2]; e.Problem == nil || e.Problem.ID != "logger-rate-limiter" {
 		t.Fatal("playlist entries resolve to bank problems")
+	}
+}
+
+func TestModulesAndProblemsFollowReadingOrder(t *testing.T) {
+	c := load(t, "good")
+	var mods []string
+	for _, m := range c.Modules {
+		mods = append(mods, m.ID)
+	}
+	if got := strings.Join(mods, ","); got != "alpha,beta,bank" {
+		t.Fatalf("modules should list by number with the bank last, got %s", got)
 	}
 }

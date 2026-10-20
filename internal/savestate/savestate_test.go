@@ -34,7 +34,7 @@ func TestWriteIsEditableAndOrdered(t *testing.T) {
 	if strings.Contains(text, "[p-one]") {
 		t.Fatal("unseen problems are left out")
 	}
-	if strings.Index(text, "[two-sum]") > strings.Index(text, "[p-two]") {
+	if strings.Index(text, "[p-two]") > strings.Index(text, "[two-sum]") {
 		t.Fatalf("curriculum order expected:\n%s", text)
 	}
 	if !strings.Contains(text, "rung = \"3d\"\ndue = 2026-10-23\n") {
