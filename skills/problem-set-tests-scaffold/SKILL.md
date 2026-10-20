@@ -1,144 +1,134 @@
 ---
 name: problem-set-tests-scaffold
-description: 'Use when adding or mirroring a module problem_set and its pytest suite in this DSA repo (e.g. "mirror the trees problem set for X", "scaffold a problem set for heaps", "write the tests file"), to reproduce the exact folder layout, stub header format, test helper convention, namespace-package import style, and pyproject pythonpath wiring.'
+description: 'Use when adding a problem folder to this DSA repo, or writing or fixing its tests (e.g. "add Koko Eating Bananas to binary search", "scaffold three heap problems", "write the tests for this problem"), to reproduce the exact problem.toml fields, starter header, test import style, and shared-helper convention so the myleet trainer loads and runs it.'
 ---
 
-# Problem Set + Tests Scaffold
+# Problem Folder Scaffold
 
-The mechanical convention for a module `problem_set/` and its `tests/` in this repo. The canonical reference implementations live in `07_trees/` (solved) and `06_linked_lists/` (stubs). This skill is the layer below `dsa-module-workbooks`: that skill decides *which problems* and the workbook prose; this one nails the *exact files, imports, and config* so the suite collects and runs.
+The mechanical convention for one problem under
+`curriculum/NN_module/techniques/NN_<technique>/`. `dsa-curriculum-workflow`
+decides *which problems* go where; this skill nails the *exact files* so
+`myleet validate` loads the problem and `myleet` can run its tests.
 
 ## When To Use
 
-- "Mirror the `<module>` problem set / tests for `<other module>`."
-- "Scaffold a problem set and tests for `<module>`."
-- "Write the tests file" for an existing `problem_set/`.
-
-For problem selection, banding (Fundamentals / Mediums / Hards), and workbook markdown rules, use `dsa-module-workbooks`. This skill assumes the problem list already exists or is being chosen there.
+- "Add <problem> to <module>" or "scaffold N problems for <technique>".
+- "Write the tests" for an existing problem folder.
+- A problem fails `myleet validate`, or its tests error at collection instead of
+  failing on assertions.
 
 ## Folder Layout
 
 ```text
-NN_module/
-├── <node_module>.py                 # shared node class, e.g. list_node.py, tree_node.py (already exists)
-├── problem_set/
-│   ├── MODULE_PROBLEM_SET.md         # workbook index (see dsa-module-workbooks)
-│   ├── <category_a>_problems.py      # stubs grouped by pattern
-│   ├── <category_b>_problems.py
-│   └── ...
-└── tests/
-    ├── conftest.py                   # empty file
-    ├── test_<category_a>_problems.py
-    ├── test_<category_b>_problems.py
-    └── ...
+curriculum/07_trees/techniques/03_bfs_levels/023_binary_tree_right_side_view/
+├── problem.toml
+├── starter.py
+├── test_problem.py
+└── solution.py          optional reference solution
 ```
 
-- **No `__init__.py` anywhere.** `problem_set` resolves as an implicit namespace package across modules — that is why two modules can both have a `problem_set/`.
-- One category `.py` per pattern family; one test file per category, named `test_<category>.py`.
-- One function per problem. Group functions by the workbook's bands/categories.
+- Folder name: `NNN_<snake_slug>`. The number sets the order inside the technique,
+  roughly easy to hard.
+- No `__init__.py`, no `conftest.py`. The trainer stages the files into a scratch
+  directory, so nothing in the folder may import a sibling by path.
 
-## Stub File Format
+## `problem.toml`
 
-Each category file imports the shared node class and holds one function per problem. Header comment carries the problem number, the key idea, and empty complexity lines. Body is `raise NotImplementedError`.
+```toml
+id = "binary-tree-right-side-view"          # LeetCode slug; unique across the repo
+title = "Binary Tree Right Side View"
+difficulty = "medium"                       # easy | medium | hard
+leetcode = 199                              # optional
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+key_idea = "BFS by level; keep the last node of each level."
+hints = ["Process the queue one level at a time.", "The last node popped per level is visible."]
+prompt = ""                                 # markdown problem statement; optional
+# time_target = "20m"                       # optional; defaults 15m/30m/45m by difficulty
+# say_aloud = ["invariant", "complexity"]   # optional; default brute force/why it dies/complexity
+```
+
+- `id` must be unique. If the same LeetCode problem already exists in another
+  module, suffix it: `meeting-rooms-ii-intervals`.
+- Hints go from gentle to nearly the answer; each reveal costs the learner a clean
+  pass, so the first hint should nudge, not solve.
+- Playlists find problems by matching the LeetCode slug in `url`, so keep the URL
+  canonical.
+
+## `starter.py`
+
+The signature, type hints, a comment header, and `raise NotImplementedError`. Never put the key idea in the starter: it names the technique, so it lives only in `problem.toml`, where the trainer reveals it as the last hint.
 
 ```python
-from list_node import ListNode
+from collections import deque
+
+from tree_node import TreeNode
 
 
-def reverse_list(head: ListNode | None) -> ListNode | None:
-    # Problem 1: Reverse Linked List
-    # Key idea: walk the list flipping each next pointer.
+def right_side_view(root: TreeNode | None) -> list[int]:
+    # Problem 23: Binary Tree Right Side View
+
     # Time:
     # Space:
 
     raise NotImplementedError
 ```
 
-- Import the node by bare module name: `from list_node import ListNode`, `from tree_node import TreeNode`. This works because the module dir is on `pythonpath` (see below).
-- Type-hint every signature (`ListNode | None`, `list[int]`, etc.).
-- In-place problems return `None`; reflect that in the hint and the docs example.
-- Problems needing their own node type (e.g. random-pointer, multilevel, an LRU class) define that class at the top of the category file with a comment naming the problem it serves. Put `from __future__ import annotations` first when the class self-references.
-- Use `raise NotImplementedError` as the body, never `pass`. This matches the rest of the repo (783 occurrences, zero `pass` stubs) and makes an unsolved problem fail loudly instead of silently returning `None`.
+- Shared node classes come from `curriculum/_lib` by bare module name:
+  `from tree_node import TreeNode`, `from list_node import ListNode`.
+- A problem that needs its own node type (random pointer, multilevel, N-ary)
+  defines it above the function. Put `from __future__ import annotations` first
+  when the class refers to itself.
+- Design problems are a class with every method stubbed.
+- Use `raise NotImplementedError`, never `pass`. The trainer reports a run where
+  every failure is `NotImplementedError` as "not started"; `pass` returns `None`
+  and looks like a wrong answer.
 
-### Modules Without A Node Class
-
-Some modules have no shared node module — heaps use `heapq`, arrays/DP/intervals take plain `list[int]`. For these:
-
-- Omit the `from <node> import ...` line; stubs take/return plain types (`list[int]`, `int`, `bool`).
-- Skip the inline `build_*`/`to_*` helpers — there is nothing to construct or serialize; pass literals straight in.
-- You **still** add the module dir to `pythonpath` — it is required for the `from problem_set.<category>_problems import ...` package import to resolve, independent of any node import.
-
-## Test File Format
-
-Mirror `07_trees/tests/`: per-category test files, helpers defined **inline** in each file (not shared), empty `conftest.py`.
+## `test_problem.py`
 
 ```python
-from list_node import ListNode
-from problem_set.traversal_problems import reverse_list, merge_two_lists
+from binary_tree import build_tree_from_level_order
+from solution import right_side_view
 
 
-def build_list(values: list[int]) -> ListNode | None:
-    dummy = ListNode()
-    curr = dummy
-    for value in values:
-        curr.next = ListNode(value)
-        curr = curr.next
-    return dummy.next
+def test_right_side_view_empty():
+    assert right_side_view(None) == []
 
 
-def to_list(head: ListNode | None) -> list[int]:
-    values = []
-    while head:
-        values.append(head.val)
-        head = head.next
-    return values
-
-
-def test_reverse_list_multiple():
-    assert to_list(reverse_list(build_list([1, 2, 3]))) == [3, 2, 1]
+def test_right_side_view_left_leaning():
+    assert right_side_view(build_tree_from_level_order([1, 2, 3, None, 5, None, 4])) == [1, 3, 4]
 ```
 
-- Import functions from the package: `from problem_set.<category>_problems import ...`.
-- Import the node by bare name: `from <node_module> import Node`.
-- Define construction/serialization helpers (`build_list`/`to_list`, `build_sample_tree`, etc.) **inline per test file**. Trees repeats them; match that — do not factor into `conftest.py`.
-- `conftest.py` stays **empty** (it just marks the dir for pytest path handling).
-- Cover empty, single, normal, and edge/skewed cases per problem. Use one shared representative input across related tests when it reads cleanly.
-- Test identity with `is` where the contract returns an existing node (cycle entry, intersection node); compare values via `to_list` otherwise.
-
-## pyproject Wiring (the step that is easy to miss)
-
-`pyproject.toml` at repo root drives collection. Two arrays matter:
-
-```toml
-[tool.pytest.ini_options]
-pythonpath = [
-    "06_linked_lists",
-    "07_trees",
-    # add "NN_module" so `from <node> import X` and `from problem_set.X import Y` resolve
-]
-testpaths = [
-    # numbered modules already listed here; confirm NN_module is present
-]
-```
-
-- **Add the module dir to `pythonpath`** or every import in the new files fails to resolve. This is the most common scaffold mistake.
-- `testpaths` already lists all numbered modules; just confirm the target is there.
-- No other config needed — namespace packages mean no `__init__.py`, no setup.
+- Import the problem's names from `solution`. The trainer copies the learner's
+  attempt (or `solution.py` under `myleet check --solutions`) into the scratch dir
+  as `solution.py`.
+- Never import from another problem. A test that verifies with a second
+  problem's function only passes once that problem is solved. Trusted
+  verification helpers live in `curriculum/_lib` (`tree_helpers.py` has
+  `preorder_traversal` and `inorder_traversal`).
+- Small builders used by one problem stay inline in its test file.
+- Cover empty, single, normal, and edge cases. Name tests
+  `test_<function>_<case>`.
+- Compare node identity with `is` when the contract returns an existing node
+  (cycle entry, intersection); compare values otherwise.
 
 ## Verify
 
 ```bash
-python3 -m pytest NN_module/tests -q
+go run ./cmd/myleet validate                 # the folder loads: toml, files, unique id
+go run ./cmd/myleet check --solutions <id>   # only if solution.py exists
 ```
 
-Expect a clean collection. If the stubs are unimplemented, tests are **RED on purpose** — they are the target for solving. Confirm the count and that failures are assertion failures, not `ImportError`/collection errors. An `ImportError` means `pythonpath` is missing the module dir.
+To see the starter fail the right way, open it in the trainer (`myleet open <id>`):
+the test strip should show `not started`, not a collection error.
 
-## Common Mistakes
+## Gotchas
 
-| Mistake                                              | Symptom                                                        | Fix                                                                             |
-| ---------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Forgot `pythonpath` entry                            | `ModuleNotFoundError: list_node` / `problem_set` at collection | Add `"NN_module"` to `pythonpath` in pyproject                                  |
-| Added `__init__.py`                                  | `problem_set` from another module shadows / import clashes     | Delete it; rely on namespace packages                                           |
-| Shared helpers in `conftest.py`                      | Diverges from trees convention                                 | Inline `build_*`/`to_*` in each test file                                       |
-| `pass` body instead of `raise NotImplementedError`   | Unsolved problems silently return `None`                       | Use `raise NotImplementedError`, matching the rest of the repo                  |
-| Compared nodes by value when contract returns a node | False pass/fail on cycle/intersection                          | Assert with `is` against the expected node                                      |
-| Renamed category files per test run                  | Imports drift                                                  | Keep `<category>_problems.py` ↔ `test_<category>_problems.py` paired and stable |
+- **A collection error looks like one red test.** A typo in an import makes
+  pytest report a single error instead of your tests. If the trainer shows `0/1`
+  with an `ImportError` line, the problem is the test file, not the solution.
+- **Duplicate ids stop the whole catalog from loading.** `myleet validate` lists
+  every duplicate; fix them before anything else.
+- **Helpers in `_lib` are trusted code.** They are never stubbed and never part
+  of the exercise. Do not put a function the learner is meant to write there.
+- **Do not name a starter function differently from the test import.** The
+  rename only shows up as an `ImportError` at run time.

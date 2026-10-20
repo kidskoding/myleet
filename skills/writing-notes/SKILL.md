@@ -40,7 +40,7 @@ so a note does not need drills, repetition, or "try this yourself" exercises.
 Teach it once, teach it properly, hand off to the problem set.
 
 Primary calibration note:
-`03_stacks_and_queues/notes/02_queue_and_deque.md`. Its conversational prose,
+`curriculum/03_stacks_and_queues/notes/02_queue_and_deque.md`. Its conversational prose,
 derivation, runnable Python, diagrams, dry runs, interview reasoning, worked
 example, and compact revision layer define the bar. Its headings and length are
 not a template to copy.
@@ -103,7 +103,7 @@ Departing is often right. Some examples:
   search on answer) should show the template once and then several short
   re-skins of it.
 
-Do not add `Problems That Use This`. The README and workbook list problems.
+Do not add `Problems That Use This`. The problem folders under `techniques/` list problems.
 
 ## Non-Negotiables
 
@@ -220,11 +220,11 @@ vocabulary to follow the rest of the book and to speak in the interview.
 
 ### The problem set decides what the note covers
 
-Before writing, open the module's workbook in `problem_set/` and list the problems
+Before writing, list the module's problems under `techniques/` and the problems
 your note is responsible for. That list, not your own sense of what is
 interesting, decides the scope.
 
-**Every problem in the workbook needs teaching behind it.** If the ladder contains
+**Every problem in the module's ladder needs teaching behind it.** If the ladder contains
 *Design Circular Queue*, the note has to build a ring buffer, even though ring
 buffers are lower frequency in interviews than the rest of the module. A problem
 with no teaching behind it is a hole the reader falls into.
@@ -236,8 +236,8 @@ technique, it does not belong in the topic, however elegant it is.
 Bloom filters are the only case in this curriculum: they are a design-round
 subject, not a 40-minute coding problem. When that happens, the topic says so in
 its own words, its worked example is framed as a design question rather than
-given a fake LeetCode link, and the workbook carries a short section explaining
-why there are no numbered problems and what to practise instead. Never invent a
+given a fake LeetCode link, and the module README carries a short section explaining
+why there are no problem folders and what to practise instead. Never invent a
 LeetCode link to satisfy the structure.
 
 The check runs both directions, and it is the fastest way to settle an argument
@@ -247,7 +247,7 @@ prepares the reader for, and if you cannot name one, cut the section.
 ### Every topic works one LeetCode medium end to end
 
 Take a real interview problem and solve it completely. Not a toy, not a fragment,
-and not an easy. Pick a **medium from this module's own workbook** and link it in
+and not an easy. Pick a **medium from this module's own `techniques/` folders** and link it in
 the heading:
 
 ```md
@@ -603,7 +603,7 @@ volunteer complexity, and name the edge case being guarded. A short blockquote
 is useful when it captures a candidate's exact explanation.
 
 Keep it specific to the technique. Generic advice belongs in
-`00_fundamentals/05_interview_problem_solving.md`.
+`curriculum/00_fundamentals/notes/05_interview_problem_solving.md`.
 
 ### Put pitfalls beside the branch they explain
 
@@ -623,7 +623,7 @@ actually does. This is not optional.
 Straightforward and readable. Not wordy, not formal. Explain it the way you would
 to a friend who is smart but has not seen this before.
 
-Read `03_stacks_and_queues/notes/02_queue_and_deque.md` before writing. Match its
+Read `curriculum/03_stacks_and_queues/notes/02_queue_and_deque.md` before writing. Match its
 conversational register, connected derivation, concrete state, short direct
 sentences, and compact reference material. Do not copy its phrasing, headings,
 or length: the note is calibration, not a rigid template.
@@ -755,11 +755,11 @@ truncate a topic that needs the room.
 
 ## Coverage Check
 
-After writing, confirm the note and the workbook agree. Run this from the repo
+After writing, confirm the note and the module's problem folders agree. Run this from the repo
 root to see the problems your module's ladder contains:
 
 ```bash
-grep -n "^### " NN_module/problem_set/*.md | sed 's/.*### //'
+grep -h "^title" curriculum/NN_module/techniques/*/*/problem.toml | cut -d'"' -f2
 ```
 
 Then answer two questions:
@@ -781,7 +781,7 @@ Most notes are still skeletons. When rewriting more than one:
 2. Update `ledger.md` when a rewrite changes what a note establishes.
 3. Rewrite whole modules at a time, so the notes in one module share vocabulary
    and cross-reference each other correctly.
-4. Leave the module README and workbook alone. Deepening prose is not a
+4. Leave the module README and problem folders alone. Deepening prose is not a
    curriculum change.
 
 ## Gotchas
@@ -796,7 +796,7 @@ Most notes are still skeletons. When rewriting more than one:
   background; an individual chapter assumes all previous chapters. Those are
   different claims and confusing them produces bloated, repetitive notes.
 - **The calibration note shows the approved bar.** Read
-  `03_stacks_and_queues/notes/02_queue_and_deque.md` before writing, then adapt
+  `curriculum/03_stacks_and_queues/notes/02_queue_and_deque.md` before writing, then adapt
   its teaching flow to the topic rather than copying its structure.
 - **Don't teach a neighbouring module's job.** If an MST note starts explaining
   union-find from scratch, link `01_union_find.md` instead.
@@ -804,5 +804,5 @@ Most notes are still skeletons. When rewriting more than one:
   strawman "brute force" section, or a `Which One` table comparing one thing, is
   a note written to satisfy a template instead of a reader. Cut the section.
 - **Don't build drills into notes.** Repetition and speed come from the module
-  problem sets. A note that ends with practice exercises is duplicating work the
-  workbook already does better.
+  problem folders and the `myleet` trainer. A note that ends with practice exercises is
+  duplicating work the trainer already does better.

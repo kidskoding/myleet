@@ -8,7 +8,8 @@ You met Dijkstra in [10_graphs/07](../../10_graphs/notes/07_weighted_shortest_pa
 Prim differs from it by exactly one line.
 ```
 
-Readers go through the repo in module order, so "above" means lower module
+Module paths in this ledger are relative to `curriculum/`. Readers go through the
+repo in module order, so "above" means lower module
 number, or lower note number inside the same module.
 
 Update this file whenever a note is added, renamed, or changes what it covers.
