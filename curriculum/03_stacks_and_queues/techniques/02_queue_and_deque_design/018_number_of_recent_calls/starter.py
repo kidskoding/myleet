@@ -1,5 +1,5 @@
 class RecentCounter:
-    # Problem 18: Number Of Recent Calls
+    # Problem 18: Number of Recent Calls
 
     def __init__(self) -> None:
         # Time:

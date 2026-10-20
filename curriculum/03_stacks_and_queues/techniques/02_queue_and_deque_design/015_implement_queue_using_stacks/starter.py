@@ -1,5 +1,5 @@
 class MyQueue:
-    # Problem 15: Implement Queue Using Stacks
+    # Problem 15: Implement Queue using Stacks
 
     def __init__(self) -> None:
         # Time:

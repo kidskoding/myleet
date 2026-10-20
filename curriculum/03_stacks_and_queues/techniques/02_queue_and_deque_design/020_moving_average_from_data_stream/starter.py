@@ -1,5 +1,5 @@
 class MovingAverage:
-    # Problem 20: Moving Average From Data Stream
+    # Problem 20: Moving Average from Data Stream
 
     def __init__(self, size: int) -> None:
         # Time:
