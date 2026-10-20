@@ -1,0 +1,7 @@
+id = "count-unhappy-friends"
+title = "Count Unhappy Friends"
+difficulty = "medium"
+leetcode = 1583
+url = "https://leetcode.com/problems/count-unhappy-friends/"
+key_idea = "Precompute rank[a][b] (position of b in a's list) and each person's partner; x is unhappy if some u ranked above x's partner also ranks x above u's own partner."
+hints = ["You will repeatedly ask how much one person prefers another; make that lookup O(1).", "For person x, only friends earlier in x's list than x's partner can make x unhappy."]

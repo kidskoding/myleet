@@ -1,0 +1,7 @@
+id = "time-to-cross-a-bridge"
+title = "Time to Cross a Bridge"
+difficulty = "hard"
+leetcode = 2532
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+key_idea = "Event simulation with four heaps: workers waiting on each bank keyed by inefficiency, and workers busy picking or putting keyed by finish time; the bridge serves the right bank first and the clock jumps to the next finish when idle."
+hints = ["Sort out what 'least efficient' means and give each worker a single rank.", "Separate workers who are waiting at the bridge from those still busy in a warehouse, and jump time forward when nobody can cross."]

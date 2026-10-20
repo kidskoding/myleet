@@ -1,0 +1,7 @@
+id = "expressive-words"
+title = "Expressive Words"
+difficulty = "medium"
+leetcode = 809
+url = "https://leetcode.com/problems/expressive-words/"
+key_idea = "Compare run-length encodings: the letters must match group by group, and each group of s must either equal the word's group length or be at least 3 and no shorter than it."
+hints = ["Break both strings into groups of the same repeated letter.", "A group can only grow, and only to a size of three or more."]

@@ -1,0 +1,40 @@
+id = "shortest-word-distance-iii"
+title = "Shortest Word Distance III"
+difficulty = "medium"
+leetcode = 245
+url = "https://leetcode.com/problems/shortest-word-distance-iii/"
+key_idea = "One pass remembering the latest index of each word; when the two words are the same, compare each occurrence with the previous occurrence instead."
+hints = ["Only the most recent position of each word matters as you scan.", "Handle word1 == word2 separately so a word is never paired with itself."]
+prompt = """
+Implement `shortest_word_distance(words_dict, word1, word2)`, which returns the smallest
+distance `abs(i - j)` between an index `i` holding `word1` and an index `j` holding `word2`
+in the list `words_dict`.
+
+`word1` and `word2` may be the same word. In that case `i` and `j` must be two different
+positions of that word.
+
+**Example 1:**
+
+```
+Input: words_dict = ["practice","makes","perfect","coding","makes"], word1 = "makes", word2 = "coding"
+Output: 1
+```
+
+The second `makes` (index 4) is right after `coding` (index 3).
+
+**Example 2:**
+
+```
+Input: words_dict = ["practice","makes","perfect","coding","makes"], word1 = "makes", word2 = "makes"
+Output: 3
+```
+
+The two copies of `makes` are at indices 1 and 4.
+
+**Constraints:**
+
+- `1 <= words_dict.length <= 10^5`
+- `1 <= words_dict[i].length <= 10`, lowercase English letters
+- `word1` and `word2` both appear in `words_dict`; if they are equal, that word appears at
+  least twice
+"""

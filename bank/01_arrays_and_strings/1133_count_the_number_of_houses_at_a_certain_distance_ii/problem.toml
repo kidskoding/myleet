@@ -1,0 +1,7 @@
+id = "count-the-number-of-houses-at-a-certain-distance-ii"
+title = "Count the Number of Houses at a Certain Distance II"
+difficulty = "hard"
+leetcode = 3017
+url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/"
+key_idea = "The graph is a cycle (houses x..y plus the extra street) with a tail hanging off each end; count distances piece by piece (tail-tail, cycle-cycle, tail-cycle, tail-to-other-tail) and add each family as range increments on a difference array."
+hints = ["Draw the graph: what shape do houses x through y form once the extra street is added?", "Pairs from two fixed pieces have distances that form a few contiguous ranges, so add whole ranges at once."]

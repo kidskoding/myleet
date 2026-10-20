@@ -1,0 +1,7 @@
+id = "find-the-grid-of-region-average"
+title = "Find the Grid of Region Average"
+difficulty = "medium"
+leetcode = 3030
+url = "https://leetcode.com/problems/find-the-grid-of-region-average/"
+key_idea = "Check every 3x3 window for the adjacent-difference condition; for each valid one, add its floored average to a sum grid and bump a count grid over its nine cells, then divide (or keep the pixel when the count is zero)."
+hints = ["There are only (m - 2) * (n - 2) windows, each with a fixed number of adjacent pairs to check.", "Accumulate per pixel the sum of region averages and how many regions cover it."]

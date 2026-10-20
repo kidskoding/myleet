@@ -1,0 +1,42 @@
+id = "permutations-iii"
+title = "Permutations III"
+difficulty = "medium"
+leetcode = 3437
+url = "https://leetcode.com/problems/permutations-iii/"
+key_idea = "Backtrack placing values 1..n in increasing order at each slot, skipping any value with the same parity as the previous one, so results come out already sorted."
+hints = ["Building positions left to right and trying candidates in increasing order produces lexicographic order for free.", "Before placing a value, compare its parity with the last placed value."]
+prompt = """
+Implement `permute(n)`, which returns every permutation of the integers `1` through `n`
+in which neighbouring values always have different parity: no two odd numbers and no two
+even numbers sit next to each other.
+
+Return the permutations sorted in lexicographic order.
+
+**Example 1:**
+
+```
+Input: n = 4
+Output: [[1,2,3,4],[1,4,3,2],[2,1,4,3],[2,3,4,1],[3,2,1,4],[3,4,1,2],[4,1,2,3],[4,3,2,1]]
+```
+
+**Example 2:**
+
+```
+Input: n = 2
+Output: [[1,2],[2,1]]
+```
+
+**Example 3:**
+
+```
+Input: n = 3
+Output: [[1,2,3],[3,2,1]]
+```
+
+With three numbers there are two odds and one even, so the even number must sit in the
+middle.
+
+**Constraints:**
+
+- `1 <= n <= 10`
+"""

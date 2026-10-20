@@ -1,0 +1,7 @@
+id = "minimum-length-of-string-after-deleting-similar-ends"
+title = "Minimum Length of String After Deleting Similar Ends"
+difficulty = "medium"
+leetcode = 1750
+url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
+key_idea = "Two pointers from both ends: while the end characters match, skip the whole run of that character on each side."
+hints = ["Deleting as much as possible each time never hurts.", "Be careful when the pointers meet inside a run of the same character."]

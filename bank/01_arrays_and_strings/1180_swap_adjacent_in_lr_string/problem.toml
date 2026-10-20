@@ -1,0 +1,7 @@
+id = "swap-adjacent-in-lr-string"
+title = "Swap Adjacent in LR String"
+difficulty = "medium"
+leetcode = 777
+url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
+key_idea = "L and R never pass each other, so the strings minus X must match, and pairing them in order, each L may only move left and each R only right."
+hints = ["What can never change about the relative order of the L and R characters?", "Compare the positions of the k-th non-X character in both strings."]

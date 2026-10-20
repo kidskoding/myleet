@@ -1,0 +1,7 @@
+id = "non-decreasing-array"
+title = "Non-decreasing Array"
+difficulty = "medium"
+leetcode = 665
+url = "https://leetcode.com/problems/non-decreasing-array/"
+key_idea = "At the first drop nums[i] < nums[i-1], lower nums[i-1] when nums[i-2] allows it, otherwise raise nums[i] to nums[i-1]; a second drop means false."
+hints = ["Only one descent is allowed, so find it.", "At the descent you can change the left or the right element; which choice leaves the most room for what follows?"]

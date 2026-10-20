@@ -1,0 +1,44 @@
+id = "factor-combinations"
+title = "Factor Combinations"
+difficulty = "medium"
+leetcode = 254
+url = "https://leetcode.com/problems/factor-combinations/"
+key_idea = "Backtrack with a non-decreasing list of factors: from the current remainder, try each divisor f from the last factor up to sqrt(remainder), record [..., f, remainder / f], and recurse on remainder / f."
+hints = ["Generating factors in non-decreasing order keeps you from producing the same combination twice.", "A factor larger than the square root of what is left can only be the last one."]
+prompt = """
+Implement `get_factors(n)`.
+
+A number can be written as a product of its factors. For example, `8 = 2 * 2 * 2 = 2 * 4`.
+
+Return every way to write `n` as a product of two or more integers, each in the range
+`[2, n - 1]`. Each combination is a list of factors. Return the combinations in any order;
+two combinations that are rearrangements of each other count as the same combination, so
+include each one only once.
+
+**Example 1:**
+
+```
+Input: n = 1
+Output: []
+```
+
+**Example 2:**
+
+```
+Input: n = 12
+Output: [[2,6],[3,4],[2,2,3]]
+```
+
+**Example 3:**
+
+```
+Input: n = 37
+Output: []
+```
+
+`37` is prime, so it has no factors in range.
+
+**Constraints:**
+
+- `1 <= n <= 10^7`
+"""

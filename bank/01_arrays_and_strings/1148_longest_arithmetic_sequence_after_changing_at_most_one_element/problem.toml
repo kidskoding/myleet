@@ -1,0 +1,7 @@
+id = "longest-arithmetic-sequence-after-changing-at-most-one-element"
+title = "Longest Arithmetic Sequence After Changing At Most One Element"
+difficulty = "medium"
+leetcode = 3872
+url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
+key_idea = "Precompute the longest arithmetic run ending at and starting at each index; the answer is the best of extending a run by one changed neighbour, or changing nums[i] to the midpoint of its neighbours and joining the runs on both sides that share that difference."
+hints = ["Without any change, how long is the arithmetic run that ends at each index? And the one that starts there?", "If you change nums[i], its neighbours fix what the common difference must be."]
