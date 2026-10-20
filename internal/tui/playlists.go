@@ -2,7 +2,6 @@ package tui
 
 import (
 	"fmt"
-	"slices"
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
@@ -112,6 +111,35 @@ func (pl *Playlists) Update(msg tea.Msg) (Screen, tea.Cmd) {
 	return pl, nil
 }
 
+// listLine is one drawn line: a row index, or a group header when row is negative.
+type listLine struct {
+	row    int
+	header string
+}
+
+// lines puts a header above each group of companies; filtered results drop the headers.
+func (pl *Playlists) lines(vis []int) []listLine {
+	out := make([]listLine, 0, len(vis)+len(catalog.Groups))
+	lists := pl.s.App.Catalog.Playlists
+	grouped := pl.open == nil && !(pl.filter.on && pl.filter.query != "")
+	counts := map[string]int{}
+	for _, p := range lists {
+		counts[p.Group]++
+	}
+	last := ""
+	for _, i := range vis {
+		if grouped && lists[i].Group != last {
+			last = lists[i].Group
+			if len(out) > 0 {
+				out = append(out, listLine{row: -1})
+			}
+			out = append(out, listLine{row: -1, header: pl.s.Theme.Muted.Bold(true).Render(fmt.Sprintf("%s · %d", strings.ToUpper(last), counts[last]))})
+		}
+		out = append(out, listLine{row: i})
+	}
+	return out
+}
+
 func playlistCounts(p *catalog.Playlist, states map[string]schedule.State) (mastered, trackable, external int) {
 	for _, e := range p.Entries {
 		if e.Problem == nil {
@@ -179,13 +207,24 @@ func (pl *Playlists) View(w, h int) string {
 	if len(vis) == 0 {
 		body = append(body, th.Muted.Render("no matches"))
 	}
-	pl.offset = scrollWindow(max(slices.Index(vis, cursor), 0), pl.offset, visible)
-	for _, i := range vis[min(pl.offset, len(vis)):min(pl.offset+visible, len(vis))] {
+	lines := pl.lines(vis)
+	at := 0
+	for n, l := range lines {
+		if l.row == cursor {
+			at = n
+		}
+	}
+	pl.offset = scrollWindow(at, pl.offset, visible)
+	for _, l := range lines[min(pl.offset, len(lines)):min(pl.offset+visible, len(lines))] {
+		if l.row < 0 {
+			body = append(body, l.header)
+			continue
+		}
 		marker := "  "
-		if i == cursor {
+		if l.row == cursor {
 			marker = th.Accent.Render("▸ ")
 		}
-		body = append(body, marker+rows[i])
+		body = append(body, marker+rows[l.row])
 	}
 	return "\n" + strings.Join(indent(ui.Card(th, title, strings.Join(padLines(body, max(h-3, 1)), "\n"), cardW, true), 2), "\n")
 }

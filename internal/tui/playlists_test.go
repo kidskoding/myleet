@@ -94,3 +94,26 @@ func TestPlaylistBarsAlign(t *testing.T) {
 		t.Fatalf("every playlist bar should start in the same column, got %v", cols)
 	}
 }
+
+func TestPlaylistsGroupHeaders(t *testing.T) {
+	lines := strings.Split(plain(send(homeModel(t), key("4"))), "\n")
+	at := func(text string) int {
+		for i, l := range lines {
+			if strings.Contains(l, text) {
+				return i
+			}
+		}
+		t.Fatalf("no line with %q:\n%s", text, strings.Join(lines, "\n"))
+		return -1
+	}
+	if !(at("BIG TECH") < at("Meta") && at("Meta") < at("AI LABS / HIGH GROWTH") && at("AI LABS / HIGH GROWTH") < at("Stripe")) {
+		t.Fatalf("each company should sit under its group header:\n%s", strings.Join(lines, "\n"))
+	}
+}
+
+func TestPlaylistsCursorSkipsHeaders(t *testing.T) {
+	m := send(homeModel(t), key("4"), key("down"), key("enter"))
+	if pl := m.(Model).top().(*Playlists); pl.open == nil || pl.open.Title != "Stripe" {
+		t.Fatal("down from the last company in a group should land on the next company")
+	}
+}
