@@ -1,0 +1,172 @@
+title = "CrowdStrike"
+group = "Big tech"
+focus = "hashing for duplicate and anomaly detection, string and number parsing, sliding windows over event logs, bit tricks, and grouping with union-find."
+review_modules = ["01_arrays_and_hashing", "04_sliding_window", "15_bit_manipulation", "05_binary_search", "10_graphs"]
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Find the Difference"
+url = "https://leetcode.com/problems/find-the-difference/"
+
+[[entries]]
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+
+[[entries]]
+title = "Happy Number"
+url = "https://leetcode.com/problems/happy-number/"
+
+[[entries]]
+title = "Single Number"
+url = "https://leetcode.com/problems/single-number/"
+
+[[entries]]
+title = "Excel Sheet Column Number"
+url = "https://leetcode.com/problems/excel-sheet-column-number/"
+
+[[entries]]
+title = "Excel Sheet Column Title"
+url = "https://leetcode.com/problems/excel-sheet-column-title/"
+
+[[entries]]
+title = "Isomorphic Strings"
+url = "https://leetcode.com/problems/isomorphic-strings/"
+
+[[entries]]
+title = "Word Pattern"
+url = "https://leetcode.com/problems/word-pattern/"
+
+[[entries]]
+title = "Backspace String Compare"
+url = "https://leetcode.com/problems/backspace-string-compare/"
+
+[[entries]]
+title = "Find All Duplicates in an Array"
+url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
+
+[[entries]]
+title = "Find the Duplicate Number"
+url = "https://leetcode.com/problems/find-the-duplicate-number/"
+
+[[entries]]
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+
+[[entries]]
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
+
+[[entries]]
+title = "Maximum Swap"
+url = "https://leetcode.com/problems/maximum-swap/"
+
+[[entries]]
+title = "Fraction to Recurring Decimal"
+url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
+
+[[entries]]
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Substring with At Most Two Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/"
+
+[[entries]]
+title = "Fruit Into Baskets"
+url = "https://leetcode.com/problems/fruit-into-baskets/"
+
+[[entries]]
+title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
+url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
+
+[[entries]]
+title = "Maximum Erasure Value"
+url = "https://leetcode.com/problems/maximum-erasure-value/"
+
+[[entries]]
+title = "Binary Subarrays With Sum"
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
+
+[[entries]]
+title = "Count Number of Nice Subarrays"
+url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
+
+[[entries]]
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
+
+[[entries]]
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+
+[[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+
+[[entries]]
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
+
+[[entries]]
+title = "Count Subarrays With Fixed Bounds"
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
+
+[[entries]]
+title = "Shortest Subarray with Sum at Least K"
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"

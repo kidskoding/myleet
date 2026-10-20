@@ -1,0 +1,172 @@
+title = "Spotify"
+group = "Big tech"
+focus = "playlist-style linked lists and queues, randomized shuffling and sampling, sliding windows over streams, heaps for ranking, and string DP."
+review_modules = ["01_arrays_and_hashing", "04_sliding_window", "06_linked_lists", "08_heaps", "10_graphs", "11_dp", "14_tries"]
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Analyze User Website Visit Pattern"
+url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Contains Duplicate II"
+url = "https://leetcode.com/problems/contains-duplicate-ii/"
+
+[[entries]]
+title = "Maximum Average Subarray I"
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
+
+[[entries]]
+title = "Last Stone Weight"
+url = "https://leetcode.com/problems/last-stone-weight/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
+title = "Shuffle an Array"
+url = "https://leetcode.com/problems/shuffle-an-array/"
+
+[[entries]]
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+
+[[entries]]
+title = "Design Linked List"
+url = "https://leetcode.com/problems/design-linked-list/"
+
+[[entries]]
+title = "Design Circular Deque"
+url = "https://leetcode.com/problems/design-circular-deque/"
+
+[[entries]]
+title = "Design Front Middle Back Queue"
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+
+[[entries]]
+title = "Odd Even Linked List"
+url = "https://leetcode.com/problems/odd-even-linked-list/"
+
+[[entries]]
+title = "Swapping Nodes in a Linked List"
+url = "https://leetcode.com/problems/swapping-nodes-in-a-linked-list/"
+
+[[entries]]
+title = "Rotate List"
+url = "https://leetcode.com/problems/rotate-list/"
+
+[[entries]]
+title = "Longest Repeating Character Replacement"
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+
+[[entries]]
+title = "Fruit Into Baskets"
+url = "https://leetcode.com/problems/fruit-into-baskets/"
+
+[[entries]]
+title = "Maximum Erasure Value"
+url = "https://leetcode.com/problems/maximum-erasure-value/"
+
+[[entries]]
+title = "Longest Substring with At Most K Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+
+[[entries]]
+title = "Find K Pairs with Smallest Sums"
+url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+
+[[entries]]
+title = "Longest Word in Dictionary"
+url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+
+[[entries]]
+title = "Implement Trie II (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
+
+[[entries]]
+title = "Minimum Genetic Mutation"
+url = "https://leetcode.com/problems/minimum-genetic-mutation/"
+
+[[entries]]
+title = "Is Graph Bipartite?"
+url = "https://leetcode.com/problems/is-graph-bipartite/"
+
+[[entries]]
+title = "Possible Bipartition"
+url = "https://leetcode.com/problems/possible-bipartition/"
+
+[[entries]]
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
+
+[[entries]]
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
+
+[[entries]]
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+
+[[entries]]
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"
+
+[[entries]]
+title = "Ransom Note"
+url = "https://leetcode.com/problems/ransom-note/"
+
+[[entries]]
+title = "Fibonacci Number"
+url = "https://leetcode.com/problems/fibonacci-number/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"

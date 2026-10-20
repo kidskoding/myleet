@@ -1,0 +1,204 @@
+title = "Adobe"
+group = "Big tech"
+focus = "array and string manipulation, matrix and image-style grid traversal, rectangle geometry, binary trees, and classic 2D DP."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "07_trees", "10_graphs", "11_dp", "16_math_geometry"]
+
+[[entries]]
+title = "Count Subarrays With Fixed Bounds"
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Maximize Distance to Closest Person"
+url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Flatten Nested List Iterator"
+url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Largest Number"
+url = "https://leetcode.com/problems/largest-number/"
+
+[[entries]]
+title = "Gas Station"
+url = "https://leetcode.com/problems/gas-station/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Minimum Cost For Tickets"
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
+
+[[entries]]
+title = "Flatten a Multilevel Doubly Linked List"
+url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
+
+[[entries]]
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
+
+[[entries]]
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+
+[[entries]]
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+
+[[entries]]
+title = "Spiral Matrix II"
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Special Binary String"
+url = "https://leetcode.com/problems/special-binary-string/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Smallest Range II"
+url = "https://leetcode.com/problems/smallest-range-ii/"
+
+[[entries]]
+title = "Number of Increasing Paths in a Grid"
+url = "https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/"
+
+[[entries]]
+title = "Divide Intervals Into Minimum Number of Groups"
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+
+[[entries]]
+title = "Add Digits"
+url = "https://leetcode.com/problems/add-digits/"
+
+[[entries]]
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
+title = "Preimage Size of Factorial Zeroes Function"
+url = "https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/"
+
+[[entries]]
+title = "Number of Subarrays with Bounded Maximum"
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
+
+[[entries]]
+title = "Smallest Range I"
+url = "https://leetcode.com/problems/smallest-range-i/"
+
+[[entries]]
+title = "Reverse Substrings Between Each Pair of Parentheses"
+url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
+
+[[entries]]
+title = "Count Ways to Build Rooms in an Ant Colony"
+url = "https://leetcode.com/problems/count-ways-to-build-rooms-in-an-ant-colony/"
+
+[[entries]]
+title = "Plates Between Candles"
+url = "https://leetcode.com/problems/plates-between-candles/"
+
+[[entries]]
+title = "Choose Numbers From Two Arrays in Range"
+url = "https://leetcode.com/problems/choose-numbers-from-two-arrays-in-range/"
+
+[[entries]]
+title = "Minimize XOR"
+url = "https://leetcode.com/problems/minimize-xor/"
+
+[[entries]]
+title = "Merge Operations to Turn Array Into a Palindrome"
+url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
+
+[[entries]]
+title = "Minimizing Array After Replacing Pairs With Their Product"
+url = "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/"

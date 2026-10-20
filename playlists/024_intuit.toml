@@ -1,0 +1,204 @@
+title = "Intuit"
+group = "Big tech"
+focus = "prefix sums and hash maps over transaction-style arrays, stack-based string cleanup, org-chart graph traversal, and money-flavored DP."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
+
+[[entries]]
+title = "Dungeon Game"
+url = "https://leetcode.com/problems/dungeon-game/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Remove Boxes"
+url = "https://leetcode.com/problems/remove-boxes/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
+
+[[entries]]
+title = "Plus One"
+url = "https://leetcode.com/problems/plus-one/"
+
+[[entries]]
+title = "Maximum Product of Three Numbers"
+url = "https://leetcode.com/problems/maximum-product-of-three-numbers/"
+
+[[entries]]
+title = "Count Islands With Total Value Divisible by K"
+url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
+
+[[entries]]
+title = "Maximum Difference Score in a Grid"
+url = "https://leetcode.com/problems/maximum-difference-score-in-a-grid/"
+
+[[entries]]
+title = "Most Profitable Path in a Tree"
+url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
+
+[[entries]]
+title = "Length of the Longest Subsequence That Sums to Target"
+url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
+
+[[entries]]
+title = "Maximum Total Beauty of the Gardens"
+url = "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/"
+
+[[entries]]
+title = "Make String Anti-palindrome"
+url = "https://leetcode.com/problems/make-string-anti-palindrome/"
+
+[[entries]]
+title = "Destroy Sequential Targets"
+url = "https://leetcode.com/problems/destroy-sequential-targets/"
+
+[[entries]]
+title = "Number of Substrings With Fixed Ratio"
+url = "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Basic Calculator IV"
+url = "https://leetcode.com/problems/basic-calculator-iv/"
+
+[[entries]]
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
+
+[[entries]]
+title = "Left and Right Sum Differences"
+url = "https://leetcode.com/problems/left-and-right-sum-differences/"
+
+[[entries]]
+title = "Maximum Population Year"
+url = "https://leetcode.com/problems/maximum-population-year/"
+
+[[entries]]
+title = "Lemonade Change"
+url = "https://leetcode.com/problems/lemonade-change/"
+
+[[entries]]
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+
+[[entries]]
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
+
+[[entries]]
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
+
+[[entries]]
+title = "Find if Path Exists in Graph"
+url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
+
+[[entries]]
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
+
+[[entries]]
+title = "Maximum Size Subarray Sum Equals k"
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
+
+[[entries]]
+title = "Subarray Sums Divisible by K"
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+
+[[entries]]
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+
+[[entries]]
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+
+[[entries]]
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
+
+[[entries]]
+title = "Sort Characters By Frequency"
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+
+[[entries]]
+title = "Rearrange Array Elements by Sign"
+url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
+
+[[entries]]
+title = "Time Needed to Inform All Employees"
+url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
+
+[[entries]]
+title = "Keys and Rooms"
+url = "https://leetcode.com/problems/keys-and-rooms/"
+
+[[entries]]
+title = "Number of Connected Components in an Undirected Graph"
+url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Subsets II"
+url = "https://leetcode.com/problems/subsets-ii/"

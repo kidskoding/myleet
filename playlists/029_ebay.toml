@@ -1,0 +1,204 @@
+title = "eBay"
+group = "Big tech"
+focus = "string and hash map processing, stacks, prefix sums, tree construction and traversal, backtracking, and practical design classes."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "09_backtracking", "14_tries"]
+
+[[entries]]
+title = "Minimize Result by Adding Parentheses to Expression"
+url = "https://leetcode.com/problems/minimize-result-by-adding-parentheses-to-expression/"
+
+[[entries]]
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Alternating Groups II"
+url = "https://leetcode.com/problems/alternating-groups-ii/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Reverse Pairs"
+url = "https://leetcode.com/problems/reverse-pairs/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Binary Tree Cameras"
+url = "https://leetcode.com/problems/binary-tree-cameras/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "Remove One Element to Make the Array Strictly Increasing"
+url = "https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/"
+
+[[entries]]
+title = "Alternating Digit Sum"
+url = "https://leetcode.com/problems/alternating-digit-sum/"
+
+[[entries]]
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+
+[[entries]]
+title = "Subtree of Another Tree"
+url = "https://leetcode.com/problems/subtree-of-another-tree/"
+
+[[entries]]
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
+
+[[entries]]
+title = "Binary Gap"
+url = "https://leetcode.com/problems/binary-gap/"
+
+[[entries]]
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"
+
+[[entries]]
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Open the Lock"
+url = "https://leetcode.com/problems/open-the-lock/"
+
+[[entries]]
+title = "Pow(x, n)"
+url = "https://leetcode.com/problems/powx-n/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Matchsticks to Square"
+url = "https://leetcode.com/problems/matchsticks-to-square/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Sort Array By Parity"
+url = "https://leetcode.com/problems/sort-array-by-parity/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "Shortest Unsorted Continuous Subarray"
+url = "https://leetcode.com/problems/shortest-unsorted-continuous-subarray/"
+
+[[entries]]
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
+
+[[entries]]
+title = "Jump Game II"
+url = "https://leetcode.com/problems/jump-game-ii/"
+
+[[entries]]
+title = "Restore the Array From Adjacent Pairs"
+url = "https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/"
+
+[[entries]]
+title = "Block Placement Queries"
+url = "https://leetcode.com/problems/block-placement-queries/"
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Isomorphic Strings"
+url = "https://leetcode.com/problems/isomorphic-strings/"
+
+[[entries]]
+title = "Roman to Integer"
+url = "https://leetcode.com/problems/roman-to-integer/"
+
+[[entries]]
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+
+[[entries]]
+title = "Symmetric Tree"
+url = "https://leetcode.com/problems/symmetric-tree/"

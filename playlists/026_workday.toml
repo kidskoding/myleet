@@ -1,0 +1,160 @@
+title = "Workday"
+group = "Big tech"
+focus = "hash maps and sorting over business records, prefix sums, intervals and scheduling, org-chart trees and graphs, and small stateful designs."
+review_modules = ["01_arrays_and_hashing", "13_intervals", "07_trees", "10_graphs", "08_heaps", "12_greedy_algorithms"]
+
+[[entries]]
+title = "Break a Palindrome"
+url = "https://leetcode.com/problems/break-a-palindrome/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+
+[[entries]]
+title = "Merge Sorted Array"
+url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
+
+[[entries]]
+title = "Maximum Population Year"
+url = "https://leetcode.com/problems/maximum-population-year/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
+title = "Sort Characters By Frequency"
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+
+[[entries]]
+title = "Least Number of Unique Integers after K Removals"
+url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
+
+[[entries]]
+title = "Rank Teams by Votes"
+url = "https://leetcode.com/problems/rank-teams-by-votes/"
+
+[[entries]]
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
+
+[[entries]]
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
+
+[[entries]]
+title = "Maximum Size Subarray Sum Equals k"
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
+
+[[entries]]
+title = "Longest Substring with At Most K Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+
+[[entries]]
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
+
+[[entries]]
+title = "Determine if Two Events Have Conflict"
+url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
+
+[[entries]]
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
+
+[[entries]]
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
+
+[[entries]]
+title = "Time Needed to Inform All Employees"
+url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
+
+[[entries]]
+title = "Count Good Nodes in Binary Tree"
+url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+
+[[entries]]
+title = "Lowest Common Ancestor of Deepest Leaves"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
+
+[[entries]]
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Two City Scheduling"
+url = "https://leetcode.com/problems/two-city-scheduling/"
+
+[[entries]]
+title = "Minimum Number of Arrows to Burst Balloons"
+url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Divide Intervals Into Minimum Number of Groups"
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+
+[[entries]]
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+
+[[entries]]
+title = "Number of Flowers in Full Bloom"
+url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
+
+[[entries]]
+title = "Sort Items by Groups Respecting Dependencies"
+url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"

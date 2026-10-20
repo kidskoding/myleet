@@ -1,0 +1,204 @@
+title = "Nutanix"
+group = "Big tech"
+focus = "graphs and shortest paths, stacks and monotonic stacks, sliding windows, intervals and heaps, design caches, trees, and dp"
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "10_graphs"]
+
+[[entries]]
+title = "Minimum Operations to Halve Array Sum"
+url = "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/"
+
+[[entries]]
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Binary Tree Cameras"
+url = "https://leetcode.com/problems/binary-tree-cameras/"
+
+[[entries]]
+title = "Broken Calculator"
+url = "https://leetcode.com/problems/broken-calculator/"
+
+[[entries]]
+title = "Check If Word Is Valid After Substitutions"
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
+
+[[entries]]
+title = "Minimum Processing Time"
+url = "https://leetcode.com/problems/minimum-processing-time/"
+
+[[entries]]
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
+
+[[entries]]
+title = "Swap For Longest Repeated Character Substring"
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
+
+[[entries]]
+title = "Online Majority Element In Subarray"
+url = "https://leetcode.com/problems/online-majority-element-in-subarray/"
+
+[[entries]]
+title = "Maximum Sum of an Hourglass"
+url = "https://leetcode.com/problems/maximum-sum-of-an-hourglass/"
+
+[[entries]]
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
+
+[[entries]]
+title = "Delivering Boxes from Storage to Ports"
+url = "https://leetcode.com/problems/delivering-boxes-from-storage-to-ports/"
+
+[[entries]]
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
+
+[[entries]]
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Convert Binary Number in a Linked List to Integer"
+url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"
+
+[[entries]]
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+
+[[entries]]
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
+
+[[entries]]
+title = "Reverse Linked List II"
+url = "https://leetcode.com/problems/reverse-linked-list-ii/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Max Stack"
+url = "https://leetcode.com/problems/max-stack/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+
+[[entries]]
+title = "Best Sightseeing Pair"
+url = "https://leetcode.com/problems/best-sightseeing-pair/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Jump Game II"
+url = "https://leetcode.com/problems/jump-game-ii/"
+
+[[entries]]
+title = "Pacific Atlantic Water Flow"
+url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+
+[[entries]]
+title = "Boundary of Binary Tree"
+url = "https://leetcode.com/problems/boundary-of-binary-tree/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Min Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Surrounded Regions"
+url = "https://leetcode.com/problems/surrounded-regions/"
+
+[[entries]]
+title = "Longest Palindromic Subsequence"
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
