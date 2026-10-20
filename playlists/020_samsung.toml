@@ -4,52 +4,32 @@ focus = "graphs and grid bfs/dfs, dynamic programming, backtracking, arrays and 
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "09_backtracking", "10_graphs"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Combinations"
+url = "https://leetcode.com/problems/combinations/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Burst Balloons"
-url = "https://leetcode.com/problems/burst-balloons/"
-
-[[entries]]
-title = "Count Prefix and Suffix Pairs II"
-url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
-
-[[entries]]
-title = "Mark Elements on Array by Performing Queries"
-url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
-
-[[entries]]
-title = "Substring with Concatenation of All Words"
-url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Number of Paths with Max Score"
-url = "https://leetcode.com/problems/number-of-paths-with-max-score/"
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
 title = "Minimum Cost of a Path With Special Roads"
 url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
+
+[[entries]]
+title = "Stone Game IX"
+url = "https://leetcode.com/problems/stone-game-ix/"
+
+[[entries]]
+title = "Minimum Number of Operations to Make String Sorted"
+url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-string-sorted/"
+
+[[entries]]
+title = "Mark Elements on Array by Performing Queries"
+url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
 
 [[entries]]
 title = "Minimize Deviation in Array"
@@ -60,48 +40,44 @@ title = "Find Maximum Value in a Constrained Sequence"
 url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
 
 [[entries]]
-title = "Stone Game IX"
-url = "https://leetcode.com/problems/stone-game-ix/"
-
-[[entries]]
-title = "Partition Array Into Two Arrays to Minimize Sum Difference"
-url = "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/"
-
-[[entries]]
-title = "Largest 1-Bordered Square"
-url = "https://leetcode.com/problems/largest-1-bordered-square/"
-
-[[entries]]
-title = "Maximum Height by Stacking Cuboids"
-url = "https://leetcode.com/problems/maximum-height-by-stacking-cuboids/"
-
-[[entries]]
-title = "Maximum Product of Two Elements in an Array"
-url = "https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/"
-
-[[entries]]
 title = "Number of Nodes in the Sub-Tree With the Same Label"
 url = "https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/"
-
-[[entries]]
-title = "Find the Width of Columns of a Grid"
-url = "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/"
 
 [[entries]]
 title = "Design Graph With Shortest Path Calculator"
 url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"
 
 [[entries]]
-title = "Two Sum IV - Input is a BST"
-url = "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/"
+title = "Count Prefix and Suffix Pairs II"
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
 
 [[entries]]
-title = "Faulty Keyboard"
-url = "https://leetcode.com/problems/faulty-keyboard/"
+title = "Largest 1-Bordered Square"
+url = "https://leetcode.com/problems/largest-1-bordered-square/"
 
 [[entries]]
-title = "Minimum Number of Operations to Make String Sorted"
-url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-string-sorted/"
+title = "Number of Paths with Max Score"
+url = "https://leetcode.com/problems/number-of-paths-with-max-score/"
+
+[[entries]]
+title = "Maximum Height by Stacking Cuboids"
+url = "https://leetcode.com/problems/maximum-height-by-stacking-cuboids/"
+
+[[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+
+[[entries]]
+title = "Partition Array Into Two Arrays to Minimize Sum Difference"
+url = "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/"
+
+[[entries]]
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"
+
+[[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
 title = "Maximize Distance to Closest Person"
@@ -116,88 +92,112 @@ title = "Possible Bipartition"
 url = "https://leetcode.com/problems/possible-bipartition/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
-title = "Find Peak Element"
-url = "https://leetcode.com/problems/find-peak-element/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Check if There is a Valid Path in a Grid"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
 
 [[entries]]
 title = "Divide Two Integers"
 url = "https://leetcode.com/problems/divide-two-integers/"
 
 [[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
-
-[[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
-
-[[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
-
-[[entries]]
 title = "IPO"
 url = "https://leetcode.com/problems/ipo/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Tallest Billboard"
+url = "https://leetcode.com/problems/tallest-billboard/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Subarray Product Less Than K"
+url = "https://leetcode.com/problems/subarray-product-less-than-k/"
 
 [[entries]]
 title = "Make Sum Divisible by P"
 url = "https://leetcode.com/problems/make-sum-divisible-by-p/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Exam Room"
+url = "https://leetcode.com/problems/exam-room/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Find the Width of Columns of a Grid"
+url = "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/"
+
+[[entries]]
+title = "Find Peak Element"
+url = "https://leetcode.com/problems/find-peak-element/"
+
+[[entries]]
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Permutations"
 url = "https://leetcode.com/problems/permutations/"
 
 [[entries]]
-title = "Trapping Rain Water II"
-url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+title = "Jump Game II"
+url = "https://leetcode.com/problems/jump-game-ii/"
+
+[[entries]]
+title = "Two Sum IV - Input is a BST"
+url = "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
 title = "Sort Colors"

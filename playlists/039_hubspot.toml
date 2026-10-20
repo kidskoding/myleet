@@ -8,36 +8,32 @@ title = "Simple Bank System"
 url = "https://leetcode.com/problems/simple-bank-system/"
 
 [[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
 title = "Maximum Number of Occurrences of a Substring"
 url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Find the K-Sum of an Array"
+url = "https://leetcode.com/problems/find-the-k-sum-of-an-array/"
 
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Find the K-Sum of an Array"
-url = "https://leetcode.com/problems/find-the-k-sum-of-an-array/"
+title = "Merge Sorted Array"
+url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -70,10 +66,6 @@ url = "https://leetcode.com/problems/my-calendar-i/"
 [[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
-
-[[entries]]
-title = "Maximum Population Year"
-url = "https://leetcode.com/problems/maximum-population-year/"
 
 [[entries]]
 title = "Insert Interval"
@@ -116,14 +108,6 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Isomorphic Strings"
-url = "https://leetcode.com/problems/isomorphic-strings/"
-
-[[entries]]
 title = "Design A Leaderboard"
 url = "https://leetcode.com/problems/design-a-leaderboard/"
 
@@ -164,5 +148,37 @@ title = "All O`one Data Structure"
 url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"

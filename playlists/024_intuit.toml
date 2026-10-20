@@ -4,106 +4,6 @@ focus = "prefix sums and hash maps over transaction-style arrays, stack-based st
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]
-title = "Dungeon Game"
-url = "https://leetcode.com/problems/dungeon-game/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Basic Calculator III"
-url = "https://leetcode.com/problems/basic-calculator-iii/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Remove Boxes"
-url = "https://leetcode.com/problems/remove-boxes/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Daily Temperatures"
-url = "https://leetcode.com/problems/daily-temperatures/"
-
-[[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
-
-[[entries]]
-title = "Maximum Product of Three Numbers"
-url = "https://leetcode.com/problems/maximum-product-of-three-numbers/"
-
-[[entries]]
-title = "Count Islands With Total Value Divisible by K"
-url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
-
-[[entries]]
-title = "Maximum Difference Score in a Grid"
-url = "https://leetcode.com/problems/maximum-difference-score-in-a-grid/"
-
-[[entries]]
-title = "Most Profitable Path in a Tree"
-url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Number of Distinct Substrings in a String"
-url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
-
-[[entries]]
-title = "Length of the Longest Subsequence That Sums to Target"
-url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
-
-[[entries]]
-title = "Maximum Total Beauty of the Gardens"
-url = "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/"
-
-[[entries]]
-title = "Make String Anti-palindrome"
-url = "https://leetcode.com/problems/make-string-anti-palindrome/"
-
-[[entries]]
-title = "Destroy Sequential Targets"
-url = "https://leetcode.com/problems/destroy-sequential-targets/"
-
-[[entries]]
-title = "Number of Substrings With Fixed Ratio"
-url = "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/"
-
-[[entries]]
-title = "Max Area of Island"
-url = "https://leetcode.com/problems/max-area-of-island/"
-
-[[entries]]
-title = "Basic Calculator IV"
-url = "https://leetcode.com/problems/basic-calculator-iv/"
-
-[[entries]]
 title = "Find Pivot Index"
 url = "https://leetcode.com/problems/find-pivot-index/"
 
@@ -114,26 +14,6 @@ url = "https://leetcode.com/problems/left-and-right-sum-differences/"
 [[entries]]
 title = "Maximum Population Year"
 url = "https://leetcode.com/problems/maximum-population-year/"
-
-[[entries]]
-title = "Lemonade Change"
-url = "https://leetcode.com/problems/lemonade-change/"
-
-[[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
-
-[[entries]]
-title = "Greatest Common Divisor of Strings"
-url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
-
-[[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
-
-[[entries]]
-title = "Find if Path Exists in Graph"
-url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock II"
@@ -168,6 +48,10 @@ title = "Asteroid Collision"
 url = "https://leetcode.com/problems/asteroid-collision/"
 
 [[entries]]
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
+
+[[entries]]
 title = "Sort Characters By Frequency"
 url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
@@ -200,5 +84,121 @@ title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
 title = "Subsets II"
 url = "https://leetcode.com/problems/subsets-ii/"
+
+[[entries]]
+title = "Divide Intervals Into Minimum Number of Groups"
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+
+[[entries]]
+title = "Coin Change II"
+url = "https://leetcode.com/problems/coin-change-ii/"
+
+[[entries]]
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+
+[[entries]]
+title = "Dungeon Game"
+url = "https://leetcode.com/problems/dungeon-game/"
+
+[[entries]]
+title = "Maximum Difference Score in a Grid"
+url = "https://leetcode.com/problems/maximum-difference-score-in-a-grid/"
+
+[[entries]]
+title = "Maximum Total Beauty of the Gardens"
+url = "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/"
+
+[[entries]]
+title = "Make String Anti-palindrome"
+url = "https://leetcode.com/problems/make-string-anti-palindrome/"
+
+[[entries]]
+title = "Destroy Sequential Targets"
+url = "https://leetcode.com/problems/destroy-sequential-targets/"
+
+[[entries]]
+title = "Number of Substrings With Fixed Ratio"
+url = "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/"
+
+[[entries]]
+title = "Count Islands With Total Value Divisible by K"
+url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
+
+[[entries]]
+title = "Length of the Longest Subsequence That Sums to Target"
+url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
+
+[[entries]]
+title = "Basic Calculator IV"
+url = "https://leetcode.com/problems/basic-calculator-iv/"
+
+[[entries]]
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
+
+[[entries]]
+title = "Most Profitable Path in a Tree"
+url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
+
+[[entries]]
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
+
+[[entries]]
+title = "Longest Balanced Subarray I"
+url = "https://leetcode.com/problems/longest-balanced-subarray-i/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Number of Ways to Paint N \u00d7 3 Grid"
+url = "https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Reverse Pairs"
+url = "https://leetcode.com/problems/reverse-pairs/"
+
+[[entries]]
+title = "Strange Printer"
+url = "https://leetcode.com/problems/strange-printer/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Painting a Grid With Three Different Colors"
+url = "https://leetcode.com/problems/painting-a-grid-with-three-different-colors/"
+
+[[entries]]
+title = "Remove Boxes"
+url = "https://leetcode.com/problems/remove-boxes/"

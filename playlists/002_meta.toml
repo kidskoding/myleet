@@ -4,201 +4,201 @@ focus = "speed, arrays, strings, trees, graphs, heaps, and backtracking."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "08_heaps"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+
+[[entries]]
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
+
+[[entries]]
+title = "Dot Product of Two Sparse Vectors"
+url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
+
+[[entries]]
+title = "Random Pick Index"
+url = "https://leetcode.com/problems/random-pick-index/"
+
+[[entries]]
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Continuous Subarray Sum"
+url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Exclusive Time of Functions"
+url = "https://leetcode.com/problems/exclusive-time-of-functions/"
 
 [[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Range Sum of BST"
+url = "https://leetcode.com/problems/range-sum-of-bst/"
 
 [[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+title = "Binary Tree Vertical Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
 
 [[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Lowest Common Ancestor of a Binary Tree III"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Diameter of N-Ary Tree"
+url = "https://leetcode.com/problems/diameter-of-n-ary-tree/"
 
 [[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
+title = "Nested List Weight Sum"
+url = "https://leetcode.com/problems/nested-list-weight-sum/"
 
 [[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
+title = "Nested List Weight Sum II"
+url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
+title = "Shortest Path in Binary Matrix"
+url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
-title = "Minimum Size Subarray Sum"
-url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Subsets"
+url = "https://leetcode.com/problems/subsets/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Sparse Matrix Multiplication"
+url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
 
 [[entries]]
-title = "Maximum Length Substring With Two Occurrences"
-url = "https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/"
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
 
 [[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Fibonacci Number"
-url = "https://leetcode.com/problems/fibonacci-number/"
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Permutation in String"
-url = "https://leetcode.com/problems/permutation-in-string/"
+title = "Sum Root to Leaf Numbers"
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
 
 [[entries]]
-title = "Find the Index of the First Occurrence in a String"
-url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
-title = "Merge Strings Alternately"
-url = "https://leetcode.com/problems/merge-strings-alternately/"
+title = "Minimum Add to Make Parentheses Valid"
+url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
 
 [[entries]]
-title = "Single Number"
-url = "https://leetcode.com/problems/single-number/"
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
 
 [[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
+title = "Group Shifted Strings"
+url = "https://leetcode.com/problems/group-shifted-strings/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Insert into a Sorted Circular Linked List"
+url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Max Consecutive Ones III"
+url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
+title = "Valid Palindrome III"
+url = "https://leetcode.com/problems/valid-palindrome-iii/"
 
 [[entries]]
-title = "Power of Two"
-url = "https://leetcode.com/problems/power-of-two/"
-
-[[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
-
-[[entries]]
-title = "Sort an Array"
-url = "https://leetcode.com/problems/sort-an-array/"
-
-[[entries]]
-title = "Surrounded Regions"
-url = "https://leetcode.com/problems/surrounded-regions/"
-
-[[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"
 
 [[entries]]
 title = "Vertical Order Traversal of a Binary Tree"
 url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
-title = "Stone Game"
-url = "https://leetcode.com/problems/stone-game/"
+title = "Convert Binary Search Tree to Sorted Doubly Linked List"
+url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
-
-[[entries]]
-title = "Running Sum of 1d Array"
-url = "https://leetcode.com/problems/running-sum-of-1d-array/"
-
-[[entries]]
-title = "Reverse Words in a String"
-url = "https://leetcode.com/problems/reverse-words-in-a-string/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
-
-[[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
-
-[[entries]]
-title = "Remove Linked List Elements"
-url = "https://leetcode.com/problems/remove-linked-list-elements/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+title = "Pow(x, n)"
+url = "https://leetcode.com/problems/powx-n/"

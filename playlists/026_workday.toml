@@ -4,30 +4,6 @@ focus = "hash maps and sorting over business records, prefix sums, intervals and
 review_modules = ["01_arrays_and_hashing", "13_intervals", "07_trees", "10_graphs", "08_heaps", "12_greedy_algorithms"]
 
 [[entries]]
-title = "Break a Palindrome"
-url = "https://leetcode.com/problems/break-a-palindrome/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
-
-[[entries]]
 title = "Two Sum II - Input Array Is Sorted"
 url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
@@ -74,14 +50,6 @@ url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 [[entries]]
 title = "Longest Substring with At Most K Distinct Characters"
 url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
-
-[[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
-
-[[entries]]
-title = "Determine if Two Events Have Conflict"
-url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
 
 [[entries]]
 title = "My Calendar I"
@@ -158,3 +126,59 @@ url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencie
 [[entries]]
 title = "Maximum Profit in Job Scheduling"
 url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+
+[[entries]]
+title = "Break a Palindrome"
+url = "https://leetcode.com/problems/break-a-palindrome/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"

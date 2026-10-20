@@ -4,138 +4,6 @@ focus = "fundamentals, arrays/maps, trees, BFS/DFS, practical design, and reliab
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "11_dp"]
 
 [[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
-
-[[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Lexicographically Smallest String After Operations With Constraint"
-url = "https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/"
-
-[[entries]]
-title = "Number of Distinct Roll Sequences"
-url = "https://leetcode.com/problems/number-of-distinct-roll-sequences/"
-
-[[entries]]
-title = "Find Minimum Diameter After Merging Two Trees"
-url = "https://leetcode.com/problems/find-minimum-diameter-after-merging-two-trees/"
-
-[[entries]]
-title = "Maximum Score with Co-Prime Element"
-url = "https://leetcode.com/problems/maximum-score-with-co-prime-element/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Number of Visible People in a Queue"
-url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
-
-[[entries]]
-title = "Reverse Words in a String II"
-url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
-
-[[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
-
-[[entries]]
-title = "Check if a Parentheses String Can Be Valid"
-url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
-
-[[entries]]
-title = "Minimum Number of Swaps to Make the String Balanced"
-url = "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/"
-
-[[entries]]
-title = "Jump Game II"
-url = "https://leetcode.com/problems/jump-game-ii/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
@@ -146,6 +14,10 @@ url = "https://leetcode.com/problems/contains-duplicate-iii/"
 [[entries]]
 title = "Remove Covered Intervals"
 url = "https://leetcode.com/problems/remove-covered-intervals/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Min Stack"
@@ -184,6 +56,10 @@ title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
 
 [[entries]]
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
 title = "Minimum Obstacle Removal to Reach Corner"
 url = "https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/"
 
@@ -192,8 +68,8 @@ title = "Redundant Connection"
 url = "https://leetcode.com/problems/redundant-connection/"
 
 [[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
+title = "Move Zeroes"
+url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
 title = "Construct Binary Tree from Inorder and Postorder Traversal"
@@ -202,3 +78,127 @@ url = "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-post
 [[entries]]
 title = "Permutation Sequence"
 url = "https://leetcode.com/problems/permutation-sequence/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock IV"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
+
+[[entries]]
+title = "Find K Pairs with Smallest Sums"
+url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+
+[[entries]]
+title = "Divide Two Integers"
+url = "https://leetcode.com/problems/divide-two-integers/"
+
+[[entries]]
+title = "Number of Enclaves"
+url = "https://leetcode.com/problems/number-of-enclaves/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "Perfect Squares"
+url = "https://leetcode.com/problems/perfect-squares/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Lexicographically Smallest String After Operations With Constraint"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/"
+
+[[entries]]
+title = "Number of Distinct Roll Sequences"
+url = "https://leetcode.com/problems/number-of-distinct-roll-sequences/"
+
+[[entries]]
+title = "Maximum Score with Co-Prime Element"
+url = "https://leetcode.com/problems/maximum-score-with-co-prime-element/"
+
+[[entries]]
+title = "Find Minimum Diameter After Merging Two Trees"
+url = "https://leetcode.com/problems/find-minimum-diameter-after-merging-two-trees/"
+
+[[entries]]
+title = "Reverse Words in a String II"
+url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
+
+[[entries]]
+title = "Word Break II"
+url = "https://leetcode.com/problems/word-break-ii/"
+
+[[entries]]
+title = "Check if a Parentheses String Can Be Valid"
+url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
+
+[[entries]]
+title = "Minimum One Bit Operations to Make Integers Zero"
+url = "https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/"
+
+[[entries]]
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
+
+[[entries]]
+title = "Maximum Profit From Trading Stocks"
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
+
+[[entries]]
+title = "Minimum Number of Swaps to Make the String Balanced"
+url = "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/"
+
+[[entries]]
+title = "Longest Repeating Character Replacement"
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+
+[[entries]]
+title = "Number of Visible People in a Queue"
+url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"
+
+[[entries]]
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Pacific Atlantic Water Flow"
+url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+
+[[entries]]
+title = "Number of Distinct Islands"
+url = "https://leetcode.com/problems/number-of-distinct-islands/"
+
+[[entries]]
+title = "Amount of Time for Binary Tree to Be Infected"
+url = "https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/"
+
+[[entries]]
+title = "Fruit Into Baskets"
+url = "https://leetcode.com/problems/fruit-into-baskets/"

@@ -4,46 +4,6 @@ focus = "hash maps and sliding window over records, interval and calendar schedu
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
 [[entries]]
-title = "Reward Top K Students"
-url = "https://leetcode.com/problems/reward-top-k-students/"
-
-[[entries]]
-title = "Delete Duplicate Folders in System"
-url = "https://leetcode.com/problems/delete-duplicate-folders-in-system/"
-
-[[entries]]
-title = "Two Out of Three"
-url = "https://leetcode.com/problems/two-out-of-three/"
-
-[[entries]]
-title = "Coloring A Border"
-url = "https://leetcode.com/problems/coloring-a-border/"
-
-[[entries]]
-title = "K Highest Ranked Items Within a Price Range"
-url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
-
-[[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
-
-[[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
@@ -58,18 +18,6 @@ url = "https://leetcode.com/problems/bulls-and-cows/"
 [[entries]]
 title = "Summary Ranges"
 url = "https://leetcode.com/problems/summary-ranges/"
-
-[[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
-
-[[entries]]
-title = "Determine if Two Events Have Conflict"
-url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
-
-[[entries]]
-title = "Maximum Population Year"
-url = "https://leetcode.com/problems/maximum-population-year/"
 
 [[entries]]
 title = "Least Number of Unique Integers after K Removals"
@@ -172,12 +120,40 @@ title = "IPO"
 url = "https://leetcode.com/problems/ipo/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Reward Top K Students"
+url = "https://leetcode.com/problems/reward-top-k-students/"
 
 [[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
+title = "K Highest Ranked Items Within a Price Range"
+url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
+
+[[entries]]
+title = "Coloring A Border"
+url = "https://leetcode.com/problems/coloring-a-border/"
+
+[[entries]]
+title = "Delete Duplicate Folders in System"
+url = "https://leetcode.com/problems/delete-duplicate-folders-in-system/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Longest Valid Parentheses"
@@ -186,3 +162,23 @@ url = "https://leetcode.com/problems/longest-valid-parentheses/"
 [[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"

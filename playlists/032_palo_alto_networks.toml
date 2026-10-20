@@ -4,86 +4,6 @@ focus = "bitwise tricks, careful string parsing and conversion, tries, interval 
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "14_tries", "13_intervals", "10_graphs", "17_advanced"]
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
-
-[[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
-
-[[entries]]
-title = "Couples Holding Hands"
-url = "https://leetcode.com/problems/couples-holding-hands/"
-
-[[entries]]
-title = "Open the Lock"
-url = "https://leetcode.com/problems/open-the-lock/"
-
-[[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
-
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "Find the Longest Equal Subarray"
-url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Minimum Number of Food Buckets to Feed the Hamsters"
-url = "https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
 title = "Complement of Base 10 Integer"
 url = "https://leetcode.com/problems/complement-of-base-10-integer/"
 
@@ -94,14 +14,6 @@ url = "https://leetcode.com/problems/power-of-four/"
 [[entries]]
 title = "Counting Bits"
 url = "https://leetcode.com/problems/counting-bits/"
-
-[[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
-
-[[entries]]
-title = "Decode XORed Array"
-url = "https://leetcode.com/problems/decode-xored-array/"
 
 [[entries]]
 title = "Sum of Two Integers"
@@ -120,6 +32,10 @@ title = "Gray Code"
 url = "https://leetcode.com/problems/gray-code/"
 
 [[entries]]
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
 title = "Compare Version Numbers"
 url = "https://leetcode.com/problems/compare-version-numbers/"
 
@@ -128,8 +44,8 @@ title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
 title = "Longest Nice Subarray"
@@ -152,53 +68,137 @@ title = "Design Add and Search Words Data Structure"
 url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
-title = "Points That Intersect With Cars"
-url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
+title = "Amount of New Area Painted Each Day"
+url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Describe the Painting"
+url = "https://leetcode.com/problems/describe-the-painting/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Number of Connected Components in an Undirected Graph"
+url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
+title = "Set Intersection Size At Least Two"
+url = "https://leetcode.com/problems/set-intersection-size-at-least-two/"
 
 [[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
+title = "Prefix and Suffix Search"
+url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+
+[[entries]]
+title = "Word Squares"
+url = "https://leetcode.com/problems/word-squares/"
+
+[[entries]]
+title = "Concatenated Words"
+url = "https://leetcode.com/problems/concatenated-words/"
+
+[[entries]]
+title = "Find the Longest Equal Subarray"
+url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
+
+[[entries]]
+title = "Minimum Number of Food Buckets to Feed the Hamsters"
+url = "https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters/"
 
 [[entries]]
 title = "Advantage Shuffle"
 url = "https://leetcode.com/problems/advantage-shuffle/"
 
 [[entries]]
+title = "Couples Holding Hands"
+url = "https://leetcode.com/problems/couples-holding-hands/"
+
+[[entries]]
+title = "Design Twitter"
+url = "https://leetcode.com/problems/design-twitter/"
+
+[[entries]]
+title = "Maximum Length of a Concatenated String with Unique Characters"
+url = "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/"
+
+[[entries]]
+title = "Open the Lock"
+url = "https://leetcode.com/problems/open-the-lock/"
+
+[[entries]]
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+
+[[entries]]
+title = "Remove Zero Sum Consecutive Nodes from Linked List"
+url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
 title = "Reverse Linked List II"
 url = "https://leetcode.com/problems/reverse-linked-list-ii/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Path Sum II"
+url = "https://leetcode.com/problems/path-sum-ii/"
 
 [[entries]]
-title = "Amount of New Area Painted Each Day"
-url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "Restore IP Addresses"
+url = "https://leetcode.com/problems/restore-ip-addresses/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+
+[[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"

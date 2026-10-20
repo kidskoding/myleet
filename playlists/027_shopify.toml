@@ -4,22 +4,6 @@ focus = "practical commerce-flavored problems: greedy allocation, frequency coun
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "08_heaps", "12_greedy_algorithms", "14_tries"]
 
 [[entries]]
-title = "Walking Robot Simulation"
-url = "https://leetcode.com/problems/walking-robot-simulation/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
-
-[[entries]]
-title = "Paint House"
-url = "https://leetcode.com/problems/paint-house/"
-
-[[entries]]
 title = "Maximum Units on a Truck"
 url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
 
@@ -30,18 +14,6 @@ url = "https://leetcode.com/problems/assign-cookies/"
 [[entries]]
 title = "Can Place Flowers"
 url = "https://leetcode.com/problems/can-place-flowers/"
-
-[[entries]]
-title = "Find the Difference"
-url = "https://leetcode.com/problems/find-the-difference/"
-
-[[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Repeated Substring Pattern"
-url = "https://leetcode.com/problems/repeated-substring-pattern/"
 
 [[entries]]
 title = "Design Circular Queue"
@@ -148,5 +120,65 @@ title = "LFU Cache"
 url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
+title = "Walking Robot Simulation"
+url = "https://leetcode.com/problems/walking-robot-simulation/"
+
+[[entries]]
+title = "Paint House"
+url = "https://leetcode.com/problems/paint-house/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
 title = "Design In-Memory File System"
 url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"

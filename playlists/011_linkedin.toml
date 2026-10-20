@@ -1,11 +1,111 @@
-title = "LinkedIn"
+title = "LinkedIn (a Microsoft company)"
 group = "Big tech"
 focus = "graphs, trees, arrays, DP, heaps, and clean problem solving."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "10_graphs", "08_heaps", "07_trees"]
 
 [[entries]]
-title = "Bulb Switcher"
-url = "https://leetcode.com/problems/bulb-switcher/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
+
+[[entries]]
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
+
+[[entries]]
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+
+[[entries]]
+title = "Strobogrammatic Number III"
+url = "https://leetcode.com/problems/strobogrammatic-number-iii/"
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "String to Integer (atoi)"
+url = "https://leetcode.com/problems/string-to-integer-atoi/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Intersection of Two Linked Lists"
+url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
+
+[[entries]]
+title = "Integer to English Words"
+url = "https://leetcode.com/problems/integer-to-english-words/"
+
+[[entries]]
+title = "Missing Number"
+url = "https://leetcode.com/problems/missing-number/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+
+[[entries]]
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+
+[[entries]]
+title = "Maximum XOR of Two Numbers in an Array"
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+
+[[entries]]
+title = "Beautiful Arrangement"
+url = "https://leetcode.com/problems/beautiful-arrangement/"
+
+[[entries]]
+title = "Binary Tree Cameras"
+url = "https://leetcode.com/problems/binary-tree-cameras/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Hand of Straights"
+url = "https://leetcode.com/problems/hand-of-straights/"
+
+[[entries]]
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
+
+[[entries]]
+title = "Minimum Genetic Mutation"
+url = "https://leetcode.com/problems/minimum-genetic-mutation/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock III"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+
+[[entries]]
+title = "Paint House"
+url = "https://leetcode.com/problems/paint-house/"
+
+[[entries]]
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "Nested List Weight Sum II"
@@ -16,48 +116,16 @@ title = "Shortest Word Distance II"
 url = "https://leetcode.com/problems/shortest-word-distance-ii/"
 
 [[entries]]
-title = "Maximize Sum of Weights after Edge Removals"
-url = "https://leetcode.com/problems/maximize-sum-of-weights-after-edge-removals/"
-
-[[entries]]
-title = "Maximum Number of Occurrences of a Substring"
-url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
-
-[[entries]]
-title = "Letter Combinations of a Phone Number"
-url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
-
-[[entries]]
 title = "Max Stack"
 url = "https://leetcode.com/problems/max-stack/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Bulb Switcher"
+url = "https://leetcode.com/problems/bulb-switcher/"
 
 [[entries]]
 title = "Sort Transformed Array"
 url = "https://leetcode.com/problems/sort-transformed-array/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Can Place Flowers"
-url = "https://leetcode.com/problems/can-place-flowers/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Nested List Weight Sum"
@@ -68,137 +136,69 @@ title = "Find Leaves of Binary Tree"
 url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
 
 [[entries]]
-title = "Maximum Product Subarray"
-url = "https://leetcode.com/problems/maximum-product-subarray/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Valid Number"
-url = "https://leetcode.com/problems/valid-number/"
-
-[[entries]]
-title = "Partition to K Equal Sum Subsets"
-url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Binary Tree Upside Down"
+url = "https://leetcode.com/problems/binary-tree-upside-down/"
 
 [[entries]]
 title = "Closest Binary Search Tree Value II"
 url = "https://leetcode.com/problems/closest-binary-search-tree-value-ii/"
 
 [[entries]]
-title = "Find Smallest Letter Greater Than Target"
-url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+
+[[entries]]
+title = "Factor Combinations"
+url = "https://leetcode.com/problems/factor-combinations/"
+
+[[entries]]
+title = "Shortest Word Distance III"
+url = "https://leetcode.com/problems/shortest-word-distance-iii/"
+
+[[entries]]
+title = "Maximize Sum of Weights after Edge Removals"
+url = "https://leetcode.com/problems/maximize-sum-of-weights-after-edge-removals/"
+
+[[entries]]
+title = "Max Consecutive Ones III"
+url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
+
+[[entries]]
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"
+
+[[entries]]
+title = "Maximize Total Tastiness of Purchased Fruits"
+url = "https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits/"
+
+[[entries]]
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+
+[[entries]]
+title = "Minimum Increase to Maximize Special Indices"
+url = "https://leetcode.com/problems/minimum-increase-to-maximize-special-indices/"
+
+[[entries]]
+title = "Count Integers in Intervals"
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
+
+[[entries]]
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+
+[[entries]]
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1) - Duplicates allowed"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
 
 [[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Possible Bipartition"
-url = "https://leetcode.com/problems/possible-bipartition/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Open the Lock"
-url = "https://leetcode.com/problems/open-the-lock/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "All Nodes Distance K in Binary Tree"
-url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
-
-[[entries]]
-title = "Paint House"
-url = "https://leetcode.com/problems/paint-house/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
-
-[[entries]]
-title = "Find K Closest Elements"
-url = "https://leetcode.com/problems/find-k-closest-elements/"
-
-[[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
-
-[[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
-
-[[entries]]
-title = "Integer to English Words"
-url = "https://leetcode.com/problems/integer-to-english-words/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Find First and Last Position of Element in Sorted Array"
-url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
-
-[[entries]]
-title = "Binary Tree Upside Down"
-url = "https://leetcode.com/problems/binary-tree-upside-down/"
-
-[[entries]]
-title = "Pow(x, n)"
-url = "https://leetcode.com/problems/powx-n/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
 title = "Lowest Common Ancestor of a Binary Search Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
-
-[[entries]]
-title = "Exclusive Time of Functions"
-url = "https://leetcode.com/problems/exclusive-time-of-functions/"

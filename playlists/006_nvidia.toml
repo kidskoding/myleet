@@ -4,188 +4,60 @@ focus = "arrays, graphs, DP, bit manipulation, performance reasoning, and clean 
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "10_graphs", "11_dp", "15_bit_manipulation", "17_advanced"]
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
-
-[[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
-
-[[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Special Binary String"
-url = "https://leetcode.com/problems/special-binary-string/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Copy List with Random Pointer"
-url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
-
-[[entries]]
-title = "Break a Palindrome"
-url = "https://leetcode.com/problems/break-a-palindrome/"
-
-[[entries]]
-title = "Minimum Absolute Difference"
-url = "https://leetcode.com/problems/minimum-absolute-difference/"
-
-[[entries]]
-title = "Palindrome Linked List"
-url = "https://leetcode.com/problems/palindrome-linked-list/"
-
-[[entries]]
-title = "Binary Subarrays With Sum"
-url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
 
 [[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
 title = "Find Peak Element"
 url = "https://leetcode.com/problems/find-peak-element/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Maximize Greatness of an Array"
-url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
-
-[[entries]]
-title = "Last Stone Weight"
-url = "https://leetcode.com/problems/last-stone-weight/"
-
-[[entries]]
-title = "Minimum Operations to Reduce an Integer to 0"
-url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
-
-[[entries]]
-title = "Fizz Buzz"
-url = "https://leetcode.com/problems/fizz-buzz/"
-
-[[entries]]
-title = "Reverse Bits"
-url = "https://leetcode.com/problems/reverse-bits/"
-
-[[entries]]
-title = "Maximum Number of Visible Points"
-url = "https://leetcode.com/problems/maximum-number-of-visible-points/"
-
-[[entries]]
-title = "Dot Product of Two Sparse Vectors"
-url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
-
-[[entries]]
-title = "4Sum"
-url = "https://leetcode.com/problems/4sum/"
-
-[[entries]]
-title = "Find The Original Array of Prefix Xor"
-url = "https://leetcode.com/problems/find-the-original-array-of-prefix-xor/"
-
-[[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
 
 [[entries]]
 title = "Find Minimum in Rotated Sorted Array"
 url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 
 [[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
 title = "Best Time to Buy and Sell Stock with Transaction Fee"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Subarray Sums Divisible by K"
@@ -196,9 +68,137 @@ title = "Balanced Binary Tree"
 url = "https://leetcode.com/problems/balanced-binary-tree/"
 
 [[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
 title = "Cheapest Flights Within K Stops"
 url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 
 [[entries]]
 title = "Critical Connections in a Network"
 url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Path With Minimum Effort"
+url = "https://leetcode.com/problems/path-with-minimum-effort/"
+
+[[entries]]
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
+
+[[entries]]
+title = "Min Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Smallest Subtree with all the Deepest Nodes"
+url = "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Online Stock Span"
+url = "https://leetcode.com/problems/online-stock-span/"
+
+[[entries]]
+title = "Reverse Integer"
+url = "https://leetcode.com/problems/reverse-integer/"
+
+[[entries]]
+title = "Sparse Matrix Multiplication"
+url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Special Binary String"
+url = "https://leetcode.com/problems/special-binary-string/"
+
+[[entries]]
+title = "Restore IP Addresses"
+url = "https://leetcode.com/problems/restore-ip-addresses/"
+
+[[entries]]
+title = "Break a Palindrome"
+url = "https://leetcode.com/problems/break-a-palindrome/"
+
+[[entries]]
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
+
+[[entries]]
+title = "Find The Original Array of Prefix Xor"
+url = "https://leetcode.com/problems/find-the-original-array-of-prefix-xor/"
+
+[[entries]]
+title = "Minimum Operations to Reduce an Integer to 0"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
+
+[[entries]]
+title = "Maximum Number of Visible Points"
+url = "https://leetcode.com/problems/maximum-number-of-visible-points/"
+
+[[entries]]
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+
+[[entries]]
+title = "Copy List with Random Pointer"
+url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+
+[[entries]]
+title = "Dot Product of Two Sparse Vectors"
+url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
+
+[[entries]]
+title = "Count the Number of Good Subsequences"
+url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
+
+[[entries]]
+title = "Binary Subarrays With Sum"
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
+
+[[entries]]
+title = "Rotate List"
+url = "https://leetcode.com/problems/rotate-list/"
+
+[[entries]]
+title = "Rectangle Area"
+url = "https://leetcode.com/problems/rectangle-area/"
+
+[[entries]]
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Koko Eating Bananas"
+url = "https://leetcode.com/problems/koko-eating-bananas/"

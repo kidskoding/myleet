@@ -4,50 +4,6 @@ focus = "hashing for duplicate and anomaly detection, string and number parsing,
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "15_bit_manipulation", "05_binary_search", "10_graphs"]
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
-
-[[entries]]
 title = "Find the Difference"
 url = "https://leetcode.com/problems/find-the-difference/"
 
@@ -58,30 +14,6 @@ url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
 [[entries]]
 title = "Happy Number"
 url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Single Number"
-url = "https://leetcode.com/problems/single-number/"
-
-[[entries]]
-title = "Excel Sheet Column Number"
-url = "https://leetcode.com/problems/excel-sheet-column-number/"
-
-[[entries]]
-title = "Excel Sheet Column Title"
-url = "https://leetcode.com/problems/excel-sheet-column-title/"
-
-[[entries]]
-title = "Isomorphic Strings"
-url = "https://leetcode.com/problems/isomorphic-strings/"
-
-[[entries]]
-title = "Word Pattern"
-url = "https://leetcode.com/problems/word-pattern/"
-
-[[entries]]
-title = "Backspace String Compare"
-url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
 title = "Find All Duplicates in an Array"
@@ -170,3 +102,83 @@ url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
 [[entries]]
 title = "Shortest Subarray with Sum at Least K"
 url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"

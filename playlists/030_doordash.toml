@@ -4,80 +4,8 @@ focus = "intervals, heaps, graphs, trees, arrays, and standard interview reasoni
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]
-title = "Walls and Gates"
-url = "https://leetcode.com/problems/walls-and-gates/"
-
-[[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
-
-[[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
-
-[[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
-
-[[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
-
-[[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
-
-[[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
-
-[[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
-
-[[entries]]
-title = "Shortest Distance from All Buildings"
-url = "https://leetcode.com/problems/shortest-distance-from-all-buildings/"
-
-[[entries]]
-title = "Most Profit Assigning Work"
-url = "https://leetcode.com/problems/most-profit-assigning-work/"
-
-[[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
-
-[[entries]]
-title = "Buddy Strings"
-url = "https://leetcode.com/problems/buddy-strings/"
-
-[[entries]]
-title = "Next Greater Element III"
-url = "https://leetcode.com/problems/next-greater-element-iii/"
-
-[[entries]]
-title = "Find K Closest Elements"
-url = "https://leetcode.com/problems/find-k-closest-elements/"
-
-[[entries]]
-title = "Check if One String Swap Can Make Strings Equal"
-url = "https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/"
-
-[[entries]]
-title = "Minimum Number of Steps to Make Two Strings Anagram"
-url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
 
 [[entries]]
 title = "Majority Element II"
@@ -98,14 +26,6 @@ url = "https://leetcode.com/problems/robot-room-cleaner/"
 [[entries]]
 title = "Valid Parentheses"
 url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Count Nodes With the Highest Score"
-url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
-
-[[entries]]
-title = "Backspace String Compare"
-url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
 title = "Design Bounded Blocking Queue"
@@ -132,16 +52,8 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
-
-[[entries]]
 title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
-
-[[entries]]
-title = "Convert Sorted Array to Binary Search Tree"
-url = "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
 
 [[entries]]
 title = "Palindrome Partitioning"
@@ -150,10 +62,6 @@ url = "https://leetcode.com/problems/palindrome-partitioning/"
 [[entries]]
 title = "Set Matrix Zeroes"
 url = "https://leetcode.com/problems/set-matrix-zeroes/"
-
-[[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
 
 [[entries]]
 title = "Cheapest Flights Within K Stops"
@@ -176,10 +84,6 @@ title = "Rotate List"
 url = "https://leetcode.com/problems/rotate-list/"
 
 [[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
-
-[[entries]]
 title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
 
@@ -196,9 +100,105 @@ title = "Maximum Length of Repeated Subarray"
 url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
-
-[[entries]]
 title = "Min Cost to Connect All Points"
 url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "Walls and Gates"
+url = "https://leetcode.com/problems/walls-and-gates/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+
+[[entries]]
+title = "Subsequence With the Minimum Score"
+url = "https://leetcode.com/problems/subsequence-with-the-minimum-score/"
+
+[[entries]]
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
+
+[[entries]]
+title = "Most Profit Assigning Work"
+url = "https://leetcode.com/problems/most-profit-assigning-work/"
+
+[[entries]]
+title = "Count Nodes With the Highest Score"
+url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
+
+[[entries]]
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Mice and Cheese"
+url = "https://leetcode.com/problems/mice-and-cheese/"
+
+[[entries]]
+title = "Design File System"
+url = "https://leetcode.com/problems/design-file-system/"
+
+[[entries]]
+title = "Count All Valid Pickup and Delivery Options"
+url = "https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options/"
+
+[[entries]]
+title = "Search Suggestions System"
+url = "https://leetcode.com/problems/search-suggestions-system/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Shortest Distance from All Buildings"
+url = "https://leetcode.com/problems/shortest-distance-from-all-buildings/"
+
+[[entries]]
+title = "Next Greater Element III"
+url = "https://leetcode.com/problems/next-greater-element-iii/"
+
+[[entries]]
+title = "Minimum Number of Steps to Make Two Strings Anagram"
+url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+
+[[entries]]
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
+
+[[entries]]
+title = "Making A Large Island"
+url = "https://leetcode.com/problems/making-a-large-island/"
+
+[[entries]]
+title = "01 Matrix"
+url = "https://leetcode.com/problems/01-matrix/"
+
+[[entries]]
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
+
+[[entries]]
+title = "Koko Eating Bananas"
+url = "https://leetcode.com/problems/koko-eating-bananas/"
+
+[[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+
+[[entries]]
+title = "Ways to Make a Fair Array"
+url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"

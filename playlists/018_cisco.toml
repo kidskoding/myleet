@@ -4,160 +4,12 @@ focus = "network graphs, BFS/DFS, shortest paths, intervals, heaps, strings, tre
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 [[entries]]
-title = "Shortest Path in a Grid with Obstacles Elimination"
-url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
-
-[[entries]]
-title = "Contiguous Array"
-url = "https://leetcode.com/problems/contiguous-array/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Collect Coins in a Tree"
-url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
 title = "Cheapest Flights Within K Stops"
 url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Lucky Numbers in a Matrix"
-url = "https://leetcode.com/problems/lucky-numbers-in-a-matrix/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Fizz Buzz"
-url = "https://leetcode.com/problems/fizz-buzz/"
-
-[[entries]]
-title = "Implement Router"
-url = "https://leetcode.com/problems/implement-router/"
-
-[[entries]]
-title = "Power Grid Maintenance"
-url = "https://leetcode.com/problems/power-grid-maintenance/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Number of Valid Words in a Sentence"
-url = "https://leetcode.com/problems/number-of-valid-words-in-a-sentence/"
-
-[[entries]]
-title = "Sum of k-Mirror Numbers"
-url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
-
-[[entries]]
-title = "Minimum Cost to Make Array Equal"
-url = "https://leetcode.com/problems/minimum-cost-to-make-array-equal/"
-
-[[entries]]
-title = "Number of Equal Count Substrings"
-url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
-
-[[entries]]
-title = "Find the Largest Area of Square Inside Two Rectangles"
-url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
-
-[[entries]]
-title = "Check if Binary String Has at Most One Segment of Ones"
-url = "https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/"
-
-[[entries]]
-title = "Minimum Sensors to Cover Grid"
-url = "https://leetcode.com/problems/minimum-sensors-to-cover-grid/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Maximum Difference Between Increasing Elements"
-url = "https://leetcode.com/problems/maximum-difference-between-increasing-elements/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Diagonal Traverse"
-url = "https://leetcode.com/problems/diagonal-traverse/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
 title = "Critical Connections in a Network"
@@ -166,6 +18,10 @@ url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 [[entries]]
 title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Course Schedule II"
@@ -184,12 +40,20 @@ title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Reconstruct Itinerary"
@@ -202,3 +66,139 @@ url = "https://leetcode.com/problems/top-k-frequent-elements/"
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Number of Equal Count Substrings"
+url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
+
+[[entries]]
+title = "Collect Coins in a Tree"
+url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
+
+[[entries]]
+title = "Implement Router"
+url = "https://leetcode.com/problems/implement-router/"
+
+[[entries]]
+title = "Minimum Sensors to Cover Grid"
+url = "https://leetcode.com/problems/minimum-sensors-to-cover-grid/"
+
+[[entries]]
+title = "Sum of k-Mirror Numbers"
+url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
+
+[[entries]]
+title = "Power Grid Maintenance"
+url = "https://leetcode.com/problems/power-grid-maintenance/"
+
+[[entries]]
+title = "Find the Largest Area of Square Inside Two Rectangles"
+url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
+
+[[entries]]
+title = "Minimum Cost to Make Array Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-array-equal/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "Minimum Time to Collect All Apples in a Tree"
+url = "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Shortest Path in a Grid with Obstacles Elimination"
+url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
+
+[[entries]]
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
+
+[[entries]]
+title = "Diagonal Traverse"
+url = "https://leetcode.com/problems/diagonal-traverse/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Count of Integers"
+url = "https://leetcode.com/problems/count-of-integers/"
+
+[[entries]]
+title = "Expressive Words"
+url = "https://leetcode.com/problems/expressive-words/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

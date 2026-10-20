@@ -4,162 +4,6 @@ focus = "linked lists, strings and stacks, sliding windows, hashing, binary sear
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "07_trees", "09_backtracking"]
 
 [[entries]]
-title = "Smallest Substring With Identical Characters II"
-url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
-
-[[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Construct String With Repeat Limit"
-url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
-
-[[entries]]
-title = "Find the Town Judge"
-url = "https://leetcode.com/problems/find-the-town-judge/"
-
-[[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
-
-[[entries]]
-title = "Reverse Linked List II"
-url = "https://leetcode.com/problems/reverse-linked-list-ii/"
-
-[[entries]]
-title = "Reorder List"
-url = "https://leetcode.com/problems/reorder-list/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
-
-[[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
-
-[[entries]]
-title = "Inorder Successor in BST II"
-url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Copy List with Random Pointer"
-url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
-
-[[entries]]
-title = "Rotated Digits"
-url = "https://leetcode.com/problems/rotated-digits/"
-
-[[entries]]
-title = "Remove Linked List Elements"
-url = "https://leetcode.com/problems/remove-linked-list-elements/"
-
-[[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
-
-[[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
-
-[[entries]]
-title = "Remove Duplicates from Sorted List II"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
-
-[[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
-
-[[entries]]
-title = "Path Sum II"
-url = "https://leetcode.com/problems/path-sum-ii/"
-
-[[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Remove All Occurrences of a Substring"
-url = "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Swap Nodes in Pairs"
-url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Count Negative Numbers in a Sorted Matrix"
-url = "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Implement Queue using Stacks"
-url = "https://leetcode.com/problems/implement-queue-using-stacks/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Maximum Number of Occurrences of a Substring"
-url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
-
-[[entries]]
 title = "Maximum Depth of N-ary Tree"
 url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
 
@@ -202,3 +46,139 @@ url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palin
 [[entries]]
 title = "Two Sum II - Input Array Is Sorted"
 url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+
+[[entries]]
+title = "Smallest Substring With Identical Characters II"
+url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
+
+[[entries]]
+title = "Construct String With Repeat Limit"
+url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
+
+[[entries]]
+title = "Inorder Successor in BST II"
+url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
+
+[[entries]]
+title = "Restore IP Addresses"
+url = "https://leetcode.com/problems/restore-ip-addresses/"
+
+[[entries]]
+title = "Rotated Digits"
+url = "https://leetcode.com/problems/rotated-digits/"
+
+[[entries]]
+title = "Reorder List"
+url = "https://leetcode.com/problems/reorder-list/"
+
+[[entries]]
+title = "Reverse Linked List II"
+url = "https://leetcode.com/problems/reverse-linked-list-ii/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Remove Duplicates from Sorted List II"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
+
+[[entries]]
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+
+[[entries]]
+title = "Copy List with Random Pointer"
+url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+
+[[entries]]
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+
+[[entries]]
+title = "Path Sum II"
+url = "https://leetcode.com/problems/path-sum-ii/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Remove All Occurrences of a Substring"
+url = "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/"
+
+[[entries]]
+title = "Swap Nodes in Pairs"
+url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"

@@ -4,184 +4,16 @@ focus = "feed and timeline merging with heaps, rate-limited counters, tree trave
 review_modules = ["07_trees", "08_heaps", "09_backtracking", "10_graphs", "14_tries", "17_advanced"]
 
 [[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
 title = "Design Twitter"
 url = "https://leetcode.com/problems/design-twitter/"
 
 [[entries]]
 title = "Tweet Counts Per Frequency"
 url = "https://leetcode.com/problems/tweet-counts-per-frequency/"
-
-[[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "The Skyline Problem"
-url = "https://leetcode.com/problems/the-skyline-problem/"
-
-[[entries]]
-title = "Minimum Genetic Mutation"
-url = "https://leetcode.com/problems/minimum-genetic-mutation/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
-
-[[entries]]
-title = "Regular Expression Matching"
-url = "https://leetcode.com/problems/regular-expression-matching/"
-
-[[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "Wildcard Matching"
-url = "https://leetcode.com/problems/wildcard-matching/"
-
-[[entries]]
-title = "Permutation Sequence"
-url = "https://leetcode.com/problems/permutation-sequence/"
-
-[[entries]]
-title = "Pascal's Triangle"
-url = "https://leetcode.com/problems/pascals-triangle/"
-
-[[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
-
-[[entries]]
-title = "Time Needed to Buy Tickets"
-url = "https://leetcode.com/problems/time-needed-to-buy-tickets/"
-
-[[entries]]
-title = "Max Points on a Line"
-url = "https://leetcode.com/problems/max-points-on-a-line/"
-
-[[entries]]
-title = "One Edit Distance"
-url = "https://leetcode.com/problems/one-edit-distance/"
-
-[[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Search Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
-
-[[entries]]
-title = "Flatten 2D Vector"
-url = "https://leetcode.com/problems/flatten-2d-vector/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Best Meeting Point"
-url = "https://leetcode.com/problems/best-meeting-point/"
-
-[[entries]]
-title = "Design Skiplist"
-url = "https://leetcode.com/problems/design-skiplist/"
-
-[[entries]]
-title = "Number of Connected Components in an Undirected Graph"
-url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
-
-[[entries]]
-title = "Kth Smallest Element in a Sorted Matrix"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Trapping Rain Water II"
-url = "https://leetcode.com/problems/trapping-rain-water-ii/"
-
-[[entries]]
-title = "Minimum Number of Steps to Make Two Strings Anagram"
-url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
-
-[[entries]]
-title = "Validate IP Address"
-url = "https://leetcode.com/problems/validate-ip-address/"
-
-[[entries]]
-title = "Number of Black Blocks"
-url = "https://leetcode.com/problems/number-of-black-blocks/"
-
-[[entries]]
-title = "Masking Personal Information"
-url = "https://leetcode.com/problems/masking-personal-information/"
-
-[[entries]]
-title = "Design Authentication Manager"
-url = "https://leetcode.com/problems/design-authentication-manager/"
-
-[[entries]]
-title = "Minimum Elements to Add to Form a Given Sum"
-url = "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/"
-
-[[entries]]
-title = "Binary Gap"
-url = "https://leetcode.com/problems/binary-gap/"
-
-[[entries]]
-title = "Finding the Users Active Minutes"
-url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
-
-[[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
-
-[[entries]]
-title = "Remove All Occurrences of a Substring"
-url = "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/"
-
-[[entries]]
-title = "Count Sub Islands"
-url = "https://leetcode.com/problems/count-sub-islands/"
-
-[[entries]]
-title = "Largest Plus Sign"
-url = "https://leetcode.com/problems/largest-plus-sign/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
 title = "Find K Closest Elements"
@@ -202,3 +34,171 @@ url = "https://leetcode.com/problems/single-threaded-cpu/"
 [[entries]]
 title = "Binary Tree Zigzag Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+
+[[entries]]
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+
+[[entries]]
+title = "Count Good Nodes in Binary Tree"
+url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
+
+[[entries]]
+title = "Flatten Binary Tree to Linked List"
+url = "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+
+[[entries]]
+title = "Graph Valid Tree"
+url = "https://leetcode.com/problems/graph-valid-tree/"
+
+[[entries]]
+title = "Minimum Height Trees"
+url = "https://leetcode.com/problems/minimum-height-trees/"
+
+[[entries]]
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Smallest Range Covering Elements from K Lists"
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
+
+[[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Bus Routes"
+url = "https://leetcode.com/problems/bus-routes/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "Palindrome Pairs"
+url = "https://leetcode.com/problems/palindrome-pairs/"
+
+[[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+
+[[entries]]
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
+
+[[entries]]
+title = "Count of Smaller Numbers After Self"
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+
+[[entries]]
+title = "The Skyline Problem"
+url = "https://leetcode.com/problems/the-skyline-problem/"
+
+[[entries]]
+title = "Minimum Elements to Add to Form a Given Sum"
+url = "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/"
+
+[[entries]]
+title = "Masking Personal Information"
+url = "https://leetcode.com/problems/masking-personal-information/"
+
+[[entries]]
+title = "Finding the Users Active Minutes"
+url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
+
+[[entries]]
+title = "Flatten 2D Vector"
+url = "https://leetcode.com/problems/flatten-2d-vector/"
+
+[[entries]]
+title = "Process Tasks Using Servers"
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
+
+[[entries]]
+title = "Minimum Genetic Mutation"
+url = "https://leetcode.com/problems/minimum-genetic-mutation/"
+
+[[entries]]
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
+
+[[entries]]
+title = "One Edit Distance"
+url = "https://leetcode.com/problems/one-edit-distance/"
+
+[[entries]]
+title = "Number of Connected Components in an Undirected Graph"
+url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+
+[[entries]]
+title = "Permutation Sequence"
+url = "https://leetcode.com/problems/permutation-sequence/"
+
+[[entries]]
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"
+
+[[entries]]
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
+
+[[entries]]
+title = "Best Meeting Point"
+url = "https://leetcode.com/problems/best-meeting-point/"
+
+[[entries]]
+title = "Largest Plus Sign"
+url = "https://leetcode.com/problems/largest-plus-sign/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Search Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
+
+[[entries]]
+title = "Minimum Number of Steps to Make Two Strings Anagram"
+url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
+
+[[entries]]
+title = "Design Authentication Manager"
+url = "https://leetcode.com/problems/design-authentication-manager/"
+
+[[entries]]
+title = "Kth Smallest Element in a Sorted Matrix"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+
+[[entries]]
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"

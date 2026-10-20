@@ -4,178 +4,6 @@ focus = "string and stack processing, binary search variants, matrix traversal, 
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "11_dp", "12_greedy_algorithms", "15_bit_manipulation"]
 
 [[entries]]
-title = "Zigzag Conversion"
-url = "https://leetcode.com/problems/zigzag-conversion/"
-
-[[entries]]
-title = "Minimum Absolute Difference"
-url = "https://leetcode.com/problems/minimum-absolute-difference/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Find Peak Element"
-url = "https://leetcode.com/problems/find-peak-element/"
-
-[[entries]]
-title = "Find First and Last Position of Element in Sorted Array"
-url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
-
-[[entries]]
-title = "Search a 2D Matrix II"
-url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Find Words That Can Be Formed by Characters"
-url = "https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/"
-
-[[entries]]
-title = "Count Vowel Strings in Ranges"
-url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
-
-[[entries]]
-title = "Pythagorean Distance Nodes in a Tree"
-url = "https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
-title = "Maximum Number of Integers to Choose From a Range I"
-url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
-
-[[entries]]
-title = "Maximum Frequency Score of a Subarray"
-url = "https://leetcode.com/problems/maximum-frequency-score-of-a-subarray/"
-
-[[entries]]
-title = "Meeting Scheduler"
-url = "https://leetcode.com/problems/meeting-scheduler/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Minimum Non-Zero Product of the Array Elements"
-url = "https://leetcode.com/problems/minimum-non-zero-product-of-the-array-elements/"
-
-[[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
-
-[[entries]]
-title = "Smallest Greater Multiple Made of Two Digits"
-url = "https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits/"
-
-[[entries]]
-title = "Number of Valid Move Combinations On Chessboard"
-url = "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/"
-
-[[entries]]
-title = "Count Array Pairs Divisible by K"
-url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
-
-[[entries]]
-title = "Time Needed to Rearrange a Binary String"
-url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
-
-[[entries]]
-title = "Count the Number of Vowel Strings in Range"
-url = "https://leetcode.com/problems/count-the-number-of-vowel-strings-in-range/"
-
-[[entries]]
-title = "Maximum Number of Integers to Choose From a Range II"
-url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii/"
-
-[[entries]]
-title = "Paint House III"
-url = "https://leetcode.com/problems/paint-house-iii/"
-
-[[entries]]
-title = "Maximum Sum Obtained of Any Permutation"
-url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Pairs of Songs With Total Durations Divisible by 60"
-url = "https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/"
-
-[[entries]]
-title = "Find the Smallest Divisor Given a Threshold"
-url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
-
-[[entries]]
-title = "Last Stone Weight"
-url = "https://leetcode.com/problems/last-stone-weight/"
-
-[[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
-
-[[entries]]
 title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
@@ -188,17 +16,189 @@ title = "Number of 1 Bits"
 url = "https://leetcode.com/problems/number-of-1-bits/"
 
 [[entries]]
-title = "Backspace String Compare"
-url = "https://leetcode.com/problems/backspace-string-compare/"
-
-[[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
 title = "Minimum Add to Make Parentheses Valid"
 url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
 
 [[entries]]
 title = "Reverse Words in a String"
 url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Remove K Digits"
+url = "https://leetcode.com/problems/remove-k-digits/"
+
+[[entries]]
+title = "Next Greater Element II"
+url = "https://leetcode.com/problems/next-greater-element-ii/"
+
+[[entries]]
+title = "Online Stock Span"
+url = "https://leetcode.com/problems/online-stock-span/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "Find Peak Element"
+url = "https://leetcode.com/problems/find-peak-element/"
+
+[[entries]]
+title = "Find First and Last Position of Element in Sorted Array"
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+
+[[entries]]
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+
+[[entries]]
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
+
+[[entries]]
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
+
+[[entries]]
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"
+
+[[entries]]
+title = "Gas Station"
+url = "https://leetcode.com/problems/gas-station/"
+
+[[entries]]
+title = "Jump Game II"
+url = "https://leetcode.com/problems/jump-game-ii/"
+
+[[entries]]
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
+
+[[entries]]
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
+
+[[entries]]
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Optimal Account Balancing"
+url = "https://leetcode.com/problems/optimal-account-balancing/"
+
+[[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
+title = "Pythagorean Distance Nodes in a Tree"
+url = "https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree/"
+
+[[entries]]
+title = "Zigzag Conversion"
+url = "https://leetcode.com/problems/zigzag-conversion/"
+
+[[entries]]
+title = "Maximum Frequency Score of a Subarray"
+url = "https://leetcode.com/problems/maximum-frequency-score-of-a-subarray/"
+
+[[entries]]
+title = "Smallest Greater Multiple Made of Two Digits"
+url = "https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits/"
+
+[[entries]]
+title = "Maximum Number of Integers to Choose From a Range II"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii/"
+
+[[entries]]
+title = "Maximum Number of Integers to Choose From a Range I"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
+
+[[entries]]
+title = "Minimum Non-Zero Product of the Array Elements"
+url = "https://leetcode.com/problems/minimum-non-zero-product-of-the-array-elements/"
+
+[[entries]]
+title = "Number of Valid Move Combinations On Chessboard"
+url = "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/"
+
+[[entries]]
+title = "Maximum Sum Obtained of Any Permutation"
+url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
+
+[[entries]]
+title = "Count Array Pairs Divisible by K"
+url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
+
+[[entries]]
+title = "Paint House III"
+url = "https://leetcode.com/problems/paint-house-iii/"
+
+[[entries]]
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
+
+[[entries]]
+title = "Count Vowel Strings in Ranges"
+url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Meeting Scheduler"
+url = "https://leetcode.com/problems/meeting-scheduler/"
+
+[[entries]]
+title = "Pairs of Songs With Total Durations Divisible by 60"
+url = "https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/"
+
+[[entries]]
+title = "3Sum Smaller"
+url = "https://leetcode.com/problems/3sum-smaller/"
+
+[[entries]]
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+
+[[entries]]
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"

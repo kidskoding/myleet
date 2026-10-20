@@ -4,78 +4,6 @@ focus = "design data structures, heaps and streams, hashing, graphs and topologi
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "10_graphs", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "All Nodes Distance K in Binary Tree"
-url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Making File Names Unique"
-url = "https://leetcode.com/problems/making-file-names-unique/"
-
-[[entries]]
-title = "Range Sum Query 2D - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
-
-[[entries]]
-title = "Reverse Substrings Between Each Pair of Parentheses"
-url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
-
-[[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1) - Duplicates allowed"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
 title = "Sqrt(x)"
 url = "https://leetcode.com/problems/sqrtx/"
 
@@ -90,6 +18,78 @@ url = "https://leetcode.com/problems/course-schedule/"
 [[entries]]
 title = "Validate IP Address"
 url = "https://leetcode.com/problems/validate-ip-address/"
+
+[[entries]]
+title = "Making File Names Unique"
+url = "https://leetcode.com/problems/making-file-names-unique/"
+
+[[entries]]
+title = "Simple Bank System"
+url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
+title = "Reverse Substrings Between Each Pair of Parentheses"
+url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+
+[[entries]]
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1) - Duplicates allowed"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
+
+[[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Logger Rate Limiter"
@@ -180,5 +180,5 @@ title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

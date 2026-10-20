@@ -4,184 +4,104 @@ focus = "fundamentals, clean implementation, trees, graphs, DP basics, and pract
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "07_trees", "10_graphs", "11_dp"]
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
 title = "Valid Anagram"
 url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
-
-[[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
-title = "Length of the Longest Alphabetical Continuous Substring"
-url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Fizz Buzz"
-url = "https://leetcode.com/problems/fizz-buzz/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
-
-[[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
-
-[[entries]]
-title = "Minimum Number of Flips to Make the Binary String Alternating"
-url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
-
-[[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
-
-[[entries]]
-title = "Count Binary Substrings"
-url = "https://leetcode.com/problems/count-binary-substrings/"
-
-[[entries]]
-title = "Middle of the Linked List"
-url = "https://leetcode.com/problems/middle-of-the-linked-list/"
-
-[[entries]]
-title = "Minimum Changes To Make Alternating Binary String"
-url = "https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
-
-[[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "My Calendar III"
+url = "https://leetcode.com/problems/my-calendar-iii/"
+
+[[entries]]
+title = "The Skyline Problem"
+url = "https://leetcode.com/problems/the-skyline-problem/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Minimum Difficulty of a Job Schedule"
+url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock IV"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
+
+[[entries]]
+title = "Smallest Range Covering Elements from K Lists"
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
+
+[[entries]]
+title = "Longest Subarray of 1's After Deleting One Element"
+url = "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
+
+[[entries]]
+title = "Sum Root to Leaf Numbers"
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
+
+[[entries]]
+title = "Minimum Cost to Reach Destination in Time"
+url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Find the City With the Smallest Number of Neighbors at a Threshold Distance"
+url = "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/"
+
+[[entries]]
+title = "Surrounded Regions"
+url = "https://leetcode.com/problems/surrounded-regions/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Sudoku Solver"
+url = "https://leetcode.com/problems/sudoku-solver/"
 
 [[entries]]
 title = "Count Ways to Group Overlapping Ranges"
 url = "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/"
 
 [[entries]]
-title = "Minimum Operations to Make All Array Elements Equal"
-url = "https://leetcode.com/problems/minimum-operations-to-make-all-array-elements-equal/"
-
-[[entries]]
-title = "Minimum Moves to Equal Array Elements"
-url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
 title = "Find Occurrences of an Element in an Array"
 url = "https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array/"
-
-[[entries]]
-title = "Count Vowel Strings in Ranges"
-url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
-
-[[entries]]
-title = "Minimum Operations to Make Columns Strictly Increasing"
-url = "https://leetcode.com/problems/minimum-operations-to-make-columns-strictly-increasing/"
-
-[[entries]]
-title = "Longest Mountain in Array"
-url = "https://leetcode.com/problems/longest-mountain-in-array/"
 
 [[entries]]
 title = "Find The First Player to win K Games in a Row"
 url = "https://leetcode.com/problems/find-the-first-player-to-win-k-games-in-a-row/"
 
 [[entries]]
-title = "Sort the Students by Their Kth Score"
-url = "https://leetcode.com/problems/sort-the-students-by-their-kth-score/"
+title = "Minimum Operations to Make All Array Elements Equal"
+url = "https://leetcode.com/problems/minimum-operations-to-make-all-array-elements-equal/"
 
 [[entries]]
 title = "Maximum Profitable Triplets With Increasing Prices I"
@@ -192,13 +112,93 @@ title = "Maximum Profitable Triplets With Increasing Prices II"
 url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii/"
 
 [[entries]]
+title = "Minimum Levels to Gain More Points"
+url = "https://leetcode.com/problems/minimum-levels-to-gain-more-points/"
+
+[[entries]]
+title = "Minimum Operations to Make Median of Array Equal to K"
+url = "https://leetcode.com/problems/minimum-operations-to-make-median-of-array-equal-to-k/"
+
+[[entries]]
+title = "Find Products of Elements of Big Array"
+url = "https://leetcode.com/problems/find-products-of-elements-of-big-array/"
+
+[[entries]]
+title = "Minimum Length of String After Operations"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-operations/"
+
+[[entries]]
+title = "Sort the Students by Their Kth Score"
+url = "https://leetcode.com/problems/sort-the-students-by-their-kth-score/"
+
+[[entries]]
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
+
+[[entries]]
+title = "Taking Maximum Energy From the Mystic Dungeon"
+url = "https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon/"
+
+[[entries]]
+title = "Length of the Longest Alphabetical Continuous Substring"
+url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
+
+[[entries]]
+title = "Minimum Moves to Equal Array Elements"
+url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
+
+[[entries]]
+title = "Report Spam Message"
+url = "https://leetcode.com/problems/report-spam-message/"
+
+[[entries]]
+title = "Lexicographically Smallest String After Substring Operation"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/"
+
+[[entries]]
+title = "Count Vowel Strings in Ranges"
+url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
+
+[[entries]]
+title = "Number of Divisible Substrings"
+url = "https://leetcode.com/problems/number-of-divisible-substrings/"
+
+[[entries]]
 title = "Number of Divisible Triplet Sums"
 url = "https://leetcode.com/problems/number-of-divisible-triplet-sums/"
 
 [[entries]]
-title = "Type of Triangle"
-url = "https://leetcode.com/problems/type-of-triangle/"
+title = "Longest Mountain in Array"
+url = "https://leetcode.com/problems/longest-mountain-in-array/"
 
 [[entries]]
-title = "Minimum Absolute Difference"
-url = "https://leetcode.com/problems/minimum-absolute-difference/"
+title = "Maximum Median Sum of Subsequences of Size 3"
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
+
+[[entries]]
+title = "Reach a Number"
+url = "https://leetcode.com/problems/reach-a-number/"
+
+[[entries]]
+title = "Maximum Sum of Distinct Subarrays With Length K"
+url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Minimum Cost to Connect Sticks"
+url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
+
+[[entries]]
+title = "Find All Possible Stable Binary Arrays II"
+url = "https://leetcode.com/problems/find-all-possible-stable-binary-arrays-ii/"
+
+[[entries]]
+title = "Minimum Number of Increments on Subarrays to Form a Target Array"
+url = "https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/"

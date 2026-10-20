@@ -4,82 +4,6 @@ focus = "graphs, trees, hashing, arrays, and core interview problem solving."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]
-title = "Minimum Difficulty of a Job Schedule"
-url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Maximum Score with Co-Prime Element"
-url = "https://leetcode.com/problems/maximum-score-with-co-prime-element/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Rank Teams by Votes"
-url = "https://leetcode.com/problems/rank-teams-by-votes/"
-
-[[entries]]
-title = "Stock Price Fluctuation"
-url = "https://leetcode.com/problems/stock-price-fluctuation/"
-
-[[entries]]
-title = "Find First and Last Position of Element in Sorted Array"
-url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
-
-[[entries]]
-title = "Design Snake Game"
-url = "https://leetcode.com/problems/design-snake-game/"
-
-[[entries]]
-title = "High-Access Employees"
-url = "https://leetcode.com/problems/high-access-employees/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
-
-[[entries]]
-title = "Find the Width of Columns of a Grid"
-url = "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/"
-
-[[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
-title = "Number of Possible Sets of Closing Branches"
-url = "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree IV"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
-
-[[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 
@@ -100,6 +24,10 @@ title = "Continuous Subarray Sum"
 url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
 [[entries]]
+title = "Find First and Last Position of Element in Sorted Array"
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+
+[[entries]]
 title = "Sudoku Solver"
 url = "https://leetcode.com/problems/sudoku-solver/"
 
@@ -108,16 +36,8 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
-title = "Design an Ordered Stream"
-url = "https://leetcode.com/problems/design-an-ordered-stream/"
-
-[[entries]]
-title = "Symmetric Tree"
-url = "https://leetcode.com/problems/symmetric-tree/"
-
-[[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
 title = "Design Browser History"
@@ -126,18 +46,6 @@ url = "https://leetcode.com/problems/design-browser-history/"
 [[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
-
-[[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
-
-[[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
-
-[[entries]]
-title = "Min Cost Climbing Stairs"
-url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
 
 [[entries]]
 title = "Find Leaves of Binary Tree"
@@ -158,6 +66,10 @@ url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transa
 [[entries]]
 title = "Reverse Pairs"
 url = "https://leetcode.com/problems/reverse-pairs/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
 title = "Valid Parenthesis String"
@@ -192,13 +104,101 @@ title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Make Lexicographically Smallest Array by Swapping Elements"
-url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
+title = "Rank Teams by Votes"
+url = "https://leetcode.com/problems/rank-teams-by-votes/"
+
+[[entries]]
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "High-Access Employees"
+url = "https://leetcode.com/problems/high-access-employees/"
+
+[[entries]]
+title = "Minimum Difficulty of a Job Schedule"
+url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
+
+[[entries]]
+title = "Design Snake Game"
+url = "https://leetcode.com/problems/design-snake-game/"
+
+[[entries]]
+title = "Number of Possible Sets of Closing Branches"
+url = "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/"
+
+[[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
 title = "Minimum Cost to Convert String I"
 url = "https://leetcode.com/problems/minimum-cost-to-convert-string-i/"
 
 [[entries]]
+title = "Verbal Arithmetic Puzzle"
+url = "https://leetcode.com/problems/verbal-arithmetic-puzzle/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree IV"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
+
+[[entries]]
+title = "The Time When the Network Becomes Idle"
+url = "https://leetcode.com/problems/the-time-when-the-network-becomes-idle/"
+
+[[entries]]
 title = "Minimum Cost to Convert String II"
 url = "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/"
+
+[[entries]]
+title = "Minimum Time to Visit a Cell In a Grid"
+url = "https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/"
+
+[[entries]]
+title = "Maximum Score with Co-Prime Element"
+url = "https://leetcode.com/problems/maximum-score-with-co-prime-element/"
+
+[[entries]]
+title = "Maximum Good Subarray Sum"
+url = "https://leetcode.com/problems/maximum-good-subarray-sum/"
+
+[[entries]]
+title = "Make Lexicographically Smallest Array by Swapping Elements"
+url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
+
+[[entries]]
+title = "Smallest Missing Non-negative Integer After Operations"
+url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Last Day Where You Can Still Cross"
+url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
+
+[[entries]]
+title = "Maximum Xor Product"
+url = "https://leetcode.com/problems/maximum-xor-product/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Pairs of Songs With Total Durations Divisible by 60"
+url = "https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Rearranging Fruits"
+url = "https://leetcode.com/problems/rearranging-fruits/"
