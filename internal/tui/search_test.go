@@ -179,6 +179,12 @@ func TestSearchRealCatalog(t *testing.T) {
 	if res := sr.results(); len(res) == 0 || res[0].playlist == nil || res[0].playlist.Title != "Stripe" {
 		t.Fatal("strp should find Stripe first")
 	}
+	sr.query = "lru"
+	for _, h := range sr.results() {
+		if h.label != "LRU Cache" && !strings.Contains(strings.ToLower(h.hay), "lru") {
+			t.Fatalf("lru should not match scattered letters like %q", h.label)
+		}
+	}
 	sr.query = "a"
 	if rows := strings.Count(ansi.Strip(sr.View(100, 40)), "problem"); rows <= 12 {
 		t.Fatalf("results should fill the screen, got %d rows", rows)

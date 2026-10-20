@@ -183,6 +183,9 @@ func (sr *Search) fuzzy(q string) []searchHit {
 	}
 	var rs []ranked
 	for _, m := range fuzzy.Find(q, sr.hays) {
+		if !compact(sr.hays[m.Index], m.MatchedIndexes, len([]rune(q))) {
+			continue
+		}
 		h := sr.index[m.Index]
 		h.matched = nil
 		for _, i := range m.MatchedIndexes {
@@ -203,6 +206,40 @@ func (sr *Search) fuzzy(q string) []searchHit {
 		out = append(out, r.hit)
 	}
 	return out
+}
+
+// compact rejects matches whose letters are scattered through words. A match starts at
+// a word (or with three letters in a row), and every later run of letters starts a word,
+// except one run for queries of four or more letters: "strp" still finds Stripe, "lru"
+// no longer finds Liberty Mutual.
+func compact(hay string, idx []int, n int) bool {
+	if n <= 1 {
+		return true
+	}
+	wordStart := func(i int) bool {
+		return i == 0 || strings.ContainsRune(" -(/", rune(hay[i-1]))
+	}
+	firstRun := 1
+	for firstRun < len(idx) && idx[firstRun] == idx[firstRun-1]+1 {
+		firstRun++
+	}
+	if !wordStart(idx[0]) && firstRun < 3 {
+		return false
+	}
+	allowed := 0
+	if n >= 4 {
+		allowed = 1
+	}
+	for i := firstRun; i < len(idx); i++ {
+		if idx[i] == idx[i-1]+1 || wordStart(idx[i]) {
+			continue
+		}
+		if allowed == 0 {
+			return false
+		}
+		allowed--
+	}
+	return true
 }
 
 func (sr *Search) open(h searchHit) tea.Cmd {
