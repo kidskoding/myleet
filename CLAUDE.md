@@ -84,7 +84,7 @@ Each problem folder holds:
 - `test_problem.py`: imports from `solution` (the trainer stages the learner's attempt or the reference solution under that name); shared helpers come from `curriculum/_lib`
 - `solution.py`: optional reference solution; CI runs it against the tests
 
-After adding or editing problems, run `myleet validate` and `myleet check --solutions <id>`. Do not create a top-level `problems/` or `tests/` folder.
+After adding or editing problems, run `myleet validate` and `myleet check --solutions <id>`. Saved progress is keyed by problem `id`, so never rename or remove an id; `myleet validate` fails if a locked id disappears. After adding problems, run `myleet validate --lock` and commit `problem-ids.lock` with them. Do not create a top-level `problems/` or `tests/` folder.
 
 ### Notes
 

@@ -145,16 +145,17 @@ rung.
 
 ### Commands
 
-| Command                             |                                                     |
-| ----------------------------------- | --------------------------------------------------- |
-| `myleet`                            | open today's session                                |
-| `myleet open <id>`                  | open one problem, e.g. `myleet open two-sum`        |
-| `myleet check [--solutions] [<id>]` | run tests for your attempts, or reference solutions |
-| `myleet validate`                   | check that the curriculum loads                     |
-| `myleet doctor`                     | check python, pytest, editor, and data dir          |
-| `myleet stats`                      | print progress stats without the TUI                |
-| `myleet prompts`                    | download every problem statement for offline use    |
-| `myleet progress`                   | edit your save file (`progress.toml`) in `$EDITOR`  |
+| Command                             |                                                       |
+| ----------------------------------- | ----------------------------------------------------- |
+| `myleet`                            | open today's session                                  |
+| `myleet open <id>`                  | open one problem, e.g. `myleet open two-sum`          |
+| `myleet check [--solutions] [<id>]` | run tests for your attempts, or reference solutions   |
+| `myleet validate`                   | check that the curriculum loads                       |
+| `myleet validate --lock`            | record problem ids so a rename cannot orphan progress |
+| `myleet doctor`                     | check python, pytest, editor, and data dir            |
+| `myleet stats`                      | print progress stats without the TUI                  |
+| `myleet prompts`                    | download every problem statement for offline use      |
+| `myleet progress`                   | edit your save file (`progress.toml`) in `$EDITOR`    |
 
 Optional config in `~/.config/myleet/config.toml`:
 

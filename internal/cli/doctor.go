@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"github.com/kidskoding/myleet/internal/app"
@@ -46,6 +47,17 @@ func doctor(a *app.App, stdout io.Writer) int {
 	report(werr == nil, "data", data, "make "+data+" writable")
 	if save, _, err := saveFilePath(); err == nil {
 		report(true, "save", save, "")
+	}
+	var orphaned []string
+	for id := range a.States() {
+		if _, ok := a.Catalog.Problem(id); !ok {
+			orphaned = append(orphaned, id)
+		}
+	}
+	slices.Sort(orphaned)
+	if len(orphaned) > 0 {
+		report(false, "progress", fmt.Sprintf("saved progress for %d problems no longer in the catalog: %s", len(orphaned), strings.Join(orphaned, ", ")),
+			"restore those problem ids in the repo, or delete their blocks with `myleet progress`")
 	}
 	if failed > 0 {
 		return 1

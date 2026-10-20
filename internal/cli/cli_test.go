@@ -194,3 +194,60 @@ func TestDoctorShowsSaveFile(t *testing.T) {
 		t.Fatalf("doctor should print the save file path: %s", out)
 	}
 }
+
+func writeLock(t *testing.T, ids ...string) string {
+	t.Helper()
+	path := filepath.Join(os.Getenv("MYLEET_ROOT"), "problem-ids.lock")
+	if err := os.WriteFile(path, []byte(strings.Join(ids, "\n")+"\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	return path
+}
+
+var goodIDs = []string{"logger-rate-limiter", "p-one", "p-three", "p-two", "two-sum"}
+
+func TestValidateFailsWhenALockedIDDisappears(t *testing.T) {
+	env(t, tu.GoodRoot())
+	writeLock(t, append(goodIDs, "gone-problem")...)
+	code, out := run("validate")
+	if code != 1 || !strings.Contains(out, "gone-problem") || !strings.Contains(out, "progress") {
+		t.Fatalf("a removed or renamed id must fail validate and say why: code=%d out=%s", code, out)
+	}
+}
+
+func TestValidateLockRecordsEveryID(t *testing.T) {
+	env(t, tu.GoodRoot())
+	path := writeLock(t, "p-one")
+	if code, out := run("validate", "--lock"); code != 0 {
+		t.Fatalf("code=%d out=%s", code, out)
+	}
+	data, _ := os.ReadFile(path)
+	if got := strings.Fields(string(data)); strings.Join(got, ",") != strings.Join(goodIDs, ",") {
+		t.Fatalf("lock = %v, want %v", got, goodIDs)
+	}
+}
+
+func TestValidateNotesUnlockedIDs(t *testing.T) {
+	env(t, tu.GoodRoot())
+	writeLock(t, "p-one")
+	code, out := run("validate")
+	if code != 0 || !strings.Contains(out, "4 new problem ids") || !strings.Contains(out, "--lock") {
+		t.Fatalf("new ids should pass validate with a reminder to lock them: code=%d out=%s", code, out)
+	}
+}
+
+func TestDoctorFlagsOrphanedProgress(t *testing.T) {
+	env(t, tu.GoodRoot())
+	repoPython(t)
+	if err := os.MkdirAll(filepath.Dir(saveFile()), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	save := "[\"gone-problem\"]\nrung = \"3d\"\nlast = 2026-10-18\n"
+	if err := os.WriteFile(saveFile(), []byte(save), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	code, out := run("doctor")
+	if code != 1 || !strings.Contains(out, "gone-problem") {
+		t.Fatalf("doctor should flag saved progress for a problem that no longer exists: code=%d out=%s", code, out)
+	}
+}

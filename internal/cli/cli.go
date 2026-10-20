@@ -14,6 +14,7 @@ const usage = `usage: myleet [command]
   myleet open <id>                  open one problem
   myleet check [--solutions] [id]   run tests (attempts, or reference solutions)
   myleet validate                   check the curriculum loads
+  myleet validate --lock            record problem ids so a rename cannot orphan saved progress
   myleet doctor                     check python, pytest, editor, data dir
   myleet stats                      print progress stats
   myleet prompts                    download problem statements for offline use
@@ -32,7 +33,7 @@ func Run(args []string, stdout, stderr io.Writer) int {
 	}
 	switch cmd {
 	case "validate":
-		return validate(stdout, stderr)
+		return validate(args, stdout, stderr)
 	case "progress":
 		return editProgress(stdout, stderr)
 	case "check", "doctor", "stats", "prompts", "", "open":
