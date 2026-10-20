@@ -1,0 +1,7 @@
+id = "maximum-employees-to-be-invited-to-a-meeting"
+title = "Maximum Employees to Be Invited to a Meeting"
+difficulty = "hard"
+leetcode = 2127
+url = "https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting/"
+key_idea = "The favorite graph is a functional graph: either seat one whole cycle of length >= 3 alone, or seat every mutual pair (2-cycle) together with the longest chain feeding into each side; answer is the max of the two."
+hints = ["Each person has exactly one outgoing edge; what shapes can such a graph have?", "Pairs who like each other are special: they can sit together with followers on both sides, and several such groups fit at one table."]

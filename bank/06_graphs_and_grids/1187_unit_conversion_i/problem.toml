@@ -1,0 +1,7 @@
+id = "unit-conversion-i"
+title = "Unit Conversion I"
+difficulty = "medium"
+leetcode = 3528
+url = "https://leetcode.com/problems/unit-conversion-i/"
+key_idea = "The conversions form a tree rooted at unit 0; traverse it from 0 and set each child's value to its parent's value times the edge factor, mod 1e9 + 7."
+hints = ["Draw the conversions as directed edges; what shape do n - 1 edges reaching every unit from 0 make?", "A unit's answer depends only on its parent's answer."]

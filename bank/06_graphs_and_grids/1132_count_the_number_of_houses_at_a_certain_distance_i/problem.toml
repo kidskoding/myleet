@@ -1,0 +1,7 @@
+id = "count-the-number-of-houses-at-a-certain-distance-i"
+title = "Count the Number of Houses at a Certain Distance I"
+difficulty = "medium"
+leetcode = 3015
+url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/"
+key_idea = "With n <= 100, the shortest distance between i and j is min(|i - j|, |i - x| + 1 + |j - y|, |i - y| + 1 + |j - x|); tally it for every ordered pair."
+hints = ["The extra street gives at most one shortcut; a shortest path either uses it or not.", "n is small enough to look at every pair of houses."]

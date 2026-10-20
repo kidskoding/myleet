@@ -1,0 +1,7 @@
+id = "count-unreachable-pairs-of-nodes-in-an-undirected-graph"
+title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
+difficulty = "medium"
+leetcode = 2316
+url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
+key_idea = "Find connected component sizes (union-find or DFS); each component of size s pairs with every node seen in earlier components, so add s * (nodes so far) as you go."
+hints = ["Two nodes are unreachable exactly when they are in different components.", "Avoid comparing every pair of components; a running total of nodes seen so far is enough."]

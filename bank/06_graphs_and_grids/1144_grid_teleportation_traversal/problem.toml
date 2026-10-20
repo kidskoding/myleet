@@ -1,0 +1,7 @@
+id = "grid-teleportation-traversal"
+title = "Grid Teleportation Traversal"
+difficulty = "medium"
+leetcode = 3552
+url = "https://leetcode.com/problems/grid-teleportation-traversal/"
+key_idea = "0-1 BFS: moves cost 1 and teleports cost 0; the first time any cell of a letter is settled, push every cell with that letter at the same distance and retire the letter, since a later use could never be better."
+hints = ["Teleporting is free, so plain BFS layers are not enough; some edges have weight 0.", "Using a letter's portals is only worth it the first time you reach any cell with that letter."]

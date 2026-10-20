@@ -1,0 +1,7 @@
+id = "find-minimum-time-to-reach-last-room-i"
+title = "Find Minimum Time to Reach Last Room I"
+difficulty = "medium"
+leetcode = 3341
+url = "https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/"
+key_idea = "Dijkstra on the grid where stepping into a cell at time t arrives at max(t, moveTime[cell]) + 1; the earliest arrival is never worse, so the first time the target is popped is the answer."
+hints = ["Waiting is allowed, so arrival time into a room depends on both when you leave and when it opens.", "Edge costs vary with the time you arrive, but arriving earlier never hurts."]

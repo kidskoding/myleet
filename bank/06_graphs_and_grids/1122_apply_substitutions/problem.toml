@@ -1,0 +1,44 @@
+id = "apply-substitutions"
+title = "Apply Substitutions"
+difficulty = "medium"
+leetcode = 3481
+url = "https://leetcode.com/problems/apply-substitutions/"
+key_idea = "Treat each key as a node whose value depends on the keys it mentions; resolve keys by memoized DFS so every value is expanded once, then expand the text."
+hints = ["A replacement value can itself contain placeholders, so a key may depend on other keys.", "Once a key is fully expanded, its expansion never changes; remember it."]
+prompt = """
+Implement `apply_substitutions(replacements, text)`.
+
+Each entry `replacements[i] = [key, value]` maps a single uppercase letter `key` to a string
+`value`. A placeholder is a key wrapped in percent signs, such as `%A%`. A value may itself
+contain placeholders for other keys.
+
+Replace every placeholder in `text` with the value of its key, and keep replacing until no
+placeholders remain. Return the fully expanded string.
+
+Every placeholder refers to a key that exists, and the keys never depend on each other in a
+cycle, so the expansion always finishes.
+
+**Example 1:**
+
+```
+Input: replacements = [["A","abc"],["B","def"]], text = "%A%_%B%"
+Output: "abc_def"
+```
+
+**Example 2:**
+
+```
+Input: replacements = [["A","bce"],["B","ace"],["C","abc%B%"]], text = "%A%_%B%_%C%"
+Output: "bce_ace_abcace"
+```
+
+`%C%` expands to `abc%B%`, and `%B%` inside it expands to `ace`.
+
+**Constraints:**
+
+- `1 <= replacements.length <= 10`
+- Every `key` is a distinct uppercase English letter
+- `1 <= value.length <= 8`; a value is made of lowercase letters and placeholders
+- `text` is made of placeholders separated by `_`, and has at least one placeholder
+- There are no cyclic dependencies between keys
+"""

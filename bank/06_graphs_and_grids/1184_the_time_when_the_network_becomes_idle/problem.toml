@@ -1,0 +1,7 @@
+id = "the-time-when-the-network-becomes-idle"
+title = "The Time When the Network Becomes Idle"
+difficulty = "medium"
+leetcode = 2039
+url = "https://leetcode.com/problems/the-time-when-the-network-becomes-idle/"
+key_idea = "BFS from the master gives each server's distance d; its round trip is 2d, its last resend happens at ((2d - 1) // patience) * patience, and the network idles one second after the latest final reply."
+hints = ["Messages always take shortest paths, so start with distances from server 0.", "For one server, work out when it sends its last copy and when that copy's reply returns."]
