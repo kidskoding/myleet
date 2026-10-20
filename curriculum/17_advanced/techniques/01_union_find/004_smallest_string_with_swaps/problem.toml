@@ -1,0 +1,8 @@
+id = "smallest-string-with-swaps"
+title = "Smallest String With Swaps"
+difficulty = "medium"
+leetcode = 1202
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+key_idea = "union swappable indices into components, sort each component's letters."
+hints = []
+prompt = ""

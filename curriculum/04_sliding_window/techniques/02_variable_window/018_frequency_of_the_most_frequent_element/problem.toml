@@ -1,0 +1,8 @@
+id = "frequency-of-the-most-frequent-element"
+title = "Frequency of the Most Frequent Element"
+difficulty = "medium"
+leetcode = 1838
+url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
+key_idea = "sort, then slide a window where cost to raise all to the right edge stays within k."
+hints = []
+prompt = ""

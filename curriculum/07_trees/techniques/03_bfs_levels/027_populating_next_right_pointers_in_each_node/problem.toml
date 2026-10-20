@@ -1,0 +1,8 @@
+id = "populating-next-right-pointers-in-each-node"
+title = "Populating Next Right Pointers In Each Node"
+difficulty = "medium"
+leetcode = 116
+url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
+key_idea = "link nodes level by level using existing next pointers."
+hints = []
+prompt = ""

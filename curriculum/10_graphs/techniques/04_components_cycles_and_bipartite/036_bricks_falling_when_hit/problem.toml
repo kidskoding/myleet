@@ -1,0 +1,8 @@
+id = "bricks-falling-when-hit"
+title = "Bricks Falling When Hit"
+difficulty = "hard"
+leetcode = 803
+url = "https://leetcode.com/problems/bricks-falling-when-hit/"
+key_idea = "reverse process with union-find connectivity restoration."
+hints = []
+prompt = ""

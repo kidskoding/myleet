@@ -1,0 +1,8 @@
+id = "interleaving-string"
+title = "Interleaving String"
+difficulty = "medium"
+leetcode = 97
+url = "https://leetcode.com/problems/interleaving-string/"
+key_idea = "dp[i][j] tracks whether prefixes of s1 and s2 interleave into s3's prefix."
+hints = []
+prompt = ""

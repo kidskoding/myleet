@@ -1,0 +1,8 @@
+id = "partition-labels"
+title = "Partition Labels"
+difficulty = "medium"
+leetcode = 763
+url = "https://leetcode.com/problems/partition-labels/"
+key_idea = "expand the current partition until the scan pointer reaches the last occurrence of every letter inside it."
+hints = []
+prompt = ""

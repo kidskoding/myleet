@@ -1,0 +1,8 @@
+id = "successful-pairs-of-spells-and-potions"
+title = "Successful Pairs of Spells and Potions"
+difficulty = "medium"
+leetcode = 2300
+url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
+key_idea = "boundary search per spell over sorted potions for the first passing product."
+hints = []
+prompt = ""

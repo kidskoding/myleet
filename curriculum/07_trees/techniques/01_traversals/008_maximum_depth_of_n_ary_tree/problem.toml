@@ -1,0 +1,8 @@
+id = "maximum-depth-of-n-ary-tree"
+title = "Maximum Depth of N-ary Tree"
+difficulty = "easy"
+leetcode = 559
+url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
+key_idea = "one plus the max depth over all children, zero for an empty tree."
+hints = []
+prompt = ""

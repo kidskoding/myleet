@@ -1,0 +1,8 @@
+id = "letter-case-permutation"
+title = "Letter Case Permutation"
+difficulty = "medium"
+leetcode = 784
+url = "https://leetcode.com/problems/letter-case-permutation/"
+key_idea = "at each letter branch on lower/upper case, pass digits straight through."
+hints = []
+prompt = ""

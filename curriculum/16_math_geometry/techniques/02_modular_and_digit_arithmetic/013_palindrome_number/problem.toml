@@ -1,0 +1,8 @@
+id = "palindrome-number"
+title = "Palindrome Number"
+difficulty = "easy"
+leetcode = 9
+url = "https://leetcode.com/problems/palindrome-number/"
+key_idea = "reverse half the digits and compare without converting to a string."
+hints = []
+prompt = ""

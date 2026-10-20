@@ -1,0 +1,8 @@
+id = "subtree-of-another-tree"
+title = "Subtree Of Another Tree"
+difficulty = "easy"
+leetcode = 572
+url = "https://leetcode.com/problems/subtree-of-another-tree/"
+key_idea = "search each node and use same_tree when values might match."
+hints = []
+prompt = ""

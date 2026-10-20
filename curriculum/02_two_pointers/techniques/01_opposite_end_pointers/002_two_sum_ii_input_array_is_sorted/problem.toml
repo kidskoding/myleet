@@ -1,0 +1,8 @@
+id = "two-sum-ii-input-array-is-sorted"
+title = "Two Sum II - Input Array Is Sorted"
+difficulty = "medium"
+leetcode = 167
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+key_idea = "move left up or right down based on whether the sum is too small or too large."
+hints = []
+prompt = ""

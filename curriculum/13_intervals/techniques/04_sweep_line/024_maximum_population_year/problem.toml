@@ -1,0 +1,8 @@
+id = "maximum-population-year"
+title = "Maximum Population Year"
+difficulty = "easy"
+leetcode = 1854
+url = "https://leetcode.com/problems/maximum-population-year/"
+key_idea = "delta array, +1 at birth and -1 at death, prefix sum for the peak."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "remove-k-digits-greedy_algorithms"
+title = "Remove K Digits"
+difficulty = "medium"
+leetcode = 402
+url = "https://leetcode.com/problems/remove-k-digits/"
+key_idea = "monotonic stack, popping larger leading digits greedily to minimize the result."
+hints = []
+prompt = ""

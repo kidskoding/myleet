@@ -1,0 +1,8 @@
+id = "meeting-rooms"
+title = "Meeting Rooms"
+difficulty = "easy"
+leetcode = 252
+url = "https://leetcode.com/problems/meeting-rooms/"
+key_idea = "sort by start, check every adjacent pair for overlap."
+hints = []
+prompt = ""

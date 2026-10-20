@@ -1,0 +1,8 @@
+id = "k-closest-points-to-origin"
+title = "K Closest Points To Origin"
+difficulty = "medium"
+leetcode = 973
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+key_idea = "keep a size-k max heap keyed by squared distance."
+hints = []
+prompt = ""

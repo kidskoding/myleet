@@ -1,0 +1,8 @@
+id = "k-radius-subarray-averages"
+title = "K Radius Subarray Averages"
+difficulty = "medium"
+leetcode = 2090
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+key_idea = "fixed window of width 2k+1 with a running sum, -1 where it overhangs."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "flatten-a-multilevel-doubly-linked-list"
+title = "Flatten A Multilevel Doubly Linked List"
+difficulty = "medium"
+leetcode = 430
+url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
+key_idea = "splice each child list inline using a stack."
+hints = []
+prompt = ""

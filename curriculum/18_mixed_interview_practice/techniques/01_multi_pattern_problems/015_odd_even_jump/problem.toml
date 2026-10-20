@@ -1,0 +1,8 @@
+id = "odd-even-jump"
+title = "Odd Even Jump"
+difficulty = "hard"
+leetcode = 975
+url = "https://leetcode.com/problems/odd-even-jump/"
+key_idea = "a monotonic-stack pass precomputes next-higher/next-lower indices, then backward DP marks reachable starts."
+hints = []
+prompt = ""

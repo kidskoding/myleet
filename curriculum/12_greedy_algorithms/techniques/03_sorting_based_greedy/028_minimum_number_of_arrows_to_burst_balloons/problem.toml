@@ -1,0 +1,8 @@
+id = "minimum-number-of-arrows-to-burst-balloons"
+title = "Minimum Number of Arrows to Burst Balloons"
+difficulty = "medium"
+leetcode = 452
+url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
+key_idea = "sort by end coordinate, reuse one arrow while balloons overlap the current end."
+hints = []
+prompt = ""

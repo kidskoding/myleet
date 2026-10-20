@@ -1,0 +1,8 @@
+id = "largest-triangle-area"
+title = "Largest Triangle Area"
+difficulty = "easy"
+leetcode = 812
+url = "https://leetcode.com/problems/largest-triangle-area/"
+key_idea = "apply the shoelace cross-product area over every triple of points."
+hints = []
+prompt = ""

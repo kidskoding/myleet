@@ -1,0 +1,8 @@
+id = "top-k-frequent-elements"
+title = "Top K Frequent Elements"
+difficulty = "medium"
+leetcode = 347
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+key_idea = "frequency map plus bucket sort or a heap."
+hints = []
+prompt = ""

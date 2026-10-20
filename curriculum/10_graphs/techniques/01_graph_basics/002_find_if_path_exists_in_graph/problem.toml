@@ -1,0 +1,8 @@
+id = "find-if-path-exists-in-graph"
+title = "Find If Path Exists In Graph"
+difficulty = "easy"
+leetcode = 1971
+url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
+key_idea = "reachability with BFS or DFS."
+hints = []
+prompt = ""

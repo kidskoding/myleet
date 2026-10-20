@@ -1,0 +1,8 @@
+id = "maximum-product-subarray"
+title = "Maximum Product Subarray"
+difficulty = "medium"
+leetcode = 152
+url = "https://leetcode.com/problems/maximum-product-subarray/"
+key_idea = "Kadane's variant tracking running max and min for sign flips."
+hints = []
+prompt = ""

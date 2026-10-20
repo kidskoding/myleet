@@ -1,0 +1,8 @@
+id = "maximal-rectangle-dp"
+title = "Maximal Rectangle"
+difficulty = "hard"
+leetcode = 85
+url = "https://leetcode.com/problems/maximal-rectangle/"
+key_idea = "build per-row histogram heights, then largest-rectangle-in-histogram each row."
+hints = []
+prompt = ""

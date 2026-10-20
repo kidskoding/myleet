@@ -1,0 +1,8 @@
+id = "longest-increasing-subsequence"
+title = "Longest Increasing Subsequence"
+difficulty = "medium"
+leetcode = 300
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+key_idea = "dp[i] is the longest increasing subsequence ending at index i."
+hints = []
+prompt = ""

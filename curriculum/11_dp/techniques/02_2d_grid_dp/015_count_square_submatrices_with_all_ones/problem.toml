@@ -1,0 +1,8 @@
+id = "count-square-submatrices-with-all-ones"
+title = "Count Square Submatrices with All Ones"
+difficulty = "medium"
+leetcode = 1277
+url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
+key_idea = "same recurrence as Maximal Square, but sum every side length to count squares."
+hints = []
+prompt = ""

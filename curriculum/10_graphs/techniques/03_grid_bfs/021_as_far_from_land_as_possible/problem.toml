@@ -1,0 +1,8 @@
+id = "as-far-from-land-as-possible"
+title = "As Far From Land As Possible"
+difficulty = "medium"
+leetcode = 1162
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+key_idea = "multi-source BFS from all land cells."
+hints = []
+prompt = ""

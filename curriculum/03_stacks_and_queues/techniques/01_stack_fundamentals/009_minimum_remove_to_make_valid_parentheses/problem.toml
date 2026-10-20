@@ -1,0 +1,8 @@
+id = "minimum-remove-to-make-valid-parentheses"
+title = "Minimum Remove To Make Valid Parentheses"
+difficulty = "medium"
+leetcode = 1249
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+key_idea = "stack of unmatched `(` indices marks characters to delete in one pass."
+hints = []
+prompt = ""

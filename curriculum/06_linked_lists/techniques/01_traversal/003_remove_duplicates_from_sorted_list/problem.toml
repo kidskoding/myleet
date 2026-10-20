@@ -1,0 +1,8 @@
+id = "remove-duplicates-from-sorted-list"
+title = "Remove Duplicates From Sorted List"
+difficulty = "easy"
+leetcode = 83
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list/"
+key_idea = "skip a node whose value equals the next."
+hints = []
+prompt = ""

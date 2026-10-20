@@ -1,0 +1,8 @@
+id = "replace-the-substring-for-balanced-string"
+title = "Replace the Substring for Balanced String"
+difficulty = "medium"
+leetcode = 1234
+url = "https://leetcode.com/problems/replace-the-substring-for-balanced-string/"
+key_idea = "shrink the smallest window whose removal lets the outside counts be rebalanced to n / 4 each."
+hints = []
+prompt = ""

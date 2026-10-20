@@ -1,0 +1,8 @@
+id = "design-browser-history"
+title = "Design Browser History"
+difficulty = "medium"
+leetcode = 1472
+url = "https://leetcode.com/problems/design-browser-history/"
+key_idea = "one list plus a cursor; visiting truncates everything ahead of it."
+hints = []
+prompt = ""

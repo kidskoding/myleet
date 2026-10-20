@@ -1,0 +1,8 @@
+id = "find-minimum-in-rotated-sorted-array-ii"
+title = "Find Minimum in Rotated Sorted Array II"
+difficulty = "hard"
+leetcode = 154
+url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/"
+key_idea = "rotation pivot search with duplicates at the boundary."
+hints = []
+prompt = ""

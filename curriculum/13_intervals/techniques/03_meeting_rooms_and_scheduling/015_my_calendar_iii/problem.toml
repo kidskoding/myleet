@@ -1,0 +1,8 @@
+id = "my-calendar-iii"
+title = "My Calendar III"
+difficulty = "hard"
+leetcode = 732
+url = "https://leetcode.com/problems/my-calendar-iii/"
+key_idea = "sweep-line delta counting to track the maximum k-booking."
+hints = []
+prompt = ""

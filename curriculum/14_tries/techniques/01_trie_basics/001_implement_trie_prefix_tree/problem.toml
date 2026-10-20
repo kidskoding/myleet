@@ -1,0 +1,8 @@
+id = "implement-trie-prefix-tree"
+title = "Implement Trie (Prefix Tree)"
+difficulty = "medium"
+leetcode = 208
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+key_idea = "children map plus an end-of-word marker."
+hints = []
+prompt = ""

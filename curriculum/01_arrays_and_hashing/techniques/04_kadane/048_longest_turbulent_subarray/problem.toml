@@ -1,0 +1,8 @@
+id = "longest-turbulent-subarray"
+title = "Longest Turbulent Subarray"
+difficulty = "medium"
+leetcode = 978
+url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+key_idea = "Kadane-style up/down run lengths, extend when the comparison sign alternates."
+hints = []
+prompt = ""

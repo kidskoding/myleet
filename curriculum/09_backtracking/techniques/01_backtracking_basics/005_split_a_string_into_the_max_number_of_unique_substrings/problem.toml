@@ -1,0 +1,8 @@
+id = "split-a-string-into-the-max-number-of-unique-substrings"
+title = "Split A String Into The Max Number Of Unique Substrings"
+difficulty = "medium"
+leetcode = 1593
+url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
+key_idea = "try every cut, add the piece to a seen set on the way down and remove it on the way back up."
+hints = []
+prompt = ""

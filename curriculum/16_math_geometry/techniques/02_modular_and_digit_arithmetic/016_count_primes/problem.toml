@@ -1,0 +1,8 @@
+id = "count-primes"
+title = "Count Primes"
+difficulty = "medium"
+leetcode = 204
+url = "https://leetcode.com/problems/count-primes/"
+key_idea = "sieve of Eratosthenes marks multiples as composite."
+hints = []
+prompt = ""

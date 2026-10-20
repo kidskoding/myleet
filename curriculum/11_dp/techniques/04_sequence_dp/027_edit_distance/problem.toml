@@ -1,0 +1,8 @@
+id = "edit-distance"
+title = "Edit Distance"
+difficulty = "medium"
+leetcode = 72
+url = "https://leetcode.com/problems/edit-distance/"
+key_idea = "dp[i][j] is the min insert/delete/replace ops to convert one prefix to another."
+hints = []
+prompt = ""

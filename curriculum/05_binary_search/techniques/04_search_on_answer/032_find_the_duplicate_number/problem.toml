@@ -1,0 +1,8 @@
+id = "find-the-duplicate-number-binary_search"
+title = "Find the Duplicate Number"
+difficulty = "medium"
+leetcode = 287
+url = "https://leetcode.com/problems/find-the-duplicate-number/"
+key_idea = "binary search on the value range using a count-of-elements-at-most predicate."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "delete-and-earn"
+title = "Delete and Earn"
+difficulty = "medium"
+leetcode = 740
+url = "https://leetcode.com/problems/delete-and-earn/"
+key_idea = "bucket values into points, then it reduces to House Robber over the value line."
+hints = []
+prompt = ""

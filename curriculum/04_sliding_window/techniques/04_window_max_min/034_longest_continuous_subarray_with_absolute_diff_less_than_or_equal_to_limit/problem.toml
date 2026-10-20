@@ -1,0 +1,8 @@
+id = "longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit"
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+difficulty = "medium"
+leetcode = 1438
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
+key_idea = "keep two deques (max and min) over the window; shrink left while max - min > limit."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "walls-and-gates"
+title = "Walls And Gates"
+difficulty = "medium"
+leetcode = 286
+url = "https://leetcode.com/problems/walls-and-gates/"
+key_idea = "multi-source BFS to fill shortest distances from many starts."
+hints = []
+prompt = ""

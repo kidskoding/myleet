@@ -1,0 +1,8 @@
+id = "add-two-numbers-ii"
+title = "Add Two Numbers II"
+difficulty = "medium"
+leetcode = 445
+url = "https://leetcode.com/problems/add-two-numbers-ii/"
+key_idea = "most-significant-digit first, so use stacks or reverse."
+hints = []
+prompt = ""

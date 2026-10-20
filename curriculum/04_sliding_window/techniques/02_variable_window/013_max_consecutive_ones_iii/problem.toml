@@ -1,0 +1,8 @@
+id = "max-consecutive-ones-iii"
+title = "Max Consecutive Ones III"
+difficulty = "medium"
+leetcode = 1004
+url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
+key_idea = "shrink left only when the count of zeros in the window exceeds the flip budget."
+hints = []
+prompt = ""

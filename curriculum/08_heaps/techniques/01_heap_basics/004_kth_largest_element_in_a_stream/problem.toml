@@ -1,0 +1,8 @@
+id = "kth-largest-element-in-a-stream"
+title = "Kth Largest Element In A Stream"
+difficulty = "easy"
+leetcode = 703
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+key_idea = "maintain a persistent size-k min heap across add calls."
+hints = []
+prompt = ""

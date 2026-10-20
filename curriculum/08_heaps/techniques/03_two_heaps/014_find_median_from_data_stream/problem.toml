@@ -1,0 +1,8 @@
+id = "find-median-from-data-stream"
+title = "Find Median From Data Stream"
+difficulty = "hard"
+leetcode = 295
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+key_idea = "max heap for the lower half, min heap for the upper half."
+hints = []
+prompt = ""

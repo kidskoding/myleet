@@ -1,0 +1,8 @@
+id = "find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows"
+title = "Find The Kth Smallest Sum Of A Matrix With Sorted Rows"
+difficulty = "hard"
+leetcode = 1439
+url = "https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/"
+key_idea = "heap expands row-index combinations to enumerate the k smallest sums."
+hints = []
+prompt = ""

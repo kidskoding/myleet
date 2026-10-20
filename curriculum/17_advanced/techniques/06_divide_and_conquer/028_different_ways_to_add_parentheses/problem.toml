@@ -1,0 +1,8 @@
+id = "different-ways-to-add-parentheses"
+title = "Different Ways To Add Parentheses"
+difficulty = "medium"
+leetcode = 241
+url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
+key_idea = "split on each operator, recursively solve both sides, combine every result pair."
+hints = []
+prompt = ""

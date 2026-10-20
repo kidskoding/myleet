@@ -1,0 +1,8 @@
+id = "n-ary-tree-preorder-traversal"
+title = "N-ary Tree Preorder Traversal"
+difficulty = "easy"
+leetcode = 589
+url = "https://leetcode.com/problems/n-ary-tree-preorder-traversal/"
+key_idea = "stack-based preorder pushing children right-to-left so the leftmost pops first."
+hints = []
+prompt = ""

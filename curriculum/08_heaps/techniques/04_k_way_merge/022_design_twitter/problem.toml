@@ -1,0 +1,8 @@
+id = "design-twitter"
+title = "Design Twitter"
+difficulty = "medium"
+leetcode = 355
+url = "https://leetcode.com/problems/design-twitter/"
+key_idea = "merge each followee's recent tweets with a heap keyed by timestamp."
+hints = []
+prompt = ""

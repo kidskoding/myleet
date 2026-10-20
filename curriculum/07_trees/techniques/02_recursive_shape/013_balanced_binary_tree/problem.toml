@@ -1,0 +1,8 @@
+id = "balanced-binary-tree"
+title = "Balanced Binary Tree"
+difficulty = "easy"
+leetcode = 110
+url = "https://leetcode.com/problems/balanced-binary-tree/"
+key_idea = "compute height while detecting imbalance."
+hints = []
+prompt = ""

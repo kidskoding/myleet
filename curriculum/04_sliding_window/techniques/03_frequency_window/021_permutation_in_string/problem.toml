@@ -1,0 +1,8 @@
+id = "permutation-in-string"
+title = "Permutation in String"
+difficulty = "medium"
+leetcode = 567
+url = "https://leetcode.com/problems/permutation-in-string/"
+key_idea = "fixed-size frequency-map window compared against the target's character counts."
+hints = []
+prompt = ""

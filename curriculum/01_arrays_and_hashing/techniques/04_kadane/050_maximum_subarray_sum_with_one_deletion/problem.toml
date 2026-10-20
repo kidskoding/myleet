@@ -1,0 +1,8 @@
+id = "maximum-subarray-sum-with-one-deletion"
+title = "Maximum Subarray Sum with One Deletion"
+difficulty = "medium"
+leetcode = 1186
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+key_idea = "two Kadane states — no deletion used, and one already used."
+hints = []
+prompt = ""

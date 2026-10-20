@@ -1,0 +1,8 @@
+id = "majority-element-ii"
+title = "Majority Element II"
+difficulty = "medium"
+leetcode = 229
+url = "https://leetcode.com/problems/majority-element-ii/"
+key_idea = "Boyer-Moore with two candidate counters for the n/3 threshold."
+hints = []
+prompt = ""

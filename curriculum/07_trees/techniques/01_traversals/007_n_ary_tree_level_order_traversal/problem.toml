@@ -1,0 +1,8 @@
+id = "n-ary-tree-level-order-traversal"
+title = "N-ary Tree Level Order Traversal"
+difficulty = "medium"
+leetcode = 429
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
+key_idea = "BFS a queue level by level, extending with each node's children list."
+hints = []
+prompt = ""

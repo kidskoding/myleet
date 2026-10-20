@@ -1,0 +1,8 @@
+id = "reorganize-string-greedy_algorithms"
+title = "Reorganize String"
+difficulty = "medium"
+leetcode = 767
+url = "https://leetcode.com/problems/reorganize-string/"
+key_idea = "always place the most frequent remaining character next, blocking immediate repeats."
+hints = []
+prompt = ""

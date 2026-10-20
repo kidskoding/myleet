@@ -1,0 +1,8 @@
+id = "set-matrix-zeroes-math_geometry"
+title = "Set Matrix Zeroes"
+difficulty = "medium"
+leetcode = 73
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+key_idea = "mark rows and columns to zero using the matrix's own first row/column."
+hints = []
+prompt = ""

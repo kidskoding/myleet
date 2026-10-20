@@ -1,0 +1,8 @@
+id = "next-greater-node-in-linked-list"
+title = "Next Greater Node In Linked List"
+difficulty = "medium"
+leetcode = 1019
+url = "https://leetcode.com/problems/next-greater-node-in-linked-list/"
+key_idea = "monotonic stack over the values in one pass."
+hints = []
+prompt = ""

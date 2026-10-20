@@ -1,0 +1,8 @@
+id = "bus-routes"
+title = "Bus Routes"
+difficulty = "hard"
+leetcode = 815
+url = "https://leetcode.com/problems/bus-routes/"
+key_idea = "BFS over route/state compression."
+hints = []
+prompt = ""

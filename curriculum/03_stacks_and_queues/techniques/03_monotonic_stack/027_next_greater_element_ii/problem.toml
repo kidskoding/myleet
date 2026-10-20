@@ -1,0 +1,8 @@
+id = "next-greater-element-ii"
+title = "Next Greater Element II"
+difficulty = "medium"
+leetcode = 503
+url = "https://leetcode.com/problems/next-greater-element-ii/"
+key_idea = "monotonic stack over a circular array by iterating twice the length."
+hints = []
+prompt = ""

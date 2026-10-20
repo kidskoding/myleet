@@ -1,0 +1,8 @@
+id = "satisfiability-of-equality-equations"
+title = "Satisfiability Of Equality Equations"
+difficulty = "medium"
+leetcode = 990
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
+key_idea = "union all \"==\" pairs first, then reject any \"!=\" pair sharing a root."
+hints = []
+prompt = ""

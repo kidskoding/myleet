@@ -1,0 +1,8 @@
+id = "count-complete-tree-nodes"
+title = "Count Complete Tree Nodes"
+difficulty = "medium"
+leetcode = 222
+url = "https://leetcode.com/problems/count-complete-tree-nodes/"
+key_idea = "compare left and right heights to count in less than O(n)."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "search-insert-position"
+title = "Search Insert Position"
+difficulty = "easy"
+leetcode = 35
+url = "https://leetcode.com/problems/search-insert-position/"
+key_idea = "find the first index where target could be inserted."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "network-delay-time"
+title = "Network Delay Time"
+difficulty = "medium"
+leetcode = 743
+url = "https://leetcode.com/problems/network-delay-time/"
+key_idea = "Dijkstra shortest path using a min heap on an adjacency list."
+hints = []
+prompt = ""

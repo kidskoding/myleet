@@ -1,0 +1,8 @@
+id = "longest-substring-without-repeating-characters"
+title = "Longest Substring Without Repeating Characters"
+difficulty = "medium"
+leetcode = 3
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+key_idea = "expand right and shrink left while a duplicate character exists in the window."
+hints = []
+prompt = ""

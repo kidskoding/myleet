@@ -1,0 +1,8 @@
+id = "course-schedule-iii"
+title = "Course Schedule III"
+difficulty = "hard"
+leetcode = 630
+url = "https://leetcode.com/problems/course-schedule-iii/"
+key_idea = "sort by deadline, then a max heap of durations swaps out the longest course when over budget."
+hints = []
+prompt = ""

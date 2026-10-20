@@ -1,0 +1,8 @@
+id = "checking-existence-of-edge-length-limited-paths"
+title = "Checking Existence Of Edge Length Limited Paths"
+difficulty = "hard"
+leetcode = 1697
+url = "https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths/"
+key_idea = "offline Kruskal — sort edges and queries by weight, union edges up to"
+hints = []
+prompt = ""

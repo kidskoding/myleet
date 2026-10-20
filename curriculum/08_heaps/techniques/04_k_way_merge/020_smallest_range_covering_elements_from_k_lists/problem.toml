@@ -1,0 +1,8 @@
+id = "smallest-range-covering-elements-from-k-lists"
+title = "Smallest Range Covering Elements From K Lists"
+difficulty = "hard"
+leetcode = 632
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
+key_idea = "heap tracks the current min across k lists while a running max bounds the range."
+hints = []
+prompt = ""

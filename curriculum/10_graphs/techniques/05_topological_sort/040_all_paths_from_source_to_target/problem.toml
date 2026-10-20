@@ -1,0 +1,8 @@
+id = "all-paths-from-source-to-target"
+title = "All Paths From Source To Target"
+difficulty = "medium"
+leetcode = 797
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
+key_idea = "backtrack through a DAG."
+hints = []
+prompt = ""

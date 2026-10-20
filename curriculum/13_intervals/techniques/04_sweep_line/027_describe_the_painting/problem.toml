@@ -1,0 +1,8 @@
+id = "describe-the-painting"
+title = "Describe the Painting"
+difficulty = "medium"
+leetcode = 1943
+url = "https://leetcode.com/problems/describe-the-painting/"
+key_idea = "color-sum deltas at segment endpoints, sweep and emit non-zero runs."
+hints = []
+prompt = ""

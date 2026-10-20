@@ -1,0 +1,8 @@
+id = "n-ary-tree-postorder-traversal"
+title = "N-ary Tree Postorder Traversal"
+difficulty = "easy"
+leetcode = 590
+url = "https://leetcode.com/problems/n-ary-tree-postorder-traversal/"
+key_idea = "preorder with children left-to-right, then reverse the visit order."
+hints = []
+prompt = ""

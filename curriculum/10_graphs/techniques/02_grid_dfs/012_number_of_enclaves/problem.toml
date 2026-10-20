@@ -1,0 +1,8 @@
+id = "number-of-enclaves"
+title = "Number Of Enclaves"
+difficulty = "medium"
+leetcode = 1020
+url = "https://leetcode.com/problems/number-of-enclaves/"
+key_idea = "remove border-connected land before counting trapped land."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "move-zeroes"
+title = "Move Zeroes"
+difficulty = "easy"
+leetcode = 283
+url = "https://leetcode.com/problems/move-zeroes/"
+key_idea = "same-direction compaction, then backfill the tail with zeroes."
+hints = []
+prompt = ""

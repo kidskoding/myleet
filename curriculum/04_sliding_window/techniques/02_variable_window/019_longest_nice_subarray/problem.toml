@@ -1,0 +1,8 @@
+id = "longest-nice-subarray"
+title = "Longest Nice Subarray"
+difficulty = "medium"
+leetcode = 2401
+url = "https://leetcode.com/problems/longest-nice-subarray/"
+key_idea = "window whose elements are pairwise AND-zero; track a running OR mask and shrink on conflict."
+hints = []
+prompt = ""

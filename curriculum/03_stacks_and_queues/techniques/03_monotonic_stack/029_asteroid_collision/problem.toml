@@ -1,0 +1,8 @@
+id = "asteroid-collision"
+title = "Asteroid Collision"
+difficulty = "medium"
+leetcode = 735
+url = "https://leetcode.com/problems/asteroid-collision/"
+key_idea = "stack resolves collisions immediately as each new asteroid arrives."
+hints = []
+prompt = ""

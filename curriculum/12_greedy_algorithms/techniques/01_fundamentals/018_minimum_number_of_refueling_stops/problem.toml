@@ -1,0 +1,8 @@
+id = "minimum-number-of-refueling-stops-greedy_algorithms"
+title = "Minimum Number of Refueling Stops"
+difficulty = "hard"
+leetcode = 871
+url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
+key_idea = "bank passed stations in a max-heap and refuel from the largest tank only when stranded."
+hints = []
+prompt = ""

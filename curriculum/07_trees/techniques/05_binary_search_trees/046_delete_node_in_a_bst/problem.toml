@@ -1,0 +1,8 @@
+id = "delete-node-in-a-bst"
+title = "Delete Node In A BST"
+difficulty = "medium"
+leetcode = 450
+url = "https://leetcode.com/problems/delete-node-in-a-bst/"
+key_idea = "handle leaf, one-child, and two-child deletion cases."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "min-cost-climbing-stairs"
+title = "Min Cost Climbing Stairs"
+difficulty = "easy"
+leetcode = 746
+url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
+key_idea = "dp[i] is the cheapest cost to reach step i from one or two steps back."
+hints = []
+prompt = ""

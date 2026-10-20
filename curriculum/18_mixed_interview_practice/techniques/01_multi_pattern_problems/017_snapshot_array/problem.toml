@@ -1,0 +1,8 @@
+id = "snapshot-array"
+title = "Snapshot Array"
+difficulty = "medium"
+leetcode = 1146
+url = "https://leetcode.com/problems/snapshot-array/"
+key_idea = "per-index (snap_id, value) history, binary-searched for the value at a queried snapshot."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "top-k-frequent-elements-heaps"
+title = "Top K Frequent Elements"
+difficulty = "medium"
+leetcode = 347
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+key_idea = "count frequencies, then keep a size-k heap over the counts."
+hints = []
+prompt = ""

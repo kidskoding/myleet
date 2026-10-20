@@ -1,0 +1,8 @@
+id = "maximal-rectangle"
+title = "Maximal Rectangle"
+difficulty = "hard"
+leetcode = 85
+url = "https://leetcode.com/problems/maximal-rectangle/"
+key_idea = "build per-row histograms and apply the largest-rectangle monotonic stack to each."
+hints = []
+prompt = ""

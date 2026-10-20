@@ -1,0 +1,8 @@
+id = "employee-importance"
+title = "Employee Importance"
+difficulty = "medium"
+leetcode = 690
+url = "https://leetcode.com/problems/employee-importance/"
+key_idea = "traverse an adjacency list and accumulate values."
+hints = []
+prompt = ""

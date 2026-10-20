@@ -1,0 +1,8 @@
+id = "points-that-intersect-with-cars"
+title = "Points That Intersect With Cars"
+difficulty = "easy"
+leetcode = 2848
+url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
+key_idea = "difference array over the coordinate range, count covered points."
+hints = []
+prompt = ""

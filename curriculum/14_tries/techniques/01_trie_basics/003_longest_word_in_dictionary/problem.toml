@@ -1,0 +1,8 @@
+id = "longest-word-in-dictionary"
+title = "Longest Word In Dictionary"
+difficulty = "medium"
+leetcode = 720
+url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+key_idea = "a word is only reachable if every prefix of it is itself a complete word."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "sliding-window-maximum"
+title = "Sliding Window Maximum"
+difficulty = "hard"
+leetcode = 239
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+key_idea = "monotonic decreasing deque of indices gives the max of each window in O(1)."
+hints = []
+prompt = ""

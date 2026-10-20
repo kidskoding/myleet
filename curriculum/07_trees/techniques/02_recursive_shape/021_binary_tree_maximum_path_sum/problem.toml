@@ -1,0 +1,8 @@
+id = "binary-tree-maximum-path-sum"
+title = "Binary Tree Maximum Path Sum"
+difficulty = "hard"
+leetcode = 124
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+key_idea = "choose whether to continue a path through a node."
+hints = []
+prompt = ""

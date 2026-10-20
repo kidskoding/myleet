@@ -1,0 +1,8 @@
+id = "next-permutation"
+title = "Next Permutation"
+difficulty = "medium"
+leetcode = 31
+url = "https://leetcode.com/problems/next-permutation/"
+key_idea = "find the rightmost descent, swap with its next-larger successor, reverse the suffix."
+hints = []
+prompt = ""

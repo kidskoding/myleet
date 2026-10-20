@@ -1,0 +1,8 @@
+id = "the-maze-ii"
+title = "The Maze II"
+difficulty = "medium"
+leetcode = 505
+url = "https://leetcode.com/problems/the-maze-ii/"
+key_idea = "Dijkstra over rolling-movement distances."
+hints = []
+prompt = ""

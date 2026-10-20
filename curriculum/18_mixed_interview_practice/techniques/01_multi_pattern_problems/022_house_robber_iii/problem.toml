@@ -1,0 +1,8 @@
+id = "house-robber-iii"
+title = "House Robber III"
+difficulty = "medium"
+leetcode = 337
+url = "https://leetcode.com/problems/house-robber-iii/"
+key_idea = "post-order DFS where each subtree returns a rob/skip pair; naive recursion recomputes subtrees."
+hints = []
+prompt = ""

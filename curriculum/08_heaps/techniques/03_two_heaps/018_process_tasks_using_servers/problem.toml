@@ -1,0 +1,8 @@
+id = "process-tasks-using-servers"
+title = "Process Tasks Using Servers"
+difficulty = "medium"
+leetcode = 1882
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
+key_idea = "one heap of free servers by weight, one heap of busy servers by free time."
+hints = []
+prompt = ""

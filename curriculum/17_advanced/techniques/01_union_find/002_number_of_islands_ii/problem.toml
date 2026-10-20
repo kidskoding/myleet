@@ -1,0 +1,8 @@
+id = "number-of-islands-ii"
+title = "Number Of Islands II"
+difficulty = "hard"
+leetcode = 305
+url = "https://leetcode.com/problems/number-of-islands-ii/"
+key_idea = "union each new land cell with its already-land neighbors, track live count."
+hints = []
+prompt = ""

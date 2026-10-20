@@ -1,0 +1,8 @@
+id = "maximum-width-of-binary-tree"
+title = "Maximum Width Of Binary Tree"
+difficulty = "medium"
+leetcode = 662
+url = "https://leetcode.com/problems/maximum-width-of-binary-tree/"
+key_idea = "BFS carrying heap-style position indices; width is last minus first index per level."
+hints = []
+prompt = ""

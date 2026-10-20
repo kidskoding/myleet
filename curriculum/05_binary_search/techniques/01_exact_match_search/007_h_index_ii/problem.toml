@@ -1,0 +1,8 @@
+id = "h-index-ii"
+title = "H-Index II"
+difficulty = "medium"
+leetcode = 275
+url = "https://leetcode.com/problems/h-index-ii/"
+key_idea = "binary search for the first index whose citations cover the papers left."
+hints = []
+prompt = ""

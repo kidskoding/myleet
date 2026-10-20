@@ -1,0 +1,8 @@
+id = "maximum-subarray"
+title = "Maximum Subarray"
+difficulty = "medium"
+leetcode = 53
+url = "https://leetcode.com/problems/maximum-subarray/"
+key_idea = "Kadane's algorithm, extend or restart at each index."
+hints = []
+prompt = ""

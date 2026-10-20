@@ -1,0 +1,8 @@
+id = "island-perimeter"
+title = "Island Perimeter"
+difficulty = "easy"
+leetcode = 463
+url = "https://leetcode.com/problems/island-perimeter/"
+key_idea = "reason about grid neighbors and boundaries."
+hints = []
+prompt = ""

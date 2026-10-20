@@ -1,0 +1,8 @@
+id = "largest-color-value-in-a-directed-graph"
+title = "Largest Color Value In A Directed Graph"
+difficulty = "hard"
+leetcode = 1857
+url = "https://leetcode.com/problems/largest-color-value-in-a-directed-graph/"
+key_idea = "topological DP with cycle detection."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "partition-to-k-equal-sum-subsets-advanced"
+title = "Partition to K Equal Sum Subsets"
+difficulty = "medium"
+leetcode = 698
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+key_idea = "dp[mask] tracks which numbers are already placed into a completed bucket."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "container-with-most-water"
+title = "Container With Most Water"
+difficulty = "medium"
+leetcode = 11
+url = "https://leetcode.com/problems/container-with-most-water/"
+key_idea = "shrink from both ends, always moving the shorter wall."
+hints = []
+prompt = ""

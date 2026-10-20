@@ -1,0 +1,8 @@
+id = "furthest-building-you-can-reach"
+title = "Furthest Building You Can Reach"
+difficulty = "medium"
+leetcode = 1642
+url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
+key_idea = "use ladders on the largest climbs (min-heap) and pay bricks for the rest."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "find-k-closest-elements"
+title = "Find K Closest Elements"
+difficulty = "medium"
+leetcode = 658
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+key_idea = "shrink a window from both ends, dropping whichever end is farther from the target."
+hints = []
+prompt = ""

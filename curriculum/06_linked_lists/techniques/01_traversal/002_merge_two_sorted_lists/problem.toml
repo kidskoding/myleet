@@ -1,0 +1,8 @@
+id = "merge-two-sorted-lists"
+title = "Merge Two Sorted Lists"
+difficulty = "easy"
+leetcode = 21
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+key_idea = "weave two lists with a dummy head."
+hints = []
+prompt = ""

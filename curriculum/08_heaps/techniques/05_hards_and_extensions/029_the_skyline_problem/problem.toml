@@ -1,0 +1,8 @@
+id = "the-skyline-problem"
+title = "The Skyline Problem"
+difficulty = "hard"
+leetcode = 218
+url = "https://leetcode.com/problems/the-skyline-problem/"
+key_idea = "sweep building edges with a heap of active heights to emit key points."
+hints = []
+prompt = ""

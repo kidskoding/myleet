@@ -1,0 +1,8 @@
+id = "best-time-to-buy-and-sell-stock-with-cooldown"
+title = "Best Time to Buy and Sell Stock with Cooldown"
+difficulty = "medium"
+leetcode = 309
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+key_idea = "state machine DP over held, sold-today, and cooldown states."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-number-of-vowels-in-a-substring-of-given-length"
+title = "Maximum Number of Vowels in a Substring of Given Length"
+difficulty = "medium"
+leetcode = 1456
+url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
+key_idea = "slide a size-k window, +1 when a vowel enters, -1 when a vowel leaves."
+hints = []
+prompt = ""

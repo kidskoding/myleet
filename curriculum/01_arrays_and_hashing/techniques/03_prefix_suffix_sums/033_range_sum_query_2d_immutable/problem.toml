@@ -1,0 +1,8 @@
+id = "range-sum-query-2d-immutable"
+title = "Range Sum Query 2D - Immutable"
+difficulty = "medium"
+leetcode = 304
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+key_idea = "2D prefix sum with inclusion-exclusion."
+hints = []
+prompt = ""

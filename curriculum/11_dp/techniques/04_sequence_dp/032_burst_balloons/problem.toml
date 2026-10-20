@@ -1,0 +1,8 @@
+id = "burst-balloons"
+title = "Burst Balloons"
+difficulty = "hard"
+leetcode = 312
+url = "https://leetcode.com/problems/burst-balloons/"
+key_idea = "interval DP — choose the last balloon to burst within a range."
+hints = []
+prompt = ""

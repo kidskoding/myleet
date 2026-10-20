@@ -1,0 +1,8 @@
+id = "design-circular-queue"
+title = "Design Circular Queue"
+difficulty = "medium"
+leetcode = 622
+url = "https://leetcode.com/problems/design-circular-queue/"
+key_idea = "fixed-size ring buffer with head index and a count for O(1) enqueue/dequeue."
+hints = []
+prompt = ""

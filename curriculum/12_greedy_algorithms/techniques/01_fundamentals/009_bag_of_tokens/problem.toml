@@ -1,0 +1,8 @@
+id = "bag-of-tokens-greedy_algorithms"
+title = "Bag of Tokens"
+difficulty = "medium"
+leetcode = 948
+url = "https://leetcode.com/problems/bag-of-tokens/"
+key_idea = "two-pointer greedy, spending power on the cheapest token and buying back with the priciest."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "connecting-cities-with-minimum-cost"
+title = "Connecting Cities With Minimum Cost"
+difficulty = "medium"
+leetcode = 1135
+url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
+key_idea = "Kruskal's algorithm — sort edges, union find skips cycle-forming edges."
+hints = []
+prompt = ""

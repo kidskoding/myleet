@@ -1,0 +1,8 @@
+id = "maximum-subarray-advanced"
+title = "Maximum Subarray"
+difficulty = "medium"
+leetcode = 53
+url = "https://leetcode.com/problems/maximum-subarray/"
+key_idea = "divide in half; the best subarray is in the left, the right, or crosses the midpoint."
+hints = []
+prompt = ""

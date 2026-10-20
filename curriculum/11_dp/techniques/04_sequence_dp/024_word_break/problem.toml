@@ -1,0 +1,8 @@
+id = "word-break"
+title = "Word Break"
+difficulty = "medium"
+leetcode = 139
+url = "https://leetcode.com/problems/word-break/"
+key_idea = "dp[i] is true if the prefix ending at i splits into dictionary words."
+hints = []
+prompt = ""

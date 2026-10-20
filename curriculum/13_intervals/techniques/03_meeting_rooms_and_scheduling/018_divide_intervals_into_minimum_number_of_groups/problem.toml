@@ -1,0 +1,8 @@
+id = "divide-intervals-into-minimum-number-of-groups"
+title = "Divide Intervals Into Minimum Number of Groups"
+difficulty = "medium"
+leetcode = 2406
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+key_idea = "max concurrent overlap equals the group count, sweep starts and ends."
+hints = []
+prompt = ""

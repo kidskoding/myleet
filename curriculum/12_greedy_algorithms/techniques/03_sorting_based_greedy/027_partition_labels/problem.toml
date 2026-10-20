@@ -1,0 +1,8 @@
+id = "partition-labels-greedy_algorithms"
+title = "Partition Labels"
+difficulty = "medium"
+leetcode = 763
+url = "https://leetcode.com/problems/partition-labels/"
+key_idea = "extend the current partition boundary to each character's last occurrence."
+hints = []
+prompt = ""

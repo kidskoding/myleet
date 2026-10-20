@@ -1,0 +1,8 @@
+id = "validate-stack-sequences"
+title = "Validate Stack Sequences"
+difficulty = "medium"
+leetcode = 946
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+key_idea = "simulate pushes and greedily pop whenever the top matches the next popped value."
+hints = []
+prompt = ""

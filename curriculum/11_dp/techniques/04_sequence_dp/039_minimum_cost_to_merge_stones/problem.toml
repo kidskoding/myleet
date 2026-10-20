@@ -1,0 +1,8 @@
+id = "minimum-cost-to-merge-stones"
+title = "Minimum Cost to Merge Stones"
+difficulty = "hard"
+leetcode = 1000
+url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
+key_idea = "interval DP over merge ranges."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "decode-string"
+title = "Decode String"
+difficulty = "medium"
+leetcode = 394
+url = "https://leetcode.com/problems/decode-string/"
+key_idea = "stack of (count, partial string) to resolve nested k[...] brackets."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-number-of-events-that-can-be-attended"
+title = "Maximum Number of Events That Can Be Attended"
+difficulty = "medium"
+leetcode = 1353
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+key_idea = "sweep days, min heap of end days, greedily attend the soonest-ending event."
+hints = []
+prompt = ""

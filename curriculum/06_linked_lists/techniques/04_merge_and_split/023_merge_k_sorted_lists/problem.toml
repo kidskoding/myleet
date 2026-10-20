@@ -1,0 +1,8 @@
+id = "merge-k-sorted-lists"
+title = "Merge K Sorted Lists"
+difficulty = "hard"
+leetcode = 23
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+key_idea = "min-heap or pairwise merge."
+hints = []
+prompt = ""

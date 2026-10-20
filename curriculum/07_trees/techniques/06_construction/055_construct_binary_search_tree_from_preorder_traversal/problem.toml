@@ -1,0 +1,8 @@
+id = "construct-binary-search-tree-from-preorder-traversal"
+title = "Construct Binary Search Tree From Preorder Traversal"
+difficulty = "medium"
+leetcode = 1008
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
+key_idea = "preorder gives the root; values below/above split into subtrees."
+hints = []
+prompt = ""

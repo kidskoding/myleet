@@ -1,0 +1,8 @@
+id = "powx-n"
+title = "Pow(x, n)"
+difficulty = "medium"
+leetcode = 50
+url = "https://leetcode.com/problems/powx-n/"
+key_idea = "binary exponentiation halves the exponent each step."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "find-all-anagrams-in-a-string"
+title = "Find All Anagrams in a String"
+difficulty = "medium"
+leetcode = 438
+url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+key_idea = "fixed-size frequency-map window, record every index where counts match."
+hints = []
+prompt = ""

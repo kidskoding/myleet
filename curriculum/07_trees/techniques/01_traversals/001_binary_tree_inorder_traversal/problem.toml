@@ -1,0 +1,8 @@
+id = "binary-tree-inorder-traversal"
+title = "Binary Tree Inorder Traversal"
+difficulty = "easy"
+leetcode = 94
+url = "https://leetcode.com/problems/binary-tree-inorder-traversal/"
+key_idea = "iterative with an explicit stack — run left pushing nodes, pop to visit, then go right."
+hints = []
+prompt = ""

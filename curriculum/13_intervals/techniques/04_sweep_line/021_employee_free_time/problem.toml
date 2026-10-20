@@ -1,0 +1,8 @@
+id = "employee-free-time-intervals"
+title = "Employee Free Time"
+difficulty = "hard"
+leetcode = 759
+url = "https://leetcode.com/problems/employee-free-time/"
+key_idea = "flatten every employee's intervals, merge, then read the gaps."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "continuous-subarrays"
+title = "Continuous Subarrays"
+difficulty = "medium"
+leetcode = 2762
+url = "https://leetcode.com/problems/continuous-subarrays/"
+key_idea = "two deques track window max and min; shrink left while max - min > 2, count windows per right edge."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "gray-code"
+title = "Gray Code"
+difficulty = "medium"
+leetcode = 89
+url = "https://leetcode.com/problems/gray-code/"
+key_idea = "generate the sequence with i ^ (i >> 1) so consecutive codes differ by one bit."
+hints = []
+prompt = ""

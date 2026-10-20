@@ -1,0 +1,8 @@
+id = "binary-tree-level-order-traversal"
+title = "Binary Tree Level Order Traversal"
+difficulty = "medium"
+leetcode = 102
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+key_idea = "BFS by level using a queue."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "range-sum-of-bst"
+title = "Range Sum Of BST"
+difficulty = "easy"
+leetcode = 938
+url = "https://leetcode.com/problems/range-sum-of-bst/"
+key_idea = "prune branches using BST ordering."
+hints = []
+prompt = ""

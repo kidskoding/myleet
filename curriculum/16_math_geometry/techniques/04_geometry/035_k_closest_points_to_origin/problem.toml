@@ -1,0 +1,8 @@
+id = "k-closest-points-to-origin-math_geometry"
+title = "K Closest Points to Origin"
+difficulty = "medium"
+leetcode = 973
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+key_idea = "keep the k smallest squared distances with a heap or quickselect."
+hints = []
+prompt = ""

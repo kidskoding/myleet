@@ -1,0 +1,8 @@
+id = "24-game"
+title = "24 Game"
+difficulty = "hard"
+leetcode = 679
+url = "https://leetcode.com/problems/24-game/"
+key_idea = "pick two numbers and an operator, recurse on the reduced multiset until one value reaches 24."
+hints = []
+prompt = ""

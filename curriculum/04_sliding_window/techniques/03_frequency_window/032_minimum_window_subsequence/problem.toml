@@ -1,0 +1,8 @@
+id = "minimum-window-subsequence"
+title = "Minimum Window Subsequence"
+difficulty = "hard"
+leetcode = 727
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
+key_idea = "forward-scan then backtrack two-pointer window (not a classic monotonic slide)."
+hints = []
+prompt = ""

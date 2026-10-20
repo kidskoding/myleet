@@ -1,0 +1,8 @@
+id = "can-place-flowers"
+title = "Can Place Flowers"
+difficulty = "easy"
+leetcode = 605
+url = "https://leetcode.com/problems/can-place-flowers/"
+key_idea = "scan left to right and plant greedily whenever a slot and both neighbors are empty."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "combination-sum-ii"
+title = "Combination Sum II"
+difficulty = "medium"
+leetcode = 40
+url = "https://leetcode.com/problems/combination-sum-ii/"
+key_idea = "sort first, advance past duplicates at the same depth, no reuse of the same index."
+hints = []
+prompt = ""

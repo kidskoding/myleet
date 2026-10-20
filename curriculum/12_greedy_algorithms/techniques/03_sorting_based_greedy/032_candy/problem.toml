@@ -1,0 +1,8 @@
+id = "candy"
+title = "Candy"
+difficulty = "hard"
+leetcode = 135
+url = "https://leetcode.com/problems/candy/"
+key_idea = "two greedy passes (left-to-right, right-to-left) taking the max at each index."
+hints = []
+prompt = ""

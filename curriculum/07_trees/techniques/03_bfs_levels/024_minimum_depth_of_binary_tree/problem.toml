@@ -1,0 +1,8 @@
+id = "minimum-depth-of-binary-tree"
+title = "Minimum Depth Of Binary Tree"
+difficulty = "easy"
+leetcode = 111
+url = "https://leetcode.com/problems/minimum-depth-of-binary-tree/"
+key_idea = "BFS until the first leaf."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "delete-node-in-a-linked-list"
+title = "Delete Node In A Linked List"
+difficulty = "medium"
+leetcode = 237
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+key_idea = "copy the next node's value, then unlink it."
+hints = []
+prompt = ""

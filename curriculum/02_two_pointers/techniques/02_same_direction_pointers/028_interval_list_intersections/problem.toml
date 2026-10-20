@@ -1,0 +1,8 @@
+id = "interval-list-intersections"
+title = "Interval List Intersections"
+difficulty = "medium"
+leetcode = 986
+url = "https://leetcode.com/problems/interval-list-intersections/"
+key_idea = "advance two pointers across both sorted lists, emitting the overlap and moving the one that ends first."
+hints = []
+prompt = ""

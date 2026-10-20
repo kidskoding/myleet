@@ -1,0 +1,8 @@
+id = "merge-k-sorted-lists-heaps"
+title = "Merge K Sorted Lists"
+difficulty = "hard"
+leetcode = 23
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+key_idea = "heap holds one candidate per list, always advancing the smallest."
+hints = []
+prompt = ""

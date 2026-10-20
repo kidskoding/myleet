@@ -1,0 +1,8 @@
+id = "repeated-string-match"
+title = "Repeated String Match"
+difficulty = "medium"
+leetcode = 686
+url = "https://leetcode.com/problems/repeated-string-match/"
+key_idea = "repeat `a` until it is at least as long as `b`, then KMP search for `b`."
+hints = []
+prompt = ""

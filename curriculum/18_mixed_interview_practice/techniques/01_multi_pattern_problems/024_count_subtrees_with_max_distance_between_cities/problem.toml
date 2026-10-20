@@ -1,0 +1,8 @@
+id = "count-subtrees-with-max-distance-between-cities"
+title = "Count Subtrees With Max Distance Between Cities"
+difficulty = "hard"
+leetcode = 1617
+url = "https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities/"
+key_idea = "enumerate every subset, keep the connected ones, take each one's diameter."
+hints = []
+prompt = ""

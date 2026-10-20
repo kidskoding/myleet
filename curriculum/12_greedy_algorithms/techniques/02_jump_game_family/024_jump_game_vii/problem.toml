@@ -1,0 +1,8 @@
+id = "jump-game-vii"
+title = "Jump Game VII"
+difficulty = "medium"
+leetcode = 1871
+url = "https://leetcode.com/problems/jump-game-vii/"
+key_idea = "sliding-window reachability; index i is reachable if any reachable index sits in [i-max_jump, i-min_jump]."
+hints = []
+prompt = ""

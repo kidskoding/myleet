@@ -1,0 +1,8 @@
+id = "basic-calculator-ii"
+title = "Basic Calculator II"
+difficulty = "medium"
+leetcode = 227
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+key_idea = "stack resolves */ immediately, leaves +/- terms for a final sum."
+hints = []
+prompt = ""

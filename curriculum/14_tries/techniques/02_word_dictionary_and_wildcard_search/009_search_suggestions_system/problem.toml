@@ -1,0 +1,8 @@
+id = "search-suggestions-system"
+title = "Search Suggestions System"
+difficulty = "medium"
+leetcode = 1268
+url = "https://leetcode.com/problems/search-suggestions-system/"
+key_idea = "walk the trie one character at a time, collecting the smallest"
+hints = []
+prompt = ""

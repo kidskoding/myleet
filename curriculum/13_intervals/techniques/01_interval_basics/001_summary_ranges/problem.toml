@@ -1,0 +1,8 @@
+id = "summary-ranges"
+title = "Summary Ranges"
+difficulty = "easy"
+leetcode = 228
+url = "https://leetcode.com/problems/summary-ranges/"
+key_idea = "walk the sorted array, extend a run while numbers stay consecutive."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "bitwise-and-of-numbers-range"
+title = "Bitwise AND of Numbers Range"
+difficulty = "medium"
+leetcode = 201
+url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
+key_idea = "shift both bounds right together until they match, then shift the shared prefix back."
+hints = []
+prompt = ""

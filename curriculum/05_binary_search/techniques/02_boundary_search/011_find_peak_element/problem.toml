@@ -1,0 +1,8 @@
+id = "find-peak-element"
+title = "Find Peak Element"
+difficulty = "medium"
+leetcode = 162
+url = "https://leetcode.com/problems/find-peak-element/"
+key_idea = "binary search using the local slope instead of full sortedness."
+hints = []
+prompt = ""

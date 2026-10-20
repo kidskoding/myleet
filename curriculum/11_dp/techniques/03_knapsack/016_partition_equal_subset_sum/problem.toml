@@ -1,0 +1,8 @@
+id = "partition-equal-subset-sum"
+title = "Partition Equal Subset Sum"
+difficulty = "medium"
+leetcode = 416
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+key_idea = "0/1 knapsack — can a subset of nums sum to exactly half the total."
+hints = []
+prompt = ""

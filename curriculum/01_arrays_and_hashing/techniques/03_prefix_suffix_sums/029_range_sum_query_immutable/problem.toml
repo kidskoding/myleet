@@ -1,0 +1,8 @@
+id = "range-sum-query-immutable"
+title = "Range Sum Query - Immutable"
+difficulty = "easy"
+leetcode = 303
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
+key_idea = "precompute a prefix sum array for O(1) range queries."
+hints = []
+prompt = ""

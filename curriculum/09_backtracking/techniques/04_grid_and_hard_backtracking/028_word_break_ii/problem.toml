@@ -1,0 +1,8 @@
+id = "word-break-ii"
+title = "Word Break II"
+difficulty = "hard"
+leetcode = 140
+url = "https://leetcode.com/problems/word-break-ii/"
+key_idea = "choose each next dictionary-word prefix, memoizing suffixes to avoid re-exploring dead ends."
+hints = []
+prompt = ""

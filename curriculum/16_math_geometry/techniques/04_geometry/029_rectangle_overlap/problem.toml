@@ -1,0 +1,8 @@
+id = "rectangle-overlap"
+title = "Rectangle Overlap"
+difficulty = "easy"
+leetcode = 836
+url = "https://leetcode.com/problems/rectangle-overlap/"
+key_idea = "check that both axis intervals overlap."
+hints = []
+prompt = ""

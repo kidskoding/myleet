@@ -1,0 +1,8 @@
+id = "sudoku-solver"
+title = "Sudoku Solver"
+difficulty = "hard"
+leetcode = 37
+url = "https://leetcode.com/problems/sudoku-solver/"
+key_idea = "fill the next empty cell, prune on row/column/box constraints, backtrack on failure."
+hints = []
+prompt = ""

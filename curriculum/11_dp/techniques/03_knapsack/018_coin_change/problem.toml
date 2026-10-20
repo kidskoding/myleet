@@ -1,0 +1,8 @@
+id = "coin-change"
+title = "Coin Change"
+difficulty = "medium"
+leetcode = 322
+url = "https://leetcode.com/problems/coin-change/"
+key_idea = "unbounded knapsack — fewest coins whose sum is amount."
+hints = []
+prompt = ""

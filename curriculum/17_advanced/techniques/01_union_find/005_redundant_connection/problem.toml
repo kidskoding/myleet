@@ -1,0 +1,8 @@
+id = "redundant-connection-advanced"
+title = "Redundant Connection"
+difficulty = "medium"
+leetcode = 684
+url = "https://leetcode.com/problems/redundant-connection/"
+key_idea = "add edges one at a time; the first whose endpoints already share a root closes the cycle."
+hints = []
+prompt = ""

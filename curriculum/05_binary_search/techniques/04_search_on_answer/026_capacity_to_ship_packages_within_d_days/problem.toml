@@ -1,0 +1,8 @@
+id = "capacity-to-ship-packages-within-d-days"
+title = "Capacity To Ship Packages Within D Days"
+difficulty = "medium"
+leetcode = 1011
+url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+key_idea = "search on answer space for the minimum feasible ship capacity."
+hints = []
+prompt = ""

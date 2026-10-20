@@ -1,0 +1,8 @@
+id = "delete-the-middle-node-of-a-linked-list"
+title = "Delete The Middle Node Of A Linked List"
+difficulty = "medium"
+leetcode = 2095
+url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
+key_idea = "slow/fast to find the middle, keep a trailing pointer to unlink it."
+hints = []
+prompt = ""

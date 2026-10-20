@@ -1,0 +1,8 @@
+id = "redundant-connection-ii"
+title = "Redundant Connection II"
+difficulty = "hard"
+leetcode = 685
+url = "https://leetcode.com/problems/redundant-connection-ii/"
+key_idea = "a node with two parents and a cycle are separate cases; pick the candidate"
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "shortest-path-visiting-all-nodes"
+title = "Shortest Path Visiting All Nodes"
+difficulty = "hard"
+leetcode = 847
+url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
+key_idea = "BFS over node plus visited-bitmask state."
+hints = []
+prompt = ""

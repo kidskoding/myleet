@@ -1,0 +1,8 @@
+id = "word-squares"
+title = "Word Squares"
+difficulty = "hard"
+leetcode = 425
+url = "https://leetcode.com/problems/word-squares/"
+key_idea = "prefix trie feeds backtracking that builds the grid row by row"
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-number-of-events-that-can-be-attended-ii"
+title = "Maximum Number of Events That Can Be Attended II"
+difficulty = "hard"
+leetcode = 1751
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/"
+key_idea = "sort by end, DP over events with a binary search for the next non-conflicting event."
+hints = []
+prompt = ""

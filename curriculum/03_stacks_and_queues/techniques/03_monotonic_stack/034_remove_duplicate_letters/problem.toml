@@ -1,0 +1,8 @@
+id = "remove-duplicate-letters"
+title = "Remove Duplicate Letters"
+difficulty = "medium"
+leetcode = 316
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+key_idea = "monotonic increasing stack keeps the lexicographically smallest result using last-occurrence counts."
+hints = []
+prompt = ""

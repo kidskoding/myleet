@@ -1,0 +1,8 @@
+id = "remove-duplicates-from-sorted-array-ii"
+title = "Remove Duplicates from Sorted Array II"
+difficulty = "medium"
+leetcode = 80
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/"
+key_idea = "write pointer that accepts a value only if it differs from two slots back."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "min-cost-to-connect-all-points"
+title = "Min Cost To Connect All Points"
+difficulty = "medium"
+leetcode = 1584
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+key_idea = "Prim's algorithm growing a tree from a min heap of frontier edges."
+hints = []
+prompt = ""

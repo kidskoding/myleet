@@ -1,0 +1,8 @@
+id = "stream-of-characters"
+title = "Stream Of Characters"
+difficulty = "hard"
+leetcode = 1032
+url = "https://leetcode.com/problems/stream-of-characters/"
+key_idea = "build the trie on reversed words, then check backward from the"
+hints = []
+prompt = ""

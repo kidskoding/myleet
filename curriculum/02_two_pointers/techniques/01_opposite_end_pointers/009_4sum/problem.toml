@@ -1,0 +1,8 @@
+id = "4sum"
+title = "4Sum"
+difficulty = "medium"
+leetcode = 18
+url = "https://leetcode.com/problems/4sum/"
+key_idea = "fix two values, then run opposite-end pointers on the remaining pair while skipping duplicates."
+hints = []
+prompt = ""

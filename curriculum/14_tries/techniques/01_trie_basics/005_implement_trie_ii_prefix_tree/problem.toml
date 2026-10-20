@@ -1,0 +1,8 @@
+id = "implement-trie-ii-prefix-tree"
+title = "Implement Trie II (Prefix Tree)"
+difficulty = "medium"
+leetcode = 1804
+url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
+key_idea = "nodes track word counts and prefix counts to support insert,"
+hints = []
+prompt = ""

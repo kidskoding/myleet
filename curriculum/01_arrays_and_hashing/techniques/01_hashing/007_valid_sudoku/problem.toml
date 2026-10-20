@@ -1,0 +1,8 @@
+id = "valid-sudoku"
+title = "Valid Sudoku"
+difficulty = "medium"
+leetcode = 36
+url = "https://leetcode.com/problems/valid-sudoku/"
+key_idea = "hash sets per row, column, and box."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "minimum-flips-to-make-a-or-b-equal-to-c"
+title = "Minimum Flips to Make a OR b Equal to c"
+difficulty = "medium"
+leetcode = 1318
+url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
+key_idea = "compare a, b, and c bit by bit and count the flips needed to fix each mismatch."
+hints = []
+prompt = ""

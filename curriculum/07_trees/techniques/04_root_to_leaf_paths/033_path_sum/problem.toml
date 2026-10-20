@@ -1,0 +1,8 @@
+id = "path-sum"
+title = "Path Sum"
+difficulty = "easy"
+leetcode = 112
+url = "https://leetcode.com/problems/path-sum/"
+key_idea = "carry the remaining sum from root to leaf."
+hints = []
+prompt = ""

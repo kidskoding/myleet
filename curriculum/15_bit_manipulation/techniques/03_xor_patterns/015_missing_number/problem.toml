@@ -1,0 +1,8 @@
+id = "missing-number"
+title = "Missing Number"
+difficulty = "easy"
+leetcode = 268
+url = "https://leetcode.com/problems/missing-number/"
+key_idea = "XOR every index and every value together so present pairs cancel, leaving the missing one."
+hints = []
+prompt = ""

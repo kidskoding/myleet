@@ -1,0 +1,8 @@
+id = "max-area-of-island"
+title = "Max Area Of Island"
+difficulty = "medium"
+leetcode = 695
+url = "https://leetcode.com/problems/max-area-of-island/"
+key_idea = "compute component size with grid DFS/BFS."
+hints = []
+prompt = ""

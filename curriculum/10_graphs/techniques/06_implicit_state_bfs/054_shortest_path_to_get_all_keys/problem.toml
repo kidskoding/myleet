@@ -1,0 +1,8 @@
+id = "shortest-path-to-get-all-keys"
+title = "Shortest Path To Get All Keys"
+difficulty = "hard"
+leetcode = 864
+url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"
+key_idea = "BFS over position plus collected-key bitmask."
+hints = []
+prompt = ""

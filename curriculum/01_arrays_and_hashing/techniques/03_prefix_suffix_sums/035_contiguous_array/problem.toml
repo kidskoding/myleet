@@ -1,0 +1,8 @@
+id = "contiguous-array"
+title = "Contiguous Array"
+difficulty = "medium"
+leetcode = 525
+url = "https://leetcode.com/problems/contiguous-array/"
+key_idea = "map 0 to -1, track first index of each running prefix sum."
+hints = []
+prompt = ""

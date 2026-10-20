@@ -1,0 +1,8 @@
+id = "concatenated-words"
+title = "Concatenated Words"
+difficulty = "hard"
+leetcode = 472
+url = "https://leetcode.com/problems/concatenated-words/"
+key_idea = "trie or hash set of words plus DFS/DP to check if a word"
+hints = []
+prompt = ""

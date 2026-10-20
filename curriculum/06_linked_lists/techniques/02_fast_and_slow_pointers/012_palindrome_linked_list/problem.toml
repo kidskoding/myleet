@@ -1,0 +1,8 @@
+id = "palindrome-linked-list"
+title = "Palindrome Linked List"
+difficulty = "easy"
+leetcode = 234
+url = "https://leetcode.com/problems/palindrome-linked-list/"
+key_idea = "find the middle, reverse the second half, compare."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "letter-tile-possibilities"
+title = "Letter Tile Possibilities"
+difficulty = "medium"
+leetcode = 1079
+url = "https://leetcode.com/problems/letter-tile-possibilities/"
+key_idea = "count sequences from a multiset of tiles, using per-depth counts to skip duplicate letters."
+hints = []
+prompt = ""

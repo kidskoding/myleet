@@ -1,0 +1,8 @@
+id = "remove-nodes-from-linked-list"
+title = "Remove Nodes From Linked List"
+difficulty = "medium"
+leetcode = 2487
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
+key_idea = "reverse, drop nodes smaller than the running max, reverse back."
+hints = []
+prompt = ""

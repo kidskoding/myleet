@@ -1,0 +1,8 @@
+id = "single-threaded-cpu"
+title = "Single-Threaded CPU"
+difficulty = "medium"
+leetcode = 1834
+url = "https://leetcode.com/problems/single-threaded-cpu/"
+key_idea = "min heap by availability feeds a min heap by processing time and index."
+hints = []
+prompt = ""

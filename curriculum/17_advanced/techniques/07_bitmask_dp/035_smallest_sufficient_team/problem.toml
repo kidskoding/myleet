@@ -1,0 +1,8 @@
+id = "smallest-sufficient-team"
+title = "Smallest Sufficient Team"
+difficulty = "hard"
+leetcode = 1125
+url = "https://leetcode.com/problems/smallest-sufficient-team/"
+key_idea = "dp[skill_mask] stores the smallest team (as a set of people) covering that skill mask."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "remove-duplicates-from-sorted-list-ii"
+title = "Remove Duplicates From Sorted List II"
+difficulty = "medium"
+leetcode = 82
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
+key_idea = "dummy head, skip every node in a duplicate run."
+hints = []
+prompt = ""

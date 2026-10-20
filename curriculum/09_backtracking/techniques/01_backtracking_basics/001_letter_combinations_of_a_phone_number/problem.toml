@@ -1,0 +1,8 @@
+id = "letter-combinations-of-a-phone-number"
+title = "Letter Combinations of a Phone Number"
+difficulty = "medium"
+leetcode = 17
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+key_idea = "choose one letter per digit position, recurse to the next digit."
+hints = []
+prompt = ""

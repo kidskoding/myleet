@@ -1,0 +1,8 @@
+id = "3sum-smaller"
+title = "3Sum Smaller"
+difficulty = "medium"
+leetcode = 259
+url = "https://leetcode.com/problems/3sum-smaller/"
+key_idea = "fix one value, then count all pairs at once when the opposite-end sum drops below the target."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "binary-tree-cameras"
+title = "Binary Tree Cameras"
+difficulty = "hard"
+leetcode = 968
+url = "https://leetcode.com/problems/binary-tree-cameras/"
+key_idea = "post-order DFS returning a covered/needs-camera/has-camera state, resolved greedily at each parent."
+hints = []
+prompt = ""

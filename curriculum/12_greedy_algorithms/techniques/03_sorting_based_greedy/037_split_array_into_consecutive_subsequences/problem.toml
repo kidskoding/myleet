@@ -1,0 +1,8 @@
+id = "split-array-into-consecutive-subsequences"
+title = "Split Array into Consecutive Subsequences"
+difficulty = "medium"
+leetcode = 659
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
+key_idea = "greedily append each number to an existing run before starting a new length-3 subsequence."
+hints = []
+prompt = ""

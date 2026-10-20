@@ -1,0 +1,8 @@
+id = "implement-stack-using-queues"
+title = "Implement Stack Using Queues"
+difficulty = "easy"
+leetcode = 225
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
+key_idea = "rotate a queue after each push to simulate LIFO order."
+hints = []
+prompt = ""

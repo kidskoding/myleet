@@ -1,0 +1,8 @@
+id = "water-and-jug-problem"
+title = "Water and Jug Problem"
+difficulty = "medium"
+leetcode = 365
+url = "https://leetcode.com/problems/water-and-jug-problem/"
+key_idea = "by Bezout, target is reachable iff target <= jug1 + jug2 and target is a multiple of gcd(jug1, jug2)."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "inorder-successor-in-bst"
+title = "Inorder Successor In BST"
+difficulty = "medium"
+leetcode = 285
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
+key_idea = "BST navigation tracking the deepest ancestor greater than the target."
+hints = []
+prompt = ""

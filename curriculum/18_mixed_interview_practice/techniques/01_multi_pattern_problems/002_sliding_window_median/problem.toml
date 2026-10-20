@@ -1,0 +1,8 @@
+id = "sliding-window-median-mixed_interview_practice"
+title = "Sliding Window Median"
+difficulty = "hard"
+leetcode = 480
+url = "https://leetcode.com/problems/sliding-window-median/"
+key_idea = "a fixed-size window feeding two balanced heaps with lazy deletion."
+hints = []
+prompt = ""

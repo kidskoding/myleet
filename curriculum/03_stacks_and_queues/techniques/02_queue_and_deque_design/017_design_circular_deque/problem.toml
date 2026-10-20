@@ -1,0 +1,8 @@
+id = "design-circular-deque"
+title = "Design Circular Deque"
+difficulty = "medium"
+leetcode = 641
+url = "https://leetcode.com/problems/design-circular-deque/"
+key_idea = "fixed-size buffer with head and tail indices for O(1) operations at both ends."
+hints = []
+prompt = ""

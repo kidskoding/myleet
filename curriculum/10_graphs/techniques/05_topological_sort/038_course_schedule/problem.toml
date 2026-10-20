@@ -1,0 +1,8 @@
+id = "course-schedule"
+title = "Course Schedule"
+difficulty = "medium"
+leetcode = 207
+url = "https://leetcode.com/problems/course-schedule/"
+key_idea = "detect cycles in a directed dependency graph."
+hints = []
+prompt = ""

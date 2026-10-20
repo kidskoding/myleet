@@ -1,0 +1,8 @@
+id = "number-of-provinces-advanced"
+title = "Number Of Provinces"
+difficulty = "medium"
+leetcode = 547
+url = "https://leetcode.com/problems/number-of-provinces/"
+key_idea = "union adjacent cities from the adjacency matrix, count distinct roots."
+hints = []
+prompt = ""

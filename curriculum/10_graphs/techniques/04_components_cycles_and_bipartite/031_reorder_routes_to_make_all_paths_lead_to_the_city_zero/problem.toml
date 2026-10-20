@@ -1,0 +1,8 @@
+id = "reorder-routes-to-make-all-paths-lead-to-the-city-zero"
+title = "Reorder Routes To Make All Paths Lead To The City Zero"
+difficulty = "medium"
+leetcode = 1466
+url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
+key_idea = "DFS/BFS with directed edge orientation."
+hints = []
+prompt = ""

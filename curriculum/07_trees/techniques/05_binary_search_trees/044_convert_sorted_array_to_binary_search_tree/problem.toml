@@ -1,0 +1,8 @@
+id = "convert-sorted-array-to-binary-search-tree"
+title = "Convert Sorted Array To BST"
+difficulty = "easy"
+leetcode = 108
+url = "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
+key_idea = "choose the middle element as the root recursively."
+hints = []
+prompt = ""

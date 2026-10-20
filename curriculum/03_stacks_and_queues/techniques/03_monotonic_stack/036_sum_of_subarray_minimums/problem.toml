@@ -1,0 +1,8 @@
+id = "sum-of-subarray-minimums"
+title = "Sum Of Subarray Minimums"
+difficulty = "medium"
+leetcode = 907
+url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
+key_idea = "monotonic stack counts subarrays where each element is the minimum via span boundaries."
+hints = []
+prompt = ""

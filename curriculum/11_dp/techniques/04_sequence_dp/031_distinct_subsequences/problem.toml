@@ -1,0 +1,8 @@
+id = "distinct-subsequences"
+title = "Distinct Subsequences"
+difficulty = "hard"
+leetcode = 115
+url = "https://leetcode.com/problems/distinct-subsequences/"
+key_idea = "dp[i][j] counts ways t's prefix appears as a subsequence of s's prefix."
+hints = []
+prompt = ""

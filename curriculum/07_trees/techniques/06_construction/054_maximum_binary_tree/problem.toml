@@ -1,0 +1,8 @@
+id = "maximum-binary-tree"
+title = "Maximum Binary Tree"
+difficulty = "medium"
+leetcode = 654
+url = "https://leetcode.com/problems/maximum-binary-tree/"
+key_idea = "the array max is the root; recurse on the left and right slices."
+hints = []
+prompt = ""

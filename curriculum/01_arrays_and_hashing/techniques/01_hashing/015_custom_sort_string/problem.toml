@@ -1,0 +1,8 @@
+id = "custom-sort-string"
+title = "Custom Sort String"
+difficulty = "medium"
+leetcode = 791
+url = "https://leetcode.com/problems/custom-sort-string/"
+key_idea = "count characters, emit the ordered ones first, then the rest."
+hints = []
+prompt = ""

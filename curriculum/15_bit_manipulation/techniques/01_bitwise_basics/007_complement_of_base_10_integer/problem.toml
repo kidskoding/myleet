@@ -1,0 +1,8 @@
+id = "complement-of-base-10-integer"
+title = "Complement of Base 10 Integer"
+difficulty = "easy"
+leetcode = 1009
+url = "https://leetcode.com/problems/complement-of-base-10-integer/"
+key_idea = "XOR against an all-ones mask sized to the number's bit length."
+hints = []
+prompt = ""

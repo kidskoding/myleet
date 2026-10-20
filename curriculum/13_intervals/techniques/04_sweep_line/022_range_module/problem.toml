@@ -1,0 +1,8 @@
+id = "range-module"
+title = "Range Module"
+difficulty = "hard"
+leetcode = 715
+url = "https://leetcode.com/problems/range-module/"
+key_idea = "maintain a sorted disjoint interval set with add/remove/query."
+hints = []
+prompt = ""

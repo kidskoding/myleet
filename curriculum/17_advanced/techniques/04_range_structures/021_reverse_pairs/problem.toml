@@ -1,0 +1,8 @@
+id = "reverse-pairs"
+title = "Reverse Pairs"
+difficulty = "hard"
+leetcode = 493
+url = "https://leetcode.com/problems/reverse-pairs/"
+key_idea = "Fenwick tree (or merge sort) counting pairs where one value exceeds twice another."
+hints = []
+prompt = ""

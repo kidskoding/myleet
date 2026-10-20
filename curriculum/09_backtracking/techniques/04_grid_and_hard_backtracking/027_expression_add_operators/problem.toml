@@ -1,0 +1,8 @@
+id = "expression-add-operators"
+title = "Expression Add Operators"
+difficulty = "hard"
+leetcode = 282
+url = "https://leetcode.com/problems/expression-add-operators/"
+key_idea = "choose \"+\", \"-\", \"*\", or concatenation between digits, carrying the"
+hints = []
+prompt = ""

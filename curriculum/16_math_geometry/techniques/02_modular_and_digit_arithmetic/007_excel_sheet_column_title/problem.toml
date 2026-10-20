@@ -1,0 +1,8 @@
+id = "excel-sheet-column-title"
+title = "Excel Sheet Column Title"
+difficulty = "easy"
+leetcode = 168
+url = "https://leetcode.com/problems/excel-sheet-column-title/"
+key_idea = "base-26 conversion with a 1-indexed digit shift."
+hints = []
+prompt = ""

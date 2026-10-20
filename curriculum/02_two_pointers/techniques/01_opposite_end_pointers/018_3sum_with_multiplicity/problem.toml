@@ -1,0 +1,8 @@
+id = "3sum-with-multiplicity"
+title = "3Sum With Multiplicity"
+difficulty = "medium"
+leetcode = 923
+url = "https://leetcode.com/problems/3sum-with-multiplicity/"
+key_idea = "fix one value and count opposite-end pairs, handling equal-value multiplicities with combinatorics."
+hints = []
+prompt = ""

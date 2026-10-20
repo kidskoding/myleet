@@ -1,0 +1,8 @@
+id = "keys-and-rooms"
+title = "Keys And Rooms"
+difficulty = "medium"
+leetcode = 841
+url = "https://leetcode.com/problems/keys-and-rooms/"
+key_idea = "reachability through dynamically discovered edges."
+hints = []
+prompt = ""

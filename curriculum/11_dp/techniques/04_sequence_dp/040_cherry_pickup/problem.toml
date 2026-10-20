@@ -1,0 +1,8 @@
+id = "cherry-pickup"
+title = "Cherry Pickup"
+difficulty = "hard"
+leetcode = 741
+url = "https://leetcode.com/problems/cherry-pickup/"
+key_idea = "two walks at once, dp over both positions on a shared diagonal."
+hints = []
+prompt = ""

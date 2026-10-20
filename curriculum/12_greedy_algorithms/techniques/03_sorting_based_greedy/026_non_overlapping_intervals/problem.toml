@@ -1,0 +1,8 @@
+id = "non-overlapping-intervals"
+title = "Non-overlapping Intervals"
+difficulty = "medium"
+leetcode = 435
+url = "https://leetcode.com/problems/non-overlapping-intervals/"
+key_idea = "sort by end time, keep the earliest-ending interval, count removals for the rest."
+hints = []
+prompt = ""

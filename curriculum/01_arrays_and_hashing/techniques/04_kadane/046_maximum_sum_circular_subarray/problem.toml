@@ -1,0 +1,8 @@
+id = "maximum-sum-circular-subarray"
+title = "Maximum Sum Circular Subarray"
+difficulty = "medium"
+leetcode = 918
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+key_idea = "Kadane for both max subarray and total-minus-min subarray."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "cousins-in-binary-tree"
+title = "Cousins In Binary Tree"
+difficulty = "easy"
+leetcode = 993
+url = "https://leetcode.com/problems/cousins-in-binary-tree/"
+key_idea = "BFS tracking each target's depth and parent; cousins share depth but not parent."
+hints = []
+prompt = ""

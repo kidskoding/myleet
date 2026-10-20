@@ -1,0 +1,8 @@
+id = "lowest-common-ancestor-of-a-binary-search-tree"
+title = "Lowest Common Ancestor Of A BST"
+difficulty = "medium"
+leetcode = 235
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
+key_idea = "use value ranges to move left, move right, or stop."
+hints = []
+prompt = ""

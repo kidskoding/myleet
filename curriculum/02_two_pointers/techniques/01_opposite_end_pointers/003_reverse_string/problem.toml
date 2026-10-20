@@ -1,0 +1,8 @@
+id = "reverse-string"
+title = "Reverse String"
+difficulty = "easy"
+leetcode = 344
+url = "https://leetcode.com/problems/reverse-string/"
+key_idea = "swap opposite ends in place until the pointers cross."
+hints = []
+prompt = ""

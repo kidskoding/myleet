@@ -1,0 +1,8 @@
+id = "swapping-nodes-in-a-linked-list"
+title = "Swapping Nodes In A Linked List"
+difficulty = "medium"
+leetcode = 1721
+url = "https://leetcode.com/problems/swapping-nodes-in-a-linked-list/"
+key_idea = "two pointers a gap of k apart to find the kth from both ends."
+hints = []
+prompt = ""

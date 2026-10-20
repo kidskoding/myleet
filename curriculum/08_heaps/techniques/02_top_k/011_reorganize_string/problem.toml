@@ -1,0 +1,8 @@
+id = "reorganize-string"
+title = "Reorganize String"
+difficulty = "medium"
+leetcode = 767
+url = "https://leetcode.com/problems/reorganize-string/"
+key_idea = "max heap of character counts interleaves the most frequent letters."
+hints = []
+prompt = ""

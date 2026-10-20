@@ -1,0 +1,8 @@
+id = "replace-words"
+title = "Replace Words"
+difficulty = "medium"
+leetcode = 648
+url = "https://leetcode.com/problems/replace-words/"
+key_idea = "walk the trie from each word's start and stop at the first"
+hints = []
+prompt = ""

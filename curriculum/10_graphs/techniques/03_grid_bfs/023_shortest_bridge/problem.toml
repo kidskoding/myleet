@@ -1,0 +1,8 @@
+id = "shortest-bridge"
+title = "Shortest Bridge"
+difficulty = "medium"
+leetcode = 934
+url = "https://leetcode.com/problems/shortest-bridge/"
+key_idea = "mark one island, then BFS outward to the other island."
+hints = []
+prompt = ""

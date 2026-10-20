@@ -1,0 +1,8 @@
+id = "ipo"
+title = "IPO"
+difficulty = "hard"
+leetcode = 502
+url = "https://leetcode.com/problems/ipo/"
+key_idea = "min heap gates projects by capital, max heap picks the best profit."
+hints = []
+prompt = ""

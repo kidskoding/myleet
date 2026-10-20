@@ -1,0 +1,8 @@
+id = "palindrome-partitioning"
+title = "Palindrome Partitioning"
+difficulty = "medium"
+leetcode = 131
+url = "https://leetcode.com/problems/palindrome-partitioning/"
+key_idea = "choose the next substring cut, only recurse when the prefix is a palindrome."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "3sum-closest"
+title = "3Sum Closest"
+difficulty = "medium"
+leetcode = 16
+url = "https://leetcode.com/problems/3sum-closest/"
+key_idea = "fix one value, then track the closest sum seen while narrowing with opposite-end pointers."
+hints = []
+prompt = ""

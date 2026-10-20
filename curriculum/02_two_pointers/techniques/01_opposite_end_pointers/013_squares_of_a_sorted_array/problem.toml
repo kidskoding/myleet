@@ -1,0 +1,8 @@
+id = "squares-of-a-sorted-array"
+title = "Squares Of A Sorted Array"
+difficulty = "easy"
+leetcode = 977
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+key_idea = "the largest square is always at one of the two ends; fill the result from the back."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximal-square"
+title = "Maximal Square"
+difficulty = "medium"
+leetcode = 221
+url = "https://leetcode.com/problems/maximal-square/"
+key_idea = "dp[r][c] is the largest square side ending at that cell."
+hints = []
+prompt = ""

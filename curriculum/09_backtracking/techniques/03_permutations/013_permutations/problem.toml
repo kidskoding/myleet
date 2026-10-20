@@ -1,0 +1,8 @@
+id = "permutations"
+title = "Permutations"
+difficulty = "medium"
+leetcode = 46
+url = "https://leetcode.com/problems/permutations/"
+key_idea = "track used values with a boolean array, build the path position by position."
+hints = []
+prompt = ""

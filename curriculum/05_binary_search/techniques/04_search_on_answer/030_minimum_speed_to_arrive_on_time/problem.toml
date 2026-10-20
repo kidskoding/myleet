@@ -1,0 +1,8 @@
+id = "minimum-speed-to-arrive-on-time"
+title = "Minimum Speed to Arrive on Time"
+difficulty = "medium"
+leetcode = 1870
+url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
+key_idea = "search on answer space for the minimum speed that keeps total travel time in budget."
+hints = []
+prompt = ""

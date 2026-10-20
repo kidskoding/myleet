@@ -1,0 +1,8 @@
+id = "cheapest-flights-within-k-stops-advanced"
+title = "Cheapest Flights Within K Stops"
+difficulty = "medium"
+leetcode = 787
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+key_idea = "Bellman-Ford style relaxation over at most k+1 rounds."
+hints = []
+prompt = ""

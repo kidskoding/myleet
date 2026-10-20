@@ -1,0 +1,8 @@
+id = "short-encoding-of-words"
+title = "Short Encoding Of Words"
+difficulty = "medium"
+leetcode = 820
+url = "https://leetcode.com/problems/short-encoding-of-words/"
+key_idea = "insert reversed words into a suffix trie; only leaf words"
+hints = []
+prompt = ""

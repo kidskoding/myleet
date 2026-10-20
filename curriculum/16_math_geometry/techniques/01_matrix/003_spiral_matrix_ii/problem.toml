@@ -1,0 +1,8 @@
+id = "spiral-matrix-ii"
+title = "Spiral Matrix II"
+difficulty = "medium"
+leetcode = 59
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
+key_idea = "fill the same shrinking-boundary ring instead of reading it."
+hints = []
+prompt = ""

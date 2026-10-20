@@ -1,0 +1,8 @@
+id = "moving-average-from-data-stream"
+title = "Moving Average From Data Stream"
+difficulty = "easy"
+leetcode = 346
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+key_idea = "fixed-size FIFO window; keep a running sum, evict the front when it overflows."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "minimum-deletions-to-make-character-frequencies-unique"
+title = "Minimum Deletions to Make Character Frequencies Unique"
+difficulty = "medium"
+leetcode = 1647
+url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
+key_idea = "sort frequencies descending and shrink each clashing count to the next free value."
+hints = []
+prompt = ""

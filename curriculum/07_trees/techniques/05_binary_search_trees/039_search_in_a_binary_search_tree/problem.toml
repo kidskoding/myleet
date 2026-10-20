@@ -1,0 +1,8 @@
+id = "search-in-a-binary-search-tree"
+title = "Search In A Binary Search Tree"
+difficulty = "easy"
+leetcode = 700
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
+key_idea = "use the BST ordering property to move left or right."
+hints = []
+prompt = ""

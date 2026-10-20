@@ -1,0 +1,8 @@
+id = "insert-delete-getrandom-o1"
+title = "Insert Delete GetRandom O(1)"
+difficulty = "medium"
+leetcode = 380
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+key_idea = "hash map of value to index paired with a dense array for O(1) random pick."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "all-ancestors-of-a-node-in-a-directed-acyclic-graph"
+title = "All Ancestors Of A Node In A Directed Acyclic Graph"
+difficulty = "medium"
+leetcode = 2192
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
+key_idea = "propagate ancestor sets through topological order."
+hints = []
+prompt = ""

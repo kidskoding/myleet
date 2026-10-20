@@ -1,0 +1,8 @@
+id = "factorial-trailing-zeroes"
+title = "Factorial Trailing Zeroes"
+difficulty = "medium"
+leetcode = 172
+url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
+key_idea = "count factors of 5 by summing floor divisions by increasing powers of 5."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "single-number-ii"
+title = "Single Number II"
+difficulty = "medium"
+leetcode = 137
+url = "https://leetcode.com/problems/single-number-ii/"
+key_idea = "sum each bit position mod 3 across all numbers to isolate the singleton's bits."
+hints = []
+prompt = ""

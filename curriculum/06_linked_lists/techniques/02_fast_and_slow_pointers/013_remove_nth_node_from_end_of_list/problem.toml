@@ -1,0 +1,8 @@
+id = "remove-nth-node-from-end-of-list"
+title = "Remove Nth Node From End Of List"
+difficulty = "medium"
+leetcode = 19
+url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+key_idea = "gap of n between two pointers."
+hints = []
+prompt = ""

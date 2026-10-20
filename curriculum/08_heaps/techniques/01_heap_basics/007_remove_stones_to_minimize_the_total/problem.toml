@@ -1,0 +1,8 @@
+id = "remove-stones-to-minimize-the-total"
+title = "Remove Stones To Minimize The Total"
+difficulty = "medium"
+leetcode = 1962
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+key_idea = "max heap halves the largest pile on each of the k operations."
+hints = []
+prompt = ""

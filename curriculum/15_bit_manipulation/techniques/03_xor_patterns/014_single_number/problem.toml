@@ -1,0 +1,8 @@
+id = "single-number"
+title = "Single Number"
+difficulty = "easy"
+leetcode = 136
+url = "https://leetcode.com/problems/single-number/"
+key_idea = "XOR every value together so paired duplicates cancel, leaving the singleton."
+hints = []
+prompt = ""

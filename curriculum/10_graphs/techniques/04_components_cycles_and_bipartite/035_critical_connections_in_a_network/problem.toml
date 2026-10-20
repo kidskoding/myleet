@@ -1,0 +1,8 @@
+id = "critical-connections-in-a-network"
+title = "Critical Connections In A Network"
+difficulty = "hard"
+leetcode = 1192
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+key_idea = "bridge-finding with DFS low-link values."
+hints = []
+prompt = ""

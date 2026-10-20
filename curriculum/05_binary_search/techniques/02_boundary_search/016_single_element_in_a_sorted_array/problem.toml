@@ -1,0 +1,8 @@
+id = "single-element-in-a-sorted-array"
+title = "Single Element in a Sorted Array"
+difficulty = "medium"
+leetcode = 540
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+key_idea = "binary search on pair-index parity to locate where the pairing breaks."
+hints = []
+prompt = ""

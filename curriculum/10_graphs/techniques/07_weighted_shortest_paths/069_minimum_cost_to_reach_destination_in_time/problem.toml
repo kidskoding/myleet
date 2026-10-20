@@ -1,0 +1,8 @@
+id = "minimum-cost-to-reach-destination-in-time"
+title = "Minimum Cost To Reach Destination In Time"
+difficulty = "hard"
+leetcode = 1928
+url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
+key_idea = "shortest path with time as part of the state."
+hints = []
+prompt = ""

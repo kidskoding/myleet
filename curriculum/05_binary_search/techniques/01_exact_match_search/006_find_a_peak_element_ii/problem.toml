@@ -1,0 +1,8 @@
+id = "find-a-peak-element-ii"
+title = "Find a Peak Element II"
+difficulty = "medium"
+leetcode = 1901
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+key_idea = "binary search columns, take the row-max, move toward the larger neighbour."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "search-a-2d-matrix"
+title = "Search a 2D Matrix"
+difficulty = "medium"
+leetcode = 74
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
+key_idea = "treat the row-sorted, column-sorted grid as one flattened sorted array."
+hints = []
+prompt = ""

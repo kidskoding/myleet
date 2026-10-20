@@ -1,0 +1,8 @@
+id = "serialize-and-deserialize-binary-tree"
+title = "Serialize And Deserialize Binary Tree"
+difficulty = "hard"
+leetcode = 297
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+key_idea = "turn the tree into a sequence that preserves shape."
+hints = []
+prompt = ""

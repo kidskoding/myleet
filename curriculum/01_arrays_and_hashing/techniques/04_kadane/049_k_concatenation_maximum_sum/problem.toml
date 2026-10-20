@@ -1,0 +1,8 @@
+id = "k-concatenation-maximum-sum"
+title = "K-Concatenation Maximum Sum"
+difficulty = "medium"
+leetcode = 1191
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+key_idea = "Kadane on one/two copies, add (k-2) whole-array sums when the total is positive."
+hints = []
+prompt = ""

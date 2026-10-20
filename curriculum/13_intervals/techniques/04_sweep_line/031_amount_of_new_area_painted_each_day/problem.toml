@@ -1,0 +1,8 @@
+id = "amount-of-new-area-painted-each-day"
+title = "Amount of New Area Painted Each Day"
+difficulty = "hard"
+leetcode = 2158
+url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
+key_idea = "track painted coordinates with a sorted set or union-find skip pointers."
+hints = []
+prompt = ""

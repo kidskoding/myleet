@@ -1,0 +1,8 @@
+id = "binary-tree-preorder-traversal"
+title = "Binary Tree Preorder Traversal"
+difficulty = "easy"
+leetcode = 144
+url = "https://leetcode.com/problems/binary-tree-preorder-traversal/"
+key_idea = "iterative with a stack — visit on push, pushing right child before left."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "kth-missing-positive-number"
+title = "Kth Missing Positive Number"
+difficulty = "easy"
+leetcode = 1539
+url = "https://leetcode.com/problems/kth-missing-positive-number/"
+key_idea = "boundary search on the count of missing values before each index."
+hints = []
+prompt = ""

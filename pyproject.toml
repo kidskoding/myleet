@@ -1,5 +1,5 @@
 [project]
-name = "faang-dsa"
+name = "myleet"
 version = "0.1.0"
 description = "dsa prep in Python for internship, co-op, and new-grad interviews at big tech companies"
 readme = "README.md"
@@ -21,79 +21,24 @@ dev = [
 wrap = 88
 
 [tool.pytest.ini_options]
-pythonpath = [
-    "redos/2026-08-25",
-    "redos/2026-08-24",
-    "01_arrays_and_hashing",
-    "02_two_pointers",
-    "03_stacks_and_queues",
-    "04_sliding_window",
-    "05_binary_search",
-    "06_linked_lists",
-    "07_trees",
-    "08_heaps",
-    "09_backtracking",
-    "10_graphs",
-    "11_dp",
-    "12_greedy_algorithms",
-    "13_intervals",
-    "14_tries",
-    "15_bit_manipulation",
-    "16_math_geometry",
-    "17_advanced",
-    "18_mixed_interview_practice",
-    "redos/2026-08-23",
-]
-testpaths = [
-    "01_arrays_and_hashing",
-    "02_two_pointers",
-    "03_stacks_and_queues",
-    "04_sliding_window",
-    "05_binary_search",
-    "06_linked_lists",
-    "07_trees",
-    "08_heaps",
-    "09_backtracking",
-    "10_graphs",
-    "11_dp",
-    "12_greedy_algorithms",
-    "13_intervals",
-    "14_tries",
-    "15_bit_manipulation",
-    "16_math_geometry",
-    "17_advanced",
-    "18_mixed_interview_practice",
-    "redos"
-]
+pythonpath = ["curriculum/_lib"]
+testpaths = ["tools", "curriculum"]
+norecursedirs = ["techniques", ".venv", ".git", "fixtures"]
+addopts = "--import-mode=importlib"
 
 [tool.ruff]
 line-length = 130
 target-version = "py312"
+extend-exclude = ["internal/*/testdata"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
 
 [tool.ty.environment]
-extra-paths = [
-    "01_arrays_and_hashing",
-    "02_two_pointers",
-    "03_stacks_and_queues",
-    "04_sliding_window",
-    "05_binary_search",
-    "06_linked_lists",
-    "07_trees",
-    "08_heaps",
-    "09_backtracking",
-    "10_graphs",
-    "11_dp",
-    "12_greedy_algorithms",
-    "13_intervals",
-    "14_tries",
-    "15_bit_manipulation",
-    "16_math_geometry",
-    "17_advanced",
-    "18_mixed_interview_practice",
-]
+extra-paths = ["curriculum/_lib"]
+
+[tool.ty.src]
+exclude = ["curriculum/**/techniques/**", "tools/migrate/tests/fixtures/**", "internal/**/testdata/**"]
 
 [tool.ty.rules]
 empty-body = "ignore"

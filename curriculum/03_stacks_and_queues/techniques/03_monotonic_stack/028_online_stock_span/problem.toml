@@ -1,0 +1,8 @@
+id = "online-stock-span"
+title = "Online Stock Span"
+difficulty = "medium"
+leetcode = 901
+url = "https://leetcode.com/problems/online-stock-span/"
+key_idea = "monotonic stack of (price, span) pairs collapsed as new prices arrive."
+hints = []
+prompt = ""

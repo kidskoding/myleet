@@ -1,0 +1,8 @@
+id = "4sum-ii"
+title = "4Sum II"
+difficulty = "medium"
+leetcode = 454
+url = "https://leetcode.com/problems/4sum-ii/"
+key_idea = "hash every pair sum from the first two arrays, look up its negation."
+hints = []
+prompt = ""

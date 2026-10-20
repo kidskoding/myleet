@@ -1,0 +1,8 @@
+id = "contains-duplicate-ii"
+title = "Contains Duplicate II"
+difficulty = "easy"
+leetcode = 219
+url = "https://leetcode.com/problems/contains-duplicate-ii/"
+key_idea = "fixed-size window of at most k indices held in a set; a hit inside the set is a duplicate."
+hints = []
+prompt = ""

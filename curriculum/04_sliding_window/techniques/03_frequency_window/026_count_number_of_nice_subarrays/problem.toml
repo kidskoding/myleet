@@ -1,0 +1,8 @@
+id = "count-number-of-nice-subarrays"
+title = "Count Number of Nice Subarrays"
+difficulty = "medium"
+leetcode = 1248
+url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
+key_idea = "exactly-k count via atMost(k) - atMost(k - 1) applied to a parity/frequency window."
+hints = []
+prompt = ""

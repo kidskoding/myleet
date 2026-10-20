@@ -1,0 +1,8 @@
+id = "all-nodes-distance-k-in-binary-tree"
+title = "All Nodes Distance K In Binary Tree"
+difficulty = "medium"
+leetcode = 863
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+key_idea = "combine parent links with BFS from the target."
+hints = []
+prompt = ""

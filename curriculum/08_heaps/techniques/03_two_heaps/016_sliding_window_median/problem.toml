@@ -1,0 +1,8 @@
+id = "sliding-window-median"
+title = "Sliding Window Median"
+difficulty = "hard"
+leetcode = 480
+url = "https://leetcode.com/problems/sliding-window-median/"
+key_idea = "two heaps with lazy deletion as the window slides."
+hints = []
+prompt = ""

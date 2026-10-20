@@ -1,0 +1,8 @@
+id = "top-k-frequent-words"
+title = "Top K Frequent Words"
+difficulty = "medium"
+leetcode = 692
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+key_idea = "heap with a tie-break comparator on frequency and lexical order."
+hints = []
+prompt = ""

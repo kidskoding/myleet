@@ -1,0 +1,8 @@
+id = "remove-all-adjacent-duplicates-in-string"
+title = "Remove All Adjacent Duplicates In String"
+difficulty = "easy"
+leetcode = 1047
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+key_idea = "push characters and pop when the top equals the incoming character."
+hints = []
+prompt = ""

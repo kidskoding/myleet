@@ -1,0 +1,8 @@
+id = "fair-distribution-of-cookies"
+title = "Fair Distribution of Cookies"
+difficulty = "medium"
+leetcode = 2305
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
+key_idea = "submask enumeration / bitmask DP assigning subsets to buckets."
+hints = []
+prompt = ""

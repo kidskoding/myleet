@@ -1,0 +1,8 @@
+id = "advantage-shuffle"
+title = "Advantage Shuffle"
+difficulty = "medium"
+leetcode = 870
+url = "https://leetcode.com/problems/advantage-shuffle/"
+key_idea = "sort both arrays, beat each opponent with the smallest sufficient card or dump the weakest."
+hints = []
+prompt = ""

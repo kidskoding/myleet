@@ -1,0 +1,8 @@
+id = "plus-one"
+title = "Plus One"
+difficulty = "easy"
+leetcode = 66
+url = "https://leetcode.com/problems/plus-one/"
+key_idea = "walk digits right-to-left, carrying, and prepend a leading 1 if it overflows."
+hints = []
+prompt = ""

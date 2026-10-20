@@ -1,0 +1,8 @@
+id = "word-ladder"
+title = "Word Ladder"
+difficulty = "hard"
+leetcode = 127
+url = "https://leetcode.com/problems/word-ladder/"
+key_idea = "BFS shortest path in an implicit graph."
+hints = []
+prompt = ""

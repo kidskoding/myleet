@@ -1,0 +1,8 @@
+id = "132-pattern"
+title = "132 Pattern"
+difficulty = "medium"
+leetcode = 456
+url = "https://leetcode.com/problems/132-pattern/"
+key_idea = "right-to-left monotonic stack tracks the largest valid \"2\" below each candidate \"3\"."
+hints = []
+prompt = ""

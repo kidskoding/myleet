@@ -1,0 +1,8 @@
+id = "minimum-number-of-arrows-to-burst-balloons-intervals"
+title = "Minimum Number Of Arrows To Burst Balloons"
+difficulty = "medium"
+leetcode = 452
+url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
+key_idea = "sort by end, shoot an arrow at the earliest end, skip balloons it pops."
+hints = []
+prompt = ""

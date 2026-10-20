@@ -1,0 +1,8 @@
+id = "longest-substring-with-at-most-k-distinct-characters"
+title = "Longest Substring with At Most K Distinct Characters"
+difficulty = "medium"
+leetcode = 340
+url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+key_idea = "frequency map shrinks while the number of distinct keys exceeds k."
+hints = []
+prompt = ""

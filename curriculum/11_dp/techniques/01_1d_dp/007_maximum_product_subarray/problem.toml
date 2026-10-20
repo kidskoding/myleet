@@ -1,0 +1,8 @@
+id = "maximum-product-subarray-dp"
+title = "Maximum Product Subarray"
+difficulty = "medium"
+leetcode = 152
+url = "https://leetcode.com/problems/maximum-product-subarray/"
+key_idea = "track both max and min products ending at i since negatives flip signs."
+hints = []
+prompt = ""

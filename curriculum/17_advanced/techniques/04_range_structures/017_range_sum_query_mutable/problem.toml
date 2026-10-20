@@ -1,0 +1,8 @@
+id = "range-sum-query-mutable"
+title = "Range Sum Query - Mutable"
+difficulty = "medium"
+leetcode = 307
+url = "https://leetcode.com/problems/range-sum-query-mutable/"
+key_idea = "Fenwick tree supporting point update and prefix sum query."
+hints = []
+prompt = ""

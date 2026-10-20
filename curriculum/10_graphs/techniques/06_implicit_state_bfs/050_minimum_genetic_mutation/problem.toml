@@ -1,0 +1,8 @@
+id = "minimum-genetic-mutation"
+title = "Minimum Genetic Mutation"
+difficulty = "medium"
+leetcode = 433
+url = "https://leetcode.com/problems/minimum-genetic-mutation/"
+key_idea = "BFS over generated string states."
+hints = []
+prompt = ""

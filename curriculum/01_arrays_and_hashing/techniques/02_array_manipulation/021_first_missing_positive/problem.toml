@@ -1,0 +1,8 @@
+id = "first-missing-positive"
+title = "First Missing Positive"
+difficulty = "hard"
+leetcode = 41
+url = "https://leetcode.com/problems/first-missing-positive/"
+key_idea = "place each value at its index in place, then scan for the first mismatch."
+hints = []
+prompt = ""

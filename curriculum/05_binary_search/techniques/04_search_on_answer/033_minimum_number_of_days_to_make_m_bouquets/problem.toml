@@ -1,0 +1,8 @@
+id = "minimum-number-of-days-to-make-m-bouquets"
+title = "Minimum Number of Days to Make m Bouquets"
+difficulty = "medium"
+leetcode = 1482
+url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
+key_idea = "search on answer space for the minimum wait day that yields enough bouquets."
+hints = []
+prompt = ""

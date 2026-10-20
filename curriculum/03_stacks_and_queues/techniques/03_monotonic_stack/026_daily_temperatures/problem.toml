@@ -1,0 +1,8 @@
+id = "daily-temperatures"
+title = "Daily Temperatures"
+difficulty = "medium"
+leetcode = 739
+url = "https://leetcode.com/problems/daily-temperatures/"
+key_idea = "monotonic decreasing stack of indices resolved by the next warmer day."
+hints = []
+prompt = ""

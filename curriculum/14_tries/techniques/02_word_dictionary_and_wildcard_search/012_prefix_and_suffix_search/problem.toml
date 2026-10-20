@@ -1,0 +1,8 @@
+id = "prefix-and-suffix-search"
+title = "Prefix And Suffix Search"
+difficulty = "hard"
+leetcode = 745
+url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+key_idea = "index each word by combined suffix#prefix keys so a single trie"
+hints = []
+prompt = ""

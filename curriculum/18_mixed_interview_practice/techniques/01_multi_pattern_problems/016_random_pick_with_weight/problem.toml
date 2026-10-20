@@ -1,0 +1,8 @@
+id = "random-pick-with-weight"
+title = "Random Pick with Weight"
+difficulty = "medium"
+leetcode = 528
+url = "https://leetcode.com/problems/random-pick-with-weight/"
+key_idea = "prefix-sum table of weights, then binary-search a random target into its bucket."
+hints = []
+prompt = ""

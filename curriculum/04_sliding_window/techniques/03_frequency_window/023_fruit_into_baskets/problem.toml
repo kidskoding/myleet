@@ -1,0 +1,8 @@
+id = "fruit-into-baskets"
+title = "Fruit Into Baskets"
+difficulty = "medium"
+leetcode = 904
+url = "https://leetcode.com/problems/fruit-into-baskets/"
+key_idea = "frequency map window that shrinks while more than two distinct types are present."
+hints = []
+prompt = ""

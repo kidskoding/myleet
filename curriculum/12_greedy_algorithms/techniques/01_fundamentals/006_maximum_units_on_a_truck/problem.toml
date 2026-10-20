@@ -1,0 +1,8 @@
+id = "maximum-units-on-a-truck"
+title = "Maximum Units on a Truck"
+difficulty = "easy"
+leetcode = 1710
+url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
+key_idea = "sort box types by units descending, then fill the truck highest-value first."
+hints = []
+prompt = ""

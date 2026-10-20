@@ -1,0 +1,8 @@
+id = "maximum-performance-of-a-team"
+title = "Maximum Performance Of A Team"
+difficulty = "hard"
+leetcode = 1383
+url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
+key_idea = "sort by efficiency, then a min heap of speeds caps the team at size k."
+hints = []
+prompt = ""

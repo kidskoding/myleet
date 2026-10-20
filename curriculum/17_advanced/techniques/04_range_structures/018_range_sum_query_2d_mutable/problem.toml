@@ -1,0 +1,8 @@
+id = "range-sum-query-2d-mutable"
+title = "Range Sum Query 2D - Mutable"
+difficulty = "medium"
+leetcode = 308
+url = "https://leetcode.com/problems/range-sum-query-2d-mutable/"
+key_idea = "2D Fenwick tree combining row and column prefix sums."
+hints = []
+prompt = ""

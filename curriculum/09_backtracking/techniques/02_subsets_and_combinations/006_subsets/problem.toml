@@ -1,0 +1,8 @@
+id = "subsets"
+title = "Subsets"
+difficulty = "medium"
+leetcode = 78
+url = "https://leetcode.com/problems/subsets/"
+key_idea = "save the path at every node, advance start by one each recursion."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "redundant-connection"
+title = "Redundant Connection"
+difficulty = "medium"
+leetcode = 684
+url = "https://leetcode.com/problems/redundant-connection/"
+key_idea = "detect the edge that creates a cycle."
+hints = []
+prompt = ""

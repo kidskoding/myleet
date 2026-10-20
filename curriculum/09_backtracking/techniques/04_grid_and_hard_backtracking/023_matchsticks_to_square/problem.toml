@@ -1,0 +1,8 @@
+id = "matchsticks-to-square"
+title = "Matchsticks to Square"
+difficulty = "medium"
+leetcode = 473
+url = "https://leetcode.com/problems/matchsticks-to-square/"
+key_idea = "assign each matchstick to one of four sides, prune when a side exceeds the target length."
+hints = []
+prompt = ""

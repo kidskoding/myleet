@@ -1,0 +1,8 @@
+id = "pacific-atlantic-water-flow"
+title = "Pacific Atlantic Water Flow"
+difficulty = "medium"
+leetcode = 417
+url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+key_idea = "reverse DFS/BFS from both oceans."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "triangle"
+title = "Triangle"
+difficulty = "medium"
+leetcode = 120
+url = "https://leetcode.com/problems/triangle/"
+key_idea = "min path sum from the bottom row upward on a triangular grid."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-swap"
+title = "Maximum Swap"
+difficulty = "medium"
+leetcode = 670
+url = "https://leetcode.com/problems/maximum-swap/"
+key_idea = "last index of each digit, then swap the first digit a bigger one follows."
+hints = []
+prompt = ""

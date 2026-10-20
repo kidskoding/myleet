@@ -1,0 +1,8 @@
+id = "best-time-to-buy-and-sell-stock-iv"
+title = "Best Time to Buy and Sell Stock IV"
+difficulty = "hard"
+leetcode = 188
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
+key_idea = "state DP over (day, transactions-remaining, holding)."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "sqrtx-math_geometry"
+title = "Sqrt(x)"
+difficulty = "easy"
+leetcode = 69
+url = "https://leetcode.com/problems/sqrtx/"
+key_idea = "binary search the answer space for the integer square root."
+hints = []
+prompt = ""

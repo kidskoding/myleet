@@ -1,0 +1,8 @@
+id = "n-queens-ii"
+title = "N-Queens II"
+difficulty = "hard"
+leetcode = 52
+url = "https://leetcode.com/problems/n-queens-ii/"
+key_idea = "same placement search as N-Queens, count solutions instead of building boards."
+hints = []
+prompt = ""

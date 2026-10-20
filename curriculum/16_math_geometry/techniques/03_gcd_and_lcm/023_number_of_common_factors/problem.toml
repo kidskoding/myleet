@@ -1,0 +1,8 @@
+id = "number-of-common-factors"
+title = "Number of Common Factors"
+difficulty = "easy"
+leetcode = 2427
+url = "https://leetcode.com/problems/number-of-common-factors/"
+key_idea = "the common factors of a and b are exactly the divisors of gcd(a, b)."
+hints = []
+prompt = ""

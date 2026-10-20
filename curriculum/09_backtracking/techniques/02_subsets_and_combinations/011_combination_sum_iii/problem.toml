@@ -1,0 +1,8 @@
+id = "combination-sum-iii"
+title = "Combination Sum III"
+difficulty = "medium"
+leetcode = 216
+url = "https://leetcode.com/problems/combination-sum-iii/"
+key_idea = "fixed count and target sum both bound the recursion."
+hints = []
+prompt = ""

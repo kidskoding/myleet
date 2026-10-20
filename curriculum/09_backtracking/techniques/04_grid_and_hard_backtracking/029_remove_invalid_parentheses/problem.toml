@@ -1,0 +1,8 @@
+id = "remove-invalid-parentheses"
+title = "Remove Invalid Parentheses"
+difficulty = "hard"
+leetcode = 301
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
+key_idea = "compute the minimum removals, then backtrack over which parentheses to drop, deduping at each depth."
+hints = []
+prompt = ""

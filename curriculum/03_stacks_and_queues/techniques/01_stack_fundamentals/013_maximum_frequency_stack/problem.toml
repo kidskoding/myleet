@@ -1,0 +1,8 @@
+id = "maximum-frequency-stack"
+title = "Maximum Frequency Stack"
+difficulty = "hard"
+leetcode = 895
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+key_idea = "group elements into per-frequency stacks and pop from the highest frequency group."
+hints = []
+prompt = ""

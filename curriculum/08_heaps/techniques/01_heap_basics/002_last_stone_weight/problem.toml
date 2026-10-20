@@ -1,0 +1,8 @@
+id = "last-stone-weight"
+title = "Last Stone Weight"
+difficulty = "easy"
+leetcode = 1046
+url = "https://leetcode.com/problems/last-stone-weight/"
+key_idea = "repeatedly pop the two largest stones from a max heap."
+hints = []
+prompt = ""

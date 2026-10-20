@@ -1,0 +1,8 @@
+id = "time-based-key-value-store"
+title = "Time Based Key-Value Store"
+difficulty = "medium"
+leetcode = 981
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+key_idea = "boundary search over stored timestamps to find the latest"
+hints = []
+prompt = ""

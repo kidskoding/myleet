@@ -1,0 +1,8 @@
+id = "number-of-connected-components-in-an-undirected-graph"
+title = "Number Of Connected Components In An Undirected Graph"
+difficulty = "medium"
+leetcode = 323
+url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+key_idea = "count components with DFS/BFS."
+hints = []
+prompt = ""

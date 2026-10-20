@@ -1,0 +1,8 @@
+id = "the-skyline-problem-advanced"
+title = "The Skyline Problem"
+difficulty = "hard"
+leetcode = 218
+url = "https://leetcode.com/problems/the-skyline-problem/"
+key_idea = "divide buildings in half, recursively get each skyline, merge with a line sweep."
+hints = []
+prompt = ""

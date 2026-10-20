@@ -1,0 +1,8 @@
+id = "longest-happy-prefix"
+title = "Longest Happy Prefix"
+difficulty = "hard"
+leetcode = 1392
+url = "https://leetcode.com/problems/longest-happy-prefix/"
+key_idea = "the last value of the KMP failure table is the longest prefix that is also a suffix."
+hints = []
+prompt = ""

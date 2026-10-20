@@ -1,0 +1,8 @@
+id = "minimum-add-to-make-parentheses-valid"
+title = "Minimum Add to Make Parentheses Valid"
+difficulty = "medium"
+leetcode = 921
+url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
+key_idea = "track open balance, counting a fix each time it would go negative or ends positive."
+hints = []
+prompt = ""

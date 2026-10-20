@@ -1,0 +1,8 @@
+id = "find-servers-that-handled-most-number-of-requests"
+title = "Find Servers That Handled Most Number of Requests"
+difficulty = "hard"
+leetcode = 1606
+url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+key_idea = "min heap of busy servers by free-time feeds an ordered set of free servers searched for the next id."
+hints = []
+prompt = ""

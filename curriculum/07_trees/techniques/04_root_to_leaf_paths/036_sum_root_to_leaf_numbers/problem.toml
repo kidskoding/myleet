@@ -1,0 +1,8 @@
+id = "sum-root-to-leaf-numbers"
+title = "Sum Root To Leaf Numbers"
+difficulty = "medium"
+leetcode = 129
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
+key_idea = "carry the current number down the tree."
+hints = []
+prompt = ""

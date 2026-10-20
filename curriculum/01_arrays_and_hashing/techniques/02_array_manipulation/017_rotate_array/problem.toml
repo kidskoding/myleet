@@ -1,0 +1,8 @@
+id = "rotate-array"
+title = "Rotate Array"
+difficulty = "medium"
+leetcode = 189
+url = "https://leetcode.com/problems/rotate-array/"
+key_idea = "reverse the whole array, then reverse each part in place."
+hints = []
+prompt = ""

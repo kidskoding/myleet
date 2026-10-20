@@ -1,0 +1,8 @@
+id = "word-ladder-ii"
+title = "Word Ladder II"
+difficulty = "hard"
+leetcode = 126
+url = "https://leetcode.com/problems/word-ladder-ii/"
+key_idea = "BFS builds shortest-path layers, then DFS/backtracking reconstructs every path."
+hints = []
+prompt = ""

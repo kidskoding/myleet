@@ -1,0 +1,8 @@
+id = "maximum-students-taking-exam"
+title = "Maximum Students Taking Exam"
+difficulty = "hard"
+leetcode = 1349
+url = "https://leetcode.com/problems/maximum-students-taking-exam/"
+key_idea = "DP over per-row seating bitmasks that are compatible with the row above."
+hints = []
+prompt = ""

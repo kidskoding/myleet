@@ -1,0 +1,8 @@
+id = "evaluate-reverse-polish-notation"
+title = "Evaluate Reverse Polish Notation"
+difficulty = "medium"
+leetcode = 150
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+key_idea = "push operands, pop two and apply the operator when one appears."
+hints = []
+prompt = ""

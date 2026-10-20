@@ -1,0 +1,8 @@
+id = "find-smallest-letter-greater-than-target"
+title = "Find Smallest Letter Greater Than Target"
+difficulty = "easy"
+leetcode = 744
+url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
+key_idea = "boundary search for the first element strictly greater than the target, with wraparound."
+hints = []
+prompt = ""

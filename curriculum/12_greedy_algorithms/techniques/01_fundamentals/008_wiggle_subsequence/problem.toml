@@ -1,0 +1,8 @@
+id = "wiggle-subsequence"
+title = "Wiggle Subsequence"
+difficulty = "medium"
+leetcode = 376
+url = "https://leetcode.com/problems/wiggle-subsequence/"
+key_idea = "count direction changes; each sign flip greedily extends the alternating subsequence."
+hints = []
+prompt = ""

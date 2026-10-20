@@ -1,0 +1,8 @@
+id = "wiggle-sort-ii"
+title = "Wiggle Sort II"
+difficulty = "medium"
+leetcode = 324
+url = "https://leetcode.com/problems/wiggle-sort-ii/"
+key_idea = "partition around the median, then interleave halves with three-way pointer indexing."
+hints = []
+prompt = ""

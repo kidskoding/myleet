@@ -1,0 +1,8 @@
+id = "diameter-of-binary-tree"
+title = "Diameter Of Binary Tree"
+difficulty = "easy"
+leetcode = 543
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+key_idea = "combine left height and right height at each node."
+hints = []
+prompt = ""

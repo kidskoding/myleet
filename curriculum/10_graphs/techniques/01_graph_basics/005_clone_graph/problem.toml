@@ -1,0 +1,8 @@
+id = "clone-graph"
+title = "Clone Graph"
+difficulty = "medium"
+leetcode = 133
+url = "https://leetcode.com/problems/clone-graph/"
+key_idea = "copy nodes with DFS/BFS and a map from original to clone."
+hints = []
+prompt = ""

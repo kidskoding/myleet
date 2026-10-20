@@ -1,0 +1,8 @@
+id = "median-of-two-sorted-arrays"
+title = "Median of Two Sorted Arrays"
+difficulty = "hard"
+leetcode = 4
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+key_idea = "binary search a partition index instead of merging."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "power-of-two"
+title = "Power of Two"
+difficulty = "easy"
+leetcode = 231
+url = "https://leetcode.com/problems/power-of-two/"
+key_idea = "a positive power of two has exactly one set bit, so n & (n - 1) == 0."
+hints = []
+prompt = ""

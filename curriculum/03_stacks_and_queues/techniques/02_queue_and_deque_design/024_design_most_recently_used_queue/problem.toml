@@ -1,0 +1,8 @@
+id = "design-most-recently-used-queue"
+title = "Design Most Recently Used Queue"
+difficulty = "medium"
+leetcode = 1756
+url = "https://leetcode.com/problems/design-most-recently-used-queue/"
+key_idea = "fetch the kth element and move it to the back."
+hints = []
+prompt = ""

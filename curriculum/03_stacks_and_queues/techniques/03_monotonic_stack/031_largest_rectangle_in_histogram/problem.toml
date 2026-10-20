@@ -1,0 +1,8 @@
+id = "largest-rectangle-in-histogram"
+title = "Largest Rectangle In Histogram"
+difficulty = "hard"
+leetcode = 84
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+key_idea = "monotonic increasing stack tracks left/right boundaries for each bar's max rectangle."
+hints = []
+prompt = ""

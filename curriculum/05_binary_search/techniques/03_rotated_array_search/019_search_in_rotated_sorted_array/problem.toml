@@ -1,0 +1,8 @@
+id = "search-in-rotated-sorted-array"
+title = "Search in Rotated Sorted Array"
+difficulty = "medium"
+leetcode = 33
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+key_idea = "identify which half is sorted, then decide if the target lies inside it."
+hints = []
+prompt = ""

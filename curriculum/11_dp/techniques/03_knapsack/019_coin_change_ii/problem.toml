@@ -1,0 +1,8 @@
+id = "coin-change-ii"
+title = "Coin Change II"
+difficulty = "medium"
+leetcode = 518
+url = "https://leetcode.com/problems/coin-change-ii/"
+key_idea = "unbounded knapsack — count combinations of coins that sum to amount."
+hints = []
+prompt = ""

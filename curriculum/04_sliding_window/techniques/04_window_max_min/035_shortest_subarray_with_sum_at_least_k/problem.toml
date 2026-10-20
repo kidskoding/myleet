@@ -1,0 +1,8 @@
+id = "shortest-subarray-with-sum-at-least-k"
+title = "Shortest Subarray with Sum at Least K"
+difficulty = "hard"
+leetcode = 862
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+key_idea = "monotonic deque over prefix sums to find the shortest qualifying window with negatives allowed."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "wildcard-matching"
+title = "Wildcard Matching"
+difficulty = "hard"
+leetcode = 44
+url = "https://leetcode.com/problems/wildcard-matching/"
+key_idea = "dp[i][j] handles literal, '?', and '*' transitions between s and p."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "remove-duplicate-letters-greedy_algorithms"
+title = "Remove Duplicate Letters"
+difficulty = "medium"
+leetcode = 316
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+key_idea = "monotonic-stack greedy keeping smallest lexicographic result with a can-see-later guard."
+hints = []
+prompt = ""

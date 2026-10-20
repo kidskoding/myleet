@@ -1,0 +1,8 @@
+id = "combinations"
+title = "Combinations"
+difficulty = "medium"
+leetcode = 77
+url = "https://leetcode.com/problems/combinations/"
+key_idea = "save the path only when it reaches size k."
+hints = []
+prompt = ""

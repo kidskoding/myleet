@@ -1,0 +1,8 @@
+id = "optimize-water-distribution-in-a-village"
+title = "Optimize Water Distribution In A Village"
+difficulty = "hard"
+leetcode = 1168
+url = "https://leetcode.com/problems/optimize-water-distribution-in-a-village/"
+key_idea = "treat each well as an edge from a virtual node 0, then run Kruskal's/Prim's."
+hints = []
+prompt = ""

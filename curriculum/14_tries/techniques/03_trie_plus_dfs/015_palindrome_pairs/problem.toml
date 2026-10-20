@@ -1,0 +1,8 @@
+id = "palindrome-pairs"
+title = "Palindrome Pairs"
+difficulty = "hard"
+leetcode = 336
+url = "https://leetcode.com/problems/palindrome-pairs/"
+key_idea = "trie of reversed words plus palindrome checks on the remaining"
+hints = []
+prompt = ""

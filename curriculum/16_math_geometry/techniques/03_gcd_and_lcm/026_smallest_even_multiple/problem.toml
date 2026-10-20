@@ -1,0 +1,8 @@
+id = "smallest-even-multiple"
+title = "Smallest Even Multiple"
+difficulty = "easy"
+leetcode = 2413
+url = "https://leetcode.com/problems/smallest-even-multiple/"
+key_idea = "the smallest number divisible by both n and 2 is lcm(n, 2), which is n if n is even else 2 * n."
+hints = []
+prompt = ""

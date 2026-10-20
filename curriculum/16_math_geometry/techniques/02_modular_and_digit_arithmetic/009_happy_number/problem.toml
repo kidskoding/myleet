@@ -1,0 +1,8 @@
+id = "happy-number"
+title = "Happy Number"
+difficulty = "easy"
+leetcode = 202
+url = "https://leetcode.com/problems/happy-number/"
+key_idea = "cycle detection over repeated digit-square-sum transforms."
+hints = []
+prompt = ""

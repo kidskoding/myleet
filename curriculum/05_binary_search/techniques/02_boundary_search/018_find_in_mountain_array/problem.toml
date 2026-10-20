@@ -1,0 +1,8 @@
+id = "find-in-mountain-array"
+title = "Find in Mountain Array"
+difficulty = "hard"
+leetcode = 1095
+url = "https://leetcode.com/problems/find-in-mountain-array/"
+key_idea = "locate the peak, then run separate ascending and descending searches with a limited API."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "nim-game"
+title = "Nim Game"
+difficulty = "easy"
+leetcode = 292
+url = "https://leetcode.com/problems/nim-game/"
+key_idea = "find the losing positions via modulo on the pile size."
+hints = []
+prompt = ""

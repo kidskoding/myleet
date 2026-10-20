@@ -1,0 +1,8 @@
+id = "data-stream-as-disjoint-intervals"
+title = "Data Stream As Disjoint Intervals"
+difficulty = "hard"
+leetcode = 352
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+key_idea = "keep a sorted, merged interval set and re-merge around each insert."
+hints = []
+prompt = ""

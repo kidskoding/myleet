@@ -1,0 +1,8 @@
+id = "find-bottom-left-tree-value"
+title = "Find Bottom Left Tree Value"
+difficulty = "medium"
+leetcode = 513
+url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
+key_idea = "BFS level by level, remembering the first value of each level; the last remembered wins."
+hints = []
+prompt = ""

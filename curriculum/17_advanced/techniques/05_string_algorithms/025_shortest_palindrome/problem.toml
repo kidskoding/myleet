@@ -1,0 +1,8 @@
+id = "shortest-palindrome"
+title = "Shortest Palindrome"
+difficulty = "hard"
+leetcode = 214
+url = "https://leetcode.com/problems/shortest-palindrome/"
+key_idea = "failure table of s + separator + reverse(s) gives the longest palindromic prefix."
+hints = []
+prompt = ""

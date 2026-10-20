@@ -1,0 +1,8 @@
+id = "task-scheduler-greedy_algorithms"
+title = "Task Scheduler"
+difficulty = "medium"
+leetcode = 621
+url = "https://leetcode.com/problems/task-scheduler/"
+key_idea = "greedily schedule the most frequent remaining task first to spread out cooldowns."
+hints = []
+prompt = ""

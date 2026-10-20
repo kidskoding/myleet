@@ -1,0 +1,8 @@
+id = "construct-binary-tree-from-inorder-and-postorder-traversal"
+title = "Construct Binary Tree From Inorder And Postorder Traversal"
+difficulty = "medium"
+leetcode = 106
+url = "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/"
+key_idea = "postorder gives the root; inorder splits left and right subtrees."
+hints = []
+prompt = ""

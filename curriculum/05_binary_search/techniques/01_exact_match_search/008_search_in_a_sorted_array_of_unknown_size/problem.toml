@@ -1,0 +1,8 @@
+id = "search-in-a-sorted-array-of-unknown-size"
+title = "Search in a Sorted Array of Unknown Size"
+difficulty = "medium"
+leetcode = 702
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+key_idea = "double the bound until it overshoots, then binary search that range."
+hints = []
+prompt = ""

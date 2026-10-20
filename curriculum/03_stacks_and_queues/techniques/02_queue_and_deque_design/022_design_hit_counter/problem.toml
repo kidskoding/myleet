@@ -1,0 +1,8 @@
+id = "design-hit-counter"
+title = "Design Hit Counter"
+difficulty = "medium"
+leetcode = 362
+url = "https://leetcode.com/problems/design-hit-counter/"
+key_idea = "queue of timestamps, evict anything outside the 300 second window."
+hints = []
+prompt = ""

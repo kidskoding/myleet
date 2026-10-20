@@ -1,0 +1,8 @@
+id = "valid-palindrome"
+title = "Valid Palindrome"
+difficulty = "easy"
+leetcode = 125
+url = "https://leetcode.com/problems/valid-palindrome/"
+key_idea = "shrink from both ends while skipping non-alphanumeric characters."
+hints = []
+prompt = ""

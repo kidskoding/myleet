@@ -1,0 +1,8 @@
+id = "maximum-xor-of-two-numbers-in-an-array-bit_manipulation"
+title = "Maximum XOR of Two Numbers in an Array"
+difficulty = "medium"
+leetcode = 421
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+key_idea = "build the answer bit by bit, greedily checking for a complement prefix in a seen set."
+hints = []
+prompt = ""

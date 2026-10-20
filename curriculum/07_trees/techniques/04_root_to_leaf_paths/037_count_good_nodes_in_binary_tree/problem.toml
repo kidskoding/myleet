@@ -1,0 +1,8 @@
+id = "count-good-nodes-in-binary-tree"
+title = "Count Good Nodes In Binary Tree"
+difficulty = "medium"
+leetcode = 1448
+url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
+key_idea = "carry the maximum value seen so far down each path."
+hints = []
+prompt = ""

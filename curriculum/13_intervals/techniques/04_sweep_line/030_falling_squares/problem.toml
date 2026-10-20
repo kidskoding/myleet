@@ -1,0 +1,8 @@
+id = "falling-squares"
+title = "Falling Squares"
+difficulty = "hard"
+leetcode = 699
+url = "https://leetcode.com/problems/falling-squares/"
+key_idea = "coordinate-compressed segment tree of range max heights."
+hints = []
+prompt = ""

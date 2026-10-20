@@ -1,0 +1,8 @@
+id = "count-sub-islands"
+title = "Count Sub Islands"
+difficulty = "medium"
+leetcode = 1905
+url = "https://leetcode.com/problems/count-sub-islands/"
+key_idea = "DFS one grid while validating against another grid."
+hints = []
+prompt = ""

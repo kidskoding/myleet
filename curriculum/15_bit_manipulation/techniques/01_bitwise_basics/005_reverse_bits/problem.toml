@@ -1,0 +1,8 @@
+id = "reverse-bits"
+title = "Reverse Bits"
+difficulty = "easy"
+leetcode = 190
+url = "https://leetcode.com/problems/reverse-bits/"
+key_idea = "shift bits out of n while shifting them into the result."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "count-sorted-vowel-strings"
+title = "Count Sorted Vowel Strings"
+difficulty = "medium"
+leetcode = 1641
+url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
+key_idea = "choose each next vowel in non-decreasing order, count the leaves of the recursion tree."
+hints = []
+prompt = ""

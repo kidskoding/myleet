@@ -1,0 +1,8 @@
+id = "count-of-smaller-numbers-after-self"
+title = "Count Of Smaller Numbers After Self"
+difficulty = "hard"
+leetcode = 315
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+key_idea = "Fenwick tree over coordinate-compressed values, scanned right to left."
+hints = []
+prompt = ""

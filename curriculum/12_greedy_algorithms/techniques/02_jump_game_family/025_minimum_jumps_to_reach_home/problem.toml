@@ -1,0 +1,8 @@
+id = "minimum-jumps-to-reach-home"
+title = "Minimum Jumps to Reach Home"
+difficulty = "medium"
+leetcode = 1654
+url = "https://leetcode.com/problems/minimum-jumps-to-reach-home/"
+key_idea = "BFS over positions, greedily bounding the reachable range and tracking whether the last hop was a backward jump."
+hints = []
+prompt = ""

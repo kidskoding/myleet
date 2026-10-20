@@ -1,0 +1,8 @@
+id = "find-the-index-of-the-first-occurrence-in-a-string"
+title = "Find The Index Of The First Occurrence In A String"
+difficulty = "easy"
+leetcode = 28
+url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
+key_idea = "KMP failure table lets the pattern pointer fall back without rewinding the text."
+hints = []
+prompt = ""

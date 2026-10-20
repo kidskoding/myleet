@@ -1,0 +1,8 @@
+id = "subarray-sums-divisible-by-k"
+title = "Subarrays Divisible By K"
+difficulty = "medium"
+leetcode = 974
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+key_idea = "running prefix sum modulo k, count matching remainders."
+hints = []
+prompt = ""

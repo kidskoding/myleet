@@ -1,0 +1,8 @@
+id = "two-city-scheduling"
+title = "Two City Scheduling"
+difficulty = "medium"
+leetcode = 1029
+url = "https://leetcode.com/problems/two-city-scheduling/"
+key_idea = "sort by the cost difference between cities and send the biggest savers to the cheaper city."
+hints = []
+prompt = ""

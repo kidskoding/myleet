@@ -1,0 +1,8 @@
+id = "parallel-courses-ii"
+title = "Parallel Courses II"
+difficulty = "hard"
+leetcode = 1494
+url = "https://leetcode.com/problems/parallel-courses-ii/"
+key_idea = "dp[mask] stores the minimum semesters to complete exactly the courses in"
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "max-value-of-equation"
+title = "Max Value of Equation"
+difficulty = "hard"
+leetcode = 1499
+url = "https://leetcode.com/problems/max-value-of-equation/"
+key_idea = "monotonic decreasing deque of y - x keeps the best partner within the |xi - xj| <= k window."
+hints = []
+prompt = ""

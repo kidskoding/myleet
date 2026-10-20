@@ -1,0 +1,8 @@
+id = "jump-game-iii"
+title = "Jump Game III"
+difficulty = "medium"
+leetcode = 1306
+url = "https://leetcode.com/problems/jump-game-iii/"
+key_idea = "treat reachability as a visited-index search from the start index."
+hints = []
+prompt = ""

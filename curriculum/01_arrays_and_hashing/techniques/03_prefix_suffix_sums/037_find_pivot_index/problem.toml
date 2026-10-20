@@ -1,0 +1,8 @@
+id = "find-pivot-index"
+title = "Find Pivot Index"
+difficulty = "easy"
+leetcode = 724
+url = "https://leetcode.com/problems/find-pivot-index/"
+key_idea = "the pivot is where the left prefix sum equals the right suffix sum."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "permutation-sequence"
+title = "Permutation Sequence"
+difficulty = "hard"
+leetcode = 60
+url = "https://leetcode.com/problems/permutation-sequence/"
+key_idea = "pick each digit by factorial block count rather than enumerating every permutation."
+hints = []
+prompt = ""

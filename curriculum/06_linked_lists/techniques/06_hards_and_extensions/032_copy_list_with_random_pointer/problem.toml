@@ -1,0 +1,8 @@
+id = "copy-list-with-random-pointer"
+title = "Copy List With Random Pointer"
+difficulty = "medium"
+leetcode = 138
+url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+key_idea = "map old nodes to clones, then wire pointers."
+hints = []
+prompt = ""

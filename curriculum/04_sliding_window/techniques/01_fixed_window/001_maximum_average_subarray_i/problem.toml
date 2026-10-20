@@ -1,0 +1,8 @@
+id = "maximum-average-subarray-i"
+title = "Maximum Average Subarray I"
+difficulty = "easy"
+leetcode = 643
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
+key_idea = "fixed-size window sum, add the incoming value and remove the outgoing one."
+hints = []
+prompt = ""

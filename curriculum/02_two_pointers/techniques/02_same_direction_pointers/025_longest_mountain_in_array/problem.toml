@@ -1,0 +1,8 @@
+id = "longest-mountain-in-array"
+title = "Longest Mountain In Array"
+difficulty = "medium"
+leetcode = 845
+url = "https://leetcode.com/problems/longest-mountain-in-array/"
+key_idea = "walk up then down from each peak, extending a base pointer to measure the widest mountain."
+hints = []
+prompt = ""

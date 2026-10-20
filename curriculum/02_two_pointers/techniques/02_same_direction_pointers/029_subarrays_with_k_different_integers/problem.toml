@@ -1,0 +1,8 @@
+id = "subarrays-with-k-different-integers"
+title = "Subarrays With K Different Integers"
+difficulty = "hard"
+leetcode = 992
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+key_idea = "exactly-K equals at-most-K minus at-most-(K-1), each computed with a same-direction window."
+hints = []
+prompt = ""

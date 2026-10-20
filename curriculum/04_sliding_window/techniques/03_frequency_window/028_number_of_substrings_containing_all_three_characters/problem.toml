@@ -1,0 +1,8 @@
+id = "number-of-substrings-containing-all-three-characters"
+title = "Number of Substrings Containing All Three Characters"
+difficulty = "medium"
+leetcode = 1358
+url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
+key_idea = "shrink left while all three characters are present, add left valid substrings for each right."
+hints = []
+prompt = ""

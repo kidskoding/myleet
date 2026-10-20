@@ -1,0 +1,8 @@
+id = "longest-consecutive-sequence"
+title = "Longest Consecutive Sequence"
+difficulty = "medium"
+leetcode = 128
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+key_idea = "hash set lookup, only start counting from sequence heads."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-depth-of-binary-tree"
+title = "Maximum Depth Of Binary Tree"
+difficulty = "easy"
+leetcode = 104
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+key_idea = "return information from left and right subtrees."
+hints = []
+prompt = ""

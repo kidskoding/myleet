@@ -1,0 +1,8 @@
+id = "min-stack"
+title = "Min Stack"
+difficulty = "medium"
+leetcode = 155
+url = "https://leetcode.com/problems/min-stack/"
+key_idea = "track the running minimum alongside each push."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "remove-linked-list-elements"
+title = "Remove Linked List Elements"
+difficulty = "easy"
+leetcode = 203
+url = "https://leetcode.com/problems/remove-linked-list-elements/"
+key_idea = "dummy head plus a previous pointer to unlink matches."
+hints = []
+prompt = ""

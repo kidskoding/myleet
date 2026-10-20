@@ -1,0 +1,8 @@
+id = "subarrays-with-k-different-integers-sliding_window"
+title = "Subarrays with K Different Integers"
+difficulty = "hard"
+leetcode = 992
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+key_idea = "exactly-k count via atMost(k) - atMost(k - 1) using two frequency-map windows."
+hints = []
+prompt = ""

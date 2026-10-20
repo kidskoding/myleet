@@ -1,0 +1,8 @@
+id = "subarray-product-less-than-k"
+title = "Subarray Product Less Than K"
+difficulty = "medium"
+leetcode = 713
+url = "https://leetcode.com/problems/subarray-product-less-than-k/"
+key_idea = "same-direction window that shrinks from the left whenever the running product hits the limit."
+hints = []
+prompt = ""

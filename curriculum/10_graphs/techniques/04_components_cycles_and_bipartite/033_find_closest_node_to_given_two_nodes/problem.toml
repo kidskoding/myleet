@@ -1,0 +1,8 @@
+id = "find-closest-node-to-given-two-nodes"
+title = "Find Closest Node To Given Two Nodes"
+difficulty = "medium"
+leetcode = 2359
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
+key_idea = "compare distances from two starts in a directed graph."
+hints = []
+prompt = ""

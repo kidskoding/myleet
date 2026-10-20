@@ -1,0 +1,8 @@
+id = "max-points-on-a-line"
+title = "Max Points On A Line"
+difficulty = "hard"
+leetcode = 149
+url = "https://leetcode.com/problems/max-points-on-a-line/"
+key_idea = "group points by reduced-slope key relative to each anchor point."
+hints = []
+prompt = ""

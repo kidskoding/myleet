@@ -1,0 +1,8 @@
+id = "find-eventual-safe-states"
+title = "Find Eventual Safe States"
+difficulty = "medium"
+leetcode = 802
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
+key_idea = "detect nodes that cannot reach a cycle."
+hints = []
+prompt = ""

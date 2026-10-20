@@ -1,0 +1,8 @@
+id = "palindromic-substrings"
+title = "Palindromic Substrings"
+difficulty = "medium"
+leetcode = 647
+url = "https://leetcode.com/problems/palindromic-substrings/"
+key_idea = "count every palindromic substring using the same table shape as above."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "nearest-exit-from-entrance-in-maze"
+title = "Nearest Exit From Entrance In Maze"
+difficulty = "medium"
+leetcode = 1926
+url = "https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/"
+key_idea = "BFS shortest path to a boundary cell."
+hints = []
+prompt = ""

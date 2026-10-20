@@ -1,0 +1,8 @@
+id = "sort-list"
+title = "Sort List"
+difficulty = "medium"
+leetcode = 148
+url = "https://leetcode.com/problems/sort-list/"
+key_idea = "merge sort using slow/fast to split."
+hints = []
+prompt = ""

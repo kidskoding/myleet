@@ -1,0 +1,8 @@
+id = "reverse-nodes-in-even-length-groups"
+title = "Reverse Nodes In Even Length Groups"
+difficulty = "medium"
+leetcode = 2074
+url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
+key_idea = "walk growing groups, reverse only the even-length ones."
+hints = []
+prompt = ""

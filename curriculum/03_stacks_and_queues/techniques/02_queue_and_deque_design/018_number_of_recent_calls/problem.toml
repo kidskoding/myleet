@@ -1,0 +1,8 @@
+id = "number-of-recent-calls"
+title = "Number Of Recent Calls"
+difficulty = "easy"
+leetcode = 933
+url = "https://leetcode.com/problems/number-of-recent-calls/"
+key_idea = "queue of timestamps; pop from the front until inside the sliding time window."
+hints = []
+prompt = ""

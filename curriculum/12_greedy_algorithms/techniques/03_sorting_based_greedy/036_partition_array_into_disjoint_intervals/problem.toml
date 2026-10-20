@@ -1,0 +1,8 @@
+id = "partition-array-into-disjoint-intervals"
+title = "Partition Array into Disjoint Intervals"
+difficulty = "medium"
+leetcode = 915
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
+key_idea = "prefix-max boundary greedy."
+hints = []
+prompt = ""

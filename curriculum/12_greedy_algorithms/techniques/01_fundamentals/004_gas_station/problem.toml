@@ -1,0 +1,8 @@
+id = "gas-station"
+title = "Gas Station"
+difficulty = "medium"
+leetcode = 134
+url = "https://leetcode.com/problems/gas-station/"
+key_idea = "track a running tank total and reset the candidate start on the first deficit."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "corporate-flight-bookings"
+title = "Corporate Flight Bookings"
+difficulty = "medium"
+leetcode = 1109
+url = "https://leetcode.com/problems/corporate-flight-bookings/"
+key_idea = "difference array of seat deltas, prefix sum for per-flight totals."
+hints = []
+prompt = ""

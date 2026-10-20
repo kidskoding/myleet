@@ -1,0 +1,8 @@
+id = "subarray-product-less-than-k-sliding_window"
+title = "Subarray Product Less Than K"
+difficulty = "medium"
+leetcode = 713
+url = "https://leetcode.com/problems/subarray-product-less-than-k/"
+key_idea = "expand right multiplying in, shrink left while the product is too large, count windows ending at right."
+hints = []
+prompt = ""

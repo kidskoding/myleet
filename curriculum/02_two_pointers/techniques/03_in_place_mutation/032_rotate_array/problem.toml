@@ -1,0 +1,8 @@
+id = "rotate-array-two_pointers"
+title = "Rotate Array"
+difficulty = "medium"
+leetcode = 189
+url = "https://leetcode.com/problems/rotate-array/"
+key_idea = "reverse-based rotation using opposite-end swaps on three ranges."
+hints = []
+prompt = ""

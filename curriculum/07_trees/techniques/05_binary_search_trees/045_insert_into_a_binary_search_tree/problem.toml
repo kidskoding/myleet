@@ -1,0 +1,8 @@
+id = "insert-into-a-binary-search-tree"
+title = "Insert Into A BST"
+difficulty = "medium"
+leetcode = 701
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
+key_idea = "walk down to the insertion point using BST ordering."
+hints = []
+prompt = ""

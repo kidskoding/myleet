@@ -1,0 +1,8 @@
+id = "encode-and-decode-strings"
+title = "Encode And Decode Strings"
+difficulty = "medium"
+leetcode = 271
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+key_idea = "length-prefix encoding to make decoding unambiguous."
+hints = []
+prompt = ""

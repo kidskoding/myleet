@@ -1,0 +1,8 @@
+id = "boats-to-save-people-greedy_algorithms"
+title = "Boats to Save People"
+difficulty = "medium"
+leetcode = 881
+url = "https://leetcode.com/problems/boats-to-save-people/"
+key_idea = "sort by weight, greedily pair the lightest with the heaviest that still fits."
+hints = []
+prompt = ""

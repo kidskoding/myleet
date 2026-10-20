@@ -1,0 +1,8 @@
+id = "minimum-size-subarray-sum"
+title = "Minimum Size Subarray Sum"
+difficulty = "medium"
+leetcode = 209
+url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+key_idea = "expand right until the sum is valid, then shrink left to find the shortest window."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "brick-wall"
+title = "Brick Wall"
+difficulty = "medium"
+leetcode = 554
+url = "https://leetcode.com/problems/brick-wall/"
+key_idea = "count shared edge positions, cut where the most edges line up."
+hints = []
+prompt = ""

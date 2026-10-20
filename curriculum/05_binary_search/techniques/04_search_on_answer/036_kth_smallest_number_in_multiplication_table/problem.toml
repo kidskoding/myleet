@@ -1,0 +1,8 @@
+id = "kth-smallest-number-in-multiplication-table"
+title = "Kth Smallest Number in Multiplication Table"
+difficulty = "hard"
+leetcode = 668
+url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
+key_idea = "search on the value range, counting multiplication-table entries at most the midpoint."
+hints = []
+prompt = ""

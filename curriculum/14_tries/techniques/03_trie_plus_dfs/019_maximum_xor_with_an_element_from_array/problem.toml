@@ -1,0 +1,8 @@
+id = "maximum-xor-with-an-element-from-array"
+title = "Maximum XOR With an Element From Array"
+difficulty = "hard"
+leetcode = 1707
+url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
+key_idea = "bit-trie with offline sorted queries, inserting values under an"
+hints = []
+prompt = ""

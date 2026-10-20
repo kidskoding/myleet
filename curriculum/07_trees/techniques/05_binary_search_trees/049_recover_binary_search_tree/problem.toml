@@ -1,0 +1,8 @@
+id = "recover-binary-search-tree"
+title = "Recover Binary Search Tree"
+difficulty = "medium"
+leetcode = 99
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
+key_idea = "fix two swapped nodes found by inorder traversal."
+hints = []
+prompt = ""

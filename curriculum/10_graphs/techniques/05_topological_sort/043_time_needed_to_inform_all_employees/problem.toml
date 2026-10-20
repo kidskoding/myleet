@@ -1,0 +1,8 @@
+id = "time-needed-to-inform-all-employees"
+title = "Time Needed To Inform All Employees"
+difficulty = "medium"
+leetcode = 1376
+url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
+key_idea = "DFS/BFS over a management tree."
+hints = []
+prompt = ""

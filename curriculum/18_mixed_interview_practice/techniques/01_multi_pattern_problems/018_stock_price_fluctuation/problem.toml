@@ -1,0 +1,8 @@
+id = "stock-price-fluctuation"
+title = "Stock Price Fluctuation"
+difficulty = "medium"
+leetcode = 2034
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+key_idea = "timestamp->price map plus a max heap and a min heap; skip stale heap tops that disagree with the map."
+hints = []
+prompt = ""

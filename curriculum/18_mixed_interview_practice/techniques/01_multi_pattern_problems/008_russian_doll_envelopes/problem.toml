@@ -1,0 +1,8 @@
+id = "russian-doll-envelopes"
+title = "Russian Doll Envelopes"
+difficulty = "hard"
+leetcode = 354
+url = "https://leetcode.com/problems/russian-doll-envelopes/"
+key_idea = "sort width ascending and height descending on ties, then binary-search LIS on heights."
+hints = []
+prompt = ""

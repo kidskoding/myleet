@@ -1,0 +1,8 @@
+id = "best-time-to-buy-and-sell-stock-ii"
+title = "Best Time to Buy and Sell Stock II"
+difficulty = "medium"
+leetcode = 122
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+key_idea = "capture every positive day-to-day price delta."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-number-of-robots-within-budget"
+title = "Maximum Number of Robots Within Budget"
+difficulty = "hard"
+leetcode = 2398
+url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
+key_idea = "sliding window with a monotonic deque for the running max charge time against the running sum budget."
+hints = []
+prompt = ""

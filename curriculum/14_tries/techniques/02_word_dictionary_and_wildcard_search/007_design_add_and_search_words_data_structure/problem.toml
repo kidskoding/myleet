@@ -1,0 +1,8 @@
+id = "design-add-and-search-words-data-structure"
+title = "Design Add And Search Words Data Structure"
+difficulty = "medium"
+leetcode = 211
+url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
+key_idea = "DFS branches into every child when the pattern character is a wildcard."
+hints = []
+prompt = ""

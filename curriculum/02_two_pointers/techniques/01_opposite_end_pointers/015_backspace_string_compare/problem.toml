@@ -1,0 +1,8 @@
+id = "backspace-string-compare"
+title = "Backspace String Compare"
+difficulty = "easy"
+leetcode = 844
+url = "https://leetcode.com/problems/backspace-string-compare/"
+key_idea = "scan both strings from the back, skipping characters consumed by backspaces before comparing."
+hints = []
+prompt = ""

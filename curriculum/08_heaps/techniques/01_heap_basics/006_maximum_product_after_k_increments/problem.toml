@@ -1,0 +1,8 @@
+id = "maximum-product-after-k-increments"
+title = "Maximum Product After K Increments"
+difficulty = "medium"
+leetcode = 2233
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+key_idea = "min heap so each increment lands on the current smallest value."
+hints = []
+prompt = ""

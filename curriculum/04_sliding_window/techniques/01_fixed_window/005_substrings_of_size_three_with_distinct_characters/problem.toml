@@ -1,0 +1,8 @@
+id = "substrings-of-size-three-with-distinct-characters"
+title = "Substrings of Size Three with Distinct Characters"
+difficulty = "easy"
+leetcode = 1876
+url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
+key_idea = "fixed-size window of length three, count windows whose characters are all distinct."
+hints = []
+prompt = ""

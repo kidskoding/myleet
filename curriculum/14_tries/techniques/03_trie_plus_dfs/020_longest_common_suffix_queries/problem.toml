@@ -1,0 +1,8 @@
+id = "longest-common-suffix-queries"
+title = "Longest Common Suffix Queries"
+difficulty = "hard"
+leetcode = 3093
+url = "https://leetcode.com/problems/longest-common-suffix-queries/"
+key_idea = "suffix trie of reversed words where each node caches the best"
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "total-hamming-distance"
+title = "Total Hamming Distance"
+difficulty = "medium"
+leetcode = 477
+url = "https://leetcode.com/problems/total-hamming-distance/"
+key_idea = "sum, per bit position, ones * zeros across all numbers instead of comparing pairs."
+hints = []
+prompt = ""

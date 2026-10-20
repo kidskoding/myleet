@@ -1,0 +1,8 @@
+id = "word-search"
+title = "Word Search"
+difficulty = "medium"
+leetcode = 79
+url = "https://leetcode.com/problems/word-search/"
+key_idea = "mark the current cell visited before exploring neighbors, unmark on backtrack."
+hints = []
+prompt = ""

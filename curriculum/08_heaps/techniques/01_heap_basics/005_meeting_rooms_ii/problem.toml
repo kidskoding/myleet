@@ -1,0 +1,8 @@
+id = "meeting-rooms-ii"
+title = "Meeting Rooms II"
+difficulty = "medium"
+leetcode = 253
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+key_idea = "min heap of active end times tracks rooms currently in use."
+hints = []
+prompt = ""

@@ -1,0 +1,6 @@
+id = "closest-pair-of-points"
+title = "Closest Pair Of Points"
+difficulty = "hard"
+key_idea = "divide by x-coordinate, recurse on each half, combine by checking a narrow strip."
+hints = []
+prompt = ""

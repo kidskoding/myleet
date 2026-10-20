@@ -1,0 +1,8 @@
+id = "snakes-and-ladders"
+title = "Snakes And Ladders"
+difficulty = "medium"
+leetcode = 909
+url = "https://leetcode.com/problems/snakes-and-ladders/"
+key_idea = "BFS over board positions with transitions."
+hints = []
+prompt = ""

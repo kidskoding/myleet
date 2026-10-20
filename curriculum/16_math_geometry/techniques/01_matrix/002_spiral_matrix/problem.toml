@@ -1,0 +1,8 @@
+id = "spiral-matrix-math_geometry"
+title = "Spiral Matrix"
+difficulty = "medium"
+leetcode = 54
+url = "https://leetcode.com/problems/spiral-matrix/"
+key_idea = "shrink four boundaries while walking the ring."
+hints = []
+prompt = ""

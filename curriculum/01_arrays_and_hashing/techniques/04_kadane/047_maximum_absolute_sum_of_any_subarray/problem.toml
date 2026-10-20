@@ -1,0 +1,8 @@
+id = "maximum-absolute-sum-of-any-subarray"
+title = "Maximum Absolute Sum of Any Subarray"
+difficulty = "medium"
+leetcode = 1749
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+key_idea = "run Kadane for both max and min subarray, answer is max(max_sum, -min_sum)."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-students-taking-exam-advanced"
+title = "Maximum Students Taking Exam"
+difficulty = "hard"
+leetcode = 1349
+url = "https://leetcode.com/problems/maximum-students-taking-exam/"
+key_idea = "dp[row][mask] over seat layouts, checking mask validity against"
+hints = []
+prompt = ""

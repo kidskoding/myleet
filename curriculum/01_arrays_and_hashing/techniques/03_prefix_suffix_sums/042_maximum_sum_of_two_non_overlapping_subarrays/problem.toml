@@ -1,0 +1,8 @@
+id = "maximum-sum-of-two-non-overlapping-subarrays"
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+difficulty = "medium"
+leetcode = 1031
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+key_idea = "prefix sums plus a sweep tracking the best earlier window, both orderings."
+hints = []
+prompt = ""

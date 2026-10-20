@@ -1,0 +1,8 @@
+id = "sort-items-by-groups-respecting-dependencies"
+title = "Sort Items by Groups Respecting Dependencies"
+difficulty = "hard"
+leetcode = 1203
+url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
+key_idea = "topologically sort groups, topologically sort items within each group, then stitch the orders."
+hints = []
+prompt = ""

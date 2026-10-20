@@ -1,0 +1,8 @@
+id = "minimum-moves-to-reach-target-with-rotations"
+title = "Minimum Moves To Reach Target With Rotations"
+difficulty = "hard"
+leetcode = 1210
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
+key_idea = "BFS over grid position plus orientation."
+hints = []
+prompt = ""

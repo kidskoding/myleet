@@ -1,0 +1,8 @@
+id = "increasing-triplet-subsequence"
+title = "Increasing Triplet Subsequence"
+difficulty = "medium"
+leetcode = 334
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+key_idea = "track the smallest value and the smallest pair-second seen so far."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "bag-of-tokens"
+title = "Bag Of Tokens"
+difficulty = "medium"
+leetcode = 948
+url = "https://leetcode.com/problems/bag-of-tokens/"
+key_idea = "sort, then spend the cheapest token for score and cash in the most expensive for power at the ends."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "number-of-flowers-in-full-bloom"
+title = "Number of Flowers in Full Bloom"
+difficulty = "hard"
+leetcode = 2251
+url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
+key_idea = "binary search sorted starts and ends per person, or sweep with events."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "multiply-strings"
+title = "Multiply Strings"
+difficulty = "medium"
+leetcode = 43
+url = "https://leetcode.com/problems/multiply-strings/"
+key_idea = "schoolbook multiply into a fixed-size digit buffer indexed by position sums."
+hints = []
+prompt = ""

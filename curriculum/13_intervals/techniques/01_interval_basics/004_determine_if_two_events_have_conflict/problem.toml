@@ -1,0 +1,8 @@
+id = "determine-if-two-events-have-conflict"
+title = "Determine if Two Events Have Conflict"
+difficulty = "easy"
+leetcode = 2446
+url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
+key_idea = "two intervals overlap iff each start is not after the other's end."
+hints = []
+prompt = ""

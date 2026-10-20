@@ -1,0 +1,8 @@
+id = "number-of-ways-to-split-array"
+title = "Number of Ways to Split Array"
+difficulty = "medium"
+leetcode = 2270
+url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+key_idea = "sweep the split point comparing the left prefix sum against the remaining suffix sum."
+hints = []
+prompt = ""

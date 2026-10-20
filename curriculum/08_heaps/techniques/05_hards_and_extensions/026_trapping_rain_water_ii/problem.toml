@@ -1,0 +1,8 @@
+id = "trapping-rain-water-ii"
+title = "Trapping Rain Water II"
+difficulty = "hard"
+leetcode = 407
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+key_idea = "min heap processes the boundary inward, raising water to the lowest wall."
+hints = []
+prompt = ""

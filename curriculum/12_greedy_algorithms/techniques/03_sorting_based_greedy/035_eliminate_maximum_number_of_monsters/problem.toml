@@ -1,0 +1,8 @@
+id = "eliminate-maximum-number-of-monsters"
+title = "Eliminate Maximum Number of Monsters"
+difficulty = "medium"
+leetcode = 1921
+url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
+key_idea = "sort by arrival time and shoot the soonest-arriving monster each minute."
+hints = []
+prompt = ""

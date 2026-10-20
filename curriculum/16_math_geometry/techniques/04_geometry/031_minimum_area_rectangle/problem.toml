@@ -1,0 +1,8 @@
+id = "minimum-area-rectangle"
+title = "Minimum Area Rectangle"
+difficulty = "medium"
+leetcode = 939
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
+key_idea = "hash points and pair up diagonals that share a center and radius."
+hints = []
+prompt = ""

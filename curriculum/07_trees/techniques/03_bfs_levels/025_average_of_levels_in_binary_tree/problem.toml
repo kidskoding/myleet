@@ -1,0 +1,8 @@
+id = "average-of-levels-in-binary-tree"
+title = "Average Of Levels In Binary Tree"
+difficulty = "easy"
+leetcode = 637
+url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
+key_idea = "sum each BFS level and divide by its size."
+hints = []
+prompt = ""

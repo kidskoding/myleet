@@ -1,0 +1,8 @@
+id = "erect-the-fence"
+title = "Erect the Fence"
+difficulty = "hard"
+leetcode = 587
+url = "https://leetcode.com/problems/erect-the-fence/"
+key_idea = "build the convex hull (Andrew's monotone chain) via cross-product turns."
+hints = []
+prompt = ""

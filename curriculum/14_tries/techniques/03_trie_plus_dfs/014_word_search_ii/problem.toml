@@ -1,0 +1,8 @@
+id = "word-search-ii"
+title = "Word Search II"
+difficulty = "hard"
+leetcode = 212
+url = "https://leetcode.com/problems/word-search-ii/"
+key_idea = "build one trie of all target words, then DFS the board while"
+hints = []
+prompt = ""

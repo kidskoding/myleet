@@ -1,0 +1,8 @@
+id = "utf-8-validation"
+title = "UTF-8 Validation"
+difficulty = "medium"
+leetcode = 393
+url = "https://leetcode.com/problems/utf-8-validation/"
+key_idea = "mask the leading bits of each byte to decode and verify continuation counts."
+hints = []
+prompt = ""

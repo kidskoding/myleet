@@ -1,0 +1,8 @@
+id = "longest-palindromic-subsequence"
+title = "Longest Palindromic Subsequence"
+difficulty = "medium"
+leetcode = 516
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+key_idea = "dp over intervals, extending inward when the ends match."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "combination-sum-iv"
+title = "Combination Sum IV"
+difficulty = "medium"
+leetcode = 377
+url = "https://leetcode.com/problems/combination-sum-iv/"
+key_idea = "unbounded knapsack counting ordered sequences, so loop target outside items."
+hints = []
+prompt = ""

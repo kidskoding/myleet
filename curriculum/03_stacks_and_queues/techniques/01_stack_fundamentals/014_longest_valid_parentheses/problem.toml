@@ -1,0 +1,8 @@
+id = "longest-valid-parentheses"
+title = "Longest Valid Parentheses"
+difficulty = "hard"
+leetcode = 32
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+key_idea = "stack of indices; each match measures the valid span back to the last unmatched boundary."
+hints = []
+prompt = ""

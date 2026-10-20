@@ -1,0 +1,8 @@
+id = "longest-increasing-path-in-a-matrix"
+title = "Longest Increasing Path In A Matrix"
+difficulty = "hard"
+leetcode = 329
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+key_idea = "memoized DFS on a directed acyclic grid graph."
+hints = []
+prompt = ""

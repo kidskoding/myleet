@@ -1,0 +1,8 @@
+id = "sort-characters-by-frequency"
+title = "Sort Characters By Frequency"
+difficulty = "medium"
+leetcode = 451
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+key_idea = "max heap of character counts emits letters in descending frequency."
+hints = []
+prompt = ""

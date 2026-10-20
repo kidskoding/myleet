@@ -1,0 +1,8 @@
+id = "count-subarrays-with-fixed-bounds"
+title = "Count Subarrays With Fixed Bounds"
+difficulty = "hard"
+leetcode = 2444
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
+key_idea = "track last positions of minK, maxK, and out-of-range values to count valid windows per right edge."
+hints = []
+prompt = ""

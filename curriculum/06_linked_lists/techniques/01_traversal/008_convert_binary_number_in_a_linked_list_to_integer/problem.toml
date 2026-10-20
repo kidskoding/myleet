@@ -1,0 +1,8 @@
+id = "convert-binary-number-in-a-linked-list-to-integer"
+title = "Convert Binary Number In A Linked List To Integer"
+difficulty = "easy"
+leetcode = 1290
+url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
+key_idea = "single pass building the value with shift-and-add."
+hints = []
+prompt = ""

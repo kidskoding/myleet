@@ -1,0 +1,8 @@
+id = "longest-repeating-character-replacement"
+title = "Longest Repeating Character Replacement"
+difficulty = "medium"
+leetcode = 424
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+key_idea = "frequency map tracks the most frequent character; shrink when replacements needed exceed k."
+hints = []
+prompt = ""

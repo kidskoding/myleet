@@ -1,0 +1,8 @@
+id = "invert-binary-tree"
+title = "Invert Binary Tree"
+difficulty = "easy"
+leetcode = 226
+url = "https://leetcode.com/problems/invert-binary-tree/"
+key_idea = "swap each node's left and right children."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "reverse-integer"
+title = "Reverse Integer"
+difficulty = "medium"
+leetcode = 7
+url = "https://leetcode.com/problems/reverse-integer/"
+key_idea = "reverse digits with 32-bit overflow checking."
+hints = []
+prompt = ""

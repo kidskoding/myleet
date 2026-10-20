@@ -1,0 +1,8 @@
+id = "longest-subarray-of-1s-after-deleting-one-element"
+title = "Longest Subarray of 1's After Deleting One Element"
+difficulty = "medium"
+leetcode = 1493
+url = "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
+key_idea = "window allowing at most one zero; shrink when a second zero enters, answer is length minus one."
+hints = []
+prompt = ""

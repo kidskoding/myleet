@@ -1,0 +1,8 @@
+id = "find-k-closest-elements-binary_search"
+title = "Find K Closest Elements"
+difficulty = "medium"
+leetcode = 658
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+key_idea = "boundary search for the left edge of a fixed-size window."
+hints = []
+prompt = ""

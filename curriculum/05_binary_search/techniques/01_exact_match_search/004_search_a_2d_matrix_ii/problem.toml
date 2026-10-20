@@ -1,0 +1,8 @@
+id = "search-a-2d-matrix-ii"
+title = "Search a 2D Matrix II"
+difficulty = "medium"
+leetcode = 240
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+key_idea = "start at a sorted corner and eliminate a full row or column each step."
+hints = []
+prompt = ""

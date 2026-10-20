@@ -1,0 +1,8 @@
+id = "path-sum-iii"
+title = "Path Sum III"
+difficulty = "medium"
+leetcode = 437
+url = "https://leetcode.com/problems/path-sum-iii/"
+key_idea = "count paths that can start anywhere using prefix sums."
+hints = []
+prompt = ""

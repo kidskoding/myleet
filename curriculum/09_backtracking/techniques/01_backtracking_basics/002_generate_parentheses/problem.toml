@@ -1,0 +1,8 @@
+id = "generate-parentheses"
+title = "Generate Parentheses"
+difficulty = "medium"
+leetcode = 22
+url = "https://leetcode.com/problems/generate-parentheses/"
+key_idea = "choose \"(\" or \")\" while tracking open/close counts as a pruning constraint."
+hints = []
+prompt = ""

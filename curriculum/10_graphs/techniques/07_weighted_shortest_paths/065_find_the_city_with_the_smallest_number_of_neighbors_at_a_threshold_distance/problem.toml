@@ -1,0 +1,8 @@
+id = "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance"
+title = "Find The City With The Smallest Number Of Neighbors At A Threshold Distance"
+difficulty = "medium"
+leetcode = 1334
+url = "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/"
+key_idea = "all-pairs or repeated shortest paths."
+hints = []
+prompt = ""

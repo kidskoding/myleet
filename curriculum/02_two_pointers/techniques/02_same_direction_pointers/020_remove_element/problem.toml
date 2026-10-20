@@ -1,0 +1,8 @@
+id = "remove-element"
+title = "Remove Element"
+difficulty = "easy"
+leetcode = 27
+url = "https://leetcode.com/problems/remove-element/"
+key_idea = "write pointer only advances when read finds a value to keep."
+hints = []
+prompt = ""

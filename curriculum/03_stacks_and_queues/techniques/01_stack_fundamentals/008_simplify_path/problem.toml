@@ -1,0 +1,8 @@
+id = "simplify-path"
+title = "Simplify Path"
+difficulty = "medium"
+leetcode = 71
+url = "https://leetcode.com/problems/simplify-path/"
+key_idea = "stack of directory names; pop on `..` and skip `.` and empty segments."
+hints = []
+prompt = ""

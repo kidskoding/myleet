@@ -1,0 +1,8 @@
+id = "is-graph-bipartite"
+title = "Is Graph Bipartite?"
+difficulty = "medium"
+leetcode = 785
+url = "https://leetcode.com/problems/is-graph-bipartite/"
+key_idea = "2-color a graph during BFS/DFS."
+hints = []
+prompt = ""

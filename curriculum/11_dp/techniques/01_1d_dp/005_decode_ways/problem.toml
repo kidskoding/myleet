@@ -1,0 +1,8 @@
+id = "decode-ways"
+title = "Decode Ways"
+difficulty = "medium"
+leetcode = 91
+url = "https://leetcode.com/problems/decode-ways/"
+key_idea = "dp[i] sums the ways using the last one digit and the last two digits."
+hints = []
+prompt = ""

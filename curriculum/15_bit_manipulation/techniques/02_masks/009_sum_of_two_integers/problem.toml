@@ -1,0 +1,8 @@
+id = "sum-of-two-integers"
+title = "Sum of Two Integers"
+difficulty = "medium"
+leetcode = 371
+url = "https://leetcode.com/problems/sum-of-two-integers/"
+key_idea = "XOR gives the sum without carry, AND-and-shift gives the carry, repeat until no carry."
+hints = []
+prompt = ""

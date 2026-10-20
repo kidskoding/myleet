@@ -1,0 +1,8 @@
+id = "camelcase-matching"
+title = "Camelcase Matching"
+difficulty = "medium"
+leetcode = 1023
+url = "https://leetcode.com/problems/camelcase-matching/"
+key_idea = "match each query against the pattern trie, allowing extra"
+hints = []
+prompt = ""

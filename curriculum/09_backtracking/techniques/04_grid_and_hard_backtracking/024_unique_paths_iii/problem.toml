@@ -1,0 +1,8 @@
+id = "unique-paths-iii"
+title = "Unique Paths III"
+difficulty = "hard"
+leetcode = 980
+url = "https://leetcode.com/problems/unique-paths-iii/"
+key_idea = "DFS every path that covers all empty cells, marking and unmarking cells as visited."
+hints = []
+prompt = ""

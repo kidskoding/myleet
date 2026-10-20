@@ -1,0 +1,8 @@
+id = "excel-sheet-column-number"
+title = "Excel Sheet Column Number"
+difficulty = "easy"
+leetcode = 171
+url = "https://leetcode.com/problems/excel-sheet-column-number/"
+key_idea = "treat the letters as a base-26 number."
+hints = []
+prompt = ""

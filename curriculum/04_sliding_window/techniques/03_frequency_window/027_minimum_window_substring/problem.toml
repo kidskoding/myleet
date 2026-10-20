@@ -1,0 +1,8 @@
+id = "minimum-window-substring"
+title = "Minimum Window Substring"
+difficulty = "hard"
+leetcode = 76
+url = "https://leetcode.com/problems/minimum-window-substring/"
+key_idea = "frequency map with a matched-count check; shrink while the window still satisfies all required counts."
+hints = []
+prompt = ""

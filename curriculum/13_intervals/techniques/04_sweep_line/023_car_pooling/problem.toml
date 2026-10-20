@@ -1,0 +1,8 @@
+id = "car-pooling"
+title = "Car Pooling"
+difficulty = "medium"
+leetcode = 1094
+url = "https://leetcode.com/problems/car-pooling/"
+key_idea = "delta array of passenger changes at pickup and dropoff points."
+hints = []
+prompt = ""

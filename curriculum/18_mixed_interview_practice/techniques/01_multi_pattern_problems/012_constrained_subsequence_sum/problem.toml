@@ -1,0 +1,8 @@
+id = "constrained-subsequence-sum"
+title = "Constrained Subsequence Sum"
+difficulty = "hard"
+leetcode = 1425
+url = "https://leetcode.com/problems/constrained-subsequence-sum/"
+key_idea = "dp[i] = nums[i] + max(0, max(dp[i-k..i-1])); a monotonic deque keeps that max in O(1)."
+hints = []
+prompt = ""

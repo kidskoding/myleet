@@ -1,0 +1,8 @@
+id = "lemonade-change"
+title = "Lemonade Change"
+difficulty = "easy"
+leetcode = 860
+url = "https://leetcode.com/problems/lemonade-change/"
+key_idea = "greedily break a larger bill to save smaller bills for later change."
+hints = []
+prompt = ""

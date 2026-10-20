@@ -1,0 +1,8 @@
+id = "ipo-greedy_algorithms"
+title = "IPO"
+difficulty = "hard"
+leetcode = 502
+url = "https://leetcode.com/problems/ipo/"
+key_idea = "unlock affordable projects by capital, then greedily take the max-profit one via a heap."
+hints = []
+prompt = ""

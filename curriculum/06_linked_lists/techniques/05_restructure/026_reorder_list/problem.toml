@@ -1,0 +1,8 @@
+id = "reorder-list"
+title = "Reorder List"
+difficulty = "medium"
+leetcode = 143
+url = "https://leetcode.com/problems/reorder-list/"
+key_idea = "split, reverse the second half, weave."
+hints = []
+prompt = ""

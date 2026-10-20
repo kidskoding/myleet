@@ -1,0 +1,8 @@
+id = "binary-tree-pruning"
+title = "Binary Tree Pruning"
+difficulty = "medium"
+leetcode = 814
+url = "https://leetcode.com/problems/binary-tree-pruning/"
+key_idea = "remove subtrees that do not contain a `1`."
+hints = []
+prompt = ""

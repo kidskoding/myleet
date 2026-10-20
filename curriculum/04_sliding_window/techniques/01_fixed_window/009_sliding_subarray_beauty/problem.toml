@@ -1,0 +1,8 @@
+id = "sliding-subarray-beauty"
+title = "Sliding Subarray Beauty"
+difficulty = "medium"
+leetcode = 2653
+url = "https://leetcode.com/problems/sliding-subarray-beauty/"
+key_idea = "values are bounded, so count them instead of sorting each window."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-erasure-value"
+title = "Maximum Erasure Value"
+difficulty = "medium"
+leetcode = 1695
+url = "https://leetcode.com/problems/maximum-erasure-value/"
+key_idea = "variable window of unique elements; shrink left when a duplicate enters, track the max window sum."
+hints = []
+prompt = ""

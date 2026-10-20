@@ -1,0 +1,8 @@
+id = "minimum-height-trees"
+title = "Minimum Height Trees"
+difficulty = "medium"
+leetcode = 310
+url = "https://leetcode.com/problems/minimum-height-trees/"
+key_idea = "peel leaves to find tree centers."
+hints = []
+prompt = ""

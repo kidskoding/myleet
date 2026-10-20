@@ -1,0 +1,6 @@
+id = "sliding-window-minimum"
+title = "Sliding Window Minimum"
+difficulty = "medium"
+key_idea = "mirror of the maximum; a monotonic increasing deque of indices gives each window min."
+hints = []
+prompt = ""

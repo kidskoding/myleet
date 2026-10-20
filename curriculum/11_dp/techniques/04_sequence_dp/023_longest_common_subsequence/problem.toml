@@ -1,0 +1,8 @@
+id = "longest-common-subsequence"
+title = "Longest Common Subsequence"
+difficulty = "medium"
+leetcode = 1143
+url = "https://leetcode.com/problems/longest-common-subsequence/"
+key_idea = "dp[i][j] over prefixes; matching characters extend the diagonal."
+hints = []
+prompt = ""

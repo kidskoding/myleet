@@ -1,0 +1,8 @@
+id = "minimum-obstacle-removal-to-reach-corner"
+title = "Minimum Obstacle Removal To Reach Corner"
+difficulty = "hard"
+leetcode = 2290
+url = "https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/"
+key_idea = "0-1 BFS over a grid."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-xor-of-two-numbers-in-an-array"
+title = "Maximum XOR Of Two Numbers In An Array"
+difficulty = "medium"
+leetcode = 421
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+key_idea = "binary trie of bits, greedily choosing the opposite bit at each"
+hints = []
+prompt = ""

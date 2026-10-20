@@ -1,0 +1,8 @@
+id = "cheapest-flights-within-k-stops"
+title = "Cheapest Flights Within K Stops"
+difficulty = "medium"
+leetcode = 787
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+key_idea = "shortest paths with an extra stop-count state."
+hints = []
+prompt = ""

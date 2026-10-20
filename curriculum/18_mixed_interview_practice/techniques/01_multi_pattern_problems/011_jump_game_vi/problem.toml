@@ -1,0 +1,8 @@
+id = "jump-game-vi"
+title = "Jump Game VI"
+difficulty = "medium"
+leetcode = 1696
+url = "https://leetcode.com/problems/jump-game-vi/"
+key_idea = "dp[i] = nums[i] + max(dp[i-k..i-1]); a monotonic deque supplies that max in O(1)."
+hints = []
+prompt = ""

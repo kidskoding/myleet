@@ -1,0 +1,8 @@
+id = "binary-subarrays-with-sum"
+title = "Binary Subarrays With Sum"
+difficulty = "medium"
+leetcode = 930
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
+key_idea = "exact-sum count via atMost(goal) - atMost(goal - 1) over a 0/1 window."
+hints = []
+prompt = ""

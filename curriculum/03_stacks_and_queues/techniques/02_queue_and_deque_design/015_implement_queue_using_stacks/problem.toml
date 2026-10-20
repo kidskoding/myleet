@@ -1,0 +1,8 @@
+id = "implement-queue-using-stacks"
+title = "Implement Queue Using Stacks"
+difficulty = "easy"
+leetcode = 232
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
+key_idea = "two stacks simulate FIFO order."
+hints = []
+prompt = ""

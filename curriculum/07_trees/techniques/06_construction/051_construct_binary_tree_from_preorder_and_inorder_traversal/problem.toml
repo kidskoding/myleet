@@ -1,0 +1,8 @@
+id = "construct-binary-tree-from-preorder-and-inorder-traversal"
+title = "Construct Binary Tree From Preorder And Inorder Traversal"
+difficulty = "medium"
+leetcode = 105
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+key_idea = "preorder gives the root; inorder splits left and right subtrees."
+hints = []
+prompt = ""

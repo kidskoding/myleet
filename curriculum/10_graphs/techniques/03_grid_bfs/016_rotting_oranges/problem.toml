@@ -1,0 +1,8 @@
+id = "rotting-oranges"
+title = "Rotting Oranges"
+difficulty = "medium"
+leetcode = 994
+url = "https://leetcode.com/problems/rotting-oranges/"
+key_idea = "multi-source BFS over a grid."
+hints = []
+prompt = ""

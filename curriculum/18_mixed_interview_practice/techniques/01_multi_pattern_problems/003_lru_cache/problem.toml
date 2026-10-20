@@ -1,0 +1,8 @@
+id = "lru-cache"
+title = "LRU Cache"
+difficulty = "medium"
+leetcode = 146
+url = "https://leetcode.com/problems/lru-cache/"
+key_idea = "hash map for O(1) lookup plus a doubly linked list for O(1) eviction."
+hints = []
+prompt = ""

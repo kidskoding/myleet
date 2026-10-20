@@ -1,0 +1,8 @@
+id = "word-search-ii-mixed_interview_practice"
+title = "Word Search II"
+difficulty = "hard"
+leetcode = 212
+url = "https://leetcode.com/problems/word-search-ii/"
+key_idea = "build a trie of the words, then grid backtracking pruned by the trie."
+hints = []
+prompt = ""

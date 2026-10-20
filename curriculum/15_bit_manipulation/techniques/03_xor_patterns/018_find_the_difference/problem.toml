@@ -1,0 +1,8 @@
+id = "find-the-difference"
+title = "Find the Difference"
+difficulty = "easy"
+leetcode = 389
+url = "https://leetcode.com/problems/find-the-difference/"
+key_idea = "XOR both strings together so shared characters cancel out."
+hints = []
+prompt = ""

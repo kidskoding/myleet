@@ -1,0 +1,8 @@
+id = "perfect-rectangle"
+title = "Perfect Rectangle"
+difficulty = "hard"
+leetcode = 391
+url = "https://leetcode.com/problems/perfect-rectangle/"
+key_idea = "check total area equals the bounding box and every interior corner cancels."
+hints = []
+prompt = ""

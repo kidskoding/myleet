@@ -1,0 +1,8 @@
+id = "robot-room-cleaner"
+title = "Robot Room Cleaner"
+difficulty = "hard"
+leetcode = 489
+url = "https://leetcode.com/problems/robot-room-cleaner/"
+key_idea = "DFS with a relative-coordinate visited set, turning the robot back to its prior heading on backtrack."
+hints = []
+prompt = ""

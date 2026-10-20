@@ -1,0 +1,8 @@
+id = "combination-sum"
+title = "Combination Sum"
+difficulty = "medium"
+leetcode = 39
+url = "https://leetcode.com/problems/combination-sum/"
+key_idea = "reuse the same index to allow repeated picks, prune when the running sum exceeds the target."
+hints = []
+prompt = ""

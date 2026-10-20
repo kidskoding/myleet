@@ -1,0 +1,8 @@
+id = "trim-a-binary-search-tree"
+title = "Trim A Binary Search Tree"
+difficulty = "medium"
+leetcode = 669
+url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
+key_idea = "remove nodes outside the target value range."
+hints = []
+prompt = ""

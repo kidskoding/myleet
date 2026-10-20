@@ -1,0 +1,8 @@
+id = "rectangle-area"
+title = "Rectangle Area"
+difficulty = "medium"
+leetcode = 223
+url = "https://leetcode.com/problems/rectangle-area/"
+key_idea = "sum both areas and subtract the overlap of the two axis intervals."
+hints = []
+prompt = ""

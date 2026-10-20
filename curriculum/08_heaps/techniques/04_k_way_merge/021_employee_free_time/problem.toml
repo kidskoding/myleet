@@ -1,0 +1,8 @@
+id = "employee-free-time"
+title = "Employee Free Time"
+difficulty = "hard"
+leetcode = 759
+url = "https://leetcode.com/problems/employee-free-time/"
+key_idea = "heap merges each employee's sorted intervals to find shared gaps."
+hints = []
+prompt = ""

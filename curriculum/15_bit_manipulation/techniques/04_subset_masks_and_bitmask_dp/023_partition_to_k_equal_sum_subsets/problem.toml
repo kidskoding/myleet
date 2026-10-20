@@ -1,0 +1,8 @@
+id = "partition-to-k-equal-sum-subsets-bit_manipulation"
+title = "Partition to K Equal Sum Subsets"
+difficulty = "medium"
+leetcode = 698
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+key_idea = "memoize over a used-elements bitmask while filling buckets to the target sum."
+hints = []
+prompt = ""

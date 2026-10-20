@@ -1,0 +1,8 @@
+id = "find-the-duplicate-number"
+title = "Find The Duplicate Number"
+difficulty = "medium"
+leetcode = 287
+url = "https://leetcode.com/problems/find-the-duplicate-number/"
+key_idea = "treat values as pointers, Floyd cycle detection to find the repeat."
+hints = []
+prompt = ""

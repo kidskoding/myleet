@@ -1,0 +1,8 @@
+id = "evaluate-division-advanced"
+title = "Evaluate Division"
+difficulty = "medium"
+leetcode = 399
+url = "https://leetcode.com/problems/evaluate-division/"
+key_idea = "weighted union-find carrying edge ratios (or graph DFS)."
+hints = []
+prompt = ""

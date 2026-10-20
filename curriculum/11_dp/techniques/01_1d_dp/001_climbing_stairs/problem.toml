@@ -1,0 +1,8 @@
+id = "climbing-stairs"
+title = "Climbing Stairs"
+difficulty = "easy"
+leetcode = 70
+url = "https://leetcode.com/problems/climbing-stairs/"
+key_idea = "dp[i] = dp[i - 1] + dp[i - 2], ways to reach step i."
+hints = []
+prompt = ""

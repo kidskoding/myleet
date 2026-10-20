@@ -1,0 +1,8 @@
+id = "sum-of-subarray-ranges"
+title = "Sum Of Subarray Ranges"
+difficulty = "medium"
+leetcode = 2104
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+key_idea = "monotonic-stack contribution counting for both subarray minimums and maximums."
+hints = []
+prompt = ""

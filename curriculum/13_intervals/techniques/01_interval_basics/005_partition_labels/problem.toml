@@ -1,0 +1,8 @@
+id = "partition-labels-intervals"
+title = "Partition Labels"
+difficulty = "medium"
+leetcode = 763
+url = "https://leetcode.com/problems/partition-labels/"
+key_idea = "build last-index intervals per char, then merge greedily while scanning."
+hints = []
+prompt = ""

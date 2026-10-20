@@ -1,0 +1,8 @@
+id = "lowest-common-ancestor-of-deepest-leaves"
+title = "Lowest Common Ancestor Of Deepest Leaves"
+difficulty = "medium"
+leetcode = 1123
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
+key_idea = "compare subtree heights and propagate the deeper side."
+hints = []
+prompt = ""

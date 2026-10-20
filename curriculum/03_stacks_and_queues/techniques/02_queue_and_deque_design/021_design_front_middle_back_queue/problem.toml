@@ -1,0 +1,8 @@
+id = "design-front-middle-back-queue"
+title = "Design Front Middle Back Queue"
+difficulty = "medium"
+leetcode = 1670
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+key_idea = "two deques split at the middle; rebalance after each op to keep the front half sized correctly."
+hints = []
+prompt = ""

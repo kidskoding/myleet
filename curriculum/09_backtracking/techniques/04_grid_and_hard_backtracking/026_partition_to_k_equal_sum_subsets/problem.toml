@@ -1,0 +1,8 @@
+id = "partition-to-k-equal-sum-subsets"
+title = "Partition to K Equal Sum Subsets"
+difficulty = "medium"
+leetcode = 698
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+key_idea = "fill one bucket at a time to the target sum, sort descending and skip duplicate starts to prune."
+hints = []
+prompt = ""

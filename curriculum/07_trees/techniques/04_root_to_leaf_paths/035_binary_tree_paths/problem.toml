@@ -1,0 +1,8 @@
+id = "binary-tree-paths"
+title = "Binary Tree Paths"
+difficulty = "easy"
+leetcode = 257
+url = "https://leetcode.com/problems/binary-tree-paths/"
+key_idea = "build every root-to-leaf path."
+hints = []
+prompt = ""

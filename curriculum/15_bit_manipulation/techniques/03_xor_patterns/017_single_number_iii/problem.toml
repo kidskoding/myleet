@@ -1,0 +1,8 @@
+id = "single-number-iii"
+title = "Single Number III"
+difficulty = "medium"
+leetcode = 260
+url = "https://leetcode.com/problems/single-number-iii/"
+key_idea = "XOR everything to get diff of the two singles, then split nums by a set bit in diff."
+hints = []
+prompt = ""

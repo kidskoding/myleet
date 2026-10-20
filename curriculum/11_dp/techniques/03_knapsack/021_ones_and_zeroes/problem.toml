@@ -1,0 +1,8 @@
+id = "ones-and-zeroes"
+title = "Ones and Zeroes"
+difficulty = "medium"
+leetcode = 474
+url = "https://leetcode.com/problems/ones-and-zeroes/"
+key_idea = "0/1 knapsack with two capacities, the counts of zeros and ones."
+hints = []
+prompt = ""

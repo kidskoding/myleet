@@ -1,0 +1,8 @@
+id = "remove-duplicates-from-sorted-array"
+title = "Remove Duplicates From Sorted Array"
+difficulty = "easy"
+leetcode = 26
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+key_idea = "write advances only when nums[read] differs from nums[write - 1]."
+hints = []
+prompt = ""

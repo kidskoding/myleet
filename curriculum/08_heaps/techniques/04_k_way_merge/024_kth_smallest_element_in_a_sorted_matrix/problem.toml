@@ -1,0 +1,8 @@
+id = "kth-smallest-element-in-a-sorted-matrix-heaps"
+title = "Kth Smallest Element In A Sorted Matrix"
+difficulty = "medium"
+leetcode = 378
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+key_idea = "heap merges sorted rows, popping k times to reach the kth smallest."
+hints = []
+prompt = ""

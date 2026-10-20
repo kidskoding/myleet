@@ -1,0 +1,8 @@
+id = "house-robber-ii"
+title = "House Robber II"
+difficulty = "medium"
+leetcode = 213
+url = "https://leetcode.com/problems/house-robber-ii/"
+key_idea = "houses form a circle; run House Robber twice, excluding one end each time."
+hints = []
+prompt = ""

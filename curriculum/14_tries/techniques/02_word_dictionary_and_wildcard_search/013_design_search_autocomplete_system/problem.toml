@@ -1,0 +1,8 @@
+id = "design-search-autocomplete-system"
+title = "Design Search Autocomplete System"
+difficulty = "hard"
+leetcode = 642
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+key_idea = "trie nodes store historical query frequencies, ranked as the"
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "binary-search-tree-iterator"
+title = "Binary Search Tree Iterator"
+difficulty = "medium"
+leetcode = 173
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+key_idea = "a stack of the current node's left spine makes next() amortized O(1)."
+hints = []
+prompt = ""

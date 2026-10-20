@@ -1,0 +1,8 @@
+id = "number-of-subarrays-with-bounded-maximum"
+title = "Number Of Subarrays With Bounded Maximum"
+difficulty = "medium"
+leetcode = 795
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
+key_idea = "count subarrays whose max lands in range by tracking the last out-of-range index with two pointers."
+hints = []
+prompt = ""

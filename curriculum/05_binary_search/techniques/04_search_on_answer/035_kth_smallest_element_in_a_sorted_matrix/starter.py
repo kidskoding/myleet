@@ -1,0 +1,6 @@
+def kth_smallest(matrix: list[list[int]], k: int) -> int:
+    # Problem 35: Kth Smallest Element in a Sorted Matrix
+    # Time:
+    # Space:
+
+    raise NotImplementedError

@@ -1,0 +1,8 @@
+id = "longest-duplicate-substring"
+title = "Longest Duplicate Substring"
+difficulty = "hard"
+leetcode = 1044
+url = "https://leetcode.com/problems/longest-duplicate-substring/"
+key_idea = "binary search on the answer length, each length checked by a Rabin-Karp rolling hash."
+hints = []
+prompt = ""

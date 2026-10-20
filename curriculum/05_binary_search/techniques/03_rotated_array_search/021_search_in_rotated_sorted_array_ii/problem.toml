@@ -1,0 +1,8 @@
+id = "search-in-rotated-sorted-array-ii"
+title = "Search in Rotated Sorted Array II"
+difficulty = "medium"
+leetcode = 81
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
+key_idea = "rotated array search with duplicates, falling back to"
+hints = []
+prompt = ""

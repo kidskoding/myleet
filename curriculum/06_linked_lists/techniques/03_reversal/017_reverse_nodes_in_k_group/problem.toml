@@ -1,0 +1,8 @@
+id = "reverse-nodes-in-k-group"
+title = "Reverse Nodes In K-Group"
+difficulty = "hard"
+leetcode = 25
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+key_idea = "reverse fixed-size groups, leave the remainder."
+hints = []
+prompt = ""

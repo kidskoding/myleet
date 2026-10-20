@@ -1,0 +1,8 @@
+id = "graph-valid-tree"
+title = "Graph Valid Tree"
+difficulty = "medium"
+leetcode = 261
+url = "https://leetcode.com/problems/graph-valid-tree/"
+key_idea = "check connectivity and absence of cycles."
+hints = []
+prompt = ""

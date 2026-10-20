@@ -1,0 +1,8 @@
+id = "rotate-list"
+title = "Rotate List"
+difficulty = "medium"
+leetcode = 61
+url = "https://leetcode.com/problems/rotate-list/"
+key_idea = "close into a ring, then reopen at the new head."
+hints = []
+prompt = ""

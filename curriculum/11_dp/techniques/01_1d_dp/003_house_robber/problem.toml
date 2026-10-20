@@ -1,0 +1,8 @@
+id = "house-robber"
+title = "House Robber"
+difficulty = "medium"
+leetcode = 198
+url = "https://leetcode.com/problems/house-robber/"
+key_idea = "dp[i] = max(skip house i, rob house i + dp[i - 2])."
+hints = []
+prompt = ""

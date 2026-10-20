@@ -1,0 +1,8 @@
+id = "matrix-block-sum"
+title = "Matrix Block Sum"
+difficulty = "medium"
+leetcode = 1314
+url = "https://leetcode.com/problems/matrix-block-sum/"
+key_idea = "2D prefix sums with inclusion-exclusion over a clamped window."
+hints = []
+prompt = ""

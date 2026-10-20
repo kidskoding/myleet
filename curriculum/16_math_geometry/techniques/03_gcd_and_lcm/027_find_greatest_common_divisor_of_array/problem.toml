@@ -1,0 +1,8 @@
+id = "find-greatest-common-divisor-of-array"
+title = "Find Greatest Common Divisor of Array"
+difficulty = "easy"
+leetcode = 1979
+url = "https://leetcode.com/problems/find-greatest-common-divisor-of-array/"
+key_idea = "gcd of the whole array equals gcd of only its min and max elements."
+hints = []
+prompt = ""

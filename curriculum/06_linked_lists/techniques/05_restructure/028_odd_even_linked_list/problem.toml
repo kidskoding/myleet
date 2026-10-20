@@ -1,0 +1,8 @@
+id = "odd-even-linked-list"
+title = "Odd Even Linked List"
+difficulty = "medium"
+leetcode = 328
+url = "https://leetcode.com/problems/odd-even-linked-list/"
+key_idea = "thread odd and even indices into two chains."
+hints = []
+prompt = ""

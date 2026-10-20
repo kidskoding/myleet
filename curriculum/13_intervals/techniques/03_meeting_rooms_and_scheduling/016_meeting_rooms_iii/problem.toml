@@ -1,0 +1,8 @@
+id = "meeting-rooms-iii"
+title = "Meeting Rooms III"
+difficulty = "hard"
+leetcode = 2402
+url = "https://leetcode.com/problems/meeting-rooms-iii/"
+key_idea = "two heaps track free rooms and occupied rooms with end times."
+hints = []
+prompt = ""

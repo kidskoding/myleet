@@ -1,0 +1,8 @@
+id = "hamming-distance"
+title = "Hamming Distance"
+difficulty = "easy"
+leetcode = 461
+url = "https://leetcode.com/problems/hamming-distance/"
+key_idea = "popcount of x ^ y counts the differing bit positions."
+hints = []
+prompt = ""

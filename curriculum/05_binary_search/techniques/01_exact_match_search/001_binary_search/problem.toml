@@ -1,0 +1,8 @@
+id = "binary-search"
+title = "Binary Search"
+difficulty = "easy"
+leetcode = 704
+url = "https://leetcode.com/problems/binary-search/"
+key_idea = "repeatedly cut the sorted search space in half."
+hints = []
+prompt = ""

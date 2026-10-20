@@ -1,0 +1,8 @@
+id = "remove-covered-intervals"
+title = "Remove Covered Intervals"
+difficulty = "medium"
+leetcode = 1288
+url = "https://leetcode.com/problems/remove-covered-intervals/"
+key_idea = "sort by start asc and end desc, drop intervals covered by the last kept end."
+hints = []
+prompt = ""

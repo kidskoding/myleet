@@ -1,0 +1,8 @@
+id = "longest-valid-parentheses-dp"
+title = "Longest Valid Parentheses"
+difficulty = "hard"
+leetcode = 32
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+key_idea = "dp[i] is the longest valid substring ending at i, closing bracket looks back."
+hints = []
+prompt = ""

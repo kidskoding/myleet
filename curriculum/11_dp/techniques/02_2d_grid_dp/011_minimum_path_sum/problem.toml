@@ -1,0 +1,8 @@
+id = "minimum-path-sum"
+title = "Minimum Path Sum"
+difficulty = "medium"
+leetcode = 64
+url = "https://leetcode.com/problems/minimum-path-sum/"
+key_idea = "dp[r][c] = grid[r][c] + min(dp[r - 1][c], dp[r][c - 1])."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "minimum-interval-to-include-each-query"
+title = "Minimum Interval to Include Each Query"
+difficulty = "hard"
+leetcode = 1851
+url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
+key_idea = "sort queries and intervals, min heap of sizes for intervals covering each query."
+hints = []
+prompt = ""

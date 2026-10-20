@@ -1,0 +1,8 @@
+id = "maximum-points-you-can-obtain-from-cards"
+title = "Maximum Points You Can Obtain from Cards"
+difficulty = "medium"
+leetcode = 1423
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
+key_idea = "minimize the fixed-size middle window so the taken ends (its complement) are maximized."
+hints = []
+prompt = ""

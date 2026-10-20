@@ -1,0 +1,8 @@
+id = "symmetric-tree"
+title = "Symmetric Tree"
+difficulty = "easy"
+leetcode = 101
+url = "https://leetcode.com/problems/symmetric-tree/"
+key_idea = "compare left and right subtrees as mirrors."
+hints = []
+prompt = ""

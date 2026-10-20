@@ -1,0 +1,8 @@
+id = "permutations-ii"
+title = "Permutations II"
+difficulty = "medium"
+leetcode = 47
+url = "https://leetcode.com/problems/permutations-ii/"
+key_idea = "sort first, skip a duplicate value at the same depth unless the previous copy was used."
+hints = []
+prompt = ""

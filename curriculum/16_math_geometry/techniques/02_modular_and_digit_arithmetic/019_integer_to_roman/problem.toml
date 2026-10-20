@@ -1,0 +1,8 @@
+id = "integer-to-roman"
+title = "Integer to Roman"
+difficulty = "medium"
+leetcode = 12
+url = "https://leetcode.com/problems/integer-to-roman/"
+key_idea = "greedily subtract the largest value-symbol pair, including the subtractive cases."
+hints = []
+prompt = ""

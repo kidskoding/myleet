@@ -1,0 +1,8 @@
+id = "remove-all-adjacent-duplicates-in-string-ii"
+title = "Remove All Adjacent Duplicates In String II"
+difficulty = "medium"
+leetcode = 1209
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+key_idea = "stack of (char, count) pairs collapsed when a run reaches length k."
+hints = []
+prompt = ""

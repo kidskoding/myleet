@@ -1,0 +1,8 @@
+id = "insert-interval"
+title = "Insert Interval"
+difficulty = "medium"
+leetcode = 57
+url = "https://leetcode.com/problems/insert-interval/"
+key_idea = "append intervals fully before, merge overlapping, append fully after."
+hints = []
+prompt = ""

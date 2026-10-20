@@ -1,0 +1,8 @@
+id = "rectangle-area-ii"
+title = "Rectangle Area II"
+difficulty = "hard"
+leetcode = 850
+url = "https://leetcode.com/problems/rectangle-area-ii/"
+key_idea = "coordinate-compress and sweep a line, summing active covered width."
+hints = []
+prompt = ""

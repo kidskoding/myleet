@@ -1,0 +1,8 @@
+id = "flatten-binary-tree-to-linked-list"
+title = "Flatten Binary Tree To Linked List"
+difficulty = "medium"
+leetcode = 114
+url = "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
+key_idea = "mutate the tree in place using preorder logic."
+hints = []
+prompt = ""

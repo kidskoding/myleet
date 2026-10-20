@@ -1,0 +1,8 @@
+id = "maximum-twin-sum-of-a-linked-list"
+title = "Maximum Twin Sum Of A Linked List"
+difficulty = "medium"
+leetcode = 2130
+url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
+key_idea = "reverse the second half, then pair it against the first half."
+hints = []
+prompt = ""

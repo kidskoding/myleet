@@ -1,0 +1,8 @@
+id = "longest-palindromic-substring"
+title = "Longest Palindromic Substring"
+difficulty = "medium"
+leetcode = 5
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+key_idea = "dp[i][j] is true if s[i..j] is a palindrome, built from shorter spans."
+hints = []
+prompt = ""

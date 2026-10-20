@@ -1,0 +1,8 @@
+id = "encode-and-decode-tinyurl"
+title = "Encode and Decode TinyURL"
+difficulty = "medium"
+leetcode = 535
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+key_idea = "two maps and a counter, so encoding cannot collide."
+hints = []
+prompt = ""

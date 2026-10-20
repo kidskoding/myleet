@@ -1,0 +1,8 @@
+id = "game-of-life"
+title = "Game Of Life"
+difficulty = "medium"
+leetcode = 289
+url = "https://leetcode.com/problems/game-of-life/"
+key_idea = "encode next state in unused bits so the update stays in place."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "majority-element"
+title = "Majority Element"
+difficulty = "easy"
+leetcode = 169
+url = "https://leetcode.com/problems/majority-element/"
+key_idea = "Boyer-Moore vote counting, or a frequency hash map."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "course-schedule-iii-greedy_algorithms"
+title = "Course Schedule III"
+difficulty = "hard"
+leetcode = 630
+url = "https://leetcode.com/problems/course-schedule-iii/"
+key_idea = "sort by deadline and swap out the longest taken course when a new one overflows the timeline."
+hints = []
+prompt = ""

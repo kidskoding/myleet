@@ -1,0 +1,8 @@
+id = "implement-rand10-using-rand7"
+title = "Implement Rand10() Using Rand7()"
+difficulty = "medium"
+leetcode = 470
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+key_idea = "rejection sampling to build a uniform distribution."
+hints = []
+prompt = ""

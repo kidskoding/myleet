@@ -1,0 +1,8 @@
+id = "first-bad-version"
+title = "First Bad Version"
+difficulty = "easy"
+leetcode = 278
+url = "https://leetcode.com/problems/first-bad-version/"
+key_idea = "boundary search over a monotonic false...false, true...true predicate."
+hints = []
+prompt = ""

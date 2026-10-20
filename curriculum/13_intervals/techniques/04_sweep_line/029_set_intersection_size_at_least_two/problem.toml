@@ -1,0 +1,8 @@
+id = "set-intersection-size-at-least-two"
+title = "Set Intersection Size At Least Two"
+difficulty = "hard"
+leetcode = 757
+url = "https://leetcode.com/problems/set-intersection-size-at-least-two/"
+key_idea = "sort by end, greedily add the two largest points each interval needs."
+hints = []
+prompt = ""

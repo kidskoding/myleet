@@ -1,0 +1,8 @@
+id = "lfu-cache"
+title = "LFU Cache"
+difficulty = "hard"
+leetcode = 460
+url = "https://leetcode.com/problems/lfu-cache/"
+key_idea = "hash maps plus per-frequency doubly linked lists to evict the least-frequent, least-recent."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "split-linked-list-in-parts"
+title = "Split Linked List In Parts"
+difficulty = "medium"
+leetcode = 725
+url = "https://leetcode.com/problems/split-linked-list-in-parts/"
+key_idea = "size each part, then cut."
+hints = []
+prompt = ""

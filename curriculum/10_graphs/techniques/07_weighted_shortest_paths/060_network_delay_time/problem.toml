@@ -1,0 +1,8 @@
+id = "network-delay-time-graphs"
+title = "Network Delay Time"
+difficulty = "medium"
+leetcode = 743
+url = "https://leetcode.com/problems/network-delay-time/"
+key_idea = "shortest paths in a weighted directed graph."
+hints = []
+prompt = ""

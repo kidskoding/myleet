@@ -1,0 +1,8 @@
+id = "rotate-image-math_geometry"
+title = "Rotate Image"
+difficulty = "medium"
+leetcode = 48
+url = "https://leetcode.com/problems/rotate-image/"
+key_idea = "transpose the matrix, then reverse each row in place."
+hints = []
+prompt = ""

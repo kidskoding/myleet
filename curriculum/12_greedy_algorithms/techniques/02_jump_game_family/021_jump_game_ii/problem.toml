@@ -1,0 +1,8 @@
+id = "jump-game-ii"
+title = "Jump Game II"
+difficulty = "medium"
+leetcode = 45
+url = "https://leetcode.com/problems/jump-game-ii/"
+key_idea = "track farthest reach plus a level/boundary counter for minimum jumps."
+hints = []
+prompt = ""

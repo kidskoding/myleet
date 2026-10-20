@@ -1,0 +1,8 @@
+id = "minimum-number-of-vertices-to-reach-all-nodes"
+title = "Minimum Number Of Vertices To Reach All Nodes"
+difficulty = "medium"
+leetcode = 1557
+url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
+key_idea = "nodes with zero indegree are required starts."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "task-scheduler"
+title = "Task Scheduler"
+difficulty = "medium"
+leetcode = 621
+url = "https://leetcode.com/problems/task-scheduler/"
+key_idea = "max heap of task counts schedules the most frequent task first."
+hints = []
+prompt = ""

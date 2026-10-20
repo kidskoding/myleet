@@ -1,0 +1,8 @@
+id = "left-and-right-sum-differences"
+title = "Left and Right Sum Differences"
+difficulty = "easy"
+leetcode = 2574
+url = "https://leetcode.com/problems/left-and-right-sum-differences/"
+key_idea = "build a left prefix-sum array and a right suffix-sum array, take the absolute difference per index."
+hints = []
+prompt = ""

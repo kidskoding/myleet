@@ -1,0 +1,8 @@
+id = "perfect-squares"
+title = "Perfect Squares"
+difficulty = "medium"
+leetcode = 279
+url = "https://leetcode.com/problems/perfect-squares/"
+key_idea = "DP over the fewest squares, or BFS on remaining-value states."
+hints = []
+prompt = ""

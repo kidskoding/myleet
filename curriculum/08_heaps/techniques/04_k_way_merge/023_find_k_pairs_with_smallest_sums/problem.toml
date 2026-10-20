@@ -1,0 +1,8 @@
+id = "find-k-pairs-with-smallest-sums"
+title = "Find K Pairs With Smallest Sums"
+difficulty = "medium"
+leetcode = 373
+url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+key_idea = "heap expands the frontier of pair sums across two sorted arrays."
+hints = []
+prompt = ""

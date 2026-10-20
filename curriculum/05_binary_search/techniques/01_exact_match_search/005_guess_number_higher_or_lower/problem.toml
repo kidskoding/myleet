@@ -1,0 +1,8 @@
+id = "guess-number-higher-or-lower"
+title = "Guess Number Higher or Lower"
+difficulty = "easy"
+leetcode = 374
+url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
+key_idea = "exact-match search driven by a comparison oracle instead of array reads."
+hints = []
+prompt = ""

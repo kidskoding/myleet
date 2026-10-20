@@ -1,0 +1,8 @@
+id = "find-all-duplicates-in-an-array"
+title = "Find All Duplicates In An Array"
+difficulty = "medium"
+leetcode = 442
+url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
+key_idea = "mark visited values in place using index sign flips."
+hints = []
+prompt = ""

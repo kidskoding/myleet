@@ -1,0 +1,8 @@
+id = "least-number-of-unique-integers-after-k-removals"
+title = "Least Number Of Unique Integers After K Removals"
+difficulty = "medium"
+leetcode = 1481
+url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
+key_idea = "min heap of counts removes the rarest values first to shrink the unique set."
+hints = []
+prompt = ""

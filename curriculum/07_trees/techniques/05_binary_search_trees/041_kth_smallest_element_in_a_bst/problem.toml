@@ -1,0 +1,8 @@
+id = "kth-smallest-element-in-a-bst"
+title = "Kth Smallest Element In A BST"
+difficulty = "medium"
+leetcode = 230
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
+key_idea = "inorder traversal visits BST values in sorted order."
+hints = []
+prompt = ""

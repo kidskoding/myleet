@@ -1,0 +1,8 @@
+id = "binary-tree-postorder-traversal"
+title = "Binary Tree Postorder Traversal"
+difficulty = "easy"
+leetcode = 145
+url = "https://leetcode.com/problems/binary-tree-postorder-traversal/"
+key_idea = "modified preorder (node, right, left) reversed, or a stack with a last-visited pointer."
+hints = []
+prompt = ""

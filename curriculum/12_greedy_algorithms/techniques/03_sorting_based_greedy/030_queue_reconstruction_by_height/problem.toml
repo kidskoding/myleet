@@ -1,0 +1,8 @@
+id = "queue-reconstruction-by-height"
+title = "Reconstruct Queue by Height"
+difficulty = "medium"
+leetcode = 406
+url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
+key_idea = "sort tall-first, then insert each person at their k-index."
+hints = []
+prompt = ""

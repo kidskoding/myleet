@@ -1,0 +1,8 @@
+id = "minimum-falling-path-sum"
+title = "Minimum Falling Path Sum"
+difficulty = "medium"
+leetcode = 931
+url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+key_idea = "each cell takes the min of the three cells above it."
+hints = []
+prompt = ""

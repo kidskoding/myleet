@@ -1,0 +1,8 @@
+id = "beautiful-arrangement"
+title = "Beautiful Arrangement"
+difficulty = "medium"
+leetcode = 526
+url = "https://leetcode.com/problems/beautiful-arrangement/"
+key_idea = "place numbers one position at a time, pruning on the divisibility constraint."
+hints = []
+prompt = ""

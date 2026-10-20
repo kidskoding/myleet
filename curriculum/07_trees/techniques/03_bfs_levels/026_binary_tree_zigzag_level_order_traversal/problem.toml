@@ -1,0 +1,8 @@
+id = "binary-tree-zigzag-level-order-traversal"
+title = "Binary Tree Zigzag Level Order Traversal"
+difficulty = "medium"
+leetcode = 103
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+key_idea = "BFS by level with alternating output direction."
+hints = []
+prompt = ""

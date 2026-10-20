@@ -1,0 +1,8 @@
+id = "self-crossing"
+title = "Self Crossing"
+difficulty = "hard"
+leetcode = 335
+url = "https://leetcode.com/problems/self-crossing/"
+key_idea = "compare each move against the prior few segments for the three crossing cases."
+hints = []
+prompt = ""

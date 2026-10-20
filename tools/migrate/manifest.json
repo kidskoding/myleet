@@ -1,0 +1,5419 @@
+{
+ "01-matrix": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_update_matrix_normal_case",
+   "test_update_matrix_single_one"
+  ]
+ },
+ "132-pattern": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_find132pattern_increasing_has_none",
+   "test_find132pattern_present",
+   "test_find132pattern_with_negatives"
+  ]
+ },
+ "24-game": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_judge_point24_reachable",
+   "test_judge_point24_unreachable"
+  ]
+ },
+ "3sum": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_three_sum_empty",
+   "test_three_sum_no_triplet",
+   "test_three_sum_normal"
+  ]
+ },
+ "3sum-closest": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_three_sum_closest_normal",
+   "test_three_sum_closest_exact_match"
+  ]
+ },
+ "3sum-smaller": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_three_sum_smaller_normal",
+   "test_three_sum_smaller_empty",
+   "test_three_sum_smaller_too_short"
+  ]
+ },
+ "3sum-with-multiplicity": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_three_sum_multi_distinct_values",
+   "test_three_sum_multi_repeated_values"
+  ]
+ },
+ "4sum": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_four_sum_empty",
+   "test_four_sum_normal"
+  ]
+ },
+ "4sum-ii": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_four_sum_count_two_tuples",
+   "test_four_sum_count_all_zeros",
+   "test_four_sum_count_no_match",
+   "test_four_sum_count_counts_every_index_combination",
+   "test_four_sum_count_duplicates_across_arrays",
+   "test_four_sum_count_mixed_signs"
+  ]
+ },
+ "accounts-merge": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_accounts_merge_normal_case",
+   "test_accounts_merge_no_shared_emails"
+  ]
+ },
+ "add-strings": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_add_strings_normal",
+   "test_add_strings_with_carry",
+   "test_add_strings_zeros"
+  ]
+ },
+ "add-two-numbers": {
+  "old_test_file": "06_linked_lists/tests/test_merge_split_problems.py",
+  "tests": [
+   "test_add_two_numbers_basic",
+   "test_add_two_numbers_carry_out",
+   "test_add_two_numbers_zeros"
+  ]
+ },
+ "add-two-numbers-ii": {
+  "old_test_file": "06_linked_lists/tests/test_merge_split_problems.py",
+  "tests": [
+   "test_add_two_numbers_ii_normal",
+   "test_add_two_numbers_ii_carry_out",
+   "test_add_two_numbers_ii_zeros"
+  ]
+ },
+ "advantage-shuffle": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_advantage_count_normal",
+   "test_advantage_count_partial"
+  ]
+ },
+ "alien-dictionary": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_alien_order_normal_case",
+   "test_alien_order_invalid_ordering"
+  ]
+ },
+ "all-ancestors-of-a-node-in-a-directed-acyclic-graph": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_get_ancestors_normal_case",
+   "test_get_ancestors_no_edges"
+  ]
+ },
+ "all-nodes-distance-k-in-binary-tree": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_distance_k_normal",
+   "test_distance_k_zero_is_the_target",
+   "test_distance_k_beyond_tree"
+  ]
+ },
+ "all-paths-from-source-to-target": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_all_paths_source_target_normal_case",
+   "test_all_paths_source_target_single_node"
+  ]
+ },
+ "amount-of-new-area-painted-each-day": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_amount_painted_overlapping",
+   "test_amount_painted_out_of_order"
+  ]
+ },
+ "arranging-coins": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_arrange_coins_partial_last_row",
+   "test_arrange_coins_normal",
+   "test_arrange_coins_single"
+  ]
+ },
+ "as-far-from-land-as-possible": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_max_distance_normal_case",
+   "test_max_distance_all_land"
+  ]
+ },
+ "assign-cookies": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_assign_cookies_normal",
+   "test_assign_cookies_all_satisfied",
+   "test_assign_cookies_empty_children",
+   "test_assign_cookies_empty_cookies"
+  ]
+ },
+ "asteroid-collision": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_asteroid_collision_normal_case",
+   "test_asteroid_collision_all_destroyed",
+   "test_asteroid_collision_single_asteroid",
+   "test_asteroid_collision_empty"
+  ]
+ },
+ "average-of-levels-in-binary-tree": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_average_of_levels_empty_tree",
+   "test_average_of_levels_sample_tree",
+   "test_average_of_levels_left_skewed_tree"
+  ]
+ },
+ "backspace-string-compare": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_backspace_compare_equal",
+   "test_backspace_compare_not_equal",
+   "test_backspace_compare_both_empty_after_backspaces"
+  ]
+ },
+ "bag-of-tokens": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_bag_of_tokens_score_cannot_play",
+   "test_bag_of_tokens_score_one_token",
+   "test_bag_of_tokens_score_trades_down"
+  ]
+ },
+ "bag-of-tokens-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_bag_of_tokens_score_trades_down",
+   "test_bag_of_tokens_score_cannot_play_any",
+   "test_bag_of_tokens_score_single_affordable_token"
+  ]
+ },
+ "balanced-binary-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_balanced_binary_tree_empty_tree",
+   "test_balanced_binary_tree_balanced_tree",
+   "test_balanced_binary_tree_unbalanced_tree"
+  ]
+ },
+ "basic-calculator": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_calculate_with_parentheses",
+   "test_calculate_simple_addition",
+   "test_calculate_leading_negative"
+  ]
+ },
+ "basic-calculator-ii": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_calculate_ii_mixed_precedence",
+   "test_calculate_ii_division_truncates",
+   "test_calculate_ii_single_number"
+  ]
+ },
+ "beautiful-arrangement": {
+  "old_test_file": "09_backtracking/tests/test_backtracking_basics_problems.py",
+  "tests": [
+   "test_count_arrangement_single",
+   "test_count_arrangement_normal",
+   "test_count_arrangement_larger"
+  ]
+ },
+ "beautiful-array": {
+  "old_test_file": "17_advanced/tests/test_divide_and_conquer_problems.py",
+  "tests": [
+   "test_beautiful_array_single",
+   "test_beautiful_array_is_permutation",
+   "test_beautiful_array_no_arithmetic_triple"
+  ]
+ },
+ "best-time-to-buy-and-sell-stock": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_max_profit_normal",
+   "test_max_profit_no_profit",
+   "test_max_profit_single_price",
+   "test_max_profit_empty"
+  ]
+ },
+ "best-time-to-buy-and-sell-stock-ii": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_max_profit_multiple_transactions",
+   "test_max_profit_monotonic_decreasing",
+   "test_max_profit_single_day",
+   "test_max_profit_empty"
+  ]
+ },
+ "best-time-to-buy-and-sell-stock-iv": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_max_profit_iv_one_trade_fits",
+   "test_max_profit_iv_two_trades",
+   "test_max_profit_iv_no_trades_allowed"
+  ]
+ },
+ "best-time-to-buy-and-sell-stock-sliding_window": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_max_profit_empty",
+   "test_max_profit_single_price",
+   "test_max_profit_normal",
+   "test_max_profit_no_profit"
+  ]
+ },
+ "best-time-to-buy-and-sell-stock-with-cooldown": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_max_profit_with_cooldown_normal",
+   "test_max_profit_with_cooldown_empty",
+   "test_max_profit_with_cooldown_no_profit"
+  ]
+ },
+ "best-time-to-buy-and-sell-stock-with-transaction-fee": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_max_profit_with_fee_normal",
+   "test_max_profit_with_fee_empty"
+  ]
+ },
+ "binary-search": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_search_found_middle",
+   "test_search_found_first",
+   "test_search_not_found",
+   "test_search_empty",
+   "test_search_single_found",
+   "test_search_single_missing"
+  ]
+ },
+ "binary-search-tree-iterator": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_bst_iterator_walks_in_order",
+   "test_bst_iterator_exhausts"
+  ]
+ },
+ "binary-subarrays-with-sum": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_num_subarrays_with_sum_normal",
+   "test_num_subarrays_with_sum_all_zeros"
+  ]
+ },
+ "binary-tree-cameras": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_min_camera_cover_one_camera",
+   "test_min_camera_cover_two_cameras"
+  ]
+ },
+ "binary-tree-inorder-traversal": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_inorder_traversal_sample_tree",
+   "test_inorder_traversal_empty",
+   "test_inorder_traversal_single_node"
+  ]
+ },
+ "binary-tree-level-order-traversal": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_level_order_empty_tree",
+   "test_level_order_single_node",
+   "test_level_order_sample_tree",
+   "test_level_order_left_skewed_tree"
+  ]
+ },
+ "binary-tree-maximum-path-sum": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_max_path_sum_all_positive",
+   "test_max_path_sum_skips_negative_root",
+   "test_max_path_sum_single_negative_node"
+  ]
+ },
+ "binary-tree-paths": {
+  "old_test_file": "07_trees/tests/test_path_problems.py",
+  "tests": [
+   "test_binary_tree_paths_empty_tree",
+   "test_binary_tree_paths_single_node",
+   "test_binary_tree_paths_sample_tree",
+   "test_binary_tree_paths_left_skewed_tree",
+   "test_binary_tree_paths_multiple_leaves"
+  ]
+ },
+ "binary-tree-postorder-traversal": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_postorder_traversal_sample_tree",
+   "test_postorder_traversal_empty"
+  ]
+ },
+ "binary-tree-preorder-traversal": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_preorder_traversal_sample_tree",
+   "test_preorder_traversal_empty"
+  ]
+ },
+ "binary-tree-pruning": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_prune_tree_drops_zero_only_subtrees",
+   "test_prune_tree_removes_everything"
+  ]
+ },
+ "binary-tree-right-side-view": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_right_side_view_empty_tree",
+   "test_right_side_view_sample_tree",
+   "test_right_side_view_left_skewed_tree"
+  ]
+ },
+ "binary-tree-zigzag-level-order-traversal": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_zigzag_level_order_empty_tree",
+   "test_zigzag_level_order_single_node",
+   "test_zigzag_level_order_sample_tree",
+   "test_zigzag_level_order_left_skewed_tree"
+  ]
+ },
+ "bitwise-and-of-numbers-range": {
+  "old_test_file": "15_bit_manipulation/tests/test_masks_problems.py",
+  "tests": [
+   "test_range_bitwise_and_same_value",
+   "test_range_bitwise_and_normal",
+   "test_range_bitwise_and_includes_zero",
+   "test_range_bitwise_and_wide_range"
+  ]
+ },
+ "boats-to-save-people": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_num_rescue_boats_single_person",
+   "test_num_rescue_boats_pairs_fit",
+   "test_num_rescue_boats_all_pair"
+  ]
+ },
+ "boats-to-save-people-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_num_rescue_boats_normal",
+   "test_num_rescue_boats_all_pair",
+   "test_num_rescue_boats_single_person",
+   "test_num_rescue_boats_empty"
+  ]
+ },
+ "brick-wall": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_least_bricks_normal",
+   "test_least_bricks_no_shared_edges",
+   "test_least_bricks_two_rows",
+   "test_least_bricks_every_row_aligned",
+   "test_least_bricks_single_row",
+   "test_least_bricks_mirrored_rows"
+  ]
+ },
+ "bricks-falling-when-hit": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_hit_bricks_one_hit",
+   "test_hit_bricks_nothing_falls"
+  ]
+ },
+ "burst-balloons": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_max_coins_normal",
+   "test_max_coins_single_balloon",
+   "test_max_coins_empty"
+  ]
+ },
+ "bus-routes": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_num_buses_to_destination_normal_case",
+   "test_num_buses_to_destination_same_start_and_target"
+  ]
+ },
+ "camelcase-matching": {
+  "old_test_file": "14_tries/tests/test_word_dictionary_problems.py",
+  "tests": [
+   "test_camel_match_two_letter_pattern",
+   "test_camel_match_longer_pattern"
+  ]
+ },
+ "can-place-flowers": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_can_place_flowers_one_fits",
+   "test_can_place_flowers_two_do_not_fit"
+  ]
+ },
+ "candy": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_candy_normal",
+   "test_candy_flat_ratings",
+   "test_candy_increasing",
+   "test_candy_single_child",
+   "test_candy_empty"
+  ]
+ },
+ "capacity-to-ship-packages-within-d-days": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_ship_within_days_basic",
+   "test_ship_within_days_one_day",
+   "test_ship_within_days_one_per_day",
+   "test_ship_within_days_single_package"
+  ]
+ },
+ "car-fleet": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_car_fleet_normal",
+   "test_car_fleet_single_car",
+   "test_car_fleet_all_merge"
+  ]
+ },
+ "car-pooling": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_car_pooling_empty_trips",
+   "test_car_pooling_fits_capacity",
+   "test_car_pooling_exceeds_capacity",
+   "test_car_pooling_dropoff_frees_capacity"
+  ]
+ },
+ "cheapest-flights-within-k-stops": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_find_cheapest_price_normal_case",
+   "test_find_cheapest_price_no_valid_route"
+  ]
+ },
+ "cheapest-flights-within-k-stops-advanced": {
+  "old_test_file": "17_advanced/tests/test_shortest_paths_problems.py",
+  "tests": [
+   "test_find_cheapest_price_within_stops",
+   "test_find_cheapest_price_no_route",
+   "test_find_cheapest_price_direct_is_cheapest"
+  ]
+ },
+ "checking-existence-of-edge-length-limited-paths": {
+  "old_test_file": "17_advanced/tests/test_mst_problems.py",
+  "tests": [
+   "test_distance_limited_paths_exist_normal",
+   "test_distance_limited_paths_exist_single_edge",
+   "test_distance_limited_paths_exist_limit_too_tight"
+  ]
+ },
+ "cherry-pickup": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_cherry_pickup_normal",
+   "test_cherry_pickup_blocked",
+   "test_cherry_pickup_open_grid"
+  ]
+ },
+ "climbing-stairs": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_climbing_stairs_base_cases",
+   "test_climbing_stairs_normal"
+  ]
+ },
+ "clone-graph": {
+  "old_test_file": "10_graphs/tests/test_graph_basics_problems.py",
+  "tests": [
+   "test_clone_graph_empty",
+   "test_clone_graph_single_node_no_neighbors",
+   "test_clone_graph_two_connected_nodes"
+  ]
+ },
+ "closest-pair-of-points": {
+  "old_test_file": "17_advanced/tests/test_divide_and_conquer_problems.py",
+  "tests": [
+   "test_closest_pair_two_points",
+   "test_closest_pair_normal",
+   "test_closest_pair_duplicate_points"
+  ]
+ },
+ "coin-change": {
+  "old_test_file": "11_dp/tests/test_knapsack_problems.py",
+  "tests": [
+   "test_coin_change_normal",
+   "test_coin_change_impossible",
+   "test_coin_change_zero_amount",
+   "test_coin_change_empty_coins"
+  ]
+ },
+ "coin-change-ii": {
+  "old_test_file": "11_dp/tests/test_knapsack_problems.py",
+  "tests": [
+   "test_change_normal",
+   "test_change_no_combination",
+   "test_change_zero_amount",
+   "test_change_empty_coins"
+  ]
+ },
+ "combination-sum": {
+  "old_test_file": "09_backtracking/tests/test_subsets_combinations_problems.py",
+  "tests": [
+   "test_combination_sum_normal",
+   "test_combination_sum_no_solution"
+  ]
+ },
+ "combination-sum-ii": {
+  "old_test_file": "09_backtracking/tests/test_subsets_combinations_problems.py",
+  "tests": [
+   "test_combination_sum2_normal",
+   "test_combination_sum2_no_solution"
+  ]
+ },
+ "combination-sum-iii": {
+  "old_test_file": "09_backtracking/tests/test_subsets_combinations_problems.py",
+  "tests": [
+   "test_combination_sum3_normal",
+   "test_combination_sum3_no_solution"
+  ]
+ },
+ "combination-sum-iv": {
+  "old_test_file": "11_dp/tests/test_knapsack_problems.py",
+  "tests": [
+   "test_combination_sum4_counts_orderings",
+   "test_combination_sum4_unreachable"
+  ]
+ },
+ "combinations": {
+  "old_test_file": "09_backtracking/tests/test_subsets_combinations_problems.py",
+  "tests": [
+   "test_combine_normal",
+   "test_combine_k_equals_n"
+  ]
+ },
+ "complement-of-base-10-integer": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_bitwise_complement_normal",
+   "test_bitwise_complement_all_ones",
+   "test_bitwise_complement_zero",
+   "test_bitwise_complement_even"
+  ]
+ },
+ "concatenated-words": {
+  "old_test_file": "14_tries/tests/test_trie_dfs_problems.py",
+  "tests": [
+   "test_find_all_concatenated_words_normal",
+   "test_find_all_concatenated_words_no_matches",
+   "test_find_all_concatenated_words_empty_input"
+  ]
+ },
+ "connecting-cities-with-minimum-cost": {
+  "old_test_file": "17_advanced/tests/test_mst_problems.py",
+  "tests": [
+   "test_min_cost_connecting_cities_normal",
+   "test_min_cost_connecting_cities_disconnected",
+   "test_min_cost_connecting_cities_single_city"
+  ]
+ },
+ "constrained-subsequence-sum": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_constrained_subset_sum_normal",
+   "test_constrained_subset_sum_all_negative",
+   "test_constrained_subset_sum_skips_negatives"
+  ]
+ },
+ "construct-binary-search-tree-from-preorder-traversal": {
+  "old_test_file": "07_trees/tests/test_construction_problems.py",
+  "tests": [
+   "test_bst_from_preorder_keeps_preorder",
+   "test_bst_from_preorder_is_sorted_in_order"
+  ]
+ },
+ "construct-binary-tree-from-inorder-and-postorder-traversal": {
+  "old_test_file": "07_trees/tests/test_construction_problems.py",
+  "tests": [
+   "test_construct_from_inorder_postorder_shape",
+   "test_construct_from_inorder_postorder_empty"
+  ]
+ },
+ "construct-binary-tree-from-preorder-and-inorder-traversal": {
+  "old_test_file": "07_trees/tests/test_construction_problems.py",
+  "tests": [
+   "test_construct_from_preorder_inorder_shape",
+   "test_construct_from_preorder_inorder_empty"
+  ]
+ },
+ "construct-binary-tree-from-preorder-and-postorder-traversal": {
+  "old_test_file": "07_trees/tests/test_construction_problems.py",
+  "tests": [
+   "test_construct_from_preorder_postorder_shape",
+   "test_construct_from_preorder_postorder_single"
+  ]
+ },
+ "construct-string-from-binary-tree": {
+  "old_test_file": "07_trees/tests/test_construction_problems.py",
+  "tests": [
+   "test_tree_to_string_omits_empty_right",
+   "test_tree_to_string_keeps_placeholder_for_empty_left",
+   "test_tree_to_string_empty"
+  ]
+ },
+ "container-with-most-water": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_max_area_normal",
+   "test_max_area_two_elements",
+   "test_max_area_increasing_heights"
+  ]
+ },
+ "contains-duplicate": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_contains_duplicate_true",
+   "test_contains_duplicate_false",
+   "test_contains_duplicate_empty",
+   "test_contains_duplicate_single_element"
+  ]
+ },
+ "contains-duplicate-ii": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_contains_nearby_duplicate_within_k",
+   "test_contains_nearby_duplicate_outside_k",
+   "test_contains_nearby_duplicate_adjacent"
+  ]
+ },
+ "contiguous-array": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_find_max_length_pair",
+   "test_find_max_length_odd_length",
+   "test_find_max_length_no_ones",
+   "test_find_max_length_longer"
+  ]
+ },
+ "continuous-subarray-sum": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_check_subarray_sum_true",
+   "test_check_subarray_sum_false",
+   "test_check_subarray_sum_zero_sum_pair"
+  ]
+ },
+ "continuous-subarrays": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_continuous_subarrays_normal",
+   "test_continuous_subarrays_all_within_range"
+  ]
+ },
+ "convert-binary-number-in-a-linked-list-to-integer": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_get_decimal_value_normal",
+   "test_get_decimal_value_zero",
+   "test_get_decimal_value_all_ones"
+  ]
+ },
+ "convert-bst-to-greater-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_convert_bst_accumulates_greater_values",
+   "test_convert_bst_single_node"
+  ]
+ },
+ "convert-sorted-array-to-binary-search-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_convert_sorted_array_to_bst_is_a_bst",
+   "test_convert_sorted_array_to_bst_empty"
+  ]
+ },
+ "copy-list-with-random-pointer": {
+  "old_test_file": "06_linked_lists/tests/test_advanced_problems.py",
+  "tests": [
+   "test_copy_random_list_is_deep_copy",
+   "test_copy_random_list_empty"
+  ]
+ },
+ "corporate-flight-bookings": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_corp_flight_bookings_normal",
+   "test_corp_flight_bookings_single_flight"
+  ]
+ },
+ "count-complete-tree-nodes": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_count_nodes_empty_tree",
+   "test_count_nodes_single_node",
+   "test_count_nodes_full_tree",
+   "test_count_nodes_last_level_partial"
+  ]
+ },
+ "count-good-nodes-in-binary-tree": {
+  "old_test_file": "07_trees/tests/test_path_problems.py",
+  "tests": [
+   "test_good_nodes_normal",
+   "test_good_nodes_left_child_equal",
+   "test_good_nodes_single_node"
+  ]
+ },
+ "count-number-of-nice-subarrays": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_number_of_subarrays_normal",
+   "test_number_of_subarrays_no_odds_needed_but_none_present",
+   "test_number_of_subarrays_normal_two",
+   "test_number_of_subarrays_single_odd"
+  ]
+ },
+ "count-of-range-sum": {
+  "old_test_file": "17_advanced/tests/test_range_structures_problems.py",
+  "tests": [
+   "test_count_range_sum_normal",
+   "test_count_range_sum_single_element",
+   "test_count_range_sum_no_valid_ranges"
+  ]
+ },
+ "count-of-range-sum-mixed_interview_practice": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_count_range_sum_normal",
+   "test_count_range_sum_single_zero"
+  ]
+ },
+ "count-of-smaller-numbers-after-self": {
+  "old_test_file": "17_advanced/tests/test_range_structures_problems.py",
+  "tests": [
+   "test_count_smaller_normal",
+   "test_count_smaller_sorted_ascending",
+   "test_count_smaller_empty"
+  ]
+ },
+ "count-primes": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_count_primes_below_ten",
+   "test_count_primes_zero",
+   "test_count_primes_two"
+  ]
+ },
+ "count-sorted-vowel-strings": {
+  "old_test_file": "09_backtracking/tests/test_subsets_combinations_problems.py",
+  "tests": [
+   "test_count_vowel_strings_length_one",
+   "test_count_vowel_strings_length_two",
+   "test_count_vowel_strings_long"
+  ]
+ },
+ "count-square-submatrices-with-all-ones": {
+  "old_test_file": "11_dp/tests/test_grid_dp_problems.py",
+  "tests": [
+   "test_count_squares_normal",
+   "test_count_squares_no_large_square"
+  ]
+ },
+ "count-sub-islands": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_count_sub_islands_normal_case",
+   "test_count_sub_islands_no_islands"
+  ]
+ },
+ "count-subarrays-with-fixed-bounds": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_count_subarrays_normal",
+   "test_count_subarrays_all_equal"
+  ]
+ },
+ "count-subtrees-with-max-distance-between-cities": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_count_subgraphs_for_each_diameter_path",
+   "test_count_subgraphs_for_each_diameter_two_nodes",
+   "test_count_subgraphs_for_each_diameter_star"
+  ]
+ },
+ "counting-bits": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_count_bits_zero",
+   "test_count_bits_normal",
+   "test_count_bits_power_of_two"
+  ]
+ },
+ "course-schedule": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_can_finish_true",
+   "test_can_finish_cycle_false",
+   "test_can_finish_no_prerequisites"
+  ]
+ },
+ "course-schedule-ii": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_find_order_normal_case",
+   "test_find_order_cycle_returns_empty",
+   "test_find_order_no_prerequisites"
+  ]
+ },
+ "course-schedule-iii": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_schedule_course_normal",
+   "test_schedule_course_single",
+   "test_schedule_course_none_fit"
+  ]
+ },
+ "course-schedule-iii-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_schedule_course_normal",
+   "test_schedule_course_single_course_fits",
+   "test_schedule_course_none_fit"
+  ]
+ },
+ "course-schedule-iv": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_check_if_prerequisite_normal_case",
+   "test_check_if_prerequisite_direct_edge",
+   "test_check_if_prerequisite_no_edges",
+   "test_check_if_prerequisite_transitive"
+  ]
+ },
+ "cousins-in-binary-tree": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_is_cousins_same_parent",
+   "test_is_cousins_true",
+   "test_is_cousins_siblings"
+  ]
+ },
+ "create-maximum-number": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_max_number_normal",
+   "test_max_number_uses_all_digits",
+   "test_max_number_interleaves"
+  ]
+ },
+ "critical-connections-in-a-network": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_critical_connections_single_bridge",
+   "test_critical_connections_lone_edge"
+  ]
+ },
+ "custom-sort-string": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_custom_sort_string_all_ordered",
+   "test_custom_sort_string_order_has_extra_letters",
+   "test_custom_sort_string_with_repeats",
+   "test_custom_sort_string_empty_input",
+   "test_custom_sort_string_no_overlap",
+   "test_custom_sort_string_groups_repeats_together"
+  ]
+ },
+ "daily-temperatures": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_daily_temperatures_normal_case",
+   "test_daily_temperatures_empty",
+   "test_daily_temperatures_single_element",
+   "test_daily_temperatures_strictly_decreasing"
+  ]
+ },
+ "data-stream-as-disjoint-intervals": {
+  "old_test_file": "13_intervals/tests/test_merge_insert_problems.py",
+  "tests": [
+   "test_summary_ranges_stream_single_value",
+   "test_summary_ranges_stream_merges_consecutive",
+   "test_summary_ranges_stream_bridges_gap"
+  ]
+ },
+ "decode-string": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_decode_string_simple_repeat",
+   "test_decode_string_nested",
+   "test_decode_string_no_brackets"
+  ]
+ },
+ "decode-ways": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_num_decodings_empty",
+   "test_num_decodings_single_digit",
+   "test_num_decodings_normal",
+   "test_num_decodings_with_zero",
+   "test_num_decodings_leading_invalid"
+  ]
+ },
+ "decode-xored-array": {
+  "old_test_file": "15_bit_manipulation/tests/test_xor_problems.py",
+  "tests": [
+   "test_decode_normal",
+   "test_decode_longer"
+  ]
+ },
+ "delete-and-earn": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_delete_and_earn_small",
+   "test_delete_and_earn_with_repeats"
+  ]
+ },
+ "delete-node-in-a-bst": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_delete_node_bst_node_with_two_children",
+   "test_delete_node_bst_missing_key"
+  ]
+ },
+ "delete-node-in-a-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_delete_node_middle",
+   "test_delete_node_deeper_in_the_list",
+   "test_delete_node_second_to_last"
+  ]
+ },
+ "delete-the-middle-node-of-a-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_fast_slow_problems.py",
+  "tests": [
+   "test_delete_middle_odd_length",
+   "test_delete_middle_even_length",
+   "test_delete_middle_single_node",
+   "test_delete_middle_two_nodes"
+  ]
+ },
+ "describe-the-painting": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_split_painting_overlapping_segments",
+   "test_split_painting_partial_overlap"
+  ]
+ },
+ "design-add-and-search-words-data-structure": {
+  "old_test_file": "14_tries/tests/test_word_dictionary_problems.py",
+  "tests": [
+   "test_word_dictionary_exact_and_wildcard_search",
+   "test_word_dictionary_search_empty",
+   "test_word_dictionary_all_wildcards"
+  ]
+ },
+ "design-browser-history": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_browser_history_back_and_forward",
+   "test_browser_history_visit_truncates_forward",
+   "test_browser_history_clamps_at_the_ends"
+  ]
+ },
+ "design-circular-deque": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_my_circular_deque_insert_and_get_front_rear",
+   "test_my_circular_deque_single_capacity",
+   "test_my_circular_deque_empty_deletes_fail",
+   "test_my_circular_deque_full_after_wraparound"
+  ]
+ },
+ "design-circular-queue": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_my_circular_queue_fills_and_wraps",
+   "test_my_circular_queue_empty_reads"
+  ]
+ },
+ "design-front-middle-back-queue": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_front_middle_back_queue_operations",
+   "test_front_middle_back_queue_empty_pops",
+   "test_front_middle_back_queue_single_element"
+  ]
+ },
+ "design-hashmap": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_my_hash_map_put_and_get",
+   "test_my_hash_map_overwrites_existing_key",
+   "test_my_hash_map_remove"
+  ]
+ },
+ "design-hit-counter": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_hit_counter_counts_within_the_window",
+   "test_hit_counter_evicts_old_hits",
+   "test_hit_counter_window_fully_expired"
+  ]
+ },
+ "design-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_my_linked_list_add_and_get",
+   "test_my_linked_list_delete_shifts_indices",
+   "test_my_linked_list_get_out_of_range"
+  ]
+ },
+ "design-most-recently-used-queue": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_mru_queue_moves_fetched_value_to_the_back",
+   "test_mru_queue_fetch_last_is_a_no_op"
+  ]
+ },
+ "design-search-autocomplete-system": {
+  "old_test_file": "14_tries/tests/test_word_dictionary_problems.py",
+  "tests": [
+   "test_autocomplete_system_ranks_by_frequency",
+   "test_autocomplete_system_no_matches",
+   "test_autocomplete_system_records_new_sentence"
+  ]
+ },
+ "design-twitter": {
+  "old_test_file": "08_heaps/tests/test_k_way_merge_problems.py",
+  "tests": [
+   "test_twitter_feed_most_recent_first",
+   "test_twitter_feed_caps_at_ten",
+   "test_twitter_feed_empty_when_no_posts"
+  ]
+ },
+ "detect-cycles-in-2d-grid": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_contains_cycle_true",
+   "test_contains_cycle_false"
+  ]
+ },
+ "determine-if-two-events-have-conflict": {
+  "old_test_file": "13_intervals/tests/test_interval_basics_problems.py",
+  "tests": [
+   "test_have_conflict_touching_at_boundary",
+   "test_have_conflict_overlapping",
+   "test_have_conflict_disjoint"
+  ]
+ },
+ "diameter-of-binary-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_diameter_of_binary_tree_empty_tree",
+   "test_diameter_of_binary_tree_single_node",
+   "test_diameter_of_binary_tree_through_root",
+   "test_diameter_of_binary_tree_not_through_root"
+  ]
+ },
+ "different-ways-to-add-parentheses": {
+  "old_test_file": "17_advanced/tests/test_divide_and_conquer_problems.py",
+  "tests": [
+   "test_diff_ways_to_compute_single_number",
+   "test_diff_ways_to_compute_normal",
+   "test_diff_ways_to_compute_mixed_operators"
+  ]
+ },
+ "distinct-subsequences": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_num_distinct_normal",
+   "test_num_distinct_no_match",
+   "test_num_distinct_empty_target"
+  ]
+ },
+ "divide-intervals-into-minimum-number-of-groups": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_min_groups_overlapping",
+   "test_min_groups_disjoint"
+  ]
+ },
+ "divide-two-integers": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_divide_normal",
+   "test_divide_negative_result_truncates_toward_zero",
+   "test_divide_overflow_is_clamped",
+   "test_divide_by_one"
+  ]
+ },
+ "edit-distance": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_min_distance_normal",
+   "test_min_distance_same_word",
+   "test_min_distance_empty_source"
+  ]
+ },
+ "eliminate-maximum-number-of-monsters": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_eliminate_maximum_all_monsters",
+   "test_eliminate_maximum_one_monster",
+   "test_eliminate_maximum_fast_monsters"
+  ]
+ },
+ "employee-free-time": {
+  "old_test_file": "08_heaps/tests/test_k_way_merge_problems.py",
+  "tests": [
+   "test_employee_free_time_normal",
+   "test_employee_free_time_no_gaps",
+   "test_employee_free_time_single_employee"
+  ]
+ },
+ "employee-free-time-intervals": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_employee_free_time_empty",
+   "test_employee_free_time_normal",
+   "test_employee_free_time_no_gaps"
+  ]
+ },
+ "employee-importance": {
+  "old_test_file": "10_graphs/tests/test_graph_basics_problems.py",
+  "tests": [
+   "test_get_importance_with_subordinates",
+   "test_get_importance_leaf_employee"
+  ]
+ },
+ "encode-and-decode-strings": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_codec_roundtrip_normal",
+   "test_codec_roundtrip_empty",
+   "test_codec_roundtrip_empty_strings"
+  ]
+ },
+ "encode-and-decode-tinyurl": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_tiny_url_codec_round_trips",
+   "test_tiny_url_codec_is_stable_for_the_same_url",
+   "test_tiny_url_codec_gives_distinct_codes"
+  ]
+ },
+ "erect-the-fence": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_outer_trees_normal",
+   "test_outer_trees_collinear"
+  ]
+ },
+ "evaluate-division": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_calc_equation_normal_case",
+   "test_calc_equation_no_queries_answerable"
+  ]
+ },
+ "evaluate-division-advanced": {
+  "old_test_file": "17_advanced/tests/test_union_find_problems.py",
+  "tests": [
+   "test_calc_equation_normal",
+   "test_calc_equation_single_pair",
+   "test_calc_equation_unknown_variable"
+  ]
+ },
+ "evaluate-reverse-polish-notation": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_eval_rpn_addition_subtraction",
+   "test_eval_rpn_division_truncates_toward_zero",
+   "test_eval_rpn_single_token"
+  ]
+ },
+ "excel-sheet-column-number": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_title_to_number_single_letter",
+   "test_title_to_number_double_letter",
+   "test_title_to_number_zz"
+  ]
+ },
+ "excel-sheet-column-title": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_convert_to_title_single_letter",
+   "test_convert_to_title_double_letter",
+   "test_convert_to_title_z"
+  ]
+ },
+ "expression-add-operators": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_add_operators_target_six",
+   "test_add_operators_multiplication_precedence",
+   "test_add_operators_no_solution"
+  ]
+ },
+ "factorial-trailing-zeroes": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_trailing_zeroes_none",
+   "test_trailing_zeroes_one",
+   "test_trailing_zeroes_many"
+  ]
+ },
+ "fair-distribution-of-cookies": {
+  "old_test_file": "15_bit_manipulation/tests/test_subset_masks_problems.py",
+  "tests": [
+   "test_distribute_cookies_two_children",
+   "test_distribute_cookies_three_children"
+  ]
+ },
+ "falling-squares": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_falling_squares_stacking",
+   "test_falling_squares_no_overlap"
+  ]
+ },
+ "find-a-peak-element-ii": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_find_peak_grid_two_by_two",
+   "test_find_peak_grid_three_by_three",
+   "test_find_peak_grid_single_cell"
+  ]
+ },
+ "find-all-anagrams-in-a-string": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_find_anagrams_normal",
+   "test_find_anagrams_no_match",
+   "test_find_anagrams_p_longer_than_s",
+   "test_find_anagrams_full_match"
+  ]
+ },
+ "find-all-duplicates-in-an-array": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_find_duplicates_normal",
+   "test_find_duplicates_single_element",
+   "test_find_duplicates_empty"
+  ]
+ },
+ "find-bottom-left-tree-value": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_find_bottom_left_value_simple",
+   "test_find_bottom_left_value_deeper"
+  ]
+ },
+ "find-center-of-star-graph": {
+  "old_test_file": "10_graphs/tests/test_graph_basics_problems.py",
+  "tests": [
+   "test_find_center_of_star_graph_triangle_edges",
+   "test_find_center_of_star_graph_minimal"
+  ]
+ },
+ "find-closest-node-to-given-two-nodes": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_closest_meeting_node_normal_case",
+   "test_closest_meeting_node_no_meeting_node"
+  ]
+ },
+ "find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree": {
+  "old_test_file": "17_advanced/tests/test_mst_problems.py",
+  "tests": [
+   "test_find_critical_and_pseudo_critical_edges_normal",
+   "test_find_critical_and_pseudo_critical_edges_all_equal"
+  ]
+ },
+ "find-eventual-safe-states": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_eventual_safe_nodes_normal_case",
+   "test_eventual_safe_nodes_no_unsafe_nodes"
+  ]
+ },
+ "find-first-and-last-position-of-element-in-sorted-array": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_search_range_found",
+   "test_search_range_not_found",
+   "test_search_range_empty",
+   "test_search_range_single_found",
+   "test_search_range_single_missing",
+   "test_search_range_all_same"
+  ]
+ },
+ "find-greatest-common-divisor-of-array": {
+  "old_test_file": "16_math_geometry/tests/test_gcd_lcm_problems.py",
+  "tests": [
+   "test_find_gcd_normal",
+   "test_find_gcd_coprime",
+   "test_find_gcd_all_equal"
+  ]
+ },
+ "find-if-path-exists-in-graph": {
+  "old_test_file": "10_graphs/tests/test_graph_basics_problems.py",
+  "tests": [
+   "test_valid_path_direct_edge",
+   "test_valid_path_no_path_disconnected",
+   "test_valid_path_single_node_source_equals_destination"
+  ]
+ },
+ "find-in-mountain-array": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_find_in_mountain_array_on_ascent",
+   "test_find_in_mountain_array_missing"
+  ]
+ },
+ "find-k-closest-elements": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_find_closest_elements_target_inside",
+   "test_find_closest_elements_target_below_range",
+   "test_find_closest_elements_with_duplicates"
+  ]
+ },
+ "find-k-closest-elements-binary_search": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_find_closest_elements_middle_window",
+   "test_find_closest_elements_left_edge",
+   "test_find_closest_elements_right_edge",
+   "test_find_closest_elements_k_equals_length",
+   "test_find_closest_elements_single_element"
+  ]
+ },
+ "find-k-pairs-with-smallest-sums": {
+  "old_test_file": "08_heaps/tests/test_k_way_merge_problems.py",
+  "tests": [
+   "test_k_smallest_pairs_normal",
+   "test_k_smallest_pairs_with_duplicates",
+   "test_k_smallest_pairs_empty_input"
+  ]
+ },
+ "find-k-th-smallest-pair-distance": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_smallest_distance_pair_zero_distance",
+   "test_smallest_distance_pair_all_equal",
+   "test_smallest_distance_pair_largest_gap"
+  ]
+ },
+ "find-median-from-data-stream": {
+  "old_test_file": "08_heaps/tests/test_two_heaps_problems.py",
+  "tests": [
+   "test_median_finder_odd_count",
+   "test_median_finder_even_count",
+   "test_median_finder_single_value"
+  ]
+ },
+ "find-minimum-in-rotated-sorted-array": {
+  "old_test_file": "05_binary_search/tests/test_rotated_array_problems.py",
+  "tests": [
+   "test_find_min_rotated_middle_pivot",
+   "test_find_min_rotated_no_rotation",
+   "test_find_min_rotated_single",
+   "test_find_min_rotated_two_elements",
+   "test_find_min_rotated_small_rotation"
+  ]
+ },
+ "find-minimum-in-rotated-sorted-array-ii": {
+  "old_test_file": "05_binary_search/tests/test_rotated_array_problems.py",
+  "tests": [
+   "test_find_min_rotated_ii_with_duplicates",
+   "test_find_min_rotated_ii_no_rotation",
+   "test_find_min_rotated_ii_single",
+   "test_find_min_rotated_ii_all_duplicates"
+  ]
+ },
+ "find-peak-element": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_find_peak_element_middle",
+   "test_find_peak_element_descending",
+   "test_find_peak_element_ascending",
+   "test_find_peak_element_single",
+   "test_find_peak_element_two_elements"
+  ]
+ },
+ "find-pivot-index": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_pivot_index_normal",
+   "test_pivot_index_no_pivot",
+   "test_pivot_index_at_start"
+  ]
+ },
+ "find-servers-that-handled-most-number-of-requests": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_busiest_servers_single_busiest",
+   "test_busiest_servers_first_server",
+   "test_busiest_servers_all_tied"
+  ]
+ },
+ "find-smallest-letter-greater-than-target": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_next_greatest_letter_before_first",
+   "test_next_greatest_letter_strictly_greater",
+   "test_next_greatest_letter_wraps_around"
+  ]
+ },
+ "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_find_the_city_normal_case",
+   "test_find_the_city_all_reachable_picks_highest_index"
+  ]
+ },
+ "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance-advanced": {
+  "old_test_file": "17_advanced/tests/test_shortest_paths_problems.py",
+  "tests": [
+   "test_find_the_city_prefers_farthest_threshold",
+   "test_find_the_city_tiebreak_largest_index",
+   "test_find_the_city_minimal_graph"
+  ]
+ },
+ "find-the-difference": {
+  "old_test_file": "15_bit_manipulation/tests/test_xor_problems.py",
+  "tests": [
+   "test_find_the_difference_normal",
+   "test_find_the_difference_from_empty"
+  ]
+ },
+ "find-the-duplicate-number": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_find_duplicate_normal",
+   "test_find_duplicate_repeat_is_first_value",
+   "test_find_duplicate_two_elements",
+   "test_find_duplicate_all_same"
+  ]
+ },
+ "find-the-duplicate-number-binary_search": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_find_duplicate_normal",
+   "test_find_duplicate_repeat_is_first_value"
+  ]
+ },
+ "find-the-duplicate-number-two_pointers": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_find_duplicate_normal",
+   "test_find_duplicate_repeat_is_first_value"
+  ]
+ },
+ "find-the-index-of-the-first-occurrence-in-a-string": {
+  "old_test_file": "17_advanced/tests/test_string_algorithms_problems.py",
+  "tests": [
+   "test_str_str_found",
+   "test_str_str_not_found",
+   "test_str_str_empty_needle",
+   "test_build_failure_table_with_repeats",
+   "test_build_failure_table_no_repeats"
+  ]
+ },
+ "find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_kth_smallest_matrix_sum_normal",
+   "test_kth_smallest_matrix_sum_last"
+  ]
+ },
+ "find-the-smallest-divisor-given-a-threshold": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_smallest_divisor_normal",
+   "test_smallest_divisor_tight_threshold"
+  ]
+ },
+ "first-bad-version": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_first_bad_version_middle",
+   "test_first_bad_version_first",
+   "test_first_bad_version_last",
+   "test_first_bad_version_single"
+  ]
+ },
+ "first-missing-positive": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_first_missing_positive_normal",
+   "test_first_missing_positive_all_present",
+   "test_first_missing_positive_disjoint",
+   "test_first_missing_positive_empty",
+   "test_first_missing_positive_single_element"
+  ]
+ },
+ "flatten-a-multilevel-doubly-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_advanced_problems.py",
+  "tests": [
+   "test_flatten_multilevel",
+   "test_flatten_empty"
+  ]
+ },
+ "flatten-binary-tree-to-linked-list": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_flatten_produces_right_leaning_list",
+   "test_flatten_empty"
+  ]
+ },
+ "flood-fill": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_flood_fill_normal_case",
+   "test_flood_fill_already_target_color",
+   "test_flood_fill_single_cell"
+  ]
+ },
+ "fraction-to-recurring-decimal": {
+  "old_test_file": "16_math_geometry/tests/test_gcd_lcm_problems.py",
+  "tests": [
+   "test_fraction_to_decimal_terminating",
+   "test_fraction_to_decimal_repeating",
+   "test_fraction_to_decimal_integer_result",
+   "test_fraction_to_decimal_negative",
+   "test_fraction_to_decimal_zero_numerator",
+   "test_fraction_to_decimal_long_repeat"
+  ]
+ },
+ "frequency-of-the-most-frequent-element": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_max_frequency_all_equal",
+   "test_max_frequency_limited",
+   "test_max_frequency_no_moves_help"
+  ]
+ },
+ "fruit-into-baskets": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_total_fruit_single_tree",
+   "test_total_fruit_all_same_two_types",
+   "test_total_fruit_normal",
+   "test_total_fruit_normal_two"
+  ]
+ },
+ "furthest-building-you-can-reach": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_furthest_building_runs_out_of_bricks",
+   "test_furthest_building_uses_ladders_on_big_gaps"
+  ]
+ },
+ "game-of-life": {
+  "old_test_file": "16_math_geometry/tests/test_matrix_problems.py",
+  "tests": [
+   "test_game_of_life_still_life",
+   "test_game_of_life_blinker",
+   "test_game_of_life_all_dead"
+  ]
+ },
+ "gas-station": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_can_complete_circuit_solvable",
+   "test_can_complete_circuit_impossible",
+   "test_can_complete_circuit_single_station",
+   "test_can_complete_circuit_empty"
+  ]
+ },
+ "generate-parentheses": {
+  "old_test_file": "09_backtracking/tests/test_backtracking_basics_problems.py",
+  "tests": [
+   "test_generate_parentheses_single_pair",
+   "test_generate_parentheses_two_pairs",
+   "test_generate_parentheses_three_pairs"
+  ]
+ },
+ "get-equal-substrings-within-budget": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_equal_substring_full_budget",
+   "test_equal_substring_tight_budget",
+   "test_equal_substring_zero_budget"
+  ]
+ },
+ "graph-valid-tree": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_valid_tree_true",
+   "test_valid_tree_cycle_false",
+   "test_valid_tree_disconnected_false"
+  ]
+ },
+ "gray-code": {
+  "old_test_file": "15_bit_manipulation/tests/test_masks_problems.py",
+  "tests": [
+   "test_gray_code_two_bits",
+   "test_gray_code_one_bit"
+  ]
+ },
+ "greatest-common-divisor-of-strings": {
+  "old_test_file": "16_math_geometry/tests/test_gcd_lcm_problems.py",
+  "tests": [
+   "test_gcd_of_strings_clean_divisor",
+   "test_gcd_of_strings_smaller_divisor",
+   "test_gcd_of_strings_no_common"
+  ]
+ },
+ "group-anagrams": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_group_anagrams_normal",
+   "test_group_anagrams_empty",
+   "test_group_anagrams_single_word",
+   "test_group_anagrams_empty_string",
+   "test_group_anagrams_identical_words_group_together",
+   "test_group_anagrams_same_letters_different_lengths_do_not_group"
+  ]
+ },
+ "grumpy-bookstore-owner": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_max_satisfied_uses_window",
+   "test_max_satisfied_single_minute"
+  ]
+ },
+ "guess-number-higher-or-lower": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_guess_number_finds_target",
+   "test_guess_number_single_candidate",
+   "test_guess_number_at_upper_bound"
+  ]
+ },
+ "h-index-ii": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_h_index_normal",
+   "test_h_index_few_papers",
+   "test_h_index_no_citations",
+   "test_h_index_single_well_cited_paper"
+  ]
+ },
+ "hamming-distance": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_hamming_distance_normal",
+   "test_hamming_distance_one_bit"
+  ]
+ },
+ "hand-of-straights": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_is_n_straight_hand_possible",
+   "test_is_n_straight_hand_wrong_group_size"
+  ]
+ },
+ "happy-number": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_is_happy_true",
+   "test_is_happy_false",
+   "test_is_happy_one"
+  ]
+ },
+ "house-robber": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_rob_empty",
+   "test_rob_single",
+   "test_rob_normal",
+   "test_rob_alternating_better"
+  ]
+ },
+ "house-robber-ii": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_rob_ii_single",
+   "test_rob_ii_two_houses",
+   "test_rob_ii_normal",
+   "test_rob_ii_larger"
+  ]
+ },
+ "house-robber-iii": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_rob_skips_children",
+   "test_rob_takes_children_instead"
+  ]
+ },
+ "implement-magic-dictionary": {
+  "old_test_file": "14_tries/tests/test_word_dictionary_problems.py",
+  "tests": [
+   "test_magic_dictionary_one_character_swap",
+   "test_magic_dictionary_empty_dictionary"
+  ]
+ },
+ "implement-queue-using-stacks": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_my_queue_fifo_order",
+   "test_my_queue_single_element",
+   "test_my_queue_empty_after_construction",
+   "test_my_queue_multiple_push_pop_cycles"
+  ]
+ },
+ "implement-rand10-using-rand7": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_rand10_stays_in_range",
+   "test_rand10_covers_the_range"
+  ]
+ },
+ "implement-stack-using-queues": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_my_stack_lifo_order",
+   "test_my_stack_single_element",
+   "test_my_stack_empty_after_construction",
+   "test_my_stack_multiple_push_pop_cycles"
+  ]
+ },
+ "implement-trie-ii-prefix-tree": {
+  "old_test_file": "14_tries/tests/test_trie_basics_problems.py",
+  "tests": [
+   "test_trie_ii_counts_duplicates",
+   "test_trie_ii_erase_decrements",
+   "test_trie_ii_erase_to_empty"
+  ]
+ },
+ "implement-trie-prefix-tree": {
+  "old_test_file": "14_tries/tests/test_trie_basics_problems.py",
+  "tests": [
+   "test_trie_insert_and_search",
+   "test_trie_search_empty_trie",
+   "test_trie_multiple_words_share_prefix"
+  ]
+ },
+ "increasing-triplet-subsequence": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_increasing_triplet_sorted",
+   "test_increasing_triplet_descending",
+   "test_increasing_triplet_out_of_order",
+   "test_increasing_triplet_all_equal"
+  ]
+ },
+ "inorder-successor-in-bst": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_inorder_successor_exists",
+   "test_inorder_successor_of_largest_is_none"
+  ]
+ },
+ "insert-delete-getrandom-o1": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_randomized_set_insert_and_remove",
+   "test_randomized_set_get_random_returns_inserted_value",
+   "test_randomized_set_remove_missing_value"
+  ]
+ },
+ "insert-interval": {
+  "old_test_file": "13_intervals/tests/test_merge_insert_problems.py",
+  "tests": [
+   "test_insert_into_empty",
+   "test_insert_no_overlap",
+   "test_insert_merges_overlap"
+  ]
+ },
+ "insert-into-a-binary-search-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_insert_into_bst_normal",
+   "test_insert_into_bst_empty"
+  ]
+ },
+ "integer-to-roman": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_int_to_roman_large",
+   "test_int_to_roman_normal",
+   "test_int_to_roman_subtractive"
+  ]
+ },
+ "interleaving-string": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_is_interleave_true",
+   "test_is_interleave_false",
+   "test_is_interleave_empty_all"
+  ]
+ },
+ "intersection-of-two-arrays-ii": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_intersect_with_repeats",
+   "test_intersect_keeps_multiplicity",
+   "test_intersect_no_overlap",
+   "test_intersect_first_array_limits_the_count",
+   "test_intersect_second_array_limits_the_count",
+   "test_intersect_empty_first",
+   "test_intersect_empty_second"
+  ]
+ },
+ "intersection-of-two-linked-lists": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_get_intersection_node_overlap",
+   "test_get_intersection_node_no_overlap"
+  ]
+ },
+ "interval-list-intersections": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_interval_intersection_normal",
+   "test_interval_intersection_empty_second"
+  ]
+ },
+ "interval-list-intersections-intervals": {
+  "old_test_file": "13_intervals/tests/test_interval_basics_problems.py",
+  "tests": [
+   "test_interval_intersection_empty_first_list",
+   "test_interval_intersection_empty_second_list",
+   "test_interval_intersection_normal",
+   "test_interval_intersection_no_overlap"
+  ]
+ },
+ "invert-binary-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_invert_tree_empty_tree",
+   "test_invert_tree_single_node",
+   "test_invert_tree_complete_tree",
+   "test_invert_tree_sparse_tree"
+  ]
+ },
+ "ipo": {
+  "old_test_file": "08_heaps/tests/test_two_heaps_problems.py",
+  "tests": [
+   "test_find_maximized_capital_normal",
+   "test_find_maximized_capital_no_affordable_project",
+   "test_find_maximized_capital_single_project"
+  ]
+ },
+ "ipo-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_find_maximized_capital_two_projects",
+   "test_find_maximized_capital_three_projects"
+  ]
+ },
+ "is-graph-bipartite": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_is_bipartite_true",
+   "test_is_bipartite_false",
+   "test_is_bipartite_no_edges"
+  ]
+ },
+ "island-perimeter": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_island_perimeter_single_cell",
+   "test_island_perimeter_normal_case"
+  ]
+ },
+ "jump-game": {
+  "old_test_file": "12_greedy_algorithms/tests/test_jump_game_problems.py",
+  "tests": [
+   "test_can_jump_reachable",
+   "test_can_jump_unreachable",
+   "test_can_jump_single_index",
+   "test_can_jump_empty"
+  ]
+ },
+ "jump-game-ii": {
+  "old_test_file": "12_greedy_algorithms/tests/test_jump_game_problems.py",
+  "tests": [
+   "test_jump_normal",
+   "test_jump_single_index",
+   "test_jump_already_at_end_with_zeros",
+   "test_jump_large_first_step"
+  ]
+ },
+ "jump-game-iii": {
+  "old_test_file": "12_greedy_algorithms/tests/test_jump_game_problems.py",
+  "tests": [
+   "test_can_reach_true",
+   "test_can_reach_false",
+   "test_can_reach_start_is_zero_value",
+   "test_can_reach_single_element"
+  ]
+ },
+ "jump-game-iv": {
+  "old_test_file": "12_greedy_algorithms/tests/test_jump_game_problems.py",
+  "tests": [
+   "test_min_jumps_uses_teleports",
+   "test_min_jumps_single_element",
+   "test_min_jumps_same_value_ends"
+  ]
+ },
+ "jump-game-vi": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_max_result_normal",
+   "test_max_result_large_jumps",
+   "test_max_result_all_negative_middle"
+  ]
+ },
+ "jump-game-vii": {
+  "old_test_file": "12_greedy_algorithms/tests/test_jump_game_problems.py",
+  "tests": [
+   "test_can_reach_end_reachable",
+   "test_can_reach_end_blocked"
+  ]
+ },
+ "k-closest-points-to-origin": {
+  "old_test_file": "08_heaps/tests/test_heap_basics_problems.py",
+  "tests": [
+   "test_k_closest_points_normal",
+   "test_k_closest_points_all_points",
+   "test_k_closest_points_single"
+  ]
+ },
+ "k-closest-points-to-origin-math_geometry": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_k_closest_single_point",
+   "test_k_closest_two_points"
+  ]
+ },
+ "k-concatenation-maximum-sum": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_k_concatenation_max_sum_positive_total",
+   "test_k_concatenation_max_sum_non_positive_total",
+   "test_k_concatenation_max_sum_all_negative"
+  ]
+ },
+ "k-radius-subarray-averages": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_get_averages_normal",
+   "test_get_averages_radius_zero",
+   "test_get_averages_window_too_wide"
+  ]
+ },
+ "keys-and-rooms": {
+  "old_test_file": "10_graphs/tests/test_graph_basics_problems.py",
+  "tests": [
+   "test_can_visit_all_rooms_true",
+   "test_can_visit_all_rooms_false",
+   "test_can_visit_all_rooms_single_room"
+  ]
+ },
+ "koko-eating-bananas": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_min_eating_speed_basic",
+   "test_min_eating_speed_exact_pile_count",
+   "test_min_eating_speed_generous_hours",
+   "test_min_eating_speed_single_pile"
+  ]
+ },
+ "kth-largest-element-in-a-stream": {
+  "old_test_file": "08_heaps/tests/test_heap_basics_problems.py",
+  "tests": [
+   "test_kth_largest_stream_basic",
+   "test_kth_largest_stream_empty_initial"
+  ]
+ },
+ "kth-largest-element-in-an-array": {
+  "old_test_file": "08_heaps/tests/test_heap_basics_problems.py",
+  "tests": [
+   "test_kth_largest_element_normal",
+   "test_kth_largest_element_with_duplicates",
+   "test_kth_largest_element_single"
+  ]
+ },
+ "kth-missing-positive-number": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_find_kth_positive_normal",
+   "test_find_kth_positive_beyond_array"
+  ]
+ },
+ "kth-smallest-element-in-a-bst": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_kth_smallest_first",
+   "test_kth_smallest_middle"
+  ]
+ },
+ "kth-smallest-element-in-a-sorted-matrix": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_kth_smallest_normal",
+   "test_kth_smallest_single_cell"
+  ]
+ },
+ "kth-smallest-element-in-a-sorted-matrix-heaps": {
+  "old_test_file": "08_heaps/tests/test_k_way_merge_problems.py",
+  "tests": [
+   "test_kth_smallest_normal",
+   "test_kth_smallest_first"
+  ]
+ },
+ "kth-smallest-number-in-multiplication-table": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_find_kth_number_square_table",
+   "test_find_kth_number_last_entry"
+  ]
+ },
+ "largest-color-value-in-a-directed-graph": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_largest_path_value_normal_case",
+   "test_largest_path_value_cycle_returns_negative_one"
+  ]
+ },
+ "largest-rectangle-in-histogram": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_largest_rectangle_area_normal_case",
+   "test_largest_rectangle_area_single_bar",
+   "test_largest_rectangle_area_empty",
+   "test_largest_rectangle_area_all_same_height"
+  ]
+ },
+ "largest-triangle-area": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_largest_triangle_area_normal",
+   "test_largest_triangle_area_three_points"
+  ]
+ },
+ "last-stone-weight": {
+  "old_test_file": "08_heaps/tests/test_heap_basics_problems.py",
+  "tests": [
+   "test_last_stone_weight_normal",
+   "test_last_stone_weight_all_destroyed",
+   "test_last_stone_weight_single",
+   "test_last_stone_weight_empty"
+  ]
+ },
+ "least-number-of-unique-integers-after-k-removals": {
+  "old_test_file": "08_heaps/tests/test_top_k_problems.py",
+  "tests": [
+   "test_find_least_num_of_unique_ints_removes_one",
+   "test_find_least_num_of_unique_ints_removes_three"
+  ]
+ },
+ "left-and-right-sum-differences": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_left_right_difference_normal",
+   "test_left_right_difference_single"
+  ]
+ },
+ "lemonade-change": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_lemonade_change_success",
+   "test_lemonade_change_failure",
+   "test_lemonade_change_single_five",
+   "test_lemonade_change_empty"
+  ]
+ },
+ "letter-case-permutation": {
+  "old_test_file": "09_backtracking/tests/test_backtracking_basics_problems.py",
+  "tests": [
+   "test_letter_case_permutation_letters_and_digits",
+   "test_letter_case_permutation_single_letter",
+   "test_letter_case_permutation_no_letters"
+  ]
+ },
+ "letter-combinations-of-a-phone-number": {
+  "old_test_file": "09_backtracking/tests/test_backtracking_basics_problems.py",
+  "tests": [
+   "test_letter_combinations_empty",
+   "test_letter_combinations_single_digit",
+   "test_letter_combinations_two_digits"
+  ]
+ },
+ "letter-tile-possibilities": {
+  "old_test_file": "09_backtracking/tests/test_permutations_problems.py",
+  "tests": [
+   "test_num_tile_possibilities_with_repeat",
+   "test_num_tile_possibilities_longer",
+   "test_num_tile_possibilities_single_tile"
+  ]
+ },
+ "lfu-cache": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_lfu_cache_evicts_least_frequent",
+   "test_lfu_cache_zero_capacity",
+   "test_lfu_cache_update_existing_key"
+  ]
+ },
+ "linked-list-cycle": {
+  "old_test_file": "06_linked_lists/tests/test_fast_slow_problems.py",
+  "tests": [
+   "test_has_cycle_true",
+   "test_has_cycle_false",
+   "test_has_cycle_empty"
+  ]
+ },
+ "linked-list-cycle-ii": {
+  "old_test_file": "06_linked_lists/tests/test_fast_slow_problems.py",
+  "tests": [
+   "test_detect_cycle_returns_entry",
+   "test_detect_cycle_none_when_acyclic"
+  ]
+ },
+ "longest-common-subsequence": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_longest_common_subsequence_no_match",
+   "test_longest_common_subsequence_normal",
+   "test_longest_common_subsequence_empty"
+  ]
+ },
+ "longest-common-suffix-queries": {
+  "old_test_file": "14_tries/tests/test_trie_dfs_problems.py",
+  "tests": [
+   "test_string_indices_shortest_wins_on_tie",
+   "test_string_indices_longest_common_suffix"
+  ]
+ },
+ "longest-consecutive-sequence": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_longest_consecutive_normal",
+   "test_longest_consecutive_empty",
+   "test_longest_consecutive_with_duplicates",
+   "test_longest_consecutive_single_element",
+   "test_longest_consecutive_with_negatives",
+   "test_longest_consecutive_no_run_longer_than_one"
+  ]
+ },
+ "longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_longest_subarray_small_limit",
+   "test_longest_subarray_normal",
+   "test_longest_subarray_zero_limit",
+   "test_longest_subarray_within_limit_small_limit",
+   "test_longest_subarray_within_limit_normal",
+   "test_longest_subarray_within_limit_zero_limit",
+   "test_longest_subarray_within_limit_single_element"
+  ]
+ },
+ "longest-duplicate-substring": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_longest_dup_substring_normal",
+   "test_longest_dup_substring_none"
+  ]
+ },
+ "longest-happy-prefix": {
+  "old_test_file": "17_advanced/tests/test_string_algorithms_problems.py",
+  "tests": [
+   "test_longest_prefix_normal",
+   "test_longest_prefix_full_repeat",
+   "test_longest_prefix_none"
+  ]
+ },
+ "longest-increasing-path-in-a-matrix": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_longest_increasing_path_normal",
+   "test_longest_increasing_path_diagonal_not_allowed",
+   "test_longest_increasing_path_single_cell"
+  ]
+ },
+ "longest-increasing-subsequence": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_length_of_lis_empty",
+   "test_length_of_lis_normal",
+   "test_length_of_lis_strictly_decreasing"
+  ]
+ },
+ "longest-mountain-in-array": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_longest_mountain_normal",
+   "test_longest_mountain_flat",
+   "test_longest_mountain_minimum"
+  ]
+ },
+ "longest-nice-subarray": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_longest_nice_subarray_normal",
+   "test_longest_nice_subarray_all_overlap"
+  ]
+ },
+ "longest-palindromic-subsequence": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_longest_palindrome_subseq_normal",
+   "test_longest_palindrome_subseq_no_repeat",
+   "test_longest_palindrome_subseq_single",
+   "test_longest_palindrome_subseq_full_palindrome"
+  ]
+ },
+ "longest-palindromic-substring": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_longest_palindrome_normal",
+   "test_longest_palindrome_single_char",
+   "test_longest_palindrome_all_same"
+  ]
+ },
+ "longest-repeating-character-replacement": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_character_replacement_single",
+   "test_character_replacement_normal",
+   "test_character_replacement_normal_two",
+   "test_character_replacement_no_budget"
+  ]
+ },
+ "longest-subarray-of-1s-after-deleting-one-element": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_longest_subarray_one_zero",
+   "test_longest_subarray_multiple_zeros",
+   "test_longest_subarray_all_ones_still_deletes_one"
+  ]
+ },
+ "longest-substring-with-at-most-k-distinct-characters": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_length_of_longest_substring_k_distinct_single",
+   "test_length_of_longest_substring_k_distinct_normal",
+   "test_length_of_longest_substring_k_distinct_zero_k",
+   "test_length_of_longest_substring_k_distinct_k_exceeds_distinct"
+  ]
+ },
+ "longest-substring-without-repeating-characters": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_length_of_longest_substring_empty",
+   "test_length_of_longest_substring_single",
+   "test_length_of_longest_substring_normal",
+   "test_length_of_longest_substring_all_repeats"
+  ]
+ },
+ "longest-turbulent-subarray": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_max_turbulence_size_normal",
+   "test_max_turbulence_size_monotonic",
+   "test_max_turbulence_size_single"
+  ]
+ },
+ "longest-valid-parentheses": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_longest_valid_parentheses_partial",
+   "test_longest_valid_parentheses_normal",
+   "test_longest_valid_parentheses_empty"
+  ]
+ },
+ "longest-valid-parentheses-dp": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_longest_valid_parentheses_partial",
+   "test_longest_valid_parentheses_normal"
+  ]
+ },
+ "longest-word-in-dictionary": {
+  "old_test_file": "14_tries/tests/test_trie_basics_problems.py",
+  "tests": [
+   "test_longest_word_in_dictionary_normal",
+   "test_longest_word_in_dictionary_no_valid_chain",
+   "test_longest_word_in_dictionary_empty"
+  ]
+ },
+ "lowest-common-ancestor-of-a-binary-search-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_lowest_common_ancestor_bst_split",
+   "test_lowest_common_ancestor_bst_ancestor_is_node"
+  ]
+ },
+ "lowest-common-ancestor-of-a-binary-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_lowest_common_ancestor_split",
+   "test_lowest_common_ancestor_node_is_its_own_ancestor"
+  ]
+ },
+ "lowest-common-ancestor-of-deepest-leaves": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_lca_deepest_leaves_normal",
+   "test_lca_deepest_leaves_single_node"
+  ]
+ },
+ "lru-cache": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_lru_cache_eviction_sequence",
+   "test_lru_cache_update_existing"
+  ]
+ },
+ "magnetic-force-between-two-balls": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_max_distance_normal",
+   "test_max_distance_two_baskets"
+  ]
+ },
+ "majority-element": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_majority_element_normal",
+   "test_majority_element_longer",
+   "test_majority_element_single"
+  ]
+ },
+ "majority-element-ii": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_majority_element_ii_one_winner",
+   "test_majority_element_ii_single",
+   "test_majority_element_ii_two_winners",
+   "test_majority_element_ii_excludes_below_threshold"
+  ]
+ },
+ "making-a-large-island": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_largest_island_normal_case",
+   "test_largest_island_all_land",
+   "test_largest_island_all_water"
+  ]
+ },
+ "map-of-highest-peak": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_highest_peak_normal_case",
+   "test_highest_peak_all_water"
+  ]
+ },
+ "map-sum-pairs": {
+  "old_test_file": "14_tries/tests/test_trie_basics_problems.py",
+  "tests": [
+   "test_map_sum_single_key",
+   "test_map_sum_overwrite_key"
+  ]
+ },
+ "matchsticks-to-square": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_makesquare_normal_true",
+   "test_makesquare_cannot_split",
+   "test_makesquare_too_few_sticks"
+  ]
+ },
+ "matrix-block-sum": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_matrix_block_sum_radius_one",
+   "test_matrix_block_sum_radius_covers_everything",
+   "test_matrix_block_sum_single_cell"
+  ]
+ },
+ "max-area-of-island": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_max_area_of_island_normal_case",
+   "test_max_area_of_island_no_land"
+  ]
+ },
+ "max-consecutive-ones-iii": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_longest_ones_single_element",
+   "test_longest_ones_normal",
+   "test_longest_ones_no_flips_allowed",
+   "test_longest_ones_all_ones"
+  ]
+ },
+ "max-points-on-a-line": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_max_points_collinear",
+   "test_max_points_single_point",
+   "test_max_points_vertical_line"
+  ]
+ },
+ "max-sum-of-rectangle-no-larger-than-k": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_max_sum_submatrix_normal",
+   "test_max_sum_submatrix_single_row"
+  ]
+ },
+ "max-value-of-equation": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_find_max_value_of_equation_normal",
+   "test_find_max_value_of_equation_wider_k"
+  ]
+ },
+ "maximal-rectangle": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_maximal_rectangle_normal",
+   "test_maximal_rectangle_all_zero",
+   "test_maximal_rectangle_single_one"
+  ]
+ },
+ "maximal-rectangle-dp": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_maximal_rectangle_normal",
+   "test_maximal_rectangle_all_zero"
+  ]
+ },
+ "maximal-square": {
+  "old_test_file": "11_dp/tests/test_grid_dp_problems.py",
+  "tests": [
+   "test_maximal_square_empty",
+   "test_maximal_square_no_square",
+   "test_maximal_square_normal",
+   "test_maximal_square_single_cell"
+  ]
+ },
+ "maximum-absolute-sum-of-any-subarray": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_max_absolute_sum_negative_run_wins",
+   "test_max_absolute_sum_longer",
+   "test_max_absolute_sum_all_positive"
+  ]
+ },
+ "maximum-average-subarray-i": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_find_max_average_single_element",
+   "test_find_max_average_normal",
+   "test_find_max_average_k_equals_one"
+  ]
+ },
+ "maximum-binary-tree": {
+  "old_test_file": "07_trees/tests/test_construction_problems.py",
+  "tests": [
+   "test_construct_maximum_binary_tree_normal",
+   "test_construct_maximum_binary_tree_single"
+  ]
+ },
+ "maximum-depth-of-binary-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_max_depth_empty_tree",
+   "test_max_depth_single_node",
+   "test_max_depth_balanced_tree",
+   "test_max_depth_skewed_tree"
+  ]
+ },
+ "maximum-depth-of-n-ary-tree": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_max_depth_nary_sample_tree",
+   "test_max_depth_nary_empty",
+   "test_max_depth_nary_single_node"
+  ]
+ },
+ "maximum-erasure-value": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_maximum_unique_subarray_normal",
+   "test_maximum_unique_subarray_repeating"
+  ]
+ },
+ "maximum-frequency-stack": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_freq_stack_pops_most_frequent_then_most_recent",
+   "test_freq_stack_single_value",
+   "test_freq_stack_ties_go_to_most_recent"
+  ]
+ },
+ "maximum-number-of-events-that-can-be-attended": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_max_events_one_per_day",
+   "test_max_events_with_duplicate_window"
+  ]
+ },
+ "maximum-number-of-events-that-can-be-attended-ii": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_max_value_two_events",
+   "test_max_value_one_big_event_wins"
+  ]
+ },
+ "maximum-number-of-robots-within-budget": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_maximum_robots_normal",
+   "test_maximum_robots_budget_too_small"
+  ]
+ },
+ "maximum-number-of-vowels-in-a-substring-of-given-length": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_max_vowels_normal",
+   "test_max_vowels_all_vowels",
+   "test_max_vowels_spread_out",
+   "test_max_vowels_no_vowels"
+  ]
+ },
+ "maximum-performance-of-a-team": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_max_performance_two_engineers",
+   "test_max_performance_three_engineers"
+  ]
+ },
+ "maximum-points-you-can-obtain-from-cards": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_max_score_takes_from_both_ends",
+   "test_max_score_takes_all",
+   "test_max_score_whole_array"
+  ]
+ },
+ "maximum-population-year": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_maximum_population_earliest_year_wins",
+   "test_maximum_population_overlapping_lives"
+  ]
+ },
+ "maximum-product-after-k-increments": {
+  "old_test_file": "08_heaps/tests/test_heap_basics_problems.py",
+  "tests": [
+   "test_maximum_product_small",
+   "test_maximum_product_spreads_increments"
+  ]
+ },
+ "maximum-product-subarray": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_max_product_subarray_normal",
+   "test_max_product_subarray_negative_flip",
+   "test_max_product_subarray_single_element"
+  ]
+ },
+ "maximum-product-subarray-dp": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_max_product_normal",
+   "test_max_product_with_zero",
+   "test_max_product_two_negatives"
+  ]
+ },
+ "maximum-profit-in-job-scheduling": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_job_scheduling_normal",
+   "test_job_scheduling_longer"
+  ]
+ },
+ "maximum-score-after-splitting-a-string": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_max_score_normal",
+   "test_max_score_zeros_then_ones",
+   "test_max_score_all_ones"
+  ]
+ },
+ "maximum-size-subarray-sum-equals-k": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_max_sub_array_len_normal",
+   "test_max_sub_array_len_negatives",
+   "test_max_sub_array_len_no_match"
+  ]
+ },
+ "maximum-students-taking-exam": {
+  "old_test_file": "15_bit_manipulation/tests/test_subset_masks_problems.py",
+  "tests": [
+   "test_max_students_normal",
+   "test_max_students_narrow_room"
+  ]
+ },
+ "maximum-students-taking-exam-advanced": {
+  "old_test_file": "17_advanced/tests/test_bitmask_dp_problems.py",
+  "tests": [
+   "test_max_students_normal",
+   "test_max_students_all_broken_seats",
+   "test_max_students_single_seat"
+  ]
+ },
+ "maximum-subarray": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_max_subarray_normal",
+   "test_max_subarray_all_negative",
+   "test_max_subarray_single_element"
+  ]
+ },
+ "maximum-subarray-advanced": {
+  "old_test_file": "17_advanced/tests/test_divide_and_conquer_problems.py",
+  "tests": [
+   "test_max_sub_array_normal",
+   "test_max_sub_array_all_negative"
+  ]
+ },
+ "maximum-subarray-dp": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_max_subarray_normal",
+   "test_max_subarray_all_negative"
+  ]
+ },
+ "maximum-subarray-sum-with-one-deletion": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_maximum_sum_deletes_one_negative",
+   "test_maximum_sum_deletion_not_enough",
+   "test_maximum_sum_all_negative",
+   "test_maximum_sum_deletes_from_the_middle"
+  ]
+ },
+ "maximum-sum-circular-subarray": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_kadane_problems.py",
+  "tests": [
+   "test_max_subarray_sum_circular_non_wrapping",
+   "test_max_subarray_sum_circular_wraps",
+   "test_max_subarray_sum_circular_all_negative",
+   "test_max_subarray_sum_circular_wraps_by_one"
+  ]
+ },
+ "maximum-sum-of-two-non-overlapping-subarrays": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_max_sum_two_no_overlap_normal",
+   "test_max_sum_two_no_overlap_longer_windows",
+   "test_max_sum_two_no_overlap_wide_windows"
+  ]
+ },
+ "maximum-swap": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_maximum_swap_normal",
+   "test_maximum_swap_already_maximal",
+   "test_maximum_swap_repeated_digits",
+   "test_maximum_swap_uses_the_last_occurrence"
+  ]
+ },
+ "maximum-twin-sum-of-a-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_reversal_problems.py",
+  "tests": [
+   "test_twin_sum_normal",
+   "test_twin_sum_middle_pair_wins",
+   "test_twin_sum_two_nodes"
+  ]
+ },
+ "maximum-units-on-a-truck": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_maximum_units_partial_box",
+   "test_maximum_units_full_truck"
+  ]
+ },
+ "maximum-width-of-binary-tree": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_width_of_binary_tree_with_gaps",
+   "test_width_of_binary_tree_left_heavy",
+   "test_width_of_binary_tree_single_node"
+  ]
+ },
+ "maximum-xor-of-two-numbers-in-an-array": {
+  "old_test_file": "14_tries/tests/test_trie_dfs_problems.py",
+  "tests": [
+   "test_find_maximum_xor_normal",
+   "test_find_maximum_xor_larger"
+  ]
+ },
+ "maximum-xor-of-two-numbers-in-an-array-bit_manipulation": {
+  "old_test_file": "15_bit_manipulation/tests/test_subset_masks_problems.py",
+  "tests": [
+   "test_max_xor_of_two_numbers_normal",
+   "test_max_xor_of_two_numbers_two_elements",
+   "test_max_xor_of_two_numbers_zeros"
+  ]
+ },
+ "maximum-xor-with-an-element-from-array": {
+  "old_test_file": "14_tries/tests/test_trie_dfs_problems.py",
+  "tests": [
+   "test_maximize_xor_normal",
+   "test_maximize_xor_with_impossible_query"
+  ]
+ },
+ "median-of-two-sorted-arrays": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_find_median_sorted_arrays_odd_total",
+   "test_find_median_sorted_arrays_even_total",
+   "test_find_median_sorted_arrays_one_empty",
+   "test_find_median_sorted_arrays_both_single"
+  ]
+ },
+ "median-of-two-sorted-arrays-advanced": {
+  "old_test_file": "17_advanced/tests/test_divide_and_conquer_problems.py",
+  "tests": [
+   "test_find_median_sorted_arrays_odd_total",
+   "test_find_median_sorted_arrays_even_total"
+  ]
+ },
+ "meeting-rooms": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_can_attend_meetings_empty",
+   "test_can_attend_meetings_no_overlap",
+   "test_can_attend_meetings_true",
+   "test_can_attend_meetings_false"
+  ]
+ },
+ "meeting-rooms-ii": {
+  "old_test_file": "08_heaps/tests/test_heap_basics_problems.py",
+  "tests": [
+   "test_meeting_rooms_ii_normal",
+   "test_meeting_rooms_ii_no_overlap",
+   "test_meeting_rooms_ii_empty",
+   "test_meeting_rooms_ii_single"
+  ]
+ },
+ "meeting-rooms-ii-intervals": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_min_meeting_rooms_empty",
+   "test_min_meeting_rooms_single_meeting",
+   "test_min_meeting_rooms_normal",
+   "test_min_meeting_rooms_back_to_back"
+  ]
+ },
+ "meeting-rooms-iii": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_most_booked_room_normal",
+   "test_most_booked_room_single_room"
+  ]
+ },
+ "merge-in-between-linked-lists": {
+  "old_test_file": "06_linked_lists/tests/test_merge_split_problems.py",
+  "tests": [
+   "test_merge_in_between_normal",
+   "test_merge_in_between_wider_cut"
+  ]
+ },
+ "merge-intervals": {
+  "old_test_file": "13_intervals/tests/test_merge_insert_problems.py",
+  "tests": [
+   "test_merge_empty",
+   "test_merge_single_interval",
+   "test_merge_normal",
+   "test_merge_touching_intervals"
+  ]
+ },
+ "merge-k-sorted-lists": {
+  "old_test_file": "06_linked_lists/tests/test_merge_split_problems.py",
+  "tests": [
+   "test_merge_k_lists_basic",
+   "test_merge_k_lists_empty",
+   "test_merge_k_lists_with_empty_lists"
+  ]
+ },
+ "merge-k-sorted-lists-heaps": {
+  "old_test_file": "08_heaps/tests/test_k_way_merge_problems.py",
+  "tests": [
+   "test_merge_k_lists_normal",
+   "test_merge_k_lists_empty_input",
+   "test_merge_k_lists_with_empty_lists"
+  ]
+ },
+ "merge-sorted-array": {
+  "old_test_file": "02_two_pointers/tests/test_in_place_mutation_problems.py",
+  "tests": [
+   "test_merge_both_empty",
+   "test_merge_second_empty",
+   "test_merge_first_empty",
+   "test_merge_normal"
+  ]
+ },
+ "merge-two-sorted-lists": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_merge_two_lists_both_empty",
+   "test_merge_two_lists_one_empty",
+   "test_merge_two_lists_interleaved"
+  ]
+ },
+ "middle-of-the-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_fast_slow_problems.py",
+  "tests": [
+   "test_middle_node_odd",
+   "test_middle_node_even_returns_second",
+   "test_middle_node_single"
+  ]
+ },
+ "min-cost-climbing-stairs": {
+  "old_test_file": "11_dp/tests/test_one_d_dp_problems.py",
+  "tests": [
+   "test_min_cost_climbing_stairs_normal",
+   "test_min_cost_climbing_stairs_alternating",
+   "test_min_cost_climbing_stairs_two_steps"
+  ]
+ },
+ "min-cost-to-connect-all-points": {
+  "old_test_file": "17_advanced/tests/test_mst_problems.py",
+  "tests": [
+   "test_min_cost_connect_points_normal",
+   "test_min_cost_connect_points_two_points",
+   "test_min_cost_connect_points_single_point"
+  ]
+ },
+ "min-stack": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_min_stack_tracks_running_minimum",
+   "test_min_stack_single_element"
+  ]
+ },
+ "minimize-maximum-pair-sum-in-array": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_min_pair_sum_four_elements",
+   "test_min_pair_sum_six_elements"
+  ]
+ },
+ "minimum-add-to-make-parentheses-valid": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_min_add_to_make_valid_extra_close",
+   "test_min_add_to_make_valid_all_open",
+   "test_min_add_to_make_valid_already_valid"
+  ]
+ },
+ "minimum-area-rectangle": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_min_area_rect_normal",
+   "test_min_area_rect_no_rectangle",
+   "test_min_area_rect_empty"
+  ]
+ },
+ "minimum-cost-to-connect-sticks": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_connect_sticks_three",
+   "test_connect_sticks_four",
+   "test_connect_sticks_single"
+  ]
+ },
+ "minimum-cost-to-hire-k-workers": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_mincost_to_hire_workers_normal",
+   "test_mincost_to_hire_workers_three_workers"
+  ]
+ },
+ "minimum-cost-to-make-at-least-one-valid-path-in-a-grid": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_min_cost_normal_case",
+   "test_min_cost_no_changes_needed"
+  ]
+ },
+ "minimum-cost-to-merge-stones": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_merge_stones_pairs",
+   "test_merge_stones_impossible",
+   "test_merge_stones_triples"
+  ]
+ },
+ "minimum-cost-to-reach-destination-in-time": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_minimum_cost_normal_case",
+   "test_minimum_cost_no_valid_route"
+  ]
+ },
+ "minimum-deletions-to-make-character-frequencies-unique": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_min_deletions_already_unique",
+   "test_min_deletions_normal",
+   "test_min_deletions_longer"
+  ]
+ },
+ "minimum-depth-of-binary-tree": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_minimum_depth_empty_tree",
+   "test_minimum_depth_single_node",
+   "test_minimum_depth_sample_tree",
+   "test_minimum_depth_left_skewed_tree"
+  ]
+ },
+ "minimum-falling-path-sum": {
+  "old_test_file": "11_dp/tests/test_grid_dp_problems.py",
+  "tests": [
+   "test_min_falling_path_sum_normal",
+   "test_min_falling_path_sum_negatives"
+  ]
+ },
+ "minimum-flips-to-make-a-or-b-equal-to-c": {
+  "old_test_file": "15_bit_manipulation/tests/test_masks_problems.py",
+  "tests": [
+   "test_min_flips_zero_flips_needed",
+   "test_min_flips_already_equal",
+   "test_min_flips_all_zero"
+  ]
+ },
+ "minimum-genetic-mutation": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_min_mutation_normal_case",
+   "test_min_mutation_multi_step",
+   "test_min_mutation_no_valid_path"
+  ]
+ },
+ "minimum-height-trees": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_find_min_height_trees_normal_case",
+   "test_find_min_height_trees_single_node"
+  ]
+ },
+ "minimum-interval-to-include-each-query": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_min_interval_normal",
+   "test_min_interval_with_gap"
+  ]
+ },
+ "minimum-jumps-to-reach-home": {
+  "old_test_file": "12_greedy_algorithms/tests/test_jump_game_problems.py",
+  "tests": [
+   "test_minimum_jumps_normal",
+   "test_minimum_jumps_unreachable",
+   "test_minimum_jumps_backwards_helps"
+  ]
+ },
+ "minimum-moves-to-reach-target-with-rotations": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_minimum_moves_normal_case",
+   "test_minimum_moves_smallest_grid"
+  ]
+ },
+ "minimum-number-of-arrows-to-burst-balloons": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_find_min_arrow_shots_normal",
+   "test_find_min_arrow_shots_no_overlap",
+   "test_find_min_arrow_shots_single_balloon",
+   "test_find_min_arrow_shots_empty"
+  ]
+ },
+ "minimum-number-of-arrows-to-burst-balloons-intervals": {
+  "old_test_file": "13_intervals/tests/test_interval_basics_problems.py",
+  "tests": [
+   "test_find_min_arrow_shots_empty",
+   "test_find_min_arrow_shots_single_balloon",
+   "test_find_min_arrow_shots_normal",
+   "test_find_min_arrow_shots_no_overlap"
+  ]
+ },
+ "minimum-number-of-days-to-make-m-bouquets": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_min_days_single_flower_bouquets",
+   "test_min_days_impossible",
+   "test_min_days_adjacent_requirement"
+  ]
+ },
+ "minimum-number-of-refueling-stops": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_min_refuel_stops_normal",
+   "test_min_refuel_stops_unreachable",
+   "test_min_refuel_stops_no_stop_needed"
+  ]
+ },
+ "minimum-number-of-refueling-stops-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_min_refuel_stops_normal",
+   "test_min_refuel_stops_no_stations_needed",
+   "test_min_refuel_stops_unreachable"
+  ]
+ },
+ "minimum-number-of-vertices-to-reach-all-nodes": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_find_smallest_set_of_vertices_normal_case",
+   "test_find_smallest_set_of_vertices_no_edges"
+  ]
+ },
+ "minimum-obstacle-removal-to-reach-corner": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_minimum_obstacles_normal_case",
+   "test_minimum_obstacles_no_obstacles"
+  ]
+ },
+ "minimum-path-sum": {
+  "old_test_file": "11_dp/tests/test_grid_dp_problems.py",
+  "tests": [
+   "test_min_path_sum_single_cell",
+   "test_min_path_sum_normal",
+   "test_min_path_sum_single_row"
+  ]
+ },
+ "minimum-remove-to-make-valid-parentheses": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_min_remove_to_make_valid_extra_close",
+   "test_min_remove_to_make_valid_leading_close",
+   "test_min_remove_to_make_valid_removes_everything"
+  ]
+ },
+ "minimum-size-subarray-sum": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_min_sub_array_len_empty",
+   "test_min_sub_array_len_single_meets_target",
+   "test_min_sub_array_len_normal",
+   "test_min_sub_array_len_no_valid_subarray"
+  ]
+ },
+ "minimum-speed-to-arrive-on-time": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_min_speed_on_time_generous_hour",
+   "test_min_speed_on_time_fractional_hour",
+   "test_min_speed_on_time_impossible"
+  ]
+ },
+ "minimum-window-subsequence": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_min_window_subsequence_normal",
+   "test_min_window_subsequence_no_window"
+  ]
+ },
+ "minimum-window-substring": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_min_window_normal",
+   "test_min_window_no_valid_window",
+   "test_min_window_no_matching_characters",
+   "test_min_window_exact_match"
+  ]
+ },
+ "missing-number": {
+  "old_test_file": "15_bit_manipulation/tests/test_xor_problems.py",
+  "tests": [
+   "test_missing_number_normal",
+   "test_missing_number_missing_last",
+   "test_missing_number_missing_first",
+   "test_missing_number_single_element_missing",
+   "test_missing_number_empty"
+  ]
+ },
+ "move-zeroes": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_move_zeroes_empty",
+   "test_move_zeroes_single_zero",
+   "test_move_zeroes_normal",
+   "test_move_zeroes_no_zeroes"
+  ]
+ },
+ "moving-average-from-data-stream": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_moving_average_window_slides",
+   "test_moving_average_window_of_one",
+   "test_moving_average_before_window_fills"
+  ]
+ },
+ "multiply-strings": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_multiply_single_digits",
+   "test_multiply_multi_digit",
+   "test_multiply_by_zero"
+  ]
+ },
+ "my-calendar-i": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_my_calendar_accepts_non_overlapping",
+   "test_my_calendar_rejects_overlap"
+  ]
+ },
+ "my-calendar-ii": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_my_calendar_two_allows_double_book",
+   "test_my_calendar_two_rejects_triple_book"
+  ]
+ },
+ "my-calendar-iii": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_my_calendar_three_tracks_max_k_booking",
+   "test_my_calendar_three_disjoint_bookings_stay_at_one",
+   "test_my_calendar_three_touching_intervals_do_not_overlap"
+  ]
+ },
+ "my-calendar-iii-advanced": {
+  "old_test_file": "17_advanced/tests/test_range_structures_problems.py",
+  "tests": [
+   "test_my_calendar_three_tracks_max_overlap",
+   "test_my_calendar_three_disjoint_bookings_stay_at_one",
+   "test_my_calendar_three_touching_intervals_do_not_overlap",
+   "test_my_calendar_three_triple_overlap"
+  ]
+ },
+ "n-ary-tree-level-order-traversal": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_nary_level_order_sample_tree",
+   "test_nary_level_order_empty"
+  ]
+ },
+ "n-ary-tree-postorder-traversal": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_nary_postorder_sample_tree",
+   "test_nary_postorder_empty"
+  ]
+ },
+ "n-ary-tree-preorder-traversal": {
+  "old_test_file": "07_trees/tests/test_tree_traversal_problems.py",
+  "tests": [
+   "test_nary_preorder_sample_tree",
+   "test_nary_preorder_empty"
+  ]
+ },
+ "n-queens": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_solve_n_queens_n_equals_one",
+   "test_solve_n_queens_n_equals_two_no_solution",
+   "test_solve_n_queens_n_equals_four_count"
+  ]
+ },
+ "n-queens-ii": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_total_n_queens_n_equals_four",
+   "test_total_n_queens_n_equals_one"
+  ]
+ },
+ "nearest-exit-from-entrance-in-maze": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_nearest_exit_normal_case",
+   "test_nearest_exit_no_exit"
+  ]
+ },
+ "network-delay-time": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_network_delay_time_reaches_all",
+   "test_network_delay_time_unreachable"
+  ]
+ },
+ "network-delay-time-advanced": {
+  "old_test_file": "17_advanced/tests/test_shortest_paths_problems.py",
+  "tests": [
+   "test_network_delay_time_reaches_all",
+   "test_network_delay_time_unreachable"
+  ]
+ },
+ "network-delay-time-graphs": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_network_delay_time_normal_case",
+   "test_network_delay_time_unreachable_node",
+   "test_network_delay_time_single_node"
+  ]
+ },
+ "next-greater-element-i": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_next_greater_element_normal_case",
+   "test_next_greater_element_empty_nums1",
+   "test_next_greater_element_no_greater_found"
+  ]
+ },
+ "next-greater-element-ii": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_next_greater_elements_circular_case",
+   "test_next_greater_elements_single_element",
+   "test_next_greater_elements_empty"
+  ]
+ },
+ "next-greater-node-in-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_advanced_problems.py",
+  "tests": [
+   "test_next_larger_nodes_normal",
+   "test_next_larger_nodes_longer"
+  ]
+ },
+ "next-permutation": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_next_permutation_middle",
+   "test_next_permutation_last_wraps_to_first",
+   "test_next_permutation_with_duplicates",
+   "test_next_permutation_single"
+  ]
+ },
+ "nim-game": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_can_win_nim_multiple_of_four",
+   "test_can_win_nim_not_multiple_of_four",
+   "test_can_win_nim_one_stone"
+  ]
+ },
+ "non-overlapping-intervals": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_erase_overlap_intervals_normal",
+   "test_erase_overlap_intervals_no_overlap",
+   "test_erase_overlap_intervals_single",
+   "test_erase_overlap_intervals_empty"
+  ]
+ },
+ "non-overlapping-intervals-intervals": {
+  "old_test_file": "13_intervals/tests/test_merge_insert_problems.py",
+  "tests": [
+   "test_erase_overlap_intervals_empty",
+   "test_erase_overlap_intervals_no_overlap",
+   "test_erase_overlap_intervals_normal"
+  ]
+ },
+ "number-of-1-bits": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_hamming_weight_zero",
+   "test_hamming_weight_single_bit",
+   "test_hamming_weight_normal",
+   "test_hamming_weight_all_ones_byte"
+  ]
+ },
+ "number-of-atoms": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_count_of_atoms_simple",
+   "test_count_of_atoms_with_group",
+   "test_count_of_atoms_nested_groups"
+  ]
+ },
+ "number-of-closed-islands": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_closed_island_normal_case",
+   "test_closed_island_no_water"
+  ]
+ },
+ "number-of-common-factors": {
+  "old_test_file": "16_math_geometry/tests/test_gcd_lcm_problems.py",
+  "tests": [
+   "test_common_factors_normal",
+   "test_common_factors_coprime_ish",
+   "test_common_factors_equal"
+  ]
+ },
+ "number-of-connected-components-in-an-undirected-graph": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_count_components_two_components",
+   "test_count_components_no_edges",
+   "test_count_components_single_node"
+  ]
+ },
+ "number-of-enclaves": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_num_enclaves_normal_case",
+   "test_num_enclaves_no_land"
+  ]
+ },
+ "number-of-flowers-in-full-bloom": {
+  "old_test_file": "13_intervals/tests/test_meeting_rooms_problems.py",
+  "tests": [
+   "test_full_bloom_flowers_normal",
+   "test_full_bloom_flowers_repeated_queries"
+  ]
+ },
+ "number-of-islands": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_num_islands_empty_grid",
+   "test_num_islands_single_island",
+   "test_num_islands_no_land"
+  ]
+ },
+ "number-of-islands-ii": {
+  "old_test_file": "17_advanced/tests/test_union_find_problems.py",
+  "tests": [
+   "test_number_of_islands_ii_sequence",
+   "test_number_of_islands_ii_no_positions",
+   "test_number_of_islands_ii_merges_component"
+  ]
+ },
+ "number-of-provinces": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_find_circle_num_two_provinces",
+   "test_find_circle_num_all_isolated"
+  ]
+ },
+ "number-of-provinces-advanced": {
+  "old_test_file": "17_advanced/tests/test_union_find_problems.py",
+  "tests": [
+   "test_number_of_provinces_all_connected",
+   "test_number_of_provinces_none_connected",
+   "test_number_of_provinces_single_city",
+   "test_union_find_merges_and_counts",
+   "test_union_find_keeps_disjoint_sets_apart"
+  ]
+ },
+ "number-of-recent-calls": {
+  "old_test_file": "03_stacks_and_queues/tests/test_queue_deque_problems.py",
+  "tests": [
+   "test_recent_counter_window",
+   "test_recent_counter_all_within_window",
+   "test_recent_counter_drops_everything_old"
+  ]
+ },
+ "number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_num_of_subarrays_normal",
+   "test_num_of_subarrays_mostly_qualifying",
+   "test_num_of_subarrays_none_qualify"
+  ]
+ },
+ "number-of-subarrays-with-bounded-maximum": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_num_subarray_bounded_max_normal",
+   "test_num_subarray_bounded_max_wider_range"
+  ]
+ },
+ "number-of-subsequences-that-satisfy-the-given-sum-condition": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_num_subseq_normal",
+   "test_num_subseq_with_duplicates",
+   "test_num_subseq_larger"
+  ]
+ },
+ "number-of-substrings-containing-all-three-characters": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_number_of_substrings_normal",
+   "test_number_of_substrings_skewed",
+   "test_number_of_substrings_minimum"
+  ]
+ },
+ "number-of-ways-to-arrive-at-destination": {
+  "old_test_file": "17_advanced/tests/test_shortest_paths_problems.py",
+  "tests": [
+   "test_count_paths_single_shortest",
+   "test_count_paths_single_node",
+   "test_count_paths_two_equal_routes"
+  ]
+ },
+ "number-of-ways-to-split-array": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_ways_to_split_array_normal",
+   "test_ways_to_split_array_no_negatives"
+  ]
+ },
+ "number-of-ways-to-wear-different-hats-to-each-other": {
+  "old_test_file": "17_advanced/tests/test_bitmask_dp_problems.py",
+  "tests": [
+   "test_number_ways_single_assignment",
+   "test_number_ways_several_assignments",
+   "test_number_ways_five_people"
+  ]
+ },
+ "odd-even-jump": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_odd_even_jumps_normal",
+   "test_odd_even_jumps_more_starts",
+   "test_odd_even_jumps_descending_helps"
+  ]
+ },
+ "odd-even-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_restructure_problems.py",
+  "tests": [
+   "test_odd_even_list_basic",
+   "test_odd_even_list_even_length"
+  ]
+ },
+ "ones-and-zeroes": {
+  "old_test_file": "11_dp/tests/test_knapsack_problems.py",
+  "tests": [
+   "test_find_max_form_normal",
+   "test_find_max_form_tight_budget"
+  ]
+ },
+ "online-stock-span": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_stock_spanner_increasing_prices",
+   "test_stock_spanner_single_call"
+  ]
+ },
+ "open-the-lock": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_open_lock_normal_case",
+   "test_open_lock_start_is_deadend",
+   "test_open_lock_target_is_start"
+  ]
+ },
+ "optimize-water-distribution-in-a-village": {
+  "old_test_file": "17_advanced/tests/test_mst_problems.py",
+  "tests": [
+   "test_min_cost_to_supply_water_normal",
+   "test_min_cost_to_supply_water_no_pipes_needed",
+   "test_min_cost_to_supply_water_single_house"
+  ]
+ },
+ "pacific-atlantic-water-flow": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_pacific_atlantic_normal_case",
+   "test_pacific_atlantic_single_cell"
+  ]
+ },
+ "palindrome-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_fast_slow_problems.py",
+  "tests": [
+   "test_is_palindrome_true",
+   "test_is_palindrome_odd_true",
+   "test_is_palindrome_false",
+   "test_is_palindrome_single"
+  ]
+ },
+ "palindrome-number": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_is_palindrome_true",
+   "test_is_palindrome_negative",
+   "test_is_palindrome_trailing_zero"
+  ]
+ },
+ "palindrome-pairs": {
+  "old_test_file": "14_tries/tests/test_trie_dfs_problems.py",
+  "tests": [
+   "test_palindrome_pairs_normal",
+   "test_palindrome_pairs_no_matches",
+   "test_palindrome_pairs_empty_string_pairs_with_palindromes"
+  ]
+ },
+ "palindrome-partitioning": {
+  "old_test_file": "09_backtracking/tests/test_permutations_problems.py",
+  "tests": [
+   "test_partition_single_char",
+   "test_partition_normal",
+   "test_partition_no_palindromic_split_needed"
+  ]
+ },
+ "palindrome-partitioning-ii": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_min_cut_one_cut",
+   "test_min_cut_already_palindrome",
+   "test_min_cut_no_shared_letters"
+  ]
+ },
+ "palindromic-substrings": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_count_substrings_normal",
+   "test_count_substrings_all_same",
+   "test_count_substrings_empty"
+  ]
+ },
+ "pancake-sorting": {
+  "old_test_file": "02_two_pointers/tests/test_in_place_mutation_problems.py",
+  "tests": [
+   "test_pancake_sort_normal",
+   "test_pancake_sort_already_sorted",
+   "test_pancake_sort_two_swapped"
+  ]
+ },
+ "parallel-courses-ii": {
+  "old_test_file": "17_advanced/tests/test_bitmask_dp_problems.py",
+  "tests": [
+   "test_min_number_of_semesters_no_relations",
+   "test_min_number_of_semesters_single_course",
+   "test_min_number_of_semesters_chain_with_limit",
+   "test_min_number_of_semesters_no_limit_needed"
+  ]
+ },
+ "parallel-courses-iii": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_minimum_time_normal_case",
+   "test_minimum_time_no_relations"
+  ]
+ },
+ "partition-array-into-disjoint-intervals": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_partition_disjoint_normal",
+   "test_partition_disjoint_longer"
+  ]
+ },
+ "partition-equal-subset-sum": {
+  "old_test_file": "11_dp/tests/test_knapsack_problems.py",
+  "tests": [
+   "test_can_partition_empty",
+   "test_can_partition_normal_true",
+   "test_can_partition_normal_false",
+   "test_can_partition_single_element"
+  ]
+ },
+ "partition-labels": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_partition_labels_normal",
+   "test_partition_labels_single_part"
+  ]
+ },
+ "partition-labels-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_partition_labels_normal",
+   "test_partition_labels_all_unique",
+   "test_partition_labels_single_char",
+   "test_partition_labels_empty"
+  ]
+ },
+ "partition-labels-intervals": {
+  "old_test_file": "13_intervals/tests/test_interval_basics_problems.py",
+  "tests": [
+   "test_partition_labels_normal",
+   "test_partition_labels_single_part"
+  ]
+ },
+ "partition-list": {
+  "old_test_file": "06_linked_lists/tests/test_merge_split_problems.py",
+  "tests": [
+   "test_partition_splits_around_x",
+   "test_partition_all_less"
+  ]
+ },
+ "partition-to-k-equal-sum-subsets": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_can_partition_k_subsets_possible",
+   "test_can_partition_k_subsets_impossible"
+  ]
+ },
+ "partition-to-k-equal-sum-subsets-advanced": {
+  "old_test_file": "17_advanced/tests/test_bitmask_dp_problems.py",
+  "tests": [
+   "test_can_partition_k_subsets_empty",
+   "test_can_partition_k_subsets_single_bucket",
+   "test_can_partition_k_subsets_normal",
+   "test_can_partition_k_subsets_impossible"
+  ]
+ },
+ "partition-to-k-equal-sum-subsets-bit_manipulation": {
+  "old_test_file": "15_bit_manipulation/tests/test_subset_masks_problems.py",
+  "tests": [
+   "test_can_partition_k_subsets_possible",
+   "test_can_partition_k_subsets_impossible"
+  ]
+ },
+ "path-sum": {
+  "old_test_file": "07_trees/tests/test_path_problems.py",
+  "tests": [
+   "test_path_sum_empty_tree",
+   "test_path_sum_single_node_true",
+   "test_path_sum_single_node_false",
+   "test_path_sum_sample_tree_true",
+   "test_path_sum_sample_tree_false",
+   "test_path_sum_partial_path_does_not_count",
+   "test_path_sum_with_negative_values"
+  ]
+ },
+ "path-sum-ii": {
+  "old_test_file": "07_trees/tests/test_path_problems.py",
+  "tests": [
+   "test_path_sum_ii_empty_tree",
+   "test_path_sum_ii_single_valid_path",
+   "test_path_sum_ii_multiple_paths",
+   "test_path_sum_ii_no_valid_path",
+   "test_path_sum_ii_leetcode_sample_tree",
+   "test_path_sum_ii_partial_path_does_not_count",
+   "test_path_sum_ii_handles_negative_values"
+  ]
+ },
+ "path-sum-iii": {
+  "old_test_file": "07_trees/tests/test_path_problems.py",
+  "tests": [
+   "test_path_sum_iii_normal",
+   "test_path_sum_iii_deeper_tree"
+  ]
+ },
+ "path-with-maximum-probability": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_max_probability_normal_case",
+   "test_max_probability_no_path"
+  ]
+ },
+ "path-with-minimum-effort": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_minimum_effort_path_normal_case",
+   "test_minimum_effort_path_single_cell"
+  ]
+ },
+ "path-with-minimum-effort-advanced": {
+  "old_test_file": "17_advanced/tests/test_shortest_paths_problems.py",
+  "tests": [
+   "test_minimum_effort_path_normal",
+   "test_minimum_effort_path_gentler_route"
+  ]
+ },
+ "peak-index-in-a-mountain-array": {
+  "old_test_file": "05_binary_search/tests/test_rotated_array_problems.py",
+  "tests": [
+   "test_peak_index_in_mountain_array_minimal",
+   "test_peak_index_in_mountain_array_longer_descent",
+   "test_peak_index_in_mountain_array_late_peak"
+  ]
+ },
+ "perfect-rectangle": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_is_rectangle_cover_exact",
+   "test_is_rectangle_cover_with_gap"
+  ]
+ },
+ "perfect-squares": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_num_squares_three_terms",
+   "test_num_squares_two_terms",
+   "test_num_squares_perfect_square"
+  ]
+ },
+ "permutation-in-string": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_check_inclusion_true",
+   "test_check_inclusion_false",
+   "test_check_inclusion_match_at_end",
+   "test_check_inclusion_s1_longer_than_s2"
+  ]
+ },
+ "permutation-sequence": {
+  "old_test_file": "09_backtracking/tests/test_permutations_problems.py",
+  "tests": [
+   "test_get_permutation_third_of_three",
+   "test_get_permutation_ninth_of_four",
+   "test_get_permutation_first"
+  ]
+ },
+ "permutations": {
+  "old_test_file": "09_backtracking/tests/test_permutations_problems.py",
+  "tests": [
+   "test_permute_single_element",
+   "test_permute_normal"
+  ]
+ },
+ "permutations-ii": {
+  "old_test_file": "09_backtracking/tests/test_permutations_problems.py",
+  "tests": [
+   "test_permute_unique_all_same",
+   "test_permute_unique_normal"
+  ]
+ },
+ "plus-one": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_plus_one_no_carry",
+   "test_plus_one_single_carry",
+   "test_plus_one_cascading_carry"
+  ]
+ },
+ "points-that-intersect-with-cars": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_number_of_points_overlapping",
+   "test_number_of_points_disjoint"
+  ]
+ },
+ "populating-next-right-pointers-in-each-node": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_connect_links_each_level",
+   "test_connect_empty_tree"
+  ]
+ },
+ "possible-bipartition": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_possible_bipartition_true",
+   "test_possible_bipartition_false"
+  ]
+ },
+ "power-of-four": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_is_power_of_four_true",
+   "test_is_power_of_four_false_power_of_two",
+   "test_is_power_of_four_zero",
+   "test_is_power_of_four_one",
+   "test_is_power_of_four_negative"
+  ]
+ },
+ "power-of-two": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_is_power_of_two_true",
+   "test_is_power_of_two_false",
+   "test_is_power_of_two_zero",
+   "test_is_power_of_two_one",
+   "test_is_power_of_two_negative"
+  ]
+ },
+ "powx-n": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_my_pow_positive_exponent",
+   "test_my_pow_negative_exponent",
+   "test_my_pow_zero_exponent",
+   "test_my_pow_base_one"
+  ]
+ },
+ "prefix-and-suffix-search": {
+  "old_test_file": "14_tries/tests/test_word_dictionary_problems.py",
+  "tests": [
+   "test_word_filter_matches_prefix_and_suffix",
+   "test_word_filter_no_match",
+   "test_word_filter_returns_largest_index"
+  ]
+ },
+ "process-tasks-using-servers": {
+  "old_test_file": "08_heaps/tests/test_two_heaps_problems.py",
+  "tests": [
+   "test_assign_tasks_normal",
+   "test_assign_tasks_single_server"
+  ]
+ },
+ "product-of-array-except-self": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_product_except_self_normal",
+   "test_product_except_self_with_zero",
+   "test_product_except_self_two_elements"
+  ]
+ },
+ "queue-reconstruction-by-height": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_reconstruct_queue_normal",
+   "test_reconstruct_queue_single_person",
+   "test_reconstruct_queue_empty"
+  ]
+ },
+ "random-pick-with-weight": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_weighted_random_picker_single_weight",
+   "test_weighted_random_picker_respects_weights"
+  ]
+ },
+ "range-module": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_range_module_add_and_query",
+   "test_range_module_remove_range",
+   "test_range_module_query_empty"
+  ]
+ },
+ "range-sum-of-bst": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_range_sum_bst_normal",
+   "test_range_sum_bst_deeper_tree"
+  ]
+ },
+ "range-sum-query-2d-immutable": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_num_matrix_sum_region_normal",
+   "test_num_matrix_sum_region_single_cell"
+  ]
+ },
+ "range-sum-query-2d-mutable": {
+  "old_test_file": "17_advanced/tests/test_range_structures_problems.py",
+  "tests": [
+   "test_num_matrix_sum_region",
+   "test_num_matrix_update_then_sum_region",
+   "test_num_matrix_single_cell"
+  ]
+ },
+ "range-sum-query-immutable": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_num_array_sum_range_normal",
+   "test_num_array_sum_range_single_element"
+  ]
+ },
+ "range-sum-query-mutable": {
+  "old_test_file": "17_advanced/tests/test_range_structures_problems.py",
+  "tests": [
+   "test_num_array_sum_range",
+   "test_num_array_update_then_sum",
+   "test_num_array_single_element",
+   "test_fenwick_tree_prefix_and_range_sums",
+   "test_fenwick_tree_starts_empty"
+  ]
+ },
+ "rearrange-array-elements-by-sign": {
+  "old_test_file": "02_two_pointers/tests/test_in_place_mutation_problems.py",
+  "tests": [
+   "test_rearrange_array_alternates_signs",
+   "test_rearrange_array_shortest"
+  ]
+ },
+ "reconstruct-itinerary": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_find_itinerary_normal_case",
+   "test_find_itinerary_lexical_ordering"
+  ]
+ },
+ "recover-binary-search-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_recover_tree_swapped_neighbours",
+   "test_recover_tree_swapped_non_neighbours"
+  ]
+ },
+ "rectangle-area": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_compute_area_overlapping",
+   "test_compute_area_identical_rectangles"
+  ]
+ },
+ "rectangle-area-ii": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_rectangle_area_overlapping",
+   "test_rectangle_area_takes_modulo"
+  ]
+ },
+ "rectangle-overlap": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_is_rectangle_overlap_true",
+   "test_is_rectangle_overlap_false_touching_edge",
+   "test_is_rectangle_overlap_false_disjoint"
+  ]
+ },
+ "redundant-connection": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_find_redundant_connection_normal_case",
+   "test_find_redundant_connection_last_edge_closes_cycle"
+  ]
+ },
+ "redundant-connection-advanced": {
+  "old_test_file": "17_advanced/tests/test_union_find_problems.py",
+  "tests": [
+   "test_find_redundant_connection_triangle",
+   "test_find_redundant_connection_later_edge"
+  ]
+ },
+ "redundant-connection-ii": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_find_redundant_directed_connection_cycle_only",
+   "test_find_redundant_directed_connection_two_parents_in_cycle",
+   "test_find_redundant_directed_connection_returns_last_candidate"
+  ]
+ },
+ "regular-expression-matching": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_is_match_regex_star",
+   "test_is_match_regex_dot",
+   "test_is_match_regex_false"
+  ]
+ },
+ "remove-all-adjacent-duplicates-in-string": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_remove_duplicates_normal",
+   "test_remove_duplicates_inner_pair"
+  ]
+ },
+ "remove-all-adjacent-duplicates-in-string-ii": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_remove_duplicates_ii_no_removal",
+   "test_remove_duplicates_ii_cascading",
+   "test_remove_duplicates_ii_pairs"
+  ]
+ },
+ "remove-covered-intervals": {
+  "old_test_file": "13_intervals/tests/test_merge_insert_problems.py",
+  "tests": [
+   "test_remove_covered_intervals_normal",
+   "test_remove_covered_intervals_nested"
+  ]
+ },
+ "remove-duplicate-letters": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_remove_duplicate_letters_normal",
+   "test_remove_duplicate_letters_keeps_needed_larger_letter"
+  ]
+ },
+ "remove-duplicate-letters-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_remove_duplicate_letters_normal",
+   "test_remove_duplicate_letters_already_unique",
+   "test_remove_duplicate_letters_simple_repeat"
+  ]
+ },
+ "remove-duplicates-from-sorted-array": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_remove_duplicates_empty",
+   "test_remove_duplicates_single",
+   "test_remove_duplicates_no_dupes",
+   "test_remove_duplicates_with_dupes"
+  ]
+ },
+ "remove-duplicates-from-sorted-array-ii": {
+  "old_test_file": "02_two_pointers/tests/test_in_place_mutation_problems.py",
+  "tests": [
+   "test_remove_duplicates_ii_keeps_at_most_two",
+   "test_remove_duplicates_ii_longer",
+   "test_remove_duplicates_ii_single_element"
+  ]
+ },
+ "remove-duplicates-from-sorted-list": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_delete_duplicates_empty",
+   "test_delete_duplicates_no_dupes",
+   "test_delete_duplicates_with_dupes"
+  ]
+ },
+ "remove-duplicates-from-sorted-list-ii": {
+  "old_test_file": "06_linked_lists/tests/test_advanced_problems.py",
+  "tests": [
+   "test_delete_duplicates_ii_removes_all_dupes",
+   "test_delete_duplicates_ii_leading_dupes",
+   "test_delete_duplicates_ii_empty"
+  ]
+ },
+ "remove-element": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_remove_element_empty",
+   "test_remove_element_single_match",
+   "test_remove_element_single_no_match",
+   "test_remove_element_normal"
+  ]
+ },
+ "remove-invalid-parentheses": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_remove_invalid_parentheses_normal",
+   "test_remove_invalid_parentheses_removes_everything"
+  ]
+ },
+ "remove-k-digits": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_remove_k_digits_normal_case",
+   "test_remove_k_digits_removes_all_digits",
+   "test_remove_k_digits_single_digit_remove_zero"
+  ]
+ },
+ "remove-k-digits-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_remove_k_digits_normal",
+   "test_remove_k_digits_strips_leading_zero",
+   "test_remove_k_digits_removes_everything"
+  ]
+ },
+ "remove-linked-list-elements": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_remove_elements_removes_matches",
+   "test_remove_elements_all_match"
+  ]
+ },
+ "remove-nodes-from-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_restructure_problems.py",
+  "tests": [
+   "test_remove_nodes_normal",
+   "test_remove_nodes_all_equal_are_kept"
+  ]
+ },
+ "remove-nth-node-from-end-of-list": {
+  "old_test_file": "06_linked_lists/tests/test_fast_slow_problems.py",
+  "tests": [
+   "test_remove_nth_from_end_middle",
+   "test_remove_nth_from_end_head",
+   "test_remove_nth_from_end_single"
+  ]
+ },
+ "remove-stones-to-minimize-the-total": {
+  "old_test_file": "08_heaps/tests/test_heap_basics_problems.py",
+  "tests": [
+   "test_min_stone_sum_two_operations",
+   "test_min_stone_sum_three_operations"
+  ]
+ },
+ "reorder-list": {
+  "old_test_file": "06_linked_lists/tests/test_restructure_problems.py",
+  "tests": [
+   "test_reorder_list_even",
+   "test_reorder_list_odd"
+  ]
+ },
+ "reorder-routes-to-make-all-paths-lead-to-the-city-zero": {
+  "old_test_file": "10_graphs/tests/test_components_cycles_bipartite_problems.py",
+  "tests": [
+   "test_min_reorder_normal_case",
+   "test_min_reorder_already_oriented"
+  ]
+ },
+ "reorganize-string": {
+  "old_test_file": "08_heaps/tests/test_top_k_problems.py",
+  "tests": [
+   "test_reorganize_string_possible",
+   "test_reorganize_string_impossible",
+   "test_reorganize_string_single_char"
+  ]
+ },
+ "reorganize-string-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_reorganize_string_possible",
+   "test_reorganize_string_impossible"
+  ]
+ },
+ "repeated-string-match": {
+  "old_test_file": "17_advanced/tests/test_string_algorithms_problems.py",
+  "tests": [
+   "test_repeated_string_match_normal",
+   "test_repeated_string_match_impossible",
+   "test_repeated_string_match_already_contains"
+  ]
+ },
+ "repeated-substring-pattern": {
+  "old_test_file": "17_advanced/tests/test_string_algorithms_problems.py",
+  "tests": [
+   "test_repeated_substring_pattern_true",
+   "test_repeated_substring_pattern_false",
+   "test_repeated_substring_pattern_longer"
+  ]
+ },
+ "replace-the-substring-for-balanced-string": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_balanced_string_already_balanced",
+   "test_balanced_string_one_replacement",
+   "test_balanced_string_two_replacements"
+  ]
+ },
+ "replace-words": {
+  "old_test_file": "14_tries/tests/test_trie_basics_problems.py",
+  "tests": [
+   "test_replace_words_normal",
+   "test_replace_words_no_matching_root",
+   "test_replace_words_shortest_root_wins"
+  ]
+ },
+ "restore-ip-addresses": {
+  "old_test_file": "09_backtracking/tests/test_permutations_problems.py",
+  "tests": [
+   "test_restore_ip_addresses_normal",
+   "test_restore_ip_addresses_too_short",
+   "test_restore_ip_addresses_all_zeros"
+  ]
+ },
+ "reverse-bits": {
+  "old_test_file": "15_bit_manipulation/tests/test_bitwise_basics_problems.py",
+  "tests": [
+   "test_reverse_bits_all_zero",
+   "test_reverse_bits_all_ones",
+   "test_reverse_bits_normal"
+  ]
+ },
+ "reverse-integer": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_reverse_positive",
+   "test_reverse_negative",
+   "test_reverse_trailing_zero",
+   "test_reverse_overflow_returns_zero"
+  ]
+ },
+ "reverse-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_traversal_problems.py",
+  "tests": [
+   "test_reverse_list_empty",
+   "test_reverse_list_single",
+   "test_reverse_list_multiple"
+  ]
+ },
+ "reverse-linked-list-ii": {
+  "old_test_file": "06_linked_lists/tests/test_reversal_problems.py",
+  "tests": [
+   "test_reverse_between_middle",
+   "test_reverse_between_from_head",
+   "test_reverse_between_single_span"
+  ]
+ },
+ "reverse-nodes-in-even-length-groups": {
+  "old_test_file": "06_linked_lists/tests/test_advanced_problems.py",
+  "tests": [
+   "test_reverse_even_length_groups_normal",
+   "test_reverse_even_length_groups_short",
+   "test_reverse_even_length_groups_odd_tail"
+  ]
+ },
+ "reverse-nodes-in-k-group": {
+  "old_test_file": "06_linked_lists/tests/test_reversal_problems.py",
+  "tests": [
+   "test_reverse_k_group_exact",
+   "test_reverse_k_group_full_group",
+   "test_reverse_k_group_k_one"
+  ]
+ },
+ "reverse-pairs": {
+  "old_test_file": "17_advanced/tests/test_range_structures_problems.py",
+  "tests": [
+   "test_reverse_pairs_normal",
+   "test_reverse_pairs_more"
+  ]
+ },
+ "reverse-string": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_reverse_string_empty",
+   "test_reverse_string_single",
+   "test_reverse_string_multiple"
+  ]
+ },
+ "reverse-words-in-a-string": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_reverse_words_normal",
+   "test_reverse_words_strips_extra_spaces"
+  ]
+ },
+ "robot-room-cleaner": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_clean_room_cleans_every_reachable_cell",
+   "test_clean_room_small_room"
+  ]
+ },
+ "rotate-array": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_rotate_normal",
+   "test_rotate_k_greater_than_length",
+   "test_rotate_single_element",
+   "test_rotate_empty",
+   "test_rotate_k_zero_leaves_it_unchanged",
+   "test_rotate_k_equals_length_is_a_full_cycle",
+   "test_rotate_k_is_a_multiple_of_length"
+  ]
+ },
+ "rotate-array-two_pointers": {
+  "old_test_file": "02_two_pointers/tests/test_in_place_mutation_problems.py",
+  "tests": [
+   "test_rotate_normal",
+   "test_rotate_with_negatives",
+   "test_rotate_k_larger_than_length",
+   "test_rotate_k_zero_leaves_it_unchanged",
+   "test_rotate_k_equals_length_is_a_full_cycle",
+   "test_rotate_k_is_a_multiple_of_length"
+  ]
+ },
+ "rotate-image": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_rotate_image_three_by_three",
+   "test_rotate_image_two_by_two",
+   "test_rotate_image_single_cell"
+  ]
+ },
+ "rotate-image-math_geometry": {
+  "old_test_file": "16_math_geometry/tests/test_matrix_problems.py",
+  "tests": [
+   "test_rotate_single_cell",
+   "test_rotate_three_by_three",
+   "test_rotate_two_by_two"
+  ]
+ },
+ "rotate-list": {
+  "old_test_file": "06_linked_lists/tests/test_restructure_problems.py",
+  "tests": [
+   "test_rotate_right_basic",
+   "test_rotate_right_wraps_around",
+   "test_rotate_right_empty"
+  ]
+ },
+ "rotting-oranges": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_oranges_rotting_normal_case",
+   "test_oranges_rotting_impossible",
+   "test_oranges_rotting_no_fresh_oranges"
+  ]
+ },
+ "russian-doll-envelopes": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_max_envelopes_normal",
+   "test_max_envelopes_all_identical"
+  ]
+ },
+ "same-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_same_tree_both_empty",
+   "test_same_tree_one_empty",
+   "test_same_tree_identical_trees",
+   "test_same_tree_different_values",
+   "test_same_tree_different_shapes"
+  ]
+ },
+ "satisfiability-of-equality-equations": {
+  "old_test_file": "17_advanced/tests/test_union_find_problems.py",
+  "tests": [
+   "test_equations_possible_satisfiable",
+   "test_equations_possible_contradiction",
+   "test_equations_possible_single_equation"
+  ]
+ },
+ "search-a-2d-matrix": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_search_matrix_found",
+   "test_search_matrix_not_found",
+   "test_search_matrix_single_cell",
+   "test_search_matrix_empty"
+  ]
+ },
+ "search-a-2d-matrix-ii": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_search_matrix_ii_found",
+   "test_search_matrix_ii_not_found",
+   "test_search_matrix_ii_empty"
+  ]
+ },
+ "search-in-a-binary-search-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_search_in_bst_found",
+   "test_search_in_bst_missing"
+  ]
+ },
+ "search-in-a-sorted-array-of-unknown-size": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_search_unknown_size_found",
+   "test_search_unknown_size_missing",
+   "test_search_unknown_size_single_element"
+  ]
+ },
+ "search-in-rotated-sorted-array": {
+  "old_test_file": "05_binary_search/tests/test_rotated_array_problems.py",
+  "tests": [
+   "test_search_rotated_found_right_half",
+   "test_search_rotated_found_left_half",
+   "test_search_rotated_not_found",
+   "test_search_rotated_empty",
+   "test_search_rotated_single_found",
+   "test_search_rotated_single_missing",
+   "test_search_rotated_no_rotation"
+  ]
+ },
+ "search-in-rotated-sorted-array-ii": {
+  "old_test_file": "05_binary_search/tests/test_rotated_array_problems.py",
+  "tests": [
+   "test_search_rotated_ii_found_with_duplicates",
+   "test_search_rotated_ii_not_found_with_duplicates",
+   "test_search_rotated_ii_empty",
+   "test_search_rotated_ii_single_found",
+   "test_search_rotated_ii_all_same_missing"
+  ]
+ },
+ "search-insert-position": {
+  "old_test_file": "05_binary_search/tests/test_basic_search_problems.py",
+  "tests": [
+   "test_search_insert_found",
+   "test_search_insert_middle_gap",
+   "test_search_insert_end",
+   "test_search_insert_beginning",
+   "test_search_insert_empty"
+  ]
+ },
+ "search-suggestions-system": {
+  "old_test_file": "14_tries/tests/test_word_dictionary_problems.py",
+  "tests": [
+   "test_search_suggestions_normal",
+   "test_search_suggestions_no_matches"
+  ]
+ },
+ "second-minimum-time-to-reach-destination": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_second_minimum_time_normal_case",
+   "test_second_minimum_time_two_nodes"
+  ]
+ },
+ "self-crossing": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_is_self_crossing_true",
+   "test_is_self_crossing_spiral_out",
+   "test_is_self_crossing_square"
+  ]
+ },
+ "serialize-and-deserialize-binary-tree": {
+  "old_test_file": "07_trees/tests/test_construction_problems.py",
+  "tests": [
+   "test_serialize_round_trips",
+   "test_serialize_round_trips_empty_tree"
+  ]
+ },
+ "set-intersection-size-at-least-two": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_intersection_size_two_chain",
+   "test_intersection_size_two_nested"
+  ]
+ },
+ "set-matrix-zeroes": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_set_zeroes_normal",
+   "test_set_zeroes_single_element",
+   "test_set_zeroes_multiple_zeroes"
+  ]
+ },
+ "set-matrix-zeroes-math_geometry": {
+  "old_test_file": "16_math_geometry/tests/test_matrix_problems.py",
+  "tests": [
+   "test_set_zeroes_normal",
+   "test_set_zeroes_no_zero",
+   "test_set_zeroes_single_cell_zero"
+  ]
+ },
+ "short-encoding-of-words": {
+  "old_test_file": "14_tries/tests/test_trie_basics_problems.py",
+  "tests": [
+   "test_minimum_length_encoding_shares_suffixes",
+   "test_minimum_length_encoding_single_word"
+  ]
+ },
+ "shortest-bridge": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_shortest_bridge_normal_case",
+   "test_shortest_bridge_adjacent_islands_across_gap"
+  ]
+ },
+ "shortest-palindrome": {
+  "old_test_file": "17_advanced/tests/test_string_algorithms_problems.py",
+  "tests": [
+   "test_shortest_palindrome_normal",
+   "test_shortest_palindrome_already_palindrome",
+   "test_shortest_palindrome_empty"
+  ]
+ },
+ "shortest-path-in-binary-matrix": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_shortest_path_binary_matrix_normal_case",
+   "test_shortest_path_binary_matrix_blocked",
+   "test_shortest_path_binary_matrix_single_cell"
+  ]
+ },
+ "shortest-path-to-get-all-keys": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_shortest_path_all_keys_normal_case",
+   "test_shortest_path_all_keys_no_keys"
+  ]
+ },
+ "shortest-path-visiting-all-nodes": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_shortest_path_length_normal_case",
+   "test_shortest_path_length_two_nodes"
+  ]
+ },
+ "shortest-path-visiting-all-nodes-bit_manipulation": {
+  "old_test_file": "15_bit_manipulation/tests/test_subset_masks_problems.py",
+  "tests": [
+   "test_shortest_path_length_star_graph",
+   "test_shortest_path_length_branching_tree"
+  ]
+ },
+ "shortest-subarray-with-sum-at-least-k": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_shortest_subarray_single",
+   "test_shortest_subarray_impossible",
+   "test_shortest_subarray_with_negative",
+   "test_shortest_subarray_normal"
+  ]
+ },
+ "simplify-path": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_simplify_path_trailing_slash",
+   "test_simplify_path_above_root",
+   "test_simplify_path_double_slash",
+   "test_simplify_path_dots"
+  ]
+ },
+ "single-element-in-a-sorted-array": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_single_non_duplicate_early",
+   "test_single_non_duplicate_late",
+   "test_single_non_duplicate_single_element"
+  ]
+ },
+ "single-number": {
+  "old_test_file": "15_bit_manipulation/tests/test_xor_problems.py",
+  "tests": [
+   "test_single_number_normal",
+   "test_single_number_single_element",
+   "test_single_number_negative_values"
+  ]
+ },
+ "single-number-ii": {
+  "old_test_file": "15_bit_manipulation/tests/test_xor_problems.py",
+  "tests": [
+   "test_single_number_ii_normal",
+   "test_single_number_ii_single_element",
+   "test_single_number_ii_larger_group"
+  ]
+ },
+ "single-number-iii": {
+  "old_test_file": "15_bit_manipulation/tests/test_xor_problems.py",
+  "tests": [
+   "test_single_number_iii_normal",
+   "test_single_number_iii_two_elements"
+  ]
+ },
+ "single-threaded-cpu": {
+  "old_test_file": "08_heaps/tests/test_two_heaps_problems.py",
+  "tests": [
+   "test_get_order_normal",
+   "test_get_order_all_same_arrival"
+  ]
+ },
+ "sliding-subarray-beauty": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_get_subarray_beauty_normal",
+   "test_get_subarray_beauty_first_smallest",
+   "test_get_subarray_beauty_all_negative"
+  ]
+ },
+ "sliding-window-maximum": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_max_sliding_window_single_element",
+   "test_max_sliding_window_normal",
+   "test_max_sliding_window_k_equals_length",
+   "test_max_sliding_window_decreasing"
+  ]
+ },
+ "sliding-window-median": {
+  "old_test_file": "08_heaps/tests/test_two_heaps_problems.py",
+  "tests": [
+   "test_median_sliding_window_normal",
+   "test_median_sliding_window_size_one",
+   "test_median_sliding_window_even_window"
+  ]
+ },
+ "sliding-window-median-mixed_interview_practice": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_median_sliding_window_odd_window",
+   "test_median_sliding_window_with_repeats"
+  ]
+ },
+ "sliding-window-minimum": {
+  "old_test_file": "04_sliding_window/tests/test_window_max_min_problems.py",
+  "tests": [
+   "test_min_sliding_window_single_element",
+   "test_min_sliding_window_normal",
+   "test_min_sliding_window_decreasing"
+  ]
+ },
+ "smallest-even-multiple": {
+  "old_test_file": "16_math_geometry/tests/test_gcd_lcm_problems.py",
+  "tests": [
+   "test_smallest_even_multiple_odd",
+   "test_smallest_even_multiple_even"
+  ]
+ },
+ "smallest-range-covering-elements-from-k-lists": {
+  "old_test_file": "08_heaps/tests/test_k_way_merge_problems.py",
+  "tests": [
+   "test_smallest_range_normal",
+   "test_smallest_range_single_list",
+   "test_smallest_range_all_same_value"
+  ]
+ },
+ "smallest-string-with-swaps": {
+  "old_test_file": "17_advanced/tests/test_union_find_problems.py",
+  "tests": [
+   "test_smallest_string_with_swaps_normal",
+   "test_smallest_string_with_swaps_no_pairs",
+   "test_smallest_string_with_swaps_full_chain"
+  ]
+ },
+ "smallest-sufficient-team": {
+  "old_test_file": "17_advanced/tests/test_bitmask_dp_problems.py",
+  "tests": [
+   "test_smallest_sufficient_team_single_skill",
+   "test_smallest_sufficient_team_normal",
+   "test_smallest_sufficient_team_one_person_covers_all"
+  ]
+ },
+ "snakes-and-ladders": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_snakes_and_ladders_normal_case",
+   "test_snakes_and_ladders_single_cell"
+  ]
+ },
+ "snapshot-array": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_snapshot_array_reads_old_snapshot",
+   "test_snapshot_array_unset_index_is_zero"
+  ]
+ },
+ "sort-characters-by-frequency": {
+  "old_test_file": "08_heaps/tests/test_top_k_problems.py",
+  "tests": [
+   "test_frequency_sort_keeps_the_same_letters",
+   "test_frequency_sort_groups_each_letter_together",
+   "test_frequency_sort_orders_by_descending_count"
+  ]
+ },
+ "sort-colors": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_sort_colors_mixed",
+   "test_sort_colors_one_of_each",
+   "test_sort_colors_single",
+   "test_sort_colors_no_twos"
+  ]
+ },
+ "sort-colors-two_pointers": {
+  "old_test_file": "02_two_pointers/tests/test_in_place_mutation_problems.py",
+  "tests": [
+   "test_sort_colors_empty",
+   "test_sort_colors_single",
+   "test_sort_colors_normal",
+   "test_sort_colors_already_sorted"
+  ]
+ },
+ "sort-items-by-groups-respecting-dependencies": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_sort_items_respects_groups_and_dependencies",
+   "test_sort_items_cycle_returns_empty"
+  ]
+ },
+ "sort-list": {
+  "old_test_file": "06_linked_lists/tests/test_merge_split_problems.py",
+  "tests": [
+   "test_sort_list_unsorted",
+   "test_sort_list_with_negatives",
+   "test_sort_list_empty"
+  ]
+ },
+ "spiral-matrix": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_array_problems.py",
+  "tests": [
+   "test_spiral_order_square",
+   "test_spiral_order_wide",
+   "test_spiral_order_single_cell",
+   "test_spiral_order_two_by_two"
+  ]
+ },
+ "spiral-matrix-ii": {
+  "old_test_file": "16_math_geometry/tests/test_matrix_problems.py",
+  "tests": [
+   "test_generate_matrix_normal",
+   "test_generate_matrix_single"
+  ]
+ },
+ "spiral-matrix-math_geometry": {
+  "old_test_file": "16_math_geometry/tests/test_matrix_problems.py",
+  "tests": [
+   "test_spiral_order_normal",
+   "test_spiral_order_single_row",
+   "test_spiral_order_single_column",
+   "test_spiral_order_empty"
+  ]
+ },
+ "split-a-string-into-the-max-number-of-unique-substrings": {
+  "old_test_file": "09_backtracking/tests/test_backtracking_basics_problems.py",
+  "tests": [
+   "test_max_unique_split_normal",
+   "test_max_unique_split_short",
+   "test_max_unique_split_all_same"
+  ]
+ },
+ "split-array-into-consecutive-subsequences": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_is_possible_one_run",
+   "test_is_possible_two_runs",
+   "test_is_possible_too_short"
+  ]
+ },
+ "split-array-largest-sum": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_split_array_basic",
+   "test_split_array_single_group",
+   "test_split_array_groups_equal_length",
+   "test_split_array_single_element"
+  ]
+ },
+ "split-linked-list-in-parts": {
+  "old_test_file": "06_linked_lists/tests/test_restructure_problems.py",
+  "tests": [
+   "test_split_list_to_parts_uneven",
+   "test_split_list_to_parts_balanced"
+  ]
+ },
+ "sqrtx": {
+  "old_test_file": "05_binary_search/tests/test_search_on_answer_problems.py",
+  "tests": [
+   "test_my_sqrt_perfect_square",
+   "test_my_sqrt_rounds_down",
+   "test_my_sqrt_zero",
+   "test_my_sqrt_one"
+  ]
+ },
+ "sqrtx-math_geometry": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_my_sqrt_perfect_square",
+   "test_my_sqrt_rounds_down",
+   "test_my_sqrt_zero",
+   "test_my_sqrt_one"
+  ]
+ },
+ "squares-of-a-sorted-array": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_sorted_squares_empty",
+   "test_sorted_squares_single",
+   "test_sorted_squares_negatives_and_positives",
+   "test_sorted_squares_all_negative"
+  ]
+ },
+ "stock-price-fluctuation": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_stock_price_tracks_current_and_extremes",
+   "test_stock_price_corrects_a_record"
+  ]
+ },
+ "stream-of-characters": {
+  "old_test_file": "14_tries/tests/test_word_dictionary_problems.py",
+  "tests": [
+   "test_stream_checker_matches_suffix",
+   "test_stream_checker_single_letter_word"
+  ]
+ },
+ "subarray-product-less-than-k": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_num_subarray_product_less_than_k_normal",
+   "test_num_subarray_product_less_than_k_zero_k"
+  ]
+ },
+ "subarray-product-less-than-k-sliding_window": {
+  "old_test_file": "04_sliding_window/tests/test_variable_window_problems.py",
+  "tests": [
+   "test_num_subarray_product_less_than_k_normal",
+   "test_num_subarray_product_less_than_k_all_qualify",
+   "test_num_subarray_product_less_than_k_none_qualify",
+   "test_num_subarray_product_less_than_k_single_element"
+  ]
+ },
+ "subarray-sum-equals-k": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_subarray_sum_normal",
+   "test_subarray_sum_negative_numbers",
+   "test_subarray_sum_no_match",
+   "test_subarray_sum_single_element"
+  ]
+ },
+ "subarray-sums-divisible-by-k": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_prefix_sum_problems.py",
+  "tests": [
+   "test_subarrays_div_by_k_normal",
+   "test_subarrays_div_by_k_single_element_divisible",
+   "test_subarrays_div_by_k_no_match"
+  ]
+ },
+ "subarrays-with-k-different-integers": {
+  "old_test_file": "02_two_pointers/tests/test_same_direction_problems.py",
+  "tests": [
+   "test_subarrays_with_k_distinct_normal",
+   "test_subarrays_with_k_distinct_three"
+  ]
+ },
+ "subarrays-with-k-different-integers-sliding_window": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_subarrays_with_k_distinct_normal",
+   "test_subarrays_with_k_distinct_normal_two",
+   "test_subarrays_with_k_distinct_single_element",
+   "test_subarrays_with_k_distinct_k_exceeds_distinct"
+  ]
+ },
+ "subsets": {
+  "old_test_file": "09_backtracking/tests/test_subsets_combinations_problems.py",
+  "tests": [
+   "test_subsets_empty",
+   "test_subsets_single_element",
+   "test_subsets_normal"
+  ]
+ },
+ "subsets-bit_manipulation": {
+  "old_test_file": "15_bit_manipulation/tests/test_subset_masks_problems.py",
+  "tests": [
+   "test_subsets_empty_input",
+   "test_subsets_single_element",
+   "test_subsets_normal"
+  ]
+ },
+ "subsets-ii": {
+  "old_test_file": "09_backtracking/tests/test_subsets_combinations_problems.py",
+  "tests": [
+   "test_subsets_with_dup_normal",
+   "test_subsets_with_dup_all_same"
+  ]
+ },
+ "substring-with-concatenation-of-all-words": {
+  "old_test_file": "04_sliding_window/tests/test_frequency_window_problems.py",
+  "tests": [
+   "test_find_substring_normal",
+   "test_find_substring_no_match"
+  ]
+ },
+ "substrings-of-size-three-with-distinct-characters": {
+  "old_test_file": "04_sliding_window/tests/test_fixed_window_problems.py",
+  "tests": [
+   "test_count_good_substrings_one",
+   "test_count_good_substrings_several"
+  ]
+ },
+ "subtree-of-another-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_subtree_of_another_tree_identical_tree",
+   "test_subtree_of_another_tree_nested_match",
+   "test_subtree_of_another_tree_same_values_extra_node",
+   "test_subtree_of_another_tree_empty_subroot",
+   "test_subtree_of_another_tree_empty_root_nonempty_subroot"
+  ]
+ },
+ "successful-pairs-of-spells-and-potions": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_successful_pairs_normal",
+   "test_successful_pairs_higher_threshold"
+  ]
+ },
+ "sudoku-solver": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_solve_sudoku_solves_in_place",
+   "test_solve_sudoku_fills_every_cell_validly",
+   "test_solve_sudoku_keeps_the_given_clues"
+  ]
+ },
+ "sum-of-subarray-minimums": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_sum_subarray_mins_normal",
+   "test_sum_subarray_mins_larger"
+  ]
+ },
+ "sum-of-subarray-ranges": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_sub_array_ranges_normal",
+   "test_sub_array_ranges_with_duplicates",
+   "test_sub_array_ranges_with_negatives"
+  ]
+ },
+ "sum-of-two-integers": {
+  "old_test_file": "15_bit_manipulation/tests/test_masks_problems.py",
+  "tests": [
+   "test_get_sum_normal",
+   "test_get_sum_with_carry",
+   "test_get_sum_zero",
+   "test_get_sum_negative",
+   "test_get_sum_both_negative"
+  ]
+ },
+ "sum-root-to-leaf-numbers": {
+  "old_test_file": "07_trees/tests/test_path_problems.py",
+  "tests": [
+   "test_sum_root_to_leaf_numbers_empty_tree",
+   "test_sum_root_to_leaf_numbers_single_node",
+   "test_sum_root_to_leaf_numbers_two_paths",
+   "test_sum_root_to_leaf_numbers_multi_digit_paths",
+   "test_sum_root_to_leaf_numbers_skewed_tree"
+  ]
+ },
+ "summary-ranges": {
+  "old_test_file": "13_intervals/tests/test_interval_basics_problems.py",
+  "tests": [
+   "test_summary_ranges_empty",
+   "test_summary_ranges_single",
+   "test_summary_ranges_normal",
+   "test_summary_ranges_all_consecutive"
+  ]
+ },
+ "super-ugly-number": {
+  "old_test_file": "08_heaps/tests/test_k_way_merge_problems.py",
+  "tests": [
+   "test_nth_super_ugly_number_normal",
+   "test_nth_super_ugly_number_first_is_one"
+  ]
+ },
+ "surrounded-regions": {
+  "old_test_file": "10_graphs/tests/test_grid_dfs_problems.py",
+  "tests": [
+   "test_solve_surrounds_enclosed_region",
+   "test_solve_no_enclosed_region"
+  ]
+ },
+ "swap-nodes-in-pairs": {
+  "old_test_file": "06_linked_lists/tests/test_reversal_problems.py",
+  "tests": [
+   "test_swap_pairs_even",
+   "test_swap_pairs_odd_leaves_last",
+   "test_swap_pairs_empty"
+  ]
+ },
+ "swapping-nodes-in-a-linked-list": {
+  "old_test_file": "06_linked_lists/tests/test_reversal_problems.py",
+  "tests": [
+   "test_swap_nodes_normal",
+   "test_swap_nodes_longer_list",
+   "test_swap_nodes_single_node"
+  ]
+ },
+ "swim-in-rising-water": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_swim_in_water_small_grid",
+   "test_swim_in_water_larger_grid"
+  ]
+ },
+ "swim-in-rising-water-graphs": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_swim_in_water_normal_case",
+   "test_swim_in_water_single_cell"
+  ]
+ },
+ "symmetric-tree": {
+  "old_test_file": "07_trees/tests/test_recursive_shape_problems.py",
+  "tests": [
+   "test_symmetric_tree_empty_tree",
+   "test_symmetric_tree_single_node",
+   "test_symmetric_tree_mirror_shape",
+   "test_symmetric_tree_same_values_wrong_shape"
+  ]
+ },
+ "target-sum": {
+  "old_test_file": "11_dp/tests/test_knapsack_problems.py",
+  "tests": [
+   "test_find_target_sum_ways_normal",
+   "test_find_target_sum_ways_single_zero_target",
+   "test_find_target_sum_ways_no_way"
+  ]
+ },
+ "task-scheduler": {
+  "old_test_file": "08_heaps/tests/test_top_k_problems.py",
+  "tests": [
+   "test_least_interval_normal",
+   "test_least_interval_no_cooldown",
+   "test_least_interval_single_task_type"
+  ]
+ },
+ "task-scheduler-greedy_algorithms": {
+  "old_test_file": "12_greedy_algorithms/tests/test_interval_greedy_problems.py",
+  "tests": [
+   "test_least_interval_needs_idle",
+   "test_least_interval_no_idle_needed",
+   "test_least_interval_single_task_type",
+   "test_least_interval_empty"
+  ]
+ },
+ "the-maze": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_has_path_true",
+   "test_has_path_false"
+  ]
+ },
+ "the-maze-ii": {
+  "old_test_file": "10_graphs/tests/test_weighted_shortest_paths_problems.py",
+  "tests": [
+   "test_shortest_distance_normal_case",
+   "test_shortest_distance_unreachable"
+  ]
+ },
+ "the-skyline-problem": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_get_skyline_normal",
+   "test_get_skyline_adjacent_same_height"
+  ]
+ },
+ "the-skyline-problem-advanced": {
+  "old_test_file": "17_advanced/tests/test_divide_and_conquer_problems.py",
+  "tests": [
+   "test_get_skyline_single_building",
+   "test_get_skyline_overlapping_buildings",
+   "test_get_skyline_empty"
+  ]
+ },
+ "the-skyline-problem-intervals": {
+  "old_test_file": "13_intervals/tests/test_sweep_line_problems.py",
+  "tests": [
+   "test_get_skyline_normal",
+   "test_get_skyline_single_building",
+   "test_get_skyline_nested_building"
+  ]
+ },
+ "time-based-key-value-store": {
+  "old_test_file": "05_binary_search/tests/test_boundary_search_problems.py",
+  "tests": [
+   "test_time_map_get_exact_and_earlier_timestamp",
+   "test_time_map_get_before_first_set",
+   "test_time_map_get_latest_before_timestamp",
+   "test_time_map_get_missing_key"
+  ]
+ },
+ "time-needed-to-inform-all-employees": {
+  "old_test_file": "10_graphs/tests/test_topological_sort_problems.py",
+  "tests": [
+   "test_num_of_minutes_normal_case",
+   "test_num_of_minutes_single_employee"
+  ]
+ },
+ "top-k-frequent-elements": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_top_k_frequent_normal",
+   "test_top_k_frequent_single_element",
+   "test_top_k_frequent_k_equals_distinct_count",
+   "test_top_k_frequent_breaks_a_tie",
+   "test_top_k_frequent_with_negatives"
+  ]
+ },
+ "top-k-frequent-elements-heaps": {
+  "old_test_file": "08_heaps/tests/test_top_k_problems.py",
+  "tests": [
+   "test_top_k_frequent_normal",
+   "test_top_k_frequent_all_unique",
+   "test_top_k_frequent_single"
+  ]
+ },
+ "top-k-frequent-words": {
+  "old_test_file": "08_heaps/tests/test_top_k_problems.py",
+  "tests": [
+   "test_top_k_frequent_words_normal",
+   "test_top_k_frequent_words_tie_break_alphabetical",
+   "test_top_k_frequent_words_single"
+  ]
+ },
+ "total-hamming-distance": {
+  "old_test_file": "15_bit_manipulation/tests/test_subset_masks_problems.py",
+  "tests": [
+   "test_total_hamming_distance_normal",
+   "test_total_hamming_distance_single_element",
+   "test_total_hamming_distance_identical_values"
+  ]
+ },
+ "trapping-rain-water": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_trap_empty",
+   "test_trap_no_water",
+   "test_trap_normal"
+  ]
+ },
+ "trapping-rain-water-ii": {
+  "old_test_file": "08_heaps/tests/test_heap_hards_problems.py",
+  "tests": [
+   "test_trap_rain_water_normal",
+   "test_trap_rain_water_deep_basin"
+  ]
+ },
+ "trapping-rain-water-stacks_and_queues": {
+  "old_test_file": "03_stacks_and_queues/tests/test_monotonic_stack_problems.py",
+  "tests": [
+   "test_trap_normal_case",
+   "test_trap_empty",
+   "test_trap_single_bar",
+   "test_trap_no_trapped_water"
+  ]
+ },
+ "triangle": {
+  "old_test_file": "11_dp/tests/test_grid_dp_problems.py",
+  "tests": [
+   "test_minimum_total_single_row",
+   "test_minimum_total_normal"
+  ]
+ },
+ "trim-a-binary-search-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_trim_bst_drops_low_value",
+   "test_trim_bst_keeps_nested_survivor"
+  ]
+ },
+ "two-city-scheduling": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_two_city_sched_cost_normal",
+   "test_two_city_sched_cost_six_people"
+  ]
+ },
+ "two-sum": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_two_sum_normal",
+   "test_two_sum_middle_pair",
+   "test_two_sum_duplicate_values",
+   "test_two_sum_all_negative",
+   "test_two_sum_mixed_signs",
+   "test_two_sum_no_pair"
+  ]
+ },
+ "two-sum-ii-input-array-is-sorted": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_two_sum_normal",
+   "test_two_sum_single_pair_at_ends",
+   "test_two_sum_negative_numbers"
+  ]
+ },
+ "ugly-number-ii": {
+  "old_test_file": "16_math_geometry/tests/test_modular_arithmetic_problems.py",
+  "tests": [
+   "test_nth_ugly_number_tenth",
+   "test_nth_ugly_number_first"
+  ]
+ },
+ "unique-paths": {
+  "old_test_file": "11_dp/tests/test_grid_dp_problems.py",
+  "tests": [
+   "test_unique_paths_single_cell",
+   "test_unique_paths_single_row",
+   "test_unique_paths_normal"
+  ]
+ },
+ "unique-paths-ii": {
+  "old_test_file": "11_dp/tests/test_grid_dp_problems.py",
+  "tests": [
+   "test_unique_paths_with_obstacles_no_obstacle",
+   "test_unique_paths_with_obstacles_normal",
+   "test_unique_paths_with_obstacles_start_blocked"
+  ]
+ },
+ "unique-paths-iii": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_unique_paths_iii_with_obstacle",
+   "test_unique_paths_iii_open_grid",
+   "test_unique_paths_iii_unreachable"
+  ]
+ },
+ "utf-8-validation": {
+  "old_test_file": "15_bit_manipulation/tests/test_masks_problems.py",
+  "tests": [
+   "test_valid_utf8_two_byte_sequence",
+   "test_valid_utf8_bad_continuation",
+   "test_valid_utf8_four_byte_sequence"
+  ]
+ },
+ "valid-anagram": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_is_anagram_true",
+   "test_is_anagram_false_different_lengths",
+   "test_is_anagram_empty_strings",
+   "test_is_anagram_t_longer_with_repeat",
+   "test_is_anagram_same_length_different_counts",
+   "test_is_anagram_same_letters_wrong_multiplicity"
+  ]
+ },
+ "valid-palindrome": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_is_palindrome_empty",
+   "test_is_palindrome_single_char",
+   "test_is_palindrome_alphanumeric_only",
+   "test_is_palindrome_not_palindrome"
+  ]
+ },
+ "valid-palindrome-ii": {
+  "old_test_file": "02_two_pointers/tests/test_opposite_end_problems.py",
+  "tests": [
+   "test_valid_palindrome_already_palindrome",
+   "test_valid_palindrome_one_deletion",
+   "test_valid_palindrome_needs_two_deletions"
+  ]
+ },
+ "valid-parentheses": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_is_valid_empty_string",
+   "test_is_valid_single_pair",
+   "test_is_valid_mixed_brackets_true",
+   "test_is_valid_nested_true",
+   "test_is_valid_unmatched_closing_false",
+   "test_is_valid_unclosed_opening_false"
+  ]
+ },
+ "valid-square": {
+  "old_test_file": "16_math_geometry/tests/test_geometry_problems.py",
+  "tests": [
+   "test_valid_square_true",
+   "test_valid_square_false_not_square",
+   "test_valid_square_duplicate_points"
+  ]
+ },
+ "valid-sudoku": {
+  "old_test_file": "01_arrays_and_hashing/tests/test_hashing_problems.py",
+  "tests": [
+   "test_is_valid_sudoku_true",
+   "test_is_valid_sudoku_false_duplicate_in_column",
+   "test_is_valid_sudoku_false_duplicate_only_in_box",
+   "test_is_valid_sudoku_false_duplicate_only_in_row",
+   "test_is_valid_sudoku_same_value_in_different_boxes_is_fine",
+   "test_is_valid_sudoku_empty_board"
+  ]
+ },
+ "validate-binary-search-tree": {
+  "old_test_file": "07_trees/tests/test_bst_problems.py",
+  "tests": [
+   "test_validate_bst_valid",
+   "test_validate_bst_invalid_grandchild",
+   "test_validate_bst_left_child_too_large",
+   "test_validate_bst_empty"
+  ]
+ },
+ "validate-stack-sequences": {
+  "old_test_file": "03_stacks_and_queues/tests/test_stack_problems.py",
+  "tests": [
+   "test_validate_stack_sequences_valid",
+   "test_validate_stack_sequences_invalid"
+  ]
+ },
+ "vertical-order-traversal-of-a-binary-tree": {
+  "old_test_file": "07_trees/tests/test_bfs_level_problems.py",
+  "tests": [
+   "test_vertical_traversal_normal",
+   "test_vertical_traversal_sorts_ties_by_value"
+  ]
+ },
+ "walls-and-gates": {
+  "old_test_file": "10_graphs/tests/test_grid_bfs_problems.py",
+  "tests": [
+   "test_walls_and_gates_normal_case",
+   "test_walls_and_gates_no_gates"
+  ]
+ },
+ "water-and-jug-problem": {
+  "old_test_file": "16_math_geometry/tests/test_gcd_lcm_problems.py",
+  "tests": [
+   "test_can_measure_water_reachable",
+   "test_can_measure_water_unreachable",
+   "test_can_measure_water_uses_both_jugs_full"
+  ]
+ },
+ "wiggle-sort-ii": {
+  "old_test_file": "02_two_pointers/tests/test_in_place_mutation_problems.py",
+  "tests": [
+   "test_wiggle_sort_alternates",
+   "test_wiggle_sort_odd_length",
+   "test_wiggle_sort_two_elements",
+   "test_wiggle_sort_single_element"
+  ]
+ },
+ "wiggle-subsequence": {
+  "old_test_file": "12_greedy_algorithms/tests/test_greedy_fundamentals_problems.py",
+  "tests": [
+   "test_wiggle_max_length_fully_wiggly",
+   "test_wiggle_max_length_monotonic"
+  ]
+ },
+ "wildcard-matching": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_is_match_wildcard_star",
+   "test_is_match_wildcard_question_mark",
+   "test_is_match_wildcard_empty_pattern"
+  ]
+ },
+ "word-break": {
+  "old_test_file": "11_dp/tests/test_sequence_dp_problems.py",
+  "tests": [
+   "test_word_break_true",
+   "test_word_break_false",
+   "test_word_break_empty"
+  ]
+ },
+ "word-break-ii": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_word_break_two_sentences",
+   "test_word_break_no_sentence"
+  ]
+ },
+ "word-ladder": {
+  "old_test_file": "10_graphs/tests/test_implicit_state_bfs_problems.py",
+  "tests": [
+   "test_ladder_length_normal_case",
+   "test_ladder_length_no_path"
+  ]
+ },
+ "word-ladder-ii": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_find_ladders_normal_case",
+   "test_find_ladders_no_path"
+  ]
+ },
+ "word-search": {
+  "old_test_file": "09_backtracking/tests/test_grid_backtracking_problems.py",
+  "tests": [
+   "test_exist_single_cell_match",
+   "test_exist_normal_found",
+   "test_exist_not_found"
+  ]
+ },
+ "word-search-ii": {
+  "old_test_file": "14_tries/tests/test_trie_dfs_problems.py",
+  "tests": [
+   "test_find_words_normal_board",
+   "test_find_words_no_matches",
+   "test_find_words_single_cell_board"
+  ]
+ },
+ "word-search-ii-mixed_interview_practice": {
+  "old_test_file": "18_mixed_interview_practice/tests/test_multi_pattern_problems.py",
+  "tests": [
+   "test_find_words_normal",
+   "test_find_words_no_match"
+  ]
+ },
+ "word-squares": {
+  "old_test_file": "14_tries/tests/test_trie_dfs_problems.py",
+  "tests": [
+   "test_word_squares_two_solutions",
+   "test_word_squares_repeated_words"
+  ]
+ }
+}

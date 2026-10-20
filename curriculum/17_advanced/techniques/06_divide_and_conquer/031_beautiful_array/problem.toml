@@ -1,0 +1,8 @@
+id = "beautiful-array"
+title = "Beautiful Array"
+difficulty = "medium"
+leetcode = 932
+url = "https://leetcode.com/problems/beautiful-array/"
+key_idea = "recursively build odd/even-biased halves whose combination avoids arithmetic triples."
+hints = []
+prompt = ""

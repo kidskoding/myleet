@@ -1,0 +1,8 @@
+id = "subarray-sum-equals-k"
+title = "Subarray Sum Equals K"
+difficulty = "medium"
+leetcode = 560
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+key_idea = "running prefix sum plus a count hash map."
+hints = []
+prompt = ""

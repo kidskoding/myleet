@@ -1,0 +1,8 @@
+id = "alien-dictionary"
+title = "Alien Dictionary"
+difficulty = "hard"
+leetcode = 269
+url = "https://leetcode.com/problems/alien-dictionary/"
+key_idea = "derive ordering edges from adjacent word pairs, then topological sort."
+hints = []
+prompt = ""

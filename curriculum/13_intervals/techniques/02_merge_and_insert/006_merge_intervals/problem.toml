@@ -1,0 +1,8 @@
+id = "merge-intervals"
+title = "Merge Intervals"
+difficulty = "medium"
+leetcode = 56
+url = "https://leetcode.com/problems/merge-intervals/"
+key_idea = "sort by start, extend the current merged interval or start a new one."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-size-subarray-sum-equals-k"
+title = "Maximum Size Subarray Sum Equals k"
+difficulty = "medium"
+leetcode = 325
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
+key_idea = "prefix sum with first-seen index in a hash map to get longest subarray."
+hints = []
+prompt = ""

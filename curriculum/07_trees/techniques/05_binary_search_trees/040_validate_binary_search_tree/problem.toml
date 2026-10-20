@@ -1,0 +1,8 @@
+id = "validate-binary-search-tree"
+title = "Validate Binary Search Tree"
+difficulty = "medium"
+leetcode = 98
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+key_idea = "carry lower and upper bounds."
+hints = []
+prompt = ""

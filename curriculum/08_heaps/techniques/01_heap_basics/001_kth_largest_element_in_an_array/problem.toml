@@ -1,0 +1,8 @@
+id = "kth-largest-element-in-an-array"
+title = "Kth Largest Element In An Array"
+difficulty = "medium"
+leetcode = 215
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+key_idea = "keep a size-k min heap so its top is the kth largest."
+hints = []
+prompt = ""

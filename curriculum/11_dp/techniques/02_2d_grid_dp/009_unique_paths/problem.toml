@@ -1,0 +1,8 @@
+id = "unique-paths"
+title = "Unique Paths"
+difficulty = "medium"
+leetcode = 62
+url = "https://leetcode.com/problems/unique-paths/"
+key_idea = "dp[r][c] = dp[r - 1][c] + dp[r][c - 1]."
+hints = []
+prompt = ""

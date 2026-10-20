@@ -1,0 +1,8 @@
+id = "reconstruct-itinerary"
+title = "Reconstruct Itinerary"
+difficulty = "hard"
+leetcode = 332
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+key_idea = "graph traversal with lexical ordering constraints."
+hints = []
+prompt = ""

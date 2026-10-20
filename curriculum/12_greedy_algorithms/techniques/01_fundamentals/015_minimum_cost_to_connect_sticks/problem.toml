@@ -1,0 +1,8 @@
+id = "minimum-cost-to-connect-sticks"
+title = "Minimum Cost to Connect Sticks"
+difficulty = "medium"
+leetcode = 1167
+url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
+key_idea = "min-heap greedy repeatedly merging the two smallest."
+hints = []
+prompt = ""

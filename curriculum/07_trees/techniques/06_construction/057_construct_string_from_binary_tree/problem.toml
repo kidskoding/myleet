@@ -1,0 +1,8 @@
+id = "construct-string-from-binary-tree"
+title = "Construct String From Binary Tree"
+difficulty = "medium"
+leetcode = 606
+url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
+key_idea = "preorder emit, adding () around children and dropping empty pairs."
+hints = []
+prompt = ""

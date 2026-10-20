@@ -1,0 +1,8 @@
+id = "rearrange-array-elements-by-sign"
+title = "Rearrange Array Elements by Sign"
+difficulty = "medium"
+leetcode = 2149
+url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
+key_idea = "one pointer over positives, one over negatives, interleaved."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "number-of-provinces"
+title = "Number Of Provinces"
+difficulty = "medium"
+leetcode = 547
+url = "https://leetcode.com/problems/number-of-provinces/"
+key_idea = "count connected components via union-find or DFS on an"
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "find-the-smallest-divisor-given-a-threshold"
+title = "Find the Smallest Divisor Given a Threshold"
+difficulty = "medium"
+leetcode = 1283
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+key_idea = "binary search on the answer for the minimum feasible divisor."
+hints = []
+prompt = ""

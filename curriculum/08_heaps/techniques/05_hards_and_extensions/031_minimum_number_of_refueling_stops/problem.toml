@@ -1,0 +1,8 @@
+id = "minimum-number-of-refueling-stops"
+title = "Minimum Number Of Refueling Stops"
+difficulty = "hard"
+leetcode = 871
+url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
+key_idea = "max heap of passed fuel stops greedily refuels the largest tank when stranded."
+hints = []
+prompt = ""

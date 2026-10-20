@@ -1,0 +1,8 @@
+id = "flood-fill"
+title = "Flood Fill"
+difficulty = "easy"
+leetcode = 733
+url = "https://leetcode.com/problems/flood-fill/"
+key_idea = "grid DFS/BFS over cells with the same value."
+hints = []
+prompt = ""

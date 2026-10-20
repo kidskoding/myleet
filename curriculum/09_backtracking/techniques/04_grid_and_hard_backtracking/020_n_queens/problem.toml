@@ -1,0 +1,8 @@
+id = "n-queens"
+title = "N-Queens"
+difficulty = "hard"
+leetcode = 51
+url = "https://leetcode.com/problems/n-queens/"
+key_idea = "place one queen per row, prune on column and diagonal conflicts."
+hints = []
+prompt = ""

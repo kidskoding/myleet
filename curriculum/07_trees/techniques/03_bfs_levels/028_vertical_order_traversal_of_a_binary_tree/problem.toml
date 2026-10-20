@@ -1,0 +1,8 @@
+id = "vertical-order-traversal-of-a-binary-tree"
+title = "Vertical Order Traversal Of A Binary Tree"
+difficulty = "hard"
+leetcode = 987
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+key_idea = "track column indices during traversal."
+hints = []
+prompt = ""

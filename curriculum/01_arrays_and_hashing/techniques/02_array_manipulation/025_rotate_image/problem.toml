@@ -1,0 +1,8 @@
+id = "rotate-image"
+title = "Rotate Image"
+difficulty = "medium"
+leetcode = 48
+url = "https://leetcode.com/problems/rotate-image/"
+key_idea = "transpose in place, then reverse each row."
+hints = []
+prompt = ""

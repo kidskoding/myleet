@@ -1,0 +1,8 @@
+id = "group-anagrams"
+title = "Group Anagrams"
+difficulty = "medium"
+leetcode = 49
+url = "https://leetcode.com/problems/group-anagrams/"
+key_idea = "hash map keyed by a sorted-string signature."
+hints = []
+prompt = ""

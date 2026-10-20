@@ -1,0 +1,8 @@
+id = "minimize-maximum-pair-sum-in-array"
+title = "Minimize Maximum Pair Sum In Array"
+difficulty = "medium"
+leetcode = 1877
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+key_idea = "sort, then pair smallest with largest from opposite ends to flatten the max pair sum."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "hand-of-straights"
+title = "Hand of Straights"
+difficulty = "medium"
+leetcode = 846
+url = "https://leetcode.com/problems/hand-of-straights/"
+key_idea = "repeatedly start a run from the smallest remaining card and consume consecutive values."
+hints = []
+prompt = ""

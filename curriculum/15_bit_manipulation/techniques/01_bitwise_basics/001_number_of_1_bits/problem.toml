@@ -1,0 +1,8 @@
+id = "number-of-1-bits"
+title = "Number of 1 Bits"
+difficulty = "easy"
+leetcode = 191
+url = "https://leetcode.com/problems/number-of-1-bits/"
+key_idea = "repeatedly clear the lowest set bit with n & (n - 1) and count steps."
+hints = []
+prompt = ""

@@ -1,0 +1,8 @@
+id = "car-fleet"
+title = "Car Fleet"
+difficulty = "medium"
+leetcode = 853
+url = "https://leetcode.com/problems/car-fleet/"
+key_idea = "sort by position and use a stack of arrival times to merge cars into fleets."
+hints = []
+prompt = ""

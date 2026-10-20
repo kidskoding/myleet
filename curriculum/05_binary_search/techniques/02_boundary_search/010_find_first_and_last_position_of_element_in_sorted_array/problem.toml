@@ -1,0 +1,8 @@
+id = "find-first-and-last-position-of-element-in-sorted-array"
+title = "Find First and Last Position of Element in Sorted Array"
+difficulty = "medium"
+leetcode = 34
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+key_idea = "run two boundary searches, one for the first true and one for the last true."
+hints = []
+prompt = ""

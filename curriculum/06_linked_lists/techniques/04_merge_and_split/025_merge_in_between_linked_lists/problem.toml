@@ -1,0 +1,8 @@
+id = "merge-in-between-linked-lists"
+title = "Merge In Between Linked Lists"
+difficulty = "medium"
+leetcode = 1669
+url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
+key_idea = "cut a node range and splice another list in by index."
+hints = []
+prompt = ""

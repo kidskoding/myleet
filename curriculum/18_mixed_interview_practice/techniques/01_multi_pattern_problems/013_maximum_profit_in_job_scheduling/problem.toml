@@ -1,0 +1,8 @@
+id = "maximum-profit-in-job-scheduling"
+title = "Maximum Profit in Job Scheduling"
+difficulty = "hard"
+leetcode = 1235
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+key_idea = "sort by end time, DP over jobs, binary-search the latest non-overlapping job."
+hints = []
+prompt = ""

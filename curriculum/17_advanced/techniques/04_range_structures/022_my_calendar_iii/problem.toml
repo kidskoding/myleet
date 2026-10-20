@@ -1,0 +1,8 @@
+id = "my-calendar-iii-advanced"
+title = "My Calendar III"
+difficulty = "hard"
+leetcode = 732
+url = "https://leetcode.com/problems/my-calendar-iii/"
+key_idea = "segment tree with lazy propagation (range update, range-max query)."
+hints = []
+prompt = ""

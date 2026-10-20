@@ -1,0 +1,8 @@
+id = "sqrtx"
+title = "Sqrt(x)"
+difficulty = "easy"
+leetcode = 69
+url = "https://leetcode.com/problems/sqrtx/"
+key_idea = "binary search the answer space for the largest value whose square fits."
+hints = []
+prompt = ""

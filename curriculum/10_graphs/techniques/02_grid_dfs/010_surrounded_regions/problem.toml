@@ -1,0 +1,8 @@
+id = "surrounded-regions"
+title = "Surrounded Regions"
+difficulty = "medium"
+leetcode = 130
+url = "https://leetcode.com/problems/surrounded-regions/"
+key_idea = "mark border-connected regions before flipping enclosed cells."
+hints = []
+prompt = ""

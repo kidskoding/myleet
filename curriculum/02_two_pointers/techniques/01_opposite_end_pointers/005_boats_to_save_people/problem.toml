@@ -1,0 +1,8 @@
+id = "boats-to-save-people"
+title = "Boats To Save People"
+difficulty = "medium"
+leetcode = 881
+url = "https://leetcode.com/problems/boats-to-save-people/"
+key_idea = "pair the lightest and heaviest person when they fit under the limit together."
+hints = []
+prompt = ""
