@@ -4,6 +4,30 @@ focus = "graphs, heaps, trees, strings, and clean interview algorithms."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Design a File Sharing System"
+url = "https://leetcode.com/problems/design-a-file-sharing-system/"
+
+[[entries]]
+title = "Toss Strange Coins"
+url = "https://leetcode.com/problems/toss-strange-coins/"
+
+[[entries]]
+title = "Reverse Vowels of a String"
+url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 

@@ -4,6 +4,50 @@ focus = "string building and parsing, stack-based expression evaluation, input v
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "09_backtracking", "11_dp"]
 
 [[entries]]
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+
+[[entries]]
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
+
+[[entries]]
+title = "Reformat Date"
+url = "https://leetcode.com/problems/reformat-date/"
+
+[[entries]]
+title = "Univalued Binary Tree"
+url = "https://leetcode.com/problems/univalued-binary-tree/"
+
+[[entries]]
+title = "Count Vowel Strings in Ranges"
+url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Ways to Make a Fair Array"
+url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
+
+[[entries]]
+title = "Furthest Building You Can Reach"
+url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
+
+[[entries]]
+title = "Search Suggestions System"
+url = "https://leetcode.com/problems/search-suggestions-system/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
 title = "Add Strings"
 url = "https://leetcode.com/problems/add-strings/"
 
@@ -42,10 +86,6 @@ url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 [[entries]]
 title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
 
 [[entries]]
 title = "Simplify Path"

@@ -4,6 +4,46 @@ focus = "bit manipulation and IP math, tries for prefix matching, string hashing
 review_modules = ["15_bit_manipulation", "14_tries", "13_intervals", "01_arrays_and_hashing", "17_advanced"]
 
 [[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Reaching Points"
+url = "https://leetcode.com/problems/reaching-points/"
+
+[[entries]]
+title = "Design a Stack With Increment Operation"
+url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "4Sum"
+url = "https://leetcode.com/problems/4sum/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
 title = "Number of 1 Bits"
 url = "https://leetcode.com/problems/number-of-1-bits/"
 
@@ -72,10 +112,6 @@ title = "Design HashMap"
 url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
 title = "LFU Cache"
 url = "https://leetcode.com/problems/lfu-cache/"
 
@@ -122,3 +158,7 @@ url = "https://leetcode.com/problems/shortest-palindrome/"
 [[entries]]
 title = "Longest Duplicate Substring"
 url = "https://leetcode.com/problems/longest-duplicate-substring/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"

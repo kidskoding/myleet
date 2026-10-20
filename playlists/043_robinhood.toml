@@ -4,12 +4,64 @@ focus = "arrays, hash maps, design data structures, heaps, graphs, intervals, tr
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Ways to Split Array Into Three Subarrays"
+url = "https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/"
+
+[[entries]]
+title = "Restore the Array From Adjacent Pairs"
+url = "https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/"
+
+[[entries]]
+title = "Brightest Position on Street"
+url = "https://leetcode.com/problems/brightest-position-on-street/"
+
+[[entries]]
+title = "Count Good Meals"
+url = "https://leetcode.com/problems/count-good-meals/"
+
+[[entries]]
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
+
+[[entries]]
+title = "Check if There is a Valid Path in a Grid"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
+
+[[entries]]
+title = "Count the Number of Consistent Strings"
+url = "https://leetcode.com/problems/count-the-number-of-consistent-strings/"
+
+[[entries]]
+title = "Minesweeper"
+url = "https://leetcode.com/problems/minesweeper/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
+
+[[entries]]
+title = "Defanging an IP Address"
+url = "https://leetcode.com/problems/defanging-an-ip-address/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Contains Duplicate III"

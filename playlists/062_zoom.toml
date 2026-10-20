@@ -4,6 +4,14 @@ focus = "meeting and interval scheduling, heaps for servers and tasks, sliding w
 review_modules = ["13_intervals", "08_heaps", "04_sliding_window", "03_stacks_and_queues", "10_graphs"]
 
 [[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
 title = "Maximum Average Subarray I"
 url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
