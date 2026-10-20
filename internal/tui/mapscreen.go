@@ -25,6 +25,7 @@ type Map struct {
 	level           int
 	mod, tech, prob int
 	offsets         [3]int
+	filter          listFilter
 }
 
 func NewMap(s *Shared) Screen { return &Map{s: s} }
@@ -86,18 +87,60 @@ func (m *Map) size(level int) int {
 	return len(m.problems())
 }
 
+func (m *Map) OwnsKey(k string) bool { return m.filter.owns(k) }
+
+func (m *Map) StartFilter() bool {
+	m.filter.start()
+	return true
+}
+
+// labels are the names in a column, in the order its rows are drawn.
+func (m *Map) labels(level int) []string {
+	var out []string
+	switch {
+	case level == 0:
+		if len(m.guide()) > 0 {
+			out = append(out, "Start here")
+		}
+		for _, mod := range m.s.App.Catalog.Modules {
+			out = append(out, mod.Title)
+		}
+	case level == 1 && m.onGuide():
+		for _, g := range m.guide() {
+			out = append(out, g.Title)
+		}
+	case level == 1:
+		for _, t := range m.module().Techniques {
+			out = append(out, t.Title)
+		}
+	default:
+		for _, p := range m.problems() {
+			out = append(out, p.Title)
+		}
+	}
+	return out
+}
+
 func (m *Map) Update(msg tea.Msg) (Screen, tea.Cmd) {
 	k, ok := msg.(tea.KeyPressMsg)
 	if !ok {
 		return m, nil
 	}
 	c := m.cursor()
-	switch k.String() {
-	case "j", "down":
-		*c = min(*c+1, max(m.size(m.level)-1, 0))
-	case "k", "up":
-		*c = max(*c-1, 0)
-	case "l", "enter", "right":
+	vis := m.filter.visible(m.labels(m.level))
+	switch {
+	case m.filter.edit(k):
+		*c = settle(m.filter.visible(m.labels(m.level)), *c)
+		m.offsets[m.level] = 0
+	case k.String() == "j" || k.String() == "down":
+		*c = step(vis, *c, 1)
+	case k.String() == "k" || k.String() == "up":
+		*c = step(vis, *c, -1)
+	case k.String() == "l" || k.String() == "enter" || k.String() == "right":
+		if len(vis) == 0 {
+			return m, nil
+		}
+		m.filter.stop()
 		if m.onGuide() && m.level == 1 {
 			return m, push(NewNotes(m.s, m.guide()[m.tech].Path))
 		}
@@ -111,7 +154,8 @@ func (m *Map) Update(msg tea.Msg) (Screen, tea.Cmd) {
 			m.level++
 			*m.cursor() = 0
 		}
-	case "h", "esc", "left":
+	case k.String() == "h" || k.String() == "esc" || k.String() == "left":
+		m.filter.stop()
 		if m.level == 0 {
 			if k.String() == "esc" {
 				return m, pop
@@ -119,7 +163,7 @@ func (m *Map) Update(msg tea.Msg) (Screen, tea.Cmd) {
 			return m, nil
 		}
 		m.level--
-	case "n":
+	case k.String() == "n":
 		if note := m.note(); note != "" {
 			return m, push(NewNotes(m.s, note))
 		}
@@ -267,9 +311,24 @@ func (m *Map) bankRow() int {
 func (m *Map) column(level int, title string, rows []string, width, height, gapAt int) string {
 	th := m.s.Theme
 	cursor := *[...]*int{&m.mod, &m.tech, &m.prob}[level]
-	lines := make([]int, 0, len(rows)+1) // row index per display line, -1 for the gap
-	at := cursor
-	for i := range rows {
+	visible := max(height-2, 1)
+	var body []string
+	var shown []int
+	if level == m.level && m.filter.on {
+		body = append(body, m.filter.line(th))
+		visible = max(visible-1, 1)
+		shown, gapAt = m.filter.visible(m.labels(level)), -1
+		if len(shown) == 0 {
+			body = append(body, th.Muted.Render("no matches"))
+		}
+	} else {
+		for i := range rows {
+			shown = append(shown, i)
+		}
+	}
+	lines := make([]int, 0, len(shown)+1) // row index per display line, -1 for the gap
+	at := 0
+	for _, i := range shown {
 		if i == gapAt && i > 0 {
 			lines = append(lines, -1)
 		}
@@ -278,9 +337,7 @@ func (m *Map) column(level int, title string, rows []string, width, height, gapA
 		}
 		lines = append(lines, i)
 	}
-	visible := max(height-2, 1)
 	m.offsets[level] = scrollWindow(at, m.offsets[level], visible)
-	var body []string
 	for _, i := range lines[min(m.offsets[level], len(lines)):min(m.offsets[level]+visible, len(lines))] {
 		if i < 0 {
 			body = append(body, "")
@@ -295,11 +352,14 @@ func (m *Map) column(level int, title string, rows []string, width, height, gapA
 		}
 		body = append(body, marker+rows[i])
 	}
-	return ui.Card(th, title, strings.Join(padLines(body, visible), "\n"), width, level == m.level)
+	return ui.Card(th, title, strings.Join(padLines(body, max(height-2, 1)), "\n"), width, level == m.level)
 }
 
 func (m *Map) Keys() []ui.Key {
-	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "←", Label: "back"}, {Key: "n", Label: "notes"}}
+	if m.filter.on {
+		return []ui.Key{{Key: "↑/↓", Label: "move"}, {Key: "enter", Label: "open"}, {Key: "esc", Label: "clear"}}
+	}
+	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "←", Label: "back"}, {Key: "/", Label: "filter"}, {Key: "n", Label: "notes"}}
 }
 
 func (m *Map) View(w, h int) string {

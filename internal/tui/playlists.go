@@ -2,6 +2,7 @@ package tui
 
 import (
 	"fmt"
+	"slices"
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
@@ -17,6 +18,7 @@ type Playlists struct {
 	s                     *Shared
 	open                  *catalog.Playlist
 	cursor, entry, offset int
+	filter                listFilter
 }
 
 func NewPlaylists(s *Shared) Screen { return &Playlists{s: s} }
@@ -30,22 +32,54 @@ func (pl *Playlists) Title() string {
 	return "playlists"
 }
 
+func (pl *Playlists) OwnsKey(k string) bool { return pl.filter.owns(k) }
+
+func (pl *Playlists) StartFilter() bool {
+	pl.filter.start()
+	return true
+}
+
+func (pl *Playlists) labels() []string {
+	var out []string
+	if pl.open == nil {
+		for _, p := range pl.s.App.Catalog.Playlists {
+			out = append(out, p.Title)
+		}
+		return out
+	}
+	for _, e := range pl.open.Entries {
+		if e.Problem != nil {
+			out = append(out, e.Problem.Title)
+		} else {
+			out = append(out, e.Title)
+		}
+	}
+	return out
+}
+
 func (pl *Playlists) Update(msg tea.Msg) (Screen, tea.Cmd) {
 	k, ok := msg.(tea.KeyPressMsg)
 	if !ok {
 		return pl, nil
 	}
 	lists := pl.s.App.Catalog.Playlists
-	cur, n := &pl.cursor, len(lists)
+	cur := &pl.cursor
 	if pl.open != nil {
-		cur, n = &pl.entry, len(pl.open.Entries)
+		cur = &pl.entry
 	}
+	if pl.filter.edit(k) {
+		*cur = settle(pl.filter.visible(pl.labels()), *cur)
+		pl.offset = 0
+		return pl, nil
+	}
+	vis := pl.filter.visible(pl.labels())
 	switch k.String() {
 	case "j", "down":
-		*cur = min(*cur+1, max(n-1, 0))
+		*cur = step(vis, *cur, 1)
 	case "k", "up":
-		*cur = max(*cur-1, 0)
+		*cur = step(vis, *cur, -1)
 	case "esc", "h", "left":
+		pl.filter.stop()
 		if pl.open == nil {
 			if k.String() == "esc" {
 				return pl, pop
@@ -54,8 +88,12 @@ func (pl *Playlists) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		}
 		pl.open, pl.offset = nil, 0
 	case "enter", "l", "right":
+		if len(vis) == 0 {
+			return pl, nil
+		}
 		if pl.open == nil {
 			if pl.cursor < len(lists) {
+				pl.filter.stop()
 				pl.open, pl.entry, pl.offset = lists[pl.cursor], 0, 0
 			}
 			return pl, nil
@@ -89,10 +127,13 @@ func playlistCounts(p *catalog.Playlist, states map[string]schedule.State) (mast
 }
 
 func (pl *Playlists) Keys() []ui.Key {
-	if pl.open != nil {
-		return []ui.Key{{Key: "enter", Label: "open"}, {Key: "←", Label: "back"}}
+	if pl.filter.on {
+		return []ui.Key{{Key: "↑/↓", Label: "move"}, {Key: "enter", Label: "open"}, {Key: "esc", Label: "clear"}}
 	}
-	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "↑/↓", Label: "move"}}
+	if pl.open != nil {
+		return []ui.Key{{Key: "enter", Label: "open"}, {Key: "←", Label: "back"}, {Key: "/", Label: "filter"}}
+	}
+	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "↑/↓", Label: "move"}, {Key: "/", Label: "filter"}}
 }
 
 func (pl *Playlists) View(w, h int) string {
@@ -129,14 +170,22 @@ func (pl *Playlists) View(w, h int) string {
 		}
 	}
 	visible := max(h-3, 1)
-	pl.offset = scrollWindow(cursor, pl.offset, visible)
 	var body []string
-	for i := pl.offset; i < len(rows) && i < pl.offset+visible; i++ {
+	if pl.filter.on {
+		body = append(body, pl.filter.line(th))
+		visible = max(visible-1, 1)
+	}
+	vis := pl.filter.visible(pl.labels())
+	if len(vis) == 0 {
+		body = append(body, th.Muted.Render("no matches"))
+	}
+	pl.offset = scrollWindow(max(slices.Index(vis, cursor), 0), pl.offset, visible)
+	for _, i := range vis[min(pl.offset, len(vis)):min(pl.offset+visible, len(vis))] {
 		marker := "  "
 		if i == cursor {
 			marker = th.Accent.Render("▸ ")
 		}
 		body = append(body, marker+rows[i])
 	}
-	return "\n" + strings.Join(indent(ui.Card(th, title, strings.Join(padLines(body, visible), "\n"), cardW, true), 2), "\n")
+	return "\n" + strings.Join(indent(ui.Card(th, title, strings.Join(padLines(body, max(h-3, 1)), "\n"), cardW, true), 2), "\n")
 }

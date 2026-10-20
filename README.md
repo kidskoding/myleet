@@ -97,7 +97,12 @@ shows the keys for the current screen, and `?` opens the full list.
 
 `enter` on a problem opens **Focus**: the statement on the left and a sidebar with the
 timer, every test by name, and the say-it-aloud checklist (stacked on narrow
-terminals). `/` searches every problem from anywhere.
+terminals).
+
+`/` filters whatever list you are on: companies on Playlists, a company's problems
+inside it, the current column on the Map. `ctrl+k` (or `/` on a screen with no list)
+opens a fuzzy finder over every problem, company, topic and note; type a LeetCode
+number like `146` to jump straight to that problem.
 
 Focus shows the full problem statement. Free LeetCode problems are fetched the first
 time you open them and cached in `~/.local/share/myleet/prompts/` (never committed);

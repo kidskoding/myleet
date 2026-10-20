@@ -49,7 +49,7 @@ func repoPython(t *testing.T) {
 func TestValidateGood(t *testing.T) {
 	env(t, tu.GoodRoot())
 	code, out := run("validate")
-	if code != 0 || !strings.Contains(out, "ok: 4 curriculum problems, 1 in the bank, 1 playlists") {
+	if code != 0 || !strings.Contains(out, "ok: 4 curriculum problems, 1 in the bank, 2 playlists") {
 		t.Fatalf("code=%d out=%s", code, out)
 	}
 }

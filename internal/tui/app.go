@@ -32,6 +32,8 @@ type (
 	initer   interface{ Init() tea.Cmd }
 	closer   interface{ Close() }
 	keyOwner interface{ OwnsKey(k string) bool }
+	// filterer screens narrow their own list on /; StartFilter reports whether one did.
+	filterer interface{ StartFilter() bool }
 	helper   interface{ Help() []string }
 )
 
@@ -304,10 +306,14 @@ func (m Model) handleKey(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	case "q":
 		m.closeAll()
 		return m, tea.Quit
-	case "/":
-		if _, searching := m.top().(*Search); !searching {
-			return m, push(NewSearch(m.s))
+	case "/", "ctrl+k":
+		if _, searching := m.top().(*Search); searching {
+			break
 		}
+		if f, ok := m.top().(filterer); ok && k == "/" && f.StartFilter() {
+			return m, nil
+		}
+		return m, push(NewSearch(m.s))
 	}
 	return m.forward(msg)
 }
@@ -343,6 +349,9 @@ func (m Model) View() tea.View {
 	if k, ok := m.top().(keyed); ok {
 		keys = k.Keys()
 	}
+	if m.offersSearch(keys) {
+		keys = append(keys, ui.Key{Key: "/", Label: "search"})
+	}
 	toast := ""
 	if m.s.toast != "" {
 		toast = th.Accent.Render("● ") + m.s.toast + " "
@@ -352,6 +361,25 @@ func (m Model) View() tea.View {
 	v.AltScreen = true
 	v.WindowTitle = "myleet · " + m.top().Title()
 	return v
+}
+
+func (m Model) offersSearch(keys []ui.Key) bool {
+	top := m.top()
+	if _, searching := top.(*Search); searching {
+		return false
+	}
+	if _, filters := top.(filterer); filters {
+		return false
+	}
+	if o, ok := top.(keyOwner); ok && o.OwnsKey("/") {
+		return false
+	}
+	for _, k := range keys {
+		if k.Key == "/" {
+			return false
+		}
+	}
+	return true
 }
 
 func fit(s string, width, height int) string {

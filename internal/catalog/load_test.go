@@ -87,7 +87,7 @@ func TestLoadBadReportsAll(t *testing.T) {
 
 func TestPlaylistResolve(t *testing.T) {
 	c := load(t, "good")
-	if len(c.Playlists) != 1 {
+	if len(c.Playlists) != 2 {
 		t.Fatalf("playlists = %d", len(c.Playlists))
 	}
 	pl := c.Playlists[0]
