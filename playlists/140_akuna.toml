@@ -4,74 +4,6 @@ focus = "graphs and shortest paths, sliding windows, streaming stats, design cla
 review_modules = ["03_stacks_and_queues", "10_graphs", "11_dp", "17_advanced", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Maximum Star Sum of a Graph"
-url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
-
-[[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
-
-[[entries]]
-title = "Can Make Palindrome from Substring"
-url = "https://leetcode.com/problems/can-make-palindrome-from-substring/"
-
-[[entries]]
-title = "Map Sum Pairs"
-url = "https://leetcode.com/problems/map-sum-pairs/"
-
-[[entries]]
-title = "Delete and Earn"
-url = "https://leetcode.com/problems/delete-and-earn/"
-
-[[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Create Sorted Array through Instructions"
-url = "https://leetcode.com/problems/create-sorted-array-through-instructions/"
-
-[[entries]]
-title = "Minimum Initial Energy to Finish Tasks"
-url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
-
-[[entries]]
-title = "Constrained Subsequence Sum"
-url = "https://leetcode.com/problems/constrained-subsequence-sum/"
-
-[[entries]]
-title = "Dice Roll Simulation"
-url = "https://leetcode.com/problems/dice-roll-simulation/"
-
-[[entries]]
-title = "Number of Different Subsequences GCDs"
-url = "https://leetcode.com/problems/number-of-different-subsequences-gcds/"
-
-[[entries]]
-title = "Number of Operations to Make Network Connected"
-url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
-
-[[entries]]
-title = "Minimum Number of Taps to Open to Water a Garden"
-url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
-
-[[entries]]
-title = "Reduce Array Size to The Half"
-url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
-
-[[entries]]
-title = "Increasing Decreasing String"
-url = "https://leetcode.com/problems/increasing-decreasing-string/"
-
-[[entries]]
-title = "Shortest and Lexicographically Smallest Beautiful String"
-url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
-
-[[entries]]
 title = "Break a Palindrome"
 url = "https://leetcode.com/problems/break-a-palindrome/"
 
@@ -82,6 +14,70 @@ url = "https://leetcode.com/problems/design-circular-queue/"
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Can Make Palindrome from Substring"
+url = "https://leetcode.com/problems/can-make-palindrome-from-substring/"
+
+[[entries]]
+title = "Create Sorted Array through Instructions"
+url = "https://leetcode.com/problems/create-sorted-array-through-instructions/"
+
+[[entries]]
+title = "Reduce Array Size to The Half"
+url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
+
+[[entries]]
+title = "Constrained Subsequence Sum"
+url = "https://leetcode.com/problems/constrained-subsequence-sum/"
+
+[[entries]]
+title = "Dice Roll Simulation"
+url = "https://leetcode.com/problems/dice-roll-simulation/"
+
+[[entries]]
+title = "Map Sum Pairs"
+url = "https://leetcode.com/problems/map-sum-pairs/"
+
+[[entries]]
+title = "Number of Different Subsequences GCDs"
+url = "https://leetcode.com/problems/number-of-different-subsequences-gcds/"
+
+[[entries]]
+title = "Minimum Initial Energy to Finish Tasks"
+url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
+
+[[entries]]
+title = "Maximum Star Sum of a Graph"
+url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Number of Operations to Make Network Connected"
+url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
+
+[[entries]]
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
+
+[[entries]]
+title = "Delete and Earn"
+url = "https://leetcode.com/problems/delete-and-earn/"
+
+[[entries]]
+title = "Minimum Number of Taps to Open to Water a Garden"
+url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
+
+[[entries]]
+title = "Shortest and Lexicographically Smallest Beautiful String"
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 
 [[entries]]
 title = "LRU Cache"

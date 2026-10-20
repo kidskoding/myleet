@@ -4,16 +4,12 @@ focus = "optimization dp, grid paths, stack and cache design, binary search, pre
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "11_dp", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Design a Stack With Increment Operation"
+url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
 
 [[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
-
-[[entries]]
-title = "Special Binary String"
-url = "https://leetcode.com/problems/special-binary-string/"
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
 
 [[entries]]
 title = "Minimum Space Wasted From Packaging"
@@ -24,20 +20,24 @@ title = "Maximum Side Length of a Square with Sum Less than or Equal to Threshol
 url = "https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Special Binary String"
+url = "https://leetcode.com/problems/special-binary-string/"
 
 [[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
-title = "Design a Stack With Increment Operation"
-url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
-
-[[entries]]
-title = "Combination Sum"
-url = "https://leetcode.com/problems/combination-sum/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "LRU Cache"

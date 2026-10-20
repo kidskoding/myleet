@@ -4,74 +4,6 @@ focus = "data-stream design, heaps and k-way merges, interval and event sweeps, 
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "11_dp", "13_intervals", "17_advanced"]
 
 [[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "House Robber III"
-url = "https://leetcode.com/problems/house-robber-iii/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Number of Provinces"
-url = "https://leetcode.com/problems/number-of-provinces/"
-
-[[entries]]
-title = "Maximum Subarray Sum with One Deletion"
-url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
-
-[[entries]]
-title = "Wildcard Matching"
-url = "https://leetcode.com/problems/wildcard-matching/"
-
-[[entries]]
-title = "Longest String Chain"
-url = "https://leetcode.com/problems/longest-string-chain/"
-
-[[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
-
-[[entries]]
-title = "Power of Four"
-url = "https://leetcode.com/problems/power-of-four/"
-
-[[entries]]
-title = "Intersection of Two Arrays"
-url = "https://leetcode.com/problems/intersection-of-two-arrays/"
-
-[[entries]]
-title = "Maximum Sum Circular Subarray"
-url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
-
-[[entries]]
-title = "Parallel Courses III"
-url = "https://leetcode.com/problems/parallel-courses-iii/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "Minimum Space Wasted From Packaging"
-url = "https://leetcode.com/problems/minimum-space-wasted-from-packaging/"
-
-[[entries]]
-title = "Design Memory Allocator"
-url = "https://leetcode.com/problems/design-memory-allocator/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
 title = "Range Sum Query - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
@@ -140,6 +72,10 @@ title = "My Calendar III"
 url = "https://leetcode.com/problems/my-calendar-iii/"
 
 [[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
 title = "Russian Doll Envelopes"
 url = "https://leetcode.com/problems/russian-doll-envelopes/"
 
@@ -190,6 +126,62 @@ url = "https://leetcode.com/problems/odd-even-jump/"
 [[entries]]
 title = "Best Time to Buy and Sell Stock IV"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
+
+[[entries]]
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+
+[[entries]]
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
+
+[[entries]]
+title = "Minimum Space Wasted From Packaging"
+url = "https://leetcode.com/problems/minimum-space-wasted-from-packaging/"
+
+[[entries]]
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
+
+[[entries]]
+title = "Longest String Chain"
+url = "https://leetcode.com/problems/longest-string-chain/"
+
+[[entries]]
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"
+
+[[entries]]
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
+
+[[entries]]
+title = "House Robber III"
+url = "https://leetcode.com/problems/house-robber-iii/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "Design Memory Allocator"
+url = "https://leetcode.com/problems/design-memory-allocator/"
+
+[[entries]]
+title = "Power of Four"
+url = "https://leetcode.com/problems/power-of-four/"
 
 [[entries]]
 title = "Meeting Rooms II"

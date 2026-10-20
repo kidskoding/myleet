@@ -4,62 +4,6 @@ focus = "math and probability reasoning, recursion and expression evaluation, ga
 review_modules = ["03_stacks_and_queues", "08_heaps", "09_backtracking", "11_dp", "13_intervals", "16_math_geometry"]
 
 [[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Count Common Words With One Occurrence"
-url = "https://leetcode.com/problems/count-common-words-with-one-occurrence/"
-
-[[entries]]
-title = "Walking Robot Simulation"
-url = "https://leetcode.com/problems/walking-robot-simulation/"
-
-[[entries]]
-title = "Minimum Time to Make Array Sum At Most x"
-url = "https://leetcode.com/problems/minimum-time-to-make-array-sum-at-most-x/"
-
-[[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Teemo Attacking"
-url = "https://leetcode.com/problems/teemo-attacking/"
-
-[[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
-title = "Stream of Characters"
-url = "https://leetcode.com/problems/stream-of-characters/"
-
-[[entries]]
-title = "Add Two Integers"
-url = "https://leetcode.com/problems/add-two-integers/"
-
-[[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Number of Orders in the Backlog"
-url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
-
-[[entries]]
 title = "Nim Game"
 url = "https://leetcode.com/problems/nim-game/"
 
@@ -182,3 +126,59 @@ url = "https://leetcode.com/problems/self-crossing/"
 [[entries]]
 title = "Minimum Cost to Merge Stones"
 url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
+
+[[entries]]
+title = "Minimum Time to Make Array Sum At Most x"
+url = "https://leetcode.com/problems/minimum-time-to-make-array-sum-at-most-x/"
+
+[[entries]]
+title = "Walking Robot Simulation"
+url = "https://leetcode.com/problems/walking-robot-simulation/"
+
+[[entries]]
+title = "Design a Text Editor"
+url = "https://leetcode.com/problems/design-a-text-editor/"
+
+[[entries]]
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"
+
+[[entries]]
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
+
+[[entries]]
+title = "Count Common Words With One Occurrence"
+url = "https://leetcode.com/problems/count-common-words-with-one-occurrence/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

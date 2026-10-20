@@ -4,40 +4,16 @@ focus = "math and numeric edge cases, streaming statistics with heaps, interval 
 review_modules = ["05_binary_search", "08_heaps", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Design Spreadsheet"
-url = "https://leetcode.com/problems/design-spreadsheet/"
-
-[[entries]]
-title = "Number of Orders in the Backlog"
-url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Parallel Courses III"
-url = "https://leetcode.com/problems/parallel-courses-iii/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Power of Two"
+url = "https://leetcode.com/problems/power-of-two/"
 
 [[entries]]
 title = "Sqrt(x)"
 url = "https://leetcode.com/problems/sqrtx/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
 
 [[entries]]
 title = "Count Primes"
@@ -48,48 +24,104 @@ title = "Pow(x, n)"
 url = "https://leetcode.com/problems/powx-n/"
 
 [[entries]]
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
+
+[[entries]]
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
 title = "Best Time to Buy and Sell Stock with Transaction Fee"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "New 21 Game"
+url = "https://leetcode.com/problems/new-21-game/"
 
 [[entries]]
 title = "Knight Probability in Chessboard"
 url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
 
 [[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Range Sum Query - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-mutable/"
+
+[[entries]]
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "IPO"
+url = "https://leetcode.com/problems/ipo/"
+
+[[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
 title = "Best Time to Buy and Sell Stock III"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+
+[[entries]]
+title = "Count of Smaller Numbers After Self"
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+
+[[entries]]
+title = "Shortest Subarray with Sum at Least K"
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
 
 [[entries]]
 title = "Max Points on a Line"
 url = "https://leetcode.com/problems/max-points-on-a-line/"
 
 [[entries]]
-title = "Count Palindromic Subsequences"
-url = "https://leetcode.com/problems/count-palindromic-subsequences/"
+title = "Minimum Cost to Hire K Workers"
+url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "The Skyline Problem"
+url = "https://leetcode.com/problems/the-skyline-problem/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"
+
+[[entries]]
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
+
+[[entries]]
+title = "Count of Range Sum"
+url = "https://leetcode.com/problems/count-of-range-sum/"
+
+[[entries]]
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
 
 [[entries]]
 title = "Best Position for a Service Centre"
 url = "https://leetcode.com/problems/best-position-for-a-service-centre/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Maximum Total Damage With Spell Casting"
-url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
 
 [[entries]]
 title = "Minimum Costs Using the Train Line"
@@ -100,48 +132,32 @@ title = "Minimum Operations to Make Numbers Non-positive"
 url = "https://leetcode.com/problems/minimum-operations-to-make-numbers-non-positive/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Design Spreadsheet"
+url = "https://leetcode.com/problems/design-spreadsheet/"
 
 [[entries]]
 title = "First Completely Painted Row or Column"
 url = "https://leetcode.com/problems/first-completely-painted-row-or-column/"
 
 [[entries]]
+title = "Count Palindromic Subsequences"
+url = "https://leetcode.com/problems/count-palindromic-subsequences/"
+
+[[entries]]
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
+
+[[entries]]
 title = "Maximum Length of Repeated Subarray"
 url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Maximum Total Damage With Spell Casting"
+url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
-
-[[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
-title = "Meeting Scheduler"
-url = "https://leetcode.com/problems/meeting-scheduler/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Fizz Buzz"
-url = "https://leetcode.com/problems/fizz-buzz/"
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
 title = "Find Servers That Handled Most Number of Requests"
@@ -152,24 +168,24 @@ title = "Smallest Missing Non-negative Integer After Operations"
 url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Rank Transform of a Matrix"
+url = "https://leetcode.com/problems/rank-transform-of-a-matrix/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Meeting Scheduler"
+url = "https://leetcode.com/problems/meeting-scheduler/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
 
 [[entries]]
 title = "Length of Longest Subarray With at Most K Frequency"
 url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
+
+[[entries]]
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
 title = "Couples Holding Hands"
@@ -180,25 +196,9 @@ title = "Design Excel Sum Formula"
 url = "https://leetcode.com/problems/design-excel-sum-formula/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Sort Items by Groups Respecting Dependencies"
+url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
 
 [[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
-
-[[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
-
-[[entries]]
-title = "Design Tic-Tac-Toe"
-url = "https://leetcode.com/problems/design-tic-tac-toe/"
-
-[[entries]]
-title = "Power of Two"
-url = "https://leetcode.com/problems/power-of-two/"
-
-[[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+title = "Transform to Chessboard"
+url = "https://leetcode.com/problems/transform-to-chessboard/"

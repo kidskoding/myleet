@@ -4,52 +4,40 @@ focus = "dp, sliding windows, stock profit, tries, two pointers"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "08_heaps", "11_dp"]
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Minimum Moves to Equal Array Elements"
+url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
 [[entries]]
 title = "Maximum Xor Product"
 url = "https://leetcode.com/problems/maximum-xor-product/"
 
 [[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
 title = "Number of Perfect Pairs"
 url = "https://leetcode.com/problems/number-of-perfect-pairs/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Frog Jump"
-url = "https://leetcode.com/problems/frog-jump/"
-
-[[entries]]
 title = "Longest Non-decreasing Subarray From Two Arrays"
 url = "https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays/"
+
+[[entries]]
+title = "Find Valid Matrix Given Row and Column Sums"
+url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
+
+[[entries]]
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
+
+[[entries]]
+title = "Search Suggestions System"
+url = "https://leetcode.com/problems/search-suggestions-system/"
 
 [[entries]]
 title = "Count Ways To Build Good Strings"
@@ -64,60 +52,68 @@ title = "Merge In Between Linked Lists"
 url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Find Valid Matrix Given Row and Column Sums"
-url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
-
-[[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
-
-[[entries]]
 title = "Minimum Equal Sum of Two Arrays After Replacing Zeros"
 url = "https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/"
+
+[[entries]]
+title = "Subarray Product Less Than K"
+url = "https://leetcode.com/problems/subarray-product-less-than-k/"
+
+[[entries]]
+title = "Frog Jump"
+url = "https://leetcode.com/problems/frog-jump/"
+
+[[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
 
 [[entries]]
 title = "Couples Holding Hands"
 url = "https://leetcode.com/problems/couples-holding-hands/"
 
 [[entries]]
-title = "Minimum Sideway Jumps"
-url = "https://leetcode.com/problems/minimum-sideway-jumps/"
-
-[[entries]]
 title = "Minimum Number of Taps to Open to Water a Garden"
 url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
 
 [[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
-
-[[entries]]
-title = "Min Cost Climbing Stairs"
-url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
+title = "Minimum Path Sum"
+url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
 title = "Sort Characters By Frequency"
 url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
 [[entries]]
-title = "Minimum Moves to Equal Array Elements"
-url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Min Cost Climbing Stairs"
+url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
 
 [[entries]]
 title = "Combination Sum IV"
@@ -186,3 +182,7 @@ url = "https://leetcode.com/problems/find-median-from-data-stream/"
 [[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"

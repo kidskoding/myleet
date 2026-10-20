@@ -4,24 +4,16 @@ focus = "matrix simulation, string parsing, hashing, design classes, grid dp"
 review_modules = ["01_arrays_and_hashing", "08_heaps", "10_graphs", "11_dp", "16_math_geometry"]
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
 title = "Number of Black Blocks"
 url = "https://leetcode.com/problems/number-of-black-blocks/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Minimum Absolute Difference Between Elements With Constraint"
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
 
 [[entries]]
 title = "Restore the Array From Adjacent Pairs"
 url = "https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
 title = "Block Placement Queries"
@@ -32,20 +24,28 @@ title = "Rotating the Box"
 url = "https://leetcode.com/problems/rotating-the-box/"
 
 [[entries]]
-title = "Minimum Absolute Difference Between Elements With Constraint"
-url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
-
-[[entries]]
 title = "Find the Length of the Longest Common Prefix"
 url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
 title = "Design Memory Allocator"
 url = "https://leetcode.com/problems/design-memory-allocator/"
 
 [[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
 title = "Spiral Matrix II"
@@ -194,7 +194,3 @@ url = "https://leetcode.com/problems/coin-change/"
 [[entries]]
 title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Minimum Absolute Difference"
-url = "https://leetcode.com/problems/minimum-absolute-difference/"

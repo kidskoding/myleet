@@ -4,18 +4,6 @@ focus = "greedy with heaps, string deletion and balance, sliding windows, schedu
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "12_greedy_algorithms", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Maximize Score After Pair Deletions"
-url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
-
-[[entries]]
-title = "Subsequence of Size K With the Largest Even Sum"
-url = "https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even-sum/"
-
-[[entries]]
-title = "Counting Elements"
-url = "https://leetcode.com/problems/counting-elements/"
-
-[[entries]]
 title = "Minimum Difference Between Largest and Smallest Value in Three Moves"
 url = "https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/"
 
@@ -30,6 +18,18 @@ url = "https://leetcode.com/problems/longest-balanced-substring-i/"
 [[entries]]
 title = "Delete Characters to Make Fancy String"
 url = "https://leetcode.com/problems/delete-characters-to-make-fancy-string/"
+
+[[entries]]
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
+
+[[entries]]
+title = "Subsequence of Size K With the Largest Even Sum"
+url = "https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even-sum/"
+
+[[entries]]
+title = "Counting Elements"
+url = "https://leetcode.com/problems/counting-elements/"
 
 [[entries]]
 title = "Furthest Building You Can Reach"
@@ -104,10 +104,6 @@ title = "Moving Average from Data Stream"
 url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 
 [[entries]]
-title = "Maximum Average Subarray I"
-url = "https://leetcode.com/problems/maximum-average-subarray-i/"
-
-[[entries]]
 title = "Minimize Maximum Pair Sum in Array"
 url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
 
@@ -136,20 +132,8 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -170,3 +154,31 @@ url = "https://leetcode.com/problems/candy/"
 [[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"

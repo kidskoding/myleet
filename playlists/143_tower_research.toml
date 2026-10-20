@@ -4,6 +4,14 @@ focus = "o(1) design, sliding windows, expression parsing, graphs, dp"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "18_mixed_interview_practice"]
 
 [[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
 title = "Using a Robot to Print the Lexicographically Smallest String"
 url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
 
@@ -14,14 +22,6 @@ url = "https://leetcode.com/problems/shortest-bridge/"
 [[entries]]
 title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Basic Calculator II"
@@ -170,3 +170,15 @@ url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 [[entries]]
 title = "Serialize and Deserialize Binary Tree"
 url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

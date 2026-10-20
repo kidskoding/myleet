@@ -4,34 +4,6 @@ focus = "data structure design, order books and streams, sliding windows, curren
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "08_heaps", "11_dp", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Design Skiplist"
-url = "https://leetcode.com/problems/design-skiplist/"
-
-[[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Number of Days Between Two Dates"
-url = "https://leetcode.com/problems/number-of-days-between-two-dates/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
-
-[[entries]]
-title = "Design Order Management System"
-url = "https://leetcode.com/problems/design-order-management-system/"
-
-[[entries]]
 title = "Combination Sum IV"
 url = "https://leetcode.com/problems/combination-sum-iv/"
 
@@ -42,6 +14,30 @@ url = "https://leetcode.com/problems/validate-binary-tree-nodes/"
 [[entries]]
 title = "Regular Expression Matching"
 url = "https://leetcode.com/problems/regular-expression-matching/"
+
+[[entries]]
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"
+
+[[entries]]
+title = "Design Order Management System"
+url = "https://leetcode.com/problems/design-order-management-system/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Number of Days Between Two Dates"
+url = "https://leetcode.com/problems/number-of-days-between-two-dates/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "LFU Cache"
@@ -150,10 +146,6 @@ url = "https://leetcode.com/problems/implement-router/"
 [[entries]]
 title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
-
-[[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
 
 [[entries]]
 title = "Maximum Frequency Stack"

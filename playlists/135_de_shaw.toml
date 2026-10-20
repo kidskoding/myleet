@@ -4,112 +4,136 @@ focus = "binary search on the answer, counting and partition DP, geometry and nu
 review_modules = ["05_binary_search", "10_graphs", "11_dp", "16_math_geometry", "17_advanced"]
 
 [[entries]]
-title = "Count Binary Substrings"
-url = "https://leetcode.com/problems/count-binary-substrings/"
+title = "Arranging Coins"
+url = "https://leetcode.com/problems/arranging-coins/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
 
 [[entries]]
-title = "Count Vowel Substrings of a String"
-url = "https://leetcode.com/problems/count-vowel-substrings-of-a-string/"
+title = "Find Greatest Common Divisor of Array"
+url = "https://leetcode.com/problems/find-greatest-common-divisor-of-array/"
 
 [[entries]]
-title = "Minimum Number of Refueling Stops"
-url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
-
-[[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
-
-[[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
-
-[[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
-
-[[entries]]
-title = "K-th Symbol in Grammar"
-url = "https://leetcode.com/problems/k-th-symbol-in-grammar/"
-
-[[entries]]
-title = "Shortest Path in a Grid with Obstacles Elimination"
-url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
-
-[[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
-
-[[entries]]
-title = "Binary Tree Cameras"
-url = "https://leetcode.com/problems/binary-tree-cameras/"
-
-[[entries]]
-title = "Furthest Building You Can Reach"
-url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
-
-[[entries]]
-title = "Maximum Product Subarray"
-url = "https://leetcode.com/problems/maximum-product-subarray/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Kth Smallest Number in Multiplication Table"
-url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Valid Square"
+url = "https://leetcode.com/problems/valid-square/"
 
 [[entries]]
 title = "Koko Eating Bananas"
 url = "https://leetcode.com/problems/koko-eating-bananas/"
 
 [[entries]]
+title = "Capacity To Ship Packages Within D Days"
+url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+
+[[entries]]
+title = "Magnetic Force Between Two Balls"
+url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+
+[[entries]]
+title = "Minimum Area Rectangle"
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
+
+[[entries]]
+title = "Rectangle Area"
+url = "https://leetcode.com/problems/rectangle-area/"
+
+[[entries]]
 title = "Maximal Square"
 url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
+
+[[entries]]
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Delete and Earn"
+url = "https://leetcode.com/problems/delete-and-earn/"
+
+[[entries]]
+title = "Minimum Cost For Tickets"
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
+
+[[entries]]
+title = "Count Ways To Build Good Strings"
+url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Number of Ways to Arrive at Destination"
+url = "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/"
+
+[[entries]]
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
+
+[[entries]]
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+
+[[entries]]
+title = "Kth Smallest Number in Multiplication Table"
+url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
 
 [[entries]]
 title = "Split Array Largest Sum"
 url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
-title = "Find Minimum Cost to Remove Array Elements"
-url = "https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements/"
+title = "Course Schedule III"
+url = "https://leetcode.com/problems/course-schedule-iii/"
+
+[[entries]]
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
+
+[[entries]]
+title = "Minimum Difficulty of a Job Schedule"
+url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
+
+[[entries]]
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
+title = "Palindrome Partitioning II"
+url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+
+[[entries]]
+title = "Erect the Fence"
+url = "https://leetcode.com/problems/erect-the-fence/"
+
+[[entries]]
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
 title = "Maximum Number of Subsequences After One Inserting"
 url = "https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/"
 
 [[entries]]
-title = "Minimum Number of Taps to Open to Water a Garden"
-url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
-
-[[entries]]
 title = "Minimum Size Subarray in Infinite Array"
 url = "https://leetcode.com/problems/minimum-size-subarray-in-infinite-array/"
 
 [[entries]]
-title = "Letter Combinations of a Phone Number"
-url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
-
-[[entries]]
 title = "Maximum Points After Collecting Coins From All Nodes"
 url = "https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/"
-
-[[entries]]
-title = "Maximum Subsequence Score"
-url = "https://leetcode.com/problems/maximum-subsequence-score/"
 
 [[entries]]
 title = "Maximum Points Tourist Can Earn"
@@ -124,56 +148,20 @@ title = "Minimum Runes to Add to Cast Spell"
 url = "https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell/"
 
 [[entries]]
-title = "Relative Sort Array"
-url = "https://leetcode.com/problems/relative-sort-array/"
-
-[[entries]]
 title = "Removing Minimum Number of Magic Beans"
 url = "https://leetcode.com/problems/removing-minimum-number-of-magic-beans/"
-
-[[entries]]
-title = "Minimum Cost Walk in Weighted Graph"
-url = "https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph/"
 
 [[entries]]
 title = "Number of Subarrays With AND Value of K"
 url = "https://leetcode.com/problems/number-of-subarrays-with-and-value-of-k/"
 
 [[entries]]
-title = "Number of Substrings Containing All Three Characters"
-url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
-
-[[entries]]
-title = "Max Number of K-Sum Pairs"
-url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
-
-[[entries]]
 title = "Sum Game"
 url = "https://leetcode.com/problems/sum-game/"
 
 [[entries]]
-title = "Maximum Strength of K Disjoint Subarrays"
-url = "https://leetcode.com/problems/maximum-strength-of-k-disjoint-subarrays/"
-
-[[entries]]
-title = "Find the Sum of the Power of All Subsequences"
-url = "https://leetcode.com/problems/find-the-sum-of-the-power-of-all-subsequences/"
-
-[[entries]]
-title = "Minimum Deletions to Make String K-Special"
-url = "https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/"
-
-[[entries]]
-title = "Greatest Sum Divisible by Three"
-url = "https://leetcode.com/problems/greatest-sum-divisible-by-three/"
-
-[[entries]]
-title = "Query Kth Smallest Trimmed Number"
-url = "https://leetcode.com/problems/query-kth-smallest-trimmed-number/"
-
-[[entries]]
-title = "Equal Row and Column Pairs"
-url = "https://leetcode.com/problems/equal-row-and-column-pairs/"
+title = "Minimum Number of Refueling Stops"
+url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
 
 [[entries]]
 title = "Maximum Deletions on a String"
@@ -184,21 +172,33 @@ title = "Median of a Row Wise Sorted Matrix"
 url = "https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix/"
 
 [[entries]]
-title = "Determine the Winner of a Bowling Game"
-url = "https://leetcode.com/problems/determine-the-winner-of-a-bowling-game/"
+title = "Find Minimum Cost to Remove Array Elements"
+url = "https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements/"
 
 [[entries]]
-title = "Take Gifts From the Richest Pile"
-url = "https://leetcode.com/problems/take-gifts-from-the-richest-pile/"
+title = "Binary Tree Cameras"
+url = "https://leetcode.com/problems/binary-tree-cameras/"
 
 [[entries]]
-title = "Find the Maximum Divisibility Score"
-url = "https://leetcode.com/problems/find-the-maximum-divisibility-score/"
+title = "Maximum Strength of K Disjoint Subarrays"
+url = "https://leetcode.com/problems/maximum-strength-of-k-disjoint-subarrays/"
+
+[[entries]]
+title = "Find the Sum of the Power of All Subsequences"
+url = "https://leetcode.com/problems/find-the-sum-of-the-power-of-all-subsequences/"
+
+[[entries]]
+title = "Query Kth Smallest Trimmed Number"
+url = "https://leetcode.com/problems/query-kth-smallest-trimmed-number/"
 
 [[entries]]
 title = "Shortest String That Contains Three Strings"
 url = "https://leetcode.com/problems/shortest-string-that-contains-three-strings/"
 
 [[entries]]
-title = "Arranging Coins"
-url = "https://leetcode.com/problems/arranging-coins/"
+title = "K-th Symbol in Grammar"
+url = "https://leetcode.com/problems/k-th-symbol-in-grammar/"
+
+[[entries]]
+title = "Minimum Deletions to Make String K-Special"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/"

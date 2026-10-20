@@ -4,12 +4,12 @@ focus = "knapsack and optimization dp, greedy, topological sort, game simulation
 review_modules = ["10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Knight Dialer"
-url = "https://leetcode.com/problems/knight-dialer/"
-
-[[entries]]
 title = "Count Strictly Increasing Subarrays"
 url = "https://leetcode.com/problems/count-strictly-increasing-subarrays/"
+
+[[entries]]
+title = "Knight Dialer"
+url = "https://leetcode.com/problems/knight-dialer/"
 
 [[entries]]
 title = "Partition Equal Subset Sum"
@@ -170,3 +170,15 @@ url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
 [[entries]]
 title = "Minimum Cost For Tickets"
 url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"

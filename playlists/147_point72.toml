@@ -4,16 +4,16 @@ focus = "binary search, tree construction, dependency graphs, stock dp, string g
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "11_dp"]
 
 [[entries]]
-title = "Maximum OR"
-url = "https://leetcode.com/problems/maximum-or/"
-
-[[entries]]
 title = "Lexicographically Smallest String After Substring Operation"
 url = "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/"
 
 [[entries]]
 title = "Find Minimum in Rotated Sorted Array"
 url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Maximum OR"
+url = "https://leetcode.com/problems/maximum-or/"
 
 [[entries]]
 title = "Construct Binary Search Tree from Preorder Traversal"
@@ -170,3 +170,15 @@ url = "https://leetcode.com/problems/basic-calculator-ii/"
 [[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

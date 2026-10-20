@@ -4,32 +4,16 @@ focus = "parentheses and strings, trees, intervals, hashing, cache design"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "11_dp"]
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
 title = "Count Palindromic Subsequences"
 url = "https://leetcode.com/problems/count-palindromic-subsequences/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Collect Coins in a Tree"
 url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
 title = "Remove Invalid Parentheses"
 url = "https://leetcode.com/problems/remove-invalid-parentheses/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
 title = "Path Sum III"
@@ -44,8 +28,16 @@ title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
 
 [[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "LRU Cache"
@@ -78,6 +70,10 @@ url = "https://leetcode.com/problems/minimum-window-substring/"
 [[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock II"
