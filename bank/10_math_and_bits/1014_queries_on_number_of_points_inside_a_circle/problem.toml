@@ -1,0 +1,7 @@
+id = "queries-on-number-of-points-inside-a-circle"
+title = "Queries on Number of Points Inside a Circle"
+difficulty = "medium"
+leetcode = 1828
+url = "https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle/"
+key_idea = "For each circle, count points with squared distance to the center at most r squared, staying in integers."
+hints = ["A point is inside or on a circle when its distance to the center is at most the radius.", "Comparing squared distances avoids square roots and floating point."]

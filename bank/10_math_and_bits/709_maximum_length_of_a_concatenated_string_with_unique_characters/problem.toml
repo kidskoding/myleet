@@ -1,0 +1,7 @@
+id = "maximum-length-of-a-concatenated-string-with-unique-characters"
+title = "Maximum Length of a Concatenated String with Unique Characters"
+difficulty = "medium"
+leetcode = 1239
+url = "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/"
+key_idea = "Turn each word with no repeated letters into a 26-bit mask and backtrack (or grow a set of reachable masks), adding a word only when its mask does not overlap the current one."
+hints = ["Words with a repeated letter inside them can never be used.", "Two words can be combined exactly when their letter sets do not intersect, which bit masks check in O(1)."]

@@ -1,0 +1,7 @@
+id = "bulb-switcher"
+title = "Bulb Switcher"
+difficulty = "medium"
+leetcode = 319
+url = "https://leetcode.com/problems/bulb-switcher/"
+key_idea = "Bulb i is toggled once per divisor of i, and only perfect squares have an odd number of divisors, so the answer is isqrt(n)."
+hints = ["How many times is bulb 12 toggled? Bulb 9?", "Divisors normally come in pairs; when do they not?"]

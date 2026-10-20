@@ -1,0 +1,7 @@
+id = "maximum-score-with-co-prime-element"
+title = "Maximum Score with Co-Prime Element"
+difficulty = "hard"
+leetcode = 3953
+url = "https://leetcode.com/problems/maximum-score-with-co-prime-element/"
+key_idea = "For a chosen value x, every other element sharing a prime with x must be changed; count sharers by inclusion-exclusion over x's distinct primes using counts of multiples, then try every kept original value and every replacement value up to maxVal."
+hints = ["Once the selected value is fixed, which other elements must change is forced.", "Counting elements that share a factor with x is easier as: elements divisible by some prime of x."]

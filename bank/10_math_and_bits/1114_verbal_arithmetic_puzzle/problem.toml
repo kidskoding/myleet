@@ -1,0 +1,7 @@
+id = "verbal-arithmetic-puzzle"
+title = "Verbal Arithmetic Puzzle"
+difficulty = "hard"
+leetcode = 1307
+url = "https://leetcode.com/problems/verbal-arithmetic-puzzle/"
+key_idea = "Backtrack column by column from the least significant digit, assigning digits to letters of the words as you meet them and forcing the result letter to (column sum + carry) % 10, with no reuse and no leading zeros."
+hints = ["Trying all digit assignments up front is too slow; prune as early as possible.", "Process the addition the way you would by hand, one column at a time with a carry: the result's digit in each column is then determined, not guessed."]

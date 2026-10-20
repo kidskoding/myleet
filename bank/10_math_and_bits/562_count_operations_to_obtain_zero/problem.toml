@@ -1,0 +1,7 @@
+id = "count-operations-to-obtain-zero"
+title = "Count Operations to Obtain Zero"
+difficulty = "easy"
+leetcode = 2169
+url = "https://leetcode.com/problems/count-operations-to-obtain-zero/"
+key_idea = "Batch repeated subtractions: the larger number loses the smaller one larger // smaller times at once, which is Euclid's algorithm with a counter."
+hints = ["Simulating one subtraction at a time can take 10^5 steps; see what a run of identical steps adds up to.", "Repeatedly subtracting b from a until a < b is a single division."]

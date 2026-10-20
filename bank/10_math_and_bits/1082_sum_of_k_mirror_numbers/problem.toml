@@ -1,0 +1,7 @@
+id = "sum-of-k-mirror-numbers"
+title = "Sum of k-Mirror Numbers"
+difficulty = "hard"
+leetcode = 2081
+url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
+key_idea = "Generate base-10 palindromes in increasing order by mirroring prefixes (odd length, then even length, for each prefix size) and keep those that are also palindromes in base k until n are found."
+hints = ["Checking every integer is far too slow; one of the two palindrome conditions can be used to generate candidates.", "Build base-10 palindromes from their first half, in increasing order, and test only those in base k."]

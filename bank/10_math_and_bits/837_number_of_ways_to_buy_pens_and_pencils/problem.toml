@@ -1,0 +1,7 @@
+id = "number-of-ways-to-buy-pens-and-pencils"
+title = "Number of Ways to Buy Pens and Pencils"
+difficulty = "medium"
+leetcode = 2240
+url = "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/"
+key_idea = "Loop over the number of pens; for each, the money left allows remaining // cost2 + 1 choices of pencils."
+hints = ["Fix how many pens you buy first.", "Once pens are fixed, how many pencil counts are affordable?"]

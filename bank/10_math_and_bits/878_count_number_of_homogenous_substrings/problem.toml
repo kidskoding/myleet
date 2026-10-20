@@ -1,0 +1,7 @@
+id = "count-number-of-homogenous-substrings"
+title = "Count Number of Homogenous Substrings"
+difficulty = "medium"
+leetcode = 1759
+url = "https://leetcode.com/problems/count-number-of-homogenous-substrings/"
+key_idea = "Split s into maximal runs of one letter; a run of length L contributes L * (L + 1) / 2 substrings. Sum modulo 10^9 + 7."
+hints = ["Every homogenous substring lives inside one maximal block of equal letters.", "Alternatively, add the current run length at each index."]

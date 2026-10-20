@@ -1,0 +1,7 @@
+id = "circular-permutation-in-binary-representation"
+title = "Circular Permutation in Binary Representation"
+difficulty = "medium"
+leetcode = 1238
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
+key_idea = "The Gray code i ^ (i >> 1) cycles through all n-bit values changing one bit per step (including the wrap), and XOR-ing every term with start rotates it to begin at start."
+hints = ["There is a classic sequence of all n-bit numbers where neighbors differ by one bit.", "XOR-ing every element by the same constant keeps one-bit differences one-bit."]

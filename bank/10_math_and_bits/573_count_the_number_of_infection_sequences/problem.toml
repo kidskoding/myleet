@@ -1,0 +1,7 @@
+id = "count-the-number-of-infection-sequences"
+title = "Count the Number of Infection Sequences"
+difficulty = "hard"
+leetcode = 2954
+url = "https://leetcode.com/problems/count-the-number-of-infection-sequences/"
+key_idea = "Gaps between sick people fill independently: interleave them with a multinomial m! / prod(g!), and each inner gap of length g can grow from either end in 2^(g-1) orders."
+hints = ["Split the line into maximal runs of healthy people and think about each run on its own.", "An edge run fills in one forced order; an inner run grows from both ends, so each step except the last has two choices."]

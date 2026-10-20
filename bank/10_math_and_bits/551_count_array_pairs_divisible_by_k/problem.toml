@@ -1,0 +1,7 @@
+id = "count-array-pairs-divisible-by-k"
+title = "Count Array Pairs Divisible by K"
+difficulty = "hard"
+leetcode = 2183
+url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
+key_idea = "Only gcd(x, k) matters for divisibility, and k has few divisors, so count numbers by gcd with k and check every pair of gcd buckets."
+hints = ["Replace each number by the part of it that can help divide k.", "There are at most ~128 divisors of k; pair up those buckets instead of the numbers."]

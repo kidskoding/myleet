@@ -1,0 +1,7 @@
+id = "smallest-range-i"
+title = "Smallest Range I"
+difficulty = "easy"
+leetcode = 908
+url = "https://leetcode.com/problems/smallest-range-i/"
+key_idea = "Only the max and min matter: raise the min by k and lower the max by k, so the answer is max(0, max - min - 2k)."
+hints = ["Which two elements determine the score?", "Move the smallest up and the largest down as far as allowed; everything else can follow."]

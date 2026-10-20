@@ -1,0 +1,7 @@
+id = "largest-combination-with-bitwise-and-greater-than-zero"
+title = "Largest Combination With Bitwise AND Greater Than Zero"
+difficulty = "medium"
+leetcode = 2275
+url = "https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero/"
+key_idea = "An AND is positive exactly when some bit is set in every chosen number, so the answer is the largest count of numbers sharing one bit."
+hints = ["Think about what has to be true, bit by bit, for an AND to be nonzero.", "Count, for each bit position, how many candidates have it set."]

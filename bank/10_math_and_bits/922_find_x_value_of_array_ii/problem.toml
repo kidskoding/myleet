@@ -1,0 +1,7 @@
+id = "find-x-value-of-array-ii"
+title = "Find X Value of Array II"
+difficulty = "hard"
+leetcode = 3525
+url = "https://leetcode.com/problems/find-x-value-of-array-ii/"
+key_idea = "Segment tree where each node stores its product mod k and, for every remainder, how many of its prefixes have that product; merge by shifting the right child's counts by the left product."
+hints = ["Each query asks about prefixes of nums[start..], with point updates in between. Which structure supports both?", "For a block, store more than its product: also how many of its own prefixes land on each remainder. How do two adjacent blocks combine?"]

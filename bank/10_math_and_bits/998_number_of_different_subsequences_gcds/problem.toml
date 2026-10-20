@@ -1,0 +1,7 @@
+id = "number-of-different-subsequences-gcds"
+title = "Number of Different Subsequences GCDs"
+difficulty = "hard"
+leetcode = 1819
+url = "https://leetcode.com/problems/number-of-different-subsequences-gcds/"
+key_idea = "For each candidate g up to max(nums), take the gcd of all present multiples of g; g is achievable exactly when that gcd equals g."
+hints = ["Instead of enumerating subsequences, ask for each value g whether it can be a GCD.", "Only numbers divisible by g can be in a subsequence whose GCD is g, and using more of them never hurts."]

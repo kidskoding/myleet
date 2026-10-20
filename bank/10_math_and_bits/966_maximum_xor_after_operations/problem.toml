@@ -1,0 +1,7 @@
+id = "maximum-xor-after-operations"
+title = "Maximum XOR After Operations"
+difficulty = "medium"
+leetcode = 2317
+url = "https://leetcode.com/problems/maximum-xor-after-operations/"
+key_idea = "The operation can only clear bits, and any bit present in some element can be kept in exactly one element, so the answer is the OR of all numbers."
+hints = ["What does nums[i] AND (nums[i] XOR x) let you do to the bits of nums[i]? Can it ever set a bit?", "For each bit position, can you arrange for it to appear an odd number of times whenever at least one number has it?"]

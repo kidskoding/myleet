@@ -1,0 +1,7 @@
+id = "count-lattice-points-inside-a-circle"
+title = "Count Lattice Points Inside a Circle"
+difficulty = "medium"
+leetcode = 2249
+url = "https://leetcode.com/problems/count-lattice-points-inside-a-circle/"
+key_idea = "Coordinates are tiny, so for each circle enumerate the integer points of its bounding box, keep those with dx^2 + dy^2 <= r^2, and count the distinct points in a set."
+hints = ["The grid is at most about 200 by 200, so brute force over points is fine.", "Avoid floating point: compare squared distances."]

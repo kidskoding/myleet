@@ -1,0 +1,7 @@
+id = "minimum-sensors-to-cover-grid"
+title = "Minimum Sensors to Cover Grid"
+difficulty = "medium"
+leetcode = 3648
+url = "https://leetcode.com/problems/minimum-sensors-to-cover-grid/"
+key_idea = "A sensor covers a (2k + 1) x (2k + 1) square, and rows and columns can be tiled independently, so the answer is ceil(n / (2k + 1)) * ceil(m / (2k + 1))."
+hints = ["Draw the exact shape of the area one sensor covers.", "Can you handle the rows and the columns separately?"]

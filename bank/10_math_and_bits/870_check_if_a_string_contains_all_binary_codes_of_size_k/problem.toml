@@ -1,0 +1,7 @@
+id = "check-if-a-string-contains-all-binary-codes-of-size-k"
+title = "Check If a String Contains All Binary Codes of Size K"
+difficulty = "medium"
+leetcode = 1461
+url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
+key_idea = "Collect every length-k window of s in a set (or a rolling k-bit integer) and check whether the set reaches 2^k elements."
+hints = ["There are exactly 2^k codes; how many distinct windows does s have?", "A rolling integer of the last k bits avoids slicing strings."]

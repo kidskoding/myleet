@@ -1,0 +1,7 @@
+id = "smallest-divisible-digit-product-i"
+title = "Smallest Divisible Digit Product I"
+difficulty = "easy"
+leetcode = 3345
+url = "https://leetcode.com/problems/smallest-divisible-digit-product-i/"
+key_idea = "The answer is never far above n (a number with a 0 digit has product 0), so test n, n + 1, ... until the digit product is divisible by t."
+hints = ["How far can you go from n before you reach a number containing the digit 0?", "A brute-force scan upward with a digit-product helper is fast enough here."]

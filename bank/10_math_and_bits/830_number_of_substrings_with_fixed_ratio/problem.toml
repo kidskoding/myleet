@@ -1,0 +1,41 @@
+id = "number-of-substrings-with-fixed-ratio"
+title = "Number of Substrings With Fixed Ratio"
+difficulty = "medium"
+leetcode = 2489
+url = "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/"
+key_idea = "Score each prefix as num2 * zeros - num1 * ones; a substring has the exact ratio when its two prefix scores are equal, so count equal pairs with a hash map."
+hints = ["zeros : ones = num1 : num2 can be rewritten without division.", "Express that condition as a difference of two prefix quantities."]
+prompt = """
+Implement `fixed_ratio(s, num1, num2)`.
+
+You get a binary string `s` and two coprime positive integers `num1` and `num2`. A
+**ratio substring** is a non-empty substring in which the number of `0`s and the number of
+`1`s are in the exact ratio `num1 : num2`. For example, with `num1 = 2` and `num2 = 3`,
+"01011" and "1110000111" are ratio substrings, while "11000" is not.
+
+Return the number of ratio substrings of `s` (substrings at different positions count
+separately).
+
+**Example 1:**
+
+```
+Input: s = "0110011", num1 = 1, num2 = 2
+Output: 4
+```
+
+The ratio substrings are s[0..2] = "011", s[1..3] = "110", s[4..6] = "011" and
+s[1..6] = "110011".
+
+**Example 2:**
+
+```
+Input: s = "10101", num1 = 3, num2 = 1
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= s.length <= 10^5`
+- `1 <= num1, num2 <= s.length`
+- `num1` and `num2` are coprime
+"""

@@ -1,0 +1,7 @@
+id = "can-make-palindrome-from-substring"
+title = "Can Make Palindrome from Substring"
+difficulty = "medium"
+leetcode = 1177
+url = "https://leetcode.com/problems/can-make-palindrome-from-substring/"
+key_idea = "Prefix XOR bitmasks of letter parities give the odd-count letters of any substring in O(1); the query is true iff popcount // 2 <= k."
+hints = ["After rearranging, only letters with odd counts matter.", "Each replacement can fix two odd letters. Store letter parities as a bitmask prefix."]

@@ -1,0 +1,7 @@
+id = "find-the-closest-palindrome"
+title = "Find the Closest Palindrome"
+difficulty = "hard"
+leetcode = 564
+url = "https://leetcode.com/problems/find-the-closest-palindrome/"
+key_idea = "Only a few candidates can win: mirror the left half after adding -1, 0 or +1 to it, plus 10^(L-1) - 1 and 10^L + 1; drop n itself and pick the closest, smaller on ties."
+hints = ["The closest palindrome shares the left half of n, or a left half one away from it.", "Lengths can change near powers of ten (99, 100, 101), so add those cases separately."]

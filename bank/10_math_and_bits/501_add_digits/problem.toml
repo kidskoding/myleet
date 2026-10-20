@@ -1,0 +1,7 @@
+id = "add-digits"
+title = "Add Digits"
+difficulty = "easy"
+leetcode = 258
+url = "https://leetcode.com/problems/add-digits/"
+key_idea = "The repeated digit sum is the digital root: 0 for 0, otherwise 1 + (num - 1) % 9, because a number and its digit sum agree mod 9."
+hints = ["Write out the answers for 1 through 20 and look for a cycle.", "What does summing the digits preserve about a number modulo 9?"]

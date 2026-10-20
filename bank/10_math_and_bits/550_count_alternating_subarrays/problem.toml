@@ -1,0 +1,7 @@
+id = "count-alternating-subarrays"
+title = "Count Alternating Subarrays"
+difficulty = "medium"
+leetcode = 3101
+url = "https://leetcode.com/problems/count-alternating-subarrays/"
+key_idea = "Track the length of the alternating run ending at each index; that many alternating subarrays end there, so sum the run lengths."
+hints = ["Count subarrays by where they end instead of where they start.", "If nums[i] differs from nums[i - 1], every alternating subarray ending at i - 1 extends by one."]

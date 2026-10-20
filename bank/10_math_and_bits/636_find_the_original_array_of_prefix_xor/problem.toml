@@ -1,0 +1,7 @@
+id = "find-the-original-array-of-prefix-xor"
+title = "Find The Original Array of Prefix Xor"
+difficulty = "medium"
+leetcode = 2433
+url = "https://leetcode.com/problems/find-the-original-array-of-prefix-xor/"
+key_idea = "XOR undoes itself, so arr[i] = pref[i] ^ pref[i - 1], with arr[0] = pref[0]."
+hints = ["Write pref[i] and pref[i - 1] in terms of arr and compare them.", "What operation cancels a value that was XORed in?"]

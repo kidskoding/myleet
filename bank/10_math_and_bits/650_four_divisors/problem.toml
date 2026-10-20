@@ -1,0 +1,7 @@
+id = "four-divisors"
+title = "Four Divisors"
+difficulty = "medium"
+leetcode = 1390
+url = "https://leetcode.com/problems/four-divisors/"
+key_idea = "Enumerate divisor pairs up to sqrt(x), stopping early once more than four are found, and add the sum when exactly four exist."
+hints = ["Divisors come in pairs (d, x / d), so you only need to try d up to the square root.", "Be careful with perfect squares, where the pair collapses to one divisor."]

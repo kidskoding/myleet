@@ -1,0 +1,7 @@
+id = "manhattan-distances-of-all-arrangements-of-pieces"
+title = "Manhattan Distances of All Arrangements of Pieces"
+difficulty = "hard"
+leetcode = 3426
+url = "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/"
+key_idea = "Each pair of cells appears together in C(mn - 2, k - 2) arrangements, so the answer is that binomial times the sum of distances over all cell pairs, split into row and column parts with closed forms."
+hints = ["Flip the sum: instead of iterating arrangements, ask how many arrangements contain a given pair of cells.", "The x and y parts of the Manhattan distance separate. How many cell pairs have column difference exactly d?"]

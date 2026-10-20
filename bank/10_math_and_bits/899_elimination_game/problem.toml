@@ -1,0 +1,7 @@
+id = "elimination-game"
+title = "Elimination Game"
+difficulty = "medium"
+leetcode = 390
+url = "https://leetcode.com/problems/elimination-game/"
+key_idea = "Track only the head of the remaining arithmetic sequence, its step and its length: the head moves forward on every left-to-right pass and on right-to-left passes when the length is odd; each pass halves the length and doubles the step."
+hints = ["After each pass the survivors are still evenly spaced.", "Ask when the smallest survivor changes: always on a left pass, and on a right pass only for some lengths."]

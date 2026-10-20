@@ -1,0 +1,7 @@
+id = "find-the-largest-area-of-square-inside-two-rectangles"
+title = "Find the Largest Area of Square Inside Two Rectangles"
+difficulty = "medium"
+leetcode = 3047
+url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
+key_idea = "For every pair of rectangles, the intersection has width min(right) - max(left) and height min(top) - max(bottom); the biggest square inside has side min(width, height), and the answer is the best side squared."
+hints = ["The region where two axis-aligned rectangles overlap is itself a rectangle.", "A square inside a rectangle is limited by the shorter side."]

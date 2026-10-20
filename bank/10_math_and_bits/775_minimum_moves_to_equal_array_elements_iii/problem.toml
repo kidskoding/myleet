@@ -1,0 +1,7 @@
+id = "minimum-moves-to-equal-array-elements-iii"
+title = "Minimum Moves to Equal Array Elements III"
+difficulty = "easy"
+leetcode = 3736
+url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-iii/"
+key_idea = "Moves only increase values, so everything must rise to the maximum: the answer is n * max(nums) - sum(nums)."
+hints = ["Values can only go up. What is the smallest common value they can all reach?", "Count how far each element is from that value."]

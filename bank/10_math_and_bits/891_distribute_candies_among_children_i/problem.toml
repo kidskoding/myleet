@@ -1,0 +1,7 @@
+id = "distribute-candies-among-children-i"
+title = "Distribute Candies Among Children I"
+difficulty = "easy"
+leetcode = 2928
+url = "https://leetcode.com/problems/distribute-candies-among-children-i/"
+key_idea = "Fix the first child's share a, then the second child's share b must lie in [max(0, n - a - limit), min(n - a, limit)]; sum the sizes of those ranges."
+hints = ["With limits this small you could even try every triple, but two choices determine the third.", "Once the first two shares are fixed, the third is forced; when is it legal?"]

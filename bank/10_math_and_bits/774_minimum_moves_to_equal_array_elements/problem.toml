@@ -1,0 +1,7 @@
+id = "minimum-moves-to-equal-array-elements"
+title = "Minimum Moves to Equal Array Elements"
+difficulty = "medium"
+leetcode = 453
+url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
+key_idea = "Adding 1 to n - 1 elements is the same as subtracting 1 from one element, so the answer is sum(nums) - n * min(nums)."
+hints = ["Look at what one move does to the differences between elements.", "Which element would never need to change if you thought of moves as decrements?"]

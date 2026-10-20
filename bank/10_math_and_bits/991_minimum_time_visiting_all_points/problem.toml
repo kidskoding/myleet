@@ -1,0 +1,7 @@
+id = "minimum-time-visiting-all-points"
+title = "Minimum Time Visiting All Points"
+difficulty = "easy"
+leetcode = 1266
+url = "https://leetcode.com/problems/minimum-time-visiting-all-points/"
+key_idea = "Between consecutive points, diagonal moves cover both axes at once, so the time is max(|dx|, |dy|); sum it over the path."
+hints = ["Handle one pair of consecutive points at a time.", "A diagonal step reduces both the x and y gap by one in a single second."]

@@ -1,0 +1,48 @@
+id = "hexspeak"
+title = "Hexspeak"
+difficulty = "easy"
+leetcode = 1271
+url = "https://leetcode.com/problems/hexspeak/"
+key_idea = "Convert to uppercase hex, map 0 to O and 1 to I, and reject the result if any digit 2-9 remains."
+hints = ["Python can produce the hexadecimal string for you; the work is in the character rules.", "Which hex digits have no letter replacement?"]
+prompt = """
+Implement `to_hexspeak(num)`. The argument is a string holding a positive decimal integer.
+
+To turn a number into *Hexspeak*, write it in uppercase hexadecimal, then swap every
+digit `0` for the letter `O` and every digit `1` for the letter `I`. The result only
+counts as valid Hexspeak if every character is one of `A`, `B`, `C`, `D`, `E`, `F`,
+`I` or `O`.
+
+Return the Hexspeak string when it is valid, and the string `"ERROR"` otherwise.
+
+**Example 1:**
+
+```
+Input: num = "257"
+Output: "IOI"
+```
+
+`257` is `0x101` in hexadecimal, which becomes `IOI`.
+
+**Example 2:**
+
+```
+Input: num = "3"
+Output: "ERROR"
+```
+
+`3` stays the digit `3` in hexadecimal, and `3` has no letter form.
+
+**Example 3:**
+
+```
+Input: num = "747823223228"
+Output: "AEIDBCDIBC"
+```
+
+**Constraints:**
+
+- `1 <= num.length <= 12`
+- `num` has no leading zeros
+- `num` is a decimal integer in the range `[1, 10^12]`
+"""

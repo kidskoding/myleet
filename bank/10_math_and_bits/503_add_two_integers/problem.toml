@@ -1,0 +1,7 @@
+id = "add-two-integers"
+title = "Add Two Integers"
+difficulty = "easy"
+leetcode = 2235
+url = "https://leetcode.com/problems/add-two-integers/"
+key_idea = "Return num1 + num2; the problem is a warm-up for the submission format."
+hints = ["There is no trick here.", "Watch the sign when one of the numbers is negative."]

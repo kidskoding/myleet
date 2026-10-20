@@ -1,0 +1,7 @@
+id = "best-position-for-a-service-centre"
+title = "Best Position for a Service Centre"
+difficulty = "hard"
+leetcode = 1515
+url = "https://leetcode.com/problems/best-position-for-a-service-centre/"
+key_idea = "The sum of Euclidean distances is convex, so start at the centroid and do a shrinking-step local search (try four directions, halve the step when none improves) until the step is tiny."
+hints = ["There is no closed form, but the objective has a single valley.", "Any reasonable descent that keeps improving and shrinks its step converges to the minimum."]

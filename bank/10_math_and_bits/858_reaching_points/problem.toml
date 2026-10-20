@@ -1,0 +1,7 @@
+id = "reaching-points"
+title = "Reaching Points"
+difficulty = "hard"
+leetcode = 780
+url = "https://leetcode.com/problems/reaching-points/"
+key_idea = "Work backwards from (tx, ty): the larger coordinate must have come from subtracting the smaller one, so reduce it with modulo until one side reaches the start, then check divisibility."
+hints = ["Going forward branches two ways, but going backward each point has only one possible parent.", "Repeated subtraction of the same value can be done in one step."]

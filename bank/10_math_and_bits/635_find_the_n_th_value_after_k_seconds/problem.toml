@@ -1,0 +1,7 @@
+id = "find-the-n-th-value-after-k-seconds"
+title = "Find the N-th Value After K Seconds"
+difficulty = "medium"
+leetcode = 3179
+url = "https://leetcode.com/problems/find-the-n-th-value-after-k-seconds/"
+key_idea = "Each second turns the array into its prefix sums, so after k seconds the last element is C(n + k - 1, k), or a direct k-round prefix-sum simulation mod 10^9 + 7."
+hints = ["Write out the array for a few seconds; the rows look like a famous triangle.", "Even the plain simulation is only n * k additions."]

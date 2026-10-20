@@ -1,0 +1,7 @@
+id = "fizz-buzz"
+title = "Fizz Buzz"
+difficulty = "easy"
+leetcode = 412
+url = "https://leetcode.com/problems/fizz-buzz/"
+key_idea = "For each i, check divisibility by 15 first, then 3, then 5, otherwise use the number itself."
+hints = ["The order of your checks matters.", "A number divisible by both 3 and 5 is divisible by 15."]

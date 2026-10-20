@@ -1,0 +1,7 @@
+id = "convert-to-base-2"
+title = "Convert to Base -2"
+difficulty = "medium"
+leetcode = 1017
+url = "https://leetcode.com/problems/convert-to-base-2/"
+key_idea = "Peel off the low bit (always 0 or 1), then divide what remains by -2, repeating until the number is zero."
+hints = ["Ordinary base conversion takes a remainder and divides; check what has to change when the base is negative.", "Keep every digit 0 or 1: once the low bit is removed, the rest is an exact multiple of -2."]

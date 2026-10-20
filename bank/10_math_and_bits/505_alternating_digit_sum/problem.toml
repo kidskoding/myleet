@@ -1,0 +1,7 @@
+id = "alternating-digit-sum"
+title = "Alternating Digit Sum"
+difficulty = "easy"
+leetcode = 2544
+url = "https://leetcode.com/problems/alternating-digit-sum/"
+key_idea = "Walk the digits from the most significant one, flipping the sign each step."
+hints = ["The most significant digit is always positive.", "Converting to a string gives you the digits in left-to-right order."]

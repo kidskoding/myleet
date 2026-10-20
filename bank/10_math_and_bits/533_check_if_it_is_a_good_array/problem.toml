@@ -1,0 +1,7 @@
+id = "check-if-it-is-a-good-array"
+title = "Check If It Is a Good Array"
+difficulty = "hard"
+leetcode = 1250
+url = "https://leetcode.com/problems/check-if-it-is-a-good-array/"
+key_idea = "By Bezout's identity, integer combinations of the numbers produce exactly the multiples of their gcd, so the array is good iff the gcd of all elements is 1."
+hints = ["Which values can a * x + b * y take over all integers a and b?", "Extend that answer from two numbers to the whole array."]

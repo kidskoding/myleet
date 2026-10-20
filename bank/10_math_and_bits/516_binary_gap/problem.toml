@@ -1,0 +1,7 @@
+id = "binary-gap"
+title = "Binary Gap"
+difficulty = "easy"
+leetcode = 868
+url = "https://leetcode.com/problems/binary-gap/"
+key_idea = "Scan the bits while remembering the position of the last 1, and take the largest distance between consecutive 1 bits."
+hints = ["Shift n right one bit at a time and track the current bit index.", "If there is only one 1 bit, the answer is 0."]

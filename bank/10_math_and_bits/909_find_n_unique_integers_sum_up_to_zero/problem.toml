@@ -1,0 +1,7 @@
+id = "find-n-unique-integers-sum-up-to-zero"
+title = "Find N Unique Integers Sum up to Zero"
+difficulty = "easy"
+leetcode = 1304
+url = "https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/"
+key_idea = "Emit pairs x and -x for x = 1..n//2, and add 0 when n is odd."
+hints = ["Any answer works, so pick numbers that cancel each other.", "What do you do with the leftover slot when n is odd?"]

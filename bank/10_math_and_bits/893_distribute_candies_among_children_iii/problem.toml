@@ -1,0 +1,37 @@
+id = "distribute-candies-among-children-iii"
+title = "Distribute Candies Among Children III"
+difficulty = "hard"
+leetcode = 2927
+url = "https://leetcode.com/problems/distribute-candies-among-children-iii/"
+key_idea = "Inclusion-exclusion over which children exceed the limit: sum over i = 0..3 of (-1)^i * C(3, i) * C(n - i * (limit + 1) + 2, 2), skipping negative terms."
+hints = ["Without the limit, stars and bars counts the ways directly.", "Subtract the distributions where some child gets more than limit by pre-giving that child limit + 1 candies, and correct for double subtraction."]
+prompt = """
+Implement `distribute_candies(n, limit)`, which returns the number of ways to hand out
+exactly `n` candies to `3` children so that no child receives more than `limit` candies.
+A child may receive zero candies. Two ways are different if some child receives a
+different number of candies.
+
+**Example 1:**
+
+```
+Input: n = 5, limit = 2
+Output: 3
+```
+
+The only ways are `(1, 2, 2)`, `(2, 1, 2)` and `(2, 2, 1)`.
+
+**Example 2:**
+
+```
+Input: n = 3, limit = 3
+Output: 10
+```
+
+The limit never binds, so every split of `3` candies counts: `(0,0,3)`, `(0,1,2)`,
+`(0,2,1)`, `(0,3,0)`, `(1,0,2)`, `(1,1,1)`, `(1,2,0)`, `(2,0,1)`, `(2,1,0)` and `(3,0,0)`.
+
+**Constraints:**
+
+- `1 <= n <= 10^8`
+- `1 <= limit <= 10^8`
+"""

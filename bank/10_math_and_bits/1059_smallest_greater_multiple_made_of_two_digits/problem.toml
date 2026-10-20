@@ -1,0 +1,46 @@
+id = "smallest-greater-multiple-made-of-two-digits"
+title = "Smallest Greater Multiple Made of Two Digits"
+difficulty = "medium"
+leetcode = 1999
+url = "https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits/"
+key_idea = "Enumerate numbers built only from the two digits in increasing order (by length, then digit order) and return the first one above k that k divides, stopping past 2^31 - 1."
+hints = ["Searching multiples of k could take forever; search the much smaller set of numbers made of the two digits instead.", "Generating those numbers length by length, with digits in sorted order, visits them from smallest to largest."]
+prompt = """
+Implement `find_integer(k, digit1, digit2)`. Return the smallest integer that
+
+- is strictly greater than `k`,
+- is a multiple of `k`, and
+- is written using only the digits `digit1` and/or `digit2` (no leading zeros).
+
+If no such integer exists, or the smallest one is larger than `2^31 - 1`, return `-1`.
+
+**Example 1:**
+
+```
+Input: k = 2, digit1 = 0, digit2 = 2
+Output: 20
+```
+
+`20` is the first number above `2` that is a multiple of `2` and uses only `0` and `2`.
+
+**Example 2:**
+
+```
+Input: k = 3, digit1 = 4, digit2 = 2
+Output: 24
+```
+
+**Example 3:**
+
+```
+Input: k = 2, digit1 = 0, digit2 = 0
+Output: -1
+```
+
+Only the digit `0` is allowed, so no positive number can be formed.
+
+**Constraints:**
+
+- `1 <= k <= 1000`
+- `0 <= digit1, digit2 <= 9`
+"""

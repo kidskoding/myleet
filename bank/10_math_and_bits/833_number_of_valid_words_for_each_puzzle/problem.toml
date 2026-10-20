@@ -1,0 +1,7 @@
+id = "number-of-valid-words-for-each-puzzle"
+title = "Number of Valid Words for Each Puzzle"
+difficulty = "hard"
+leetcode = 1178
+url = "https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/"
+key_idea = "Reduce each word to a letter bitmask and count masks; for each puzzle enumerate the subsets of its other six letters, add the first letter, and sum the counts."
+hints = ["Only the set of letters in a word matters, not their order or repeats.", "A puzzle has just 7 letters, so it has few letter subsets."]

@@ -1,0 +1,7 @@
+id = "number-of-unique-xor-triplets-i"
+title = "Number of Unique XOR Triplets I"
+difficulty = "medium"
+leetcode = 3513
+url = "https://leetcode.com/problems/number-of-unique-xor-triplets-i/"
+key_idea = "For n >= 3 the triplet XORs cover every value below the next power of two above n, so the answer is 2^(bit length of n); n = 1 and n = 2 are special cases."
+hints = ["Since i <= j <= k allows repeats, every single element is itself a triplet value.", "Work out small n by hand and look at which values appear."]

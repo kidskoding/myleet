@@ -1,0 +1,7 @@
+id = "groups-of-strings"
+title = "Groups of Strings"
+difficulty = "hard"
+leetcode = 2157
+url = "https://leetcode.com/problems/groups-of-strings/"
+key_idea = "Encode each word as a 26-bit mask and union-find over masks: deleting one bit gives add/delete neighbours, and two masks that share a one-bit-deleted form are a replace apart."
+hints = ["Since letters never repeat, a word is fully described by a set of letters. What compact form fits that?", "Checking every pair is too slow. A replacement is a deletion followed by an addition, so what do two words one replacement apart have in common?"]

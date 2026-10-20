@@ -1,0 +1,7 @@
+id = "perfect-number"
+title = "Perfect Number"
+difficulty = "easy"
+leetcode = 507
+url = "https://leetcode.com/problems/perfect-number/"
+key_idea = "Sum divisors in pairs (i, num // i) for i up to sqrt(num), starting from 1, and compare with num."
+hints = ["Divisors come in pairs around the square root.", "Be careful with 1, which has no proper divisors that sum to itself."]

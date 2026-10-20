@@ -1,0 +1,7 @@
+id = "two-out-of-three"
+title = "Two Out of Three"
+difficulty = "easy"
+leetcode = 2032
+url = "https://leetcode.com/problems/two-out-of-three/"
+key_idea = "Turn each array into a set and keep the values that appear in at least two of the three sets (pairwise intersections unioned)."
+hints = ["Duplicates inside one array should not count twice.", "Count, for each value, how many of the arrays contain it."]

@@ -1,0 +1,7 @@
+id = "minimum-number-of-operations-to-make-string-sorted"
+title = "Minimum Number of Operations to Make String Sorted"
+difficulty = "hard"
+leetcode = 1830
+url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-string-sorted/"
+key_idea = "Each operation steps to the previous permutation, so the answer is the number of distinct permutations smaller than s: for each position, count letters smaller than s[i] in the suffix times the multiset permutations of the rest."
+hints = ["Run the operation by hand on a short string. What does each step do to the string's rank among its permutations?", "Count permutations that are lexicographically smaller, using factorials divided by repeated-letter factorials modulo a prime."]

@@ -1,0 +1,7 @@
+id = "count-number-of-maximum-bitwise-or-subsets"
+title = "Count Number of Maximum Bitwise-OR Subsets"
+difficulty = "medium"
+leetcode = 2044
+url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
+key_idea = "The maximum OR is the OR of the whole array; with n <= 16, enumerate every subset (bitmask or backtracking) and count those whose OR reaches it."
+hints = ["Adding elements to a subset can never lower its OR, so what is the largest possible OR?", "2^16 subsets is small enough to try them all."]

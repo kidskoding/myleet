@@ -1,0 +1,7 @@
+id = "the-kth-factor-of-n"
+title = "The kth Factor of n"
+difficulty = "medium"
+leetcode = 1492
+url = "https://leetcode.com/problems/the-kth-factor-of-n/"
+key_idea = "Factors come in pairs (i, n // i) with i <= sqrt(n): count the small ones upward, then walk the large partners downward from sqrt(n)."
+hints = ["A plain scan from 1 to n works; the follow-up asks for better.", "Every factor above sqrt(n) is n divided by a factor below it."]

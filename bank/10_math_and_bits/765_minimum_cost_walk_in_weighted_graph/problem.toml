@@ -1,0 +1,7 @@
+id = "minimum-cost-walk-in-weighted-graph"
+title = "Minimum Cost Walk in Weighted Graph"
+difficulty = "hard"
+leetcode = 3108
+url = "https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph/"
+key_idea = "A walk may reuse edges, so the cheapest walk inside a component ANDs every edge of that component; union-find components and keep each component's AND."
+hints = ["AND never increases, so visiting more edges can only help.", "Within a connected component you can detour over every edge and come back."]

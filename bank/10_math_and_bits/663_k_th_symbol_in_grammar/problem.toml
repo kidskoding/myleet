@@ -1,0 +1,7 @@
+id = "k-th-symbol-in-grammar"
+title = "K-th Symbol in Grammar"
+difficulty = "medium"
+leetcode = 779
+url = "https://leetcode.com/problems/k-th-symbol-in-grammar/"
+key_idea = "The k-th symbol flips once for every 1 bit in k - 1, so the answer is popcount(k - 1) mod 2."
+hints = ["Each symbol in row n comes from one parent symbol in row n - 1; which one?", "A left child equals its parent and a right child is its complement."]

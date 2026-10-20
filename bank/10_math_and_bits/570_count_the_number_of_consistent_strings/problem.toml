@@ -1,0 +1,7 @@
+id = "count-the-number-of-consistent-strings"
+title = "Count the Number of Consistent Strings"
+difficulty = "easy"
+leetcode = 1684
+url = "https://leetcode.com/problems/count-the-number-of-consistent-strings/"
+key_idea = "Put the allowed characters in a set (or a 26-bit mask) and count words whose characters all belong to it."
+hints = ["You need a fast membership test for each character.", "A word is consistent when its own character set is a subset of the allowed set."]

@@ -1,0 +1,7 @@
+id = "number-of-days-between-two-dates"
+title = "Number of Days Between Two Dates"
+difficulty = "easy"
+leetcode = 1360
+url = "https://leetcode.com/problems/number-of-days-between-two-dates/"
+key_idea = "Convert each date to a day count from a fixed epoch (summing years, months with leap-year February, and days) and return the absolute difference."
+hints = ["Turning each date into a single number makes the difference trivial.", "A year is a leap year when divisible by 4, except centuries not divisible by 400."]

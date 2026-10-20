@@ -1,0 +1,7 @@
+id = "average-value-of-even-numbers-that-are-divisible-by-three"
+title = "Average Value of Even Numbers That Are Divisible by Three"
+difficulty = "easy"
+leetcode = 2455
+url = "https://leetcode.com/problems/average-value-of-even-numbers-that-are-divisible-by-three/"
+key_idea = "Even and divisible by three means divisible by six; sum and count those values and floor-divide, returning 0 when there are none."
+hints = ["Combine the two conditions into one divisibility check.", "Guard against dividing by zero when nothing qualifies."]

@@ -1,0 +1,7 @@
+id = "alice-and-bob-playing-flower-game"
+title = "Alice and Bob Playing Flower Game"
+difficulty = "medium"
+leetcode = 3021
+url = "https://leetcode.com/problems/alice-and-bob-playing-flower-game/"
+key_idea = "Alice wins exactly when x + y is odd, so count pairs with one odd and one even coordinate: n * m // 2."
+hints = ["Every turn removes exactly one flower; who takes the last one depends only on the total.", "Count odd and even choices in each range separately."]

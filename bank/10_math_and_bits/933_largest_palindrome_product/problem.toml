@@ -1,0 +1,7 @@
+id = "largest-palindrome-product"
+title = "Largest Palindrome Product"
+difficulty = "hard"
+leetcode = 479
+url = "https://leetcode.com/problems/largest-palindrome-product/"
+key_idea = "Generate even-length palindromes from the largest left half downward and, for each, test n-digit divisors from 10^n - 1 down while divisor^2 >= palindrome; n = 1 is the special case 9."
+hints = ["Testing every pair of n-digit numbers is far too slow. Which is easier to enumerate in descending order: products or palindromes?", "A palindrome is determined by its first half. For a candidate, how far down do you need to search for a factor?"]

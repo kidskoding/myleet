@@ -1,0 +1,7 @@
+id = "distribute-candies-among-children-ii"
+title = "Distribute Candies Among Children II"
+difficulty = "medium"
+leetcode = 2929
+url = "https://leetcode.com/problems/distribute-candies-among-children-ii/"
+key_idea = "Loop over the first child's share and count the valid range for the second child in O(1), giving O(min(n, limit)); inclusion-exclusion gives an O(1) formula too."
+hints = ["Trying every triple is too slow now, but fixing one share leaves a counting problem on an interval.", "For a fixed first share, the second share ranges over a contiguous interval of integers."]
