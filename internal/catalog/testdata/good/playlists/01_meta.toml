@@ -1,0 +1,11 @@
+title = "Meta"
+focus = "speed"
+review_modules = []
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
