@@ -6,7 +6,7 @@ def lowest_common_ancestor_bst(
     p: TreeNode,
     q: TreeNode,
 ) -> TreeNode | None:
-    # Problem 42: Lowest Common Ancestor Of A BST
+    # Problem 42: Lowest Common Ancestor of a Binary Search Tree
     # Time:
     # Space:
 

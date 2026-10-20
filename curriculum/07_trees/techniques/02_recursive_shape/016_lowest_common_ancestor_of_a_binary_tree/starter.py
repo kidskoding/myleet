@@ -6,7 +6,7 @@ def lowest_common_ancestor(
     p: TreeNode | None,
     q: TreeNode | None,
 ) -> TreeNode | None:
-    # Problem 16: Lowest Common Ancestor Of A Binary Tree
+    # Problem 16: Lowest Common Ancestor of a Binary Tree
     # Time:
     # Space:
 

@@ -2,7 +2,7 @@ from tree_node import TreeNode
 
 
 def serialize_binary_tree(root: TreeNode | None) -> str:
-    # Problem 53: Serialize And Deserialize Binary Tree
+    # Problem 53: Serialize and Deserialize Binary Tree
     # Time:
     # Space:
 

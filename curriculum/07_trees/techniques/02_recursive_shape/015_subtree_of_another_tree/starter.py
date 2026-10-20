@@ -5,7 +5,7 @@ def subtree_of_another_tree(
     root: TreeNode | None,
     subroot: TreeNode | None,
 ) -> bool:
-    # Problem 15: Subtree Of Another Tree
+    # Problem 15: Subtree of Another Tree
     # Time:
     # Space:
 

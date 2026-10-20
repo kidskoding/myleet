@@ -6,7 +6,7 @@ def distance_k(
     target: TreeNode | None,
     k: int,
 ) -> list[int]:
-    # Problem 29: All Nodes Distance K In Binary Tree
+    # Problem 29: All Nodes Distance K in Binary Tree
     # Time:
     # Space:
 
