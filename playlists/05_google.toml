@@ -1,4 +1,5 @@
 title = "Google"
+group = "Big tech"
 focus = "recursive reasoning, trees, graphs, grids, DP, backtracking, and clean explanation."
 review_modules = ["07_trees", "10_graphs", "11_dp", "09_backtracking", "05_binary_search"]
 

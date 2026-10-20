@@ -1,4 +1,5 @@
 title = "Hudson River Trading"
+group = "Quant"
 focus = "bit manipulation, in-place and cache-friendly array tricks, fixed-size data structure design, grid simulation, monotonic deques, and heap scheduling."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "08_heaps", "15_bit_manipulation", "16_math_geometry"]
 

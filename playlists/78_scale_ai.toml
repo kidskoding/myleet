@@ -1,4 +1,5 @@
 title = "Scale AI"
+group = "AI labs / high growth"
 focus = "practical data processing with sorting and two pointers, heaps for top-k and ranking, BFS and topological order over task graphs, weighted sampling, and small stateful APIs."
 review_modules = ["02_two_pointers", "08_heaps", "10_graphs", "01_arrays_and_hashing", "16_math_geometry"]
 

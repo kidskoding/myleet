@@ -1,4 +1,5 @@
 title = "eBay"
+group = "Big tech"
 focus = "string and hash map processing, stacks, prefix sums, tree construction and traversal, backtracking, and practical design classes."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "09_backtracking", "14_tries"]
 

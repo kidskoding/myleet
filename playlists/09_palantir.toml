@@ -1,4 +1,5 @@
-title = "Palantir"
+title = "Palantir Technologies"
+group = "Big tech"
 focus = "arrays/maps, graph traversal, intervals, trees, simulation, practical state modeling, and clear implementation under changing requirements."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "13_intervals"]
 

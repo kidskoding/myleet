@@ -1,4 +1,5 @@
 title = "Epic Games"
+group = "Little tech"
 focus = "grid traversal with BFS and DFS, matrix simulation, computational geometry with rectangles and points, and shortest paths on game maps."
 review_modules = ["10_graphs", "16_math_geometry", "11_dp", "09_backtracking", "17_advanced"]
 

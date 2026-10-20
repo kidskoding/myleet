@@ -1,4 +1,5 @@
 title = "Anthropic"
+group = "AI labs / high growth"
 focus = "practical data processing with hash maps and parsing, design-style stateful data structures, and graph traversal over dependencies."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 

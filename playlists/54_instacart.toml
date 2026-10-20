@@ -1,4 +1,5 @@
 title = "Instacart"
+group = "Little tech"
 focus = "heaps, routing-style graphs, intervals, sliding windows, arrays, greedy reasoning, and data-structure design."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "17_advanced"]
 

@@ -1,4 +1,5 @@
 title = "Goldman Sachs"
+group = "Fortune 500"
 focus = "careful array and string manipulation, hash-map counting, monotonic and matching stacks, and grid or sequence DP."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "11_dp"]
 

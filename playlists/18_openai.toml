@@ -1,4 +1,5 @@
 title = "OpenAI"
+group = "AI labs / high growth"
 focus = "deep reasoning, graphs, DP, trees, search, optimization, and clean abstractions."
 review_modules = ["07_trees", "10_graphs", "11_dp", "09_backtracking", "05_binary_search"]
 

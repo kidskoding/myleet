@@ -1,4 +1,5 @@
 title = "Cisco"
+group = "Fortune 500"
 focus = "network graphs, BFS/DFS, shortest paths, intervals, heaps, strings, trees, and design data structures."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 

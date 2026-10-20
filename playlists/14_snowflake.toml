@@ -1,4 +1,5 @@
 title = "Snowflake"
+group = "Little tech"
 focus = "data structures, graphs, DP, intervals, heaps, performance, and system-adjacent reasoning."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "08_heaps", "13_intervals", "10_graphs", "11_dp"]
 

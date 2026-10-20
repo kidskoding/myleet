@@ -1,4 +1,5 @@
 title = "Visa"
+group = "Fortune 500"
 focus = "in-place array manipulation, two pointers, sliding windows, hash-map counting, and integer and string arithmetic done without overflow."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "05_binary_search", "16_math_geometry"]
 

@@ -1,4 +1,5 @@
 title = "Waymo"
+group = "AI labs / high growth"
 focus = "grid and graph search, shortest paths, computational geometry, and interval reasoning over time-ordered events."
 review_modules = ["10_graphs", "13_intervals", "16_math_geometry", "08_heaps", "17_advanced"]
 

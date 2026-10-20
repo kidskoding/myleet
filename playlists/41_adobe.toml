@@ -1,4 +1,5 @@
 title = "Adobe"
+group = "Big tech"
 focus = "array and string manipulation, matrix and image-style grid traversal, rectangle geometry, binary trees, and classic 2D DP."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "07_trees", "10_graphs", "11_dp", "16_math_geometry"]
 

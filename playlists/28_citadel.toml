@@ -1,4 +1,5 @@
 title = "Citadel"
+group = "Quant"
 focus = "math and numeric edge cases, streaming statistics with heaps, interval bookkeeping, stock-trading DP, simulation, and performance-sensitive array scans."
 review_modules = ["05_binary_search", "08_heaps", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
 

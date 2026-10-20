@@ -1,4 +1,5 @@
 title = "Dropbox"
+group = "Little tech"
 focus = "strings, arrays, graphs, trees, hashing, and core interview algorithms."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "10_graphs", "08_heaps", "07_trees"]
 

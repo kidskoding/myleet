@@ -1,4 +1,5 @@
 title = "Ramp"
+group = "AI labs / high growth"
 focus = "stateful data structures, hash maps, intervals, prefix sums, graphs, heaps, and clean API-style implementation."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "16_math_geometry", "17_advanced"]
 

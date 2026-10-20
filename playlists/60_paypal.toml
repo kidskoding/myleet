@@ -1,4 +1,5 @@
 title = "PayPal"
+group = "Big tech"
 focus = "string and stack processing, binary search variants, matrix traversal, union find over relationships, and knapsack-style DP."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "11_dp", "12_greedy_algorithms", "15_bit_manipulation"]
 

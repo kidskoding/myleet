@@ -1,4 +1,5 @@
 title = "Stripe"
+group = "AI labs / high growth"
 focus = "string parsing, hash-map bookkeeping, interval merging, rate limiting, and small design-style data structures built cleanly under time pressure."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 

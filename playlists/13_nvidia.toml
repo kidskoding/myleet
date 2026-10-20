@@ -1,4 +1,5 @@
 title = "NVIDIA"
+group = "Big tech"
 focus = "arrays, graphs, DP, bit manipulation, performance reasoning, and clean low-level logic."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "10_graphs", "11_dp", "15_bit_manipulation", "17_advanced"]
 

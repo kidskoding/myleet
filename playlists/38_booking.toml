@@ -1,4 +1,5 @@
 title = "Booking.com"
+group = "Big tech"
 focus = "hash maps and sliding window over records, interval and calendar scheduling, heaps for ranking and streams, and graph traversal."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 

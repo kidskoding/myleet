@@ -1,4 +1,5 @@
 title = "Walmart Global Tech"
+group = "Fortune 500"
 focus = "arrays and hash maps, sliding window, tree traversal, BFS on grids and graphs, heaps, and dynamic programming."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms"]
 

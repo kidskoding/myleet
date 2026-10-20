@@ -1,4 +1,5 @@
 title = "Duolingo"
+group = "Little tech"
 focus = "string comparison and edit-distance DP, palindromes, word-list hashing and ordering, backtracking over letters, and greedy warmups."
 review_modules = ["01_arrays_and_hashing", "11_dp", "09_backtracking", "14_tries", "12_greedy_algorithms", "10_graphs"]
 

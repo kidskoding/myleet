@@ -1,4 +1,5 @@
 title = "Coinbase"
+group = "Little tech"
 focus = "correctness under constraints, arrays/maps, graphs, DP, practical modeling, and clean state."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "10_graphs", "11_dp", "08_heaps", "14_tries"]
 

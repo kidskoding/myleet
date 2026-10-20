@@ -1,4 +1,5 @@
 title = "Shopify"
+group = "Big tech"
 focus = "practical commerce-flavored problems: greedy allocation, frequency counting, binary search on capacity, prefix-sum bookings, and small design classes."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "08_heaps", "12_greedy_algorithms", "14_tries"]
 

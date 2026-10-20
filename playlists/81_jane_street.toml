@@ -1,4 +1,5 @@
 title = "Jane Street"
+group = "Quant"
 focus = "math and probability reasoning, recursion and expression evaluation, game and probability DP, simulation, and heap-driven k-th order statistics."
 review_modules = ["03_stacks_and_queues", "08_heaps", "09_backtracking", "11_dp", "13_intervals", "16_math_geometry"]
 
