@@ -4,6 +4,58 @@ focus = "string parsing, hash-map bookkeeping, interval merging, rate limiting, 
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
+
+[[entries]]
+title = "Minimum Penalty for a Shop"
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
+
+[[entries]]
+title = "Calculate Amount Paid in Taxes"
+url = "https://leetcode.com/problems/calculate-amount-paid-in-taxes/"
+
+[[entries]]
+title = "Invalid Transactions"
+url = "https://leetcode.com/problems/invalid-transactions/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Brace Expansion"
+url = "https://leetcode.com/problems/brace-expansion/"
+
+[[entries]]
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
+
+[[entries]]
+title = "One Edit Distance"
+url = "https://leetcode.com/problems/one-edit-distance/"
+
+[[entries]]
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
+
+[[entries]]
+title = "Alert Using Same Key-Card Three or More Times in a One Hour Period"
+url = "https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/"
+
+[[entries]]
+title = "Simple Bank System"
+url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
 title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
 
@@ -76,12 +128,8 @@ title = "Design Authentication Manager"
 url = "https://leetcode.com/problems/design-authentication-manager/"
 
 [[entries]]
-title = "Stock Price Fluctuation "
+title = "Stock Price Fluctuation"
 url = "https://leetcode.com/problems/stock-price-fluctuation/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "My Calendar I"
@@ -94,14 +142,6 @@ url = "https://leetcode.com/problems/basic-calculator-ii/"
 [[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
-
-[[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
 title = "Process Tasks Using Servers"

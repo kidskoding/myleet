@@ -4,16 +4,72 @@ focus = "harder mediums, graphs, DP, arrays, performance tradeoffs, and precise 
 review_modules = ["05_binary_search", "10_graphs", "11_dp", "01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "08_heaps"]
 
 [[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Find All Anagrams in a String"
+url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+
+[[entries]]
+title = "IP to CIDR"
+url = "https://leetcode.com/problems/ip-to-cidr/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Design Tic-Tac-Toe"
+url = "https://leetcode.com/problems/design-tic-tac-toe/"
+
+[[entries]]
+title = "Step-By-Step Directions From a Binary Tree Node to Another"
+url = "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/"
+
+[[entries]]
+title = "RLE Iterator"
+url = "https://leetcode.com/problems/rle-iterator/"
+
+[[entries]]
+title = "Shortest Path in a Grid with Obstacles Elimination"
+url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
+
+[[entries]]
+title = "Number of Recent Calls"
+url = "https://leetcode.com/problems/number-of-recent-calls/"
+
+[[entries]]
+title = "Longest Palindrome by Concatenating Two Letter Words"
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Closest Leaf in a Binary Tree"
+url = "https://leetcode.com/problems/closest-leaf-in-a-binary-tree/"
+
+[[entries]]
 title = "Design In-Memory File System"
 url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
 title = "Design Search Autocomplete System"
 url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
 title = "Maximal Rectangle"
@@ -54,10 +110,6 @@ url = "https://leetcode.com/problems/fruit-into-baskets/"
 [[entries]]
 title = "Contains Duplicate II"
 url = "https://leetcode.com/problems/contains-duplicate-ii/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Word Search II"
@@ -138,3 +190,15 @@ url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
 [[entries]]
 title = "Critical Connections in a Network"
 url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Unique Paths III"
+url = "https://leetcode.com/problems/unique-paths-iii/"
+
+[[entries]]
+title = "Permutation in String"
+url = "https://leetcode.com/problems/permutation-in-string/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"

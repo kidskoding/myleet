@@ -4,6 +4,66 @@ focus = "file-system design, scheduling, graphs, intervals, strings, trees, heap
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "03_stacks_and_queues", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 [[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Count Pairs of Connectable Servers in a Weighted Tree Network"
+url = "https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/"
+
+[[entries]]
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
+
+[[entries]]
+title = "Longest Substring Of All Vowels in Order"
+url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
+
+[[entries]]
+title = "Beautiful Arrangement"
+url = "https://leetcode.com/problems/beautiful-arrangement/"
+
+[[entries]]
+title = "Design Ride Sharing System"
+url = "https://leetcode.com/problems/design-ride-sharing-system/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Design Spreadsheet"
+url = "https://leetcode.com/problems/design-spreadsheet/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Design Excel Sum Formula"
+url = "https://leetcode.com/problems/design-excel-sum-formula/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
 title = "Design In-Memory File System"
 url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
@@ -20,12 +80,20 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Number of Visible People in a Queue"
+url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"
+
+[[entries]]
+title = "Maximize Amount After Two Days of Conversions"
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
 
 [[entries]]
 title = "Design Hit Counter"
@@ -34,10 +102,6 @@ url = "https://leetcode.com/problems/design-hit-counter/"
 [[entries]]
 title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
 title = "Employee Free Time"
@@ -52,10 +116,6 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
@@ -66,10 +126,6 @@ url = "https://leetcode.com/problems/course-schedule-ii/"
 [[entries]]
 title = "Alien Dictionary"
 url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Clone Graph"
@@ -86,10 +142,6 @@ url = "https://leetcode.com/problems/group-anagrams/"
 [[entries]]
 title = "Minimum Window Substring"
 url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
@@ -122,3 +174,31 @@ url = "https://leetcode.com/problems/basic-calculator-ii/"
 [[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
+
+[[entries]]
+title = "Synonymous Sentences"
+url = "https://leetcode.com/problems/synonymous-sentences/"
+
+[[entries]]
+title = "Maximum Xor Product"
+url = "https://leetcode.com/problems/maximum-xor-product/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Optimal Account Balancing"
+url = "https://leetcode.com/problems/optimal-account-balancing/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Minimum Number of Taps to Open to Water a Garden"
+url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
+
+[[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"

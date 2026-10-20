@@ -4,6 +4,10 @@ focus = "practical data processing with sorting and two pointers, heaps for top-
 review_modules = ["02_two_pointers", "08_heaps", "10_graphs", "01_arrays_and_hashing", "16_math_geometry"]
 
 [[entries]]
+title = "Gas Station"
+url = "https://leetcode.com/problems/gas-station/"
+
+[[entries]]
 title = "Squares of a Sorted Array"
 url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
