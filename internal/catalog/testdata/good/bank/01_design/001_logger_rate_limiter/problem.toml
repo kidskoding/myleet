@@ -1,0 +1,8 @@
+id = "logger-rate-limiter"
+title = "Logger Rate Limiter"
+difficulty = "easy"
+leetcode = 359
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+key_idea = "remember the last time each message printed"
+hints = []
+prompt = ""

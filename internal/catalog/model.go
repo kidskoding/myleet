@@ -31,6 +31,7 @@ var DefaultSayAloud = []string{"brute force", "why it dies", "complexity"}
 type Module struct {
 	ID, Title, Description, Dir string
 	Number, Priority            int
+	Bank                        bool // problems outside the lessons, reachable from playlists and search
 	Notes                       []string
 	Techniques                  []*Technique
 }
@@ -82,5 +83,16 @@ func (c *Catalog) Problem(id string) (*Problem, bool) {
 }
 
 func (c *Catalog) Problems() []*Problem { return c.order }
+
+// Curriculum is every problem outside the bank.
+func (c *Catalog) Curriculum() []*Problem {
+	var out []*Problem
+	for _, p := range c.order {
+		if !p.Technique.Module.Bank {
+			out = append(out, p)
+		}
+	}
+	return out
+}
 
 func (c *Catalog) LibDir() string { return filepath.Join(c.Root, "curriculum", "_lib") }

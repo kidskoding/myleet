@@ -121,8 +121,8 @@ func (h *Home) View(w, ht int) string {
 	lines = append(lines, "")
 
 	footer := []string{"", "  " + h.streakDots(sum, now) + "  " + th.Muted.Render(fmt.Sprintf("%d day streak", sum.Streak)) +
-		"      " + th.Muted.Render("mastery ") + ui.Bar(th, frac(sum.Counts[schedule.Mastered], len(h.s.App.Catalog.Problems())), 10, ui.TonePass) +
-		th.Muted.Render(fmt.Sprintf("  %d/%d", sum.Counts[schedule.Mastered], len(h.s.App.Catalog.Problems())))}
+		"      " + th.Muted.Render("mastery ") + ui.Bar(th, frac(sum.Mastery[0], sum.Mastery[1]), 10, ui.TonePass) +
+		th.Muted.Render(fmt.Sprintf("  %d/%d", sum.Mastery[0], sum.Mastery[1]))}
 
 	avail := max(ht-len(lines)-len(footer), 3)
 	if len(items) == 0 {

@@ -20,7 +20,7 @@ func playlistModel(t *testing.T, events ...progress.Event) (tea.Model, *Shared) 
 func TestPlaylistProgressCounts(t *testing.T) {
 	m, _ := playlistModel(t)
 	view := plain(m)
-	if !strings.Contains(view, "Meta") || !strings.Contains(view, "0/1") || !strings.Contains(view, "1 ext") {
+	if !strings.Contains(view, "Meta") || !strings.Contains(view, "0/2") || !strings.Contains(view, "1 ext") {
 		t.Fatalf("view:\n%s", view)
 	}
 	var events []progress.Event
@@ -28,7 +28,7 @@ func TestPlaylistProgressCounts(t *testing.T) {
 		events = append(events, passedEvents("two-sum", day)...)
 	}
 	m, _ = playlistModel(t, events...)
-	if !strings.Contains(plain(m), "1/1") {
+	if !strings.Contains(plain(m), "1/2") {
 		t.Fatalf("mastered two-sum should count:\n%s", plain(m))
 	}
 }

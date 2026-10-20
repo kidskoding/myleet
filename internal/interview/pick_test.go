@@ -52,3 +52,14 @@ func TestPickMoreThanAvailable(t *testing.T) {
 		t.Fatalf("picked %d, want all 4", len(got))
 	}
 }
+
+func TestPickSkipsBank(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	for seed := int64(0); seed < 50; seed++ {
+		for _, p := range Pick(c, nil, nil, 10, tu.Day(19), rand.New(rand.NewSource(seed))) {
+			if p.Technique.Module.Bank {
+				t.Fatal("interviews draw from the curriculum only")
+			}
+		}
+	}
+}

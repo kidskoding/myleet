@@ -27,7 +27,7 @@ func ids(ps []*Problem) []string {
 
 func TestLoadGood(t *testing.T) {
 	c := load(t, "good")
-	if got, want := strings.Join(ids(c.Problems()), ","), "two-sum,p-one,p-two,p-three"; got != want {
+	if got, want := strings.Join(ids(c.Problems()), ","), "two-sum,p-one,p-two,p-three,logger-rate-limiter"; got != want {
 		t.Fatalf("order = %s, want %s", got, want)
 	}
 	for i, p := range c.Problems() {
@@ -148,5 +148,23 @@ func TestRealStartersDoNotSpoilTheKeyIdea(t *testing.T) {
 		if strings.Contains(string(data), "Key idea:") {
 			t.Errorf("%s: starter names the key idea; it belongs only in problem.toml", p.ID)
 		}
+	}
+}
+
+func TestBankLoadsAsItsOwnModule(t *testing.T) {
+	c := load(t, "good")
+	p, ok := c.Problem("logger-rate-limiter")
+	if !ok || !p.Technique.Module.Bank || p.Technique.Module.Title != "Problem Bank" {
+		t.Fatalf("bank problem = %+v", p)
+	}
+	all := c.Problems()
+	if all[len(all)-1].ID != "logger-rate-limiter" {
+		t.Fatal("the bank sorts after every curriculum module")
+	}
+	if got := len(c.Curriculum()); got != 4 {
+		t.Fatalf("Curriculum() = %d problems, want 4 (bank excluded)", got)
+	}
+	if e := c.Playlists[0].Entries[2]; e.Problem == nil || e.Problem.ID != "logger-rate-limiter" {
+		t.Fatal("playlist entries resolve to bank problems")
 	}
 }

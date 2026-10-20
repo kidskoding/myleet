@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync/atomic"
 	"testing"
 
 	"github.com/charmbracelet/colorprofile"
@@ -48,7 +49,7 @@ func repoPython(t *testing.T) {
 func TestValidateGood(t *testing.T) {
 	env(t, tu.GoodRoot())
 	code, out := run("validate")
-	if code != 0 || !strings.Contains(out, "ok: 4 problems, 1 playlists") {
+	if code != 0 || !strings.Contains(out, "ok: 4 curriculum problems, 1 in the bank, 1 playlists") {
 		t.Fatalf("code=%d out=%s", code, out)
 	}
 }
@@ -65,7 +66,7 @@ func TestCheckSolutions(t *testing.T) {
 	env(t, tu.GoodRoot())
 	repoPython(t)
 	code, out := run("check", "--solutions")
-	if code != 0 || !strings.Contains(out, "p-one") || !strings.Contains(out, "1 passed, 0 failed") {
+	if code != 0 || !strings.Contains(out, "p-one") || !strings.Contains(out, "2 passed, 0 failed") {
 		t.Fatalf("code=%d out=%s", code, out)
 	}
 }
@@ -127,20 +128,20 @@ func TestDoctorColorsStatus(t *testing.T) {
 
 func TestPromptsDownloadsAndCaches(t *testing.T) {
 	env(t, tu.GoodRoot())
-	calls := 0
+	var calls atomic.Int32
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		calls++
+		calls.Add(1)
 		w.Write([]byte(`{"data":{"question":{"isPaidOnly":false,"content":"<p>Find two numbers.</p>"}}}`))
 	}))
 	defer srv.Close()
 	t.Setenv("MYLEET_LEETCODE_ENDPOINT", srv.URL)
 	code, out := run("prompts")
-	if code != 0 || !strings.Contains(out, "1 fetched") || calls != 1 {
-		t.Fatalf("code=%d calls=%d out=%s", code, calls, out)
+	if code != 0 || !strings.Contains(out, "2 fetched") || calls.Load() != 2 {
+		t.Fatalf("code=%d calls=%d out=%s", code, calls.Load(), out)
 	}
 	code, out = run("prompts")
-	if code != 0 || !strings.Contains(out, "1 cached") || calls != 1 {
-		t.Fatalf("second run: code=%d calls=%d out=%s", code, calls, out)
+	if code != 0 || !strings.Contains(out, "2 cached") || calls.Load() != 2 {
+		t.Fatalf("second run: code=%d calls=%d out=%s", code, calls.Load(), out)
 	}
 }
 

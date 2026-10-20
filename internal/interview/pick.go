@@ -36,7 +36,7 @@ func Pick(c *catalog.Catalog, states map[string]schedule.State, attempts []sched
 			recent[a.Problem] = true
 		}
 	}
-	problems := c.Problems()
+	problems := c.Curriculum()
 	weights := make([]float64, len(problems))
 	for i, p := range problems {
 		st, seen := states[p.ID]

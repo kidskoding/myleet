@@ -22,6 +22,7 @@ type TechniqueScore struct {
 
 type Summary struct {
 	Counts       map[schedule.Status]int
+	Mastery      [2]int // mastered and total, curriculum only
 	Streak       int
 	Heatmap      map[string]int
 	Weakest      []TechniqueScore
@@ -34,6 +35,15 @@ func Compute(c *catalog.Catalog, states map[string]schedule.State, attempts []sc
 		st, ok := states[p.ID]
 		if !ok || st.Status == "" {
 			st.Status = schedule.Unseen
+		}
+		if p.Technique.Module.Bank && st.Status == schedule.Unseen {
+			continue
+		}
+		if !p.Technique.Module.Bank {
+			s.Mastery[1]++
+			if st.Status == schedule.Mastered {
+				s.Mastery[0]++
+			}
 		}
 		s.Counts[st.Status]++
 	}

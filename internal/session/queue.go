@@ -39,6 +39,9 @@ func Today(c *catalog.Catalog, states map[string]schedule.State, today time.Time
 	for _, p := range c.Problems() {
 		st, seen := states[p.ID]
 		if !seen || st.Status == schedule.Unseen {
+			if p.Technique.Module.Bank {
+				continue
+			}
 			fresh = append(fresh, Item{Problem: p, Kind: New, State: st})
 			continue
 		}

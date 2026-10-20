@@ -53,3 +53,14 @@ func TestTodayIgnoresUnknownIDs(t *testing.T) {
 		t.Fatalf("queue = %q", got)
 	}
 }
+
+func TestTodaySkipsUnseenBankProblems(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	if got := summary(Today(c, nil, tu.Day(19), 10)); strings.Contains(got, "logger-rate-limiter") {
+		t.Fatalf("bank problems are never offered as new: %s", got)
+	}
+	states := map[string]schedule.State{"logger-rate-limiter": {Status: schedule.Learning, Due: tu.Midnight(19)}}
+	if got := summary(Today(c, states, tu.Day(19), 0)); got != "review:logger-rate-limiter" {
+		t.Fatalf("a due bank problem is still reviewed: %s", got)
+	}
+}

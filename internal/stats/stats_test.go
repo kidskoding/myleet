@@ -73,3 +73,14 @@ func TestWeakestSkipsCleanTechniques(t *testing.T) {
 		t.Fatalf("a technique with no fails or hints is not weak: %+v", s.Weakest)
 	}
 }
+
+func TestCountsSkipUnseenBankProblems(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	if s := Compute(c, nil, nil, tu.Day(19), tu.Chicago); s.Counts[schedule.Unseen] != 4 {
+		t.Fatalf("unseen = %d, want 4 (the bank's untouched problems are not counted)", s.Counts[schedule.Unseen])
+	}
+	states := map[string]schedule.State{"logger-rate-limiter": {Status: schedule.Learning}}
+	if s := Compute(c, states, nil, tu.Day(19), tu.Chicago); s.Counts[schedule.Learning] != 1 {
+		t.Fatal("a started bank problem counts")
+	}
+}

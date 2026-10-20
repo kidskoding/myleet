@@ -93,11 +93,10 @@ func (st *Stats) View(w, h int) string {
 		return "\n" + strings.Join(indent(empty, 2), "\n")
 	}
 
-	total := len(st.s.App.Catalog.Problems())
 	tileW := (cardW - 4) / 3
 	tiles := ui.Columns(2,
 		ui.Card(th, "streak", th.Title.Render(plural(sum.Streak, "day", "days")), tileW, false),
-		ui.Card(th, "mastered", th.Title.Render(fmt.Sprintf("%d / %d", sum.Counts[schedule.Mastered], total)), tileW, false),
+		ui.Card(th, "mastered", th.Title.Render(fmt.Sprintf("%d / %d", sum.Mastery[0], sum.Mastery[1])), tileW, false),
 		ui.Card(th, "median", st.median(sum), cardW-4-2*tileW, false),
 	)
 	lines := append([]string{""}, indent(tiles, 2)...)

@@ -20,6 +20,7 @@ func validate(stdout, stderr io.Writer) int {
 		fmt.Fprintln(stderr, th.Fail.Render(err.Error()))
 		return 1
 	}
-	fmt.Fprintf(stdout, "%s %d problems, %d playlists\n", th.Pass.Render("ok:"), len(c.Problems()), len(c.Playlists))
+	curriculum := len(c.Curriculum())
+	fmt.Fprintf(stdout, "%s %d curriculum problems, %d in the bank, %d playlists\n", th.Pass.Render("ok:"), curriculum, len(c.Problems())-curriculum, len(c.Playlists))
 	return 0
 }

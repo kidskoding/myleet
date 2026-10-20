@@ -98,35 +98,10 @@ func Load(root string) (*Catalog, error) {
 		notes, _ := filepath.Glob(filepath.Join(md.path, "notes", "*.md"))
 		slices.Sort(notes)
 		mod.Notes = notes
-		techniques, _ := listNumbered(filepath.Join(md.path, "techniques"))
-		for _, td := range techniques {
-			var tf techniqueFile
-			if _, err := toml.DecodeFile(filepath.Join(td.path, "technique.toml"), &tf); err != nil {
-				report(td.path, "technique.toml: %v", err)
-				continue
-			}
-			tech := &Technique{ID: td.id, Title: tf.Title, Number: td.number, Module: mod}
-			if tf.Note != "" {
-				tech.Note = filepath.Join(md.path, tf.Note)
-				if _, err := os.Stat(tech.Note); err != nil {
-					report(td.path, "note %s does not exist", tf.Note)
-				}
-			}
-			problems, _ := listNumbered(td.path)
-			for _, pd := range problems {
-				if p := loadProblem(pd, tech, report); p != nil {
-					if prev, dup := c.byID[p.ID]; dup {
-						report(pd.path, "duplicate id %q (also %s)", p.ID, prev.Dir)
-						continue
-					}
-					c.byID[p.ID] = p
-					tech.Problems = append(tech.Problems, p)
-				}
-			}
-			mod.Techniques = append(mod.Techniques, tech)
-		}
+		c.loadTechniques(mod, filepath.Join(md.path, "techniques"), report)
 		c.Modules = append(c.Modules, mod)
 	}
+	c.loadBank(filepath.Join(root, "bank"), report)
 
 	slices.SortStableFunc(c.Modules, func(a, b *Module) int {
 		if a.Priority != b.Priority {
@@ -148,6 +123,54 @@ func Load(root string) (*Catalog, error) {
 		return nil, errors.Join(errs...)
 	}
 	return c, nil
+}
+
+// bankPriority sorts the bank after every curriculum module.
+const bankPriority = 1 << 20
+
+func (c *Catalog) loadBank(dir string, report func(string, string, ...any)) {
+	var bf struct {
+		Title string `toml:"title"`
+	}
+	if _, err := toml.DecodeFile(filepath.Join(dir, "bank.toml"), &bf); err != nil {
+		if !os.IsNotExist(err) {
+			report(dir, "bank.toml: %v", err)
+		}
+		return
+	}
+	bank := &Module{ID: "bank", Title: bf.Title, Dir: dir, Number: 99, Priority: bankPriority, Bank: true}
+	c.loadTechniques(bank, dir, report)
+	c.Modules = append(c.Modules, bank)
+}
+
+func (c *Catalog) loadTechniques(mod *Module, dir string, report func(string, string, ...any)) {
+	techniques, _ := listNumbered(dir)
+	for _, td := range techniques {
+		var tf techniqueFile
+		if _, err := toml.DecodeFile(filepath.Join(td.path, "technique.toml"), &tf); err != nil {
+			report(td.path, "technique.toml: %v", err)
+			continue
+		}
+		tech := &Technique{ID: td.id, Title: tf.Title, Number: td.number, Module: mod}
+		if tf.Note != "" {
+			tech.Note = filepath.Join(mod.Dir, tf.Note)
+			if _, err := os.Stat(tech.Note); err != nil {
+				report(td.path, "note %s does not exist", tf.Note)
+			}
+		}
+		problems, _ := listNumbered(td.path)
+		for _, pd := range problems {
+			if p := loadProblem(pd, tech, report); p != nil {
+				if prev, dup := c.byID[p.ID]; dup {
+					report(pd.path, "duplicate id %q (also %s)", p.ID, prev.Dir)
+					continue
+				}
+				c.byID[p.ID] = p
+				tech.Problems = append(tech.Problems, p)
+			}
+		}
+		mod.Techniques = append(mod.Techniques, tech)
+	}
 }
 
 func loadProblem(pd numberedDir, tech *Technique, report func(string, string, ...any)) *Problem {
