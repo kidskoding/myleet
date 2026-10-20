@@ -122,8 +122,7 @@ def migrate(
         dest = out / module_dir.name
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "module.toml").write_text(
-            f"title = {toml_str(module_title(module_dir))}\n"
-            f"description = {toml_str(module_description(module_dir))}\n"
+            f"title = {toml_str(module_title(module_dir))}\ndescription = {toml_str(module_description(module_dir))}\n"
         )
         if (module_dir / "README.md").exists():
             shutil.copy2(module_dir / "README.md", dest / "README.md")
