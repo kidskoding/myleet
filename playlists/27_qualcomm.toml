@@ -1,5 +1,5 @@
 title = "Qualcomm"
-group = "Big tech"
+group = "Fortune 500"
 focus = "bit manipulation, in-place array and pointer work, linked list surgery, and low-level integer and string conversion."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "16_math_geometry"]
 
