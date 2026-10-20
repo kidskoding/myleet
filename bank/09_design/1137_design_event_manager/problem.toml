@@ -1,0 +1,7 @@
+id = "design-event-manager"
+title = "Design Event Manager"
+difficulty = "medium"
+leetcode = 3885
+url = "https://leetcode.com/problems/design-event-manager/"
+key_idea = "Keep a max-heap of (-priority, eventId) plus a map of each active event's current priority; updates push a new entry, and polls discard stale entries whose priority no longer matches the map."
+hints = ["A heap gives the highest priority quickly, but it cannot change an entry in the middle.", "Instead of editing old heap entries, leave them and recognise them as outdated later."]
