@@ -246,7 +246,7 @@ func TestPlaylistsOrderedByGroup(t *testing.T) {
 	for _, p := range c.Playlists {
 		got = append(got, p.Group+":"+p.Title)
 	}
-	want := "Big tech:Google,Big tech:Meta,Quant:Citadel,Little tech:Yelp"
+	want := "Big tech:Google,Big tech:Meta,Little tech:Yelp,Quant:Citadel"
 	if strings.Join(got, ",") != want {
 		t.Fatalf("order = %v, want %s", got, want)
 	}

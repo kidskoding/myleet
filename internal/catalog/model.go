@@ -64,7 +64,7 @@ type PlaylistEntry struct {
 }
 
 // Groups lists playlist groups in the order the playlists screen shows them.
-var Groups = []string{"Big tech", "AI labs / high growth", "Quant", "Fortune 500", "Little tech"}
+var Groups = []string{"Big tech", "Little tech", "AI labs / high growth", "Quant", "Fortune 500"}
 
 type Playlist struct {
 	ID, Title, Group, Focus string
