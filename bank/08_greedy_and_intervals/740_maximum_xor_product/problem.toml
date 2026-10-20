@@ -1,0 +1,7 @@
+id = "maximum-xor-product"
+title = "Maximum Xor Product"
+difficulty = "medium"
+leetcode = 2939
+url = "https://leetcode.com/problems/maximum-xor-product/"
+key_idea = "Decide x bit by bit from the top of the low n bits: where a and b agree set both bits to 1; where they differ give the 1 to whichever number is currently smaller, keeping the two as close as possible."
+hints = ["Bits at or above n cannot change; only the low n bits of a and b are yours to set.", "For a fixed sum, a product is largest when the two factors are as close as possible."]

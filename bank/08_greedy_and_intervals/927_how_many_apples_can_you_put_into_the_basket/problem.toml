@@ -1,0 +1,38 @@
+id = "how-many-apples-can-you-put-into-the-basket"
+title = "How Many Apples Can You Put into the Basket"
+difficulty = "easy"
+leetcode = 1196
+url = "https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/"
+key_idea = "Take apples lightest first until the next one would push the total past 5000."
+hints = ["Every apple counts as one, no matter how heavy it is.", "Which apples should you prefer to leave space for more?"]
+prompt = """
+Implement `max_number_of_apples(weight)`. You have some apples, where `weight[i]` is the
+weight of the `i`-th apple, and a basket that can carry at most `5000` units of weight in
+total.
+
+Return the largest number of apples you can put in the basket.
+
+**Example 1:**
+
+```
+Input: weight = [100,200,150,1000]
+Output: 4
+```
+
+All four apples weigh `1450` together, which fits.
+
+**Example 2:**
+
+```
+Input: weight = [900,950,800,1000,700,800]
+Output: 5
+```
+
+All six weigh `5150`, which is too much, but any five of them except the five heaviest
+fit, for example `[900,950,800,700,800]` weighing `4150`.
+
+**Constraints:**
+
+- `1 <= weight.length <= 10^3`
+- `1 <= weight[i] <= 10^3`
+"""

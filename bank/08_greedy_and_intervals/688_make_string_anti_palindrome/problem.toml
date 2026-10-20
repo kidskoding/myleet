@@ -1,0 +1,47 @@
+id = "make-string-anti-palindrome"
+title = "Make String Anti-palindrome"
+difficulty = "hard"
+leetcode = 3088
+url = "https://leetcode.com/problems/make-string-anti-palindrome/"
+key_idea = "Sort the string; the only clash can be a block of equal letters straddling the middle, so walk the second half from the middle and, while a position equals its mirror, swap it with the next letter past that block, failing if you run out."
+hints = ["Start from the smallest arrangement and repair it as little as possible.", "In a sorted string, where can s[i] == s[n - 1 - i] actually happen?"]
+prompt = """
+Implement `make_anti_palindrome(s)`. A string `t` of even length `n` is an
+anti-palindrome when `t[i] != t[n - 1 - i]` for every index `i`: no character equals its
+mirror image across the center.
+
+You may rearrange the characters of `s` however you like, using any number of swaps.
+Return the lexicographically smallest anti-palindrome you can build, or the string
+`"-1"` if no rearrangement works.
+
+**Example 1:**
+
+```
+Input: s = "abca"
+Output: "aabc"
+```
+
+`"aabc"` compares `a` with `c` and `a` with `b`, so no mirrored pair matches.
+
+**Example 2:**
+
+```
+Input: s = "abba"
+Output: "aabb"
+```
+
+**Example 3:**
+
+```
+Input: s = "cccd"
+Output: "-1"
+```
+
+Three of the four characters are `c`, so some `c` always faces another `c`.
+
+**Constraints:**
+
+- `2 <= s.length <= 10^5`
+- `s.length` is even
+- `s` consists of lowercase English letters
+"""

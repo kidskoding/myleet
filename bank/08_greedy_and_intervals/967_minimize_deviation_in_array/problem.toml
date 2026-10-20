@@ -1,0 +1,7 @@
+id = "minimize-deviation-in-array"
+title = "Minimize Deviation in Array"
+difficulty = "hard"
+leetcode = 1675
+url = "https://leetcode.com/problems/minimize-deviation-in-array/"
+key_idea = "Double every odd number so values can only shrink, then repeatedly halve the current maximum from a max-heap while it is even, tracking the minimum and the best max - min."
+hints = ["Odd numbers can only grow once and even numbers can only shrink. Can you put every number in its largest form first?", "After that, the only useful move is shrinking the current maximum. Which data structure gives it to you quickly?"]

@@ -1,0 +1,7 @@
+id = "minimum-deletions-to-make-string-k-special"
+title = "Minimum Deletions to Make String K-Special"
+difficulty = "medium"
+leetcode = 3085
+url = "https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/"
+key_idea = "Try each existing frequency as the smallest kept frequency f: letters below f are deleted entirely and letters above f + k are trimmed down to f + k."
+hints = ["Only the multiset of letter counts matters, and there are at most 26.", "Fix the lowest frequency you keep; every other count then has an obvious best move."]

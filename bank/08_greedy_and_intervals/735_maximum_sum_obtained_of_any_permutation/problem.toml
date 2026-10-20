@@ -1,0 +1,7 @@
+id = "maximum-sum-obtained-of-any-permutation"
+title = "Maximum Sum Obtained of Any Permutation"
+difficulty = "medium"
+leetcode = 1589
+url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
+key_idea = "Count how many requests cover each index with a difference array, then pair the largest counts with the largest numbers."
+hints = ["The total is a sum over indices of (value at index) times (requests covering index).", "By the rearrangement inequality, sort both lists the same way."]

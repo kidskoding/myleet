@@ -1,0 +1,7 @@
+id = "lexicographically-smallest-string-after-substring-operation"
+title = "Lexicographically Smallest String After Substring Operation"
+difficulty = "medium"
+leetcode = 2734
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/"
+key_idea = "Start at the first non-'a' character and decrement until the next 'a'; if the string is all 'a', turn only the last character into 'z'."
+hints = ["Decrementing an 'a' makes it 'z', which hurts. Which characters do you want the substring to cover?", "The operation must touch something, so think about the all-'a' string separately."]

@@ -1,0 +1,7 @@
+id = "transform-binary-string-using-subsequence-sort"
+title = "Transform Binary String Using Subsequence Sort"
+difficulty = "medium"
+leetcode = 3998
+url = "https://leetcode.com/problems/transform-binary-string-using-subsequence-sort/"
+key_idea = "Sorting can only move 1s rightward, so t is reachable iff it has the same number of 1s and every prefix of t has at most as many 1s as s; fill the needed 1s into the last '?' positions to make every prefix as small as possible."
+hints = ["Work out what a single sort of a subsequence can do to the position of each 1.", "Once you know the target condition, decide which '?' should become 1 so that the condition is easiest to satisfy."]

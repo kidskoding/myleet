@@ -1,0 +1,7 @@
+id = "sum-game"
+title = "Sum Game"
+difficulty = "medium"
+leetcode = 1927
+url = "https://leetcode.com/problems/sum-game/"
+key_idea = "Alice wins if the number of '?' is odd; otherwise Bob can mirror her, and he wins exactly when the digit-sum gap equals 9/2 times the difference in '?' counts between the halves, i.e. 2 * (left_sum - right_sum) == 9 * (right_q - left_q)."
+hints = ["Whoever places the last digit has a lot of control; what does the parity of '?' tell you?", "With an even number of '?', pair each Alice move with a Bob reply that sums to 9; when does that exactly close the gap?"]

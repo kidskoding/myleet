@@ -1,0 +1,7 @@
+id = "smallest-range-ii"
+title = "Smallest Range II"
+difficulty = "medium"
+leetcode = 910
+url = "https://leetcode.com/problems/smallest-range-ii/"
+key_idea = "After sorting, some prefix gets +k and the suffix gets -k; for each split point the max is max(a[i] + k, a[-1] - k) and the min is min(a[0] + k, a[i + 1] - k)."
+hints = ["Once sorted, it never helps to add k to a larger element while subtracting k from a smaller one.", "So the choice is a split point: everything left of it goes up, everything right goes down."]

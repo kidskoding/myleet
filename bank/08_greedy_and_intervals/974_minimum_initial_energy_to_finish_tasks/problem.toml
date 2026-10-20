@@ -1,0 +1,7 @@
+id = "minimum-initial-energy-to-finish-tasks"
+title = "Minimum Initial Energy to Finish Tasks"
+difficulty = "hard"
+leetcode = 1665
+url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
+key_idea = "Do tasks in decreasing order of (minimum - actual), then the answer is the largest minimum_i plus the energy spent on tasks before it."
+hints = ["Compare two adjacent tasks: when is it better to do one before the other?", "The slack minimum - actual is what you get back; spend energy on the high-slack tasks first."]

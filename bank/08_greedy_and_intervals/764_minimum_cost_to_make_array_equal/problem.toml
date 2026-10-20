@@ -1,0 +1,7 @@
+id = "minimum-cost-to-make-array-equal"
+title = "Minimum Cost to Make Array Equal"
+difficulty = "hard"
+leetcode = 2448
+url = "https://leetcode.com/problems/minimum-cost-to-make-array-equal/"
+key_idea = "The total cost is convex in the final value and minimised at the weighted median: sort by value and stop where the running cost weight reaches half the total."
+hints = ["Think of cost[i] as nums[i] appearing cost[i] times.", "For plain absolute differences, the median minimises the sum."]

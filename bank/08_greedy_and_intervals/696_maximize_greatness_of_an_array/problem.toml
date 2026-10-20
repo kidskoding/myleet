@@ -1,0 +1,7 @@
+id = "maximize-greatness-of-an-array"
+title = "Maximize Greatness of an Array"
+difficulty = "medium"
+leetcode = 2592
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
+key_idea = "Sort, then greedily match each value with the smallest strictly larger unused value using two pointers; the number of matches is the answer."
+hints = ["The order of the original array does not matter, only the multiset.", "Use each small value as a target for the cheapest value that beats it."]

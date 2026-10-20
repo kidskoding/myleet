@@ -1,0 +1,7 @@
+id = "distribute-money-to-maximum-children"
+title = "Distribute Money to Maximum Children"
+difficulty = "easy"
+leetcode = 2591
+url = "https://leetcode.com/problems/distribute-money-to-maximum-children/"
+key_idea = "Give everyone 1 dollar, then hand out 7 more to as many children as possible; fix the two bad endings: money left over after everyone has 8 (one child must take it), and exactly one child left holding 4."
+hints = ["Start by satisfying the 'at least 1 dollar' rule for everyone.", "Greedy almost works; check what happens to the leftover money at the end."]

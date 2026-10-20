@@ -1,0 +1,7 @@
+id = "minimum-swaps-to-make-strings-equal"
+title = "Minimum Swaps to Make Strings Equal"
+difficulty = "medium"
+leetcode = 1247
+url = "https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/"
+key_idea = "Count mismatches of type x/y and y/x; two of the same type fix with one swap, a leftover pair of different types needs two, and an odd total is impossible."
+hints = ["Positions where the strings already agree never matter. Classify the mismatched positions.", "Work out by hand how many swaps fix (xx, yy) versus (xy, yx)."]

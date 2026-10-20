@@ -1,0 +1,7 @@
+id = "minimum-operations-to-make-array-non-decreasing"
+title = "Minimum Operations to Make Array Non Decreasing"
+difficulty = "medium"
+leetcode = 3914
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-non-decreasing/"
+key_idea = "Raising a whole suffix starting at a drop fixes that drop without creating new ones, so the answer is the sum of max(0, nums[i-1] - nums[i])."
+hints = ["Look at each adjacent pair where the array goes down.", "If you raise a subarray, which adjacent pairs change? Choose the right end so only one changes."]

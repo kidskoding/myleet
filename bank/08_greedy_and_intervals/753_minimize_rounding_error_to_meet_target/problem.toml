@@ -1,0 +1,47 @@
+id = "minimize-rounding-error-to-meet-target"
+title = "Minimize Rounding Error to Meet Target"
+difficulty = "medium"
+leetcode = 1058
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
+key_idea = "Floor everything first; the shortfall to target says how many non-integer prices must round up, and rounding up the ones with the largest fractional parts minimises the error."
+hints = ["Integer prices contribute no error and cannot move the sum.", "Rounding a price up instead of down changes its error from f to 1 - f."]
+prompt = """
+Write `minimize_error(prices, target)`. Each `prices[i]` is a string holding a decimal number with
+exactly three digits after the point. Round every price either down to its floor or up to its
+ceiling so that the rounded values add up to exactly `target`.
+
+The rounding error is the sum of `|rounded_i - price_i|` over all prices. Return the smallest
+possible rounding error as a string with exactly three digits after the decimal point, or
+`"-1"` if no rounding choice reaches `target`.
+
+**Example 1:**
+
+```
+Input: prices = ["0.700","2.800","4.900"], target = 8
+Output: "1.000"
+```
+
+Round to `0`, `3` and `5`: the error is `0.7 + 0.2 + 0.1 = 1.0`.
+
+**Example 2:**
+
+```
+Input: prices = ["1.500","2.500","3.500"], target = 10
+Output: "-1"
+```
+
+The rounded sum is at most `2 + 3 + 4 = 9`.
+
+**Example 3:**
+
+```
+Input: prices = ["1.500","2.500","3.500"], target = 9
+Output: "1.500"
+```
+
+**Constraints:**
+
+- `1 <= len(prices) <= 500`
+- Each price is written with exactly three decimal places and lies in `[0.0, 1000.0]`
+- `0 <= target <= 10^6`
+"""

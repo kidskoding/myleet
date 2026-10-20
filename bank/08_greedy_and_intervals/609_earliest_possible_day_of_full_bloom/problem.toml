@@ -1,0 +1,7 @@
+id = "earliest-possible-day-of-full-bloom"
+title = "Earliest Possible Day of Full Bloom"
+difficulty = "hard"
+leetcode = 2136
+url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
+key_idea = "Planting time is spent no matter the order, so plant seeds in decreasing order of grow time and track the latest planting-finish plus grow time."
+hints = ["The total planting work is fixed; only the order changes when each seed starts growing.", "Which seed should be in the ground earliest?"]

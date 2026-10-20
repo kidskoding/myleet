@@ -1,0 +1,7 @@
+id = "maximum-star-sum-of-a-graph"
+title = "Maximum Star Sum of a Graph"
+difficulty = "medium"
+leetcode = 2497
+url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
+key_idea = "For each center, add its k largest positive neighbor values; take the best center."
+hints = ["A star is a center plus some of its neighbors. Which neighbors would you ever want to include?", "Negative neighbors only hurt, and among positive ones you want the largest up to k."]

@@ -1,0 +1,7 @@
+id = "minimum-elements-to-add-to-form-a-given-sum"
+title = "Minimum Elements to Add to Form a Given Sum"
+difficulty = "medium"
+leetcode = 1785
+url = "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/"
+key_idea = "Only the gap |goal - sum(nums)| matters; each added element covers at most limit of it, so the answer is the ceiling of gap / limit."
+hints = ["The existing elements are fixed; what is left to cover?", "Use the largest allowed magnitude for every added element."]

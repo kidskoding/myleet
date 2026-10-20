@@ -1,0 +1,7 @@
+id = "reduce-array-size-to-the-half"
+title = "Reduce Array Size to The Half"
+difficulty = "medium"
+leetcode = 1338
+url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
+key_idea = "Count frequencies, then greedily remove the most frequent values first until at least half the elements are gone."
+hints = ["Choosing a value removes every copy of it at once.", "To remove as many elements as possible per choice, which values should go first?"]

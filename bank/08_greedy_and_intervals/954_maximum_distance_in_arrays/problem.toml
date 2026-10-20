@@ -1,0 +1,7 @@
+id = "maximum-distance-in-arrays"
+title = "Maximum Distance in Arrays"
+difficulty = "medium"
+leetcode = 624
+url = "https://leetcode.com/problems/maximum-distance-in-arrays/"
+key_idea = "Scan arrays once, pairing each array's ends with the running global min and max from earlier arrays so the two picks always come from different arrays."
+hints = ["Only the first and last element of each sorted array can matter.", "The global min and max might live in the same array; compare each array only against arrays seen before it."]

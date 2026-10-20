@@ -1,0 +1,7 @@
+id = "longest-happy-string"
+title = "Longest Happy String"
+difficulty = "medium"
+leetcode = 1405
+url = "https://leetcode.com/problems/longest-happy-string/"
+key_idea = "Greedily append the letter with the most remaining copies unless that would make three in a row, in which case append the next most plentiful letter; stop when neither fits."
+hints = ["Spending the most plentiful letter early keeps the others available as separators.", "When the top letter is blocked, use the runner-up just once and then try the top letter again."]

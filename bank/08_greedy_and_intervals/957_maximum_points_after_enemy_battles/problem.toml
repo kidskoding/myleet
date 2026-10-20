@@ -1,0 +1,7 @@
+id = "maximum-points-after-enemy-battles"
+title = "Maximum Points After Enemy Battles"
+difficulty = "medium"
+leetcode = 3207
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
+key_idea = "If you can beat the weakest enemy at all, absorb every other enemy's energy and spend everything on the weakest one: (energy + sum - min) // min."
+hints = ["Which enemy should you fight over and over to gain points?", "Once you have one point, which enemies should you mark to gain energy?"]

@@ -1,0 +1,39 @@
+id = "merge-operations-to-turn-array-into-a-palindrome"
+title = "Merge Operations to Turn Array Into a Palindrome"
+difficulty = "medium"
+leetcode = 2422
+url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
+key_idea = "Two pointers from both ends with running sums: equal sums move both pointers inward; otherwise merge into the smaller side and count one operation."
+hints = ["The first and last elements of the final palindrome must be equal sums of an outer chunk from each end.", "Whichever end currently has the smaller sum has to absorb its neighbour."]
+prompt = """
+Write `minimum_operations(nums)`. `nums` is an array of positive integers. In one operation
+you pick two adjacent elements and replace them with a single element equal to their sum, so
+the array gets one shorter.
+
+Return the fewest operations needed to make `nums` a palindrome (it reads the same forwards and
+backwards).
+
+**Example 1:**
+
+```
+Input: nums = [4,3,2,1,2,3,1]
+Output: 2
+```
+
+Merge the last two elements `3` and `1` to get `[4,3,2,1,2,4]`, then merge `1` and `2` to
+get `[4,3,2,3,4]`, which is a palindrome. One merge is not enough.
+
+**Example 2:**
+
+```
+Input: nums = [1,2,3,4]
+Output: 3
+```
+
+Merging everything into `[10]` takes three operations, and no shorter sequence works.
+
+**Constraints:**
+
+- `1 <= len(nums) <= 10^5`
+- `1 <= nums[i] <= 10^6`
+"""

@@ -1,0 +1,7 @@
+id = "minimum-non-zero-product-of-the-array-elements"
+title = "Minimum Non-Zero Product of the Array Elements"
+difficulty = "medium"
+leetcode = 1969
+url = "https://leetcode.com/problems/minimum-non-zero-product-of-the-array-elements/"
+key_idea = "Pair every x with its complement so one becomes 1 and the other 2^p - 2; the answer is (2^p - 1) * (2^p - 2)^(2^(p-1) - 1) using fast modular power."
+hints = ["Swapping bits keeps the sum of the numbers fixed. For a fixed sum, when is a product smallest?", "Pair each number with the one whose bits are its complement."]

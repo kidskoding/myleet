@@ -1,0 +1,7 @@
+id = "maximum-or"
+title = "Maximum OR"
+difficulty = "medium"
+leetcode = 2680
+url = "https://leetcode.com/problems/maximum-or/"
+key_idea = "Spend all k doublings on one element (shifting it left by k); for each candidate i, OR its shifted value with precomputed prefix and suffix ORs of the rest."
+hints = ["Splitting the doublings between elements never beats giving them all to one.", "To OR everything except index i quickly, precompute ORs from both ends."]

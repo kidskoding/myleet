@@ -1,0 +1,7 @@
+id = "maximum-subsequence-score"
+title = "Maximum Subsequence Score"
+difficulty = "medium"
+leetcode = 2542
+url = "https://leetcode.com/problems/maximum-subsequence-score/"
+key_idea = "Sort pairs by nums2 descending; treat each nums2 as the minimum and keep the k largest nums1 seen so far in a min-heap with a running sum."
+hints = ["Try fixing which element provides the minimum of nums2.", "If you process candidates from largest nums2 down, every earlier element is allowed alongside the current one."]

@@ -1,0 +1,7 @@
+id = "minimum-array-length-after-pair-removals"
+title = "Minimum Array Length After Pair Removals"
+difficulty = "medium"
+leetcode = 2856
+url = "https://leetcode.com/problems/minimum-array-length-after-pair-removals/"
+key_idea = "Only the most frequent value can block removals: if it appears m times and m > n / 2 the answer is 2m - n, otherwise n % 2."
+hints = ["Two equal values can never be removed together.", "Think about what happens when one value makes up more than half the array."]

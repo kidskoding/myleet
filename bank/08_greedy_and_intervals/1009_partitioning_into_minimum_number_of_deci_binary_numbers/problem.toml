@@ -1,0 +1,7 @@
+id = "partitioning-into-minimum-number-of-deci-binary-numbers"
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+difficulty = "medium"
+leetcode = 1689
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
+key_idea = "Each deci-binary number adds at most 1 to any digit, so the answer is the largest digit of n."
+hints = ["Look at how much a single deci-binary number can contribute to one digit position.", "Some digit position needs the most numbers; can all others be covered with that many?"]

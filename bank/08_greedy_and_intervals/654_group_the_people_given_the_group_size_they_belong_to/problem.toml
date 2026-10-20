@@ -1,0 +1,7 @@
+id = "group-the-people-given-the-group-size-they-belong-to"
+title = "Group the People Given the Group Size They Belong To"
+difficulty = "medium"
+leetcode = 1282
+url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
+key_idea = "Bucket people by their required group size and flush a bucket into the answer whenever it reaches that size."
+hints = ["People who need the same group size can be grouped together in any order.", "Collect them as you go and close a group the moment it is full."]

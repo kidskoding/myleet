@@ -1,0 +1,7 @@
+id = "equal-sum-arrays-with-minimum-number-of-operations"
+title = "Equal Sum Arrays With Minimum Number of Operations"
+difficulty = "medium"
+leetcode = 1775
+url = "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/"
+key_idea = "Make nums1 the smaller-sum array; each element offers a gain (6 - x for nums1, x - 1 for nums2). Spend the largest gains first, counting by bucket 5..1, until the difference is closed."
+hints = ["If one array is more than six times longer than the other, equality is impossible.", "Every operation should close as much of the gap as possible; which single change closes the most?"]

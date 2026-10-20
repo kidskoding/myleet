@@ -1,0 +1,7 @@
+id = "minimum-number-of-moves-to-make-palindrome"
+title = "Minimum Number of Moves to Make Palindrome"
+difficulty = "hard"
+leetcode = 2193
+url = "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/"
+key_idea = "Greedy from the outside in: match the leftmost character with its rightmost twin and count the adjacent swaps to bring that twin to the end; the lone odd character gets pushed to the middle."
+hints = ["Fix the first character. Where should its partner end up, and which copy is cheapest to move there?", "If the first character has no partner, it belongs in the middle; handle it later or account for its distance to the center."]

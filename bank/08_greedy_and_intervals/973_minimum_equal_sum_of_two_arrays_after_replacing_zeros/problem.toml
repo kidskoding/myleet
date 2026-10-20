@@ -1,0 +1,7 @@
+id = "minimum-equal-sum-of-two-arrays-after-replacing-zeros"
+title = "Minimum Equal Sum of Two Arrays After Replacing Zeros"
+difficulty = "medium"
+leetcode = 2918
+url = "https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/"
+key_idea = "Each zero must become at least 1, so each array's minimum sum is sum + zero count; the answer is the larger minimum unless the smaller side has no zeros to grow."
+hints = ["What is the smallest sum each array can reach after replacing its zeros?", "An array can raise its sum freely only if it has at least one zero."]

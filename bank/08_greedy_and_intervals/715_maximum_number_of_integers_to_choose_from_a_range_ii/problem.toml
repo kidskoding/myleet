@@ -1,0 +1,44 @@
+id = "maximum-number-of-integers-to-choose-from-a-range-ii"
+title = "Maximum Number of Integers to Choose From a Range II"
+difficulty = "medium"
+leetcode = 2557
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii/"
+key_idea = "Sort the distinct banned values inside [1, n] and walk the allowed gaps between them in order; in each gap take a full run if the sum allows, otherwise binary search how many of its smallest numbers still fit and stop."
+hints = ["You still want the smallest allowed numbers first, but n is too large to step through one by one.", "The allowed numbers form a few long consecutive runs, and a run's prefix sum has a closed form."]
+prompt = """
+Implement `max_count(banned, n, max_sum)`. Choose some integers so that:
+
+- every chosen integer lies in the range `[1, n]`,
+- no integer is chosen twice,
+- no chosen integer appears in `banned`,
+- the chosen integers add up to at most `max_sum`.
+
+Return the largest number of integers you can choose. Note that `n` and `max_sum` can be
+far too large to try every number one at a time.
+
+**Example 1:**
+
+```
+Input: banned = [1,4,6], n = 6, max_sum = 4
+Output: 1
+```
+
+The allowed numbers are `2`, `3`, and `5`. Picking `2` and `3` sums to `5`, which is too
+much, so only one number fits.
+
+**Example 2:**
+
+```
+Input: banned = [4,3,5,6], n = 7, max_sum = 18
+Output: 3
+```
+
+Pick `1`, `2`, and `7` for a sum of `10`.
+
+**Constraints:**
+
+- `1 <= banned.length <= 10^5`
+- `1 <= banned[i] <= 10^9`
+- `1 <= n <= 10^9`
+- `1 <= max_sum <= 10^15`
+"""

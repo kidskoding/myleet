@@ -1,0 +1,7 @@
+id = "find-valid-matrix-given-row-and-column-sums"
+title = "Find Valid Matrix Given Row and Column Sums"
+difficulty = "medium"
+leetcode = 1605
+url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
+key_idea = "Greedy: set each cell to min(remaining row sum, remaining column sum) and subtract it from both; walking two pointers fills the matrix in O(m + n) steps."
+hints = ["Any valid matrix is accepted. Can you fill one cell so that a whole row or column is finished?", "Putting as much as possible into a cell never blocks a solution, because the totals are equal."]

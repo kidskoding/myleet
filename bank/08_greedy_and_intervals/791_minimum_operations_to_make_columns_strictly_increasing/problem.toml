@@ -1,0 +1,7 @@
+id = "minimum-operations-to-make-columns-strictly-increasing"
+title = "Minimum Operations to Make Columns Strictly Increasing"
+difficulty = "easy"
+leetcode = 3402
+url = "https://leetcode.com/problems/minimum-operations-to-make-columns-strictly-increasing/"
+key_idea = "Columns are independent; walk each column top to bottom raising each value to at least previous + 1 and add the increments."
+hints = ["Each column can be handled on its own.", "Going down a column, what is the smallest value each cell can end up with?"]

@@ -1,0 +1,7 @@
+id = "minimum-number-of-people-to-teach"
+title = "Minimum Number of People to Teach"
+difficulty = "medium"
+leetcode = 1733
+url = "https://leetcode.com/problems/minimum-number-of-people-to-teach/"
+key_idea = "Only friendships with no common language matter; collect everyone in those pairs, and for each language count how many of them already know it; teach the language the most of them know."
+hints = ["Ignore friendships that can already talk.", "You teach exactly one language, so try each and count who still needs it."]

@@ -1,0 +1,7 @@
+id = "stone-game-ix"
+title = "Stone Game IX"
+difficulty = "medium"
+leetcode = 2029
+url = "https://leetcode.com/problems/stone-game-ix/"
+key_idea = "Only values mod 3 matter; stones divisible by 3 just pass the turn, so with an even count of them Alice wins iff both residues 1 and 2 exist, and with an odd count iff the counts of 1s and 2s differ by more than 2."
+hints = ["Reduce every stone to its value mod 3 and count the three kinds.", "After the first move the sequence of 1s and 2s is forced; stones worth 0 mod 3 only swap whose turn it is, so only their parity matters."]

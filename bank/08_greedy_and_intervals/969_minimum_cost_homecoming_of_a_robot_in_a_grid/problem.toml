@@ -1,0 +1,7 @@
+id = "minimum-cost-homecoming-of-a-robot-in-a-grid"
+title = "Minimum Cost Homecoming of a Robot in a Grid"
+difficulty = "medium"
+leetcode = 2087
+url = "https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/"
+key_idea = "Any shortest route must enter every row and column between start and home exactly once, and detours only add cost, so sum those row and column costs."
+hints = ["Does the order of vertical and horizontal moves change the total cost?", "Which rows and columns must the robot enter at least once, and why would entering any other one never help?"]

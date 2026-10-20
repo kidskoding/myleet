@@ -1,0 +1,7 @@
+id = "minimum-suffix-flips"
+title = "Minimum Suffix Flips"
+difficulty = "medium"
+leetcode = 1529
+url = "https://leetcode.com/problems/minimum-suffix-flips/"
+key_idea = "Scanning left to right, every time the target bit differs from the previous bit (starting from 0) you need one more suffix flip."
+hints = ["The leftmost bit can only be changed by a flip starting at index 0. Work left to right.", "After handling a prefix, how does the current state of the rest of the string relate to the last target bit?"]

@@ -1,0 +1,7 @@
+id = "mice-and-cheese"
+title = "Mice and Cheese"
+difficulty = "medium"
+leetcode = 2611
+url = "https://leetcode.com/problems/mice-and-cheese/"
+key_idea = "Start with mouse 2 eating everything, then hand mouse 1 the k cheeses with the largest reward1 - reward2."
+hints = ["Compare each cheese's value to mouse 1 against its value to mouse 2.", "Switching cheese i from mouse 2 to mouse 1 changes the total by a fixed amount."]

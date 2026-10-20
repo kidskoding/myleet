@@ -1,0 +1,7 @@
+id = "find-maximum-area-of-a-triangle"
+title = "Find Maximum Area of a Triangle"
+difficulty = "medium"
+leetcode = 3588
+url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"
+key_idea = "Take the axis-parallel side as a base: for each x, the base is the y-span of points on that vertical line and the best apex is the point farthest in x (global min or max x); do the same for each y, and return the largest base * height."
+hints = ["Fix which side is parallel to an axis; that side lies on one vertical or horizontal line.", "Once the base line is fixed, only the point farthest from that line matters for the height."]

@@ -1,0 +1,7 @@
+id = "longest-palindrome-by-concatenating-two-letter-words"
+title = "Longest Palindrome by Concatenating Two Letter Words"
+difficulty = "medium"
+leetcode = 2131
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
+key_idea = "Count words; pair each word with its reverse for 4 letters per pair, pair up doubled words like \"gg\" the same way, and let one leftover doubled word sit in the middle."
+hints = ["Think about which words can sit opposite each other in a palindrome.", "Words whose two letters match behave differently from the rest."]

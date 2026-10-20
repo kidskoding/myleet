@@ -1,0 +1,7 @@
+id = "minimum-replacements-to-sort-the-array"
+title = "Minimum Replacements to Sort the Array"
+difficulty = "hard"
+leetcode = 2366
+url = "https://leetcode.com/problems/minimum-replacements-to-sort-the-array/"
+key_idea = "Go right to left keeping the current upper bound; split each value into the fewest pieces k = ceil(v / bound) (k - 1 operations) and make the pieces as even as possible, so the new bound is v // k."
+hints = ["The last element never needs to change. Work backwards from it.", "When a value is too big, split it into as few pieces as possible, but keep the smallest piece as large as possible."]

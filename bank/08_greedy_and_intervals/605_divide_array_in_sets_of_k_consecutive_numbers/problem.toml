@@ -1,0 +1,7 @@
+id = "divide-array-in-sets-of-k-consecutive-numbers"
+title = "Divide Array in Sets of K Consecutive Numbers"
+difficulty = "medium"
+leetcode = 1296
+url = "https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/"
+key_idea = "Count the numbers, then repeatedly take the smallest remaining value as the start of a group and consume one of each of the next k values, failing if any is missing."
+hints = ["The smallest number left must start some group.", "Process values in sorted order with a frequency map."]

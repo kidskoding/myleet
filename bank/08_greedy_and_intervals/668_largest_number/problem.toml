@@ -1,0 +1,7 @@
+id = "largest-number"
+title = "Largest Number"
+difficulty = "medium"
+leetcode = 179
+url = "https://leetcode.com/problems/largest-number/"
+key_idea = "Sort the numbers as strings with the comparator a + b > b + a, join them, and collapse an all-zero result to 0."
+hints = ["Sorting by plain string order fails for cases like 3 and 30.", "Decide which of two numbers goes first by comparing both concatenations."]

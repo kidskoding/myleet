@@ -1,0 +1,7 @@
+id = "rearranging-fruits"
+title = "Rearranging Fruits"
+difficulty = "hard"
+leetcode = 2561
+url = "https://leetcode.com/problems/rearranging-fruits/"
+key_idea = "Every value's total count must be even; collect the surplus each basket must give away, sort it, and pay min(x, 2 * global minimum) for the cheaper half of the surplus."
+hints = ["First check whether the two baskets can be made equal at all.", "A swap can also be done indirectly through the cheapest fruit, using two swaps."]

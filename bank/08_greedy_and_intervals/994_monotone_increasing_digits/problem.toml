@@ -1,0 +1,7 @@
+id = "monotone-increasing-digits"
+title = "Monotone Increasing Digits"
+difficulty = "medium"
+leetcode = 738
+url = "https://leetcode.com/problems/monotone-increasing-digits/"
+key_idea = "Scan digits from the right; whenever a digit is greater than the next one, decrement it and mark every digit after it to become 9."
+hints = ["Find the first place where the digits go down. What must change at or before that spot?", "Decrementing a digit can break the order with the digit before it, so sweep from right to left."]

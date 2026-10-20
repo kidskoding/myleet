@@ -1,0 +1,7 @@
+id = "two-furthest-houses-with-different-colors"
+title = "Two Furthest Houses With Different Colors"
+difficulty = "easy"
+leetcode = 2078
+url = "https://leetcode.com/problems/two-furthest-houses-with-different-colors/"
+key_idea = "An optimal pair always uses the first or the last house: take the furthest house from the left end whose color differs from house 0, and the same from the right end."
+hints = ["Checking every pair is fine at this size, but there is a linear answer.", "If neither endpoint were in the best pair, you could widen it by swapping in an endpoint."]

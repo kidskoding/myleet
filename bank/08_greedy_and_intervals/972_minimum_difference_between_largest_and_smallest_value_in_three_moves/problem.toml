@@ -1,0 +1,7 @@
+id = "minimum-difference-between-largest-and-smallest-value-in-three-moves"
+title = "Minimum Difference Between Largest and Smallest Value in Three Moves"
+difficulty = "medium"
+leetcode = 1509
+url = "https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/"
+key_idea = "Sort, then the three changed values are some split of the smallest and largest elements: try removing i from the front and 3 - i from the back for i in 0..3."
+hints = ["Which elements would you ever bother changing?", "After sorting, changing three elements is like deleting three from the two ends; there are only four ways to split them."]

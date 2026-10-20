@@ -1,0 +1,7 @@
+id = "sell-diminishing-valued-colored-balls"
+title = "Sell Diminishing-Valued Colored Balls"
+difficulty = "medium"
+leetcode = 1648
+url = "https://leetcode.com/problems/sell-diminishing-valued-colored-balls/"
+key_idea = "Binary search the lowest price level T you sell down to, sum each color's arithmetic series above T in closed form, then sell the leftover orders at price T."
+hints = ["Greedy says always sell the currently most valuable ball, but orders is too large to simulate one by one.", "Find the threshold where the number of balls priced above it first drops to at most orders, then use arithmetic series."]

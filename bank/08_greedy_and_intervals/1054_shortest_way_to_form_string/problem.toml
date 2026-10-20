@@ -1,0 +1,46 @@
+id = "shortest-way-to-form-string"
+title = "Shortest Way to Form String"
+difficulty = "medium"
+leetcode = 1055
+url = "https://leetcode.com/problems/shortest-way-to-form-string/"
+key_idea = "Greedily match as much of target as possible in each left-to-right pass over source; count passes, and fail if a pass matches nothing."
+hints = ["If some character of target never appears in source, no number of copies helps.", "Taking as many target characters as possible from each copy of source is never worse."]
+prompt = """
+Implement `shortest_way(source, target)`. A subsequence of a string is what remains after
+deleting zero or more characters without changing the order of the rest.
+
+Return the minimum number of subsequences of `source` that, concatenated in order, equal
+`target`. If it cannot be done, return `-1`.
+
+**Example 1:**
+
+```
+Input: source = "abc", target = "abcbc"
+Output: 2
+```
+
+`"abc"` followed by `"bc"`; both are subsequences of `"abc"`.
+
+**Example 2:**
+
+```
+Input: source = "abc", target = "acdbc"
+Output: -1
+```
+
+`target` contains `d`, which `source` does not.
+
+**Example 3:**
+
+```
+Input: source = "xyz", target = "xzyxz"
+Output: 3
+```
+
+`"xz"` + `"y"` + `"xz"`.
+
+**Constraints:**
+
+- `1 <= source.length, target.length <= 1000`
+- Both strings consist of lowercase English letters
+"""

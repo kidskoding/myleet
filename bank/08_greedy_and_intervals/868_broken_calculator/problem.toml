@@ -1,0 +1,7 @@
+id = "broken-calculator"
+title = "Broken Calculator"
+difficulty = "medium"
+leetcode = 991
+url = "https://leetcode.com/problems/broken-calculator/"
+key_idea = "Work backwards from target: halve it when even, add 1 when odd, until it is at most startValue; then add the remaining startValue - target decrements."
+hints = ["Going forward has too many choices; reverse the operations instead.", "In reverse, the operations become 'divide by 2' and 'add 1'. When is dividing always the right move?"]

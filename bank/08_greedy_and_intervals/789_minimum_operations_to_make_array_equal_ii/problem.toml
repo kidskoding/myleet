@@ -1,0 +1,7 @@
+id = "minimum-operations-to-make-array-equal-ii"
+title = "Minimum Operations to Make Array Equal II"
+difficulty = "medium"
+leetcode = 2541
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/"
+key_idea = "Each operation moves k from one index to another, so every difference nums1[i] - nums2[i] must be a multiple of k and the differences must sum to 0; the answer is the positive total divided by k."
+hints = ["One operation does not change sum(nums1). What must be true about the differences?", "Handle k == 0 separately."]

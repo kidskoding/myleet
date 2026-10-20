@@ -1,0 +1,7 @@
+id = "make-k-subarray-sums-equal"
+title = "Make K-Subarray Sums Equal"
+difficulty = "medium"
+leetcode = 2607
+url = "https://leetcode.com/problems/make-k-subarray-sums-equal/"
+key_idea = "Equal window sums force arr[i] == arr[i + k] around the circle, which splits indices into gcd(n, k) cycles; move each cycle to its median."
+hints = ["Compare the sums of two neighbouring windows of length k. What must be true of the elements that enter and leave?", "Following i -> i + k around a circle visits some indices repeatedly. How many separate groups are there, and what is the cheapest common value for a group?"]

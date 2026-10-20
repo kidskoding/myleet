@@ -1,0 +1,7 @@
+id = "minimum-moves-to-reach-target-score"
+title = "Minimum Moves to Reach Target Score"
+difficulty = "medium"
+leetcode = 2139
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-score/"
+key_idea = "Work backwards from target: halve when even and doubles remain, otherwise subtract 1; once doubles run out, the rest is target - 1 single steps."
+hints = ["Run the process in reverse, from target down to 1.", "A double is worth more the larger the number it applies to."]

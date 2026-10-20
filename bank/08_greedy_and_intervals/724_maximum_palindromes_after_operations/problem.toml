@@ -1,0 +1,7 @@
+id = "maximum-palindromes-after-operations"
+title = "Maximum Palindromes After Operations"
+difficulty = "medium"
+leetcode = 3035
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
+key_idea = "Letters can move anywhere, so only the total number of letter pairs matters; fill words shortest first, each needing len // 2 pairs (odd centers are free), until pairs run out."
+hints = ["Since any two characters can be swapped, think of the letters as one shared pool.", "A palindrome of length L needs L // 2 matching pairs; the middle letter of an odd length can be anything."]

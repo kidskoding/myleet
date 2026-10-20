@@ -1,0 +1,7 @@
+id = "max-increase-to-keep-city-skyline"
+title = "Max Increase to Keep City Skyline"
+difficulty = "medium"
+leetcode = 807
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
+key_idea = "Each building can rise to the smaller of its row maximum and column maximum without changing any skyline, so sum min(row_max, col_max) - height."
+hints = ["The skyline from each side is just a list of maxima.", "What caps a single building's height?"]

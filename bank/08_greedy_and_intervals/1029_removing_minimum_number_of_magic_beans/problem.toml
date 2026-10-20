@@ -1,0 +1,7 @@
+id = "removing-minimum-number-of-magic-beans"
+title = "Removing Minimum Number of Magic Beans"
+difficulty = "medium"
+leetcode = 2171
+url = "https://leetcode.com/problems/removing-minimum-number-of-magic-beans/"
+key_idea = "Sort the bags; keeping level beans[i] for bags i.. keeps beans[i] * (n - i) beans, so answer = total - max of that."
+hints = ["The final common count should equal one of the existing bag sizes.", "Bags smaller than the chosen level are emptied; larger ones are trimmed down to it."]

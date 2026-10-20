@@ -1,0 +1,7 @@
+id = "construct-string-with-repeat-limit"
+title = "Construct String With Repeat Limit"
+difficulty = "medium"
+leetcode = 2182
+url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
+key_idea = "Greedy from 'z' down with letter counts: write as many of the largest letter as the limit allows, and when it is blocked insert a single copy of the next largest available letter."
+hints = ["You always want the largest available letter at each position.", "When the largest letter hits the limit, what is the cheapest possible separator?"]

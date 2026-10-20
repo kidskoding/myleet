@@ -1,0 +1,7 @@
+id = "find-maximum-value-in-a-constrained-sequence"
+title = "Find Maximum Value in a Constrained Sequence"
+difficulty = "medium"
+leetcode = 3796
+url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
+key_idea = "Treat every position as capped (a[0] = 0, restricted positions at maxVal, others unbounded), then tighten caps with a left-to-right pass a[i] <= a[i-1] + diff[i-1] and a right-to-left pass a[i] <= a[i+1] + diff[i]; the answer is the largest cap."
+hints = ["Each position's best value is limited by every cap to its left and to its right, spread out by the allowed step sizes.", "One sweep in each direction is enough to push those limits through the whole array."]

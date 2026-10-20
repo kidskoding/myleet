@@ -1,0 +1,7 @@
+id = "minimize-length-of-array-using-operations"
+title = "Minimize Length of Array Using Operations"
+difficulty = "medium"
+leetcode = 3012
+url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
+key_idea = "Let m be the minimum; if some value is not a multiple of m, a smaller positive remainder appears and everything collapses to length 1, otherwise copies of m pair off to ceil(count(m) / 2)."
+hints = ["The smallest value m can absorb any larger value: m % big == m. What happens when a value is not a multiple of m?", "If every value is a multiple of m, only the copies of m matter. Pairing two of them leaves a 0."]

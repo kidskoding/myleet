@@ -1,0 +1,7 @@
+id = "break-a-palindrome"
+title = "Break a Palindrome"
+difficulty = "medium"
+leetcode = 1328
+url = "https://leetcode.com/problems/break-a-palindrome/"
+key_idea = "Change the first non-'a' character in the left half to 'a'; if the left half is all 'a', change the last character to 'b'; a single character cannot be broken."
+hints = ["To be lexicographically smallest, make the earliest possible position smaller.", "Changing the middle of an odd-length palindrome keeps it a palindrome."]

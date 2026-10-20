@@ -1,0 +1,7 @@
+id = "remove-colored-pieces-if-both-neighbors-are-the-same-color"
+title = "Remove Colored Pieces if Both Neighbors are the Same Color"
+difficulty = "medium"
+leetcode = 2038
+url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
+key_idea = "Moves never interfere across colors, so count each player's available moves (run length minus 2 per run of 3+) and Alice wins only with strictly more."
+hints = ["Does one player's move ever create or destroy a move for the other?", "Within a run of identical letters, how many removals are possible?"]

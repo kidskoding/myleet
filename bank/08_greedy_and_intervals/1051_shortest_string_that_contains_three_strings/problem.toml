@@ -1,0 +1,7 @@
+id = "shortest-string-that-contains-three-strings"
+title = "Shortest String That Contains Three Strings"
+difficulty = "medium"
+leetcode = 2800
+url = "https://leetcode.com/problems/shortest-string-that-contains-three-strings/"
+key_idea = "Try all 6 orders of the strings, merging each pair by the longest suffix-prefix overlap (or skipping a string already contained), and keep the best by (length, string)."
+hints = ["Only 3 strings means only 6 orders to put them in.", "When you append one string after another, reuse the longest overlap, and skip it entirely if it is already inside."]

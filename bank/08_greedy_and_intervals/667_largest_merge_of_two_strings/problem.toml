@@ -1,0 +1,7 @@
+id = "largest-merge-of-two-strings"
+title = "Largest Merge Of Two Strings"
+difficulty = "medium"
+leetcode = 1754
+url = "https://leetcode.com/problems/largest-merge-of-two-strings/"
+key_idea = "At each step take the first character of whichever remaining suffix is lexicographically larger; comparing whole suffixes breaks ties correctly."
+hints = ["When the front characters differ, the choice is obvious.", "When they are equal, look further ahead: which remaining string gives you better characters later?"]

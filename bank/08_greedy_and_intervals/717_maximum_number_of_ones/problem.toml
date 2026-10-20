@@ -1,0 +1,48 @@
+id = "maximum-number-of-ones"
+title = "Maximum Number of Ones"
+difficulty = "hard"
+leetcode = 1183
+url = "https://leetcode.com/problems/maximum-number-of-ones/"
+key_idea = "Every cell lines up with one position (r mod side, c mod side) of a side x side tile, and every square contains each tile position exactly once, so put ones on the maxOnes tile positions that repeat the most across the grid."
+hints = ["Shifting a square by exactly sideLength lands on the same pattern of positions.", "Count how many grid cells share each position within the repeating tile."]
+prompt = """
+Implement `maximum_number_of_ones(width, height, side_length, max_ones)`.
+
+Picture a grid with `height` rows and `width` columns where every cell holds `0` or `1`.
+The grid is valid when every square sub-grid of size `side_length x side_length` contains
+at most `max_ones` ones. Return the largest number of ones a valid grid can hold.
+
+**Example 1:**
+
+```
+Input: width = 3, height = 3, side_length = 2, max_ones = 1
+Output: 4
+```
+
+```
+1 0 1
+0 0 0
+1 0 1
+```
+
+Each of the four 2 x 2 squares holds exactly one `1`.
+
+**Example 2:**
+
+```
+Input: width = 3, height = 3, side_length = 2, max_ones = 2
+Output: 6
+```
+
+```
+1 0 1
+1 0 1
+1 0 1
+```
+
+**Constraints:**
+
+- `1 <= width, height <= 100`
+- `1 <= side_length <= width, height`
+- `0 <= max_ones <= side_length * side_length`
+"""

@@ -1,0 +1,51 @@
+id = "maximize-score-after-pair-deletions"
+title = "Maximize Score After Pair Deletions"
+difficulty = "medium"
+leetcode = 3496
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
+key_idea = "Every element except the leftovers gets added, and any leftover position is reachable: with odd length one element remains (subtract the minimum), with even length an adjacent pair remains (subtract the smallest adjacent pair sum)."
+hints = ["Instead of maximizing what you remove, think about what is left at the end.", "Which elements, or groups of elements, can be the leftover, depending on whether the length is odd or even?"]
+prompt = """
+Implement `max_score(nums)`.
+
+While `nums` has more than two elements you must keep applying one of these operations:
+
+- remove the first two elements,
+- remove the last two elements, or
+- remove the first and the last element.
+
+Each operation adds the sum of the two removed elements to your score. Return the largest
+total score you can finish with.
+
+**Example 1:**
+
+```
+Input: nums = [2,4,1]
+Output: 6
+```
+
+Removing the first two elements scores `2 + 4 = 6` and leaves one element, so you stop.
+
+**Example 2:**
+
+```
+Input: nums = [5,-1,4,2]
+Output: 7
+```
+
+Removing the first and last elements scores `5 + 2 = 7` and leaves `[-1,4]`.
+
+**Example 3:**
+
+```
+Input: nums = [3,8]
+Output: 0
+```
+
+Only two elements, so no operation is allowed.
+
+**Constraints:**
+
+- `1 <= nums.length <= 10^5`
+- `-10^4 <= nums[i] <= 10^4`
+"""

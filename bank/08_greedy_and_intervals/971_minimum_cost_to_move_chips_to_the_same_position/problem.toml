@@ -1,0 +1,7 @@
+id = "minimum-cost-to-move-chips-to-the-same-position"
+title = "Minimum Cost to Move Chips to The Same Position"
+difficulty = "easy"
+leetcode = 1217
+url = "https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/"
+key_idea = "Moves by 2 are free, so only parity matters: move the smaller of the odd group and the even group at cost 1 per chip."
+hints = ["Which positions can a chip reach for free?", "After free moves, all chips sit on one of two spots. How much does it cost to merge them?"]

@@ -1,0 +1,41 @@
+id = "make-the-prefix-sum-non-negative"
+title = "Make the Prefix Sum Non-negative"
+difficulty = "medium"
+leetcode = 2599
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
+key_idea = "Scan with a min-heap of the negatives seen so far; whenever the running sum drops below zero, move the most negative seen element to the end (add it back) and count one operation."
+hints = ["Moving an element to the end removes it from every prefix before the end. Which elements are worth moving?", "When a prefix goes negative you must move something you have already passed. Which choice helps the most for every later prefix too?"]
+prompt = """
+Implement `make_pref_sum_non_negative(nums)`.
+
+In one operation you may take any element of `nums` out of its position and append it to
+the end of the array. Return the minimum number of operations needed so that every prefix
+sum of the array is non-negative, that is, `nums[0] + ... + nums[i] >= 0` for every `i`.
+
+The input always has a non-negative total sum, so an answer always exists.
+
+**Example 1:**
+
+```
+Input: nums = [2,3,-5,4]
+Output: 0
+```
+
+The prefix sums are `[2,5,0,4]`, already non-negative.
+
+**Example 2:**
+
+```
+Input: nums = [3,-5,-2,6]
+Output: 1
+```
+
+Moving `-5` to the end gives `[3,-2,6,-5]`, whose prefix sums `[3,1,7,2]` are all
+non-negative. No arrangement reachable without an operation works.
+
+**Constraints:**
+
+- `1 <= nums.length <= 10^5`
+- `-10^9 <= nums[i] <= 10^9`
+- `sum(nums) >= 0`
+"""

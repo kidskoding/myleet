@@ -1,0 +1,51 @@
+id = "put-boxes-into-the-warehouse-ii"
+title = "Put Boxes Into the Warehouse II"
+difficulty = "medium"
+leetcode = 1580
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-ii/"
+key_idea = "Take boxes from tallest to shortest and place each at whichever open end (left or right) is tall enough, moving that end inward; skip a box that fits neither."
+hints = ["Now boxes can enter from both ends, so the outermost rooms are the bottlenecks.", "Consider the tallest boxes first: where could each possibly go?"]
+prompt = """
+Implement `max_boxes_in_warehouse(boxes, warehouse)`.
+
+`boxes[i]` is the height of a box (every box is 1 unit wide), and `warehouse[j]` is the
+height of room `j` in a warehouse whose rooms sit in a row, numbered `0` to `n - 1` from
+left to right. Boxes go in with these rules:
+
+- Boxes cannot be stacked; each room holds at most one box.
+- You may choose which boxes to use and in what order to push them.
+- Each box may be pushed in from **either** end of the warehouse, and moves as far inward
+  as it can.
+- A box stops before the first room that is lower than the box or already occupied, and
+  then stays in the room just before it.
+
+Return the largest number of boxes you can get into the warehouse.
+
+**Example 1:**
+
+```
+Input: boxes = [1,2,2,3,4], warehouse = [3,4,1,2]
+Output: 4
+```
+
+Push the height-1 box in from the right to room 2. Push a height-2 box in from the right to
+room 3. From the left, push the height-3 box to room 1 and the height-2 box to room 0. The
+height-4 box cannot fit anywhere it can reach.
+
+**Example 2:**
+
+```
+Input: boxes = [3,5,5,2], warehouse = [2,1,3,4,5]
+Output: 3
+```
+
+Only room 4 can take a height-5 box, pushed from the right. A height-3 box pushed from the
+right then slides to room 2, and the height-2 box can go to room 3 from the right or to
+room 0 from the left. The second height-5 box has nowhere to go.
+
+**Constraints:**
+
+- `n == warehouse.length`
+- `1 <= boxes.length, warehouse.length <= 10^5`
+- `1 <= boxes[i], warehouse[i] <= 10^9`
+"""

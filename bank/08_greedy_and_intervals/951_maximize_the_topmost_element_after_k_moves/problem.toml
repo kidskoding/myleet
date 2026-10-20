@@ -1,0 +1,7 @@
+id = "maximize-the-topmost-element-after-k-moves"
+title = "Maximize the Topmost Element After K Moves"
+difficulty = "medium"
+leetcode = 2202
+url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
+key_idea = "With k moves you can expose any of the first k - 1 elements to put back, or pop exactly k to reveal nums[k]; handle a single-element pile by parity."
+hints = ["Think about which elements can be the top after exactly k moves: something you removed and put back, or something you exposed.", "Watch the corner cases: k == 0, a pile of size 1, and k compared with the pile length."]

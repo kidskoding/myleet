@@ -1,0 +1,7 @@
+id = "maximum-total-importance-of-roads"
+title = "Maximum Total Importance of Roads"
+difficulty = "medium"
+leetcode = 2285
+url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
+key_idea = "A city's value is counted once per road touching it, so give the largest values to the highest-degree cities."
+hints = ["Rewrite the total as a sum over cities instead of over roads.", "Each city contributes its value times its degree."]

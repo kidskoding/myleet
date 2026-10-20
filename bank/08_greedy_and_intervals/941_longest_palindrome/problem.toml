@@ -1,0 +1,7 @@
+id = "longest-palindrome"
+title = "Longest Palindrome"
+difficulty = "easy"
+leetcode = 409
+url = "https://leetcode.com/problems/longest-palindrome/"
+key_idea = "Use every letter count rounded down to even, and add 1 if any letter has an odd count to sit in the middle."
+hints = ["A palindrome uses letters in mirrored pairs.", "How many letters can appear an odd number of times in a palindrome?"]

@@ -1,0 +1,7 @@
+id = "maximum-number-of-integers-to-choose-from-a-range-i"
+title = "Maximum Number of Integers to Choose From a Range I"
+difficulty = "medium"
+leetcode = 2554
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
+key_idea = "Greedily take allowed integers from 1 upward, skipping banned ones via a set, until the next one would push the sum past maxSum."
+hints = ["To fit the most numbers under a sum cap, which numbers should you prefer?", "Put banned numbers in a set for O(1) lookup."]

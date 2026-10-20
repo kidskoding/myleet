@@ -1,0 +1,7 @@
+id = "minimum-operations-to-make-median-of-array-equal-to-k"
+title = "Minimum Operations to Make Median of Array Equal to K"
+difficulty = "medium"
+leetcode = 3107
+url = "https://leetcode.com/problems/minimum-operations-to-make-median-of-array-equal-to-k/"
+key_idea = "Sort; the median index is n // 2. Pull the median to k, then lower every earlier value above k down to k and raise every later value below k up to k."
+hints = ["Sort first. Only values on the wrong side of k relative to the median position need to move.", "Moving a value never past k keeps the sorted order intact."]

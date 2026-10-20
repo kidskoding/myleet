@@ -1,0 +1,7 @@
+id = "minimum-operations-to-halve-array-sum"
+title = "Minimum Operations to Halve Array Sum"
+difficulty = "medium"
+leetcode = 2208
+url = "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/"
+key_idea = "Always halve the current largest value, using a max-heap, until the total reduction reaches half the original sum."
+hints = ["Which number gives the biggest reduction when halved?", "The chosen number might still be the largest after halving, so keep it in a structure that always yields the current max."]

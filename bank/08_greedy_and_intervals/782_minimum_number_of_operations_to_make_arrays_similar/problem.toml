@@ -1,0 +1,7 @@
+id = "minimum-number-of-operations-to-make-arrays-similar"
+title = "Minimum Number of Operations to Make Arrays Similar"
+difficulty = "hard"
+leetcode = 2449
+url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/"
+key_idea = "Operations keep parity, so split both arrays by parity, sort each half, pair them up, and the answer is the total positive gap divided by 2 (each operation moves 2 units)."
+hints = ["Adding or subtracting 2 never changes whether a number is odd or even.", "After grouping, match the smallest with the smallest."]

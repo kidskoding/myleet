@@ -1,0 +1,7 @@
+id = "maximum-value-at-a-given-index-in-a-bounded-array"
+title = "Maximum Value at a Given Index in a Bounded Array"
+difficulty = "medium"
+leetcode = 1802
+url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
+key_idea = "Binary search the peak value; the cheapest array for a peak v slopes down by 1 on each side and bottoms out at 1, so its sum has a closed form."
+hints = ["For a fixed value at index, what is the smallest possible total of the array?", "That minimum total grows with the value, so you can binary search the largest value whose minimum total fits."]

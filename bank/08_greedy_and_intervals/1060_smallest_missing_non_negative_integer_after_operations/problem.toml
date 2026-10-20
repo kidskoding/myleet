@@ -1,0 +1,7 @@
+id = "smallest-missing-non-negative-integer-after-operations"
+title = "Smallest Missing Non-negative Integer After Operations"
+difficulty = "medium"
+leetcode = 2598
+url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
+key_idea = "Adding or subtracting value keeps x mod value fixed, so count elements per residue and walk m = 0, 1, 2, ... consuming one element of residue m mod value each step until none is left."
+hints = ["What stays the same about a number when you add or subtract value any number of times?", "Each element can become any number in its residue class; to cover 0..m-1 you need enough elements of each residue."]

@@ -1,0 +1,7 @@
+id = "stamping-the-grid"
+title = "Stamping the Grid"
+difficulty = "hard"
+leetcode = 2132
+url = "https://leetcode.com/problems/stamping-the-grid/"
+key_idea = "Use a 2D prefix sum of occupied cells to find every top-left corner where a stamp fits, mark those placements in a 2D difference array, then prefix-sum it and check every empty cell is covered."
+hints = ["Stamps may overlap freely, so place one at every position where it fits; extra stamps never hurt.", "Checking whether a rectangle is clear and adding coverage to a rectangle both become O(1) with 2D prefix sums and a 2D difference array."]

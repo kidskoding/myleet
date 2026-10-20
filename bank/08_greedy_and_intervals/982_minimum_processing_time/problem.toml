@@ -1,0 +1,7 @@
+id = "minimum-processing-time"
+title = "Minimum Processing Time"
+difficulty = "medium"
+leetcode = 2895
+url = "https://leetcode.com/problems/minimum-processing-time/"
+key_idea = "Sort processors ascending and tasks descending; the earliest processor takes the four longest tasks, so the answer is max(processor[i] + tasks[4 * i])."
+hints = ["Which processor should get the longest tasks?", "Within a processor only its longest task matters, so group tasks in blocks of four after sorting."]

@@ -1,0 +1,7 @@
+id = "maximum-69-number"
+title = "Maximum 69 Number"
+difficulty = "easy"
+leetcode = 1323
+url = "https://leetcode.com/problems/maximum-69-number/"
+key_idea = "Turn the leftmost 6 into a 9; if there is no 6, the number is already maximal."
+hints = ["Which digit position affects the value the most?", "You only ever want to change a 6, never a 9."]

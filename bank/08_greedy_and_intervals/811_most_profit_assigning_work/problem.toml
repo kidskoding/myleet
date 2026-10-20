@@ -1,0 +1,7 @@
+id = "most-profit-assigning-work"
+title = "Most Profit Assigning Work"
+difficulty = "medium"
+leetcode = 826
+url = "https://leetcode.com/problems/most-profit-assigning-work/"
+key_idea = "Sort jobs by difficulty and workers by ability; sweep with a pointer, keeping the best profit among jobs each worker can handle, and add it per worker."
+hints = ["A worker should take the most profitable job they are able to do, not the hardest one.", "If workers are processed in order of ability, the set of doable jobs only grows."]

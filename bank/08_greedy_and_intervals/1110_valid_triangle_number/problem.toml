@@ -1,0 +1,7 @@
+id = "valid-triangle-number"
+title = "Valid Triangle Number"
+difficulty = "medium"
+leetcode = 611
+url = "https://leetcode.com/problems/valid-triangle-number/"
+key_idea = "Sort, fix the largest side c from the right, and two-pointer over the prefix: if nums[lo] + nums[hi] > c then every lo' in [lo, hi) works, so add hi - lo and move hi left; otherwise move lo right."
+hints = ["After sorting, only one triangle inequality needs checking: the two smaller sides must beat the largest.", "Fix the largest side and look for pairs among the smaller ones; a pair that works tells you about many others too."]

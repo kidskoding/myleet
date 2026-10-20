@@ -1,0 +1,43 @@
+id = "word-abbreviation"
+title = "Word Abbreviation"
+difficulty = "hard"
+leetcode = 527
+url = "https://leetcode.com/problems/word-abbreviation/"
+key_idea = "Words can only collide if they share length, first letter, and last letter; within such a group sort the words, and each word needs a prefix one longer than its longest common prefix with a sorted neighbour."
+hints = ["Figure out which pairs of words could ever share an abbreviation.", "Within a colliding group, the prefix a word needs depends on how many leading letters it shares with the most similar other word."]
+prompt = """
+Implement `words_abbreviation(words)`, which takes a list of distinct words and returns the
+shortest abbreviation of each one, in the same order, using these rules:
+
+1. A word's starting abbreviation is its first letter, the count of letters in between,
+   and its last letter. For example, `"internal"` becomes `"i6l"`.
+2. While two or more words share the same abbreviation, every word in that clash keeps
+   one more letter of its prefix. For example, `"abcdef"` and `"abndef"` both start as
+   `"a4f"`, then become `"ab3f"` and `"ab3f"`, and finally `"abc2f"` and `"abn2f"`.
+3. If the final abbreviation is not shorter than the word, use the word itself.
+
+**Example 1:**
+
+```
+Input: words = ["like","god","internal","me","internet","interval","intension","face","intrusion"]
+Output: ["l2e","god","internal","me","i6t","interval","inte4n","f2e","intr4n"]
+```
+
+`"internal"` and `"interval"` only separate at `"intern1l"` and `"interv1l"`, which are no
+shorter than the words, so both stay unabbreviated. `"god"` would become `"g1d"`, which
+is not shorter.
+
+**Example 2:**
+
+```
+Input: words = ["aa","aaa"]
+Output: ["aa","aaa"]
+```
+
+**Constraints:**
+
+- `1 <= words.length <= 400`
+- `2 <= words[i].length <= 400`
+- `words[i]` consists of lowercase English letters
+- All words are distinct
+"""

@@ -1,0 +1,7 @@
+id = "minimize-xor"
+title = "Minimize XOR"
+difficulty = "medium"
+leetcode = 2429
+url = "https://leetcode.com/problems/minimize-xor/"
+key_idea = "Copy num1's highest set bits until num2's bit count is used up; if bits remain, fill num1's zero bits from the lowest upward."
+hints = ["XOR is small when x agrees with num1 on the high bits.", "If you still have bits to place after matching num1's ones, put them where they cost least."]

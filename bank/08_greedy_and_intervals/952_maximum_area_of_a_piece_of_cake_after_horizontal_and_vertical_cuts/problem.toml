@@ -1,0 +1,7 @@
+id = "maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts"
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+difficulty = "medium"
+leetcode = 1465
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
+key_idea = "The biggest piece is the largest gap between consecutive horizontal cuts times the largest gap between consecutive vertical cuts, with the cake edges counted as cuts."
+hints = ["Do the horizontal and vertical cuts interact, or can you handle each direction on its own?", "Sort the cuts and remember the edges of the cake when measuring gaps."]

@@ -1,0 +1,7 @@
+id = "maximum-total-beauty-of-the-gardens"
+title = "Maximum Total Beauty of the Gardens"
+difficulty = "hard"
+leetcode = 2234
+url = "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/"
+key_idea = "Cap and sort the gardens; try every count of completed gardens taken from the largest end, and spend the leftover flowers raising the smallest gardens, finding the reachable minimum with a moving pointer and prefix sums (capped at target - 1)."
+hints = ["If you complete some gardens, it is always cheapest to complete the ones that already have the most flowers.", "With the rest of the budget, how high can you lift the minimum of the first i gardens? Prefix sums answer that quickly."]

@@ -1,0 +1,7 @@
+id = "remove-digit-from-number-to-maximize-result"
+title = "Remove Digit From Number to Maximize Result"
+difficulty = "easy"
+leetcode = 2259
+url = "https://leetcode.com/problems/remove-digit-from-number-to-maximize-result/"
+key_idea = "Remove the first occurrence of digit that is followed by a larger digit; if none exists, remove its last occurrence."
+hints = ["All candidates have the same length, so compare them as strings.", "Removing a digit helps most when the digit after it is bigger."]
