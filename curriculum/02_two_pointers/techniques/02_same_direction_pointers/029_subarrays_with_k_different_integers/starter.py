@@ -1,5 +1,5 @@
 def subarrays_with_k_distinct(nums: list[int], k: int) -> int:
-    # Problem 29: Subarrays With K Different Integers
+    # Problem 29: Subarrays with K Different Integers
     # Time:
     # Space:
 

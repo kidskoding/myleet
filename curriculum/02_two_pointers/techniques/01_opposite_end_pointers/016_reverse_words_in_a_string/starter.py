@@ -1,5 +1,5 @@
 def reverse_words(s: str) -> str:
-    # Problem 16: Reverse Words In A String
+    # Problem 16: Reverse Words in a String
     # Time:
     # Space:
 
