@@ -62,7 +62,7 @@ func (h *Home) Update(msg tea.Msg) (Screen, tea.Cmd) {
 }
 
 func (h *Home) Keys() []ui.Key {
-	return []ui.Key{{Key: "enter", Label: "start"}, {Key: "j/k", Label: "move"}, {Key: "/", Label: "search"}}
+	return []ui.Key{{Key: "enter", Label: "start"}, {Key: "↑/↓", Label: "move"}, {Key: "/", Label: "search"}}
 }
 
 func greeting(now time.Time) string {

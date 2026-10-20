@@ -102,3 +102,28 @@ func TestMapNoNotesIsToast(t *testing.T) {
 		t.Fatalf("missing-notes message should be a toast:\n%s", plain(m))
 	}
 }
+
+func TestKeyBarShowsArrows(t *testing.T) {
+	bars := map[string]tea.Model{
+		"today":     homeModel(t),
+		"map":       send(homeModel(t), key("2"), key("l")),
+		"playlists": send(homeModel(t), key("4"), key("enter")),
+		"notes":     send(homeModel(t), key("2"), key("j"), key("n")),
+	}
+	for name, m := range bars {
+		bar := lastLine(plain(m))
+		if strings.Contains(bar, "j/k") || strings.Contains(bar, "h back") {
+			t.Errorf("%s key bar should show arrows, got %q", name, bar)
+		}
+	}
+}
+
+func TestPlaylistsArrowNavigation(t *testing.T) {
+	m := send(homeModel(t), key("4"), key("right"))
+	if pl := m.(Model).top().(*Playlists); pl.open == nil {
+		t.Fatal("→ should open the playlist")
+	}
+	if m = send(m, key("left")); m.(Model).top().(*Playlists).open != nil {
+		t.Fatal("← should go back to the list")
+	}
+}

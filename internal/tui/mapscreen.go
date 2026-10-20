@@ -34,7 +34,7 @@ func (m *Map) Title() string { return "map" }
 func (m *Map) Tab() int { return 1 }
 
 func (m *Map) Help() []string {
-	return []string{"l/enter  drill in (enter on a problem opens it)", "h/esc    back out", "n        open the note for this module or technique"}
+	return []string{"→/enter  drill in (enter on a problem opens it)", "←/esc    back out", "n        open the note for this module or technique"}
 }
 
 func (m *Map) module() *catalog.Module { return m.s.App.Catalog.Modules[m.mod] }
@@ -201,7 +201,7 @@ func (m *Map) column(level int, title string, rows []string, width, height int) 
 }
 
 func (m *Map) Keys() []ui.Key {
-	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "h", Label: "back"}, {Key: "n", Label: "notes"}}
+	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "←", Label: "back"}, {Key: "n", Label: "notes"}}
 }
 
 func (m *Map) View(w, h int) string {
@@ -257,7 +257,7 @@ func NewNotes(s *Shared, path string) Screen { return &Notes{s: s, path: path} }
 func (n *Notes) Title() string { return strings.TrimSuffix(filepath.Base(n.path), ".md") }
 
 func (n *Notes) Help() []string {
-	return []string{"j/k        scroll", "ctrl+d/u   half page", "g/G        top/bottom", "esc        back"}
+	return []string{"↑/↓ j/k        scroll", "pgup/pgdn      half page", "home/end g/G   top/bottom", "esc            back"}
 }
 
 func (n *Notes) render(w int) {
@@ -299,7 +299,7 @@ func (n *Notes) Update(msg tea.Msg) (Screen, tea.Cmd) {
 }
 
 func (n *Notes) Keys() []ui.Key {
-	return []ui.Key{{Key: "j/k", Label: "scroll"}, {Key: "ctrl+d/u", Label: "page"}, {Key: "esc", Label: "back"}}
+	return []ui.Key{{Key: "↑/↓", Label: "scroll"}, {Key: "pgup/pgdn", Label: "page"}, {Key: "esc", Label: "back"}}
 }
 
 func (n *Notes) View(w, h int) string {

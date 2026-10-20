@@ -45,7 +45,7 @@ func (pl *Playlists) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		*cur = min(*cur+1, max(n-1, 0))
 	case "k", "up":
 		*cur = max(*cur-1, 0)
-	case "esc", "h":
+	case "esc", "h", "left":
 		if pl.open == nil {
 			if k.String() == "esc" {
 				return pl, pop
@@ -53,7 +53,7 @@ func (pl *Playlists) Update(msg tea.Msg) (Screen, tea.Cmd) {
 			return pl, nil
 		}
 		pl.open, pl.offset = nil, 0
-	case "enter", "l":
+	case "enter", "l", "right":
 		if pl.open == nil {
 			if pl.cursor < len(lists) {
 				pl.open, pl.entry, pl.offset = lists[pl.cursor], 0, 0
@@ -90,9 +90,9 @@ func playlistCounts(p *catalog.Playlist, states map[string]schedule.State) (mast
 
 func (pl *Playlists) Keys() []ui.Key {
 	if pl.open != nil {
-		return []ui.Key{{Key: "enter", Label: "open"}, {Key: "h", Label: "back"}}
+		return []ui.Key{{Key: "enter", Label: "open"}, {Key: "←", Label: "back"}}
 	}
-	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "j/k", Label: "move"}}
+	return []ui.Key{{Key: "enter", Label: "open"}, {Key: "↑/↓", Label: "move"}}
 }
 
 func (pl *Playlists) View(w, h int) string {

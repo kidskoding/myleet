@@ -7,7 +7,7 @@ import (
 )
 
 var globalHelp = []string{
-	"j/k ↑/↓   move",
+	"↑/↓ j/k   move",
 	"enter     open",
 	"esc       back",
 	"/         search all problems",
