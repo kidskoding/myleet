@@ -1,0 +1,7 @@
+id = "minimum-cost-good-caption"
+title = "Minimum Cost Good Caption"
+difficulty = "hard"
+leetcode = 3441
+url = "https://leetcode.com/problems/minimum-cost-good-caption/"
+key_idea = "Suffix DP over (position, letter): either extend the letter's run by one or close a fresh 3-block and jump to the best start at i+3, breaking cost ties toward the smaller next letter, then rebuild from the front."
+hints = ["Any run of length 6 or more can be cut into runs of length 3 to 5, so think of the answer as blocks of at least 3.", "Process from the right so the lexicographic tie-break can be settled greedily from the front when you rebuild."]

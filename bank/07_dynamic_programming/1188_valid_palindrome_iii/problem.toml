@@ -1,0 +1,36 @@
+id = "valid-palindrome-iii"
+title = "Valid Palindrome III"
+difficulty = "hard"
+leetcode = 1216
+url = "https://leetcode.com/problems/valid-palindrome-iii/"
+key_idea = "The fewest deletions that leave a palindrome equal n minus the longest palindromic subsequence, which an interval DP over s[i..j] computes in O(n^2)."
+hints = ["Deleting characters until a palindrome remains is the same as keeping a palindromic subsequence.", "Define a subproblem on the substring s[i..j] and compare its two end characters."]
+prompt = """
+Implement `is_valid_palindrome(s, k)`, which returns `True` if you can delete at most `k`
+characters from the string `s` so that what remains reads the same forwards and
+backwards, and `False` otherwise.
+
+**Example 1:**
+
+```
+Input: s = "abcdeca", k = 2
+Output: true
+```
+
+Delete `b` and `e` to get `"acdca"`.
+
+**Example 2:**
+
+```
+Input: s = "abbababa", k = 1
+Output: true
+```
+
+Deleting the first `a` leaves `"bbababa"`, which is a palindrome.
+
+**Constraints:**
+
+- `1 <= s.length <= 1000`
+- `s` contains only lowercase English letters
+- `1 <= k <= s.length`
+"""

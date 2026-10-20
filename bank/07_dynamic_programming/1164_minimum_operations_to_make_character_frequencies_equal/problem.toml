@@ -1,0 +1,7 @@
+id = "minimum-operations-to-make-character-frequencies-equal"
+title = "Minimum Operations to Make Character Frequencies Equal"
+difficulty = "hard"
+leetcode = 3389
+url = "https://leetcode.com/problems/minimum-operations-to-make-character-frequencies-equal/"
+key_idea = "Try every target frequency t; a DP over letters a..z either fixes a letter alone (delete or insert to reach 0 or t) or shifts its surplus into the next letter when that one is short, at cost max(surplus, shortage)."
+hints = ["Fix the final common frequency and every letter must end at either 0 or that value.", "Changing a letter to the next one is a cheaper delete-plus-insert, but only between neighbouring letters."]

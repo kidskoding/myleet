@@ -1,0 +1,7 @@
+id = "tallest-billboard"
+title = "Tallest Billboard"
+difficulty = "hard"
+leetcode = 956
+url = "https://leetcode.com/problems/tallest-billboard/"
+key_idea = "DP over the height difference between the two supports, storing the tallest shorter side for each difference; each rod goes to the taller side, the shorter side, or neither."
+hints = ["Three choices per rod is too many to enumerate, but the difference between the sides is bounded by the total length.", "For a fixed difference you only care about the largest possible shorter side."]

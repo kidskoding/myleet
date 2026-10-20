@@ -1,0 +1,7 @@
+id = "minimum-cost-to-make-all-characters-equal"
+title = "Minimum Cost to Make All Characters Equal"
+difficulty = "medium"
+leetcode = 2712
+url = "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/"
+key_idea = "Each boundary where s[i] != s[i-1] must be erased by flipping one side of it, which costs min(i, n - i); boundaries are independent, so sum those."
+hints = ["Look at the places where adjacent characters differ.", "A single flip changes exactly one such boundary; pick the cheaper side for each."]

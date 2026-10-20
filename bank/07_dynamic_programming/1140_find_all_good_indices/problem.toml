@@ -1,0 +1,7 @@
+id = "find-all-good-indices"
+title = "Find All Good Indices"
+difficulty = "medium"
+leetcode = 2420
+url = "https://leetcode.com/problems/find-all-good-indices/"
+key_idea = "Precompute, for every index, the length of the non-increasing run ending there and the non-decreasing run starting there; i is good when the run ending at i-1 and the run starting at i+1 are both at least k."
+hints = ["Rechecking k elements for every index is too slow; reuse work between neighbouring indices.", "How long is the non-increasing streak that ends at each position?"]

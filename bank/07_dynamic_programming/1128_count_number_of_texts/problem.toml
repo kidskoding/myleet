@@ -1,0 +1,7 @@
+id = "count-number-of-texts"
+title = "Count Number of Texts"
+difficulty = "medium"
+leetcode = 2266
+url = "https://leetcode.com/problems/count-number-of-texts/"
+key_idea = "dp[i] = number of messages for the first i keys; the last letter uses the final 1..3 (or 1..4 for keys 7 and 9) presses, provided they are all the same key."
+hints = ["Think about how the last letter of the message could have been typed.", "Keys 7 and 9 have four letters; the others have three."]

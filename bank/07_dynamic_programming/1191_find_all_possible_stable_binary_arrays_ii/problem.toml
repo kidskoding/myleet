@@ -1,0 +1,7 @@
+id = "find-all-possible-stable-binary-arrays-ii"
+title = "Find All Possible Stable Binary Arrays II"
+difficulty = "hard"
+leetcode = 3130
+url = "https://leetcode.com/problems/find-all-possible-stable-binary-arrays-ii/"
+key_idea = "dp[i][j][b] counts arrays with i zeros and j ones ending in bit b; extending by b adds the other-bit ending sum, minus the arrays that would create a run of limit+1, removed in O(1) by subtracting dp[i-limit-1][j][1-b]."
+hints = ["Track how many zeros and ones are used and which bit the array ends with.", "Appending a bit to an array ending in the same bit is fine unless it creates a run that is too long; count those bad cases directly instead of tracking run length."]

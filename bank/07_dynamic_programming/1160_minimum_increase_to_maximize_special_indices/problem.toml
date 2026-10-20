@@ -1,0 +1,7 @@
+id = "minimum-increase-to-maximize-special-indices"
+title = "Minimum Increase to Maximize Special Indices"
+difficulty = "medium"
+leetcode = 3891
+url = "https://leetcode.com/problems/minimum-increase-to-maximize-special-indices/"
+key_idea = "Peaks cannot be adjacent, so odd n forces peaks at every odd index; even n allows exactly one double gap, so combine a prefix sum over odd indices with a suffix sum over even indices and take the best split."
+hints = ["Raising a non-peak only makes its neighbours harder to turn into peaks, so only peaks are ever raised.", "How many non-adjacent interior indices can you pick, and how much freedom is left when n is even?"]

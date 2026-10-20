@@ -1,0 +1,7 @@
+id = "minimum-number-of-increments-on-subarrays-to-form-a-target-array"
+title = "Minimum Number of Increments on Subarrays to Form a Target Array"
+difficulty = "hard"
+leetcode = 1526
+url = "https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/"
+key_idea = "Each rise target[i] - target[i-1] > 0 needs that many new operations starting at i, while drops can be covered by extending earlier ones, so the answer is target[0] plus the sum of positive differences."
+hints = ["Think about what happens between two neighbors: when can an operation covering the left one simply continue to the right one?", "Only increases from one element to the next force new operations to begin."]

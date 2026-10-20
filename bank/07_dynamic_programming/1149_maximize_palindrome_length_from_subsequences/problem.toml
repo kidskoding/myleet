@@ -1,0 +1,7 @@
+id = "maximize-palindrome-length-from-subsequences"
+title = "Maximize Palindrome Length From Subsequences"
+difficulty = "hard"
+leetcode = 1771
+url = "https://leetcode.com/problems/maximize-palindrome-length-from-subsequences/"
+key_idea = "Run longest-palindromic-subsequence DP on word1 + word2, but only record an answer when the outermost matched pair has its left char in word1 and its right char in word2."
+hints = ["Concatenate the two words and think about the longest palindromic subsequence.", "The non-empty requirement means the outermost matching pair must straddle the boundary."]

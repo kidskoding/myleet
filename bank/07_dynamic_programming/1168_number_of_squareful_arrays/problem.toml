@@ -1,0 +1,7 @@
+id = "number-of-squareful-arrays"
+title = "Number of Squareful Arrays"
+difficulty = "hard"
+leetcode = 996
+url = "https://leetcode.com/problems/number-of-squareful-arrays/"
+key_idea = "Backtrack over a value-count map, only stepping to values whose sum with the previous one is a perfect square; iterating distinct values instead of indices removes duplicate permutations."
+hints = ["Precompute which pairs of distinct values sum to a perfect square.", "Equal values make identical permutations; choose by value with a remaining count rather than by index."]

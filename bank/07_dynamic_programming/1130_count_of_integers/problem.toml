@@ -1,0 +1,7 @@
+id = "count-of-integers"
+title = "Count of Integers"
+difficulty = "hard"
+leetcode = 2719
+url = "https://leetcode.com/problems/count-of-integers/"
+key_idea = "Digit DP over (position, digit sum so far, still tight to the bound): count good numbers <= num2 minus good numbers <= num1 - 1 (or <= num1, then add num1 back if it is good)."
+hints = ["Counting in a range [a, b] is easier as f(b) - f(a - 1).", "Build the number digit by digit; you only need to remember the digit sum and whether you are still on the upper bound."]

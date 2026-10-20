@@ -1,0 +1,44 @@
+id = "maximize-total-tastiness-of-purchased-fruits"
+title = "Maximize Total Tastiness of Purchased Fruits"
+difficulty = "medium"
+leetcode = 2431
+url = "https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits/"
+key_idea = "0/1 knapsack with an extra dimension: dp[money][coupons] = best tastiness, and each fruit is skipped, bought at full price, or bought at half price using one coupon."
+hints = ["This is a knapsack where each item has three options instead of two.", "Coupons are a second, small budget to track alongside money."]
+prompt = """
+Implement `max_tastiness(price, tastiness, max_amount, max_coupons)`.
+
+There are `n` fruits. Fruit `i` costs `price[i]` and has tastiness `tastiness[i]`. You may buy
+each fruit at most once, and you have `max_amount` money to spend. You also hold
+`max_coupons` coupons; using one coupon on a fruit lets you buy it for half its price,
+rounded down. Each fruit can take at most one coupon.
+
+Return the maximum total tastiness of the fruits you can buy without spending more than
+`max_amount`.
+
+**Example 1:**
+
+```
+Input: price = [10,20,20], tastiness = [5,8,8], max_amount = 20, max_coupons = 1
+Output: 13
+```
+
+Buy fruit `0` for `10` and fruit `1` for `10` with the coupon: total cost `20`, tastiness
+`5 + 8 = 13`.
+
+**Example 2:**
+
+```
+Input: price = [10,15,7], tastiness = [5,8,20], max_amount = 10, max_coupons = 2
+Output: 28
+```
+
+Use both coupons: fruit `1` costs `7` and fruit `2` costs `3`, total `10`, tastiness `28`.
+
+**Constraints:**
+
+- `n == price.length == tastiness.length`
+- `1 <= n <= 100`
+- `0 <= price[i], tastiness[i], max_amount <= 1000`
+- `0 <= max_coupons <= 5`
+"""

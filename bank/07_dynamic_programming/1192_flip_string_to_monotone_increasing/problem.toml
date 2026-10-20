@@ -1,0 +1,7 @@
+id = "flip-string-to-monotone-increasing"
+title = "Flip String to Monotone Increasing"
+difficulty = "medium"
+leetcode = 926
+url = "https://leetcode.com/problems/flip-string-to-monotone-increasing/"
+key_idea = "Scan left to right keeping the count of ones seen; at each '0' the best cost is min(flip this zero: best + 1, flip every earlier one: ones)."
+hints = ["Every monotone result is some zeros followed by some ones; think about where the split goes.", "Walking left to right, decide what a new '0' costs given the ones you have already passed."]

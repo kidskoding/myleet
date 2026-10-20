@@ -1,0 +1,7 @@
+id = "first-day-where-you-have-been-in-all-the-rooms"
+title = "First Day Where You Have Been in All the Rooms"
+difficulty = "medium"
+leetcode = 1997
+url = "https://leetcode.com/problems/first-day-where-you-have-been-in-all-the-rooms/"
+key_idea = "Reaching room i+1 for the first time means visiting i, bouncing back to nextVisit[i], and re-walking up to i, so dp[i+1] = 2 * dp[i] - dp[nextVisit[i]] + 2 (mod p)."
+hints = ["The first time you enter room i, every room before it has been visited an even number of times.", "After the first visit to room i you jump back; how long does it take to get from nextVisit[i] to i again?"]

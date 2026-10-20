@@ -1,0 +1,7 @@
+id = "maximize-value-of-function-in-a-ball-passing-game"
+title = "Maximize Value of Function in a Ball Passing Game"
+difficulty = "hard"
+leetcode = 2836
+url = "https://leetcode.com/problems/maximize-value-of-function-in-a-ball-passing-game/"
+key_idea = "Binary lifting: for each power of two store where the ball lands after 2^j passes and the sum of receiver indices along the way, then combine the powers in k's binary form from every start."
+hints = ["k can be up to 10^10, so you cannot simulate the passes one by one.", "If you knew the result of 2^j passes from every player, how would you get 2^(j+1)?"]

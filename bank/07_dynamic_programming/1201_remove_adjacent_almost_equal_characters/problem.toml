@@ -1,0 +1,7 @@
+id = "remove-adjacent-almost-equal-characters"
+title = "Remove Adjacent Almost-Equal Characters"
+difficulty = "medium"
+leetcode = 2957
+url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
+key_idea = "Scan left to right; when word[i] and word[i-1] are almost-equal, change word[i] (one operation) and skip to i+2, because a changed letter can always avoid both neighbors."
+hints = ["A run of consecutive almost-equal neighbors behaves like a chain; how many changes does a chain of length L need?", "Once you change a character, you can pick a letter unlike both of its neighbors."]

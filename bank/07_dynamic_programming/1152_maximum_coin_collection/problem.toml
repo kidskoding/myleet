@@ -1,0 +1,66 @@
+id = "maximum-coin-collection"
+title = "Maximum Coin Collection"
+difficulty = "medium"
+leetcode = 3466
+url = "https://leetcode.com/problems/maximum-coin-collection/"
+key_idea = "DP over miles with state = lane switches used (0, 1 or 2, which also fixes the lane); at each mile either enter fresh (0 switches in lane 1, or 1 switch straight into lane 2) or continue from the previous mile, optionally switching first."
+hints = ["Since Mario starts in lane 1, the number of switches used so far tells you which lane he is in.", "Like maximum subarray: at every mile, decide whether to start here or continue a trip that reached the previous mile."]
+prompt = """
+Implement `max_coins(lane1, lane2)`.
+
+Mario drives along a two-lane freeway with a coin value at every mile: `lane1[i]` and
+`lane2[i]` are the values in lane 1 and lane 2 at mile `i`. A positive value is coins Mario
+picks up; a negative value is a toll he pays. He collects the value of the lane he is in at
+every mile he drives through.
+
+Mario must:
+
+- enter the freeway in lane 1, at any mile,
+- drive through at least one mile, moving forward one mile at a time, and
+- exit at any mile after the one he entered at (or at the same mile).
+
+He may switch lanes at most 2 times in total. A switch moves him to the other lane before he
+collects at the next mile, and he may switch right as he enters, before collecting anything.
+
+Return the maximum total value Mario can end up with.
+
+**Example 1:**
+
+```
+Input: lane1 = [1,-2,-10,3], lane2 = [-5,10,0,1]
+Output: 14
+```
+
+Enter at mile `0` and collect `1`, switch to lane 2 for miles `1` and `2` (`10 + 0`), then
+switch back to lane 1 for mile `3` (`3`).
+
+**Example 2:**
+
+```
+Input: lane1 = [1,-1,-1,-1], lane2 = [0,3,4,-5]
+Output: 8
+```
+
+**Example 3:**
+
+```
+Input: lane1 = [-5,-4,-3], lane2 = [-1,2,3]
+Output: 5
+```
+
+Enter at mile `1`, switch to lane 2 immediately, and collect `2 + 3`.
+
+**Example 4:**
+
+```
+Input: lane1 = [-10], lane2 = [-2]
+Output: -2
+```
+
+Mario must drive at least one mile, so the best he can do is switch immediately and pay `2`.
+
+**Constraints:**
+
+- `1 <= lane1.length == lane2.length <= 10^5`
+- `-10^9 <= lane1[i], lane2[i] <= 10^9`
+"""
