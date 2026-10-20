@@ -15,7 +15,7 @@ class RandomNode:
 
 
 def copy_random_list(head: RandomNode | None) -> RandomNode | None:
-    # Problem 32: Copy List With Random Pointer
+    # Problem 32: Copy List with Random Pointer
     # Time:
     # Space:
 

@@ -17,7 +17,7 @@ class MultilevelNode:
 
 
 def flatten(head: MultilevelNode | None) -> MultilevelNode | None:
-    # Problem 33: Flatten A Multilevel Doubly Linked List
+    # Problem 33: Flatten a Multilevel Doubly Linked List
     # Time:
     # Space:
 

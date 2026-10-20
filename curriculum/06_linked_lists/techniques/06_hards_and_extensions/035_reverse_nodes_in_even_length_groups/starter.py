@@ -4,7 +4,7 @@ from list_node import ListNode
 
 
 def reverse_even_length_groups(head: ListNode | None) -> ListNode | None:
-    # Problem 35: Reverse Nodes In Even Length Groups
+    # Problem 35: Reverse Nodes in Even Length Groups
     # Time:
     # Space:
 
