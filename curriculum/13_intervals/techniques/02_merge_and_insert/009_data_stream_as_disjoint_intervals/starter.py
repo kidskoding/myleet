@@ -1,5 +1,5 @@
 class SummaryRanges:
-    # Problem 9: Data Stream As Disjoint Intervals
+    # Problem 9: Data Stream as Disjoint Intervals
 
     def __init__(self) -> None:
         # Time:
