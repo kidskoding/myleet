@@ -1,0 +1,7 @@
+id = "sum-of-total-strength-of-wizards"
+title = "Sum of Total Strength of Wizards"
+difficulty = "hard"
+leetcode = 2281
+url = "https://leetcode.com/problems/sum-of-total-strength-of-wizards/"
+key_idea = "Monotonic stacks give each element the range where it is the minimum (strict on one side, non-strict on the other); prefix sums of prefix sums then total the subarray sums inside that range in O(1)."
+hints = ["Count each subarray once by charging it to its minimum element; ties need a consistent rule.", "The sum of many subarray sums can be written with prefix sums of prefix sums."]

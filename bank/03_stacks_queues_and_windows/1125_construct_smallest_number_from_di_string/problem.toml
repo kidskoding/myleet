@@ -1,0 +1,7 @@
+id = "construct-smallest-number-from-di-string"
+title = "Construct Smallest Number From DI String"
+difficulty = "medium"
+leetcode = 2375
+url = "https://leetcode.com/problems/construct-smallest-number-from-di-string/"
+key_idea = "Push digits 1..n+1 onto a stack in order and pop everything whenever you hit an 'I' (and at the end), which reverses each run of 'D's."
+hints = ["Start from the plain increasing string 123... and ask what a run of D's forces.", "A run of D's of length k is satisfied by reversing a block of k+1 consecutive digits."]

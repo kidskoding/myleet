@@ -1,0 +1,7 @@
+id = "maximum-sum-of-distinct-subarrays-with-length-k"
+title = "Maximum Sum of Distinct Subarrays With Length K"
+difficulty = "medium"
+leetcode = 2461
+url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
+key_idea = "Slide a fixed window of size k with a running sum and a value -> count map; the window qualifies when the map holds k distinct keys."
+hints = ["Every candidate is a window of the same size; move it one step at a time.", "Maintain the window sum and enough bookkeeping to tell in O(1) whether all values in it are distinct."]
