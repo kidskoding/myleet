@@ -12,11 +12,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 
       - name: Sync development environment
         run: uv sync --group dev
+
+      - name: Check Go code
+        run: |
+          go vet ./...
+          go test ./...
+
+      - name: Check curriculum
+        run: |
+          go run ./cmd/myleet validate
+          go run ./cmd/myleet check --solutions
 
       - name: Check Python style
         run: |
@@ -25,6 +40,9 @@ jobs:
 
       - name: Check types
         run: uv run ty check
+
+      - name: Run Python tests
+        run: uv run pytest
 
       - name: Check Markdown formatting
         run: find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
