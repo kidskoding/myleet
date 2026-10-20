@@ -16,7 +16,6 @@ wheels/
 .direnv
 
 docs/
-redos/
 
 # scratch cram sheets, not part of the curriculum
 cram/
@@ -26,3 +25,6 @@ plan/
 
 # real interview problems, kept private
 previous/
+
+# myleet progress (kept outside the repo; ignore it if it ever shows up here)
+.myleet/
