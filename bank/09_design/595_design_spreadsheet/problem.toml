@@ -1,0 +1,7 @@
+id = "design-spreadsheet"
+title = "Design Spreadsheet"
+difficulty = "medium"
+leetcode = 3484
+url = "https://leetcode.com/problems/design-spreadsheet/"
+key_idea = "Store only the cells that were set in a dict keyed by reference; evaluate a formula by splitting on '+' and reading each operand as a number or a dict lookup defaulting to 0."
+hints = ["Most cells are never touched, so do not allocate the whole grid.", "An operand is a number exactly when it starts with a digit."]

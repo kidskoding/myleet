@@ -1,0 +1,39 @@
+id = "max-stack"
+title = "Max Stack"
+difficulty = "hard"
+leetcode = 716
+url = "https://leetcode.com/problems/max-stack/"
+key_idea = "Keep a stack and a max-heap of (value, push order) pairs, mark popped entries as removed, and lazily discard removed entries from whichever structure you look at."
+hints = ["One structure orders by recency, another by value; you need both.", "Deleting from the middle of a structure is expensive, so consider deleting later."]
+prompt = """
+Design a `MaxStack` class: a stack that can also find and remove its largest element.
+
+- `MaxStack()` creates an empty stack.
+- `push(x)` puts `x` on top of the stack.
+- `pop()` removes the top element and returns it.
+- `top()` returns the top element without removing it.
+- `peek_max()` returns the largest element without removing it.
+- `pop_max()` removes the largest element and returns it. If the largest value appears
+  more than once, remove the copy closest to the top.
+
+Aim for `O(1)` `top` and `O(log n)` for every other call.
+
+**Example 1:**
+
+```
+Input:
+["MaxStack","push","push","push","top","pop_max","top","peek_max","pop","top"]
+[[],[5],[1],[5],[],[],[],[],[],[]]
+Output:
+[null,null,null,null,5,5,1,5,1,5]
+```
+
+After the pushes the stack is `[5, 1, 5]` (top on the right). `pop_max` removes the top
+`5`, leaving `[5, 1]`, so `top` is `1` and `peek_max` is `5`. Popping `1` leaves `[5]`.
+
+**Constraints:**
+
+- `-10^7 <= x <= 10^7`
+- At most `10^5` calls are made in total
+- `pop`, `top`, `peek_max`, and `pop_max` are only called on a non-empty stack
+"""

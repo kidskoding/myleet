@@ -1,0 +1,7 @@
+id = "count-integers-in-intervals"
+title = "Count Integers in Intervals"
+difficulty = "hard"
+leetcode = 2276
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
+key_idea = "Keep a sorted list of disjoint intervals plus a running total; on add, binary search the block of intervals that overlap, merge them into one, and adjust the total."
+hints = ["Store the covered integers as non-overlapping intervals and keep the count up to date as you go.", "An add only touches a contiguous run of stored intervals; find that run with binary search on starts and ends."]

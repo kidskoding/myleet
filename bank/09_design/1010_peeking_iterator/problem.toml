@@ -1,0 +1,7 @@
+id = "peeking-iterator"
+title = "Peeking Iterator"
+difficulty = "medium"
+leetcode = 284
+url = "https://leetcode.com/problems/peeking-iterator/"
+key_idea = "Cache one element ahead: keep the iterator's next value in a buffer so peek reads it and next returns it and refills."
+hints = ["The wrapped iterator cannot rewind, so you need to remember something.", "Always holding the upcoming value makes all three operations simple."]

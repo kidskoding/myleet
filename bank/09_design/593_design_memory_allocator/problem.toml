@@ -1,0 +1,7 @@
+id = "design-memory-allocator"
+title = "Design Memory Allocator"
+difficulty = "medium"
+leetcode = 2502
+url = "https://leetcode.com/problems/design-memory-allocator/"
+key_idea = "With n and the call count both at most 1000, keep the memory as an array of owner ids: allocate scans left to right for the first run of size free cells, and free clears every cell with that id."
+hints = ["The limits are small enough that touching every memory unit per call is fine.", "Track the length of the current run of free cells as you scan."]

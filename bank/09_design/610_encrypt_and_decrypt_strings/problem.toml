@@ -1,0 +1,7 @@
+id = "encrypt-and-decrypt-strings"
+title = "Encrypt and Decrypt Strings"
+difficulty = "hard"
+leetcode = 2227
+url = "https://leetcode.com/problems/encrypt-and-decrypt-strings/"
+key_idea = "Encrypt directly with a key -> value map; for decrypt, pre-encrypt every dictionary word once and count the results, so a query is a single lookup."
+hints = ["Several keys can share a value, so decrypting forward branches a lot.", "The dictionary is fixed up front: go the other direction."]

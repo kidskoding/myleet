@@ -1,0 +1,7 @@
+id = "design-a-stack-with-increment-operation"
+title = "Design a Stack With Increment Operation"
+difficulty = "medium"
+leetcode = 1381
+url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
+key_idea = "Store a lazy increment per stack slot: increment(k, val) adds val at index min(k, size) - 1, and pop returns value plus that slot's increment while passing it down to the slot below."
+hints = ["Incrementing k elements one by one is O(k); look for a way to record the update in O(1).", "An increment applies to everything at or below some index; keep it at that index and hand it down as elements are popped."]

@@ -1,0 +1,7 @@
+id = "design-graph-with-shortest-path-calculator"
+title = "Design Graph With Shortest Path Calculator"
+difficulty = "hard"
+leetcode = 2642
+url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"
+key_idea = "Store an adjacency list; add_edge appends to it, and shortest_path runs Dijkstra with a min-heap from node1, stopping when node2 is popped."
+hints = ["Edge costs are positive, so a classic single-source shortest path algorithm applies.", "Calls are few (at most 100 each), so recomputing per query is fine."]

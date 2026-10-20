@@ -1,0 +1,7 @@
+id = "design-ride-sharing-system"
+title = "Design Ride Sharing System"
+difficulty = "medium"
+leetcode = 3829
+url = "https://leetcode.com/problems/design-ride-sharing-system/"
+key_idea = "Drivers wait in a FIFO queue; riders wait in an insertion-ordered map so a cancel removes one in O(1) and a match takes the oldest remaining rider."
+hints = ["Both sides are served first come, first served.", "Riders can leave from the middle of their line, so a plain queue needs help with removals."]

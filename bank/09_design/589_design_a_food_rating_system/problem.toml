@@ -1,0 +1,7 @@
+id = "design-a-food-rating-system"
+title = "Design a Food Rating System"
+difficulty = "medium"
+leetcode = 2353
+url = "https://leetcode.com/problems/design-a-food-rating-system/"
+key_idea = "Keep food -> (cuisine, rating) and one heap per cuisine of (-rating, name); on change push a new entry, and on query pop stale tops whose rating no longer matches."
+hints = ["Each cuisine needs its best food quickly, with ties broken by name.", "Rather than deleting old heap entries on a rating change, leave them and discard them lazily when they surface at the top."]

@@ -1,0 +1,7 @@
+id = "design-task-manager"
+title = "Design Task Manager"
+difficulty = "medium"
+leetcode = 3408
+url = "https://leetcode.com/problems/design-task-manager/"
+key_idea = "Keep task -> (user, priority) in a dict and a max-heap of (priority, taskId); edits and removals only update the dict, and execTop pops heap entries that no longer match the dict."
+hints = ["You need the highest priority task quickly, with ties broken by the larger task id.", "Instead of deleting from the heap on edit or remove, decide whether an entry is still current when it reaches the top."]

@@ -1,0 +1,33 @@
+id = "shortest-word-distance-ii"
+title = "Shortest Word Distance II"
+difficulty = "medium"
+leetcode = 244
+url = "https://leetcode.com/problems/shortest-word-distance-ii/"
+key_idea = "Precompute each word's sorted list of indices; a query merges the two lists with two pointers, always advancing the smaller index."
+hints = ["Queries repeat many times, so do the per-word work once in the constructor.", "Given two sorted index lists, the closest pair can be found in one linear merge."]
+prompt = """
+Implement the `WordDistance` class, which answers many distance queries over one fixed
+list of words.
+
+- `WordDistance(words_dict)` stores the list of words.
+- `shortest(word1, word2)` returns the smallest `abs(i - j)` such that
+  `words_dict[i] == word1` and `words_dict[j] == word2`.
+
+**Example 1:**
+
+```
+Input:  WordDistance(["practice","makes","perfect","coding","makes"]),
+        shortest("coding", "practice"), shortest("makes", "coding")
+Output: 3, 1
+```
+
+`coding` is at index 3 and `practice` at index 0. The second `makes` (index 4) sits next to
+`coding`.
+
+**Constraints:**
+
+- `1 <= words_dict.length <= 3 * 10^4`
+- `1 <= words_dict[i].length <= 10`, lowercase English letters
+- `word1` and `word2` are both in `words_dict`, and `word1 != word2`
+- At most `5000` calls to `shortest`
+"""

@@ -1,0 +1,7 @@
+id = "exam-room"
+title = "Exam Room"
+difficulty = "medium"
+leetcode = 855
+url = "https://leetcode.com/problems/exam-room/"
+key_idea = "Keep the occupied seats in a sorted list; to seat, compare the gap before the first seat, each midpoint between neighbours, and the gap after the last seat, then insert with bisect."
+hints = ["The best seat is always at an end of the row or in the middle of the widest gap.", "Keeping occupied seats sorted lets you check each gap with its neighbours."]

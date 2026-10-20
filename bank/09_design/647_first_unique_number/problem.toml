@@ -1,0 +1,48 @@
+id = "first-unique-number"
+title = "First Unique Number"
+difficulty = "medium"
+leetcode = 1429
+url = "https://leetcode.com/problems/first-unique-number/"
+key_idea = "Count occurrences in a hash map and keep an insertion-ordered queue (or ordered dict) of candidates, lazily dropping the front while its count exceeds one."
+hints = ["You need both how often each value appears and the order values first arrived.", "A value that stops being unique never becomes unique again, so it can be discarded for good."]
+prompt = """
+Implement the `FirstUnique` class, which tracks a queue of integers and reports the
+earliest value that appears exactly once.
+
+- `FirstUnique(nums)` starts the queue with the values in `nums`, in order.
+- `show_first_unique()` returns the first value in the queue, from the front, whose
+  total number of occurrences is exactly one. Return `-1` if no such value exists.
+- `add(value)` appends `value` to the back of the queue.
+
+**Example 1:**
+
+```
+Input:  FirstUnique([2,3,5]); show_first_unique(); add(5); show_first_unique();
+        add(2); show_first_unique(); add(3); show_first_unique()
+Output: 2, None, 2, None, 3, None, -1
+```
+
+After `add(5)` the value `5` occurs twice, but `2` is still unique. After `add(2)` the
+first unique value is `3`, and after `add(3)` nothing is unique.
+
+**Example 2:**
+
+```
+Input:  FirstUnique([7,7,7,7,7,7]); show_first_unique(); add(7); add(3); add(3);
+        add(7); add(17); show_first_unique()
+Output: -1, None, None, None, None, None, 17
+```
+
+**Example 3:**
+
+```
+Input:  FirstUnique([809]); show_first_unique(); add(809); show_first_unique()
+Output: 809, None, -1
+```
+
+**Constraints:**
+
+- `1 <= len(nums) <= 10^5`
+- `1 <= nums[i], value <= 10^8`
+- At most `5 * 10^4` calls to `show_first_unique` and `add` in total
+"""

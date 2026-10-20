@@ -1,0 +1,52 @@
+id = "design-log-storage-system"
+title = "Design Log Storage System"
+difficulty = "medium"
+leetcode = 635
+url = "https://leetcode.com/problems/design-log-storage-system/"
+key_idea = "Fixed-width timestamps compare correctly as strings, so cut every timestamp to the prefix that ends at the chosen granularity and keep the logs whose prefix lies between the cut start and end."
+hints = ["All timestamps have the same width and zero-padded fields.", "Granularity tells you how many leading characters of each timestamp matter."]
+prompt = """
+Implement the `LogSystem` class, which stores log ids with timestamps and looks them up
+by time range.
+
+Every timestamp has the form `"Year:Month:Day:Hour:Minute:Second"`, with each field
+zero-padded to a fixed width, for example `"2017:01:01:23:59:59"`.
+
+- `LogSystem()` starts with no logs.
+- `put(log_id, timestamp)` stores a log with the given id and timestamp.
+- `retrieve(start, end, granularity)` returns the ids of every stored log whose
+  timestamp falls within `[start, end]`, both ends inclusive, after ignoring every field
+  finer than `granularity`. `granularity` is one of `"Year"`, `"Month"`, `"Day"`,
+  `"Hour"`, `"Minute"` or `"Second"`. For example, with `granularity = "Day"`, only the
+  year, month and day of each timestamp are compared. The ids may be returned in any
+  order.
+
+**Example 1:**
+
+```
+Input:  put(1, "2017:01:01:23:59:59"), put(2, "2017:01:01:22:59:59"),
+        put(3, "2016:01:01:00:00:00"),
+        retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Year")
+Output: [3, 2, 1]
+```
+
+At year granularity the range is 2016 through 2017, which covers all three logs.
+
+**Example 2:**
+
+```
+Input:  the same three logs,
+        retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour")
+Output: [2, 1]
+```
+
+At hour granularity the range starts at `2016:01:01:01`, so log `3` (hour `00`) is too
+early, while log `1` (hour `23`) still matches the end.
+
+**Constraints:**
+
+- `1 <= log_id <= 500`
+- `2000 <= Year <= 2017`, `1 <= Month <= 12`, `1 <= Day <= 31`, `0 <= Hour <= 23`,
+  `0 <= Minute, Second <= 59`
+- At most `500` calls are made to `put` and `retrieve` in total
+"""

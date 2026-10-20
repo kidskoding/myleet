@@ -1,0 +1,7 @@
+id = "rle-iterator"
+title = "RLE Iterator"
+difficulty = "medium"
+leetcode = 900
+url = "https://leetcode.com/problems/rle-iterator/"
+key_idea = "Keep a pointer to the current run and how much of it is left; consume n across runs and return the value of the run where it ends, or -1."
+hints = ["Never expand the encoding; counts can be huge.", "A single call may exhaust several runs before it finishes."]

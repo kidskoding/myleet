@@ -1,0 +1,7 @@
+id = "insert-delete-getrandom-o1-duplicates-allowed"
+title = "Insert Delete GetRandom O(1) - Duplicates allowed"
+difficulty = "hard"
+leetcode = 381
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
+key_idea = "Store values in a list and map each value to the set of its indices; remove by swapping the target index with the last element and fixing both index sets."
+hints = ["A random pick in O(1) wants all values packed into an array.", "Deleting from the middle of an array is slow unless you move the last element into the hole."]

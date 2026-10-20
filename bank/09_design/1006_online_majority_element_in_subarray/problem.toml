@@ -1,0 +1,7 @@
+id = "online-majority-element-in-subarray"
+title = "Online Majority Element In Subarray"
+difficulty = "hard"
+leetcode = 1157
+url = "https://leetcode.com/problems/online-majority-element-in-subarray/"
+key_idea = "A segment tree stores Boyer-Moore (candidate, net count) pairs so a range query yields the only possible majority; verify its true frequency with binary search over that value's sorted positions."
+hints = ["Only one value can appear more than half the time in a range.", "Boyer-Moore voting results of two halves can be merged, and a value's positions list answers how often it appears in any range."]

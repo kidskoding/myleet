@@ -1,0 +1,46 @@
+id = "flatten-2d-vector"
+title = "Flatten 2D Vector"
+difficulty = "medium"
+leetcode = 251
+url = "https://leetcode.com/problems/flatten-2d-vector/"
+key_idea = "Keep an outer index and an inner index; before every read, advance the outer index past exhausted or empty rows."
+hints = ["Copying everything into one flat list works but uses extra memory; try two pointers instead.", "Empty inner lists are the tricky part, so skip them in one shared helper used by both methods."]
+prompt = """
+Implement the `Vector2D` class, an iterator over a two-dimensional list of integers that
+yields the values row by row, left to right.
+
+- `Vector2D(vec)` sets up the iterator over `vec`. Rows may be empty.
+- `next()` returns the next value and advances. It is only called when a value remains.
+- `has_next()` returns `True` if at least one value remains, `False` otherwise.
+
+**Example 1:**
+
+```
+Input:  Vector2D([[1,2],[3],[4]]); next(); next(); next(); has_next(); has_next();
+        next(); has_next()
+Output: 1, 2, 3, True, True, 4, False
+```
+
+**Example 2:**
+
+```
+Input:  Vector2D([[],[5],[],[],[6,7],[]]); next(); has_next(); next(); next(); has_next()
+Output: 5, True, 6, 7, False
+```
+
+Empty rows are skipped without producing anything.
+
+**Example 3:**
+
+```
+Input:  Vector2D([[],[]]); has_next()
+Output: False
+```
+
+**Constraints:**
+
+- `0 <= len(vec) <= 200`
+- `0 <= len(vec[i]) <= 500`
+- `-500 <= vec[i][j] <= 500`
+- At most `10^5` calls to `next` and `has_next` in total
+"""

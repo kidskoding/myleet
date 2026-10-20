@@ -1,0 +1,7 @@
+id = "throne-inheritance"
+title = "Throne Inheritance"
+difficulty = "medium"
+leetcode = 1600
+url = "https://leetcode.com/problems/throne-inheritance/"
+key_idea = "Store the family as a tree of children lists in birth order plus a set of dead names; the inheritance order is a preorder traversal from the king that skips the dead."
+hints = ["Deaths never change the shape of the order, only who is printed.", "Write out Successor on a small family tree and compare it with a familiar traversal."]

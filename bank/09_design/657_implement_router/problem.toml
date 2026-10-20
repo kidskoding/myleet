@@ -1,0 +1,7 @@
+id = "implement-router"
+title = "Implement Router"
+difficulty = "medium"
+leetcode = 3508
+url = "https://leetcode.com/problems/implement-router/"
+key_idea = "A FIFO deque plus a set of (source, destination, timestamp) for duplicates, and per destination a timestamp list with a removed-from-front offset so counts are two binary searches."
+hints = ["Packets leave in the same order they arrive, whether forwarded or evicted.", "Timestamps arrive non-decreasing, so each destination's timestamps form a sorted list that only grows at the back and shrinks at the front."]

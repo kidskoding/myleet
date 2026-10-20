@@ -1,0 +1,7 @@
+id = "find-consecutive-integers-from-a-data-stream"
+title = "Find Consecutive Integers from a Data Stream"
+difficulty = "medium"
+leetcode = 2526
+url = "https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream/"
+key_idea = "Only the length of the current run of values equal to value matters: increment it on a match, reset it to 0 otherwise, and answer run >= k."
+hints = ["You never need to store the stream itself.", "What single number summarises the last k elements for this question?"]

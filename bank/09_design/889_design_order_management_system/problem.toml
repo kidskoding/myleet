@@ -1,0 +1,52 @@
+id = "design-order-management-system"
+title = "Design Order Management System"
+difficulty = "medium"
+leetcode = 3822
+url = "https://leetcode.com/problems/design-order-management-system/"
+key_idea = "Keep a map order_id -> (type, price) plus a map (type, price) -> set of order ids; add, modify and cancel update both maps in O(1), and a price lookup reads one bucket."
+hints = ["Lookups go by (type, price), but updates go by order id: you need an index for each direction.", "Modifying an order is a removal from one bucket and an insertion into another."]
+prompt = """
+Implement the `OrderManagementSystem` class, which tracks active buy and sell orders on a
+trading desk.
+
+- `OrderManagementSystem()` starts with no orders.
+- `add_order(order_id, order_type, price)` adds a new active order. `order_type` is either
+  `"buy"` or `"sell"`. The `order_id` has never been used before.
+- `modify_order(order_id, new_price)` changes the price of an active order. Its type stays
+  the same.
+- `cancel_order(order_id)` removes an active order.
+- `get_orders_at_price(order_type, price)` returns the ids of all active orders with that
+  type and that price, in any order, or an empty list if there are none.
+
+`modify_order` and `cancel_order` are only called with ids of orders that are currently
+active.
+
+**Example 1:**
+
+```
+Input:  add_order(1, "buy", 1), add_order(2, "buy", 1), add_order(3, "sell", 2),
+        get_orders_at_price("buy", 1), modify_order(1, 3), modify_order(2, 1),
+        get_orders_at_price("buy", 1), cancel_order(3), cancel_order(2),
+        get_orders_at_price("buy", 1)
+Output: [1,2], then [2], then []
+```
+
+Order `1` moves to price `3`; order `2` is "modified" to its current price and stays.
+After order `2` is cancelled, no buy order remains at price `1`.
+
+**Example 2:**
+
+```
+Input:  add_order(5, "sell", 10), get_orders_at_price("buy", 10)
+Output: []
+```
+
+A sell order never appears in a buy lookup.
+
+**Constraints:**
+
+- `1 <= order_id <= 2000`
+- `1 <= price, new_price <= 10^9`
+- `order_type` is `"buy"` or `"sell"`
+- At most `2000` calls in total
+"""

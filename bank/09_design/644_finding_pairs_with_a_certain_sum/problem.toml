@@ -1,0 +1,7 @@
+id = "finding-pairs-with-a-certain-sum"
+title = "Finding Pairs With a Certain Sum"
+difficulty = "medium"
+leetcode = 1865
+url = "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/"
+key_idea = "Keep a frequency map of nums2 updated on every add; count by looping over the short nums1 and looking up tot - x."
+hints = ["One array is much shorter than the other; loop over the short one.", "Updates only touch nums2, so maintain something about nums2 incrementally."]

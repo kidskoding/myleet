@@ -1,0 +1,47 @@
+id = "zigzag-iterator"
+title = "Zigzag Iterator"
+difficulty = "medium"
+leetcode = 281
+url = "https://leetcode.com/problems/zigzag-iterator/"
+key_idea = "Keep a queue of (list, next index) for the non-empty lists; next() pops the front, returns its element, and re-queues it if it still has elements."
+hints = ["Alternation is just taking turns; think about which structure hands out turns fairly.", "Once a list runs out it should simply stop getting turns."]
+prompt = """
+Implement the `ZigzagIterator` class, which walks two integer lists by alternating between
+them.
+
+- `ZigzagIterator(v1, v2)` sets up the iterator over `v1` and `v2`.
+- `next()` returns the next element. Elements come from `v1` and `v2` in turn, starting
+  with `v1`; once one list runs out, the rest come from the other list in order.
+- `has_next()` returns `True` while there are elements left.
+
+`next()` is only called when `has_next()` is `True`.
+
+**Example 1:**
+
+```
+Input: v1 = [1,2], v2 = [3,4,5,6]
+Output: [1,3,2,4,5,6]
+```
+
+Calling `next()` until `has_next()` is `False` produces this order.
+
+**Example 2:**
+
+```
+Input: v1 = [1], v2 = []
+Output: [1]
+```
+
+**Example 3:**
+
+```
+Input: v1 = [], v2 = [1]
+Output: [1]
+```
+
+**Constraints:**
+
+- `0 <= v1.length, v2.length <= 1000`
+- `1 <= v1.length + v2.length <= 2000`
+- `-2^31 <= v1[i], v2[i] <= 2^31 - 1`
+"""

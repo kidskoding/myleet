@@ -1,0 +1,7 @@
+id = "design-a-text-editor"
+title = "Design a Text Editor"
+difficulty = "hard"
+leetcode = 2296
+url = "https://leetcode.com/problems/design-a-text-editor/"
+key_idea = "Keep two stacks of characters, one left of the cursor and one right; every operation moves or pops at most k characters, and the view is the last 10 of the left stack."
+hints = ["Only the text right next to the cursor ever changes.", "Split the text at the cursor into two pieces that each grow and shrink at the cursor end."]

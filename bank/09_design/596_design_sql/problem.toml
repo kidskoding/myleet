@@ -1,0 +1,7 @@
+id = "design-sql"
+title = "Design SQL"
+difficulty = "medium"
+leetcode = 2408
+url = "https://leetcode.com/problems/design-sql/"
+key_idea = "Map each table name to its column count, an auto-increment counter that never goes back, and a dict of row id -> row; every operation validates the name and ids before touching it."
+hints = ["Row ids keep counting up even after deletions, so keep the counter separate from the rows.", "Most operations must first check that the table, row and column actually exist."]
