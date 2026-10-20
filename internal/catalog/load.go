@@ -44,6 +44,7 @@ type problemFile struct {
 
 type playlistFile struct {
 	Title   string `toml:"title"`
+	Group   string `toml:"group"`
 	Focus   string `toml:"focus"`
 	Entries []struct {
 		Title string `toml:"title"`
@@ -272,11 +273,18 @@ func loadPlaylists(root string, c *Catalog, report func(string, string, ...any))
 			report(f, "%v", err)
 			continue
 		}
-		pl := &Playlist{ID: strings.TrimSuffix(filepath.Base(f), ".toml"), Title: pf.Title, Focus: pf.Focus}
+		if !slices.Contains(Groups, pf.Group) {
+			report(f, "group %q is not one of %s", pf.Group, strings.Join(Groups, ", "))
+			continue
+		}
+		pl := &Playlist{ID: strings.TrimSuffix(filepath.Base(f), ".toml"), Title: pf.Title, Group: pf.Group, Focus: pf.Focus}
 		for _, e := range pf.Entries {
 			pl.Entries = append(pl.Entries, PlaylistEntry{Title: e.Title, URL: e.URL, Problem: bySlug[slugOf(e.URL)]})
 		}
 		out = append(out, pl)
 	}
+	slices.SortStableFunc(out, func(a, b *Playlist) int {
+		return slices.Index(Groups, a.Group) - slices.Index(Groups, b.Group)
+	})
 	return out
 }

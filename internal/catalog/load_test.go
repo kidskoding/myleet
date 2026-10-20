@@ -214,3 +214,50 @@ func TestLoadGuide(t *testing.T) {
 		t.Fatalf("the guide is not a module: %+v", c.Modules)
 	}
 }
+
+func writeTree(t *testing.T, files map[string]string) string {
+	t.Helper()
+	root := t.TempDir()
+	for name, body := range files {
+		path := filepath.Join(root, name)
+		if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(path, []byte(body), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	return root
+}
+
+func TestPlaylistsOrderedByGroup(t *testing.T) {
+	root := writeTree(t, map[string]string{
+		"curriculum/.keep":          "",
+		"playlists/01_yelp.toml":    "title = \"Yelp\"\ngroup = \"Little tech\"\n",
+		"playlists/02_citadel.toml": "title = \"Citadel\"\ngroup = \"Quant\"\n",
+		"playlists/03_google.toml":  "title = \"Google\"\ngroup = \"Big tech\"\n",
+		"playlists/04_meta.toml":    "title = \"Meta\"\ngroup = \"Big tech\"\n",
+	})
+	c, err := Load(root)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var got []string
+	for _, p := range c.Playlists {
+		got = append(got, p.Group+":"+p.Title)
+	}
+	want := "Big tech:Google,Big tech:Meta,Quant:Citadel,Little tech:Yelp"
+	if strings.Join(got, ",") != want {
+		t.Fatalf("order = %v, want %s", got, want)
+	}
+}
+
+func TestPlaylistUnknownGroupIsAnError(t *testing.T) {
+	root := writeTree(t, map[string]string{
+		"curriculum/.keep":       "",
+		"playlists/01_acme.toml": "title = \"Acme\"\ngroup = \"Mid tech\"\n",
+	})
+	if _, err := Load(root); err == nil || !strings.Contains(err.Error(), "Mid tech") {
+		t.Fatalf("want an unknown-group error, got %v", err)
+	}
+}

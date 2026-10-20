@@ -63,9 +63,12 @@ type PlaylistEntry struct {
 	Problem    *Problem
 }
 
+// Groups lists playlist groups in the order the playlists screen shows them.
+var Groups = []string{"Big tech", "AI labs / high growth", "Quant", "Fortune 500", "Little tech"}
+
 type Playlist struct {
-	ID, Title, Focus string
-	Entries          []PlaylistEntry
+	ID, Title, Group, Focus string
+	Entries                 []PlaylistEntry
 }
 
 // GuideNote is a start-here note that belongs to no module.
