@@ -1,5 +1,5 @@
 title = "Expedia Group"
-group = "Fortune 500"
+group = "Little tech"
 focus = "mostly medium. Heavy on binary-search-on-answer, monotonic stacks, heaps, string manipulation, BFS/graphs, trees/BST, sliding window, and intervals. Travel-domain framing (flights, itineraries, capacity) is common but the underlying patterns are standard."
 review_modules = ["03_stacks_and_queues", "05_binary_search", "08_heaps", "01_arrays_and_hashing", "04_sliding_window", "07_trees", "10_graphs", "13_intervals", "11_dp"]
 
