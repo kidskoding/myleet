@@ -5,4 +5,59 @@ leetcode = 362
 url = "https://leetcode.com/problems/design-hit-counter/"
 key_idea = "queue of timestamps, evict anything outside the 300 second window."
 hints = []
-prompt = ""
+prompt = """
+Design a class `HitCounter` that records hits and reports how many hits occurred in the last
+5 minutes (300 seconds). Timestamps are given in seconds.
+
+- `HitCounter()` creates an empty counter.
+- `hit(timestamp)` records one hit at time `timestamp`. Several hits may share a timestamp.
+- `get_hits(timestamp)` returns the number of hits recorded in the 300 seconds ending at
+  `timestamp`, that is, hits with a time `t` such that `timestamp - 300 < t <= timestamp`.
+
+Calls arrive in chronological order: the `timestamp` passed to any call is never smaller
+than the one passed to the previous call.
+
+**Example 1:**
+
+```
+Input:
+c = HitCounter()
+c.hit(1)
+c.hit(2)
+c.hit(3)
+c.get_hits(4)
+Output: 3
+```
+
+**Example 2:**
+
+```
+Input:
+c = HitCounter()
+c.hit(1)
+c.hit(2)
+c.hit(3)
+c.hit(300)
+c.get_hits(300)
+c.get_hits(301)
+Output: 4, 3
+```
+
+At time 301 the hit at time 1 is more than 300 seconds old and no longer counts.
+
+**Example 3:**
+
+```
+Input:
+c = HitCounter()
+c.hit(1)
+c.get_hits(601)
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= timestamp <= 2 * 10^9`
+- Timestamps across calls are non-decreasing
+- At most `300` calls are made to `hit` and `get_hits` combined
+"""

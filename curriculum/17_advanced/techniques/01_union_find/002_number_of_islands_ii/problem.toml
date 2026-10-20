@@ -5,4 +5,45 @@ leetcode = 305
 url = "https://leetcode.com/problems/number-of-islands-ii/"
 key_idea = "union each new land cell with its already-land neighbors, track live count."
 hints = []
-prompt = ""
+prompt = """
+You have an `m x n` grid that starts out as all water. You are given a list `positions`,
+where `positions[i] = [r, c]` means that in step `i` the cell at row `r`, column `c` is
+turned into land.
+
+An *island* is a group of land cells connected horizontally or vertically. Implement
+`number_of_islands_ii(m, n, positions)` that returns a list whose `i`-th value is the number
+of islands right after step `i`. If `positions` is empty, return `[]`. If a position is
+turned into land when it is already land, nothing changes.
+
+**Example 1:**
+
+```
+Input: m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+Output: [1,1,2,3]
+```
+
+`(0,1)` joins the island at `(0,0)`; `(1,2)` and `(2,1)` each start a new island.
+
+**Example 2:**
+
+```
+Input: m = 1, n = 3, positions = [[0,0],[0,2],[0,1]]
+Output: [1,2,1]
+```
+
+The last cell connects the two separate islands into one.
+
+**Example 3:**
+
+```
+Input: m = 2, n = 2, positions = []
+Output: []
+```
+
+**Constraints:**
+
+- `1 <= m, n <= 10^4`
+- `1 <= m * n <= 10^4`
+- `0 <= positions.length <= 10^4`
+- `0 <= r < m`, `0 <= c < n`
+"""

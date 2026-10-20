@@ -5,4 +5,34 @@ leetcode = 727
 url = "https://leetcode.com/problems/minimum-window-subsequence/"
 key_idea = "forward-scan then backtrack two-pointer window (not a classic monotonic slide)."
 hints = []
-prompt = ""
+prompt = """
+Write `min_window_subsequence(s1, s2)`. Return the shortest contiguous substring `w` of `s1`
+such that `s2` is a subsequence of `w` (the characters of `s2` appear in `w` in order, not
+necessarily next to each other).
+
+If several shortest substrings exist, return the one that starts earliest in `s1`. If no
+substring of `s1` contains `s2` as a subsequence, return the empty string `""`.
+
+**Example 1:**
+
+```
+Input: s1 = "abcdebdde", s2 = "bde"
+Output: "bcde"
+```
+
+Both `"bcde"` and `"bdde"` have length 4 and contain `b`, `d`, `e` in order; `"bcde"` starts
+earlier. `"deb"` is shorter but has the characters in the wrong order.
+
+**Example 2:**
+
+```
+Input: s1 = "abc", s2 = "xyz"
+Output: ""
+```
+
+**Constraints:**
+
+- `1 <= s1.length <= 2 * 10^4`
+- `1 <= s2.length <= 100`
+- `s1` and `s2` consist of lowercase English letters
+"""

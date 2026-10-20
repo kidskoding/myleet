@@ -5,4 +5,44 @@ leetcode = 2158
 url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
 key_idea = "track painted coordinates with a sorted set or union-find skip pointers."
 hints = []
-prompt = ""
+prompt = """
+A long, thin painting is laid out along a number line. You are given a 0-indexed 2D array
+`paint`, where `paint[i] = [start, end]` means that on day `i` you paint the stretch from
+`start` to `end` (the half-open range `[start, end)`).
+
+Painting the same stretch more than once makes the painting uneven, so on each day you only
+paint the parts of the range that are still blank. Implement `amount_painted(paint)` that
+returns a list `worklog` of the same length, where `worklog[i]` is the amount of new area
+painted on day `i`.
+
+**Example 1:**
+
+```
+Input: paint = [[1,4],[4,7],[5,8]]
+Output: [3,3,1]
+```
+
+Day 0 paints `[1,4)`, day 1 paints `[4,7)`, and on day 2 only `[7,8)` is still blank.
+
+**Example 2:**
+
+```
+Input: paint = [[1,4],[5,8],[4,7]]
+Output: [3,3,1]
+```
+
+On day 2, `[5,7)` is already painted, so only `[4,5)` is new.
+
+**Example 3:**
+
+```
+Input: paint = [[1,5],[2,4]]
+Output: [4,0]
+```
+
+**Constraints:**
+
+- `1 <= paint.length <= 10^5`
+- `paint[i].length == 2`
+- `0 <= start < end <= 5 * 10^4`
+"""

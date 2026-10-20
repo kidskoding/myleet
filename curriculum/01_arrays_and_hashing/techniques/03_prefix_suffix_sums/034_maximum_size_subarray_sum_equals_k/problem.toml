@@ -5,4 +5,39 @@ leetcode = 325
 url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 key_idea = "prefix sum with first-seen index in a hash map to get longest subarray."
 hints = []
-prompt = ""
+prompt = """
+Write `max_sub_array_len(nums, k)`. Given an integer array `nums` (which may contain negative
+numbers) and an integer `k`, return the length of the longest contiguous subarray whose
+elements add up to exactly `k`. If no subarray sums to `k`, return `0`.
+
+**Example 1:**
+
+```
+Input: nums = [1,-1,5,-2,3], k = 3
+Output: 4
+```
+
+The subarray `[1,-1,5,-2]` sums to 3, and no longer subarray does.
+
+**Example 2:**
+
+```
+Input: nums = [-2,-1,2,1], k = 1
+Output: 2
+```
+
+The subarray `[-1,2]` sums to 1.
+
+**Example 3:**
+
+```
+Input: nums = [1,2,3], k = 10
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= nums.length <= 2 * 10^5`
+- `-10^4 <= nums[i] <= 10^4`
+- `-10^9 <= k <= 10^9`
+"""

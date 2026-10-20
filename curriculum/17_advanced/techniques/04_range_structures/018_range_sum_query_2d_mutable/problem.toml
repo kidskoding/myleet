@@ -5,4 +5,43 @@ leetcode = 308
 url = "https://leetcode.com/problems/range-sum-query-2d-mutable/"
 key_idea = "2D Fenwick tree combining row and column prefix sums."
 hints = []
-prompt = ""
+prompt = """
+Implement the `NumMatrix` class over a 2D integer grid that supports changing individual
+cells and asking for the sum of any rectangular block.
+
+- `NumMatrix(matrix)` stores the grid `matrix`.
+- `update(row, col, val)` sets the cell `matrix[row][col]` to `val`.
+- `sum_region(row1, col1, row2, col2)` returns the sum of all cells inside the rectangle
+  whose top-left corner is `(row1, col1)` and bottom-right corner is `(row2, col2)`,
+  both corners included.
+
+**Example 1:**
+
+```
+Input:
+num_matrix = NumMatrix([[3,0,1,4],[5,6,3,2],[1,2,0,1],[4,3,4,6]])
+num_matrix.sum_region(2, 1, 3, 3)
+num_matrix.update(3, 2, 2)
+num_matrix.sum_region(2, 1, 3, 3)
+Output: [None, 16, None, 14]
+```
+
+The block covers `[2,0,1]` and `[3,4,6]`, which sum to 16. Changing the `4` at `(3,2)` to
+`2` lowers the sum to 14.
+
+**Example 2:**
+
+```
+Input:
+num_matrix = NumMatrix([[5]])
+num_matrix.sum_region(0, 0, 0, 0)
+Output: [None, 5]
+```
+
+**Constraints:**
+
+- `1 <= m, n <= 200` where `m` and `n` are the grid's row and column counts
+- `-1000 <= matrix[i][j], val <= 1000`
+- `0 <= row1 <= row2 < m`, `0 <= col1 <= col2 < n`
+- At most `5000` total calls are made to `update` and `sum_region`.
+"""

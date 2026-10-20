@@ -5,4 +5,42 @@ leetcode = 759
 url = "https://leetcode.com/problems/employee-free-time/"
 key_idea = "heap merges each employee's sorted intervals to find shared gaps."
 hints = []
-prompt = ""
+prompt = """
+You are given `schedule`, the working hours of several employees. `schedule[i]` is the list of
+busy intervals for employee `i`, where each interval is `[start, end]`. Each employee's intervals
+are sorted by start time and do not overlap one another.
+
+Implement `employee_free_time(schedule)` and return every interval of time during which **all**
+employees are free at once. Only report finite gaps that lie between busy periods (ignore the
+unbounded time before the first busy period and after the last one), and only gaps of positive
+length. Return the gaps as `[start, end]` lists sorted by start time, or `[]` if there are none.
+
+**Example 1:**
+
+```
+Input: schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+Output: [[3,4]]
+```
+
+Someone is busy at every moment from `1` to `3` and from `4` to `10`; nobody is busy between `3` and `4`.
+
+**Example 2:**
+
+```
+Input: schedule = [[[1,5]],[[2,6]]]
+Output: []
+```
+
+**Example 3:**
+
+```
+Input: schedule = [[[1,2],[4,5],[7,8]]]
+Output: [[2,4],[5,7]]
+```
+
+**Constraints:**
+
+- `1 <= schedule.length <= 50`
+- `1 <= schedule[i].length <= 50`
+- `0 <= start < end <= 10^8`
+"""

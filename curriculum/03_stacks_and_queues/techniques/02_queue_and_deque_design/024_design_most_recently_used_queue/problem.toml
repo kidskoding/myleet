@@ -5,4 +5,44 @@ leetcode = 1756
 url = "https://leetcode.com/problems/design-most-recently-used-queue/"
 key_idea = "fetch the kth element and move it to the back."
 hints = []
-prompt = ""
+prompt = """
+Design a class `MRUQueue` that holds the integers `1` through `n` in order and supports
+pulling an element out by its position and sending it to the back.
+
+- `MRUQueue(n)` creates the queue `[1, 2, ..., n]`.
+- `fetch(k)` finds the element at the `k`-th position (1-indexed) of the current queue,
+  moves it to the end of the queue, and returns its value.
+
+**Example 1:**
+
+```
+Input:
+q = MRUQueue(8)
+q.fetch(3)
+q.fetch(5)
+q.fetch(2)
+q.fetch(8)
+Output: 3, 6, 2, 2
+```
+
+The queue starts as `[1,2,3,4,5,6,7,8]`. Fetching position 3 returns `3` and leaves
+`[1,2,4,5,6,7,8,3]`. Fetching position 5 returns `6` and leaves `[1,2,4,5,7,8,3,6]`.
+Fetching position 2 returns `2` and leaves `[1,4,5,7,8,3,6,2]`. Fetching position 8 returns
+`2`, which is already last.
+
+**Example 2:**
+
+```
+Input:
+q = MRUQueue(3)
+q.fetch(3)
+q.fetch(3)
+Output: 3, 3
+```
+
+**Constraints:**
+
+- `1 <= n <= 2000`
+- `1 <= k <= n`
+- At most `2000` calls are made to `fetch`
+"""

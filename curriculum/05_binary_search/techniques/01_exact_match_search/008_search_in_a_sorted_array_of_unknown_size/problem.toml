@@ -5,4 +5,41 @@ leetcode = 702
 url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
 key_idea = "double the bound until it overshoots, then binary search that range."
 hints = []
-prompt = ""
+prompt = """
+You are given a sorted array of distinct integers, but you cannot see it directly and you
+do not know its length. Instead you get an `ArrayReader` object whose `get(index)` method
+returns the value at `index`. Any index at or past the end of the array (or negative) makes
+`get` return `2^31 - 1`.
+
+Write `search_unknown_size(reader, target)` that returns the index of `target` in the hidden
+array, or `-1` if `target` is not present. Access the array only through `reader.get`.
+
+**Example 1:**
+
+```
+Input: array = [-1,0,3,5,9,12], target = 9
+Output: 4
+```
+
+`9` is stored at index 4.
+
+**Example 2:**
+
+```
+Input: array = [-1,0,3,5,9,12], target = 2
+Output: -1
+```
+
+**Example 3:**
+
+```
+Input: array = [5], target = 5
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= array.length <= 10^4`
+- `-10^4 <= array[i], target <= 10^4`
+- `array` is sorted in strictly increasing order
+"""

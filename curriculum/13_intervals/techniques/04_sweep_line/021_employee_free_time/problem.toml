@@ -5,4 +5,44 @@ leetcode = 759
 url = "https://leetcode.com/problems/employee-free-time/"
 key_idea = "flatten every employee's intervals, merge, then read the gaps."
 hints = []
-prompt = ""
+prompt = """
+You are given `schedule`, the work schedules of several employees. `schedule[i]` is the
+list of working intervals `[start, end]` for employee `i`; each employee's intervals are
+sorted by start time and do not overlap one another.
+
+Implement `employee_free_time(schedule)` that returns every finite interval of positive
+length during which no employee is working, as a list of `[start, end]` pairs sorted by
+start time. Time before the earliest start or after the latest end does not count. If
+`schedule` is empty or there is no common free time, return `[]`.
+
+**Example 1:**
+
+```
+Input: schedule = [[[1,2],[5,6]],[[1,3]],[[4,10]]]
+Output: [[3,4]]
+```
+
+Someone is working at every moment from 1 to 3 and from 4 to 10; only `[3,4]` is free for all.
+
+**Example 2:**
+
+```
+Input: schedule = [[[1,5]],[[2,3]],[[4,6]]]
+Output: []
+```
+
+The busy times cover `[1,6]` without a break.
+
+**Example 3:**
+
+```
+Input: schedule = []
+Output: []
+```
+
+**Constraints:**
+
+- `0 <= schedule.length <= 50`
+- `1 <= schedule[i].length <= 50`
+- `0 <= start < end <= 10^8`
+"""

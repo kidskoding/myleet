@@ -5,4 +5,39 @@ leetcode = 253
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 key_idea = "sorted start/end two pointers or a min heap of end times."
 hints = []
-prompt = ""
+prompt = """
+Implement `min_meeting_rooms(intervals)`. You are given a list of meetings `intervals`, where `intervals[i] = [start_i, end_i]` means a meeting
+runs from time `start_i` up to (but not including) time `end_i`. Two meetings that overlap in time
+cannot share a conference room; a meeting that starts exactly when another ends can reuse its room.
+
+Return the smallest number of conference rooms needed to hold every meeting. Return `0` when there
+are no meetings.
+
+**Example 1:**
+
+```
+Input: intervals = [[0,30],[5,10],[15,20]]
+Output: 2
+```
+
+The meeting `[0,30]` overlaps both of the others, but `[5,10]` and `[15,20]` can share a second room.
+
+**Example 2:**
+
+```
+Input: intervals = [[7,10],[2,4]]
+Output: 1
+```
+
+**Example 3:**
+
+```
+Input: intervals = []
+Output: 0
+```
+
+**Constraints:**
+
+- `0 <= intervals.length <= 10^4`
+- `0 <= start_i < end_i <= 10^6`
+"""

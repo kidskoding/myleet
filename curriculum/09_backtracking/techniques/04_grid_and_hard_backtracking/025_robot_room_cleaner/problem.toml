@@ -5,4 +5,48 @@ leetcode = 489
 url = "https://leetcode.com/problems/robot-room-cleaner/"
 key_idea = "DFS with a relative-coordinate visited set, turning the robot back to its prior heading on backtrack."
 hints = []
-prompt = ""
+prompt = """
+A cleaning robot has been dropped somewhere in a rectangular room made of grid cells. Each cell is
+either open floor or an obstacle, and the room is surrounded by walls. You do not get to see the
+grid, and you do not know the robot's starting coordinates. The robot starts on an open cell,
+facing up, and every open cell is reachable from where it starts.
+
+You can control the robot only through the `Robot` interface:
+
+- `move()` tries to step one cell forward in the current facing direction. Returns `True` and moves
+  the robot if that cell is open; returns `False` and leaves the robot in place if the cell is an
+  obstacle or outside the room.
+- `turn_left()` rotates the robot 90 degrees counter-clockwise without moving it.
+- `turn_right()` rotates the robot 90 degrees clockwise without moving it.
+- `clean()` cleans the cell the robot is currently on.
+
+Implement `clean_room(robot)` so that, by the time it returns, every reachable open cell of the room
+has been cleaned. The function returns nothing; it is judged by the set of cells the robot cleaned.
+
+**Example 1:**
+
+```
+Input: room = [[1,1,1,1,1,0,1,1],
+               [1,1,1,1,1,0,1,1],
+               [1,0,1,1,1,1,1,1],
+               [0,0,0,1,0,0,0,0],
+               [1,1,1,1,1,1,1,1]], start row = 1, start col = 3
+Output: all 30 open cells are cleaned
+```
+
+In the room grid, `1` is open floor and `0` is an obstacle. This grid is only used to build the
+robot; your code never sees it.
+
+**Example 2:**
+
+```
+Input: room = [[1,1],[1,1]], start row = 0, start col = 0
+Output: cells (0,0), (0,1), (1,0), (1,1) are cleaned
+```
+
+**Constraints:**
+
+- `1 <= rows, cols <= 100`
+- Each room cell is `0` (obstacle) or `1` (open)
+- The starting cell is open, and the robot initially faces up
+"""

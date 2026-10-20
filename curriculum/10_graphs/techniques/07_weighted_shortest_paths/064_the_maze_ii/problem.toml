@@ -5,4 +5,42 @@ leetcode = 505
 url = "https://leetcode.com/problems/the-maze-ii/"
 key_idea = "Dijkstra over rolling-movement distances."
 hints = []
-prompt = ""
+prompt = """
+A ball sits in a maze given as an `m x n` grid `maze`, where `0` is an empty cell and `1` is a wall.
+The area outside the grid also acts as a wall. The ball can be pushed up, down, left, or right, but
+once pushed it keeps rolling in that direction until the next cell would be a wall; only then does
+it stop, and only then can it be pushed in a new direction.
+
+Given the starting cell `start = [row, col]` and a target cell `destination = [row, col]` (both
+empty), implement `shortest_distance(maze, start, destination)` and return the shortest total
+distance the ball must roll to come to a **stop** on `destination`. Distance counts the number of
+empty cells the ball travels through, not including the starting cell but including the cell where
+it stops. Return `-1` if the ball can never stop on `destination`.
+
+**Example 1:**
+
+```
+Input: maze = [[0,0,1,0,0],
+               [0,0,0,0,0],
+               [0,0,0,1,0],
+               [1,1,0,1,1],
+               [0,0,0,0,0]], start = [0,4], destination = [4,4]
+Output: 12
+```
+
+Rolling left, down, left, down, right, down, right covers `1 + 1 + 3 + 1 + 2 + 2 + 2 = 12` cells.
+
+**Example 2:**
+
+```
+Input: same maze, start = [0,4], destination = [3,2]
+Output: -1
+```
+
+**Constraints:**
+
+- `m == maze.length`, `n == maze[i].length`
+- `1 <= m, n <= 100`
+- `maze[i][j]` is `0` or `1`
+- `start` and `destination` are empty cells, and they are not the same cell
+"""

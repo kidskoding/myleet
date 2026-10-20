@@ -5,4 +5,44 @@ leetcode = 1135
 url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
 key_idea = "Kruskal's algorithm — sort edges, union find skips cycle-forming edges."
 hints = []
-prompt = ""
+prompt = """
+There are `n` cities labeled `1` through `n`. You are given `connections`, where
+`connections[i] = [a, b, cost]` means a two-way road can be built between city `a` and city
+`b` for `cost`.
+
+Implement `min_cost_connecting_cities(n, connections)` that returns the minimum total cost
+of building roads so that every pair of cities is connected by some path. If the cities
+cannot all be connected, return `-1`. A single city is already connected, so it costs `0`.
+
+**Example 1:**
+
+```
+Input: n = 3, connections = [[1,2,5],[1,3,6],[2,3,1]]
+Output: 6
+```
+
+Building the roads `2-3` (cost 1) and `1-2` (cost 5) connects all three cities.
+
+**Example 2:**
+
+```
+Input: n = 4, connections = [[1,2,3],[3,4,4]]
+Output: -1
+```
+
+No road links the group `{1,2}` with the group `{3,4}`.
+
+**Example 3:**
+
+```
+Input: n = 1, connections = []
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= n <= 10^4`
+- `0 <= connections.length <= 10^4`
+- `1 <= a, b <= n`, `a != b`
+- `0 <= cost <= 10^5`
+"""

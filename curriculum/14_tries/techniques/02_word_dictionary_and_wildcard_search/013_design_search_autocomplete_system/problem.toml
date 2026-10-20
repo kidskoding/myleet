@@ -5,4 +5,58 @@ leetcode = 642
 url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 key_idea = "trie nodes store historical query frequencies, ranked as the"
 hints = []
-prompt = ""
+prompt = """
+Design a search box that suggests previously typed sentences as the user types. Every
+sentence is made of lowercase letters and spaces. A sentence's *hotness* is the number of
+times it has been typed in full.
+
+Implement the `AutocompleteSystem` class:
+
+- `AutocompleteSystem(sentences, times)` loads the history: `sentences[i]` has been typed
+  `times[i]` times.
+- `input(c)` receives the next character typed by the user.
+  - If `c` is `'#'`, the user has finished the current sentence: record it in the history
+    (adding 1 to its hotness, or adding it with hotness 1 if it is new), start a fresh
+    sentence for the next call, and return `[]`.
+  - Otherwise, append `c` to the sentence being typed and return the up to 3 hottest
+    historical sentences that start with everything typed so far. Sort them by hotness from
+    highest to lowest; break ties by plain ASCII order (smaller first). If none match, return `[]`.
+
+**Example 1:**
+
+```
+Input:
+system = AutocompleteSystem(["i love you", "island", "iroman", "i love leetcode"], [5, 3, 2, 2])
+system.input("i")
+system.input(" ")
+system.input("a")
+system.input("#")
+Output: [None, ["i love you", "island", "i love leetcode"], ["i love you", "i love leetcode"], [], []]
+```
+
+After `"i"`, four sentences match. `"iroman"` and `"i love leetcode"` tie at hotness 2, and
+`"i love leetcode"` comes first in ASCII order (a space sorts before `'r'`), so only the top three are returned.
+
+**Example 2:**
+
+```
+Input:
+system = AutocompleteSystem(["hi there"], [1])
+system.input("h"), system.input("i"), ..., system.input("e")   # types "hi there"
+system.input("#")
+system.input("h")
+Output: [..., [], ["hi there"]]
+```
+
+Typing `"hi there#"` raises its hotness to 2; a new sentence starting with `"h"` suggests it.
+
+**Constraints:**
+
+- `n == sentences.length == times.length`
+- `1 <= n <= 100`
+- `1 <= sentences[i].length <= 100`
+- `1 <= times[i] <= 50`
+- `c` is a lowercase English letter, a space `' '`, or `'#'`.
+- Each typed sentence has at most 200 characters before its `'#'`.
+- At most `5000` calls are made to `input`.
+"""

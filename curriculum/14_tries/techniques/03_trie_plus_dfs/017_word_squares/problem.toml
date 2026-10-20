@@ -5,4 +5,37 @@ leetcode = 425
 url = "https://leetcode.com/problems/word-squares/"
 key_idea = "prefix trie feeds backtracking that builds the grid row by row"
 hints = []
-prompt = ""
+prompt = """
+A *word square* is a list of words of length `k` arranged as rows of a `k x k` grid such
+that, for every `0 <= i < k`, the `i`-th row reads exactly the same as the `i`-th column.
+For example, `["ball","area","lead","lady"]` is a word square: the first column spells
+`"ball"`, the second `"area"`, and so on.
+
+Given a list of distinct strings `words`, all of the same length, implement
+`word_squares(words)` that returns every word square that can be built from them. The same
+word may appear in a square more than once. The squares may be returned in any order.
+
+**Example 1:**
+
+```
+Input: words = ["area","lead","wall","lady","ball"]
+Output: [["ball","area","lead","lady"],["wall","area","lead","lady"]]
+```
+
+**Example 2:**
+
+```
+Input: words = ["abat","baba","atan","atal"]
+Output: [["baba","abat","baba","atal"],["baba","abat","baba","atan"]]
+```
+
+`"baba"` is used twice in each square.
+
+**Constraints:**
+
+- `1 <= words.length <= 1000`
+- `1 <= words[i].length <= 4`
+- All `words[i]` have the same length.
+- `words[i]` consists only of lowercase English letters.
+- All `words[i]` are distinct.
+"""

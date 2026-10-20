@@ -5,4 +5,43 @@ leetcode = 269
 url = "https://leetcode.com/problems/alien-dictionary/"
 key_idea = "derive ordering edges from adjacent word pairs, then topological sort."
 hints = []
-prompt = ""
+prompt = """
+An alien language uses a subset of the lowercase English letters, but in an unknown order.
+You are given `words`, a list of words from the alien dictionary that is claimed to be
+sorted lexicographically under the alien alphabet.
+
+Implement `alien_order(words)` that returns a string containing every distinct letter that
+appears in `words`, arranged in an order consistent with that sorting. If more than one
+order is consistent, return any of them. If no order can make `words` sorted (for example,
+the ordering contradicts itself, or a word appears after a longer word that it is a prefix
+of), return `""`.
+
+**Example 1:**
+
+```
+Input: words = ["wrt","wrf","er","ett","rftt"]
+Output: "wertf"
+```
+
+**Example 2:**
+
+```
+Input: words = ["z","x","z"]
+Output: ""
+```
+
+The list says `'z'` comes before `'x'` and also that `'x'` comes before `'z'`, which is impossible.
+
+**Example 3:**
+
+```
+Input: words = ["z","x"]
+Output: "zx"
+```
+
+**Constraints:**
+
+- `1 <= words.length <= 100`
+- `1 <= words[i].length <= 100`
+- `words[i]` consists only of lowercase English letters.
+"""

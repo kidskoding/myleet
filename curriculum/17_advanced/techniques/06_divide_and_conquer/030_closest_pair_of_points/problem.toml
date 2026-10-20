@@ -3,4 +3,39 @@ title = "Closest Pair Of Points"
 difficulty = "hard"
 key_idea = "divide by x-coordinate, recurse on each half, combine by checking a narrow strip."
 hints = []
-prompt = ""
+prompt = """
+Given a list `points` where `points[i] = [x, y]` is a point on a 2D plane, implement
+`closest_pair(points)` that returns the smallest Euclidean distance between any two
+different entries of the list, as a float.
+
+The distance between `[x1, y1]` and `[x2, y2]` is `sqrt((x1 - x2)^2 + (y1 - y2)^2)`. The
+list may contain the same coordinates more than once, in which case the answer is `0.0`.
+
+**Example 1:**
+
+```
+Input: points = [[0,0],[3,4]]
+Output: 5.0
+```
+
+**Example 2:**
+
+```
+Input: points = [[2,3],[12,30],[40,50],[5,1],[12,10],[3,4]]
+Output: 1.4142135623730951
+```
+
+The closest pair is `[2,3]` and `[3,4]`, at distance `sqrt(2)`.
+
+**Example 3:**
+
+```
+Input: points = [[1,1],[1,1],[5,5]]
+Output: 0.0
+```
+
+**Constraints:**
+
+- `2 <= points.length <= 10^5`
+- `-10^6 <= x, y <= 10^6`
+"""

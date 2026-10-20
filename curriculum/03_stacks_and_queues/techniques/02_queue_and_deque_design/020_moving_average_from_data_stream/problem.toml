@@ -5,4 +5,54 @@ leetcode = 346
 url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 key_idea = "fixed-size FIFO window; keep a running sum, evict the front when it overflows."
 hints = []
-prompt = ""
+prompt = """
+Design a class `MovingAverage` that receives integers one at a time and reports the average
+of the most recent values, using a window of fixed size.
+
+- `MovingAverage(size)` creates the object with a window that holds at most `size` values.
+- `next(val)` adds `val` to the stream and returns, as a float, the average of the last
+  `size` values seen. If fewer than `size` values have arrived so far, return the average of
+  all values seen.
+
+**Example 1:**
+
+```
+Input:
+m = MovingAverage(3)
+m.next(1)
+m.next(10)
+m.next(3)
+m.next(5)
+Output: 1.0, 5.5, 4.666666666666667, 6.0
+```
+
+The last call averages only the newest three values: `(10 + 3 + 5) / 3 = 6.0`.
+
+**Example 2:**
+
+```
+Input:
+m = MovingAverage(1)
+m.next(5)
+m.next(10)
+Output: 5.0, 10.0
+```
+
+**Example 3:**
+
+```
+Input:
+m = MovingAverage(5)
+m.next(4)
+m.next(6)
+Output: 4.0, 5.0
+```
+
+The window has not filled yet, so each result averages every value seen so far.
+
+**Constraints:**
+
+- `1 <= size <= 1000`
+- `-10^5 <= val <= 10^5`
+- At most `10^4` calls are made to `next`
+"""

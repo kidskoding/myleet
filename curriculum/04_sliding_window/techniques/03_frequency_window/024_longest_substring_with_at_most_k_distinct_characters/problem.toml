@@ -5,4 +5,38 @@ leetcode = 340
 url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
 key_idea = "frequency map shrinks while the number of distinct keys exceeds k."
 hints = []
-prompt = ""
+prompt = """
+Write `length_of_longest_substring_k_distinct(s, k)`. Given a string `s` and an integer `k`,
+return the length of the longest contiguous substring of `s` that uses no more than `k`
+different characters. If `k` is `0`, return `0`.
+
+**Example 1:**
+
+```
+Input: s = "eceba", k = 2
+Output: 3
+```
+
+`"ece"` uses only the characters `e` and `c`, and no longer substring uses two or fewer.
+
+**Example 2:**
+
+```
+Input: s = "aa", k = 5
+Output: 2
+```
+
+The whole string qualifies, since it has fewer than `k` distinct characters.
+
+**Example 3:**
+
+```
+Input: s = "abc", k = 0
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= s.length <= 5 * 10^4`
+- `0 <= k <= 50`
+"""

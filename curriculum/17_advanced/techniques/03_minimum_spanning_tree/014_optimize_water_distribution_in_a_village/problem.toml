@@ -5,4 +5,50 @@ leetcode = 1168
 url = "https://leetcode.com/problems/optimize-water-distribution-in-a-village/"
 key_idea = "treat each well as an edge from a virtual node 0, then run Kruskal's/Prim's."
 hints = []
-prompt = ""
+prompt = """
+A village has `n` houses labeled `1` through `n`, and every house needs a water supply. A
+house gets water either by digging its own well or by being connected through pipes to a
+house that has water.
+
+You are given `wells`, where `wells[i - 1]` is the cost of digging a well at house `i`, and
+`pipes`, where `pipes[j] = [house1, house2, cost]` means a two-way pipe between `house1` and
+`house2` can be laid for `cost`. There may be several pipe options between the same pair of
+houses.
+
+Implement `min_cost_to_supply_water(n, wells, pipes)` that returns the minimum total cost to
+supply water to every house.
+
+**Example 1:**
+
+```
+Input: n = 3, wells = [1,2,2], pipes = [[1,2,1],[2,3,1]]
+Output: 3
+```
+
+Dig a well at house 1 (cost 1) and lay the pipes `1-2` and `2-3` (cost 1 each).
+
+**Example 2:**
+
+```
+Input: n = 2, wells = [1,1], pipes = []
+Output: 2
+```
+
+With no pipes available, each house digs its own well.
+
+**Example 3:**
+
+```
+Input: n = 1, wells = [5], pipes = []
+Output: 5
+```
+
+**Constraints:**
+
+- `1 <= n <= 10^4`
+- `wells.length == n`
+- `0 <= wells[i] <= 10^5`
+- `0 <= pipes.length <= 10^4`
+- `1 <= house1, house2 <= n`, `house1 != house2`
+- `0 <= cost <= 10^5`
+"""

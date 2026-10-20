@@ -5,4 +5,45 @@ leetcode = 271
 url = "https://leetcode.com/problems/encode-and-decode-strings/"
 key_idea = "length-prefix encoding to make decoding unambiguous."
 hints = []
-prompt = ""
+prompt = """
+Implement a class `Codec` that can turn a list of strings into a single string and later
+recover the exact original list from that single string. The strings may contain any
+characters, including the ones you might want to use as separators, and may be empty.
+
+- `encode(strs)` takes a list of strings and returns one string representing the whole list.
+- `decode(s)` takes a string produced by `encode` and returns the original list of strings.
+
+For any list `strs`, `decode(encode(strs))` must equal `strs`, including order, empty
+strings, and the empty list. Do not rely on any external serialization library.
+
+**Example 1:**
+
+```
+Input: strs = ["neet","code","love","you"]
+Output: ["neet","code","love","you"]
+```
+
+The encoded string is decoded back into the same four words in the same order.
+
+**Example 2:**
+
+```
+Input: strs = ["","a",""]
+Output: ["","a",""]
+```
+
+Empty strings are preserved and are not dropped or merged.
+
+**Example 3:**
+
+```
+Input: strs = []
+Output: []
+```
+
+**Constraints:**
+
+- `0 <= strs.length <= 200`
+- `0 <= strs[i].length <= 200`
+- `strs[i]` may contain any of the 256 ASCII characters
+"""

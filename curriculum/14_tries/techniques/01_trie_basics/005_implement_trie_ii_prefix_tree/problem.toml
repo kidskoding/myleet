@@ -5,4 +5,49 @@ leetcode = 1804
 url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
 key_idea = "nodes track word counts and prefix counts to support insert,"
 hints = []
-prompt = ""
+prompt = """
+Implement the `TrieII` class, a word store that keeps track of how many times each word has
+been added and supports removing copies.
+
+- `TrieII()` creates an empty store.
+- `insert(word)` adds one copy of the string `word`.
+- `count_words_equal_to(word)` returns how many copies of `word` are currently stored.
+- `count_words_starting_with(prefix)` returns how many stored words (counting duplicates)
+  begin with `prefix`.
+- `erase(word)` removes one copy of `word`. It is guaranteed that at least one copy of
+  `word` is stored when `erase` is called.
+
+**Example 1:**
+
+```
+Input:
+trie = TrieII()
+trie.insert("apple")
+trie.insert("apple")
+trie.count_words_equal_to("apple")
+trie.count_words_starting_with("app")
+Output: [None, None, None, 2, 2]
+```
+
+**Example 2:**
+
+```
+Input:
+trie = TrieII()
+trie.insert("apple")
+trie.insert("apple")
+trie.erase("apple")
+trie.count_words_equal_to("apple")
+trie.count_words_starting_with("app")
+trie.erase("apple")
+trie.count_words_starting_with("app")
+Output: [None, None, None, None, 1, 1, None, 0]
+```
+
+**Constraints:**
+
+- `1 <= word.length, prefix.length <= 2000`
+- `word` and `prefix` consist only of lowercase English letters.
+- At most `3 * 10^4` total calls are made to `insert`, `count_words_equal_to`,
+  `count_words_starting_with`, and `erase`.
+"""

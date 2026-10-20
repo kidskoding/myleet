@@ -5,4 +5,43 @@ leetcode = 261
 url = "https://leetcode.com/problems/graph-valid-tree/"
 key_idea = "check connectivity and absence of cycles."
 hints = []
-prompt = ""
+prompt = """
+You are given `n` nodes labeled `0` through `n - 1` and a list `edges`, where `edges[i] = [a_i, b_i]`
+is an undirected edge between nodes `a_i` and `b_i`.
+
+Implement `valid_tree(n, edges)` and return `True` if these edges form a valid tree, and `False`
+otherwise. A valid tree connects all `n` nodes into a single piece and contains no cycle.
+
+**Example 1:**
+
+```
+Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+Output: True
+```
+
+**Example 2:**
+
+```
+Input: n = 5, edges = [[0,1],[1,2],[2,3],[1,3],[1,4]]
+Output: False
+```
+
+Nodes `1`, `2`, `3` form a cycle.
+
+**Example 3:**
+
+```
+Input: n = 4, edges = [[0,1],[2,3]]
+Output: False
+```
+
+The graph splits into two separate pieces.
+
+**Constraints:**
+
+- `1 <= n <= 2000`
+- `0 <= edges.length <= 5000`
+- `edges[i].length == 2`
+- `0 <= a_i, b_i < n`, `a_i != b_i`
+- No edge appears more than once
+"""
