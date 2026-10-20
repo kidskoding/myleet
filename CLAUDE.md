@@ -30,7 +30,7 @@ myleet/
 ├── curriculum/
 │   ├── _lib/                shared Python helpers importable from every test
 │   ├── 00_fundamentals/ … 18_mixed_interview_practice/
-│   │   ├── module.toml      title, priority, description
+│   │   ├── module.toml      title, description
 │   │   ├── README.md
 │   │   ├── notes/           the notes book
 │   │   ├── reference/       from-scratch structures + tests

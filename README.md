@@ -1,6 +1,13 @@
 # myleet
 
-A terminal trainer and DSA curriculum in Python for internship, co-op, and new-grad live coding interviews at top companies like Google, Facebook, and Bloomberg
+**LeetCode practice built around your weak spots.** NeetCode 150 and similar lists give
+everyone the same problems in the same order. myleet watches how you actually do (fails,
+hints, solution peeks, slow solves) and builds each day's plan from that: problems you
+struggled with come back on a review ladder, and new problems come from the techniques
+you are weakest in, each labelled with why it was picked.
+
+It is a terminal trainer plus a DSA curriculum in Python for internship, co-op, and
+new-grad live coding interviews.
 
 ## Goal
 
@@ -103,6 +110,25 @@ exists), `d` diff against your previous attempt, `o` open the problem page, `r` 
 to the starter, `1`-`3` tick the say-it-aloud items, `g` give up, `esc` back. `?` shows
 the keys on any screen.
 
+### How the Plan Is Picked
+
+Every day, Today shows:
+
+1. **Reviews** that are due, most overdue first (see the ladder below).
+
+2. **New problems** (3 by default, `new_per_day` in the config), chosen from your history:
+
+   - **weak spot**: techniques you have started where most attempts were not clean
+     passes (failed, gave up, used a hint, peeked, or went over time)
+   - **in progress**: other techniques you have started but not finished
+   - **new topic**: techniques you have not touched yet, in curriculum order
+
+   New problems rotate across techniques, so three new problems means three different
+   techniques, each labelled with its reason.
+
+Problems in the problem bank (`bank/`, reached from playlists and search) are never
+offered as new; once you finish one, it joins your reviews like any other problem.
+
 ### Review Ladder
 
 A problem comes back after 1, 3, 7, 14, then 30 days. A clean pass climbs one rung: all
@@ -163,7 +189,7 @@ myleet/
 │   ├── _lib/                    shared Python helpers (ListNode, TreeNode, builders)
 │   ├── 00_fundamentals/notes/
 │   └── 01_arrays_and_hashing/
-│       ├── module.toml          title, priority, description
+│       ├── module.toml          title, description
 │       ├── notes/               the notes book for this module
 │       ├── reference/           from-scratch data structures + their tests
 │       └── techniques/

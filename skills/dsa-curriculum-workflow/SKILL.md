@@ -48,7 +48,7 @@ Every module lives under `curriculum/` and uses the same scaffold:
 
 ```text
 curriculum/NN_module/
-├── module.toml                     title, priority tier, description
+├── module.toml                     title, description
 ├── README.md                       minimal index
 ├── notes/                          concept notes, see writing-notes
 ├── reference/                      from-scratch implementations
