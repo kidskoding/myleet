@@ -1,6 +1,6 @@
-# faang-dsa
+# myleet
 
-dsa prep in Python for internship, co-op, and new-grad live coding interviews at top companies like Google, Facebook, and Bloomberg
+A terminal trainer and DSA curriculum in Python for internship, co-op, and new-grad live coding interviews at top companies like Google, Facebook, and Bloomberg
 
 ## Goal
 
@@ -20,7 +20,7 @@ A problem is done only when you can:
 
 ## How To Prep
 
-Start with [General Technical Interview Preparation](00_fundamentals/notes/01_how_to_prep.md) before choosing a module or company problem set.
+Start with [General Technical Interview Preparation](curriculum/00_fundamentals/notes/01_how_to_prep.md) before choosing a module or company problem set.
 
 The short version:
 
@@ -30,23 +30,121 @@ learn pattern -> solve timed problems -> review misses -> re-solve -> mix topics
 
 The notes are for understanding. The problem sets are for reps. The review loop is what makes the patterns automatic.
 
-## Local Checks
+## The Trainer
 
-CI runs lint, formatting, and tests. Run the same commands before pushing:
+myleet is your own LeetCode review loop. NeetCode gives everyone the same roadmap;
+myleet watches how *you* do on each problem and decides when it comes back.
+
+`myleet` is a terminal trainer that runs on top of the curriculum. You solve each problem
+in your own editor; `myleet` watches the file, reruns the tests on every save, and tracks
+when each problem should come back for review.
 
 ```bash
-uv sync --group dev
-
-uv run ruff check .          # lint
-uv run ruff format --check . # formatting (CI fails here if a file needs reformatting)
-uv run pytest                # tests
+uv sync --group dev          # Python + pytest for running problem tests
+go install ./cmd/myleet      # or: go run ./cmd/myleet
+myleet doctor                # checks python, pytest, editor, data dir
+myleet                       # open today's session
 ```
 
-To fix issues instead of just reporting them:
+Run `myleet` anywhere inside the repo (or set `MYLEET_ROOT`). Your attempts and snapshots live in
+`~/.local/share/myleet/`, outside the repo. Colors come from your
+terminal's own palette, so the TUI follows your terminal theme.
+
+### Progress and Save State
+
+Your progress is a small, human-readable save file, kept outside the repo the way
+lazygit, Charm apps, and Anki keep per-user state:
+
+- `~/.local/share/myleet/progress.toml`: the save file. One block per problem with its
+  rung, due date, attempts, and best time. myleet reads and writes it, and **you can
+  edit it**: delete a block to reset a problem, change `due` to move a review, or set
+  `rung` (1d, 3d, 7d, 14d, 30d).
+- `~/.local/share/myleet/events.jsonl`: the history log behind stats and the heatmap.
+  You never need to touch it.
+
+`myleet progress` opens the save file in `$EDITOR` and checks it when you close it; a
+broken edit is rolled back to the previous version. myleet also refuses to start (and
+tells you the line) rather than overwrite a broken file. `myleet doctor` prints its path.
+
+To back up or sync progress, point `state_dir` at a synced folder or private repo:
+
+```toml
+# ~/.config/myleet/config.toml
+state_dir = "~/Dropbox/myleet"
+```
+
+Your in-progress code and snapshots stay in `~/.local/share/myleet/` either way.
+
+### Screens
+
+Five tabs sit across the top; press `1`-`5` (or `tab`) to switch. The bar at the bottom
+shows the keys for the current screen, and `?` opens the full list.
+
+| Tab | Screen    | What it does                                                       |
+| --- | --------- | ------------------------------------------------------------------ |
+| `1` | Today     | Due reviews, most overdue first, then a few new problems           |
+| `2` | Map       | Modules → techniques → problems with mastery bars; `n` opens notes |
+| `3` | Interview | Timed 45-minute round, technique hidden, hints cost 3 minutes      |
+| `4` | Playlists | Company problem sets with progress per company                     |
+| `5` | Stats     | Streak, mastery, median time, solve heatmap, weakest techniques    |
+
+`enter` on a problem opens **Focus**: the statement on the left and a sidebar with the
+timer, every test by name, and the say-it-aloud checklist (stacked on narrow
+terminals). `/` searches every problem from anywhere.
+
+Focus shows the full problem statement. Free LeetCode problems are fetched the first
+time you open them and cached in `~/.local/share/myleet/prompts/` (never committed);
+premium and non-LeetCode problems carry their own statement in `problem.toml`. Once a
+statement is on screen, the key idea becomes the last hint, so it does not spoil the
+approach.
+
+In Focus: `e` edit, `space` rerun tests, `t` hint, `s` reference solution (when one
+exists), `d` diff against your previous attempt, `o` open the problem page, `r` reset
+to the starter, `1`-`3` tick the say-it-aloud items, `g` give up, `esc` back. `?` shows
+the keys on any screen.
+
+### Review Ladder
+
+A problem comes back after 1, 3, 7, 14, then 30 days. A clean pass climbs one rung: all
+tests green, no hint, no solution peek, and under the time target (15 minutes easy, 30
+medium, 45 hard). A pass on the same day as your last attempt never climbs, so mastery
+always takes a cold redo on a later day. A hint, a peek, going over time, or giving up
+drops the problem back to 1 day. A problem is **mastered** once it reaches the 14-day
+rung.
+
+### Commands
+
+| Command                             |                                                     |
+| ----------------------------------- | --------------------------------------------------- |
+| `myleet`                            | open today's session                                |
+| `myleet open <id>`                  | open one problem, e.g. `myleet open two-sum`        |
+| `myleet check [--solutions] [<id>]` | run tests for your attempts, or reference solutions |
+| `myleet validate`                   | check that the curriculum loads                     |
+| `myleet doctor`                     | check python, pytest, editor, and data dir          |
+| `myleet stats`                      | print progress stats without the TUI                |
+| `myleet prompts`                    | download every problem statement for offline use    |
+| `myleet progress`                   | edit your save file (`progress.toml`) in `$EDITOR`  |
+
+Optional config in `~/.config/myleet/config.toml`:
+
+```toml
+python = "/path/to/python3"   # default: repo .venv, then uv, then python3
+editor = "nvim"               # default: $VISUAL, $EDITOR, then nvim/vim/vi/nano
+timeout = "10s"               # per test run
+new_per_day = 3               # new problems added to today's queue
+state_dir = "~/Dropbox/myleet" # optional: where progress.toml and events.jsonl live
+```
+
+## Local Checks
+
+CI runs these. Run them before pushing:
 
 ```bash
-uv run ruff format .         # reformat Python
-uv run ruff check --fix .    # auto-fix lint
+go vet ./... && go test ./...
+go run ./cmd/myleet validate
+uv run ruff check . && uv run ruff format --check .
+uv run ty check
+uv run pytest                # migration tooling and reference structure tests
 ```
 
 Markdown is checked with `mdformat`:
@@ -58,30 +156,30 @@ uv run mdformat README.md    # or any .md path
 ## Repository Layout
 
 ```text
-faang-dsa/
-├── 00_fundamentals/
-├── 01_arrays_and_hashing/
-├── 02_two_pointers/
-├── 03_stacks_and_queues/
-├── 04_sliding_window/
-├── 05_binary_search/
-├── 06_linked_lists/
-├── 07_trees/
-├── 08_heaps/
-├── 09_backtracking/
-├── 10_graphs/
-├── 11_dp/
-├── 12_greedy_algorithms/
-├── 13_intervals/
-├── 14_tries/
-├── 15_bit_manipulation/
-├── 16_math_geometry/
-├── 17_advanced/
-├── 18_mixed_interview_practice/
-└── company_problem_sets/
+myleet/
+├── cmd/myleet/                     the trainer binary
+├── internal/                    engine and TUI (Go)
+├── curriculum/
+│   ├── _lib/                    shared Python helpers (ListNode, TreeNode, builders)
+│   ├── 00_fundamentals/notes/
+│   └── 01_arrays_and_hashing/
+│       ├── module.toml          title, priority, description
+│       ├── notes/               the notes book for this module
+│       ├── reference/           from-scratch data structures + their tests
+│       └── techniques/
+│           └── 01_hashing/
+│               ├── technique.toml
+│               └── 001_two_sum/
+│                   ├── problem.toml     id, title, difficulty, link, key idea, hints
+│                   ├── starter.py       what you start from
+│                   ├── test_problem.py  imports from `solution`
+│                   └── solution.py      optional reference solution
+├── playlists/                   company problem sets
+├── mock-interviews/
+└── tools/migrate/               one-time migration from the old layout
 ```
 
-## Order to Follow
+## Module Order
 
 | Module | Technique                | Description                                                          |
 | ------ | ------------------------ | -------------------------------------------------------------------- |
