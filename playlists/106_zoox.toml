@@ -1,4 +1,4 @@
-title = "Zoox"
+title = "Zoox (an Amazon company)"
 group = "AI labs / high growth"
 focus = "grid and time-indexed path search, vehicle and robot simulation, geometry, intervals, string parsing and expression evaluation, and queue class design."
 review_modules = ["03_stacks_and_queues", "10_graphs", "13_intervals", "16_math_geometry", "17_advanced"]
@@ -140,10 +140,6 @@ title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
 
 [[entries]]
-title = "Implement Queue using Stacks"
-url = "https://leetcode.com/problems/implement-queue-using-stacks/"
-
-[[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
@@ -168,10 +164,6 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
@@ -180,9 +172,13 @@ title = "Pow(x, n)"
 url = "https://leetcode.com/problems/powx-n/"
 
 [[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
-
-[[entries]]
 title = "Random Pick with Weight"
 url = "https://leetcode.com/problems/random-pick-with-weight/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

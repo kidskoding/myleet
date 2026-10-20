@@ -4,6 +4,14 @@ focus = "sliding window and strings, hashing, design data structures, graph bfs 
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "10_graphs", "13_intervals"]
 
 [[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
 title = "Paint House"
 url = "https://leetcode.com/problems/paint-house/"
 
@@ -14,14 +22,6 @@ url = "https://leetcode.com/problems/word-ladder/"
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Minimum Window Substring"

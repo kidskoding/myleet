@@ -4,8 +4,20 @@ focus = "intervals and sweep line, cache and key-value store design, graph reach
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "18_mixed_interview_practice"]
 
 [[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
 title = "Interval List Intersections"
 url = "https://leetcode.com/problems/interval-list-intersections/"
+
+[[entries]]
+title = "Remove Sub-Folders from the Filesystem"
+url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -20,64 +32,36 @@ title = "Non-overlapping Intervals"
 url = "https://leetcode.com/problems/non-overlapping-intervals/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
-
-[[entries]]
 title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Remove Sub-Folders from the Filesystem"
-url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
-
-[[entries]]
-title = "Transpose Matrix"
-url = "https://leetcode.com/problems/transpose-matrix/"
 
 [[entries]]
 title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
 
 [[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
 
 [[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
-title = "Basic Calculator III"
-url = "https://leetcode.com/problems/basic-calculator-iii/"
-
-[[entries]]
-title = "Diameter of Binary Tree"
-url = "https://leetcode.com/problems/diameter-of-binary-tree/"
-
-[[entries]]
 title = "LFU Cache"
 url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Employee Free Time"
@@ -102,6 +86,10 @@ url = "https://leetcode.com/problems/my-calendar-ii/"
 [[entries]]
 title = "Data Stream as Disjoint Intervals"
 url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
 
 [[entries]]
 title = "Range Module"

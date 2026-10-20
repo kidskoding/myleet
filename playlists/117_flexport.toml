@@ -4,46 +4,6 @@ focus = "dp, graph shortest path and bfs, intervals and meeting rooms, string va
 review_modules = ["09_backtracking", "10_graphs", "11_dp", "13_intervals", "17_advanced"]
 
 [[entries]]
-title = "Bulls and Cows"
-url = "https://leetcode.com/problems/bulls-and-cows/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
-
-[[entries]]
-title = "Letter Combinations of a Phone Number"
-url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
-
-[[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
-
-[[entries]]
-title = "Bag of Tokens"
-url = "https://leetcode.com/problems/bag-of-tokens/"
-
-[[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Validate IP Address"
-url = "https://leetcode.com/problems/validate-ip-address/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
@@ -70,6 +30,46 @@ url = "https://leetcode.com/problems/house-robber-iii/"
 [[entries]]
 title = "Restore IP Addresses"
 url = "https://leetcode.com/problems/restore-ip-addresses/"
+
+[[entries]]
+title = "Bulls and Cows"
+url = "https://leetcode.com/problems/bulls-and-cows/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Bag of Tokens"
+url = "https://leetcode.com/problems/bag-of-tokens/"
+
+[[entries]]
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Validate IP Address"
+url = "https://leetcode.com/problems/validate-ip-address/"
+
+[[entries]]
+title = "Subarray Product Less Than K"
+url = "https://leetcode.com/problems/subarray-product-less-than-k/"
+
+[[entries]]
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
 title = "Network Delay Time"

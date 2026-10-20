@@ -76,14 +76,6 @@ title = "XOR Queries of a Subarray"
 url = "https://leetcode.com/problems/xor-queries-of-a-subarray/"
 
 [[entries]]
-title = "Decode XORed Array"
-url = "https://leetcode.com/problems/decode-xored-array/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
@@ -104,10 +96,6 @@ title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
@@ -126,10 +114,6 @@ url = "https://leetcode.com/problems/meeting-rooms-ii/"
 [[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 
 [[entries]]
 title = "Sliding Window Maximum"
@@ -174,3 +158,27 @@ url = "https://leetcode.com/problems/validate-ip-address/"
 [[entries]]
 title = "Text Justification"
 url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

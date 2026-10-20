@@ -104,10 +104,6 @@ title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
 title = "Mini Parser"
 url = "https://leetcode.com/problems/mini-parser/"
 
@@ -152,10 +148,6 @@ title = "Data Stream as Disjoint Intervals"
 url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
 
 [[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
-
-[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
@@ -182,3 +174,11 @@ url = "https://leetcode.com/problems/all-oone-data-structure/"
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"

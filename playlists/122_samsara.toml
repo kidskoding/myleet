@@ -4,16 +4,16 @@ focus = "string parsing and stacks, simulation, sliding windows over sensor stre
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "09_backtracking", "13_intervals", "16_math_geometry"]
 
 [[entries]]
+title = "Alternating Groups II"
+url = "https://leetcode.com/problems/alternating-groups-ii/"
+
+[[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
 title = "Alternating Groups I"
 url = "https://leetcode.com/problems/alternating-groups-i/"
-
-[[entries]]
-title = "Alternating Groups II"
-url = "https://leetcode.com/problems/alternating-groups-ii/"
 
 [[entries]]
 title = "Decode String"
@@ -92,18 +92,6 @@ title = "Longest Common Prefix"
 url = "https://leetcode.com/problems/longest-common-prefix/"
 
 [[entries]]
-title = "Word Pattern"
-url = "https://leetcode.com/problems/word-pattern/"
-
-[[entries]]
-title = "Isomorphic Strings"
-url = "https://leetcode.com/problems/isomorphic-strings/"
-
-[[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 
@@ -124,16 +112,8 @@ title = "Exclusive Time of Functions"
 url = "https://leetcode.com/problems/exclusive-time-of-functions/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -190,3 +170,15 @@ url = "https://leetcode.com/problems/number-of-islands/"
 [[entries]]
 title = "Design Snake Game"
 url = "https://leetcode.com/problems/design-snake-game/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

@@ -4,32 +4,20 @@ focus = "design data structures, intervals, greedy, math, trees"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "13_intervals", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Minimum Number of Moves to Make Palindrome"
-url = "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/"
-
-[[entries]]
 title = "Maximum Points After Enemy Battles"
 url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
-
-[[entries]]
-title = "Maximize Subarray Sum After Removing All Occurrences of One Element"
-url = "https://leetcode.com/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element/"
-
-[[entries]]
-title = "Manhattan Distances of All Arrangements of Pieces"
-url = "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/"
 
 [[entries]]
 title = "Count Lattice Points Inside a Circle"
 url = "https://leetcode.com/problems/count-lattice-points-inside-a-circle/"
 
 [[entries]]
-title = "Stamping the Grid"
-url = "https://leetcode.com/problems/stamping-the-grid/"
+title = "Maximize Subarray Sum After Removing All Occurrences of One Element"
+url = "https://leetcode.com/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element/"
 
 [[entries]]
-title = "Find Longest Special Substring That Occurs Thrice II"
-url = "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/"
+title = "Stamping the Grid"
+url = "https://leetcode.com/problems/stamping-the-grid/"
 
 [[entries]]
 title = "Find X Value of Array II"
@@ -40,84 +28,48 @@ title = "Find X Value of Array I"
 url = "https://leetcode.com/problems/find-x-value-of-array-i/"
 
 [[entries]]
-title = "Alice and Bob Playing Flower Game"
-url = "https://leetcode.com/problems/alice-and-bob-playing-flower-game/"
-
-[[entries]]
-title = "Candy Crush"
-url = "https://leetcode.com/problems/candy-crush/"
-
-[[entries]]
-title = "Distribute Candies Among Children I"
-url = "https://leetcode.com/problems/distribute-candies-among-children-i/"
-
-[[entries]]
-title = "Distribute Candies Among Children II"
-url = "https://leetcode.com/problems/distribute-candies-among-children-ii/"
-
-[[entries]]
-title = "Distribute Candies Among Children III"
-url = "https://leetcode.com/problems/distribute-candies-among-children-iii/"
+title = "Manhattan Distances of All Arrangements of Pieces"
+url = "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/"
 
 [[entries]]
 title = "Find the Sum of Subsequence Powers"
 url = "https://leetcode.com/problems/find-the-sum-of-subsequence-powers/"
 
 [[entries]]
-title = "Existence of a Substring in a String and Its Reverse"
-url = "https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse/"
+title = "Find Longest Special Substring That Occurs Thrice II"
+url = "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Distribute Candies Among Children III"
+url = "https://leetcode.com/problems/distribute-candies-among-children-iii/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Minimum Number of Moves to Make Palindrome"
+url = "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/"
+
+[[entries]]
+title = "Alice and Bob Playing Flower Game"
+url = "https://leetcode.com/problems/alice-and-bob-playing-flower-game/"
+
+[[entries]]
+title = "Distribute Candies Among Children II"
+url = "https://leetcode.com/problems/distribute-candies-among-children-ii/"
+
+[[entries]]
+title = "Candy Crush"
+url = "https://leetcode.com/problems/candy-crush/"
 
 [[entries]]
 title = "Remove Invalid Parentheses"
 url = "https://leetcode.com/problems/remove-invalid-parentheses/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
-
-[[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
-
-[[entries]]
 title = "Task Scheduler II"
 url = "https://leetcode.com/problems/task-scheduler-ii/"
 
 [[entries]]
-title = "4Sum"
-url = "https://leetcode.com/problems/4sum/"
-
-[[entries]]
-title = "Scramble String"
-url = "https://leetcode.com/problems/scramble-string/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Design Memory Allocator"
-url = "https://leetcode.com/problems/design-memory-allocator/"
-
-[[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Special Binary String"
-url = "https://leetcode.com/problems/special-binary-string/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
 title = "Count Zero Request Servers"
@@ -128,20 +80,52 @@ title = "Paint Fence"
 url = "https://leetcode.com/problems/paint-fence/"
 
 [[entries]]
-title = "Smallest String With Swaps"
-url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Scramble String"
+url = "https://leetcode.com/problems/scramble-string/"
 
 [[entries]]
 title = "Range Module"
 url = "https://leetcode.com/problems/range-module/"
 
 [[entries]]
+title = "Existence of a Substring in a String and Its Reverse"
+url = "https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse/"
+
+[[entries]]
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+
+[[entries]]
+title = "Special Binary String"
+url = "https://leetcode.com/problems/special-binary-string/"
+
+[[entries]]
+title = "4Sum"
+url = "https://leetcode.com/problems/4sum/"
+
+[[entries]]
+title = "Design Memory Allocator"
+url = "https://leetcode.com/problems/design-memory-allocator/"
+
+[[entries]]
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
 title = "Count Ways to Group Overlapping Ranges"
 url = "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -202,3 +186,15 @@ url = "https://leetcode.com/problems/design-circular-deque/"
 [[entries]]
 title = "Insert Delete GetRandom O(1) - Duplicates allowed"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"

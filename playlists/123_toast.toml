@@ -4,28 +4,20 @@ focus = "arrays, hash maps, strings, stock profit variants, scheduling"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "12_greedy_algorithms", "13_intervals"]
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
 title = "Valid Palindrome"
 url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
 title = "Best Time to Buy and Sell Stock III"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock with Transaction Fee"
@@ -84,30 +76,6 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
-
-[[entries]]
-title = "Ransom Note"
-url = "https://leetcode.com/problems/ransom-note/"
-
-[[entries]]
-title = "Isomorphic Strings"
-url = "https://leetcode.com/problems/isomorphic-strings/"
-
-[[entries]]
-title = "Word Pattern"
-url = "https://leetcode.com/problems/word-pattern/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
 url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
@@ -144,10 +112,6 @@ title = "Design a Food Rating System"
 url = "https://leetcode.com/problems/design-a-food-rating-system/"
 
 [[entries]]
-title = "Lemonade Change"
-url = "https://leetcode.com/problems/lemonade-change/"
-
-[[entries]]
 title = "Seat Reservation Manager"
 url = "https://leetcode.com/problems/seat-reservation-manager/"
 
@@ -158,10 +122,6 @@ url = "https://leetcode.com/problems/my-calendar-i/"
 [[entries]]
 title = "My Calendar II"
 url = "https://leetcode.com/problems/my-calendar-ii/"
-
-[[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -196,5 +156,29 @@ title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Maximum Units on a Truck"
-url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"

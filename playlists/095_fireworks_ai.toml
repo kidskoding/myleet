@@ -160,10 +160,6 @@ title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
-
-[[entries]]
 title = "Sliding Window Maximum"
 url = "https://leetcode.com/problems/sliding-window-maximum/"
 
@@ -182,3 +178,7 @@ url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
 [[entries]]
 title = "Find Right Interval"
 url = "https://leetcode.com/problems/find-right-interval/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"

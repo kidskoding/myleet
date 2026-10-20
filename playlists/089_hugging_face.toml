@@ -76,10 +76,6 @@ title = "Reshape the Matrix"
 url = "https://leetcode.com/problems/reshape-the-matrix/"
 
 [[entries]]
-title = "Transpose Matrix"
-url = "https://leetcode.com/problems/transpose-matrix/"
-
-[[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
@@ -136,10 +132,6 @@ title = "Sliding Window Maximum"
 url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
@@ -182,3 +174,11 @@ url = "https://leetcode.com/problems/simplify-path/"
 [[entries]]
 title = "Find Duplicate File in System"
 url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

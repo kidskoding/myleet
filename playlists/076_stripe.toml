@@ -4,58 +4,6 @@ focus = "string parsing, hash-map bookkeeping, interval merging, rate limiting, 
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
-
-[[entries]]
-title = "Minimum Penalty for a Shop"
-url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
-
-[[entries]]
-title = "Calculate Amount Paid in Taxes"
-url = "https://leetcode.com/problems/calculate-amount-paid-in-taxes/"
-
-[[entries]]
-title = "Invalid Transactions"
-url = "https://leetcode.com/problems/invalid-transactions/"
-
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Brace Expansion"
-url = "https://leetcode.com/problems/brace-expansion/"
-
-[[entries]]
-title = "Parallel Courses III"
-url = "https://leetcode.com/problems/parallel-courses-iii/"
-
-[[entries]]
-title = "One Edit Distance"
-url = "https://leetcode.com/problems/one-edit-distance/"
-
-[[entries]]
-title = "Number of Black Blocks"
-url = "https://leetcode.com/problems/number-of-black-blocks/"
-
-[[entries]]
-title = "Alert Using Same Key-Card Three or More Times in a One Hour Period"
-url = "https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/"
-
-[[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
-
-[[entries]]
 title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
 
@@ -66,26 +14,6 @@ url = "https://leetcode.com/problems/number-of-recent-calls/"
 [[entries]]
 title = "Moving Average from Data Stream"
 url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Summary Ranges"
-url = "https://leetcode.com/problems/summary-ranges/"
-
-[[entries]]
-title = "Find the Index of the First Occurrence in a String"
-url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
-
-[[entries]]
-title = "Determine if Two Events Have Conflict"
-url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
 
 [[entries]]
 title = "Encode and Decode Strings"
@@ -132,6 +60,10 @@ title = "Stock Price Fluctuation"
 url = "https://leetcode.com/problems/stock-price-fluctuation/"
 
 [[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
 title = "My Calendar I"
 url = "https://leetcode.com/problems/my-calendar-i/"
 
@@ -142,6 +74,14 @@ url = "https://leetcode.com/problems/basic-calculator-ii/"
 [[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
 title = "Process Tasks Using Servers"
@@ -166,3 +106,79 @@ url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-re
 [[entries]]
 title = "Text Justification"
 url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
+title = "Minimum Penalty for a Shop"
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
+
+[[entries]]
+title = "Invalid Transactions"
+url = "https://leetcode.com/problems/invalid-transactions/"
+
+[[entries]]
+title = "Brace Expansion"
+url = "https://leetcode.com/problems/brace-expansion/"
+
+[[entries]]
+title = "Alert Using Same Key-Card Three or More Times in a One Hour Period"
+url = "https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "One Edit Distance"
+url = "https://leetcode.com/problems/one-edit-distance/"
+
+[[entries]]
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
+
+[[entries]]
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
+
+[[entries]]
+title = "Simple Bank System"
+url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"

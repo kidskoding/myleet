@@ -128,10 +128,6 @@ title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
-title = "Implement Queue using Stacks"
-url = "https://leetcode.com/problems/implement-queue-using-stacks/"
-
-[[entries]]
 title = "Daily Temperatures"
 url = "https://leetcode.com/problems/daily-temperatures/"
 
@@ -152,10 +148,6 @@ title = "Max Points on a Line"
 url = "https://leetcode.com/problems/max-points-on-a-line/"
 
 [[entries]]
-title = "Rectangle Overlap"
-url = "https://leetcode.com/problems/rectangle-overlap/"
-
-[[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
@@ -170,3 +162,23 @@ url = "https://leetcode.com/problems/decode-string/"
 [[entries]]
 title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"

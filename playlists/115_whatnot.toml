@@ -4,54 +4,6 @@ focus = "arrays and two pointers, stacks, hashing and counting, grid and graph t
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "11_dp", "16_math_geometry"]
 
 [[entries]]
-title = "Knight Dialer"
-url = "https://leetcode.com/problems/knight-dialer/"
-
-[[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
-
-[[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Analyze User Website Visit Pattern"
-url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Search a 2D Matrix II"
-url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
-
-[[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
-
-[[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
@@ -62,6 +14,50 @@ url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
 [[entries]]
 title = "Merge Sorted Array"
 url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
+title = "Knight Dialer"
+url = "https://leetcode.com/problems/knight-dialer/"
+
+[[entries]]
+title = "Analyze User Website Visit Pattern"
+url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
+
+[[entries]]
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+
+[[entries]]
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+
+[[entries]]
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
 title = "Implement Trie (Prefix Tree)"
@@ -88,14 +84,6 @@ title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
@@ -106,10 +94,6 @@ url = "https://leetcode.com/problems/product-of-array-except-self/"
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
@@ -182,10 +166,6 @@ url = "https://leetcode.com/problems/lru-cache/"
 [[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
 
 [[entries]]
 title = "Find Median from Data Stream"

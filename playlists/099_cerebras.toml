@@ -24,10 +24,6 @@ title = "Roman to Integer"
 url = "https://leetcode.com/problems/roman-to-integer/"
 
 [[entries]]
-title = "Is Subsequence"
-url = "https://leetcode.com/problems/is-subsequence/"
-
-[[entries]]
 title = "Sparse Matrix Multiplication"
 url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
 
@@ -84,36 +80,12 @@ title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
 
 [[entries]]
-title = "Search Insert Position"
-url = "https://leetcode.com/problems/search-insert-position/"
-
-[[entries]]
 title = "Find First and Last Position of Element in Sorted Array"
 url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
 
 [[entries]]
 title = "Search a 2D Matrix"
 url = "https://leetcode.com/problems/search-a-2d-matrix/"
-
-[[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
 title = "Product of Array Except Self"
@@ -126,10 +98,6 @@ url = "https://leetcode.com/problems/rotate-image/"
 [[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Transpose Matrix"
-url = "https://leetcode.com/problems/transpose-matrix/"
 
 [[entries]]
 title = "Range Sum Query 2D - Immutable"
@@ -152,18 +120,6 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
-
-[[entries]]
-title = "Counting Bits"
-url = "https://leetcode.com/problems/counting-bits/"
-
-[[entries]]
-title = "Reverse Bits"
-url = "https://leetcode.com/problems/reverse-bits/"
-
-[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
@@ -184,9 +140,45 @@ title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
-title = "Add Binary"
-url = "https://leetcode.com/problems/add-binary/"
-
-[[entries]]
 title = "Pow(x, n)"
 url = "https://leetcode.com/problems/powx-n/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"

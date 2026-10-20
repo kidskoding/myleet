@@ -4,8 +4,12 @@ focus = "design and simulation, topological sort, stacks and monotonic stacks, s
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "12_greedy_algorithms", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Daily Temperatures"
-url = "https://leetcode.com/problems/daily-temperatures/"
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
 title = "Design Browser History"
@@ -16,12 +20,8 @@ title = "Detonate the Maximum Bombs"
 url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
 title = "Course Schedule"
@@ -128,20 +128,12 @@ title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
-
-[[entries]]
 title = "Reorganize String"
 url = "https://leetcode.com/problems/reorganize-string/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -168,10 +160,6 @@ title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
@@ -186,3 +174,11 @@ url = "https://leetcode.com/problems/accounts-merge/"
 [[entries]]
 title = "Keys and Rooms"
 url = "https://leetcode.com/problems/keys-and-rooms/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"

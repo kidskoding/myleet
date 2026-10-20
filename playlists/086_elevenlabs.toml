@@ -56,10 +56,6 @@ title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
-title = "Counting Bits"
-url = "https://leetcode.com/problems/counting-bits/"
-
-[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
@@ -92,10 +88,6 @@ title = "Binary Tree Right Side View"
 url = "https://leetcode.com/problems/binary-tree-right-side-view/"
 
 [[entries]]
-title = "Diameter of Binary Tree"
-url = "https://leetcode.com/problems/diameter-of-binary-tree/"
-
-[[entries]]
 title = "Path Sum III"
 url = "https://leetcode.com/problems/path-sum-iii/"
 
@@ -108,32 +100,12 @@ title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
-
-[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
 title = "Data Stream as Disjoint Intervals"
 url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -182,3 +154,31 @@ url = "https://leetcode.com/problems/time-based-key-value-store/"
 [[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
