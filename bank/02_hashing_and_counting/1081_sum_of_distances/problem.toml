@@ -1,0 +1,7 @@
+id = "sum-of-distances"
+title = "Sum of Distances"
+difficulty = "medium"
+leetcode = 2615
+url = "https://leetcode.com/problems/sum-of-distances/"
+key_idea = "Group indices by value; within a group, sweep with a running count and sum of earlier indices so each index's distance to the left and right parts comes from prefix sums."
+hints = ["Only indices holding the same value interact, so handle each value's index list separately.", "For index p in a sorted list, the distance to everything on its left is count_left * p - sum_left; do the same on the right."]

@@ -1,0 +1,7 @@
+id = "equal-row-and-column-pairs"
+title = "Equal Row and Column Pairs"
+difficulty = "medium"
+leetcode = 2352
+url = "https://leetcode.com/problems/equal-row-and-column-pairs/"
+key_idea = "Count every row as a tuple in a hash map, then for each column tuple add how many rows match it."
+hints = ["Rows and columns can be compared as whole sequences.", "Hash the rows once instead of comparing every row with every column element by element."]

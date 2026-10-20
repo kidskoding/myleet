@@ -1,0 +1,7 @@
+id = "grid-illumination"
+title = "Grid Illumination"
+difficulty = "hard"
+leetcode = 1001
+url = "https://leetcode.com/problems/grid-illumination/"
+key_idea = "Count lamps per row, column, diagonal (r - c) and anti-diagonal (r + c) in hash maps, keep a set of lamp cells, and decrement counts when turning off the 3x3 neighborhood."
+hints = ["The grid can be a billion cells wide, so never materialize it.", "A cell is lit if any lamp shares its row, column, or one of its two diagonals; how can you identify a diagonal with one number?"]

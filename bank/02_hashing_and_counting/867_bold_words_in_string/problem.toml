@@ -1,0 +1,40 @@
+id = "bold-words-in-string"
+title = "Bold Words in String"
+difficulty = "medium"
+leetcode = 758
+url = "https://leetcode.com/problems/bold-words-in-string/"
+key_idea = "Mark each index of s covered by some keyword occurrence, then emit one <b>...</b> around every maximal marked run."
+hints = ["Overlapping and adjacent matches end up inside the same tag pair.", "First decide which characters are bold; only then build the output."]
+prompt = """
+Implement `bold_words(words, s)`, which returns `s` with every occurrence of every keyword
+in `words` made bold using the fewest possible tags.
+
+A character of `s` is bold when it lies inside at least one occurrence of some keyword
+(occurrences may overlap). Wrap each maximal block of consecutive bold characters in one
+`<b>` and one `</b>`. Blocks that overlap or touch must be merged, so the result uses as
+few tags as possible.
+
+**Example 1:**
+
+```
+Input: words = ["ab","bc"], s = "aabcd"
+Output: "a<b>abc</b>d"
+```
+
+`"ab"` covers indices `1..2` and `"bc"` covers `2..3`, so they merge into one block.
+Writing `"a<b>a<b>b</b>c</b>d"` would use more tags than needed.
+
+**Example 2:**
+
+```
+Input: words = ["ab","cb"], s = "aabcd"
+Output: "a<b>ab</b>cd"
+```
+
+**Constraints:**
+
+- `1 <= s.length <= 500`
+- `0 <= words.length <= 50`
+- `1 <= words[i].length <= 10`
+- `s` and every keyword consist of lowercase English letters
+"""

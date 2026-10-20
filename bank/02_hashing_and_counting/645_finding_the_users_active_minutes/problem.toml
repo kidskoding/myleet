@@ -1,0 +1,7 @@
+id = "finding-the-users-active-minutes"
+title = "Finding the Users Active Minutes"
+difficulty = "medium"
+leetcode = 1817
+url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
+key_idea = "Map each user to a set of distinct minutes, then bucket users by the size of their set."
+hints = ["Repeated actions in the same minute count once.", "After grouping by user, you only need how many distinct minutes each user has."]

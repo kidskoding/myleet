@@ -1,0 +1,7 @@
+id = "count-elements-with-maximum-frequency"
+title = "Count Elements With Maximum Frequency"
+difficulty = "easy"
+leetcode = 3005
+url = "https://leetcode.com/problems/count-elements-with-maximum-frequency/"
+key_idea = "Count frequencies, find the largest, and add up the frequencies equal to it."
+hints = ["Start by counting how often each value appears.", "The answer is the maximum frequency times how many values reach it."]

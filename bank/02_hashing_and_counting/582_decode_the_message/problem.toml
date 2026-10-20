@@ -1,0 +1,7 @@
+id = "decode-the-message"
+title = "Decode the Message"
+difficulty = "easy"
+leetcode = 2325
+url = "https://leetcode.com/problems/decode-the-message/"
+key_idea = "Build the substitution table from the first occurrence of each letter in key (mapping them to a, b, c, ...), then translate message character by character, keeping spaces."
+hints = ["Only the first time each letter appears in key matters.", "Map key letters to the alphabet in order of first appearance, and leave spaces alone."]

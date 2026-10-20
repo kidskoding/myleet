@@ -1,0 +1,44 @@
+id = "counting-elements"
+title = "Counting Elements"
+difficulty = "easy"
+leetcode = 1426
+url = "https://leetcode.com/problems/counting-elements/"
+key_idea = "Put the values in a set, then count the elements x (duplicates included) whose x + 1 is in the set."
+hints = ["You need fast 'does this value exist?' checks.", "Duplicates of x each count on their own."]
+prompt = """
+Implement `count_elements(arr)`, which returns how many elements `x` of `arr` have `x + 1`
+also present somewhere in `arr`. Duplicates are counted separately: if `x` appears several
+times and `x + 1` exists, every copy of `x` counts.
+
+**Example 1:**
+
+```
+Input: arr = [1,2,3]
+Output: 2
+```
+
+`1` and `2` count because `2` and `3` are present.
+
+**Example 2:**
+
+```
+Input: arr = [1,1,3,3,5,5,7,7]
+Output: 0
+```
+
+No value has its successor in the array.
+
+**Example 3:**
+
+```
+Input: arr = [1,1,2]
+Output: 2
+```
+
+Both copies of `1` count because `2` is present.
+
+**Constraints:**
+
+- `1 <= arr.length <= 1000`
+- `0 <= arr[i] <= 1000`
+"""

@@ -1,0 +1,58 @@
+id = "match-alphanumerical-pattern-in-matrix-i"
+title = "Match Alphanumerical Pattern in Matrix I"
+difficulty = "medium"
+leetcode = 3078
+url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
+key_idea = "Try every top-left corner in row-major order and check the window cell by cell, keeping letter->digit and digit->letter maps so the letter assignment stays one-to-one."
+hints = ["The board is small enough to try every placement.", "A letter must always mean the same digit, and two letters can never share a digit."]
+prompt = """
+Implement `find_pattern(board, pattern)`. `board` is a 2D grid of digits (`0` to `9`) and
+`pattern` is a list of equal-length strings made of digits and lowercase letters.
+
+The pattern matches a same-sized window of `board` when every cell agrees:
+
+- A digit in the pattern must equal the board value under it.
+- A letter stands for some digit. Every copy of the same letter must sit over the same
+  digit, and two different letters must sit over two different digits.
+
+Return `[row, col]`, the top-left corner of a matching window. If several windows match,
+return the one with the smallest row, breaking ties by the smallest column. Return
+`[-1, -1]` if nothing matches.
+
+**Example 1:**
+
+```
+Input: board = [[1,2,2],[2,2,3],[2,3,3]], pattern = ["ab","bb"]
+Output: [0,0]
+```
+
+With `a = 1` and `b = 2`, the window at the top-left corner matches.
+
+**Example 2:**
+
+```
+Input: board = [[1,1,2],[3,3,4],[6,6,6]], pattern = ["ab","66"]
+Output: [1,1]
+```
+
+The window starting at row `1`, column `1` is `[[3,4],[6,6]]`: `a = 3`, `b = 4`, and the
+second row matches the literal `66`.
+
+**Example 3:**
+
+```
+Input: board = [[1,2],[2,1]], pattern = ["xx"]
+Output: [-1,-1]
+```
+
+No row has two equal neighbors.
+
+**Constraints:**
+
+- `1 <= board.length <= 50`
+- `1 <= board[i].length <= 50`
+- `0 <= board[i][j] <= 9`
+- `1 <= pattern.length <= board.length`
+- `1 <= pattern[i].length <= board[i].length`
+- `pattern[i][j]` is a digit or a lowercase English letter
+"""

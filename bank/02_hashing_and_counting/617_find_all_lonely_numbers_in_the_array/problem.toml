@@ -1,0 +1,7 @@
+id = "find-all-lonely-numbers-in-the-array"
+title = "Find All Lonely Numbers in the Array"
+difficulty = "medium"
+leetcode = 2150
+url = "https://leetcode.com/problems/find-all-lonely-numbers-in-the-array/"
+key_idea = "Count every value; x is lonely when its count is 1 and neither x - 1 nor x + 1 appears."
+hints = ["A lonely number depends on its own count and on two neighbouring values.", "A hash map lets you check those neighbours in O(1)."]

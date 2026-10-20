@@ -1,0 +1,7 @@
+id = "degree-of-an-array"
+title = "Degree of an Array"
+difficulty = "easy"
+leetcode = 697
+url = "https://leetcode.com/problems/degree-of-an-array/"
+key_idea = "Record each value's count, first index, and last index; among values with the maximum count, the answer is the smallest last - first + 1."
+hints = ["The shortest subarray with full degree must contain every copy of some most-frequent value.", "So for each value you only need its count and the positions of its first and last occurrence."]

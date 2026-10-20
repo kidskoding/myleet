@@ -1,0 +1,7 @@
+id = "longest-balanced-substring-i"
+title = "Longest Balanced Substring I"
+difficulty = "medium"
+leetcode = 3713
+url = "https://leetcode.com/problems/longest-balanced-substring-i/"
+key_idea = "Fix each start and extend the end, keeping letter counts plus the number of distinct letters and the max count; the window is balanced when max count * distinct == length."
+hints = ["n is at most 1000, so trying every start and extending to the right is fine. What do you need to keep updated as you extend?", "If every distinct letter appears the same number of times, how does that relate the window length, the number of distinct letters and the largest count?"]

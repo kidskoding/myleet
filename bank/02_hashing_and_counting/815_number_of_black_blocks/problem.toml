@@ -1,0 +1,7 @@
+id = "number-of-black-blocks"
+title = "Number of Black Blocks"
+difficulty = "medium"
+leetcode = 2768
+url = "https://leetcode.com/problems/number-of-black-blocks/"
+key_idea = "Each black cell touches at most four 2x2 blocks; count black cells per block top-left corner in a hash map, then all blocks not in the map have zero black cells."
+hints = ["The grid is huge but black cells are few, so only look at blocks near black cells.", "A cell belongs to the blocks whose top-left corner is the cell itself or one step up and/or left."]

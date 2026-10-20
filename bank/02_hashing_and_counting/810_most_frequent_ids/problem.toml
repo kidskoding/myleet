@@ -1,0 +1,7 @@
+id = "most-frequent-ids"
+title = "Most Frequent IDs"
+difficulty = "medium"
+leetcode = 3092
+url = "https://leetcode.com/problems/most-frequent-ids/"
+key_idea = "Keep a count per ID and a max-heap of (count, id) entries; after each update push the new count and pop stale tops whose count no longer matches."
+hints = ["Keep the current count of every ID in a map.", "You need the maximum after every step, but old entries can be discarded lazily."]

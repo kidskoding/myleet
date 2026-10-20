@@ -1,0 +1,7 @@
+id = "find-subarrays-with-equal-sum"
+title = "Find Subarrays With Equal Sum"
+difficulty = "easy"
+leetcode = 2395
+url = "https://leetcode.com/problems/find-subarrays-with-equal-sum/"
+key_idea = "Put each adjacent-pair sum into a set and return true the moment one repeats."
+hints = ["There are only n - 1 subarrays of length 2.", "How do you detect a repeated value in one pass?"]

@@ -1,0 +1,7 @@
+id = "find-valid-pair-of-adjacent-digits-in-string"
+title = "Find Valid Pair of Adjacent Digits in String"
+difficulty = "easy"
+leetcode = 3438
+url = "https://leetcode.com/problems/find-valid-pair-of-adjacent-digits-in-string/"
+key_idea = "Count every digit once, then scan adjacent pairs and return the first with different digits whose counts equal their values."
+hints = ["You need each digit's total frequency before checking any pair.", "A pair qualifies only if its two digits differ."]

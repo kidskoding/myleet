@@ -1,0 +1,7 @@
+id = "maximum-number-of-balloons"
+title = "Maximum Number of Balloons"
+difficulty = "easy"
+leetcode = 1189
+url = "https://leetcode.com/problems/maximum-number-of-balloons/"
+key_idea = "Count letters; the answer is the minimum over b, a, n of their counts and over l, o of half their counts."
+hints = ["Each copy of the word uses a fixed number of each letter.", "Some letters appear twice in the word."]

@@ -1,0 +1,7 @@
+id = "shortest-uncommon-substring-in-an-array"
+title = "Shortest Uncommon Substring in an Array"
+difficulty = "medium"
+leetcode = 3076
+url = "https://leetcode.com/problems/shortest-uncommon-substring-in-an-array/"
+key_idea = "Count, for every substring, how many different strings contain it; for each string scan its substrings by length then lexicographic order and pick the first with count 1."
+hints = ["The strings are tiny (length at most 20), so listing every substring is cheap.", "Record each substring once per string that contains it, then a substring is uncommon exactly when only one string has it."]

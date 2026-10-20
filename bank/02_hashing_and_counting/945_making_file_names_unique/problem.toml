@@ -1,0 +1,7 @@
+id = "making-file-names-unique"
+title = "Making File Names Unique"
+difficulty = "medium"
+leetcode = 1487
+url = "https://leetcode.com/problems/making-file-names-unique/"
+key_idea = "Keep a map from each used base name to the next suffix to try, advancing it past taken names, and register every name you output (including suffixed ones) as used."
+hints = ["A set of used names tells you whether a name is free. How do you avoid retrying suffixes 1, 2, 3, ... from scratch every time?", "A generated name like name(1) can itself be requested later, so it must be recorded too."]

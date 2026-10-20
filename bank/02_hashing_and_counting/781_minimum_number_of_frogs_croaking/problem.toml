@@ -1,0 +1,7 @@
+id = "minimum-number-of-frogs-croaking"
+title = "Minimum Number of Frogs Croaking"
+difficulty = "medium"
+leetcode = 1419
+url = "https://leetcode.com/problems/minimum-number-of-frogs-croaking/"
+key_idea = "Track how many frogs are at each stage of c-r-o-a-k; each letter must advance a frog from the previous stage, and the peak number of frogs mid-croak is the answer."
+hints = ["Each letter after 'c' must continue some frog that just made the previous letter.", "Count how many croaks are in progress at once."]

@@ -1,0 +1,7 @@
+id = "count-the-number-of-vowel-strings-in-range"
+title = "Count the Number of Vowel Strings in Range"
+difficulty = "easy"
+leetcode = 2586
+url = "https://leetcode.com/problems/count-the-number-of-vowel-strings-in-range/"
+key_idea = "Walk words[left..right] and count those whose first and last characters are both vowels."
+hints = ["Only the first and last character of each word matter.", "A set of the five vowels gives an O(1) check."]

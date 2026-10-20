@@ -1,0 +1,7 @@
+id = "find-the-town-judge"
+title = "Find the Town Judge"
+difficulty = "easy"
+leetcode = 997
+url = "https://leetcode.com/problems/find-the-town-judge/"
+key_idea = "Track trust score = in-degree minus out-degree; the judge is the unique person whose score is n - 1."
+hints = ["Think of trust as a directed graph. What are the judge's in-degree and out-degree?", "One counter per person is enough if trusting someone subtracts and being trusted adds."]

@@ -1,0 +1,42 @@
+id = "add-bold-tag-in-string"
+title = "Add Bold Tag in String"
+difficulty = "medium"
+leetcode = 616
+url = "https://leetcode.com/problems/add-bold-tag-in-string/"
+key_idea = "Mark every index covered by some word occurrence, then wrap each maximal run of marked characters in a single <b></b> pair."
+hints = ["Overlapping or touching matches must share one pair of tags.", "Decide for each index separately whether any match covers it, then scan for runs."]
+prompt = """
+Implement `add_bold_tag(s, words)`, which wraps every part of `s` that matches one of
+`words` in a bold tag pair `<b>` and `</b>`.
+
+Find every occurrence of every word in `s` (occurrences may overlap). A character is bold
+when at least one occurrence covers it. Each maximal run of consecutive bold characters
+gets exactly one `<b>` before it and one `</b>` after it, so overlapping occurrences and
+occurrences that touch end to start are merged into a single tagged section. Return the
+resulting string.
+
+**Example 1:**
+
+```
+Input: s = "abcxyz123", words = ["abc","123"]
+Output: "<b>abc</b>xyz<b>123</b>"
+```
+
+**Example 2:**
+
+```
+Input: s = "aaabbb", words = ["aa","b"]
+Output: "<b>aaabbb</b>"
+```
+
+`"aa"` occurs at indices `0` and `1`, covering `"aaa"`; each `"b"` touches the next, so
+the whole string becomes one bold run.
+
+**Constraints:**
+
+- `1 <= s.length <= 1000`
+- `0 <= words.length <= 100`
+- `1 <= words[i].length <= 1000`
+- `s` and every word consist of English letters and digits
+- All words are distinct
+"""

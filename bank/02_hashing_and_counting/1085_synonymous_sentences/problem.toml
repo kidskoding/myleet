@@ -1,0 +1,44 @@
+id = "synonymous-sentences"
+title = "Synonymous Sentences"
+difficulty = "medium"
+leetcode = 1258
+url = "https://leetcode.com/problems/synonymous-sentences/"
+key_idea = "Union synonyms into groups, then backtrack word by word, substituting every member of a word's group (in sorted order), and return the sentences sorted."
+hints = ["Synonymy is transitive here, so build groups of interchangeable words first.", "For each word in the text, the choices are its whole group (or just itself); the sentences are the product of those choices."]
+prompt = """
+Implement `generate_sentences(synonyms, text)`. Each entry `[s, t]` of `synonyms` says the
+words `s` and `t` are interchangeable. Synonymy is transitive: if `a` matches `b` and `b`
+matches `c`, then `a` matches `c`.
+
+`text` is a sentence of words separated by single spaces. Return every sentence you can make
+by replacing any of its words with any of their synonyms (including keeping the original),
+sorted lexicographically.
+
+**Example 1:**
+
+```
+Input: synonyms = [["happy","joy"],["sad","sorrow"],["joy","cheerful"]],
+       text = "I am happy today but was sad yesterday"
+Output: ["I am cheerful today but was sad yesterday",
+         "I am cheerful today but was sorrow yesterday",
+         "I am happy today but was sad yesterday",
+         "I am happy today but was sorrow yesterday",
+         "I am joy today but was sad yesterday",
+         "I am joy today but was sorrow yesterday"]
+```
+
+**Example 2:**
+
+```
+Input: synonyms = [["happy","joy"],["cheerful","glad"]],
+       text = "I am happy today but was sad yesterday"
+Output: ["I am happy today but was sad yesterday",
+         "I am joy today but was sad yesterday"]
+```
+
+**Constraints:**
+
+- `0 <= synonyms.length <= 10`
+- Every word in `synonyms` has length at most `10`
+- `text` has at most `10` words, separated by single spaces
+"""

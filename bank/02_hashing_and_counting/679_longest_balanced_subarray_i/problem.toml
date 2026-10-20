@@ -1,0 +1,7 @@
+id = "longest-balanced-subarray-i"
+title = "Longest Balanced Subarray I"
+difficulty = "medium"
+leetcode = 3719
+url = "https://leetcode.com/problems/longest-balanced-subarray-i/"
+key_idea = "Fix each left end and extend right with two sets of distinct evens and odds, recording the length whenever their sizes match (O(n^2) fits n <= 1500)."
+hints = ["The constraints allow trying every start index.", "As a subarray grows to the right, its sets of distinct values only gain members."]

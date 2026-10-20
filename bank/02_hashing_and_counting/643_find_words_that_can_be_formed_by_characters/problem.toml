@@ -1,0 +1,7 @@
+id = "find-words-that-can-be-formed-by-characters"
+title = "Find Words That Can Be Formed by Characters"
+difficulty = "easy"
+leetcode = 1160
+url = "https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/"
+key_idea = "Count the letters in chars once; a word is good when none of its letter counts exceeds the available count."
+hints = ["Each character in chars can be used once per word, but resets for the next word.", "Compare letter frequencies rather than searching characters one by one."]

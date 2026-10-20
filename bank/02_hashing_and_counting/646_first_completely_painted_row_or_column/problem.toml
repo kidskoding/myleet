@@ -1,0 +1,7 @@
+id = "first-completely-painted-row-or-column"
+title = "First Completely Painted Row or Column"
+difficulty = "medium"
+leetcode = 2661
+url = "https://leetcode.com/problems/first-completely-painted-row-or-column/"
+key_idea = "Map each value to its cell, then count painted cells per row and column; stop when a row reaches n or a column reaches m."
+hints = ["Finding a value's position by scanning the matrix each time is too slow.", "Track how many cells of each row and column have been painted so far."]

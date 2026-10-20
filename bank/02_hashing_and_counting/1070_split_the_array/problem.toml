@@ -1,0 +1,7 @@
+id = "split-the-array"
+title = "Split the Array"
+difficulty = "easy"
+leetcode = 3046
+url = "https://leetcode.com/problems/split-the-array/"
+key_idea = "Each half must have distinct values, so the split works exactly when no value appears more than twice."
+hints = ["Where can the copies of a single value go if both halves must be distinct?", "Count occurrences; think about what count makes it impossible."]

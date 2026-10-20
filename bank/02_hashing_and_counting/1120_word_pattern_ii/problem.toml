@@ -1,0 +1,45 @@
+id = "word-pattern-ii"
+title = "Word Pattern II"
+difficulty = "medium"
+leetcode = 291
+url = "https://leetcode.com/problems/word-pattern-ii/"
+key_idea = "Backtrack over the pattern: a letter already mapped must match its string at the current position; an unmapped letter tries every next substring not already taken by another letter, using a map plus a used-set for the bijection."
+hints = ["You do not know where each piece of s ends, so try the options and undo on failure.", "Two directions must stay consistent: letter to string and string to letter."]
+prompt = """
+Implement `word_pattern_match(pattern, s)`.
+
+Return `True` if `s` follows `pattern`: there must be a bijection from the letters of
+`pattern` to non-empty strings such that replacing every letter of `pattern` with its
+string produces exactly `s`. Bijection means each letter maps to one string, and no two
+letters map to the same string.
+
+**Example 1:**
+
+```
+Input: pattern = "abab", s = "redblueredblue"
+Output: true
+```
+
+Map `a -> "red"` and `b -> "blue"`.
+
+**Example 2:**
+
+```
+Input: pattern = "aaaa", s = "asdasdasdasd"
+Output: true
+```
+
+Map `a -> "asd"`.
+
+**Example 3:**
+
+```
+Input: pattern = "aabb", s = "xyzabcxzyabc"
+Output: false
+```
+
+**Constraints:**
+
+- `1 <= pattern.length, s.length <= 20`
+- `pattern` and `s` consist of lowercase English letters
+"""

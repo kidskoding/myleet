@@ -1,0 +1,42 @@
+id = "number-of-divisible-triplet-sums"
+title = "Number of Divisible Triplet Sums"
+difficulty = "medium"
+leetcode = 2964
+url = "https://leetcode.com/problems/number-of-divisible-triplet-sums/"
+key_idea = "Fix the middle and right index; the left index needs remainder (-nums[j] - nums[k]) mod d, so keep a count of remainders seen to the left of j."
+hints = ["Only each value's remainder modulo d matters.", "If you fix two of the three indices, what remainder must the third have?"]
+prompt = """
+Implement `divisible_triplet_count(nums, d)`, which returns the number of index triplets
+`(i, j, k)` with `i < j < k` such that `nums[i] + nums[j] + nums[k]` is divisible by `d`.
+
+**Example 1:**
+
+```
+Input: nums = [3,3,4,7,8], d = 5
+Output: 3
+```
+
+The qualifying triplets are (0, 1, 2), (0, 2, 4) and (1, 2, 4), with sums 10, 15 and 15.
+
+**Example 2:**
+
+```
+Input: nums = [3,3,3,3], d = 3
+Output: 4
+```
+
+Every one of the 4 triplets sums to 9.
+
+**Example 3:**
+
+```
+Input: nums = [3,3,3,3], d = 6
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= nums.length <= 1000`
+- `1 <= nums[i] <= 10^9`
+- `1 <= d <= 10^9`
+"""

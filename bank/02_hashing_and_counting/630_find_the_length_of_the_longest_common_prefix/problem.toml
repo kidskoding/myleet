@@ -1,0 +1,7 @@
+id = "find-the-length-of-the-longest-common-prefix"
+title = "Find the Length of the Longest Common Prefix"
+difficulty = "medium"
+leetcode = 3043
+url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
+key_idea = "Put every numeric prefix of every arr1 value (repeatedly drop the last digit) in a set, then for each arr2 value drop digits until it hits the set and record the digit count."
+hints = ["A number's prefixes are what you get by integer-dividing by 10 repeatedly.", "Store all prefixes from one array so the other array can look them up."]

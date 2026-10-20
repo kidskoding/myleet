@@ -1,0 +1,7 @@
+id = "check-if-every-row-and-column-contains-all-numbers"
+title = "Check if Every Row and Column Contains All Numbers"
+difficulty = "easy"
+leetcode = 2133
+url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
+key_idea = "Every row and every column, as a set, must equal {1, ..., n}."
+hints = ["A row of length n holds all of 1..n exactly when it has n distinct values in that range.", "zip(*matrix) gives you the columns."]

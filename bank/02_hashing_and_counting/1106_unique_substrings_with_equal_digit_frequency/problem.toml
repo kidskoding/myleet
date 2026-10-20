@@ -1,0 +1,38 @@
+id = "unique-substrings-with-equal-digit-frequency"
+title = "Unique Substrings With Equal Digit Frequency"
+difficulty = "medium"
+leetcode = 2168
+url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
+key_idea = "Extend every start index to the right while keeping digit counts, the max count, and the number of distinct digits (balanced when max * distinct == length); deduplicate substrings by walking a trie or a rolling hash."
+hints = ["Grow each substring one character at a time so its digit counts update in O(1).", "Equal substrings at different positions count once, so you need a cheap way to recognise a substring you have already counted."]
+prompt = """
+Implement `equal_digit_frequency(s)`.
+
+`s` is a string of digits. Count the distinct substrings of `s` in which every digit that
+appears, appears the same number of times. A substring that occurs at several positions is
+counted once.
+
+**Example 1:**
+
+```
+Input: s = "1212"
+Output: 5
+```
+
+The qualifying substrings are `"1"`, `"2"`, `"12"`, `"21"`, and `"1212"`. `"121"` does not
+qualify because `1` appears twice and `2` once.
+
+**Example 2:**
+
+```
+Input: s = "12321"
+Output: 9
+```
+
+They are `"1"`, `"2"`, `"3"`, `"12"`, `"23"`, `"32"`, `"21"`, `"123"`, and `"321"`.
+
+**Constraints:**
+
+- `1 <= s.length <= 1000`
+- `s` consists of digits only
+"""

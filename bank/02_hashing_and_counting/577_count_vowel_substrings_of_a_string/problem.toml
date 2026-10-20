@@ -1,0 +1,7 @@
+id = "count-vowel-substrings-of-a-string"
+title = "Count Vowel Substrings of a String"
+difficulty = "easy"
+leetcode = 2062
+url = "https://leetcode.com/problems/count-vowel-substrings-of-a-string/"
+key_idea = "The string is short, so for each start extend right while characters are vowels, tracking the set seen, and count each end where all five are present."
+hints = ["With length at most 100, checking every substring is fine if each check is cheap.", "Stop extending a start as soon as you hit a consonant, and grow the vowel set incrementally."]

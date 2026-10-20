@@ -1,0 +1,7 @@
+id = "number-of-pairs-of-strings-with-concatenation-equal-to-target"
+title = "Number of Pairs of Strings With Concatenation Equal to Target"
+difficulty = "medium"
+leetcode = 2023
+url = "https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/"
+key_idea = "Count each string, then for every prefix/suffix split of target multiply the counts, subtracting the self-pair when prefix equals suffix."
+hints = ["The first string of a valid pair must be a prefix of target.", "Group equal strings so you count combinations instead of checking every pair."]

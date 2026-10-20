@@ -1,0 +1,7 @@
+id = "vowel-spellchecker"
+title = "Vowel Spellchecker"
+difficulty = "medium"
+leetcode = 966
+url = "https://leetcode.com/problems/vowel-spellchecker/"
+key_idea = "Build three lookups: an exact-word set, lowercase -> first word, and lowercase-with-vowels-masked -> first word; answer each query by trying them in that order."
+hints = ["Each precedence rule is a lookup with a different normalisation of the word.", "Only the first word in the list should win for a normalised key, so do not overwrite existing entries."]

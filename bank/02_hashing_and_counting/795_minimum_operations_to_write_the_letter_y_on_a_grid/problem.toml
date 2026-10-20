@@ -1,0 +1,7 @@
+id = "minimum-operations-to-write-the-letter-y-on-a-grid"
+title = "Minimum Operations to Write the Letter Y on a Grid"
+difficulty = "medium"
+leetcode = 3071
+url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
+key_idea = "Count values 0/1/2 inside the Y and outside it, then try all 9 (y_value, other_value) pairs with different values and keep the fewest cells that must change."
+hints = ["There are only three possible values, so the number of target colorings is tiny.", "Count how many cells already have each value in each region."]

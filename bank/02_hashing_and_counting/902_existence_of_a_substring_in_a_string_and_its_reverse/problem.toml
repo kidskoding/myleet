@@ -1,0 +1,7 @@
+id = "existence-of-a-substring-in-a-string-and-its-reverse"
+title = "Existence of a Substring in a String and Its Reverse"
+difficulty = "easy"
+leetcode = 3083
+url = "https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse/"
+key_idea = "A pair s[i]s[i+1] appears in reverse(s) iff the reversed pair s[i+1]s[i] appears in s; put all adjacent pairs in a set and check each reversed pair."
+hints = ["Reversing s reverses every length-2 substring too.", "Store every adjacent pair of s in a set."]

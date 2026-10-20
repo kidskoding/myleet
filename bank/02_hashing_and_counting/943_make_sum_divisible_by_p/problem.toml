@@ -1,0 +1,7 @@
+id = "make-sum-divisible-by-p"
+title = "Make Sum Divisible by P"
+difficulty = "medium"
+leetcode = 1590
+url = "https://leetcode.com/problems/make-sum-divisible-by-p/"
+key_idea = "Let need = total % p; scan prefix sums mod p, storing the latest index of each remainder, and look up (prefix - need) mod p to find the shortest subarray with sum = need (mod p)."
+hints = ["Removing a subarray works exactly when the subarray's sum has the same remainder as the whole array.", "A subarray sum is a difference of two prefix sums. Which earlier prefix remainder do you want, and which occurrence of it?"]

@@ -1,0 +1,7 @@
+id = "find-winner-on-a-tic-tac-toe-game"
+title = "Find Winner on a Tic Tac Toe Game"
+difficulty = "easy"
+leetcode = 1275
+url = "https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/"
+key_idea = "Keep per-row, per-column and two diagonal counters, adding +1 for A and -1 for B; a counter reaching +-3 decides the winner, otherwise it is Draw at 9 moves or Pending."
+hints = ["You do not need to build the board. What is the smallest state that tells you someone filled a line?", "Give the two players opposite signs so one counter per line is enough."]

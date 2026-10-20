@@ -1,0 +1,7 @@
+id = "most-common-word"
+title = "Most Common Word"
+difficulty = "easy"
+leetcode = 819
+url = "https://leetcode.com/problems/most-common-word/"
+key_idea = "Lowercase the paragraph, split on anything that is not a letter, drop banned words, and return the most frequent remaining word."
+hints = ["Punctuation can sit directly between two words with no space.", "Put the banned words in a set before counting."]

@@ -1,0 +1,7 @@
+id = "destroy-sequential-targets"
+title = "Destroy Sequential Targets"
+difficulty = "medium"
+leetcode = 2453
+url = "https://leetcode.com/problems/destroy-sequential-targets/"
+key_idea = "A seed destroys exactly the targets congruent to it mod space, so count values per remainder, pick the most common remainder, and return the smallest value with that remainder."
+hints = ["Two targets are hit by the same seed when they differ by a multiple of space.", "Group the numbers by their remainder modulo space."]

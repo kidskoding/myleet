@@ -1,0 +1,7 @@
+id = "add-edges-to-make-degrees-of-all-nodes-even"
+title = "Add Edges to Make Degrees of All Nodes Even"
+difficulty = "hard"
+leetcode = 2508
+url = "https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even/"
+key_idea = "Only odd-degree nodes matter: 0 is fine, 2 can be joined directly or through a third node adjacent to neither, 4 must split into two non-adjacent pairs, anything else is impossible."
+hints = ["With at most two new edges, how many odd-degree nodes can you possibly fix?", "Store edges in a set of pairs and case on the number of odd-degree nodes."]

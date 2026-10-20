@@ -1,0 +1,7 @@
+id = "minimum-index-sum-of-two-lists"
+title = "Minimum Index Sum of Two Lists"
+difficulty = "easy"
+leetcode = 599
+url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
+key_idea = "Map each string in list1 to its index, scan list2 tracking the smallest index sum, and collect every common string that ties it."
+hints = ["A hash map makes 'where does this string appear in list1' an O(1) question.", "Reset the answer list when you find a strictly smaller sum, append on a tie."]

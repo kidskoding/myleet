@@ -1,0 +1,7 @@
+id = "restore-the-array-from-adjacent-pairs"
+title = "Restore the Array From Adjacent Pairs"
+difficulty = "medium"
+leetcode = 1743
+url = "https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/"
+key_idea = "Build an adjacency map; an endpoint has exactly one neighbor, so start there and keep stepping to the neighbor that is not the previous element."
+hints = ["Every interior element has two neighbors in the pairs.", "Once you know one end, the next element is always forced."]

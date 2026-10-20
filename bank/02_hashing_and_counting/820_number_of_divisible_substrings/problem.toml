@@ -1,0 +1,59 @@
+id = "number-of-divisible-substrings"
+title = "Number of Divisible Substrings"
+difficulty = "medium"
+leetcode = 2950
+url = "https://leetcode.com/problems/number-of-divisible-substrings/"
+key_idea = "A substring qualifies when its average mapped value is a whole number 1..9; for each candidate average v, count subarrays whose (value - v) sum is zero with a prefix-sum hash map."
+hints = ["Mapped values are 1 to 9, so a divisible substring's sum / length is one of nine integers.", "Fix that quotient and subtract it from every value; what must the new sum be?"]
+prompt = """
+Implement `count_divisible_substrings(word)`.
+
+Each lowercase letter is mapped to a digit, the way letters sit on an old phone keypad:
+
+| Letters | Value |
+| --- | --- |
+| a b | 1 |
+| c d e | 2 |
+| f g h | 3 |
+| i j k | 4 |
+| l m n | 5 |
+| o p q | 6 |
+| r s t | 7 |
+| u v w | 8 |
+| x y z | 9 |
+
+A substring is **divisible** when the sum of its letters' values is divisible by the
+substring's length. Return how many non-empty substrings of `word` are divisible
+(substrings at different positions are counted separately).
+
+**Example 1:**
+
+```
+Input: word = "asdf"
+Output: 6
+```
+
+Values are 1, 7, 2, 3. The four single letters qualify, plus "as" (8 / 2) and
+"sdf" (12 / 3).
+
+**Example 2:**
+
+```
+Input: word = "bdh"
+Output: 4
+```
+
+The three single letters, plus "bdh" itself (6 / 3).
+
+**Example 3:**
+
+```
+Input: word = "abcd"
+Output: 6
+```
+
+**Constraints:**
+
+- `1 <= word.length <= 2000`
+- `word` consists of lowercase English letters
+"""

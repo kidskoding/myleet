@@ -1,0 +1,7 @@
+id = "maximum-good-subarray-sum"
+title = "Maximum Good Subarray Sum"
+difficulty = "medium"
+leetcode = 3026
+url = "https://leetcode.com/problems/maximum-good-subarray-sum/"
+key_idea = "Prefix sums plus a map from each value to the smallest prefix sum seen just before it; at index j, check the entries for nums[j] - k and nums[j] + k."
+hints = ["The sum of nums[i..j] is a difference of two prefix sums.", "For a fixed end j, you only care about starts whose value is nums[j] +/- k, and among those the smallest prefix before them."]

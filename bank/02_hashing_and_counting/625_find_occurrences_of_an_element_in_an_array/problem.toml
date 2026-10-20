@@ -1,0 +1,7 @@
+id = "find-occurrences-of-an-element-in-an-array"
+title = "Find Occurrences of an Element in an Array"
+difficulty = "medium"
+leetcode = 3159
+url = "https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array/"
+key_idea = "Record the indices where x occurs in order; query q is answered by that list's (q - 1)-th entry, or -1 when it is too short."
+hints = ["Precompute something once so each query is O(1).", "Queries are 1-indexed occurrence counts."]

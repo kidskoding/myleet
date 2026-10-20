@@ -1,0 +1,7 @@
+id = "odd-string-difference"
+title = "Odd String Difference"
+difficulty = "easy"
+leetcode = 2451
+url = "https://leetcode.com/problems/odd-string-difference/"
+key_idea = "Group words by their difference array (as a tuple); the group with a single word holds the answer."
+hints = ["Compute the difference array for every word.", "Make the arrays hashable so equal ones can be grouped."]

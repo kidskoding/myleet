@@ -1,0 +1,7 @@
+id = "maximum-equal-frequency"
+title = "Maximum Equal Frequency"
+difficulty = "hard"
+leetcode = 1224
+url = "https://leetcode.com/problems/maximum-equal-frequency/"
+key_idea = "Track count[x] and how many values have each frequency; a prefix works if all values appear once, one value appears once and the rest share a frequency, or one value is exactly one above a shared frequency."
+hints = ["Keep two maps as you extend the prefix: how often each number appears, and how many numbers have each frequency.", "List the few shapes a valid prefix can have after removing one element, and check them in O(1)."]

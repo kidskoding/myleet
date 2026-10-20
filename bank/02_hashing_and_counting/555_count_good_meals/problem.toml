@@ -1,0 +1,7 @@
+id = "count-good-meals"
+title = "Count Good Meals"
+difficulty = "medium"
+leetcode = 1711
+url = "https://leetcode.com/problems/count-good-meals/"
+key_idea = "Scan left to right with a value -> count map; for each item, add the counts of (2^p - x) for all 22 powers of two, then record x."
+hints = ["There are only about 22 powers of two that a pair sum can reach.", "For each item, ask how many earlier items would complete each possible power of two."]

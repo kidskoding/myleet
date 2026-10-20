@@ -1,0 +1,7 @@
+id = "destination-city"
+title = "Destination City"
+difficulty = "easy"
+leetcode = 1436
+url = "https://leetcode.com/problems/destination-city/"
+key_idea = "The destination is the one city that never appears as a starting point, so collect every start in a set and return the end that is not in it."
+hints = ["Every city except one has an outgoing path.", "Compare the set of cities you leave from with the cities you arrive at."]

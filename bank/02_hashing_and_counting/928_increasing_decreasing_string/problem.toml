@@ -1,0 +1,7 @@
+id = "increasing-decreasing-string"
+title = "Increasing Decreasing String"
+difficulty = "easy"
+leetcode = 1370
+url = "https://leetcode.com/problems/increasing-decreasing-string/"
+key_idea = "Count the 26 letters, then repeatedly sweep a..z and z..a, taking one of each letter that still has a count."
+hints = ["You never need the original order of s, only how many of each letter remain.", "Each step of the algorithm is just one sweep over the alphabet in some direction."]

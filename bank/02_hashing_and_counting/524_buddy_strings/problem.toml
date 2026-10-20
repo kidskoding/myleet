@@ -1,0 +1,7 @@
+id = "buddy-strings"
+title = "Buddy Strings"
+difficulty = "easy"
+leetcode = 859
+url = "https://leetcode.com/problems/buddy-strings/"
+key_idea = "Equal-length strings work if they differ in exactly two positions that cross-match, or are identical and some character repeats so swapping it changes nothing."
+hints = ["Collect the indices where the strings differ.", "If the strings are already equal you still must swap; when is that harmless?"]
