@@ -179,3 +179,38 @@ func TestModulesAndProblemsFollowReadingOrder(t *testing.T) {
 		t.Fatalf("modules should list by number with the bank last, got %s", got)
 	}
 }
+
+func TestLoadGuide(t *testing.T) {
+	root := t.TempDir()
+	files := map[string]string{
+		"curriculum/.keep":          "",
+		"guide/01_how_to_prep.md":   "# How to Prepare\n\nLearn, practice, review.\n",
+		"guide/02_python_basics.md": "Python basics without a heading.\n",
+		"guide/README.md":           "# Guide\n\nIndex for GitHub readers.\n",
+	}
+	for name, body := range files {
+		path := filepath.Join(root, name)
+		if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(path, []byte(body), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	c, err := Load(root)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(c.Guide) != 2 {
+		t.Fatalf("guide = %+v, want the 2 numbered notes", c.Guide)
+	}
+	if c.Guide[0].Title != "How to Prepare" || !strings.HasSuffix(c.Guide[0].Path, filepath.Join("guide", "01_how_to_prep.md")) {
+		t.Fatalf("guide[0] = %+v", c.Guide[0])
+	}
+	if c.Guide[1].Title != "Python Basics" {
+		t.Fatalf("a note without a heading should be titled from its file name, got %q", c.Guide[1].Title)
+	}
+	if len(c.Modules) != 0 {
+		t.Fatalf("the guide is not a module: %+v", c.Modules)
+	}
+}

@@ -68,8 +68,12 @@ type Playlist struct {
 	Entries          []PlaylistEntry
 }
 
+// GuideNote is a start-here note that belongs to no module.
+type GuideNote struct{ Title, Path string }
+
 type Catalog struct {
 	Root      string
+	Guide     []GuideNote
 	Modules   []*Module
 	Playlists []*Playlist
 

@@ -101,6 +101,7 @@ func Load(root string) (*Catalog, error) {
 		c.Modules = append(c.Modules, mod)
 	}
 	c.loadBank(filepath.Join(root, "bank"), report)
+	c.Guide = loadGuide(filepath.Join(root, "guide"))
 
 	slices.SortStableFunc(c.Modules, func(a, b *Module) int { return a.Number - b.Number })
 	for _, m := range c.Modules {
@@ -132,6 +133,38 @@ func (c *Catalog) loadBank(dir string, report func(string, string, ...any)) {
 	bank := &Module{ID: "bank", Title: bf.Title, Dir: dir, Number: 1 << 20, Bank: true}
 	c.loadTechniques(bank, dir, report)
 	c.Modules = append(c.Modules, bank)
+}
+
+func loadGuide(dir string) []GuideNote {
+	files, _ := filepath.Glob(filepath.Join(dir, "*.md"))
+	slices.Sort(files)
+	var out []GuideNote
+	for _, f := range files {
+		m := numbered.FindStringSubmatch(strings.TrimSuffix(filepath.Base(f), ".md"))
+		if m == nil {
+			continue
+		}
+		out = append(out, GuideNote{Title: noteTitle(f, m[2]), Path: f})
+	}
+	return out
+}
+
+// noteTitle is the note's first "# " heading, else its file name in title case.
+func noteTitle(path, id string) string {
+	if data, err := os.ReadFile(path); err == nil {
+		for _, line := range strings.Split(string(data), "\n") {
+			if title, ok := strings.CutPrefix(line, "# "); ok {
+				return strings.TrimSpace(title)
+			}
+		}
+	}
+	words := strings.Split(id, "_")
+	for i, w := range words {
+		if w != "" {
+			words[i] = strings.ToUpper(w[:1]) + w[1:]
+		}
+	}
+	return strings.Join(words, " ")
 }
 
 func (c *Catalog) loadTechniques(mod *Module, dir string, report func(string, string, ...any)) {
