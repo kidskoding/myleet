@@ -33,6 +33,7 @@ analyze-user-website-visit-pattern
 angle-between-hands-of-a-clock
 apply-discount-every-n-orders
 apply-operations-to-make-all-array-elements-equal-to-zero
+apply-substitutions
 arranging-coins
 array-transformation
 as-far-from-land-as-possible
@@ -62,6 +63,7 @@ best-time-to-buy-and-sell-stock-iv
 best-time-to-buy-and-sell-stock-sliding_window
 best-time-to-buy-and-sell-stock-with-cooldown
 best-time-to-buy-and-sell-stock-with-transaction-fee
+better-compression-of-string
 binary-gap
 binary-number-with-alternating-bits
 binary-search
@@ -101,6 +103,7 @@ bulls-and-cows
 burst-balloons
 bus-routes
 calculate-amount-paid-in-taxes
+calculate-score-after-performing-instructions
 camelcase-matching
 campus-bikes
 campus-bikes-ii
@@ -149,6 +152,7 @@ complement-of-base-10-integer
 concatenated-words
 concatenation-of-array
 connecting-cities-with-minimum-cost
+consecutive-numbers-sum
 constrained-subsequence-sum
 construct-binary-search-tree-from-preorder-traversal
 construct-binary-tree-from-inorder-and-postorder-traversal
@@ -156,6 +160,7 @@ construct-binary-tree-from-preorder-and-inorder-traversal
 construct-binary-tree-from-preorder-and-postorder-traversal
 construct-binary-tree-from-string
 construct-quad-tree
+construct-smallest-number-from-di-string
 construct-string-from-binary-tree
 construct-string-with-repeat-limit
 container-with-most-water
@@ -166,6 +171,7 @@ contiguous-array
 continuous-subarray-sum
 continuous-subarrays
 convert-binary-number-in-a-linked-list-to-integer
+convert-binary-search-tree-to-sorted-doubly-linked-list
 convert-bst-to-greater-tree
 convert-integer-to-the-sum-of-two-no-zero-integers
 convert-sorted-array-to-binary-search-tree
@@ -179,6 +185,7 @@ count-alternating-subarrays
 count-and-say
 count-array-pairs-divisible-by-k
 count-binary-substrings
+count-collisions-of-monkeys-on-a-polygon
 count-common-words-with-one-occurrence
 count-complete-tree-nodes
 count-days-without-meetings
@@ -197,6 +204,9 @@ count-non-decreasing-arrays-with-given-digit-sums
 count-number-of-homogenous-substrings
 count-number-of-maximum-bitwise-or-subsets
 count-number-of-nice-subarrays
+count-number-of-texts
+count-number-of-trapezoids-ii
+count-of-integers
 count-of-range-sum
 count-of-range-sum-mixed_interview_practice
 count-of-smaller-numbers-after-self
@@ -219,9 +229,15 @@ count-subtrees-with-max-distance-between-cities
 count-the-number-of-consistent-strings
 count-the-number-of-fair-pairs
 count-the-number-of-good-subarrays
+count-the-number-of-good-subsequences
+count-the-number-of-houses-at-a-certain-distance-i
+count-the-number-of-houses-at-a-certain-distance-ii
+count-the-number-of-incremovable-subarrays-ii
 count-the-number-of-infection-sequences
 count-the-number-of-vowel-strings-in-range
 count-unguarded-cells-in-the-grid
+count-unhappy-friends
+count-unreachable-pairs-of-nodes-in-an-undirected-graph
 count-visited-nodes-in-a-directed-graph
 count-vowel-strings-in-ranges
 count-vowel-substrings-of-a-string
@@ -276,6 +292,7 @@ design-bounded-blocking-queue
 design-browser-history
 design-circular-deque
 design-circular-queue
+design-event-manager
 design-excel-sum-formula
 design-file-system
 design-front-middle-back-queue
@@ -355,6 +372,8 @@ excel-sheet-column-title
 exclusive-time-of-functions
 existence-of-a-substring-in-a-string-and-its-reverse
 expression-add-operators
+expressive-words
+factor-combinations
 factorial-trailing-zeroes
 fair-distribution-of-cookies
 falling-squares
@@ -367,9 +386,11 @@ find-a-peak-element-ii
 find-a-value-of-a-mysterious-function-closest-to-target
 find-all-anagrams-in-a-string
 find-all-duplicates-in-an-array
+find-all-good-indices
 find-all-lonely-numbers-in-the-array
 find-all-numbers-disappeared-in-an-array
 find-all-possible-recipes-from-given-supplies
+find-all-possible-stable-binary-arrays-ii
 find-and-replace-in-string
 find-bottom-left-tree-value
 find-center-of-star-graph
@@ -397,6 +418,7 @@ find-minimum-diameter-after-merging-two-trees
 find-minimum-in-rotated-sorted-array
 find-minimum-in-rotated-sorted-array-ii
 find-minimum-time-to-finish-all-jobs
+find-minimum-time-to-reach-last-room-i
 find-n-unique-integers-sum-up-to-zero
 find-nearest-point-that-has-the-same-x-or-y-coordinate
 find-occurrences-of-an-element-in-an-array
@@ -416,6 +438,7 @@ find-the-duplicate-number
 find-the-duplicate-number-binary_search
 find-the-duplicate-number-two_pointers
 find-the-first-player-to-win-k-games-in-a-row
+find-the-grid-of-region-average
 find-the-index-of-the-first-occurrence-in-a-string
 find-the-k-sum-of-an-array
 find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows
@@ -448,6 +471,7 @@ finding-pairs-with-a-certain-sum
 finding-the-users-active-minutes
 first-bad-version
 first-completely-painted-row-or-column
+first-day-where-you-have-been-in-all-the-rooms
 first-missing-positive
 first-unique-character-in-a-string
 first-unique-number
@@ -456,6 +480,7 @@ flatten-2d-vector
 flatten-a-multilevel-doubly-linked-list
 flatten-binary-tree-to-linked-list
 flatten-nested-list-iterator
+flip-string-to-monotone-increasing
 flood-fill
 four-divisors
 fraction-to-recurring-decimal
@@ -472,7 +497,9 @@ gray-code
 greatest-common-divisor-of-strings
 greatest-sum-divisible-by-three
 grid-illumination
+grid-teleportation-traversal
 group-anagrams
+group-shifted-strings
 group-the-people-given-the-group-size-they-belong-to
 groups-of-strings
 grumpy-bookstore-owner
@@ -491,6 +518,8 @@ house-robber
 house-robber-ii
 house-robber-iii
 how-many-apples-can-you-put-into-the-basket
+html-entity-parser
+identify-the-largest-outlier-in-an-array
 image-smoother
 implement-magic-dictionary
 implement-queue-using-stacks
@@ -585,6 +614,7 @@ linked-list-cycle-ii
 linked-list-random-node
 logger-rate-limiter
 longest-absolute-file-path
+longest-arithmetic-sequence-after-changing-at-most-one-element
 longest-arithmetic-subsequence
 longest-balanced-subarray-i
 longest-balanced-substring-i
@@ -659,10 +689,13 @@ maximal-square
 maximize-amount-after-two-days-of-conversions
 maximize-distance-to-closest-person
 maximize-greatness-of-an-array
+maximize-palindrome-length-from-subsequences
 maximize-score-after-pair-deletions
 maximize-subarray-sum-after-removing-all-occurrences-of-one-element
 maximize-sum-of-weights-after-edge-removals
 maximize-the-topmost-element-after-k-moves
+maximize-total-tastiness-of-purchased-fruits
+maximize-value-of-function-in-a-ball-passing-game
 maximum-69-number
 maximum-absolute-sum-of-any-subarray
 maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts
@@ -670,6 +703,7 @@ maximum-area-of-two-non-overlapping-square-submatrices
 maximum-average-subarray-i
 maximum-binary-tree
 maximum-candies-you-can-get-from-boxes
+maximum-coin-collection
 maximum-coins-from-k-consecutive-bags
 maximum-deletions-on-a-string
 maximum-depth-of-binary-tree
@@ -679,6 +713,7 @@ maximum-difference-score-in-a-grid
 maximum-distance-between-unequal-words-in-array-i
 maximum-distance-in-arrays
 maximum-earnings-from-taxi
+maximum-employees-to-be-invited-to-a-meeting
 maximum-equal-frequency
 maximum-erasure-value
 maximum-frequency-score-of-a-subarray
@@ -686,12 +721,15 @@ maximum-frequency-stack
 maximum-gap
 maximum-good-subarray-sum
 maximum-height-by-stacking-cuboids
+maximum-k-to-sort-a-permutation
 maximum-length-of-a-concatenated-string-with-unique-characters
 maximum-length-of-repeated-subarray
 maximum-length-substring-with-two-occurrences
+maximum-median-sum-of-subsequences-of-size-3
 maximum-nesting-depth-of-the-parentheses
 maximum-number-of-alloys
 maximum-number-of-balloons
+maximum-number-of-eaten-apples
 maximum-number-of-events-that-can-be-attended
 maximum-number-of-events-that-can-be-attended-ii
 maximum-number-of-integers-to-choose-from-a-range-i
@@ -724,6 +762,7 @@ maximum-profit-in-job-scheduling
 maximum-profitable-triplets-with-increasing-prices-i
 maximum-profitable-triplets-with-increasing-prices-ii
 maximum-repeating-substring
+maximum-rows-covered-by-columns
 maximum-score-after-splitting-a-string
 maximum-score-from-grid-operations
 maximum-score-with-co-prime-element
@@ -744,6 +783,7 @@ maximum-sum-obtained-of-any-permutation
 maximum-sum-of-3-non-overlapping-subarrays
 maximum-sum-of-alternating-subsequence-with-distance-at-least-k
 maximum-sum-of-an-hourglass
+maximum-sum-of-distinct-subarrays-with-length-k
 maximum-sum-of-two-non-overlapping-subarrays
 maximum-swap
 maximum-total-beauty-of-the-gardens
@@ -805,13 +845,17 @@ minimum-array-length-after-pair-removals
 minimum-bit-flips-to-convert-number
 minimum-changes-to-make-alternating-binary-string
 minimum-cost-for-tickets
+minimum-cost-good-caption
 minimum-cost-homecoming-of-a-robot-in-a-grid
 minimum-cost-of-a-path-with-special-roads
 minimum-cost-path-with-edge-reversals
 minimum-cost-to-connect-sticks
 minimum-cost-to-convert-string-i
 minimum-cost-to-convert-string-ii
+minimum-cost-to-equalize-array
+minimum-cost-to-equalize-arrays-using-swaps
 minimum-cost-to-hire-k-workers
+minimum-cost-to-make-all-characters-equal
 minimum-cost-to-make-array-equal
 minimum-cost-to-make-at-least-one-valid-path-in-a-grid
 minimum-cost-to-merge-stones
@@ -831,13 +875,17 @@ minimum-falling-path-sum
 minimum-flips-to-make-a-or-b-equal-to-c
 minimum-genetic-mutation
 minimum-height-trees
+minimum-increase-to-maximize-special-indices
 minimum-index-sum-of-two-lists
 minimum-initial-energy-to-finish-tasks
 minimum-interval-to-include-each-query
 minimum-jumps-to-reach-home
 minimum-knight-moves
+minimum-length-of-string-after-deleting-similar-ends
+minimum-length-of-string-after-operations
 minimum-levels-to-gain-more-points
 minimum-limit-of-balls-in-a-bag
+minimum-moves-to-capture-the-queen
 minimum-moves-to-equal-array-elements
 minimum-moves-to-equal-array-elements-iii
 minimum-moves-to-reach-target-score
@@ -851,6 +899,7 @@ minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix
 minimum-number-of-flips-to-make-the-binary-string-alternating
 minimum-number-of-food-buckets-to-feed-the-hamsters
 minimum-number-of-frogs-croaking
+minimum-number-of-increments-on-subarrays-to-form-a-target-array
 minimum-number-of-lines-to-cover-points
 minimum-number-of-moves-to-make-palindrome
 minimum-number-of-operations-to-make-arrays-similar
@@ -869,6 +918,7 @@ minimum-operations-to-make-all-array-elements-equal
 minimum-operations-to-make-array-equal-ii
 minimum-operations-to-make-array-non-decreasing
 minimum-operations-to-make-array-values-equal-to-k
+minimum-operations-to-make-character-frequencies-equal
 minimum-operations-to-make-columns-strictly-increasing
 minimum-operations-to-make-median-of-array-equal-to-k
 minimum-operations-to-make-numbers-non-positive
@@ -882,6 +932,7 @@ minimum-recolors-to-get-k-consecutive-black-blocks
 minimum-removals-to-balance-array
 minimum-remove-to-make-valid-parentheses
 minimum-replacements-to-sort-the-array
+minimum-rounds-to-complete-all-tasks
 minimum-runes-to-add-to-cast-spell
 minimum-score-triangulation-of-polygon
 minimum-sensors-to-cover-grid
@@ -940,6 +991,7 @@ next-greater-element-iii
 next-greater-node-in-linked-list
 next-permutation
 nim-game
+non-decreasing-array
 non-decreasing-subsequences
 non-overlapping-intervals
 non-overlapping-intervals-intervals
@@ -963,6 +1015,7 @@ number-of-enclaves
 number-of-equal-count-substrings
 number-of-flowers-in-full-bloom
 number-of-good-binary-strings
+number-of-good-leaf-nodes-pairs
 number-of-increasing-paths-in-a-grid
 number-of-islands
 number-of-islands-ii
@@ -977,6 +1030,7 @@ number-of-possible-sets-of-closing-branches
 number-of-provinces
 number-of-provinces-advanced
 number-of-recent-calls
+number-of-squareful-arrays
 number-of-steps-to-reduce-a-number-in-binary-representation-to-one
 number-of-steps-to-reduce-a-number-to-zero
 number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold
@@ -997,6 +1051,7 @@ number-of-ways-to-build-house-of-cards
 number-of-ways-to-buy-pens-and-pencils
 number-of-ways-to-form-a-target-string-given-a-dictionary
 number-of-ways-to-paint-n-3-grid
+number-of-ways-to-reconstruct-a-tree
 number-of-ways-to-separate-numbers
 number-of-ways-to-split-array
 number-of-ways-to-wear-different-hats-to-each-other
@@ -1060,6 +1115,7 @@ permutation-in-string
 permutation-sequence
 permutations
 permutations-ii
+permutations-iii
 plates-between-candles
 plus-one
 points-that-intersect-with-cars
@@ -1080,6 +1136,7 @@ product-of-the-last-k-numbers
 push-dominoes
 put-boxes-into-the-warehouse-i
 put-boxes-into-the-warehouse-ii
+pyramid-transition-matrix
 pythagorean-distance-nodes-in-a-tree
 queries-on-number-of-points-inside-a-circle
 query-kth-smallest-trimmed-number
@@ -1097,6 +1154,7 @@ rank-teams-by-votes
 rank-transform-of-a-matrix
 rank-transform-of-an-array
 ransom-note
+reach-a-number
 reaching-points
 read-n-characters-given-read4
 read-n-characters-given-read4-ii-call-multiple-times
@@ -1116,6 +1174,7 @@ redundant-connection-ii
 reformat-date
 regular-expression-matching
 relative-sort-array
+remove-adjacent-almost-equal-characters
 remove-all-adjacent-duplicates-in-string
 remove-all-adjacent-duplicates-in-string-ii
 remove-all-occurrences-of-a-substring
@@ -1140,6 +1199,7 @@ remove-nth-node-from-end-of-list
 remove-one-element-to-make-the-array-strictly-increasing
 remove-stones-to-minimize-the-total
 remove-sub-folders-from-the-filesystem
+remove-zero-sum-consecutive-nodes-from-linked-list
 removing-minimum-number-of-magic-beans
 reorder-data-in-log-files
 reorder-list
@@ -1151,6 +1211,7 @@ repeated-string-match
 repeated-substring-pattern
 replace-the-substring-for-balanced-string
 replace-words
+report-spam-message
 reshape-the-matrix
 restore-ip-addresses
 restore-the-array-from-adjacent-pairs
@@ -1227,6 +1288,7 @@ shortest-unsorted-continuous-subarray
 shortest-way-to-form-string
 shortest-word-distance
 shortest-word-distance-ii
+shortest-word-distance-iii
 shuffle-an-array
 shuffle-the-array
 simple-bank-system
@@ -1251,6 +1313,7 @@ smallest-range-covering-elements-from-k-lists
 smallest-range-i
 smallest-range-ii
 smallest-string-with-swaps
+smallest-substring-with-identical-characters-i
 smallest-substring-with-identical-characters-ii
 smallest-subtree-with-all-the-deepest-nodes
 smallest-sufficient-team
@@ -1261,8 +1324,11 @@ sort-array-by-parity
 sort-characters-by-frequency
 sort-colors
 sort-colors-two_pointers
+sort-integers-by-the-power-value
 sort-items-by-groups-respecting-dependencies
 sort-list
+sort-the-jumbled-numbers
+sort-the-matrix-diagonally
 sort-the-students-by-their-kth-score
 sort-transformed-array
 soup-servings
@@ -1294,6 +1360,7 @@ string-compression
 string-compression-iii
 string-to-integer-atoi
 string-transformation
+strings-differ-by-one-character
 strobogrammatic-number
 strobogrammatic-number-ii
 strobogrammatic-number-iii
@@ -1305,6 +1372,7 @@ subarrays-with-k-different-integers
 subarrays-with-k-different-integers-sliding_window
 subdomain-visit-count
 subsequence-of-size-k-with-the-largest-even-sum
+subsequence-with-the-minimum-score
 subsets
 subsets-bit_manipulation
 subsets-ii
@@ -1319,11 +1387,13 @@ sum-of-k-mirror-numbers
 sum-of-left-leaves
 sum-of-subarray-minimums
 sum-of-subarray-ranges
+sum-of-total-strength-of-wizards
 sum-of-two-integers
 sum-root-to-leaf-numbers
 summary-ranges
 super-ugly-number
 surrounded-regions
+swap-adjacent-in-lr-string
 swap-for-longest-repeated-character-substring
 swap-nodes-in-pairs
 swapping-nodes-in-a-linked-list
@@ -1333,6 +1403,8 @@ symmetric-tree
 synonymous-sentences
 tag-validator
 take-gifts-from-the-richest-pile
+taking-maximum-energy-from-the-mystic-dungeon
+tallest-billboard
 target-sum
 task-scheduler
 task-scheduler-greedy_algorithms
@@ -1341,6 +1413,7 @@ teemo-attacking
 ternary-expression-parser
 text-justification
 the-earliest-moment-when-everyone-become-friends
+the-employee-that-worked-on-the-longest-task
 the-kth-factor-of-n
 the-maze
 the-maze-ii
@@ -1349,17 +1422,21 @@ the-number-of-good-subsets
 the-skyline-problem
 the-skyline-problem-advanced
 the-skyline-problem-intervals
+the-time-when-the-network-becomes-idle
+threshold-majority-queries
 throne-inheritance
 time-based-key-value-store
 time-needed-to-buy-tickets
 time-needed-to-inform-all-employees
 time-needed-to-rearrange-a-binary-string
+time-to-cross-a-bridge
 top-k-frequent-elements
 top-k-frequent-elements-heaps
 top-k-frequent-words
 toss-strange-coins
 total-hamming-distance
 transform-binary-string-using-subsequence-sort
+transform-to-chessboard
 transpose-matrix
 trapping-rain-water
 trapping-rain-water-ii
@@ -1382,6 +1459,7 @@ unique-paths
 unique-paths-ii
 unique-paths-iii
 unique-substrings-with-equal-digit-frequency
+unit-conversion-i
 univalued-binary-tree
 using-a-robot-to-print-the-lexicographically-smallest-string
 utf-8-validation
@@ -1390,6 +1468,7 @@ valid-arrangement-of-pairs
 valid-number
 valid-palindrome
 valid-palindrome-ii
+valid-palindrome-iii
 valid-parentheses
 valid-parenthesis-string
 valid-square
@@ -1402,6 +1481,7 @@ validate-binary-tree-nodes
 validate-ip-address
 validate-stack-sequences
 verbal-arithmetic-puzzle
+verify-preorder-sequence-in-binary-search-tree
 verifying-an-alien-dictionary
 vertical-order-traversal-of-a-binary-tree
 video-stitching
@@ -1427,6 +1507,7 @@ word-search
 word-search-ii
 word-search-ii-mixed_interview_practice
 word-squares
+word-squares-ii
 xor-queries-of-a-subarray
 zigzag-conversion
 zigzag-iterator
