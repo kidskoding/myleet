@@ -1,0 +1,7 @@
+id = "find-and-replace-in-string"
+title = "Find And Replace in String"
+difficulty = "medium"
+leetcode = 833
+url = "https://leetcode.com/problems/find-and-replace-in-string/"
+key_idea = "Since all matches are checked against the original string, record for each index which replacement (if any) applies there, then build the output in one left-to-right pass."
+hints = ["Applying replacements one by one shifts indices; avoid mutating s while you go.", "Check every source against the original s first, then assemble the answer."]

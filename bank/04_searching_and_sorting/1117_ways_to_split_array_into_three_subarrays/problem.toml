@@ -1,0 +1,7 @@
+id = "ways-to-split-array-into-three-subarrays"
+title = "Ways to Split Array Into Three Subarrays"
+difficulty = "medium"
+leetcode = 1712
+url = "https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/"
+key_idea = "With prefix sums P, fix the end of left at i; valid mid ends j satisfy 2 * P[i] <= P[j] <= (total + P[i]) / 2, a contiguous range found by two binary searches (or two moving pointers)."
+hints = ["Fix where the left part ends and ask which mid endpoints work.", "All values are non-negative, so prefix sums never decrease: the valid endpoints form one contiguous block."]

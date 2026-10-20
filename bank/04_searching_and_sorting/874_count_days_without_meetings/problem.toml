@@ -1,0 +1,7 @@
+id = "count-days-without-meetings"
+title = "Count Days Without Meetings"
+difficulty = "medium"
+leetcode = 3169
+url = "https://leetcode.com/problems/count-days-without-meetings/"
+key_idea = "Sort meetings by start, merge overlapping intervals while summing covered days, and subtract the covered total from days."
+hints = ["Overlapping meetings must not be double-counted.", "After sorting by start, you only ever need to compare with the furthest end seen so far."]

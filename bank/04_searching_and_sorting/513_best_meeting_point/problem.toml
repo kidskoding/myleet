@@ -1,0 +1,35 @@
+id = "best-meeting-point"
+title = "Best Meeting Point"
+difficulty = "hard"
+leetcode = 296
+url = "https://leetcode.com/problems/best-meeting-point/"
+key_idea = "Manhattan distance splits into independent row and column sums, and each one-dimensional sum is minimized at the median; collect rows and columns in sorted order and sum distances to the medians."
+hints = ["Can the row choice and the column choice be made separately?", "On a line, which point minimizes the total distance to a set of points?"]
+prompt = """
+Implement `min_total_distance(grid)`. The grid holds `0`s and `1`s, and every `1` marks the
+home of one friend. Choose a single meeting cell (any cell, homes included) that minimizes
+the total travel distance, where each friend's distance is the Manhattan distance
+`|r1 - r2| + |c1 - c2|` from their home to the meeting cell. Return that minimum total.
+
+**Example 1:**
+
+```
+Input: grid = [[1,0,0,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+Output: 6
+```
+
+Meeting at `(0, 2)` costs `2 + 2 + 2 = 6`, and no cell does better.
+
+**Example 2:**
+
+```
+Input: grid = [[1,1]]
+Output: 1
+```
+
+**Constraints:**
+
+- `1 <= len(grid), len(grid[0]) <= 200`
+- `grid[i][j]` is `0` or `1`
+- There are at least two friends in the grid
+"""

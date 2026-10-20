@@ -1,0 +1,7 @@
+id = "minimum-operations-to-make-all-array-elements-equal"
+title = "Minimum Operations to Make All Array Elements Equal"
+difficulty = "medium"
+leetcode = 2602
+url = "https://leetcode.com/problems/minimum-operations-to-make-all-array-elements-equal/"
+key_idea = "Sort nums and build prefix sums; for each query binary search the split point, then cost = q * left_count - left_sum + right_sum - q * right_count."
+hints = ["The cost for a query is a sum of absolute differences; split it by which side of the query each value is on.", "After sorting, each side is a contiguous block whose sum you can get in O(1)."]

@@ -1,0 +1,7 @@
+id = "query-kth-smallest-trimmed-number"
+title = "Query Kth Smallest Trimmed Number"
+difficulty = "medium"
+leetcode = 2343
+url = "https://leetcode.com/problems/query-kth-smallest-trimmed-number/"
+key_idea = "For each query sort (trimmed string, index) pairs; equal-length digit strings compare correctly as strings, and the index breaks ties."
+hints = ["All trimmed numbers have the same length, so you never need to convert them to integers.", "Sort with a key that also handles ties by index."]

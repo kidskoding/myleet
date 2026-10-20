@@ -1,0 +1,7 @@
+id = "preimage-size-of-factorial-zeroes-function"
+title = "Preimage Size of Factorial Zeroes Function"
+difficulty = "hard"
+leetcode = 793
+url = "https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/"
+key_idea = "Trailing zeros of x! are non-decreasing in x and stay constant on blocks of 5, so the answer is 5 or 0; binary-search the first x with at least k zeros and check whether it has exactly k."
+hints = ["How does the number of trailing zeros change as x grows by one?", "It never decreases, so you can search for where it first reaches k."]

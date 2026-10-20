@@ -1,0 +1,7 @@
+id = "maximum-gap"
+title = "Maximum Gap"
+difficulty = "medium"
+leetcode = 164
+url = "https://leetcode.com/problems/maximum-gap/"
+key_idea = "Bucket sort by pigeonhole: with n values spread over [min, max], buckets of width ceil((max - min) / (n - 1)) mean the largest gap is between one bucket's max and the next non-empty bucket's min."
+hints = ["Sorting works but costs O(n log n); aim for linear time.", "The maximum gap is at least (max - min) / (n - 1), so it never lies inside a bucket of that width."]

@@ -1,0 +1,7 @@
+id = "smallest-substring-with-identical-characters-ii"
+title = "Smallest Substring With Identical Characters II"
+difficulty = "hard"
+leetcode = 3399
+url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
+key_idea = "Binary search the answer L; for L >= 2 a run of length r needs r // (L + 1) flips, and L = 1 needs the cheaper of the two alternating patterns."
+hints = ["If a longest run of L is achievable, so is any larger limit; that monotonicity invites binary search.", "For a fixed limit, count the flips run by run, but treat a limit of 1 separately since flips there can merge with neighbours."]

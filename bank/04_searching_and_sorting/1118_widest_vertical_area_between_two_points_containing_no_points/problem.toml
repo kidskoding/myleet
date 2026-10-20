@@ -1,0 +1,7 @@
+id = "widest-vertical-area-between-two-points-containing-no-points"
+title = "Widest Vertical Area Between Two Points Containing No Points"
+difficulty = "easy"
+leetcode = 1637
+url = "https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/"
+key_idea = "Only x-coordinates matter: sort them and return the largest gap between neighbours."
+hints = ["The y-coordinates never affect whether a vertical strip is empty.", "An empty strip must lie between two consecutive x values."]

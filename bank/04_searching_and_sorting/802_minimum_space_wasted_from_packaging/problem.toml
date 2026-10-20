@@ -1,0 +1,7 @@
+id = "minimum-space-wasted-from-packaging"
+title = "Minimum Space Wasted From Packaging"
+difficulty = "hard"
+leetcode = 1889
+url = "https://leetcode.com/problems/minimum-space-wasted-from-packaging/"
+key_idea = "Sort packages with prefix sums; for each supplier walk its sorted boxes, using binary search to find how many packages each box size absorbs, and total box space minus package space is the waste."
+hints = ["Waste equals total box space used minus total package size, so minimize the box space.", "For one supplier, each sorted box size takes the block of remaining packages it can fit; find the block boundary with binary search."]

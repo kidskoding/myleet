@@ -1,0 +1,7 @@
+id = "special-binary-string"
+title = "Special Binary String"
+difficulty = "hard"
+leetcode = 761
+url = "https://leetcode.com/problems/special-binary-string/"
+key_idea = "Split the string into top-level special blocks; each block is 1 + inner + 0, so recursively maximize every inner part, then sort the blocks in descending order and join."
+hints = ["A special string behaves like balanced parentheses with 1 as '(' and 0 as ')'.", "Swaps only reorder adjacent balanced blocks at the same depth; optimize each block's inside first, then order the blocks."]

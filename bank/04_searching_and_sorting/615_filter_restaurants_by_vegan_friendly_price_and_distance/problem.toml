@@ -1,0 +1,7 @@
+id = "filter-restaurants-by-vegan-friendly-price-and-distance"
+title = "Filter Restaurants by Vegan-Friendly, Price and Distance"
+difficulty = "medium"
+leetcode = 1333
+url = "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/"
+key_idea = "Filter by the three conditions (vegan only matters when the flag is 1), then sort by (rating, id) descending and return the ids."
+hints = ["A veganFriendly value of 0 means the filter is off, not that vegan places are excluded.", "Sort by a key that breaks rating ties with the id."]

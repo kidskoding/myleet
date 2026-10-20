@@ -1,0 +1,7 @@
+id = "minimum-limit-of-balls-in-a-bag"
+title = "Minimum Limit of Balls in a Bag"
+difficulty = "medium"
+leetcode = 1760
+url = "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/"
+key_idea = "Binary search the penalty p; a bag of size x needs (x - 1) // p splits, so p is feasible when the total splits fit in maxOperations."
+hints = ["Fix a candidate maximum bag size and ask how many operations it costs.", "Feasibility is monotonic in the candidate size."]

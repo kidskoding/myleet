@@ -1,0 +1,7 @@
+id = "block-placement-queries"
+title = "Block Placement Queries"
+difficulty = "hard"
+leetcode = 3161
+url = "https://leetcode.com/problems/block-placement-queries/"
+key_idea = "Keep obstacles sorted and a max segment tree indexed by obstacle position holding the gap that ends there; a block of size sz fits before x when the largest gap among obstacles <= x, or x minus the last obstacle, is at least sz."
+hints = ["Placing a block in [0, x] only needs one long enough empty stretch, so think in terms of gaps between obstacles.", "Inserting an obstacle splits one gap into two; you need a structure that updates a point and answers a prefix maximum."]

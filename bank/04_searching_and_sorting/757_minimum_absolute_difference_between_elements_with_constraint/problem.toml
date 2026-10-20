@@ -1,0 +1,7 @@
+id = "minimum-absolute-difference-between-elements-with-constraint"
+title = "Minimum Absolute Difference Between Elements With Constraint"
+difficulty = "medium"
+leetcode = 2817
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
+key_idea = "Sweep i from x upward, adding nums[i - x] to a sorted list; binary search that list for the closest value to nums[i]."
+hints = ["For index i, the allowed partners on the left are exactly nums[0..i - x].", "Keep those partners sorted so the nearest value is a binary search away."]

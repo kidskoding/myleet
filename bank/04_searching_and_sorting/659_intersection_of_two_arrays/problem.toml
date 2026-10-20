@@ -1,0 +1,7 @@
+id = "intersection-of-two-arrays"
+title = "Intersection of Two Arrays"
+difficulty = "easy"
+leetcode = 349
+url = "https://leetcode.com/problems/intersection-of-two-arrays/"
+key_idea = "Put one array in a hash set and keep the distinct values of the other that appear in it (or sort both and walk two pointers)."
+hints = ["Each value should appear at most once in the answer.", "Fast membership checks make this linear."]

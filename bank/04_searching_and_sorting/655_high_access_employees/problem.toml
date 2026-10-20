@@ -1,0 +1,7 @@
+id = "high-access-employees"
+title = "High-Access Employees"
+difficulty = "medium"
+leetcode = 2933
+url = "https://leetcode.com/problems/high-access-employees/"
+key_idea = "Group times by employee in minutes, sort each list, and check whether any time t[i + 2] - t[i] is under 60."
+hints = ["Convert each HHMM string to minutes since midnight.", "After sorting one employee's times, three accesses in an hour means some window of three consecutive times is short."]

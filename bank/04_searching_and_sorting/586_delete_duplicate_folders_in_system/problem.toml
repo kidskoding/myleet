@@ -1,0 +1,7 @@
+id = "delete-duplicate-folders-in-system"
+title = "Delete Duplicate Folders in System"
+difficulty = "hard"
+leetcode = 1948
+url = "https://leetcode.com/problems/delete-duplicate-folders-in-system/"
+key_idea = "Build a trie of the folders, serialize each non-leaf subtree canonically (children sorted), count serializations, then skip every node whose serialization appears twice or more when listing paths."
+hints = ["Identical folders have identical subtree shapes, so give each subtree a canonical string.", "Serialize bottom-up with children in sorted order, count the strings in a hash map, and do a second pass that skips duplicated subtrees."]

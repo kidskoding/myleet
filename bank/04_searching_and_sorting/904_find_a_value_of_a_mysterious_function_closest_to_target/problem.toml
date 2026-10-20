@@ -1,0 +1,7 @@
+id = "find-a-value-of-a-mysterious-function-closest-to-target"
+title = "Find a Value of a Mysterious Function Closest to Target"
+difficulty = "hard"
+leetcode = 1521
+url = "https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target/"
+key_idea = "The mysterious function is the AND of arr[l..r]. ANDs of subarrays ending at r take at most ~20 distinct values, so carry that set from r - 1 to r and track the closest value to target."
+hints = ["Figure out what func computes; extending a range can only clear bits.", "For a fixed right end, how many distinct results can there be as the left end moves?"]

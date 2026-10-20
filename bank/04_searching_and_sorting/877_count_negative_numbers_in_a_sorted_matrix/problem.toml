@@ -1,0 +1,7 @@
+id = "count-negative-numbers-in-a-sorted-matrix"
+title = "Count Negative Numbers in a Sorted Matrix"
+difficulty = "easy"
+leetcode = 1351
+url = "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/"
+key_idea = "Walk a staircase from the bottom-left corner: if the cell is negative, the rest of its row is too, so add them and move up; otherwise move right. O(m + n)."
+hints = ["Both rows and columns are sorted in non-increasing order.", "Start at a corner where one move increases the value and the other decreases it."]

@@ -1,0 +1,7 @@
+id = "sort-the-students-by-their-kth-score"
+title = "Sort the Students by Their Kth Score"
+difficulty = "medium"
+leetcode = 2545
+url = "https://leetcode.com/problems/sort-the-students-by-their-kth-score/"
+key_idea = "Sort the rows by the value in column k, descending; scores are distinct so there are no ties."
+hints = ["Each row moves as a whole; only one column decides the order.", "A sort with a key on row[k], reversed, is all it takes."]

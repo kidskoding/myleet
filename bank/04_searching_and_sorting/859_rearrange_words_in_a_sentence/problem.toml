@@ -1,0 +1,7 @@
+id = "rearrange-words-in-a-sentence"
+title = "Rearrange Words in a Sentence"
+difficulty = "medium"
+leetcode = 1451
+url = "https://leetcode.com/problems/rearrange-words-in-a-sentence/"
+key_idea = "Lowercase the words, stable-sort them by length, then capitalize the first word."
+hints = ["Python's sort keeps equal-length words in their original order.", "Fix the capitalization before and after sorting."]

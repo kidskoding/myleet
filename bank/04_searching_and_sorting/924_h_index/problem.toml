@@ -1,0 +1,7 @@
+id = "h-index"
+title = "H-Index"
+difficulty = "medium"
+leetcode = 274
+url = "https://leetcode.com/problems/h-index/"
+key_idea = "Sort citations in descending order; h is the number of positions i where citations[i] >= i + 1 (or bucket-count citations capped at n)."
+hints = ["After sorting from most to least cited, what must hold for the paper at position i if h >= i + 1?", "Counts above n can be treated as n, which allows a linear-time bucket solution."]

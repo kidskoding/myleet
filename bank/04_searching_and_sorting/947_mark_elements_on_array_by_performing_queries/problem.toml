@@ -1,0 +1,7 @@
+id = "mark-elements-on-array-by-performing-queries"
+title = "Mark Elements on Array by Performing Queries"
+difficulty = "medium"
+leetcode = 3080
+url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
+key_idea = "Sort indices by (value, index) once and keep a pointer into that order that skips already-marked indices, maintaining the unmarked sum as you mark."
+hints = ["The order in which the 'smallest unmarked' elements get picked never changes. Can you compute it once?", "Elements marked directly by index must be skipped later, so keep a marked flag per index and a running total."]

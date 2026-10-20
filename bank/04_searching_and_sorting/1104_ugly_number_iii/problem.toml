@@ -1,0 +1,7 @@
+id = "ugly-number-iii"
+title = "Ugly Number III"
+difficulty = "medium"
+leetcode = 1201
+url = "https://leetcode.com/problems/ugly-number-iii/"
+key_idea = "Binary search the answer x: the count of numbers <= x divisible by a, b, or c comes from inclusion-exclusion with pairwise and triple LCMs; find the smallest x with count >= n."
+hints = ["Counting how many ugly numbers are at most x is easy; generating them one by one is not.", "Divisible by a or b counts x//a + x//b minus the overlap, which is divisibility by lcm(a, b)."]

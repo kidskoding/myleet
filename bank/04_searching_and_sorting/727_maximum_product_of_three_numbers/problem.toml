@@ -1,0 +1,7 @@
+id = "maximum-product-of-three-numbers"
+title = "Maximum Product of Three Numbers"
+difficulty = "easy"
+leetcode = 628
+url = "https://leetcode.com/problems/maximum-product-of-three-numbers/"
+key_idea = "Sort; the answer is either the three largest or the two smallest (most negative) times the largest."
+hints = ["Two negatives multiply to a positive.", "After sorting, only a couple of candidate triples can win."]

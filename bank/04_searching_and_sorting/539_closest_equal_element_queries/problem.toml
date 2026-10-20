@@ -1,0 +1,7 @@
+id = "closest-equal-element-queries"
+title = "Closest Equal Element Queries"
+difficulty = "medium"
+leetcode = 3488
+url = "https://leetcode.com/problems/closest-equal-element-queries/"
+key_idea = "Group indices by value; in each sorted group the nearest equal element around the circle is the previous or next index in cyclic order, so precompute that distance per index."
+hints = ["Only indices holding the same value matter for a query.", "On a circle, the closest equal index is one of the two neighbors in that value's sorted index list, wrapping around."]

@@ -1,0 +1,7 @@
+id = "divide-an-array-into-subarrays-with-minimum-cost-i"
+title = "Divide an Array Into Subarrays With Minimum Cost I"
+difficulty = "easy"
+leetcode = 3010
+url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-i/"
+key_idea = "nums[0] is always paid; the other two subarrays can start at any two later indices, so add the two smallest values of nums[1:]."
+hints = ["The first subarray always starts at index 0.", "Any two distinct later indices can be the other two starting points."]

@@ -1,0 +1,7 @@
+id = "count-the-number-of-fair-pairs"
+title = "Count the Number of Fair Pairs"
+difficulty = "medium"
+leetcode = 2563
+url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
+key_idea = "Order does not matter for pair sums, so sort and count pairs with sum <= upper minus pairs with sum <= lower - 1, each with two pointers."
+hints = ["The answer does not depend on the original order of nums.", "Counting pairs with sum at most some bound is easy on a sorted array; use it twice."]

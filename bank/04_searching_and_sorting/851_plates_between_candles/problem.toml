@@ -1,0 +1,7 @@
+id = "plates-between-candles"
+title = "Plates Between Candles"
+difficulty = "medium"
+leetcode = 2055
+url = "https://leetcode.com/problems/plates-between-candles/"
+key_idea = "Precompute prefix counts of plates plus the nearest candle to the right of each index and to the left of each index; a query's answer is the plates between those two candles."
+hints = ["Only plates between the first and last candle inside the range count.", "Precompute, for every index, where the closest candle is in each direction."]

@@ -1,0 +1,7 @@
+id = "find-the-k-sum-of-an-array"
+title = "Find the K-Sum of an Array"
+difficulty = "hard"
+leetcode = 2386
+url = "https://leetcode.com/problems/find-the-k-sum-of-an-array/"
+key_idea = "The largest sum is the sum of positives; every other sum is that minus a subset of sorted absolute values, so enumerate the k smallest subset sums with a heap that either extends or swaps the last chosen element."
+hints = ["Start from the best possible sum. What does picking a negative number or dropping a positive number cost you?", "Generate subset sums of sorted non-negative costs in increasing order, one heap pop at a time."]

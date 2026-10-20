@@ -1,0 +1,7 @@
+id = "sort-array-by-parity"
+title = "Sort Array By Parity"
+difficulty = "easy"
+leetcode = 905
+url = "https://leetcode.com/problems/sort-array-by-parity/"
+key_idea = "Two pointers: a write index for the next even slot; swap each even element you meet into it."
+hints = ["Any arrangement with all evens before all odds is accepted.", "Keep a boundary index; everything before it is even."]

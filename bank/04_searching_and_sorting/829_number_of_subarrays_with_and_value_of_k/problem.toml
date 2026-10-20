@@ -1,0 +1,7 @@
+id = "number-of-subarrays-with-and-value-of-k"
+title = "Number of Subarrays With AND Value of K"
+difficulty = "hard"
+leetcode = 3209
+url = "https://leetcode.com/problems/number-of-subarrays-with-and-value-of-k/"
+key_idea = "The ANDs of subarrays ending at each index take at most ~30 distinct values; carry a map from AND value to count forward and add the count for k."
+hints = ["Extending a subarray can only turn bits off.", "For a fixed right end, how many different AND values can the subarrays ending there have?"]

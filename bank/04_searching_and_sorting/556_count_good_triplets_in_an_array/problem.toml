@@ -1,0 +1,7 @@
+id = "count-good-triplets-in-an-array"
+title = "Count Good Triplets in an Array"
+difficulty = "hard"
+leetcode = 2179
+url = "https://leetcode.com/problems/count-good-triplets-in-an-array/"
+key_idea = "Relabel values by their position in nums2, then for each middle element count smaller-before and larger-after with a Fenwick tree and multiply."
+hints = ["Fix the middle element of the triplet and count choices on each side.", "After mapping every value to its index in nums2, you need how many earlier elements have a smaller index; a Fenwick tree answers that."]

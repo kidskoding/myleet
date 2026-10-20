@@ -1,0 +1,7 @@
+id = "find-products-of-elements-of-big-array"
+title = "Find Products of Elements of Big Array"
+difficulty = "hard"
+leetcode = 3145
+url = "https://leetcode.com/problems/find-products-of-elements-of-big-array/"
+key_idea = "Every element is a power of two, so a range product is 2 raised to a sum of exponents; compute exponent prefix sums over big_nums by counting bits per position up to a number, and binary search which number an index falls in."
+hints = ["Multiplying powers of two only adds their exponents.", "The number of set bits (and their positions) over 1..m can be counted bit position by bit position without listing the numbers."]

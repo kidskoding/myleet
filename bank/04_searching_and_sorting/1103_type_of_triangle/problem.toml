@@ -1,0 +1,7 @@
+id = "type-of-triangle"
+title = "Type of Triangle"
+difficulty = "easy"
+leetcode = 3024
+url = "https://leetcode.com/problems/type-of-triangle/"
+key_idea = "Sort the three sides; it is a triangle only if the two smaller sum to more than the largest, then classify by how many distinct lengths there are."
+hints = ["Check whether a triangle exists before naming its type.", "After sorting, only one of the three triangle inequalities can fail."]

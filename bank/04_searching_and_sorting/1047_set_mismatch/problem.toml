@@ -1,0 +1,7 @@
+id = "set-mismatch"
+title = "Set Mismatch"
+difficulty = "easy"
+leetcode = 645
+url = "https://leetcode.com/problems/set-mismatch/"
+key_idea = "Spot the duplicate as the value seen twice; the missing value is 1..n's sum minus the array's sum with the duplicate taken out."
+hints = ["Exactly one value appears twice and exactly one in 1..n is absent.", "Once you know the duplicate, compare the array's sum with the sum of 1..n."]

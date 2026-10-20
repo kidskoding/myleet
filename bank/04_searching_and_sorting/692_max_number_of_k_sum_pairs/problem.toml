@@ -1,0 +1,7 @@
+id = "max-number-of-k-sum-pairs"
+title = "Max Number of K-Sum Pairs"
+difficulty = "medium"
+leetcode = 1679
+url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
+key_idea = "Count values in a hash map; for each number, if its complement k - x is waiting, use one and count a pair, otherwise leave x waiting."
+hints = ["Each operation pairs a number with exactly one partner.", "Process numbers one at a time and remember the unmatched ones."]

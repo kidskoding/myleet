@@ -1,0 +1,7 @@
+id = "find-right-interval"
+title = "Find Right Interval"
+difficulty = "medium"
+leetcode = 436
+url = "https://leetcode.com/problems/find-right-interval/"
+key_idea = "Sort the (start, index) pairs once, then binary search each interval's end for the first start >= end."
+hints = ["For each interval you need the smallest start that is at least its end. What structure answers that quickly?", "Keep the original index next to each start when you reorder them."]

@@ -1,0 +1,7 @@
+id = "count-ways-to-group-overlapping-ranges"
+title = "Count Ways to Group Overlapping Ranges"
+difficulty = "medium"
+leetcode = 2580
+url = "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/"
+key_idea = "Sort by start and merge overlapping ranges into connected groups; each group independently picks one of two sides, so the answer is 2^groups mod 1e9+7."
+hints = ["Overlap is transitive here: anything chained by overlaps must share a group.", "After sorting by start, a new component begins whenever a range starts after the furthest end seen so far."]

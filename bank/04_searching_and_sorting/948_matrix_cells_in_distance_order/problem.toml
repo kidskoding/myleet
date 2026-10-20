@@ -1,0 +1,7 @@
+id = "matrix-cells-in-distance-order"
+title = "Matrix Cells in Distance Order"
+difficulty = "easy"
+leetcode = 1030
+url = "https://leetcode.com/problems/matrix-cells-in-distance-order/"
+key_idea = "Distances are small integers (at most rows + cols - 2), so bucket every cell by its Manhattan distance and concatenate the buckets; a plain sort by distance also works."
+hints = ["You could sort all cells with a custom key. What is the key?", "The distance can only take a few hundred values, so counting sort is possible too."]

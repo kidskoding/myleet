@@ -1,0 +1,7 @@
+id = "invalid-transactions"
+title = "Invalid Transactions"
+difficulty = "medium"
+leetcode = 1169
+url = "https://leetcode.com/problems/invalid-transactions/"
+key_idea = "Parse all transactions, group them by name, and mark one invalid if its amount exceeds 1000 or another same-name transaction in a different city is within 60 minutes."
+hints = ["Only transactions with the same name can invalidate each other.", "Both transactions in a conflicting pair are invalid, and identical transaction strings count separately."]

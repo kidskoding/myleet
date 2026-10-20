@@ -1,0 +1,36 @@
+id = "median-of-a-row-wise-sorted-matrix"
+title = "Median of a Row Wise Sorted Matrix"
+difficulty = "medium"
+leetcode = 2387
+url = "https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix/"
+key_idea = "Binary search on the answer value: count entries <= mid with a bisect per row, and find the smallest value whose count exceeds half the cells."
+hints = ["You never need to know where the median sits, only how many entries are at most some value.", "Each row is sorted, so counting entries <= v in a row is a binary search."]
+prompt = """
+Write `matrix_median(grid)`. `grid` is an `m x n` matrix of integers where every row is sorted
+in non-decreasing order, and `m * n` is odd. Return the median of all `m * n` entries, that
+is, the middle value if every entry were written out in sorted order.
+
+Aim for better than `O(m * n)` time.
+
+**Example 1:**
+
+```
+Input: grid = [[1,1,2],[2,3,3],[1,3,4]]
+Output: 2
+```
+
+All entries sorted are `1,1,1,2,2,3,3,3,4`; the fifth one is `2`.
+
+**Example 2:**
+
+```
+Input: grid = [[1,1,3,3,4]]
+Output: 3
+```
+
+**Constraints:**
+
+- `1 <= m, n <= 500`, and `m` and `n` are both odd
+- `1 <= grid[i][j] <= 10^6`
+- Each row of `grid` is sorted in non-decreasing order
+"""

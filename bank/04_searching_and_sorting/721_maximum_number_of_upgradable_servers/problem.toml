@@ -1,0 +1,43 @@
+id = "maximum-number-of-upgradable-servers"
+title = "Maximum Number of Upgradable Servers"
+difficulty = "medium"
+leetcode = 3155
+url = "https://leetcode.com/problems/maximum-number-of-upgradable-servers/"
+key_idea = "Upgrading x servers means selling count - x, so x works exactly when x * upgrade <= money + (count - x) * sell; solve that linear inequality for the largest x and cap it at count."
+hints = ["Each data center is independent.", "Write the money you have after selling as a function of how many you keep, then compare it to the upgrade bill."]
+prompt = """
+Implement `max_upgrades(count, upgrade, sell, money)`. There are `n` data centers. Data
+center `i` has `count[i]` servers and starts with `money[i]` dollars. Upgrading one of its
+servers costs `upgrade[i]`, and selling one of its servers earns `sell[i]`. Money cannot
+move between data centers.
+
+For each data center on its own, return the largest number of servers it can upgrade,
+possibly after selling some of its other servers to raise money. A sold server cannot be
+upgraded. Return the answers as a list in the same order.
+
+**Example 1:**
+
+```
+Input: count = [4,3], upgrade = [3,5], sell = [4,2], money = [8,9]
+Output: [3,2]
+```
+
+The first data center sells one server for `4`, giving `12`, enough to upgrade the other
+three at `3` each. The second sells one server for `2`, giving `11`, enough to upgrade two
+servers at `5` each.
+
+**Example 2:**
+
+```
+Input: count = [1], upgrade = [2], sell = [1], money = [1]
+Output: [0]
+```
+
+One dollar cannot pay for an upgrade, and selling the only server leaves nothing to
+upgrade.
+
+**Constraints:**
+
+- `1 <= count.length == upgrade.length == sell.length == money.length <= 10^5`
+- `1 <= count[i], upgrade[i], sell[i], money[i] <= 10^5`
+"""

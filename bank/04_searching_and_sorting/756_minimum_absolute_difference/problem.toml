@@ -1,0 +1,7 @@
+id = "minimum-absolute-difference"
+title = "Minimum Absolute Difference"
+difficulty = "easy"
+leetcode = 1200
+url = "https://leetcode.com/problems/minimum-absolute-difference/"
+key_idea = "Sort; the minimum difference only occurs between neighbours, so one pass finds it and a second collects every neighbouring pair that matches."
+hints = ["In sorted order, the closest partner of a value is next to it.", "Find the smallest gap first, then gather the pairs with that gap."]

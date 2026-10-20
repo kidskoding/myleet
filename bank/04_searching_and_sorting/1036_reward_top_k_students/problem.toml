@@ -1,0 +1,7 @@
+id = "reward-top-k-students"
+title = "Reward Top K Students"
+difficulty = "medium"
+leetcode = 2512
+url = "https://leetcode.com/problems/reward-top-k-students/"
+key_idea = "Score each report with word sets (+3 positive, -1 negative), then sort students by (-points, id) and take the first k."
+hints = ["Look words up in sets so each report is scored in linear time.", "Ties are broken by the smaller ID, which a compound sort key handles."]

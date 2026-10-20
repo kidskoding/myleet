@@ -1,0 +1,7 @@
+id = "number-of-perfect-pairs"
+title = "Number of Perfect Pairs"
+difficulty = "medium"
+leetcode = 3649
+url = "https://leetcode.com/problems/number-of-perfect-pairs/"
+key_idea = "With x = |a| <= y = |b| the conditions reduce to y <= 2x, so sort absolute values and count pairs with two pointers."
+hints = ["Rewrite both conditions in terms of |a| and |b| only.", "After sorting absolute values, the valid partners of each value form a contiguous window."]

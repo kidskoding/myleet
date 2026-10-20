@@ -1,0 +1,7 @@
+id = "find-the-longest-valid-obstacle-course-at-each-position"
+title = "Find the Longest Valid Obstacle Course at Each Position"
+difficulty = "hard"
+leetcode = 1964
+url = "https://leetcode.com/problems/find-the-longest-valid-obstacle-course-at-each-position/"
+key_idea = "Patience sorting for the longest non-decreasing subsequence: bisect_right into the tails array gives each position's answer as insertion index + 1."
+hints = ["This is a longest non-decreasing subsequence that must end at i, asked for every i.", "Keep, for each length, the smallest possible last height, and search it with binary search. Careful with equal heights."]

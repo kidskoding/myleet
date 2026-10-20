@@ -1,0 +1,7 @@
+id = "alert-using-same-key-card-three-or-more-times-in-a-one-hour-period"
+title = "Alert Using Same Key-Card Three or More Times in a One Hour Period"
+difficulty = "medium"
+leetcode = 1604
+url = "https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/"
+key_idea = "Group times by name as minutes, sort each list, and alert when some times[i + 2] - times[i] <= 60."
+hints = ["Convert each HH:MM to minutes and collect them per person.", "After sorting one person's times, only consecutive triples need checking."]

@@ -1,0 +1,7 @@
+id = "maximum-number-of-alloys"
+title = "Maximum Number of Alloys"
+difficulty = "medium"
+leetcode = 2861
+url = "https://leetcode.com/problems/maximum-number-of-alloys/"
+key_idea = "For each machine, binary search the number of alloys: making x costs sum(max(0, x * need - stock) * price), which only grows with x."
+hints = ["All alloys must come from one machine, so solve each machine separately.", "If you can afford x alloys, you can afford any fewer."]

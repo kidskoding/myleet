@@ -1,0 +1,7 @@
+id = "rank-transform-of-an-array"
+title = "Rank Transform of an Array"
+difficulty = "easy"
+leetcode = 1331
+url = "https://leetcode.com/problems/rank-transform-of-an-array/"
+key_idea = "Sort the distinct values, map each to its 1-based position, and look every element up in that map."
+hints = ["Equal values must share a rank.", "Ranks only depend on the sorted order of the distinct values."]

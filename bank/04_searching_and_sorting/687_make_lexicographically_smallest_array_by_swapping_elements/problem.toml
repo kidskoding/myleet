@@ -1,0 +1,7 @@
+id = "make-lexicographically-smallest-array-by-swapping-elements"
+title = "Make Lexicographically Smallest Array by Swapping Elements"
+difficulty = "medium"
+leetcode = 2948
+url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
+key_idea = "Sort values; consecutive sorted values within limit form one swappable group, so within each group place the sorted values into the group's sorted original indices."
+hints = ["Swappability is transitive: if a can swap with b and b with c, all three can be rearranged.", "Look at the values in sorted order and find where the gaps exceed limit."]

@@ -1,0 +1,7 @@
+id = "relative-sort-array"
+title = "Relative Sort Array"
+difficulty = "easy"
+leetcode = 1122
+url = "https://leetcode.com/problems/relative-sort-array/"
+key_idea = "Sort with a key that ranks values in arr2 by their index there and puts every other value after them in ascending order."
+hints = ["Each value in arr2 has a position that defines its order.", "Values not in arr2 need a key that places them after all of those."]

@@ -1,0 +1,7 @@
+id = "heaters"
+title = "Heaters"
+difficulty = "medium"
+leetcode = 475
+url = "https://leetcode.com/problems/heaters/"
+key_idea = "Sort heaters; for each house binary search the nearest heater on each side, and the answer is the max over houses of that nearest distance."
+hints = ["The radius must be at least the distance from each house to its closest heater.", "Finding the closest heater for a house is a search problem once heaters are sorted."]

@@ -1,0 +1,7 @@
+id = "maximum-product-of-two-elements-in-an-array"
+title = "Maximum Product of Two Elements in an Array"
+difficulty = "easy"
+leetcode = 1464
+url = "https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/"
+key_idea = "All values are at least 1, so the answer uses the two largest values: (a - 1) * (b - 1)."
+hints = ["Since every value is positive, which two picks make the product largest?", "You only need the top two values, which a single pass can track."]

@@ -1,0 +1,7 @@
+id = "maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold"
+title = "Maximum Side Length of a Square with Sum Less than or Equal to Threshold"
+difficulty = "medium"
+leetcode = 1292
+url = "https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/"
+key_idea = "Build 2D prefix sums so any square sum is O(1), then binary search (or grow) the side length since feasibility is monotone."
+hints = ["How can you get the sum of any square in constant time?", "If some square of side k fits under the threshold, does some square of side k - 1 also fit?"]
