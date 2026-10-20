@@ -12,7 +12,7 @@ class UnionFind:
 
 
 def number_of_provinces(is_connected: list[list[int]]) -> int:
-    # Problem 1: Number Of Provinces
+    # Problem 1: Number of Provinces
     # Time:
     # Space:
 

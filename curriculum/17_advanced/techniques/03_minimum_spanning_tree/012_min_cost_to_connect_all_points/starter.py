@@ -1,5 +1,5 @@
 def min_cost_connect_points(points: list[list[int]]) -> int:
-    # Problem 12: Min Cost To Connect All Points
+    # Problem 12: Min Cost to Connect All Points
     # Time:
     # Space:
 

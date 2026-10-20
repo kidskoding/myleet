@@ -5,7 +5,7 @@ def build_failure_table(pattern: str) -> list[int]:
 
 
 def str_str(haystack: str, needle: str) -> int:
-    # Problem 23: Find The Index Of The First Occurrence In A String
+    # Problem 23: Find the Index of the First Occurrence in a String
     # Time:
     # Space:
 
