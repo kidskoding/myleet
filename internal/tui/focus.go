@@ -195,7 +195,7 @@ func (f *Focus) fetchPrompt() tea.Cmd {
 // The key idea names the approach, so it is only offered as the last hint, and
 // never in interviews.
 func (f *Focus) hintList() []string {
-	if f.statement == "" || f.p.KeyIdea == "" || f.mode == progress.Interview {
+	if f.p.KeyIdea == "" || f.mode == progress.Interview {
 		return f.p.Hints
 	}
 	return append(append([]string{}, f.p.Hints...), "key idea: "+f.p.KeyIdea)
@@ -507,9 +507,6 @@ func (f *Focus) paneLines(w int) []string {
 			b.WriteString("_This problem is premium on LeetCode, so its statement is not public. Press o to open it._\n\n")
 		case prompt.Offline:
 			b.WriteString("_Offline: couldn't reach LeetCode for the statement. Press o to open it in the browser._\n\n")
-		}
-		if f.mode == progress.Practice && f.p.KeyIdea != "" {
-			b.WriteString("**Key idea:** " + f.p.KeyIdea + "\n\n")
 		}
 		if f.p.URL != "" {
 			b.WriteString("Problem page: " + f.p.URL + " (press o)\n")

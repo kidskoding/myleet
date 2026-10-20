@@ -288,3 +288,14 @@ func TestEditorExitWithoutChangeIsNotLogged(t *testing.T) {
 		t.Fatalf("an unchanged file must not log a run: %v", kinds(s))
 	}
 }
+
+func TestFocusOfflineFallbackHidesKeyIdea(t *testing.T) {
+	m, _ := focusWithPrompt(t, "p-one", fakePrompts{status: prompt.Offline})
+	if view := plain(m); strings.Contains(view, "Key idea") || strings.Contains(view, "add them") {
+		t.Fatalf("with no statement the key idea must still stay hidden:\n%s", view)
+	}
+	m = send(m, key("t"), key("t"))
+	if !strings.Contains(plain(m), "key idea: add them") {
+		t.Fatalf("the key idea should still be the last hint:\n%s", plain(m))
+	}
+}
