@@ -2,7 +2,7 @@ from __future__ import annotations
 
 
 class StreamChecker:
-    # Problem 10: Stream Of Characters
+    # Problem 10: Stream of Characters
 
     def __init__(self, words: list[str]) -> None:
         # Time:

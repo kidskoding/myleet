@@ -2,7 +2,7 @@ from __future__ import annotations
 
 
 class WordDictionary:
-    # Problem 7: Design Add And Search Words Data Structure
+    # Problem 7: Design Add and Search Words Data Structure
 
     def __init__(self) -> None:
         # Time:

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 
 class WordFilter:
-    # Problem 12: Prefix And Suffix Search
+    # Problem 12: Prefix and Suffix Search
 
     def __init__(self, words: list[str]) -> None:
         # Time:
