@@ -1,0 +1,7 @@
+id = "defanging-an-ip-address"
+title = "Defanging an IP Address"
+difficulty = "easy"
+leetcode = 1108
+url = "https://leetcode.com/problems/defanging-an-ip-address/"
+key_idea = "Replace every '.' with '[.]' in one pass."
+hints = ["Every period becomes the same three characters.", "Build the result character by character, or use a string replace."]

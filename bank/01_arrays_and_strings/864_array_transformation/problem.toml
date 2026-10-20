@@ -1,0 +1,43 @@
+id = "array-transformation"
+title = "Array Transformation"
+difficulty = "easy"
+leetcode = 1243
+url = "https://leetcode.com/problems/array-transformation/"
+key_idea = "Simulate day by day, computing the next array from a copy of the current one so all updates are simultaneous, until a day changes nothing."
+hints = ["Every change on a given day must be based on the previous day's values.", "Stop as soon as one full pass makes no change."]
+prompt = """
+Implement `transform_array(arr)`, which repeatedly applies a daily transformation to `arr`
+until it stops changing, then returns the final array.
+
+Each day, the new array is produced from the previous day's array:
+
+- The first and last elements never change.
+- An interior element that is strictly smaller than both of its neighbours goes up by `1`.
+- An interior element that is strictly larger than both of its neighbours goes down by `1`.
+
+All updates on a day happen at the same time, based only on the previous day's values.
+Return the array once a day passes with no change.
+
+**Example 1:**
+
+```
+Input: arr = [6,2,3,4]
+Output: [6,3,3,4]
+```
+
+On day one, `2` is smaller than `6` and `3`, so it becomes `3`. After that nothing changes.
+
+**Example 2:**
+
+```
+Input: arr = [1,6,3,4,3,5]
+Output: [1,4,4,4,4,5]
+```
+
+Day one gives `[1,5,4,3,4,5]`, day two gives `[1,4,4,4,4,5]`, and then it is stable.
+
+**Constraints:**
+
+- `3 <= arr.length <= 100`
+- `1 <= arr[i] <= 100`
+"""

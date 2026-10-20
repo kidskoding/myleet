@@ -1,0 +1,7 @@
+id = "check-if-binary-string-has-at-most-one-segment-of-ones"
+title = "Check if Binary String Has at Most One Segment of Ones"
+difficulty = "easy"
+leetcode = 1784
+url = "https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/"
+key_idea = "The string starts with '1', so a second segment exists exactly when the substring '01' appears."
+hints = ["The first character is always '1'.", "What two-character pattern marks the start of a new run of ones?"]

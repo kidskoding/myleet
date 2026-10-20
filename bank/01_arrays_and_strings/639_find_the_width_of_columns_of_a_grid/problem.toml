@@ -1,0 +1,7 @@
+id = "find-the-width-of-columns-of-a-grid"
+title = "Find the Width of Columns of a Grid"
+difficulty = "easy"
+leetcode = 2639
+url = "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/"
+key_idea = "Walk each column and keep the longest string form of its numbers, counting the minus sign."
+hints = ["A number's width is the length of its decimal text.", "Do not forget that negative numbers have an extra character."]

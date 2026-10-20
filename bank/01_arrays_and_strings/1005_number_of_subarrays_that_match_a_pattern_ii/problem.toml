@@ -1,0 +1,7 @@
+id = "number-of-subarrays-that-match-a-pattern-ii"
+title = "Number of Subarrays That Match a Pattern II"
+difficulty = "hard"
+leetcode = 3036
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii/"
+key_idea = "Turn nums into its sequence of comparisons (-1/0/1) between neighbors and count occurrences of pattern in it with KMP."
+hints = ["A subarray matches based only on how each element compares to the next one.", "Once nums is rewritten as comparisons, this is plain string matching."]

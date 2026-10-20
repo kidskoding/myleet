@@ -1,0 +1,7 @@
+id = "length-of-last-word"
+title = "Length of Last Word"
+difficulty = "easy"
+leetcode = 58
+url = "https://leetcode.com/problems/length-of-last-word/"
+key_idea = "Scan from the end, skip trailing spaces, then count characters until the next space."
+hints = ["The string may end with spaces.", "Working backward from the end avoids looking at earlier words at all."]

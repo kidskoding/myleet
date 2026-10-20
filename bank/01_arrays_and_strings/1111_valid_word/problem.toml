@@ -1,0 +1,7 @@
+id = "valid-word"
+title = "Valid Word"
+difficulty = "easy"
+leetcode = 3136
+url = "https://leetcode.com/problems/valid-word/"
+key_idea = "One pass: reject any non-alphanumeric character, and record whether a vowel and a consonant (a letter that is not a vowel) appear; also require length >= 3."
+hints = ["There are four independent conditions; check each one.", "Digits are allowed but count as neither vowels nor consonants."]

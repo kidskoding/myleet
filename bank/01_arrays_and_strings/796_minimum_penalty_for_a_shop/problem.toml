@@ -1,0 +1,7 @@
+id = "minimum-penalty-for-a-shop"
+title = "Minimum Penalty for a Shop"
+difficulty = "medium"
+leetcode = 2483
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
+key_idea = "Sweep the closing hour from 0 to n keeping a running score (+1 for each Y passed while open, -1 for each N); the hour with the best score has the least penalty."
+hints = ["Moving the closing time one hour later changes the penalty by exactly one, depending on that hour's letter.", "Track the change relative to closing at hour 0 instead of recomputing the penalty."]

@@ -1,0 +1,7 @@
+id = "maximum-difference-between-increasing-elements"
+title = "Maximum Difference Between Increasing Elements"
+difficulty = "easy"
+leetcode = 2016
+url = "https://leetcode.com/problems/maximum-difference-between-increasing-elements/"
+key_idea = "Scan left to right keeping the minimum seen so far; each later strictly larger value gives a candidate difference."
+hints = ["For each j, which earlier i is the best partner?", "Equal values do not count."]

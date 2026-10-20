@@ -1,0 +1,7 @@
+id = "find-the-first-player-to-win-k-games-in-a-row"
+title = "Find The First Player to win K Games in a Row"
+difficulty = "medium"
+leetcode = 3175
+url = "https://leetcode.com/problems/find-the-first-player-to-win-k-games-in-a-row/"
+key_idea = "Simulating the queue is unnecessary: the current champion meets players in index order, so scan once tracking the champion and its streak; if no one reaches k, the strongest player wins."
+hints = ["Once a player beats everyone, they never lose again.", "The challenger order is just the original order of the players after the champion."]

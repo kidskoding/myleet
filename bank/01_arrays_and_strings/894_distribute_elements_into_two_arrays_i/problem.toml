@@ -1,0 +1,7 @@
+id = "distribute-elements-into-two-arrays-i"
+title = "Distribute Elements Into Two Arrays I"
+difficulty = "easy"
+leetcode = 3069
+url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-i/"
+key_idea = "Direct simulation: seed arr1 and arr2 with the first two values, append each later value to whichever array has the larger last element (arr1 on ties is impossible since values are distinct), then concatenate."
+hints = ["Follow the rules exactly; there is no trick.", "Only the last element of each array matters for each decision."]

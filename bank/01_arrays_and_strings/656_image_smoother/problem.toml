@@ -1,0 +1,7 @@
+id = "image-smoother"
+title = "Image Smoother"
+difficulty = "easy"
+leetcode = 661
+url = "https://leetcode.com/problems/image-smoother/"
+key_idea = "For each cell, sum the in-bounds cells of its 3x3 neighborhood and floor-divide by how many there were, writing into a new grid."
+hints = ["Edge and corner cells have fewer neighbors, so count them as you go.", "Write results into a separate grid so you never read an already-smoothed value."]

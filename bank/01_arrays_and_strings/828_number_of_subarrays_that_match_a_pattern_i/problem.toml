@@ -1,0 +1,7 @@
+id = "number-of-subarrays-that-match-a-pattern-i"
+title = "Number of Subarrays That Match a Pattern I"
+difficulty = "medium"
+leetcode = 3034
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
+key_idea = "Turn nums into its sequence of comparisons (-1, 0, 1) between neighbors and count where pattern occurs in it."
+hints = ["A window matches based only on how each neighbor compares to the next.", "Precompute that comparison for every adjacent pair."]

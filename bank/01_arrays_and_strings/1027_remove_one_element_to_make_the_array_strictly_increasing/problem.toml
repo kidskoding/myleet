@@ -1,0 +1,7 @@
+id = "remove-one-element-to-make-the-array-strictly-increasing"
+title = "Remove One Element to Make the Array Strictly Increasing"
+difficulty = "easy"
+leetcode = 1909
+url = "https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/"
+key_idea = "At the first drop nums[i] <= nums[i-1], try removing either nums[i-1] or nums[i] and check that the result is strictly increasing."
+hints = ["If there is no drop at all, the answer is already yes.", "Only the two elements around the first drop are worth removing."]

@@ -1,0 +1,7 @@
+id = "most-visited-sector-in-a-circular-track"
+title = "Most Visited Sector in  a Circular Track"
+difficulty = "easy"
+leetcode = 1560
+url = "https://leetcode.com/problems/most-visited-sector-in-a-circular-track/"
+key_idea = "Only the start and end sectors matter: full laps add the same count to every sector, so the answer is the sectors from rounds[0] to rounds[-1] going forward, wrapping if needed."
+hints = ["Every complete lap visits every sector once more.", "Compare the first and last sector of the marathon."]

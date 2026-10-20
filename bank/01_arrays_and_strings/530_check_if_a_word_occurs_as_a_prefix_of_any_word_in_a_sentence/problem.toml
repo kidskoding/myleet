@@ -1,0 +1,7 @@
+id = "check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence"
+title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
+difficulty = "easy"
+leetcode = 1455
+url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
+key_idea = "Split on spaces and return the 1-based index of the first word that starts with searchWord, or -1."
+hints = ["The answer is 1-indexed.", "Only the first matching word counts."]

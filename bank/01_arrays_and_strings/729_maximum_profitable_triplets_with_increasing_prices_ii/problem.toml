@@ -1,0 +1,48 @@
+id = "maximum-profitable-triplets-with-increasing-prices-ii"
+title = "Maximum Profitable Triplets With Increasing Prices II"
+difficulty = "hard"
+leetcode = 2921
+url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii/"
+key_idea = "Fix the middle index; a Fenwick tree over price gives the best profit among cheaper items to the left, and a second pass from the right (prices reversed) gives the best among pricier items to the right."
+hints = ["Treat each index as the middle of the triple and ask for the best partner on each side.", "You need 'max profit among earlier items with price below p' quickly; prices are small."]
+prompt = """
+Write `max_profit(prices, profits)`. A shop has `n` items in a row; item `i` costs `prices[i]`
+and earns `profits[i]` if you sell it. Pick three indices `i < j < k` whose prices strictly
+increase, `prices[i] < prices[j] < prices[k]`, and earn `profits[i] + profits[j] + profits[k]`.
+
+Return the largest total profit over all such triples, or `-1` if no valid triple exists.
+
+**Example 1:**
+
+```
+Input: prices = [10,2,3,4], profits = [100,2,7,10]
+Output: 19
+```
+
+Item 0 is too expensive to start an increasing triple. Indices `1, 2, 3` have prices
+`2 < 3 < 4` and earn `2 + 7 + 10 = 19`.
+
+**Example 2:**
+
+```
+Input: prices = [1,2,3,4,5], profits = [1,5,3,4,6]
+Output: 15
+```
+
+Indices `1, 3, 4` earn `5 + 4 + 6 = 15`.
+
+**Example 3:**
+
+```
+Input: prices = [4,3,2,1], profits = [33,20,19,87]
+Output: -1
+```
+
+Prices only go down, so no triple works.
+
+**Constraints:**
+
+- `3 <= n == len(prices) == len(profits) <= 5 * 10^4`
+- `1 <= prices[i] <= 5000`
+- `1 <= profits[i] <= 10^6`
+"""

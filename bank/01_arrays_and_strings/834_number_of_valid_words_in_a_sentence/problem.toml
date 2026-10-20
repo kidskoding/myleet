@@ -1,0 +1,7 @@
+id = "number-of-valid-words-in-a-sentence"
+title = "Number of Valid Words in a Sentence"
+difficulty = "easy"
+leetcode = 2047
+url = "https://leetcode.com/problems/number-of-valid-words-in-a-sentence/"
+key_idea = "Split on whitespace and validate each token: no digits, at most one hyphen with letters on both sides, at most one punctuation mark and only at the end."
+hints = ["Check each token independently.", "Write down every rule for hyphens and punctuation as a separate check."]

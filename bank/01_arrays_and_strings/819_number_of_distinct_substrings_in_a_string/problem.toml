@@ -1,0 +1,44 @@
+id = "number-of-distinct-substrings-in-a-string"
+title = "Number of Distinct Substrings in a String"
+difficulty = "medium"
+leetcode = 1698
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
+key_idea = "Insert every suffix into a trie; each newly created trie node is a distinct substring."
+hints = ["Every substring is a prefix of some suffix.", "Store suffixes so shared prefixes are stored only once."]
+prompt = """
+Implement `count_distinct(s)`, which returns how many different non-empty substrings the
+string `s` has. A substring is a contiguous run of characters; two substrings that spell the
+same text count once.
+
+**Example 1:**
+
+```
+Input: s = "aabbaba"
+Output: 21
+```
+
+**Example 2:**
+
+```
+Input: s = "abcdefg"
+Output: 28
+```
+
+All 7 * 8 / 2 = 28 substrings are different.
+
+**Example 3:**
+
+```
+Input: s = "aaaa"
+Output: 4
+```
+
+The distinct substrings are "a", "aa", "aaa" and "aaaa".
+
+**Constraints:**
+
+- `1 <= s.length <= 500`
+- `s` consists of lowercase English letters
+
+Follow-up: can you do better than O(n^2) time?
+"""

@@ -1,0 +1,7 @@
+id = "largest-magic-square"
+title = "Largest Magic Square"
+difficulty = "medium"
+leetcode = 1895
+url = "https://leetcode.com/problems/largest-magic-square/"
+key_idea = "Precompute row and column prefix sums, then try sizes from largest down and check every k x k square's rows, columns, and both diagonals against one target sum."
+hints = ["Every 1 x 1 square is magic, so the answer is at least 1.", "Prefix sums along rows and columns make each row or column sum of a square O(1)."]

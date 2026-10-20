@@ -1,0 +1,7 @@
+id = "detect-pattern-of-length-m-repeated-k-or-more-times"
+title = "Detect Pattern of Length M Repeated K or More Times"
+difficulty = "easy"
+leetcode = 1566
+url = "https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/"
+key_idea = "A pattern repeats k times exactly when arr[i] == arr[i + m] holds for (k - 1) * m consecutive indices, so count that streak in one pass."
+hints = ["Comparing each element with the one m positions later tells you whether the block repeats.", "How many consecutive matches do k back-to-back copies of a length-m block produce?"]

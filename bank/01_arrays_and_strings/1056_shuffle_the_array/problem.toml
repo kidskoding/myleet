@@ -1,0 +1,7 @@
+id = "shuffle-the-array"
+title = "Shuffle the Array"
+difficulty = "easy"
+leetcode = 1470
+url = "https://leetcode.com/problems/shuffle-the-array/"
+key_idea = "Output position 2i takes nums[i] and position 2i + 1 takes nums[n + i]."
+hints = ["The first half supplies the x values and the second half the y values.", "Walk both halves in step and alternate."]

@@ -1,0 +1,7 @@
+id = "create-target-array-in-the-given-order"
+title = "Create Target Array in the Given Order"
+difficulty = "easy"
+leetcode = 1389
+url = "https://leetcode.com/problems/create-target-array-in-the-given-order/"
+key_idea = "Simulate directly: insert each nums[i] at position index[i] into a growing list."
+hints = ["The rules describe a simulation; with at most 100 elements, follow them literally.", "Python lists can insert at any position."]

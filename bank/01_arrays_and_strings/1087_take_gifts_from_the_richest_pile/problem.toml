@@ -1,0 +1,7 @@
+id = "take-gifts-from-the-richest-pile"
+title = "Take Gifts From the Richest Pile"
+difficulty = "easy"
+leetcode = 2558
+url = "https://leetcode.com/problems/take-gifts-from-the-richest-pile/"
+key_idea = "Keep the piles in a max-heap; k times pop the largest, push back its integer square root, then sum the heap."
+hints = ["Each second you need the current maximum, after the previous update.", "Python's heapq is a min-heap; store negated values."]

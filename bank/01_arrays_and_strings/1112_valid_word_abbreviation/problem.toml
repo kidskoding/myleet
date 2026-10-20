@@ -1,0 +1,47 @@
+id = "valid-word-abbreviation"
+title = "Valid Word Abbreviation"
+difficulty = "easy"
+leetcode = 408
+url = "https://leetcode.com/problems/valid-word-abbreviation/"
+key_idea = "Walk word and abbr with two pointers: letters must match one to one, a number (which may not start with 0) advances the word pointer by its value, and both pointers must end exactly at their lengths."
+hints = ["Read a whole multi-digit number before using it.", "Watch for a number that starts with 0, and for a skip that runs past the end of the word."]
+prompt = """
+Implement `valid_word_abbreviation(word, abbr)`.
+
+A word can be abbreviated by replacing any number of non-overlapping, non-adjacent,
+non-empty substrings with their lengths. For example, `"substitution"` can become
+`"s10n"`, `"sub4u4"`, `"12"`, `"su3i1u2on"`, or stay `"substitution"`. These are not valid
+abbreviations of it:
+
+- `"s55n"`: the two replaced substrings would be adjacent.
+- `"s010n"`: a number may not have a leading zero.
+- `"s0ubstitution"`: a replaced substring may not be empty.
+
+Return `True` if `abbr` is a valid abbreviation of `word`, otherwise `False`.
+
+**Example 1:**
+
+```
+Input: word = "internationalization", abbr = "i12iz4n"
+Output: true
+```
+
+`i` + 12 letters + `iz` + 4 letters + `n` rebuilds the word.
+
+**Example 2:**
+
+```
+Input: word = "apple", abbr = "a2e"
+Output: false
+```
+
+`a` + 2 letters + `e` describes a 4-letter word.
+
+**Constraints:**
+
+- `1 <= word.length <= 20`
+- `word` consists of lowercase English letters
+- `1 <= abbr.length <= 10`
+- `abbr` consists of lowercase English letters and digits
+- Every number in `abbr` fits in a 32-bit integer
+"""

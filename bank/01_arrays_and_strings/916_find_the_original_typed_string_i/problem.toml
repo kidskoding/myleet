@@ -1,0 +1,7 @@
+id = "find-the-original-typed-string-i"
+title = "Find the Original Typed String I"
+difficulty = "easy"
+leetcode = 3330
+url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
+key_idea = "The answer is 1 plus, for every run of equal letters, its length minus 1, since at most one run was over-typed."
+hints = ["Only one group of repeated letters could have been stretched.", "For a run of length r, how many shorter originals could it have come from?"]

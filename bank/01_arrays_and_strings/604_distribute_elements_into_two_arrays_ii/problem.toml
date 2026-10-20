@@ -1,0 +1,7 @@
+id = "distribute-elements-into-two-arrays-ii"
+title = "Distribute Elements Into Two Arrays II"
+difficulty = "hard"
+leetcode = 3072
+url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-ii/"
+key_idea = "Coordinate-compress the values and keep one Fenwick tree per array, so greaterCount is a prefix-sum query and each append is a point update."
+hints = ["Counting elements strictly greater than x is a rank query.", "Values go up to 10^9, but only their relative order matters."]

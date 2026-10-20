@@ -1,0 +1,7 @@
+id = "largest-local-values-in-a-matrix"
+title = "Largest Local Values in a Matrix"
+difficulty = "easy"
+leetcode = 2373
+url = "https://leetcode.com/problems/largest-local-values-in-a-matrix/"
+key_idea = "For each top-left corner (i, j) of a 3x3 window, take the max over its nine cells into an (n - 2) x (n - 2) result."
+hints = ["Output cell (i, j) corresponds to the window centered at (i + 1, j + 1).", "The grid is small, so scanning all nine cells per window is fine."]

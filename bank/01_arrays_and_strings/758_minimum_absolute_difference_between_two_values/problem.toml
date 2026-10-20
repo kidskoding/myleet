@@ -1,0 +1,7 @@
+id = "minimum-absolute-difference-between-two-values"
+title = "Minimum Absolute Difference Between Two Values"
+difficulty = "easy"
+leetcode = 3880
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-two-values/"
+key_idea = "One left-to-right pass remembering the latest index of a 1 and of a 2; each new 1 or 2 pairs with the most recent opposite value."
+hints = ["For a given 2, only the nearest 1 on each side can be optimal.", "Scanning in one direction while remembering the last position of each value covers both sides."]

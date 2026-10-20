@@ -1,0 +1,7 @@
+id = "percentage-of-letter-in-string"
+title = "Percentage of Letter in String"
+difficulty = "easy"
+leetcode = 2278
+url = "https://leetcode.com/problems/percentage-of-letter-in-string/"
+key_idea = "Count the letter and floor-divide count * 100 by the length using integers only."
+hints = ["Count how many characters equal the letter.", "Multiply before dividing so integer division rounds down correctly."]

@@ -1,0 +1,7 @@
+id = "decode-the-slanted-ciphertext"
+title = "Decode the Slanted Ciphertext"
+difficulty = "medium"
+leetcode = 2075
+url = "https://leetcode.com/problems/decode-the-slanted-ciphertext/"
+key_idea = "The column count is len(encodedText) / rows; read the grid along each diagonal starting at (0, c) for c = 0..cols-1, then strip trailing spaces."
+hints = ["Rebuild the matrix shape first: you know the total length and the number of rows.", "The original text runs down-right diagonals, one diagonal after another."]

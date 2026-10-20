@@ -1,0 +1,7 @@
+id = "count-binary-substrings"
+title = "Count Binary Substrings"
+difficulty = "easy"
+leetcode = 696
+url = "https://leetcode.com/problems/count-binary-substrings/"
+key_idea = "Group consecutive equal characters; each pair of adjacent groups contributes min(len_a, len_b) valid substrings."
+hints = ["A valid substring always straddles exactly one boundary between a block of 0s and a block of 1s.", "Compress the string into run lengths and look at neighboring runs."]

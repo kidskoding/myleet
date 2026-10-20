@@ -1,0 +1,7 @@
+id = "number-of-changing-keys"
+title = "Number of Changing Keys"
+difficulty = "easy"
+leetcode = 3019
+url = "https://leetcode.com/problems/number-of-changing-keys/"
+key_idea = "Lowercase every character and count the positions where it differs from the previous one."
+hints = ["Shift and caps lock do not change which physical key is pressed.", "Compare each character only with the one right before it."]

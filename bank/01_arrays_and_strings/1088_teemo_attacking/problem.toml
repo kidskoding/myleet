@@ -1,0 +1,7 @@
+id = "teemo-attacking"
+title = "Teemo Attacking"
+difficulty = "easy"
+leetcode = 495
+url = "https://leetcode.com/problems/teemo-attacking/"
+key_idea = "Each attack contributes min(duration, gap to the next attack); the last attack contributes the full duration."
+hints = ["Look at consecutive pairs of attack times.", "An attack's poison is cut short only by the next attack."]

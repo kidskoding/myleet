@@ -1,0 +1,7 @@
+id = "average-waiting-time"
+title = "Average Waiting Time"
+difficulty = "medium"
+leetcode = 1701
+url = "https://leetcode.com/problems/average-waiting-time/"
+key_idea = "Simulate the single chef: each order starts at max(arrival, time the chef frees up), and its wait is finish time minus arrival."
+hints = ["Customers are already sorted by arrival, so serve them in order.", "Track the moment the chef becomes free; the chef may sit idle until the next arrival."]

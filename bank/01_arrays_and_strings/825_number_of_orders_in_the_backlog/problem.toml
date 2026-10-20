@@ -1,0 +1,7 @@
+id = "number-of-orders-in-the-backlog"
+title = "Number of Orders in the Backlog"
+difficulty = "medium"
+leetcode = 1801
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
+key_idea = "Keep a min-heap of sell batches and a max-heap of buy batches, matching an incoming batch against the best opposite price batch by batch."
+hints = ["A buy only cares about the cheapest waiting sell, and a sell only about the highest waiting buy.", "Store [price, amount] batches instead of single orders."]

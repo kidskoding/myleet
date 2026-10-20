@@ -1,0 +1,7 @@
+id = "monotonic-array"
+title = "Monotonic Array"
+difficulty = "easy"
+leetcode = 896
+url = "https://leetcode.com/problems/monotonic-array/"
+key_idea = "One pass tracking whether any step went up and whether any step went down; the array is monotonic unless both happened."
+hints = ["Equal neighbours fit either direction.", "You only need two flags."]

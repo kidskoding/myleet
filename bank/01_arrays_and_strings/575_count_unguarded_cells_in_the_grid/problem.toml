@@ -1,0 +1,7 @@
+id = "count-unguarded-cells-in-the-grid"
+title = "Count Unguarded Cells in the Grid"
+difficulty = "medium"
+leetcode = 2257
+url = "https://leetcode.com/problems/count-unguarded-cells-in-the-grid/"
+key_idea = "Mark guards and walls on a grid, then from every guard walk each of the four directions marking cells until a wall or guard stops it; count unmarked empty cells."
+hints = ["Build the grid explicitly; m * n is at most 10^5.", "Sight lines stop at walls and at other guards, so a walk from a guard ends at the first occupied cell."]

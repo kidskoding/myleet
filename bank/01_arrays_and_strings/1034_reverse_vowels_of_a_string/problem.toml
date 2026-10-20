@@ -1,0 +1,7 @@
+id = "reverse-vowels-of-a-string"
+title = "Reverse Vowels of a String"
+difficulty = "easy"
+leetcode = 345
+url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
+key_idea = "Two pointers from both ends skip non-vowels and swap each pair of vowels they land on."
+hints = ["Consonants never move.", "Vowels can be uppercase too."]

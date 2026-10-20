@@ -1,0 +1,7 @@
+id = "coordinate-with-maximum-network-quality"
+title = "Coordinate With Maximum Network Quality"
+difficulty = "medium"
+leetcode = 1620
+url = "https://leetcode.com/problems/coordinate-with-maximum-network-quality/"
+key_idea = "The coordinates are tiny, so score every integer point in [0, 50] x [0, 50] by summing floored signals from towers within radius, keeping the first strict maximum."
+hints = ["Look at the coordinate bounds before reaching for anything clever.", "Scan x and then y in increasing order and only replace the best on a strictly larger quality, so ties keep the smaller point."]

@@ -1,0 +1,7 @@
+id = "length-of-the-longest-alphabetical-continuous-substring"
+title = "Length of the Longest Alphabetical Continuous Substring"
+difficulty = "medium"
+leetcode = 2414
+url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
+key_idea = "One pass tracking the current run length, extending it when a character is exactly one more than the previous and resetting to 1 otherwise."
+hints = ["Two neighbors continue a run only when their character codes differ by exactly one.", "The longest possible run is 26 characters."]

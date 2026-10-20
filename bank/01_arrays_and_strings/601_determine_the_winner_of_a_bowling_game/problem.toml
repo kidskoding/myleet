@@ -1,0 +1,7 @@
+id = "determine-the-winner-of-a-bowling-game"
+title = "Determine the Winner of a Bowling Game"
+difficulty = "easy"
+leetcode = 2660
+url = "https://leetcode.com/problems/determine-the-winner-of-a-bowling-game/"
+key_idea = "Score each player turn by turn, doubling a turn whenever either of the previous two turns of that player was a 10, then compare the totals."
+hints = ["Each player's score only depends on their own throws.", "For turn i, look back at turns i - 1 and i - 2 of the same player."]

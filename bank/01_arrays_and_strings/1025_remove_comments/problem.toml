@@ -1,0 +1,7 @@
+id = "remove-comments"
+title = "Remove Comments"
+difficulty = "medium"
+leetcode = 722
+url = "https://leetcode.com/problems/remove-comments/"
+key_idea = "Scan character by character with an in-block flag, carrying the current output line across lines while inside a block comment and emitting it only when non-empty outside one."
+hints = ["Whichever of // or /* appears first on a line decides what happens.", "A block comment can join the text before it with the text after it on a later line."]

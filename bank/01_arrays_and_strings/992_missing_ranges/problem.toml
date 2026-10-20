@@ -1,0 +1,45 @@
+id = "missing-ranges"
+title = "Missing Ranges"
+difficulty = "easy"
+leetcode = 163
+url = "https://leetcode.com/problems/missing-ranges/"
+key_idea = "Walk the sorted numbers with a sentinel lower - 1 before and upper + 1 after; every gap of at least two between neighbors yields the range [prev + 1, cur - 1]."
+hints = ["A missing range lives between two consecutive present numbers. How do you handle the two ends?", "Pretend lower - 1 and upper + 1 are also present so the ends need no special cases."]
+prompt = """
+Write `find_missing_ranges(nums, lower, upper)`. You are given an inclusive range
+`[lower, upper]` and a sorted list `nums` of distinct integers that all lie inside it.
+
+A number is missing if it is in `[lower, upper]` but not in `nums`. Return the shortest sorted
+list of ranges `[a, b]` that together cover exactly the missing numbers: every missing number
+is in one range, and no range contains a number from `nums`.
+
+**Example 1:**
+
+```
+Input: nums = [0,1,3,50,75], lower = 0, upper = 99
+Output: [[2,2],[4,49],[51,74],[76,99]]
+```
+
+**Example 2:**
+
+```
+Input: nums = [-1], lower = -1, upper = -1
+Output: []
+```
+
+Nothing in the range is missing.
+
+**Example 3:**
+
+```
+Input: nums = [], lower = 1, upper = 1
+Output: [[1,1]]
+```
+
+**Constraints:**
+
+- `-10^9 <= lower <= upper <= 10^9`
+- `0 <= len(nums) <= 100`
+- `lower <= nums[i] <= upper`
+- `nums` is sorted in ascending order and its values are distinct
+"""

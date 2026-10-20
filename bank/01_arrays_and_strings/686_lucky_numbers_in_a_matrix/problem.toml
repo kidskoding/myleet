@@ -1,0 +1,7 @@
+id = "lucky-numbers-in-a-matrix"
+title = "Lucky Numbers in a Matrix"
+difficulty = "easy"
+leetcode = 1380
+url = "https://leetcode.com/problems/lucky-numbers-in-a-matrix/"
+key_idea = "A lucky number is both its row's minimum and its column's maximum, so collect the row minima and column maxima and intersect them."
+hints = ["Precompute something per row and per column.", "A value qualifies only if it is extreme in two directions at once."]

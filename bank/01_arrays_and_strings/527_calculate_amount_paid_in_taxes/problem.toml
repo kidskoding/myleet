@@ -1,0 +1,7 @@
+id = "calculate-amount-paid-in-taxes"
+title = "Calculate Amount Paid in Taxes"
+difficulty = "easy"
+leetcode = 2303
+url = "https://leetcode.com/problems/calculate-amount-paid-in-taxes/"
+key_idea = "Walk the brackets keeping the previous upper bound; tax the slice min(income, upper) - previous at that bracket's percent and stop once income is covered."
+hints = ["Each bracket only taxes the dollars between the previous upper bound and its own.", "Stop as soon as the income is used up."]

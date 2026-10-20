@@ -1,0 +1,7 @@
+id = "shortest-distance-to-a-character"
+title = "Shortest Distance to a Character"
+difficulty = "easy"
+leetcode = 821
+url = "https://leetcode.com/problems/shortest-distance-to-a-character/"
+key_idea = "Sweep left to right tracking the last c seen, then right to left tracking the next c, keeping the smaller distance."
+hints = ["The nearest c is either the closest one to the left or the closest one to the right.", "Two linear passes, one in each direction, are enough."]

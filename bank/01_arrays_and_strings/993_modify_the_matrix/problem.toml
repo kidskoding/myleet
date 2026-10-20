@@ -1,0 +1,7 @@
+id = "modify-the-matrix"
+title = "Modify the Matrix"
+difficulty = "easy"
+leetcode = 3033
+url = "https://leetcode.com/problems/modify-the-matrix/"
+key_idea = "Compute each column's maximum first, then copy the matrix replacing every -1 with its column's maximum."
+hints = ["The replacement value depends only on the column, so gather column information before changing anything.", "Build a new matrix rather than mutating while you scan."]

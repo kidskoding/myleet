@@ -1,0 +1,7 @@
+id = "last-substring-in-lexicographical-order"
+title = "Last Substring in Lexicographical Order"
+difficulty = "hard"
+leetcode = 1163
+url = "https://leetcode.com/problems/last-substring-in-lexicographical-order/"
+key_idea = "The answer is a suffix; compare candidate starts i and j with a matched length k, and on a mismatch skip the losing start past i + k (or j + k) in linear total time."
+hints = ["The lexicographically largest substring is always a whole suffix.", "When two candidate suffixes match for k characters and then differ, every start inside the losing run can be ruled out too."]

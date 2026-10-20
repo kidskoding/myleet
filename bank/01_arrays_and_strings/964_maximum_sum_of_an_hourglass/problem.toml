@@ -1,0 +1,7 @@
+id = "maximum-sum-of-an-hourglass"
+title = "Maximum Sum of an Hourglass"
+difficulty = "medium"
+leetcode = 2428
+url = "https://leetcode.com/problems/maximum-sum-of-an-hourglass/"
+key_idea = "Try every top-left corner of a 3x3 window and add its top row, center cell, and bottom row."
+hints = ["An hourglass fits inside a 3x3 block; how many such blocks are there?", "For each block, the hourglass is the block minus its two middle-row side cells."]

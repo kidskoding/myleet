@@ -1,0 +1,7 @@
+id = "find-the-maximum-divisibility-score"
+title = "Find the Maximum Divisibility Score"
+difficulty = "easy"
+leetcode = 2644
+url = "https://leetcode.com/problems/find-the-maximum-divisibility-score/"
+key_idea = "For each divisor count how many nums it divides, and keep the divisor with the highest count, preferring the smaller divisor on ties."
+hints = ["The limits allow checking every divisor against every number.", "Break ties toward the smaller divisor explicitly."]

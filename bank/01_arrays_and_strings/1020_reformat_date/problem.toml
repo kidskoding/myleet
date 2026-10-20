@@ -1,0 +1,7 @@
+id = "reformat-date"
+title = "Reformat Date"
+difficulty = "easy"
+leetcode = 1507
+url = "https://leetcode.com/problems/reformat-date/"
+key_idea = "Split on spaces, strip the two-letter suffix from the day, map the month name to its number, and zero-pad."
+hints = ["The three parts are separated by single spaces.", "The day always ends in a two-letter ordinal suffix."]

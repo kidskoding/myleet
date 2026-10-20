@@ -1,0 +1,7 @@
+id = "concatenation-of-array"
+title = "Concatenation of Array"
+difficulty = "easy"
+leetcode = 1929
+url = "https://leetcode.com/problems/concatenation-of-array/"
+key_idea = "Build a list of length 2n where position i and i + n both hold nums[i]."
+hints = ["The answer is the input followed by itself.", "Make sure you return a new list rather than relying on aliasing."]

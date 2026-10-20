@@ -1,0 +1,7 @@
+id = "find-the-winner-of-an-array-game"
+title = "Find the Winner of an Array Game"
+difficulty = "medium"
+leetcode = 1535
+url = "https://leetcode.com/problems/find-the-winner-of-an-array-game/"
+key_idea = "Scan once keeping the current champion and its streak; if no one reaches k wins in one pass, the array maximum wins."
+hints = ["You do not need to actually move losers to the back of the array.", "Once the largest element is at the front, nobody can beat it."]

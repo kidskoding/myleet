@@ -1,0 +1,7 @@
+id = "number-of-adjacent-elements-with-the-same-color"
+title = "Number of Adjacent Elements With the Same Color"
+difficulty = "medium"
+leetcode = 2672
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
+key_idea = "Keep a running count of equal adjacent colored pairs; on each query subtract the pairs the old color formed with its neighbours, recolor, then add the pairs the new color forms."
+hints = ["A query only changes the two pairs touching that index.", "Uncolored cells (0) never count as a matching pair."]

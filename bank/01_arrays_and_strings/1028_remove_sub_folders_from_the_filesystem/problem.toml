@@ -1,0 +1,7 @@
+id = "remove-sub-folders-from-the-filesystem"
+title = "Remove Sub-Folders from the Filesystem"
+difficulty = "medium"
+leetcode = 1233
+url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
+key_idea = "Sort the paths; a folder is a sub-folder exactly when it starts with the last kept folder plus '/'."
+hints = ["After sorting, a folder's sub-folders come right after it.", "Matching a plain prefix is not enough: /a/b is not inside /a/bc."]

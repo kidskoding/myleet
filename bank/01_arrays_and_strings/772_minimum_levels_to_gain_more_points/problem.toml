@@ -1,0 +1,7 @@
+id = "minimum-levels-to-gain-more-points"
+title = "Minimum Levels to Gain More Points"
+difficulty = "medium"
+leetcode = 3096
+url = "https://leetcode.com/problems/minimum-levels-to-gain-more-points/"
+key_idea = "Score each level +1 or -1, then scan prefix sums and return the first split where Alice's prefix beats the remaining suffix (total minus prefix)."
+hints = ["Turn each level into a score of +1 or -1.", "Once you know the total, Bob's score for any split follows from Alice's."]

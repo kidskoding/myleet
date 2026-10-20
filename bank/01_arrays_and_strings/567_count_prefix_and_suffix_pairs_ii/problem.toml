@@ -1,0 +1,7 @@
+id = "count-prefix-and-suffix-pairs-ii"
+title = "Count Prefix and Suffix Pairs II"
+difficulty = "hard"
+leetcode = 3045
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
+key_idea = "Build a trie keyed on (word[i], word[-1-i]) character pairs; walking a word through it visits exactly the earlier words that are both its prefix and suffix, so sum their end counts before inserting it."
+hints = ["Checking every pair is too slow; you need one structure that tests prefix and suffix at the same time.", "Read a word from both ends at once and use each (front char, back char) pair as one trie edge."]

@@ -1,0 +1,7 @@
+id = "maximize-distance-to-closest-person"
+title = "Maximize Distance to Closest Person"
+difficulty = "medium"
+leetcode = 849
+url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+key_idea = "The best seat is either the middle of the widest gap between two people (gap // 2) or the far end of a leading or trailing run of empty seats."
+hints = ["Look at runs of consecutive empty seats.", "Runs touching the edge of the row are scored differently from runs in the middle."]

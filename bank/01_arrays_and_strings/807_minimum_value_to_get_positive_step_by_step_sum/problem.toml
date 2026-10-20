@@ -1,0 +1,7 @@
+id = "minimum-value-to-get-positive-step-by-step-sum"
+title = "Minimum Value to Get Positive Step by Step Sum"
+difficulty = "easy"
+leetcode = 1413
+url = "https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/"
+key_idea = "Track the lowest prefix sum; the start value must lift it to at least 1, so the answer is max(1, 1 - min_prefix)."
+hints = ["The running sum is startValue plus a prefix sum of nums.", "Only the lowest prefix sum matters."]

@@ -1,0 +1,7 @@
+id = "rotate-string"
+title = "Rotate String"
+difficulty = "easy"
+leetcode = 796
+url = "https://leetcode.com/problems/rotate-string/"
+key_idea = "goal is a rotation of s exactly when the lengths match and goal appears inside s + s."
+hints = ["Lengths must match first.", "Every rotation of s appears somewhere in a doubled copy of s."]

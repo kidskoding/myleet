@@ -1,0 +1,7 @@
+id = "number-of-valid-move-combinations-on-chessboard"
+title = "Number of Valid Move Combinations On Chessboard"
+difficulty = "hard"
+leetcode = 2056
+url = "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/"
+key_idea = "Enumerate every destination (direction plus distance, including staying) for each piece and backtrack, rejecting a choice if it shares a square with an earlier piece at any second."
+hints = ["With at most 4 pieces, the number of move choices per piece is small enough to try all combinations.", "Two moves clash if the pieces are on the same square at the same second, including after one has stopped."]

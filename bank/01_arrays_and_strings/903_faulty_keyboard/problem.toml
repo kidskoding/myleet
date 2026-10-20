@@ -1,0 +1,7 @@
+id = "faulty-keyboard"
+title = "Faulty Keyboard"
+difficulty = "easy"
+leetcode = 2810
+url = "https://leetcode.com/problems/faulty-keyboard/"
+key_idea = "Instead of reversing on every 'i', keep a deque and a direction flag: append to the back or the front depending on the flag, and flip the flag on 'i'; reverse once at the end if needed."
+hints = ["Reversing the whole string each time works for small inputs but costs O(n^2).", "Reversing twice cancels out; track which end is currently the 'end' of the text."]

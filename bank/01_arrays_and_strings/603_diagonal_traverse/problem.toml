@@ -1,0 +1,7 @@
+id = "diagonal-traverse"
+title = "Diagonal Traverse"
+difficulty = "medium"
+leetcode = 498
+url = "https://leetcode.com/problems/diagonal-traverse/"
+key_idea = "Cells on one anti-diagonal share r + c; walk d = 0..m+n-2, collecting each diagonal top-to-bottom and reversing it on even d."
+hints = ["Which quantity stays the same along each anti-diagonal?", "Every diagonal can be read in one fixed direction and flipped when needed."]

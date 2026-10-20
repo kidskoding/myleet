@@ -1,0 +1,7 @@
+id = "delete-characters-to-make-fancy-string"
+title = "Delete Characters to Make Fancy String"
+difficulty = "easy"
+leetcode = 1957
+url = "https://leetcode.com/problems/delete-characters-to-make-fancy-string/"
+key_idea = "Build the result greedily, appending a character unless the last two kept characters already equal it."
+hints = ["Each run of equal characters needs to be cut down to at most two.", "While building the output, look only at its last two characters."]

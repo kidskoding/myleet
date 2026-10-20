@@ -1,0 +1,7 @@
+id = "reshape-the-matrix"
+title = "Reshape the Matrix"
+difficulty = "easy"
+leetcode = 566
+url = "https://leetcode.com/problems/reshape-the-matrix/"
+key_idea = "If m * n != r * c return mat; otherwise element k of the row-major order goes to row k // c, column k % c."
+hints = ["Check first whether the element counts match.", "Think of both matrices as the same flat sequence read row by row."]

@@ -1,0 +1,7 @@
+id = "count-prefix-and-suffix-pairs-i"
+title = "Count Prefix and Suffix Pairs I"
+difficulty = "easy"
+leetcode = 3042
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
+key_idea = "With at most 50 short words, check every pair i < j directly with startswith and endswith."
+hints = ["The input is small enough to try every pair.", "A string is both prefix and suffix of another exactly when startswith and endswith both hold."]

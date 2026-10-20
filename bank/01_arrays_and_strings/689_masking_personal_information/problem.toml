@@ -1,0 +1,7 @@
+id = "masking-personal-information"
+title = "Masking Personal Information"
+difficulty = "medium"
+leetcode = 831
+url = "https://leetcode.com/problems/masking-personal-information/"
+key_idea = "Branch on '@': emails become lowercase first letter + five stars + last letter + domain; phones keep only digits, mask all but the last four, and prefix '+' and one star per country-code digit."
+hints = ["First decide whether the input is an email or a phone number.", "For phones, throw away everything that is not a digit before formatting."]

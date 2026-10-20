@@ -1,0 +1,7 @@
+id = "merge-strings-alternately"
+title = "Merge Strings Alternately"
+difficulty = "easy"
+leetcode = 1768
+url = "https://leetcode.com/problems/merge-strings-alternately/"
+key_idea = "Walk both strings with one index, taking a character from each while both last, then append whatever remains of the longer one."
+hints = ["Handle the overlapping prefix first, then the leftover tail.", "Only one of the two strings can have a tail left."]

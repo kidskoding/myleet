@@ -1,0 +1,7 @@
+id = "minimum-changes-to-make-alternating-binary-string"
+title = "Minimum Changes To Make Alternating Binary String"
+difficulty = "easy"
+leetcode = 1758
+url = "https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/"
+key_idea = "Count mismatches against the pattern starting with '0'; the other pattern needs len(s) minus that many changes, take the smaller."
+hints = ["There are only two alternating strings of a given length.", "The two patterns disagree at every position."]

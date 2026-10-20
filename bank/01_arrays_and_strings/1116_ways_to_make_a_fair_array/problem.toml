@@ -1,0 +1,7 @@
+id = "ways-to-make-a-fair-array"
+title = "Ways to Make a Fair Array"
+difficulty = "medium"
+leetcode = 1664
+url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
+key_idea = "Removing index i flips the parity of everything after it, so new even sum = even before i + odd after i and new odd sum = odd before i + even after i; keep running prefix sums and totals."
+hints = ["Write down which elements change parity when you delete index i.", "Prefix sums of the even-indexed and odd-indexed values let you evaluate each removal in O(1)."]

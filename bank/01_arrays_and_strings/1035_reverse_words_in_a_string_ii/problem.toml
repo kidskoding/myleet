@@ -1,0 +1,39 @@
+id = "reverse-words-in-a-string-ii"
+title = "Reverse Words in a String II"
+difficulty = "medium"
+leetcode = 186
+url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
+key_idea = "Reverse the whole array, then reverse each word back in place."
+hints = ["Reversing the entire array puts the words in the right order.", "After that, each word itself is spelled backwards."]
+prompt = """
+Implement `reverse_words(s)`. You are given `s`, a list of single characters that spells
+out a sentence. The sentence is made of words separated by exactly one space `" "`, with
+no leading or trailing spaces.
+
+Rearrange `s` **in place** so that the words appear in reverse order, while each word
+keeps its own spelling. Do not build and return a new list; modify `s` and return
+`None`. Try to use only O(1) extra space.
+
+**Example 1:**
+
+```
+Input: s = ["t","h","e"," ","s","k","y"," ","i","s"," ","b","l","u","e"]
+Output: ["b","l","u","e"," ","i","s"," ","s","k","y"," ","t","h","e"]
+```
+
+The sentence "the sky is blue" becomes "blue is sky the".
+
+**Example 2:**
+
+```
+Input: s = ["a"]
+Output: ["a"]
+```
+
+**Constraints:**
+
+- `1 <= s.length <= 10^5`
+- Each `s[i]` is an English letter, a digit, or a space `" "`
+- `s` has at least one word, and words are separated by single spaces
+- There are no leading or trailing spaces
+"""

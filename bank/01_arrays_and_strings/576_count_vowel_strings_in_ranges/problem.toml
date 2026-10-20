@@ -1,0 +1,7 @@
+id = "count-vowel-strings-in-ranges"
+title = "Count Vowel Strings in Ranges"
+difficulty = "medium"
+leetcode = 2559
+url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
+key_idea = "Prefix sums over a 0/1 flag for 'starts and ends with a vowel' answer each query as prefix[r + 1] - prefix[l]."
+hints = ["Many range queries over the same array call for precomputation.", "Mark each word 1 or 0, then a running total turns any range count into a subtraction."]

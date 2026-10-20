@@ -1,0 +1,7 @@
+id = "find-nearest-point-that-has-the-same-x-or-y-coordinate"
+title = "Find Nearest Point That Has the Same X or Y Coordinate"
+difficulty = "easy"
+leetcode = 1779
+url = "https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/"
+key_idea = "Scan the points, keep only those sharing x or y, and track the smallest Manhattan distance with the first index winning ties."
+hints = ["A point is valid when it shares at least one coordinate with you.", "Use a strict comparison so the earlier index wins a tie."]

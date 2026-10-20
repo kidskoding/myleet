@@ -1,0 +1,7 @@
+id = "valid-arrangement-of-pairs"
+title = "Valid Arrangement of Pairs"
+difficulty = "hard"
+leetcode = 2097
+url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
+key_idea = "Treat each pair as a directed edge and find an Eulerian path with Hierholzer's algorithm, starting at the node whose out-degree exceeds its in-degree (or anywhere if none does)."
+hints = ["Model the numbers as nodes and the pairs as something that must each be used exactly once.", "Where the path must start is decided by comparing how many edges leave and enter each node."]

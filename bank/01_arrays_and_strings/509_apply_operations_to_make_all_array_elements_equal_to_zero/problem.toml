@@ -1,0 +1,7 @@
+id = "apply-operations-to-make-all-array-elements-equal-to-zero"
+title = "Apply Operations to Make All Array Elements Equal to Zero"
+difficulty = "medium"
+leetcode = 2772
+url = "https://leetcode.com/problems/apply-operations-to-make-all-array-elements-equal-to-zero/"
+key_idea = "Scan left to right: the leftmost nonzero value must be cleared by windows starting there, so track active decrements with a difference array and fail if a value goes negative or a window runs off the end."
+hints = ["Think about the first element: which windows can ever touch it?", "Instead of subtracting over every window, record where each batch of subtractions starts and stops."]

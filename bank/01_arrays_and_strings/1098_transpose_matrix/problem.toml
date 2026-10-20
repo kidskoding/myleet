@@ -1,0 +1,7 @@
+id = "transpose-matrix"
+title = "Transpose Matrix"
+difficulty = "easy"
+leetcode = 867
+url = "https://leetcode.com/problems/transpose-matrix/"
+key_idea = "Build an n x m result where result[j][i] = matrix[i][j]."
+hints = ["The result's shape is the input's shape with rows and columns swapped.", "Row j of the result is column j of the input."]

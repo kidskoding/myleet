@@ -1,0 +1,7 @@
+id = "running-sum-of-1d-array"
+title = "Running Sum of 1d Array"
+difficulty = "easy"
+leetcode = 1480
+url = "https://leetcode.com/problems/running-sum-of-1d-array/"
+key_idea = "Each output entry is the previous output entry plus the current element."
+hints = ["You never need to re-add the earlier elements from scratch.", "Carry one running total as you scan left to right."]

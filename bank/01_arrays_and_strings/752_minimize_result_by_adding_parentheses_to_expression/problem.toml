@@ -1,0 +1,7 @@
+id = "minimize-result-by-adding-parentheses-to-expression"
+title = "Minimize Result by Adding Parentheses to Expression"
+difficulty = "medium"
+leetcode = 2232
+url = "https://leetcode.com/problems/minimize-result-by-adding-parentheses-to-expression/"
+key_idea = "Try every left split of num1 and right split of num2; each placement evaluates to left_factor * (a + b) * right_factor, keep the smallest."
+hints = ["The expression is at most 10 characters, so the number of placements is tiny.", "Digits outside the parentheses act as multipliers; an empty outside part means multiply by 1."]

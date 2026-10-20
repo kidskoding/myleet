@@ -1,0 +1,7 @@
+id = "rotating-the-box"
+title = "Rotating the Box"
+difficulty = "medium"
+leetcode = 1861
+url = "https://leetcode.com/problems/rotating-the-box/"
+key_idea = "In each row slide stones right with a write pointer that resets to just left of each obstacle, then rotate: new[j][m - 1 - i] = row i, column j."
+hints = ["Gravity after a clockwise rotation pulls each original row toward its right end.", "Obstacles split a row into independent segments."]
