@@ -1,0 +1,131 @@
+title = "Oracle"
+focus = "fundamentals, arrays/maps, trees, SQL-adjacent data modeling style, and object-oriented design."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "07_trees", "10_graphs"]
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Linked List Cycle"
+url = "https://leetcode.com/problems/linked-list-cycle/"
+
+[[entries]]
+title = "Remove Nth Node From End of List"
+url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Implement Queue using Stacks"
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
+
+[[entries]]
+title = "Design Linked List"
+url = "https://leetcode.com/problems/design-linked-list/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Bricks Falling When Hit"
+url = "https://leetcode.com/problems/bricks-falling-when-hit/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "The Maze III"
+url = "https://leetcode.com/problems/the-maze-iii/"
+
+[[entries]]
+title = "Count Good Nodes in Binary Tree"
+url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"

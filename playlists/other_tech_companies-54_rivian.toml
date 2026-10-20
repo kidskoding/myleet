@@ -1,0 +1,123 @@
+title = "Rivian"
+focus = "graph pathfinding, grids, heaps, binary search, intervals, greedy scheduling, trees, and DP."
+review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals"]
+
+[[entries]]
+title = "Path With Minimum Effort"
+url = "https://leetcode.com/problems/path-with-minimum-effort/"
+
+[[entries]]
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
+
+[[entries]]
+title = "Shortest Path in Binary Matrix"
+url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Minimum Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Koko Eating Bananas"
+url = "https://leetcode.com/problems/koko-eating-bananas/"
+
+[[entries]]
+title = "Capacity To Ship Packages Within D Days"
+url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Find Peak Element"
+url = "https://leetcode.com/problems/find-peak-element/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Car Pooling"
+url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"

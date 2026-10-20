@@ -1,0 +1,123 @@
+title = "MongoDB"
+focus = "trees, tries, range queries, hash maps, design data structures, graph traversal, intervals, and DP."
+review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
+title = "File System"
+url = "https://leetcode.com/problems/design-file-system/"
+
+[[entries]]
+title = "Design Add and Search Words Data Structure"
+url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
+
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "Prefix and Suffix Search"
+url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Range Sum Query - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-mutable/"
+
+[[entries]]
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Kth Smallest Element in a BST"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "BST Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"

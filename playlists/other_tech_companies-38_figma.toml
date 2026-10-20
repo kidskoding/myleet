@@ -1,0 +1,123 @@
+title = "Figma"
+focus = "2D arrays, geometry-adjacent grids, collaboration-style design, graphs, intervals, tries, trees, and string parsing."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry", "17_advanced"]
+
+[[entries]]
+title = "Sparse Matrix Multiplication"
+url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Pacific Atlantic Water Flow"
+url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+
+[[entries]]
+title = "Shortest Bridge"
+url = "https://leetcode.com/problems/shortest-bridge/"
+
+[[entries]]
+title = "Path With Minimum Effort"
+url = "https://leetcode.com/problems/path-with-minimum-effort/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Vertical Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"

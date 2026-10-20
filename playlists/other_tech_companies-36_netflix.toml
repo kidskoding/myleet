@@ -1,0 +1,123 @@
+title = "Netflix"
+focus = "caching, streams, heaps, intervals, graphs, string processing, trees, and DP."
+review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "14_tries", "17_advanced"]
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Design Twitter"
+url = "https://leetcode.com/problems/design-twitter/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "My Calendar III"
+url = "https://leetcode.com/problems/my-calendar-iii/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Minimum Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"

@@ -1,0 +1,223 @@
+title = "Slack / Salesforce"
+focus = "balanced fundamentals, arrays/strings/hashing, trees, BFS/DFS, heaps, OOP-style design, and clear communication."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp"]
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Missing Number"
+url = "https://leetcode.com/problems/missing-number/"
+
+[[entries]]
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Longest Repeating Character Replacement"
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Read N Characters Given Read4"
+url = "https://leetcode.com/problems/read-n-characters-given-read4/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Search Insert Position"
+url = "https://leetcode.com/problems/search-insert-position/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Remove Nth Node From End of List"
+url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Binary Search Tree Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
+
+[[entries]]
+title = "Design Tic-Tac-Toe"
+url = "https://leetcode.com/problems/design-tic-tac-toe/"
+
+[[entries]]
+title = "Design Parking System"
+url = "https://leetcode.com/problems/design-parking-system/"
+
+[[entries]]
+title = "Range Module"
+url = "https://leetcode.com/problems/range-module/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Is Graph Bipartite?"
+url = "https://leetcode.com/problems/is-graph-bipartite/"
+
+[[entries]]
+title = "Shortest Bridge"
+url = "https://leetcode.com/problems/shortest-bridge/"
+
+[[entries]]
+title = "Making A Large Island"
+url = "https://leetcode.com/problems/making-a-large-island/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Last Stone Weight II"
+url = "https://leetcode.com/problems/last-stone-weight-ii/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock III"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock IV"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"

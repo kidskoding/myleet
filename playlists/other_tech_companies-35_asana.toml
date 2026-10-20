@@ -1,0 +1,123 @@
+title = "Asana"
+focus = "task graphs, topological ordering, intervals, strings, design data structures, heaps, and DP."
+review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
+
+[[entries]]
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
+
+[[entries]]
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
+
+[[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"

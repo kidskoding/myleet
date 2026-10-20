@@ -1,0 +1,147 @@
+title = "Palantir"
+focus = "arrays/maps, graph traversal, intervals, trees, simulation, practical state modeling, and clear implementation under changing requirements."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "13_intervals"]
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Car Pooling"
+url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
+
+[[entries]]
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Subsets"
+url = "https://leetcode.com/problems/subsets/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Analyze User Website Visit Pattern"
+url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
