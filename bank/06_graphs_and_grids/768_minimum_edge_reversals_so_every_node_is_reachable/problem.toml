@@ -1,0 +1,7 @@
+id = "minimum-edge-reversals-so-every-node-is-reachable"
+title = "Minimum Edge Reversals So Every Node Is Reachable"
+difficulty = "hard"
+leetcode = 2858
+url = "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/"
+key_idea = "Count reversals needed from node 0 with one traversal, then reroot: moving the root across an edge changes the count by +1 if the edge pointed away from the old root and -1 otherwise."
+hints = ["For one fixed root, an edge needs reversing exactly when it points toward the root.", "Neighbouring roots disagree only about the single edge between them."]

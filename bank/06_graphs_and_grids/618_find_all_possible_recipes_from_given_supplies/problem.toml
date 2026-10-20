@@ -1,0 +1,7 @@
+id = "find-all-possible-recipes-from-given-supplies"
+title = "Find All Possible Recipes from Given Supplies"
+difficulty = "medium"
+leetcode = 2115
+url = "https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/"
+key_idea = "Topological sort (Kahn): each recipe waits on its missing ingredients; start a queue from the supplies and release a recipe when its last ingredient becomes available."
+hints = ["A recipe can become an ingredient of another recipe, so think of dependencies as a graph.", "Recipes caught in a cycle can never be made; a BFS that only releases fully satisfied nodes handles that."]

@@ -1,0 +1,7 @@
+id = "number-of-increasing-paths-in-a-grid"
+title = "Number of Increasing Paths in a Grid"
+difficulty = "hard"
+leetcode = 2328
+url = "https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/"
+key_idea = "paths(cell) = 1 + sum of paths(neighbor) over strictly larger neighbors; process cells from largest value down (or memoized DFS) and add them all up."
+hints = ["Every increasing path starting at a cell continues into a strictly larger neighbor.", "Count the paths that start at each cell, reusing answers for larger cells."]

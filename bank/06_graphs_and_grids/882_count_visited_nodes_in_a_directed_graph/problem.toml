@@ -1,0 +1,7 @@
+id = "count-visited-nodes-in-a-directed-graph"
+title = "Count Visited Nodes in a Directed Graph"
+difficulty = "hard"
+leetcode = 2876
+url = "https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/"
+key_idea = "Each node has one out-edge, so every component is a cycle with trees feeding in. Peel off non-cycle nodes with Kahn's algorithm; cycle nodes get the cycle length, and the peeled nodes, in reverse removal order, get 1 + the answer of their successor."
+hints = ["With exactly one outgoing edge per node, every walk eventually loops forever on one cycle.", "Find the cycle nodes first (indegree peeling works), then fill in the tails."]

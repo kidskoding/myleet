@@ -1,0 +1,7 @@
+id = "minesweeper"
+title = "Minesweeper"
+difficulty = "medium"
+leetcode = 529
+url = "https://leetcode.com/problems/minesweeper/"
+key_idea = "A mine click becomes X; otherwise flood fill from the click: a square with adjacent mines shows its count and stops, a square with none becomes B and reveals its unrevealed neighbours."
+hints = ["Clicking a mine is a one-cell change.", "Count the eight neighbours first; only squares with a zero count keep spreading."]

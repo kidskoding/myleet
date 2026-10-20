@@ -1,0 +1,50 @@
+id = "minimum-runes-to-add-to-cast-spell"
+title = "Minimum Runes to Add to Cast Spell"
+difficulty = "hard"
+leetcode = 3383
+url = "https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell/"
+key_idea = "Mark everything reachable from the crystals, then find strongly connected components of the remaining nodes; each component with no incoming edge from another unreached component needs one new rune."
+hints = ["Nodes already reachable from a crystal never need help. Focus on the rest.", "Collapse groups of nodes that can all reach each other into single nodes, then ask which of those nothing points into."]
+prompt = """
+Implement `min_runes_to_add(n, crystals, flow_from, flow_to)`.
+
+A spell uses `n` focus points numbered `0` to `n - 1`. Some of them hold magic crystals; their
+indices are listed in `crystals`. There are also one-way runes: rune `i` carries magic from
+point `flow_from[i]` to point `flow_to[i]`.
+
+A point receives magic if it holds a crystal, or if some rune carries magic into it from a
+point that already receives magic. The spell can be cast only when every point receives
+magic.
+
+You may draw new one-way runes between any two points. Return the smallest number of runes
+you must add so that the spell can be cast.
+
+**Example 1:**
+
+```
+Input: n = 6, crystals = [0], flow_from = [0,1,2,3], flow_to = [1,2,3,0]
+Output: 2
+```
+
+Points `0` to `3` already receive magic. Add runes `0 -> 4` and `0 -> 5`.
+
+**Example 2:**
+
+```
+Input: n = 7, crystals = [3,5], flow_from = [0,1,2,3,5], flow_to = [1,2,0,4,6]
+Output: 1
+```
+
+Points `0`, `1` and `2` form a loop that no crystal reaches. One rune into any of them, such
+as `3 -> 0`, is enough.
+
+**Constraints:**
+
+- `2 <= n <= 10^5`
+- `1 <= crystals.length <= n`
+- `0 <= crystals[i] <= n - 1`
+- `1 <= flow_from.length == flow_to.length <= min(2 * 10^5, n * (n - 1) / 2)`
+- `0 <= flow_from[i], flow_to[i] <= n - 1`
+- `flow_from[i] != flow_to[i]`
+- All existing runes are distinct, and all crystal indices are distinct.
+"""

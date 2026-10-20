@@ -1,0 +1,7 @@
+id = "couples-holding-hands"
+title = "Couples Holding Hands"
+difficulty = "hard"
+leetcode = 765
+url = "https://leetcode.com/problems/couples-holding-hands/"
+key_idea = "Walk the seats in pairs; whenever a seat's neighbor is not their partner, swap the partner into that seat using a position map. Each swap seats one couple for good, which is optimal."
+hints = ["Look at seats two at a time: (0, 1), (2, 3), and so on. Partner of person x is x ^ 1.", "Fixing a pair by pulling the partner over never hurts later pairs; keep a person -> seat map so each fix is O(1)."]

@@ -1,0 +1,7 @@
+id = "rank-transform-of-a-matrix"
+title = "Rank Transform of a Matrix"
+difficulty = "hard"
+leetcode = 1632
+url = "https://leetcode.com/problems/rank-transform-of-a-matrix/"
+key_idea = "Process values in increasing order; union equal cells sharing a row or column, give each group 1 + max current rank of its rows and columns, then record it for those rows and columns."
+hints = ["Smaller values never depend on larger ones, so handle values from smallest up.", "Equal values linked through shared rows or columns must all get the same rank."]

@@ -1,0 +1,7 @@
+id = "minimum-cost-of-a-path-with-special-roads"
+title = "Minimum Cost of a Path With Special Roads"
+difficulty = "medium"
+leetcode = 2662
+url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
+key_idea = "Dijkstra over the start point and every road endpoint, where walking between any two points costs their Manhattan distance and a road jumps from its start to its end."
+hints = ["Only a few points matter: the start, the target, and the ends of the special roads.", "Treat it as a shortest path problem where you may always walk directly, and roads are optional shortcuts."]

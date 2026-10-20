@@ -1,0 +1,45 @@
+id = "minimum-knight-moves"
+title = "Minimum Knight Moves"
+difficulty = "medium"
+leetcode = 1197
+url = "https://leetcode.com/problems/minimum-knight-moves/"
+key_idea = "BFS from the origin over knight jumps, folding the target into the first quadrant by symmetry and letting the search dip only slightly below zero."
+hints = ["Every move costs the same, so think about which search gives shortest paths directly.", "The board is symmetric, so the signs of x and y do not change the answer; bound the search region."]
+prompt = """
+Implement `min_knight_moves(x, y)`. A chess knight stands on square `[0, 0]` of a board that
+stretches forever in every direction. In one move the knight jumps two squares along one
+axis and one square along the other, giving eight possible jumps from any square.
+
+Return the fewest moves the knight needs to land on square `[x, y]`. Every square is
+reachable.
+
+**Example 1:**
+
+```
+Input: x = 2, y = 1
+Output: 1
+```
+
+A single jump `[0, 0] -> [2, 1]` gets there.
+
+**Example 2:**
+
+```
+Input: x = 5, y = 5
+Output: 4
+```
+
+One shortest route is `[0, 0] -> [2, 1] -> [4, 2] -> [3, 4] -> [5, 5]`.
+
+**Example 3:**
+
+```
+Input: x = 1, y = 1
+Output: 2
+```
+
+**Constraints:**
+
+- `-300 <= x, y <= 300`
+- `0 <= |x| + |y| <= 300`
+"""

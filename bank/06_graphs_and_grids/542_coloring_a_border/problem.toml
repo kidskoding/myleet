@@ -1,0 +1,7 @@
+id = "coloring-a-border"
+title = "Coloring A Border"
+difficulty = "medium"
+leetcode = 1034
+url = "https://leetcode.com/problems/coloring-a-border/"
+key_idea = "Flood-fill the component from (row, col) to collect its cells, mark a cell as border if it touches the grid edge or a cell outside the component, and recolor only those afterward."
+hints = ["Find the whole connected component first, without changing anything.", "Recoloring during the search changes what later cells see as their neighbors."]

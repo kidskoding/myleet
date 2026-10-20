@@ -1,0 +1,7 @@
+id = "count-islands-with-total-value-divisible-by-k"
+title = "Count Islands With Total Value Divisible by K"
+difficulty = "medium"
+leetcode = 3619
+url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
+key_idea = "Flood fill each unvisited positive cell (BFS or iterative DFS), summing values over the island, and count islands whose sum is divisible by k."
+hints = ["This is the classic island count with one extra number tracked per island.", "Accumulate the sum while you flood the island, then test it once the flood finishes."]

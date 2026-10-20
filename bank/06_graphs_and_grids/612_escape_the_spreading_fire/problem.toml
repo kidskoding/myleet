@@ -1,0 +1,7 @@
+id = "escape-the-spreading-fire"
+title = "Escape the Spreading Fire"
+difficulty = "hard"
+leetcode = 2258
+url = "https://leetcode.com/problems/escape-the-spreading-fire/"
+key_idea = "Multi-source BFS gives the minute fire reaches each cell; then binary search the waiting time, checking with a BFS that you always reach a cell strictly before the fire (the safehouse may tie)."
+hints = ["First work out when the fire reaches every cell, independent of you.", "If waiting d minutes is safe then waiting fewer is too, so the answer can be searched."]

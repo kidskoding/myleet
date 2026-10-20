@@ -1,0 +1,7 @@
+id = "last-day-where-you-can-still-cross"
+title = "Last Day Where You Can Still Cross"
+difficulty = "hard"
+leetcode = 1970
+url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
+key_idea = "Crossability is monotone in the day, so binary search the day with a BFS check, or add land back in reverse with union-find until top and bottom connect."
+hints = ["If you can cross on day d, you could also cross on any earlier day.", "Alternatively, think about the days in reverse: water turns back into land."]

@@ -1,0 +1,7 @@
+id = "check-if-there-is-a-valid-path-in-a-grid"
+title = "Check if There is a Valid Path in a Grid"
+difficulty = "medium"
+leetcode = 1391
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
+key_idea = "Map each street type to the directions it opens, then BFS from the top-left cell, stepping to a neighbor only when that neighbor opens back toward the current cell."
+hints = ["Write down, for each of the six street types, which sides it connects.", "A move is legal only if both cells agree on the shared side."]

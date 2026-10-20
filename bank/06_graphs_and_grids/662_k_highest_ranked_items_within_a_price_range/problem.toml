@@ -1,0 +1,7 @@
+id = "k-highest-ranked-items-within-a-price-range"
+title = "K Highest Ranked Items Within a Price Range"
+difficulty = "medium"
+leetcode = 2146
+url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
+key_idea = "BFS from start records each reachable cell's distance; collect in-range items as (distance, price, row, col), sort, and take the first k."
+hints = ["Distance here is the number of steps through non-wall cells, which BFS computes.", "The ranking rules map directly onto a sort key."]

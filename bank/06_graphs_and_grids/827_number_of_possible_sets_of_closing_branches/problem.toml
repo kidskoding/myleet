@@ -1,0 +1,7 @@
+id = "number-of-possible-sets-of-closing-branches"
+title = "Number of Possible Sets of Closing Branches"
+difficulty = "hard"
+leetcode = 2959
+url = "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/"
+key_idea = "With n <= 10, try every subset of kept branches and run Floyd-Warshall on only those nodes to check all pairwise distances."
+hints = ["n is tiny, so enumerating every choice of branches is affordable.", "Shortest paths must avoid closed branches; compute them per choice."]

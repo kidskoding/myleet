@@ -1,0 +1,7 @@
+id = "minimum-time-to-visit-a-cell-in-a-grid"
+title = "Minimum Time to Visit a Cell In a Grid"
+difficulty = "hard"
+leetcode = 2577
+url = "https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/"
+key_idea = "Dijkstra on arrival time; if you reach a neighbour too early you can bounce back and forth, so the arrival is grid value or grid value + 1 to match parity. Only a stuck start (both neighbours > 1) is impossible."
+hints = ["Waiting is not allowed, but you can step back and forth between two cells. What does that do to the time?", "Once you can move at all from the start, every cell becomes reachable; the question is when."]

@@ -1,0 +1,7 @@
+id = "detonate-the-maximum-bombs"
+title = "Detonate the Maximum Bombs"
+difficulty = "medium"
+leetcode = 2101
+url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
+key_idea = "Build a directed graph where i -> j when bomb j lies within bomb i's radius (compare squared distances), then run a DFS/BFS from every bomb and take the largest reach."
+hints = ["Bomb i reaching bomb j does not mean j reaches i.", "Try starting the chain from each bomb and count everything it can eventually reach."]

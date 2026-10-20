@@ -1,0 +1,7 @@
+id = "minimum-cost-path-with-edge-reversals"
+title = "Minimum Cost Path with Edge Reversals"
+difficulty = "medium"
+leetcode = 3650
+url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
+key_idea = "Model each edge u -> v (w) as a normal edge plus a reversed edge v -> u costing 2w, then run Dijkstra from 0; a shortest path never revisits a node, so each switch is used at most once."
+hints = ["Using a node's switch is just one extra outgoing option from that node.", "Positive weights mean an optimal path never comes back to a node."]

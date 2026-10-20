@@ -1,0 +1,7 @@
+id = "minimum-cost-to-convert-string-ii"
+title = "Minimum Cost to Convert String II"
+difficulty = "hard"
+leetcode = 2977
+url = "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/"
+key_idea = "Give every rule string an id and run Floyd-Warshall between strings of equal length; then DP over prefixes, where dp[i] extends by a free matching character or by converting a substring of any rule length starting at i."
+hints = ["The disjoint-or-identical rule means the string splits into independent pieces, each converted on its own.", "Converting one piece may take several rules in a row, which is a shortest path between strings."]

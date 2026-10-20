@@ -1,0 +1,7 @@
+id = "power-grid-maintenance"
+title = "Power Grid Maintenance"
+difficulty = "medium"
+leetcode = 3607
+url = "https://leetcode.com/problems/power-grid-maintenance/"
+key_idea = "Union-find the stations into grids, give each grid a min-heap of its ids, mark stations offline, and lazily pop offline ids from the heap top when answering."
+hints = ["Connectivity never changes, so group stations into grids once up front.", "Each grid needs its smallest online id quickly, even as stations go offline."]

@@ -1,0 +1,35 @@
+id = "brace-expansion"
+title = "Brace Expansion"
+difficulty = "medium"
+leetcode = 1087
+url = "https://leetcode.com/problems/brace-expansion/"
+key_idea = "Split the string into groups (a brace group's sorted options, or a single letter), then backtrack or take the Cartesian product across groups; sorting each group first yields sorted output."
+hints = ["First turn the string into a list of option lists, one per position in the output word.", "If every option list is sorted, building words left to right produces them in lexicographic order."]
+prompt = """
+Implement `expand(s)`. The string describes a set of words: each position is either a
+single lowercase letter or a brace group such as `{a,b,c}` listing the letters allowed at
+that position. For example, `"{a,b}c{d,e}f"` stands for `"acdf"`, `"acef"`, `"bcdf"` and
+`"bcef"`.
+
+Return every word the string describes, sorted lexicographically.
+
+**Example 1:**
+
+```
+Input: s = "{a,b}c{d,e}f"
+Output: ["acdf","acef","bcdf","bcef"]
+```
+
+**Example 2:**
+
+```
+Input: s = "abcd"
+Output: ["abcd"]
+```
+
+**Constraints:**
+
+- `1 <= len(s) <= 50`
+- `s` contains lowercase letters, `{`, `}` and `,`
+- Braces are never nested, and letters inside one group are distinct
+"""

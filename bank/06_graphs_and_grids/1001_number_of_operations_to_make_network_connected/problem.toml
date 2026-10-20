@@ -1,0 +1,7 @@
+id = "number-of-operations-to-make-network-connected"
+title = "Number of Operations to Make Network Connected"
+difficulty = "medium"
+leetcode = 1319
+url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
+key_idea = "With at least n - 1 cables the answer is components - 1 (count components with union-find); otherwise it is impossible."
+hints = ["First decide whether there are enough cables at all.", "Each extra cable can join two separate groups of computers."]

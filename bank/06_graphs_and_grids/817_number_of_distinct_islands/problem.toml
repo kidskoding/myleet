@@ -1,0 +1,46 @@
+id = "number-of-distinct-islands"
+title = "Number of Distinct Islands"
+difficulty = "medium"
+leetcode = 694
+url = "https://leetcode.com/problems/number-of-distinct-islands/"
+key_idea = "Flood-fill each island and record its cells relative to the first cell found; the set of these normalized shapes gives the answer."
+hints = ["Two islands match only by sliding, not rotating or flipping.", "Describe an island in a way that ignores where it sits on the grid."]
+prompt = """
+Implement `num_distinct_islands(grid)`, which takes an `m x n` grid of `0`s (water) and
+`1`s (land) and returns how many differently shaped islands it contains.
+
+An island is a group of land cells joined horizontally or vertically. Two islands have
+the same shape when one can be slid (translated) onto the other exactly. Rotating or
+mirroring an island does not count: a rotated copy is a different shape.
+
+**Example 1:**
+
+```
+Input: grid = [[1,1,0,0,0],[1,1,0,0,0],[0,0,0,1,1],[0,0,0,1,1]]
+Output: 1
+```
+
+Both islands are 2x2 squares.
+
+**Example 2:**
+
+```
+Input: grid = [[1,1,0,1,1],[1,0,0,0,0],[0,0,0,0,1],[1,1,0,1,1]]
+Output: 3
+```
+
+The four islands are an L shape, two identical horizontal pairs, and the same L turned
+half a turn. The turned L cannot be slid onto the first one, so it is a third shape.
+
+**Example 3:**
+
+```
+Input: grid = [[0,0],[0,0]]
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= m, n <= 50`
+- `grid[i][j]` is `0` or `1`
+"""

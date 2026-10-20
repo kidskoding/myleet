@@ -1,0 +1,7 @@
+id = "maximum-candies-you-can-get-from-boxes"
+title = "Maximum Candies You Can Get from Boxes"
+difficulty = "hard"
+leetcode = 1298
+url = "https://leetcode.com/problems/maximum-candies-you-can-get-from-boxes/"
+key_idea = "BFS over boxes you can open: track boxes you hold and keys you own, and enqueue a box the moment you both hold it and can open it."
+hints = ["A box becomes usable only when you have it and it is open or you own its key.", "Opening a box can unlock boxes you already hold but could not open."]

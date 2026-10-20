@@ -1,0 +1,7 @@
+id = "minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix"
+title = "Minimum Number of Flips to Convert Binary Matrix to Zero Matrix"
+difficulty = "hard"
+leetcode = 1284
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/"
+key_idea = "Encode the matrix as a bitmask (at most 9 bits) and BFS over states, where each move XORs a precomputed cross mask; the first time you reach 0 is the answer."
+hints = ["The matrix is tiny. How many distinct states can it be in?", "Flipping the same cell twice cancels out."]

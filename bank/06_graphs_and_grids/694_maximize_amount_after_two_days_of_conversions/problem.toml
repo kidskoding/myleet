@@ -1,0 +1,7 @@
+id = "maximize-amount-after-two-days-of-conversions"
+title = "Maximize Amount After Two Days of Conversions"
+difficulty = "medium"
+leetcode = 3387
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
+key_idea = "Graph search on each day: day 1 gives how much of every currency 1 unit of the start buys, day 2 gives how much of every currency 1 unit of the start is worth, and the answer is the best ratio over shared currencies."
+hints = ["Each day's rates form a graph where an edge can be walked both ways with inverse rates.", "Ending day 1 holding some currency c, how much of the start currency can day 2 turn it into?"]

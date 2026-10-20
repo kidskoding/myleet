@@ -1,0 +1,7 @@
+id = "find-the-safest-path-in-a-grid"
+title = "Find the Safest Path in a Grid"
+difficulty = "medium"
+leetcode = 2812
+url = "https://leetcode.com/problems/find-the-safest-path-in-a-grid/"
+key_idea = "Multi-source BFS from every thief gives each cell its safeness, then a max-heap (or binary search plus BFS) finds the path maximizing the minimum safeness."
+hints = ["First compute, for every cell, the Manhattan distance to its nearest thief.", "Then you want the path whose smallest cell value is as large as possible."]

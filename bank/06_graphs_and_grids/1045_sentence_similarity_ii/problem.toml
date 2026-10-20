@@ -1,0 +1,52 @@
+id = "sentence-similarity-ii"
+title = "Sentence Similarity II"
+difficulty = "medium"
+leetcode = 737
+url = "https://leetcode.com/problems/sentence-similarity-ii/"
+key_idea = "Similarity is transitive, so union every similar pair with union-find and require each aligned word pair to be equal or in the same set."
+hints = ["If a~b and b~c, then a~c; think of words as nodes and pairs as edges.", "Group the words into connected components once, then each position becomes a constant-time check."]
+prompt = """
+Implement `are_sentences_similar_two(sentence1, sentence2, similar_pairs)`. Each sentence
+is a list of words. Each entry `[x, y]` of `similar_pairs` says words `x` and `y` are
+similar.
+
+Similarity is symmetric and transitive: if `a` is similar to `b` and `b` to `c`, then `a`
+is similar to `c`. Every word is similar to itself.
+
+Two sentences are similar when they have the same number of words and, at every position
+`i`, `sentence1[i]` and `sentence2[i]` are similar. Return whether they are.
+
+**Example 1:**
+
+```
+Input: sentence1 = ["great","acting","skills"], sentence2 = ["fine","drama","talent"],
+       similar_pairs = [["great","good"],["fine","good"],["drama","acting"],["skills","talent"]]
+Output: true
+```
+
+`great` and `fine` are linked through `good`.
+
+**Example 2:**
+
+```
+Input: sentence1 = ["I","love","leetcode"], sentence2 = ["I","love","onepiece"],
+       similar_pairs = [["manga","onepiece"],["platform","anime"],["leetcode","platform"],["anime","manga"]]
+Output: true
+```
+
+`leetcode -> platform -> anime -> manga -> onepiece`.
+
+**Example 3:**
+
+```
+Input: sentence1 = ["I","love","leetcode"], sentence2 = ["I","love","onepiece"],
+       similar_pairs = [["manga","hunterXhunter"],["platform","anime"],["leetcode","platform"],["anime","manga"]]
+Output: false
+```
+
+**Constraints:**
+
+- `1 <= sentence1.length, sentence2.length <= 1000`
+- `1 <= sentence1[i].length, sentence2[i].length <= 20`, English letters
+- `0 <= similar_pairs.length <= 2000`
+"""

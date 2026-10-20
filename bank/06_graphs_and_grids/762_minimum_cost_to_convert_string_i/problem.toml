@@ -1,0 +1,7 @@
+id = "minimum-cost-to-convert-string-i"
+title = "Minimum Cost to Convert String I"
+difficulty = "medium"
+leetcode = 2976
+url = "https://leetcode.com/problems/minimum-cost-to-convert-string-i/"
+key_idea = "Run Floyd-Warshall over the 26 letters using the cheapest rule for each pair, then add up the shortest conversion cost for every differing position."
+hints = ["Changing one letter into another may be cheaper through intermediate letters.", "There are only 26 letters, so all-pairs shortest paths is affordable."]

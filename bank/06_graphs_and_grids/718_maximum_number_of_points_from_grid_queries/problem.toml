@@ -1,0 +1,7 @@
+id = "maximum-number-of-points-from-grid-queries"
+title = "Maximum Number of Points From Grid Queries"
+difficulty = "hard"
+leetcode = 2503
+url = "https://leetcode.com/problems/maximum-number-of-points-from-grid-queries/"
+key_idea = "Answer queries offline in increasing order with one growing min-heap flood fill from the top-left: pop cells while their value is below the current query, so each cell is expanded once."
+hints = ["A larger query can reach everything a smaller query reaches.", "Expand the frontier cell with the smallest value first."]
