@@ -1,0 +1,7 @@
+id = "maximum-number-of-subsequences-after-one-inserting"
+title = "Maximum Number of Subsequences After One Inserting"
+difficulty = "medium"
+leetcode = 3628
+url = "https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/"
+key_idea = "Count existing LCT subsequences, then add the best gain among inserting L at the front (gains every CT pair), T at the end (gains every LC pair), or C at the split maximizing L's before times T's after."
+hints = ["An inserted letter only creates subsequences that use it.", "For each of the three letters, figure out where it helps most."]

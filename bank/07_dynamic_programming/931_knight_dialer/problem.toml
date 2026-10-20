@@ -1,0 +1,7 @@
+id = "knight-dialer"
+title = "Knight Dialer"
+difficulty = "medium"
+leetcode = 935
+url = "https://leetcode.com/problems/knight-dialer/"
+key_idea = "DP over the 10 digits: ways[d] after one more jump is the sum of ways[p] over digits p a knight can reach d from, taken mod 1e9+7."
+hints = ["List, for each digit, which digits a knight can jump to from it. One of them has no moves at all.", "You only need the count of numbers ending on each digit after each step."]

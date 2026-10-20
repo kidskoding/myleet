@@ -1,0 +1,7 @@
+id = "largest-plus-sign"
+title = "Largest Plus Sign"
+difficulty = "medium"
+leetcode = 764
+url = "https://leetcode.com/problems/largest-plus-sign/"
+key_idea = "For each cell, the plus order is the minimum of the consecutive-ones run lengths in the four directions; compute those runs with four directional DP sweeps."
+hints = ["A plus centered at a cell is limited by its shortest arm.", "The arm length in one direction can be built from the neighboring cell's arm length in that direction."]

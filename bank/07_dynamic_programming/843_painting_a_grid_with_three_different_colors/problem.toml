@@ -1,0 +1,7 @@
+id = "painting-a-grid-with-three-different-colors"
+title = "Painting a Grid With Three Different Colors"
+difficulty = "hard"
+leetcode = 1931
+url = "https://leetcode.com/problems/painting-a-grid-with-three-different-colors/"
+key_idea = "Enumerate every valid coloring of one column (at most 48 for m = 5), precompute which pairs can sit side by side, and run a DP across the n columns."
+hints = ["m is at most 5, so a single column has very few valid colorings.", "Move column by column, tracking only the coloring of the latest column."]

@@ -1,0 +1,7 @@
+id = "number-of-paths-with-max-score"
+title = "Number of Paths with Max Score"
+difficulty = "hard"
+leetcode = 1301
+url = "https://leetcode.com/problems/number-of-paths-with-max-score/"
+key_idea = "DP from S toward E keeping (best score, number of ways) per cell, combining the three predecessor cells and skipping obstacles."
+hints = ["Each cell can only be reached from the cell below, to the right, or diagonally below-right.", "Store two values per cell: the best sum and how many paths achieve it."]

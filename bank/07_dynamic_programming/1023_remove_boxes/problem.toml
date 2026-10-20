@@ -1,0 +1,7 @@
+id = "remove-boxes"
+title = "Remove Boxes"
+difficulty = "hard"
+leetcode = 546
+url = "https://leetcode.com/problems/remove-boxes/"
+key_idea = "Interval DP dp(l, r, k): best score for boxes[l..r] with k extra boxes equal to boxes[l] glued on its left; either remove that block now or merge it with a matching box later in the range."
+hints = ["The plain (l, r) interval state is not enough; something outside the range matters.", "Track how many boxes of the same color as boxes[l] are waiting to be removed together with it."]

@@ -1,0 +1,7 @@
+id = "longest-non-decreasing-subarray-from-two-arrays"
+title = "Longest Non-decreasing Subarray From Two Arrays"
+difficulty = "medium"
+leetcode = 2771
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays/"
+key_idea = "DP with two states per index: the longest valid run ending at i if nums3[i] = nums1[i], and if nums3[i] = nums2[i], each extending whichever previous state ends at a value <= the current one."
+hints = ["What matters about the run ending at i-1 is only its last value and its length.", "Track the best run ending at i for each of the two choices you can make at i."]

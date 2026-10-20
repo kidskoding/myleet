@@ -1,0 +1,7 @@
+id = "find-the-maximum-length-of-a-good-subsequence-ii"
+title = "Find the Maximum Length of a Good Subsequence II"
+difficulty = "hard"
+leetcode = 3177
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
+key_idea = "Keep, per value v and change count j, the best length ending in v, plus the best over all values for each j; each element updates j from high to low as max(same[v][j], overall[j - 1]) + 1."
+hints = ["The O(n^2 k) DP only ever needs the best earlier subsequence ending in the same value, or the best one overall.", "Index the DP by value instead of by position, and keep a running best for each change count."]

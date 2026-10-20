@@ -1,0 +1,7 @@
+id = "find-the-sum-of-subsequence-powers"
+title = "Find the Sum of Subsequence Powers"
+difficulty = "hard"
+leetcode = 3098
+url = "https://leetcode.com/problems/find-the-sum-of-subsequence-powers/"
+key_idea = "Sort, and write the total as a sum over candidate gaps d of (d - previous d) times the number of size-k subsequences whose adjacent sorted gaps are all >= d, each counted with a prefix-sum DP."
+hints = ["After sorting, the minimum absolute difference of a subsequence is its smallest gap between neighbours. The only possible values are pairwise differences.", "Counting subsequences with every gap at least d is much easier than tracking the minimum directly. How do you turn such counts into a sum of minimums?"]

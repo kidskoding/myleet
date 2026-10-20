@@ -1,0 +1,7 @@
+id = "minimum-number-of-food-buckets-to-feed-the-hamsters"
+title = "Minimum Number of Food Buckets to Feed the Hamsters"
+difficulty = "medium"
+leetcode = 2086
+url = "https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters/"
+key_idea = "Greedy left to right: for each unfed hamster prefer a bucket to its right (it may also feed the next hamster), fall back to the left, and fail if neither spot is empty."
+hints = ["When a hamster still needs food, which side is the better place for a bucket?", "A bucket two cells to the right of a hamster can feed the hamster after it too."]

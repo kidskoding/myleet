@@ -1,0 +1,7 @@
+id = "is-subsequence"
+title = "Is Subsequence"
+difficulty = "easy"
+leetcode = 392
+url = "https://leetcode.com/problems/is-subsequence/"
+key_idea = "Walk t once with a pointer into s, advancing it on each match; s is a subsequence if the pointer reaches the end."
+hints = ["Matching each character of s as early as possible in t never hurts.", "One pass over t with an index into s is enough."]

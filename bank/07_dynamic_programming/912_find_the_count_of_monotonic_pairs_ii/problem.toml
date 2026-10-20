@@ -1,0 +1,7 @@
+id = "find-the-count-of-monotonic-pairs-ii"
+title = "Find the Count of Monotonic Pairs II"
+difficulty = "hard"
+leetcode = 3251
+url = "https://leetcode.com/problems/find-the-count-of-monotonic-pairs-ii/"
+key_idea = "DP over arr1[i] = j: j may follow any previous value k with k <= j - max(0, nums[i] - nums[i-1]), so each row is a prefix sum of the previous row shifted by that gap."
+hints = ["arr2 is fixed once arr1 is chosen, so only count choices for arr1. What must hold between arr1[i-1] and arr1[i]?", "The transition sums a contiguous range of the previous DP row; prefix sums make each row linear."]

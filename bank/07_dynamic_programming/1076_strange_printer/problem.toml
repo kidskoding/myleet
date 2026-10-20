@@ -1,0 +1,7 @@
+id = "strange-printer"
+title = "Strange Printer"
+difficulty = "hard"
+leetcode = 664
+url = "https://leetcode.com/problems/strange-printer/"
+key_idea = "Interval DP: dp[i][j] starts as dp[i][j-1] + 1, and whenever s[k] == s[j] for i <= k < j, the last character can ride along with s[k]'s print, giving dp[i][k] + dp[k+1][j-1]."
+hints = ["Think about the print that produces the last character of a range; it may have been stretched from an earlier equal character.", "Define the cost of printing s[i..j] and try every earlier position with the same letter as s[j]."]

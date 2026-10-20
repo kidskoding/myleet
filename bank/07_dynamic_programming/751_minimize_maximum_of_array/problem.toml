@@ -1,0 +1,7 @@
+id = "minimize-maximum-of-array"
+title = "Minimize Maximum of Array"
+difficulty = "medium"
+leetcode = 2439
+url = "https://leetcode.com/problems/minimize-maximum-of-array/"
+key_idea = "Values can only move left, so the answer is the maximum over prefixes of ceil(prefix sum / prefix length)."
+hints = ["The first i elements can never get rid of their total; it can only be spread among them.", "Spreading a prefix evenly is always achievable by moving values left."]

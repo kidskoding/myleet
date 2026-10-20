@@ -1,0 +1,36 @@
+id = "toss-strange-coins"
+title = "Toss Strange Coins"
+difficulty = "medium"
+leetcode = 1230
+url = "https://leetcode.com/problems/toss-strange-coins/"
+key_idea = "dp[j] = probability of exactly j heads among the coins seen so far; each coin updates dp[j] = dp[j] * (1 - p) + dp[j - 1] * p, iterating j downward."
+hints = ["Add the coins one at a time.", "After each coin, the chance of j heads depends only on the chances of j and j - 1 heads before it."]
+prompt = """
+Implement `probability_of_heads(prob, target)`.
+
+You have a row of biased coins; coin `i` lands heads with probability `prob[i]`. Every coin
+is tossed exactly once. Return the probability that exactly `target` coins land heads.
+
+**Example 1:**
+
+```
+Input: prob = [0.4], target = 1
+Output: 0.4
+```
+
+**Example 2:**
+
+```
+Input: prob = [0.5,0.5,0.5,0.5,0.5], target = 0
+Output: 0.03125
+```
+
+All five fair coins must land tails: `0.5^5`.
+
+**Constraints:**
+
+- `1 <= prob.length <= 1000`
+- `0 <= prob[i] <= 1`
+- `0 <= target <= prob.length`
+- Answers within `10^-5` of the true value are accepted
+"""

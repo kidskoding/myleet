@@ -1,0 +1,7 @@
+id = "maximum-score-from-grid-operations"
+title = "Maximum Score From Grid Operations"
+difficulty = "hard"
+leetcode = 3225
+url = "https://leetcode.com/problems/maximum-score-from-grid-operations/"
+key_idea = "Each column is just a black height; DP over columns with state (previous height, current height), where choosing the next height fixes what the current column scores; prefix and suffix maxima cut the transition to O(1)."
+hints = ["An operation only matters through the final black height of each column.", "A column's score depends on its own height and its two neighbours' heights, so carry two heights in the DP state."]

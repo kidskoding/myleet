@@ -1,0 +1,7 @@
+id = "paint-house-iii"
+title = "Paint House III"
+difficulty = "hard"
+leetcode = 1473
+url = "https://leetcode.com/problems/paint-house-iii/"
+key_idea = "dp over (house, last color, neighborhoods so far): a house keeps the neighborhood count if its color matches the previous one and adds one otherwise; painted houses have a single forced color at zero cost."
+hints = ["The number of neighborhoods changes only when the color changes between neighbors.", "Track the previous house's color and the neighborhood count in your state."]

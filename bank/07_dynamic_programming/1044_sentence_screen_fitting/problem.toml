@@ -1,0 +1,52 @@
+id = "sentence-screen-fitting"
+title = "Sentence Screen Fitting"
+difficulty = "medium"
+leetcode = 418
+url = "https://leetcode.com/problems/sentence-screen-fitting/"
+key_idea = "Join the sentence into one cyclic string with a trailing space and move a pointer cols characters per row, backing it up to a word boundary when it lands mid-word."
+hints = ["Simulating word by word works but repeats the same work every time the sentence wraps.", "Treat the sentence plus a space as a repeating tape; after each row, how far along the tape are you?"]
+prompt = """
+Implement `words_typing(sentence, rows, cols)`. A screen has `rows` lines, each `cols`
+characters wide. You type the words of `sentence` onto it in order, over and over,
+following these rules:
+
+- Words on the same line are separated by a single space.
+- A word is never split across two lines; if it does not fit in what is left of the
+  line, it moves to the start of the next line.
+- After the last word, typing starts again from the first word.
+
+Return how many complete copies of the sentence fit on the screen.
+
+**Example 1:**
+
+```
+Input: sentence = ["hello","world"], rows = 2, cols = 8
+Output: 1
+```
+
+Line 1 holds `hello`, line 2 holds `world`. One full copy.
+
+**Example 2:**
+
+```
+Input: sentence = ["a","bcd","e"], rows = 3, cols = 6
+Output: 2
+```
+
+The lines read `a bcd`, `e a`, `bcd e`.
+
+**Example 3:**
+
+```
+Input: sentence = ["i","had","apple","pie"], rows = 4, cols = 5
+Output: 1
+```
+
+The lines read `i had`, `apple`, `pie i`, `had`.
+
+**Constraints:**
+
+- `1 <= sentence.length <= 100`
+- `1 <= sentence[i].length <= 10`, lowercase English letters only
+- `1 <= rows, cols <= 2 * 10^4`
+"""

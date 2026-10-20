@@ -1,0 +1,7 @@
+id = "partition-array-into-two-arrays-to-minimize-sum-difference"
+title = "Partition Array Into Two Arrays to Minimize Sum Difference"
+difficulty = "hard"
+leetcode = 2035
+url = "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/"
+key_idea = "Meet in the middle: for each half list subset sums grouped by subset size, then for every left subset of size c binary-search the right sums of size n - c for the value closest to half the total."
+hints = ["Trying all ways to choose n of 2n elements is too slow, but each half alone is small.", "If you pick c elements from the left half, you must pick exactly n - c from the right."]

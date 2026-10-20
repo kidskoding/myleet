@@ -1,0 +1,37 @@
+id = "minimum-number-of-lines-to-cover-points"
+title = "Minimum Number of Lines to Cover Points"
+difficulty = "medium"
+leetcode = 2152
+url = "https://leetcode.com/problems/minimum-number-of-lines-to-cover-points/"
+key_idea = "Bitmask DP over covered points: take the lowest uncovered point and either draw a line through it and each other point (covering every collinear point) or give it a line of its own."
+hints = ["With at most 10 points, you can afford to track which points are already covered as a bitmask.", "Some line must pass through the first uncovered point; it is enough to try the lines through it and one other point."]
+prompt = """
+Write `minimum_lines(points)`. Each entry `points[i] = [x, y]` is a distinct point on the plane.
+
+You may draw straight lines, each in any direction. Return the minimum number of lines needed
+so that every point lies on at least one of them.
+
+**Example 1:**
+
+```
+Input: points = [[0,1],[2,3],[4,5],[4,3]]
+Output: 2
+```
+
+One line passes through `(0,1)`, `(2,3)` and `(4,5)`; a second line covers `(4,3)`.
+
+**Example 2:**
+
+```
+Input: points = [[0,2],[-2,-2],[1,4]]
+Output: 1
+```
+
+All three points lie on the line `y = 2x + 2`.
+
+**Constraints:**
+
+- `1 <= len(points) <= 10`
+- `-100 <= x, y <= 100`
+- All points are distinct
+"""

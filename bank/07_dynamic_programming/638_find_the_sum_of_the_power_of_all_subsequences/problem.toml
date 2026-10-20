@@ -1,0 +1,7 @@
+id = "find-the-sum-of-the-power-of-all-subsequences"
+title = "Find the Sum of the Power of All Subsequences"
+difficulty = "hard"
+leetcode = 3082
+url = "https://leetcode.com/problems/find-the-sum-of-the-power-of-all-subsequences/"
+key_idea = "Flip the count: each subset S summing to k lies inside 2^(n - |S|) subsequences, so run a knapsack where an element either joins S or doubles the weight."
+hints = ["Count from the inner subset outward: for a fixed subset with sum k, how many outer subsequences contain it?", "Each element is either in the inner subset, in the outer one only, or in neither."]

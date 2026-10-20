@@ -1,0 +1,39 @@
+id = "minimizing-array-after-replacing-pairs-with-their-product"
+title = "Minimizing Array After Replacing Pairs With Their Product"
+difficulty = "medium"
+leetcode = 2892
+url = "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/"
+key_idea = "Any zero collapses everything to length 1; otherwise scan left to right greedily multiplying into the current block while the product stays within k, starting a new block when it would overflow."
+hints = ["Think about what a single 0 lets you do.", "With all values at least 1, merging as early as possible never hurts later merges."]
+prompt = """
+Write `min_array_length(nums, k)`. In one operation you may pick two adjacent elements `x` and
+`y` with `x * y <= k` and replace both with a single element `x * y`. You can repeat this any
+number of times.
+
+Return the smallest length `nums` can reach.
+
+**Example 1:**
+
+```
+Input: nums = [2,3,3,7,3,5], k = 20
+Output: 3
+```
+
+Merge `2` and `3` into `6`, then `6` and `3` into `18`, then `3` and `5` into `15`, giving
+`[18,7,15]`. The `7` cannot merge with either neighbour without exceeding `20`.
+
+**Example 2:**
+
+```
+Input: nums = [3,3,3,3], k = 6
+Output: 4
+```
+
+Every adjacent product is `9 > 6`, so no operation is possible.
+
+**Constraints:**
+
+- `1 <= len(nums) <= 10^5`
+- `0 <= nums[i] <= 10^9`
+- `1 <= k <= 10^9`
+"""

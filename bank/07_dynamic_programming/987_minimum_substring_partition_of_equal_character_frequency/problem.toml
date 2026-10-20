@@ -1,0 +1,7 @@
+id = "minimum-substring-partition-of-equal-character-frequency"
+title = "Minimum Substring Partition of Equal Character Frequency"
+difficulty = "medium"
+leetcode = 3144
+url = "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/"
+key_idea = "DP over prefixes: dp[i] is the fewest balanced pieces for s[:i]; for each end i, extend a start j backward while tracking counts and the max count, and the piece is balanced when max * distinct == length."
+hints = ["Let dp[i] be the answer for the first i characters and try every possible last piece.", "While growing the last piece leftward, keep letter counts, the number of distinct letters, and the largest count to test balance in O(1)."]

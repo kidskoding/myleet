@@ -1,0 +1,7 @@
+id = "maximum-earnings-from-taxi"
+title = "Maximum Earnings From Taxi"
+difficulty = "medium"
+leetcode = 2008
+url = "https://leetcode.com/problems/maximum-earnings-from-taxi/"
+key_idea = "DP over road positions: dp[i] is the best earnings arriving at point i, either carried over from dp[i - 1] or from dp[start] + end - start + tip for a ride ending at i."
+hints = ["Process positions from left to right.", "Group rides by where they end."]

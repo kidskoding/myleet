@@ -1,0 +1,7 @@
+id = "maximum-sum-of-alternating-subsequence-with-distance-at-least-k"
+title = "Maximum Sum of Alternating Subsequence With Distance at Least K"
+difficulty = "hard"
+leetcode = 3915
+url = "https://leetcode.com/problems/maximum-sum-of-alternating-subsequence-with-distance-at-least-k/"
+key_idea = "DP with two states per index (last step went up / went down); the best predecessor at least k back with a smaller or larger value comes from Fenwick trees over value ranks, inserting index i - k as i advances."
+hints = ["Track, for each index, the best sum ending there split by whether the next step must go up or down.", "Only indices at least k behind may be predecessors, so add them to a lookup structure with a lag of k."]

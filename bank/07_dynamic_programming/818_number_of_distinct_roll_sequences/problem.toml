@@ -1,0 +1,7 @@
+id = "number-of-distinct-roll-sequences"
+title = "Number of Distinct Roll Sequences"
+difficulty = "hard"
+leetcode = 2318
+url = "https://leetcode.com/problems/number-of-distinct-roll-sequences/"
+key_idea = "DP over the last two rolls: extend with a value coprime to the last roll and different from both of the last two."
+hints = ["A new roll only interacts with the previous two rolls.", "Keep a count for every ordered pair of last two values."]

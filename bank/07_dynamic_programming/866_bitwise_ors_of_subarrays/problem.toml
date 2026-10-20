@@ -1,0 +1,7 @@
+id = "bitwise-ors-of-subarrays"
+title = "Bitwise ORs of Subarrays"
+difficulty = "medium"
+leetcode = 898
+url = "https://leetcode.com/problems/bitwise-ors-of-subarrays/"
+key_idea = "Keep the set of ORs of subarrays ending at the current index; it has at most ~30 values, and the next set is {x} plus every old value OR x."
+hints = ["OR values of subarrays ending at a fixed index can only gain bits as the start moves left.", "Carry the distinct values ending at i - 1 forward to i."]

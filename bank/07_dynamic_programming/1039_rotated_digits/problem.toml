@@ -1,0 +1,7 @@
+id = "rotated-digits"
+title = "Rotated Digits"
+difficulty = "medium"
+leetcode = 788
+url = "https://leetcode.com/problems/rotated-digits/"
+key_idea = "A number is good when every digit is in {0,1,2,5,6,8,9} and at least one is in {2,5,6,9}; check each number (or digit DP for large n)."
+hints = ["Classify each digit: invalid, rotates to itself, or rotates to a different digit.", "A good number needs no invalid digits and at least one digit that changes."]

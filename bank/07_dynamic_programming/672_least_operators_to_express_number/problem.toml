@@ -1,0 +1,7 @@
+id = "least-operators-to-express-number"
+title = "Least Operators to Express Number"
+difficulty = "hard"
+leetcode = 964
+url = "https://leetcode.com/problems/least-operators-to-express-number/"
+key_idea = "Write target in base x; for each digit d at power i choose between adding d copies of x^i or subtracting (x - d) and carrying one, tracking the best cost with and without a carry."
+hints = ["A term x^i costs i operators (x/x counts as 2), plus the sign in front of it.", "Process the target digit by digit in base x; each digit can be built up from below or reached by overshooting and subtracting."]

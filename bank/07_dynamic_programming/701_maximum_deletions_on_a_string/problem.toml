@@ -1,0 +1,7 @@
+id = "maximum-deletions-on-a-string"
+title = "Maximum Deletions on a String"
+difficulty = "hard"
+leetcode = 2430
+url = "https://leetcode.com/problems/maximum-deletions-on-a-string/"
+key_idea = "DP from the right: dp[i] is the most operations on s[i:], equal to 1 plus the best dp[i + L] over lengths L whose next L letters repeat, checked in O(1) with a longest-common-prefix table."
+hints = ["After deleting a prefix, you face the same problem on a suffix.", "Comparing two substrings repeatedly is slow; precompute how far s[i:] and s[j:] agree."]

@@ -1,0 +1,7 @@
+id = "length-of-the-longest-subsequence-that-sums-to-target"
+title = "Length of the Longest Subsequence That Sums to Target"
+difficulty = "medium"
+leetcode = 2915
+url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
+key_idea = "0/1 knapsack where dp[s] is the most elements summing to s, iterating s downward for each number so each is used once."
+hints = ["This is a pick-or-skip choice per element with a sum budget.", "Store the best count per reachable sum, and mark unreachable sums so they never extend."]

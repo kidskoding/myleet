@@ -1,0 +1,7 @@
+id = "scramble-string"
+title = "Scramble String"
+difficulty = "hard"
+leetcode = 87
+url = "https://leetcode.com/problems/scramble-string/"
+key_idea = "Recurse on every split point, trying both the kept and the swapped pairing of the halves, memoizing on the substring pair and pruning when letter counts differ."
+hints = ["The first split of s1 cuts it into a prefix and a suffix; where must those pieces land in s2?", "Each piece lands either at the same end of s2 or at the opposite end; memoize on the pair of substrings."]

@@ -1,0 +1,7 @@
+id = "dice-roll-simulation"
+title = "Dice Roll Simulation"
+difficulty = "hard"
+leetcode = 1223
+url = "https://leetcode.com/problems/dice-roll-simulation/"
+key_idea = "DP over rolls with state (last face, current run length): a roll either starts a new run of a different face (from the total of all states) or extends the current run while it stays within rollMax."
+hints = ["The only history that matters is which face was rolled last and how many times in a row.", "Count sequences ending in face f with run length 1 using the total from the previous step minus those already ending in f."]

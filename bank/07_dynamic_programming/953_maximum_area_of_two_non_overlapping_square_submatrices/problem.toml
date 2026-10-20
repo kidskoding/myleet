@@ -1,0 +1,7 @@
+id = "maximum-area-of-two-non-overlapping-square-submatrices"
+title = "Maximum Area of Two Non-Overlapping Square Submatrices"
+difficulty = "medium"
+leetcode = 4016
+url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
+key_idea = "Binary search the side k; two disjoint k-squares exist iff the valid square positions span at least k rows or at least k columns, with valid positions found from a largest-square DP."
+hints = ["If two disjoint squares of side k exist, do two disjoint squares of side k - 1 exist too?", "Two same-size squares are disjoint exactly when their corners differ by at least k in rows or in columns."]

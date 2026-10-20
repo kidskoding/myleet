@@ -1,0 +1,7 @@
+id = "maximum-difference-score-in-a-grid"
+title = "Maximum Difference Score in a Grid"
+difficulty = "medium"
+leetcode = 3148
+url = "https://leetcode.com/problems/maximum-difference-score-in-a-grid/"
+key_idea = "Scores telescope to last - first, so for each cell take its value minus the minimum over cells above or left of it (excluding itself), tracked with a prefix-minimum grid."
+hints = ["Add up the scores of a few consecutive moves and see what cancels.", "For each possible ending cell, which starting cells can reach it?"]

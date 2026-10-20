@@ -1,0 +1,7 @@
+id = "race-car"
+title = "Race Car"
+difficulty = "hard"
+leetcode = 818
+url = "https://leetcode.com/problems/race-car/"
+key_idea = "BFS over (position, speed) states, pruning positions far beyond the target; each level is one instruction."
+hints = ["Model the car as a state of position and speed, and each instruction as an edge.", "You never need to go much further than twice the target in either direction."]

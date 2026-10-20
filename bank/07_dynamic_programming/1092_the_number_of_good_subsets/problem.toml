@@ -1,0 +1,7 @@
+id = "the-number-of-good-subsets"
+title = "The Number of Good Subsets"
+difficulty = "hard"
+leetcode = 1994
+url = "https://leetcode.com/problems/the-number-of-good-subsets/"
+key_idea = "Only the 10 primes up to 30 matter: DP over a bitmask of used primes, adding each square-free value with its count, then multiply by 2^(number of ones)."
+hints = ["Values divisible by 4, 9, or 25 can never appear in a good subset.", "Group equal values and count them; a value either joins the subset (count ways) or not, and its prime set must not overlap what is already used."]

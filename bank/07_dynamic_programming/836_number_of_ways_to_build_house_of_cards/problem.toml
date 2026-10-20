@@ -1,0 +1,58 @@
+id = "number-of-ways-to-build-house-of-cards"
+title = "Number of Ways to Build House of Cards"
+difficulty = "medium"
+leetcode = 2189
+url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
+key_idea = "A row of k triangles uses 3k - 1 cards and rows must strictly shrink going up, so count partitions of n into distinct parts of the form 3k - 1 with a 0/1 knapsack."
+hints = ["Work out how many cards a row with k triangles needs.", "Going up, each row must have fewer triangles than the one below; what does that say about the row sizes?"]
+prompt = """
+Implement `house_of_cards(n)`, which returns how many different houses of cards can be
+built using exactly `n` cards.
+
+A house of cards follows these rules:
+
+- It has one or more rows. Each row is made of **triangles** and **horizontal cards**.
+- A triangle is two cards leaned against each other.
+- Between every pair of neighbouring triangles in a row, one card lies flat across their
+  tops.
+- Every triangle above the bottom row must stand on a horizontal card of the row beneath
+  it.
+- Each triangle is placed in the leftmost spot still available in its row.
+
+Two houses are different if some row has a different number of cards in them. All `n`
+cards must be used.
+
+**Example 1:**
+
+```
+Input: n = 16
+Output: 2
+```
+
+One house has a bottom row of 5 triangles (14 cards) with a single triangle on top
+(2 cards). The other has a bottom row of 4 triangles (11 cards) and a row of 2 triangles
+(5 cards).
+
+**Example 2:**
+
+```
+Input: n = 2
+Output: 1
+```
+
+A single triangle.
+
+**Example 3:**
+
+```
+Input: n = 4
+Output: 0
+```
+
+One triangle uses 2 cards and two side-by-side triangles use 5. Putting one triangle on top
+of another is not allowed, because the upper triangle has no horizontal card to stand on.
+
+**Constraints:**
+
+- `1 <= n <= 500`
+"""

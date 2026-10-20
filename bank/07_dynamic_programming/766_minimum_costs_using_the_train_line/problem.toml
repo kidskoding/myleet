@@ -1,0 +1,41 @@
+id = "minimum-costs-using-the-train-line"
+title = "Minimum Costs Using the Train Line"
+difficulty = "hard"
+leetcode = 2361
+url = "https://leetcode.com/problems/minimum-costs-using-the-train-line/"
+key_idea = "Two running costs per stop, one for arriving on the regular line and one for the express line; regular comes from either line for free, express comes from express or from regular plus the transfer fee."
+hints = ["At each stop you only need the cheapest way to be on each of the two lines.", "Switching to regular is free, switching to express costs expressCost, and both can happen at any stop."]
+prompt = """
+Write `minimum_costs(regular, express, express_cost)`. A train line has stops `0` to `n`, and two
+parallel routes connect them. Going from stop `i - 1` to stop `i` costs `regular[i - 1]` on the
+regular route or `express[i - 1]` on the express route.
+
+You start at stop `0` on the regular route. At any stop you may switch from the regular route to
+the express route for `express_cost`, or from the express route back to the regular route for
+free. You can switch as many times as you like.
+
+Return a list `costs` of length `n` where `costs[i - 1]` is the minimum cost to reach stop `i`
+from stop `0`, on either route.
+
+**Example 1:**
+
+```
+Input: regular = [1,6,9,5], express = [5,2,3,10], express_cost = 8
+Output: [1,7,14,19]
+```
+
+Reaching stop 3 cheapest: regular to stop 1 (`1`), switch to express (`8`), express to stop 3
+(`2 + 3`), for `14`.
+
+**Example 2:**
+
+```
+Input: regular = [11,5,13], express = [7,10,6], express_cost = 3
+Output: [10,15,24]
+```
+
+**Constraints:**
+
+- `1 <= n == len(regular) == len(express) <= 10^5`
+- `1 <= regular[i], express[i], express_cost <= 10^5`
+"""

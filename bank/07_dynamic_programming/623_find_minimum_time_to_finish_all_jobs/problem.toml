@@ -1,0 +1,7 @@
+id = "find-minimum-time-to-finish-all-jobs"
+title = "Find Minimum Time to Finish All Jobs"
+difficulty = "hard"
+leetcode = 1723
+url = "https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/"
+key_idea = "Backtrack job by job (largest first), trying each worker, pruning any branch whose current max already reaches the best answer and skipping workers with a load already tried for this job."
+hints = ["With at most 12 jobs, a search over assignments is feasible if it prunes hard.", "Two workers with the same current load lead to identical subtrees."]

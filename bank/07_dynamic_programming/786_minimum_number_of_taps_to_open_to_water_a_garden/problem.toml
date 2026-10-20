@@ -1,0 +1,7 @@
+id = "minimum-number-of-taps-to-open-to-water-a-garden"
+title = "Minimum Number of Taps to Open to Water a Garden"
+difficulty = "hard"
+leetcode = 1326
+url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
+key_idea = "Turn each tap into an interval, record for every start point the farthest right end reachable, then greedily extend coverage like Jump Game II, counting taps."
+hints = ["Each tap covers an interval; the question becomes covering [0, n] with as few intervals as possible.", "Among intervals that start inside what you already cover, which one should you open next?"]

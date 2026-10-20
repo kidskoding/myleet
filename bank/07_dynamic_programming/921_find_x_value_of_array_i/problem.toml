@@ -1,0 +1,7 @@
+id = "find-x-value-of-array-i"
+title = "Find X Value of Array I"
+difficulty = "medium"
+leetcode = 3524
+url = "https://leetcode.com/problems/find-x-value-of-array-i/"
+key_idea = "Removing a prefix and a suffix leaves a subarray; keep counts of subarrays ending at i by product mod k (at most k states) and extend them with nums[i]."
+hints = ["What does the array look like after removing a prefix and a suffix?", "k is tiny. For subarrays ending at index i, which remainders can their products have, and how many of each?"]

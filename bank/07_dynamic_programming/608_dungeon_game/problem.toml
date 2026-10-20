@@ -1,0 +1,7 @@
+id = "dungeon-game"
+title = "Dungeon Game"
+difficulty = "hard"
+leetcode = 174
+url = "https://leetcode.com/problems/dungeon-game/"
+key_idea = "DP backwards from the princess: need[r][c] = max(1, min(need[r + 1][c], need[r][c + 1]) - dungeon[r][c]), the least health required on entering each room."
+hints = ["Going forward you cannot tell whether a big health pickup later makes an early loss worth it.", "Ask what health you need when you enter a room, starting from the last room."]

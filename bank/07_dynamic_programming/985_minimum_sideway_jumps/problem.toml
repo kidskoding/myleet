@@ -1,0 +1,7 @@
+id = "minimum-sideway-jumps"
+title = "Minimum Sideway Jumps"
+difficulty = "medium"
+leetcode = 1824
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
+key_idea = "DP over points with three lane costs: block the obstacle lane, then let each open lane take min(own cost, best other lane + 1)."
+hints = ["At each point, keep the fewest side jumps needed to stand in each of the three lanes.", "Moving forward is free unless the lane is blocked; after that, a lane can be reached by one jump from any other open lane at the same point."]

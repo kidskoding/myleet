@@ -1,0 +1,7 @@
+id = "two-best-non-overlapping-events"
+title = "Two Best Non-Overlapping Events"
+difficulty = "medium"
+leetcode = 2054
+url = "https://leetcode.com/problems/two-best-non-overlapping-events/"
+key_idea = "Sort events by start and keep a suffix maximum of values; for each event binary-search the first event starting after its end and add that suffix maximum."
+hints = ["Fix the earlier of the two events and ask for the best event that starts strictly after it ends.", "If events are ordered by start time, 'every event starting at or after t' is a suffix."]

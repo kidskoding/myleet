@@ -1,0 +1,7 @@
+id = "push-dominoes"
+title = "Push Dominoes"
+difficulty = "medium"
+leetcode = 838
+url = "https://leetcode.com/problems/push-dominoes/"
+key_idea = "For each '.', take the distance to the nearest 'R' force on its left and 'L' force on its right (blocked by the opposite letter); the closer force wins, ties stay upright."
+hints = ["A standing domino only cares about the closest push from each side.", "Two passes, one left to right and one right to left, can record those distances."]

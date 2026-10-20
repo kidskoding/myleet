@@ -1,0 +1,7 @@
+id = "maximum-points-tourist-can-earn"
+title = "Maximum Points Tourist Can Earn"
+difficulty = "medium"
+leetcode = 3332
+url = "https://leetcode.com/problems/maximum-points-tourist-can-earn/"
+key_idea = "DP over days: best[c] is the most points ending the day in city c; each new day either stays (stay score) or arrives from another city (travel score)."
+hints = ["Only the current city matters for the future, not how you got there.", "For each day, compute the best total for every destination from yesterday's totals."]

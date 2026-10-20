@@ -1,0 +1,7 @@
+id = "minimum-time-to-make-array-sum-at-most-x"
+title = "Minimum Time to Make Array Sum At Most x"
+difficulty = "hard"
+leetcode = 2809
+url = "https://leetcode.com/problems/minimum-time-to-make-array-sum-at-most-x/"
+key_idea = "Each index is reset at most once, and the ones you reset should go in increasing nums2 order; sort by nums2 and run a knapsack dp[j] = best reduction using j resets, then pick the smallest t with sum1 + t * sum2 - dp[t] <= x."
+hints = ["Resetting the same index twice is never useful, so at most n seconds matter.", "If you reset a chosen set of indices, the one with the largest growth rate should be reset last."]

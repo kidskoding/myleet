@@ -1,0 +1,51 @@
+id = "maximum-profit-from-trading-stocks"
+title = "Maximum Profit From Trading Stocks"
+difficulty = "medium"
+leetcode = 2291
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
+key_idea = "0/1 knapsack: each stock costs present[i] and is worth future[i] - present[i]; skip stocks with no gain and maximize profit within the budget."
+hints = ["Each stock can be bought at most once and has a cost and a gain. What classic problem is this?", "Let dp[b] be the best profit with total spend at most b, and iterate the budget downward per stock."]
+prompt = """
+Write `maximum_profit(present, future, budget)`. You may buy shares of `n` different stocks,
+at most one share of each. Buying stock `i` costs `present[i]` today, and that share will be
+worth `future[i]` a year from now.
+
+You have `budget` dollars to spend today. Choose a set of stocks whose total cost does not
+exceed `budget` so that your profit, the sum of `future[i] - present[i]` over the stocks you
+bought, is as large as possible. Return that maximum profit. Buying nothing is allowed, so the
+answer is never negative.
+
+**Example 1:**
+
+```
+Input: present = [5,4,6,2,3], future = [8,5,4,3,5], budget = 10
+Output: 6
+```
+
+Buy stocks 0, 3 and 4 for 5 + 2 + 3 = 10. They gain 3 + 1 + 2 = 6.
+
+**Example 2:**
+
+```
+Input: present = [2,2,5], future = [3,4,10], budget = 6
+Output: 5
+```
+
+Only stock 2 is worth buying alone; it gains 5, more than stocks 0 and 1 together.
+
+**Example 3:**
+
+```
+Input: present = [3,3,12], future = [0,3,15], budget = 10
+Output: 0
+```
+
+The only stock that gains anything costs more than the budget.
+
+**Constraints:**
+
+- `n == len(present) == len(future)`
+- `1 <= n <= 1000`
+- `0 <= present[i], future[i] <= 100`
+- `0 <= budget <= 1000`
+"""

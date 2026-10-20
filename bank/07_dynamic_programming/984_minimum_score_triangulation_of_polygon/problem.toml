@@ -1,0 +1,7 @@
+id = "minimum-score-triangulation-of-polygon"
+title = "Minimum Score Triangulation of Polygon"
+difficulty = "medium"
+leetcode = 1039
+url = "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/"
+key_idea = "Interval DP: for edge (i, j), pick the third vertex k of its triangle, giving dp[i][j] = min(dp[i][k] + dp[k][j] + v[i] * v[k] * v[j])."
+hints = ["In any triangulation, the edge between the first and last vertex belongs to exactly one triangle.", "Choosing that triangle's third vertex splits the polygon into two smaller polygons."]

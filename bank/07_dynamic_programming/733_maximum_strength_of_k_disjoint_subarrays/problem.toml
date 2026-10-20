@@ -1,0 +1,7 @@
+id = "maximum-strength-of-k-disjoint-subarrays"
+title = "Maximum Strength of K Disjoint Subarrays"
+difficulty = "hard"
+leetcode = 3077
+url = "https://leetcode.com/problems/maximum-strength-of-k-disjoint-subarrays/"
+key_idea = "DP over the array with j = number of subarrays started: track the best value where subarray j ends at the current element and the best where j subarrays are finished; subarray j has weight (k - j + 1) with alternating sign."
+hints = ["Each subarray's coefficient depends only on its position j among the k chosen.", "At each element you either extend the current subarray, start the next one, or skip it."]

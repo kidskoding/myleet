@@ -1,0 +1,7 @@
+id = "partition-array-for-maximum-sum"
+title = "Partition Array for Maximum Sum"
+difficulty = "medium"
+leetcode = 1043
+url = "https://leetcode.com/problems/partition-array-for-maximum-sum/"
+key_idea = "dp[i] = best sum for the first i elements; try every last block length up to k, tracking the block maximum as it grows."
+hints = ["Decide where the last block of the array starts.", "Build answers for every prefix, reusing shorter prefixes."]

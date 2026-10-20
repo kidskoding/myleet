@@ -1,0 +1,7 @@
+id = "divisor-game"
+title = "Divisor Game"
+difficulty = "easy"
+leetcode = 1025
+url = "https://leetcode.com/problems/divisor-game/"
+key_idea = "Alice wins exactly when n is even: from an even number she can always hand Bob an odd one, and every divisor of an odd number is odd, so Bob must hand back an even number."
+hints = ["Work out who wins for n = 1, 2, 3, 4, 5 by hand.", "What can you say about the divisors of an odd number?"]

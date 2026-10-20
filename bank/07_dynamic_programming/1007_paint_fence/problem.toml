@@ -1,0 +1,42 @@
+id = "paint-fence"
+title = "Paint Fence"
+difficulty = "medium"
+leetcode = 276
+url = "https://leetcode.com/problems/paint-fence/"
+key_idea = "Track ways ending in two different colors versus two equal colors: diff' = (same + diff) * (k - 1), same' = diff."
+hints = ["Classify each valid painting by whether its last two posts match.", "A post can copy the previous color only if the previous two posts differed."]
+prompt = """
+Implement `num_ways(n, k)`. A fence has `n` posts in a row and you have `k` paint colors.
+Every post must be painted exactly one color, and no **three or more consecutive** posts
+may share the same color. Return the number of different ways to paint the whole fence.
+
+**Example 1:**
+
+```
+Input: n = 3, k = 2
+Output: 6
+```
+
+With colors A and B, every arrangement of three posts is allowed except AAA and BBB,
+leaving 8 - 2 = 6.
+
+**Example 2:**
+
+```
+Input: n = 1, k = 1
+Output: 1
+```
+
+**Example 3:**
+
+```
+Input: n = 7, k = 2
+Output: 42
+```
+
+**Constraints:**
+
+- `1 <= n <= 50`
+- `1 <= k <= 10^5`
+- The answer fits in a 32-bit signed integer for the given inputs
+"""

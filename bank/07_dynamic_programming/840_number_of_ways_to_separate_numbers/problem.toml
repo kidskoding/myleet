@@ -1,0 +1,7 @@
+id = "number-of-ways-to-separate-numbers"
+title = "Number of Ways to Separate Numbers"
+difficulty = "hard"
+leetcode = 1977
+url = "https://leetcode.com/problems/number-of-ways-to-separate-numbers/"
+key_idea = "dp[end][len] counts splits whose last number is num[end-len:end]; it sums all previous numbers strictly shorter (prefix sums) plus the equal-length one when it compares <= via a precomputed longest-common-prefix table."
+hints = ["A shorter number without leading zeros is always smaller than a longer one.", "Comparing two equal-length substrings fast needs some precomputation."]

@@ -1,0 +1,7 @@
+id = "minimum-one-bit-operations-to-make-integers-zero"
+title = "Minimum One Bit Operations to Make Integers Zero"
+difficulty = "hard"
+leetcode = 1611
+url = "https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/"
+key_idea = "The allowed moves walk the Gray code sequence, so the answer is the inverse Gray code of n: XOR together n, n >> 1, n >> 2, ... down to 0."
+hints = ["Work out how many operations it takes to clear a single bit 2^k, then look for a pattern.", "List the states visited from 0 upward and compare them with a well-known binary sequence."]

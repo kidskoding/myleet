@@ -1,0 +1,7 @@
+id = "delivering-boxes-from-storage-to-ports"
+title = "Delivering Boxes from Storage to Ports"
+difficulty = "hard"
+leetcode = 1687
+url = "https://leetcode.com/problems/delivering-boxes-from-storage-to-ports/"
+key_idea = "dp[i] = min over valid last-trip starts j of dp[j] + 2 + (port changes inside boxes j..i-1); rewrite as (dp[j] - changes[j]) + changes[i-1] + 2 and keep a monotonic deque of j over the window allowed by maxBoxes and maxWeight."
+hints = ["Boxes are delivered in order, so each trip carries a contiguous block; think of a DP over prefixes.", "A trip's cost depends on the block only through prefix counts of port changes, which makes the transition a sliding-window minimum."]

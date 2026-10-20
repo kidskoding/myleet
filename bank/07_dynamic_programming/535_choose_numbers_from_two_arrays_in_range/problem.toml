@@ -1,0 +1,40 @@
+id = "choose-numbers-from-two-arrays-in-range"
+title = "Choose Numbers From Two Arrays in Range"
+difficulty = "hard"
+leetcode = 2143
+url = "https://leetcode.com/problems/choose-numbers-from-two-arrays-in-range/"
+key_idea = "Treat picking nums1[i] as +nums1[i] and nums2[i] as -nums2[i]; keep, for ranges ending at i, a map from running difference to count (extend previous ranges or start fresh), and add the count at difference 0."
+hints = ["Balanced means the two picked sums are equal, so track their difference instead of both sums.", "Every balanced range ends somewhere; count the ways to reach difference 0 for ranges ending at each index."]
+prompt = """
+Implement `count_subranges(nums1, nums2)`. Both lists have length `n`. A range `[l, r]`
+with `0 <= l <= r < n` is **balanced** under a choice when, for every index `i` in the
+range, you pick exactly one of `nums1[i]` or `nums2[i]`, and the sum of the values picked
+from `nums1` equals the sum of the values picked from `nums2` (an empty pick sums to 0).
+
+Two balanced ranges count as different if their `l` or `r` differ, or if some index in the
+range picks from a different list. Return the number of different balanced ranges, modulo
+`10^9 + 7`.
+
+**Example 1:**
+
+```
+Input: nums1 = [1,2,5], nums2 = [2,6,3]
+Output: 3
+```
+
+The balanced ranges are: `[0,1]` picking `nums2[0]` and `nums1[1]` (2 = 2); `[0,2]`
+picking `nums1[0]`, `nums2[1]`, `nums1[2]` (1 + 5 = 6); and `[0,2]` picking `nums1[0]`,
+`nums1[1]`, `nums2[2]` (1 + 2 = 3).
+
+**Example 2:**
+
+```
+Input: nums1 = [0,1], nums2 = [1,0]
+Output: 4
+```
+
+**Constraints:**
+
+- `1 <= n <= 100`
+- `0 <= nums1[i], nums2[i] <= 100`
+"""

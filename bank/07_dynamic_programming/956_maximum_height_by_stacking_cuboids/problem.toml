@@ -1,0 +1,7 @@
+id = "maximum-height-by-stacking-cuboids"
+title = "Maximum Height by Stacking Cuboids"
+difficulty = "hard"
+leetcode = 1691
+url = "https://leetcode.com/problems/maximum-height-by-stacking-cuboids/"
+key_idea = "Sort each cuboid's dimensions so the largest is the height, sort the cuboids, then run a longest-chain DP where each cuboid must dominate the one above in all three sorted dimensions."
+hints = ["Which way should you rotate a cuboid to make the stack as tall as possible?", "Once every cuboid is normalized, the problem looks like a longest increasing subsequence weighted by height."]

@@ -1,0 +1,7 @@
+id = "find-minimum-cost-to-remove-array-elements"
+title = "Find Minimum Cost to Remove Array Elements"
+difficulty = "medium"
+leetcode = 3469
+url = "https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements/"
+key_idea = "After any sequence of moves the array is one leftover earlier element followed by a suffix, so memoise on (leftover index, suffix start) and try the three pairs from the first three elements."
+hints = ["Each move removes two of the first three, so at most one older element survives in front of an untouched suffix.", "Describe the current array with two indices."]

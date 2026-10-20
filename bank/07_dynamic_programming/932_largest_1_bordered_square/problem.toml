@@ -1,0 +1,7 @@
+id = "largest-1-bordered-square"
+title = "Largest 1-Bordered Square"
+difficulty = "medium"
+leetcode = 1139
+url = "https://leetcode.com/problems/largest-1-bordered-square/"
+key_idea = "Precompute, for every cell, the run of consecutive 1s ending there to the left and upward; then each candidate square's four sides are checked in O(1) from its bottom-right corner."
+hints = ["Checking the border of a square cell by cell is slow. What could you precompute so a whole side is checked at once?", "Fix the bottom-right corner and try sizes from large to small."]

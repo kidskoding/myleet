@@ -1,0 +1,7 @@
+id = "string-transformation"
+title = "String Transformation"
+difficulty = "hard"
+leetcode = 2851
+url = "https://leetcode.com/problems/string-transformation/"
+key_idea = "Every operation is a rotation, so states are the n rotation offsets; count the offsets r where rotating s by r gives t (string matching on s + s), and the walks of length k ending at offset 0 or at a fixed nonzero offset have closed forms ((n-1)^k + (n-1)(-1)^k) / n and ((n-1)^k - (-1)^k) / n."
+hints = ["Moving a suffix to the front is a rotation; describe s's state by how far it is rotated.", "Each step moves to any offset other than the current one, so only 'at offset 0' versus 'at a given other offset' matters; find which offsets equal t with KMP or Z on s + s."]

@@ -1,0 +1,7 @@
+id = "fibonacci-number"
+title = "Fibonacci Number"
+difficulty = "easy"
+leetcode = 509
+url = "https://leetcode.com/problems/fibonacci-number/"
+key_idea = "Iterate from the bottom keeping only the last two values."
+hints = ["Each value depends only on the two before it.", "Recomputing the same subproblems recursively is what makes the naive version slow."]

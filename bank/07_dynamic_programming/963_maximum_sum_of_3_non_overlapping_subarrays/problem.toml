@@ -1,0 +1,7 @@
+id = "maximum-sum-of-3-non-overlapping-subarrays"
+title = "Maximum Sum of 3 Non-Overlapping Subarrays"
+difficulty = "hard"
+leetcode = 689
+url = "https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/"
+key_idea = "Compute every window sum, then for each middle window pair it with the best window ending before it and the best window starting after it, taking the leftmost on ties."
+hints = ["Fix the middle subarray. What do you need to know about the left and right sides?", "Precompute, for every position, the index of the best window to its left and to its right; use strict comparisons so ties keep the smaller index."]

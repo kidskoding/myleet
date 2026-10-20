@@ -1,0 +1,7 @@
+id = "count-non-decreasing-arrays-with-given-digit-sums"
+title = "Count Non Decreasing Arrays With Given Digit Sums"
+difficulty = "hard"
+leetcode = 3883
+url = "https://leetcode.com/problems/count-non-decreasing-arrays-with-given-digit-sums/"
+key_idea = "Bucket 0..5000 by digit sum; DP over positions where dp[v] counts arrays ending in v, and a two-pointer prefix sum over the previous bucket gives each new value's count."
+hints = ["Each position can only hold values from one small, fixed set determined by its digit sum.", "dp over (position, chosen value): the count for value v is the sum of previous counts for values <= v, which a running prefix sum supplies."]

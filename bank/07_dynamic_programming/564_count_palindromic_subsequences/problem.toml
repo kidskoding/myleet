@@ -1,0 +1,7 @@
+id = "count-palindromic-subsequences"
+title = "Count Palindromic Subsequences"
+difficulty = "hard"
+leetcode = 2484
+url = "https://leetcode.com/problems/count-palindromic-subsequences/"
+key_idea = "Fix the middle character; a length-5 palindrome is a two-digit subsequence 'ab' on the left and 'ba' on the right, so keep 10x10 pair counts for the prefix and suffix as the middle sweeps."
+hints = ["Digits only, so there are just 100 possible first-two-character patterns.", "For each middle index, multiply how many 'ab' pairs lie to its left by how many 'ba' pairs lie to its right."]

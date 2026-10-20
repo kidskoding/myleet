@@ -1,0 +1,7 @@
+id = "time-needed-to-rearrange-a-binary-string"
+title = "Time Needed to Rearrange a Binary String"
+difficulty = "medium"
+leetcode = 2380
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
+key_idea = "Scan left to right counting zeros; each 1 after some zero finishes at max(previous finish + 1, zeros seen), since it must pass every zero and cannot overtake the 1 ahead of it."
+hints = ["Simulating the swaps directly is O(n^2) and fits the limits.", "Think about when each 1 reaches its final spot: it must pass every 0 to its left, and it can be blocked by the 1 in front."]

@@ -1,0 +1,7 @@
+id = "maximize-subarray-sum-after-removing-all-occurrences-of-one-element"
+title = "Maximize Subarray Sum After Removing All Occurrences of One Element"
+difficulty = "hard"
+leetcode = 3410
+url = "https://leetcode.com/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element/"
+key_idea = "Only removing a negative value can help; keep a segment tree of (sum, best prefix, best suffix, best subarray), and for each distinct negative value zero out its positions, read the root's best, and restore."
+hints = ["Removing a value is the same as replacing it by 0, as long as the result is not an empty subarray. Which values are worth removing at all?", "Trying each candidate value with a fresh Kadane pass is too slow. You need a structure that updates a few positions and recomputes the best subarray quickly."]

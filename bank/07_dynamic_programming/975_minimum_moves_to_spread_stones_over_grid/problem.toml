@@ -1,0 +1,7 @@
+id = "minimum-moves-to-spread-stones-over-grid"
+title = "Minimum Moves to Spread Stones Over Grid"
+difficulty = "medium"
+leetcode = 2850
+url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
+key_idea = "List each surplus stone and each empty cell, then try every matching (permutation) of stones to empty cells and minimize the total Manhattan distance."
+hints = ["Moving a stone from one cell to another costs exactly their Manhattan distance.", "There are at most 8 empty cells, so trying every assignment is cheap."]

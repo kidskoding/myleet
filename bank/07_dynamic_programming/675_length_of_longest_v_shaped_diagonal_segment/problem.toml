@@ -1,0 +1,7 @@
+id = "length-of-longest-v-shaped-diagonal-segment"
+title = "Length of Longest V-Shaped Diagonal Segment"
+difficulty = "hard"
+leetcode = 3459
+url = "https://leetcode.com/problems/length-of-longest-v-shaped-diagonal-segment/"
+key_idea = "Memoized DFS over (cell, direction, turn still available, expected value): extend straight, or once rotate the direction clockwise, and start from every 1 in all four diagonals."
+hints = ["The next expected value depends only on the current one, so it can be part of the state.", "A segment's future depends on its cell, its direction, and whether it has turned yet."]

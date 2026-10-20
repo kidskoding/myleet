@@ -1,0 +1,7 @@
+id = "frog-jump"
+title = "Frog Jump"
+difficulty = "hard"
+leetcode = 403
+url = "https://leetcode.com/problems/frog-jump/"
+key_idea = "Map each stone to the set of jump sizes that can land on it, and propagate k - 1, k, k + 1 forward from each stone in order."
+hints = ["The state is not just the stone you are on; it also matters how big your last jump was.", "Process stones left to right and record, for each stone, which last-jump sizes can reach it."]

@@ -1,0 +1,7 @@
+id = "find-the-maximum-length-of-a-good-subsequence-i"
+title = "Find the Maximum Length of a Good Subsequence I"
+difficulty = "medium"
+leetcode = 3176
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-i/"
+key_idea = "dp[i][j] is the longest good subsequence ending at index i using j value changes: extend any earlier dp[p][j] with nums[p] == nums[i], or dp[p][j - 1] with any p."
+hints = ["A good subsequence is described by its last element and how many changes it has used.", "Appending an element either keeps the value (no new change) or switches it (one more change)."]

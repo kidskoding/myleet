@@ -1,0 +1,7 @@
+id = "maximum-total-damage-with-spell-casting"
+title = "Maximum Total Damage With Spell Casting"
+difficulty = "medium"
+leetcode = 3186
+url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
+key_idea = "Group equal damages and sort the distinct values; DP where taking value v adds v * count to the best total over values below v - 2, found with a moving pointer."
+hints = ["Casting one spell of a damage value never stops you casting the others with the same value.", "This is House Robber on sorted distinct values, where 'adjacent' means within 2."]

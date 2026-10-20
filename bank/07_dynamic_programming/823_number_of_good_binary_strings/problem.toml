@@ -1,0 +1,42 @@
+id = "number-of-good-binary-strings"
+title = "Number of Good Binary Strings"
+difficulty = "medium"
+leetcode = 2533
+url = "https://leetcode.com/problems/number-of-good-binary-strings/"
+key_idea = "Every good string splits uniquely into blocks of one_group ones and zero_group zeros, so dp[len] = dp[len - one_group] + dp[len - zero_group]; sum dp over the allowed lengths."
+hints = ["A run of ones whose length is a multiple of one_group can be cut into equal pieces.", "Count strings by length, building each from a shorter one."]
+prompt = """
+Implement `good_binary_strings(min_length, max_length, one_group, zero_group)`.
+
+A binary string is **good** when all of the following hold:
+
+- its length is between `min_length` and `max_length`, inclusive;
+- every maximal block of consecutive `1`s has a length that is a multiple of `one_group`;
+- every maximal block of consecutive `0`s has a length that is a multiple of `zero_group`.
+
+A string with no `1`s (or no `0`s) trivially satisfies the rule for that character.
+Return the number of good binary strings modulo `10^9 + 7`.
+
+**Example 1:**
+
+```
+Input: min_length = 2, max_length = 3, one_group = 1, zero_group = 2
+Output: 5
+```
+
+The good strings are "00", "11", "001", "100" and "111".
+
+**Example 2:**
+
+```
+Input: min_length = 4, max_length = 4, one_group = 4, zero_group = 3
+Output: 1
+```
+
+Only "1111" works.
+
+**Constraints:**
+
+- `1 <= min_length <= max_length <= 10^5`
+- `1 <= one_group, zero_group <= max_length`
+"""

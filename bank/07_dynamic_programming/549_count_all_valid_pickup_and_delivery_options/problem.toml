@@ -1,0 +1,7 @@
+id = "count-all-valid-pickup-and-delivery-options"
+title = "Count All Valid Pickup and Delivery Options"
+difficulty = "hard"
+leetcode = 1359
+url = "https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options/"
+key_idea = "Insert orders one at a time: with 2i-2 items already placed, the i-th pickup/delivery pair fits in (2i-1)*i ordered ways, so multiply those factors mod 1e9+7."
+hints = ["Build the answer for n from the answer for n - 1.", "Count the ways to drop one new P and D into an existing sequence of length 2(n-1) with P before D."]

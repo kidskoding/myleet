@@ -1,0 +1,7 @@
+id = "best-sightseeing-pair"
+title = "Best Sightseeing Pair"
+difficulty = "medium"
+leetcode = 1014
+url = "https://leetcode.com/problems/best-sightseeing-pair/"
+key_idea = "Split the score into (values[i] + i) + (values[j] - j) and scan j left to right while keeping the best values[i] + i seen so far."
+hints = ["The score mixes two indices; can you separate the parts that depend on i from the parts that depend on j?", "For each j, you only need the best partner among the indices before it."]

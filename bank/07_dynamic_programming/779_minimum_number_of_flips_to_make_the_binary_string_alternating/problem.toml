@@ -1,0 +1,7 @@
+id = "minimum-number-of-flips-to-make-the-binary-string-alternating"
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+difficulty = "medium"
+leetcode = 1888
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
+key_idea = "Rotations are windows of length n in s + s; slide that window while counting mismatches against both alternating patterns and keep the minimum."
+hints = ["Moving the first character to the end any number of times gives a rotation. Where do all rotations live at once?", "Compare against both alternating targets and update counts as the window slides."]

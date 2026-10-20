@@ -1,0 +1,7 @@
+id = "painting-the-walls"
+title = "Painting the Walls"
+difficulty = "hard"
+leetcode = 2742
+url = "https://leetcode.com/problems/painting-the-walls/"
+key_idea = "Hiring the paid painter for wall i also covers time[i] free walls, so it handles time[i] + 1 walls; knapsack for the minimum cost to cover at least n walls."
+hints = ["While the paid painter works on wall i, how many walls can the free painter finish?", "Think of each paid wall as buying coverage of several walls at its cost."]

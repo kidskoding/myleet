@@ -1,0 +1,7 @@
+id = "number-of-ways-to-paint-n-3-grid"
+title = "Number of Ways to Paint N × 3 Grid"
+difficulty = "hard"
+leetcode = 1411
+url = "https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/"
+key_idea = "Each row is either an ABA or ABC pattern (6 of each); the next row counts follow aba' = 3*aba + 2*abc and abc' = 2*aba + 2*abc."
+hints = ["A valid 3-cell row either repeats its outer colors or uses all three colors.", "Count how many rows of each kind can sit on top of a row of each kind."]

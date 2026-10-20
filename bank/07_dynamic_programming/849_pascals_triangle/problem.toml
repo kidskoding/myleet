@@ -1,0 +1,7 @@
+id = "pascals-triangle"
+title = "Pascal's Triangle"
+difficulty = "easy"
+leetcode = 118
+url = "https://leetcode.com/problems/pascals-triangle/"
+key_idea = "Build each row from the previous one: ends are 1 and every inner value is the sum of the two values above it."
+hints = ["Each row can be built from the row just before it.", "The first and last value of every row are fixed."]

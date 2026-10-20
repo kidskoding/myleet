@@ -1,0 +1,7 @@
+id = "stone-game-iv"
+title = "Stone Game IV"
+difficulty = "hard"
+leetcode = 1510
+url = "https://leetcode.com/problems/stone-game-iv/"
+key_idea = "Position i is winning if some square s <= i leads to a losing position i - s; fill a boolean DP from 0 up to n."
+hints = ["With 0 stones the player to move has lost.", "A position is a win if at least one move hands the opponent a losing position."]

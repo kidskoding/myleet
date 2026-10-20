@@ -1,0 +1,7 @@
+id = "greatest-sum-divisible-by-three"
+title = "Greatest Sum Divisible by Three"
+difficulty = "medium"
+leetcode = 1262
+url = "https://leetcode.com/problems/greatest-sum-divisible-by-three/"
+key_idea = "Track the best sum for each remainder 0, 1, 2; each number either joins a sum (shifting its remainder) or is skipped."
+hints = ["Only the sum modulo 3 matters for divisibility.", "Keep three running bests, one per remainder, and update them from a copy for each number."]

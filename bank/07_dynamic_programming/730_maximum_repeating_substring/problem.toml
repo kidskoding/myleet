@@ -1,0 +1,7 @@
+id = "maximum-repeating-substring"
+title = "Maximum Repeating Substring"
+difficulty = "easy"
+leetcode = 1668
+url = "https://leetcode.com/problems/maximum-repeating-substring/"
+key_idea = "Keep growing k while word repeated k + 1 times is still a substring of sequence."
+hints = ["If word repeated k times appears, so does word repeated k - 1 times.", "The answer is at most len(sequence) // len(word), so trying k upward is cheap."]

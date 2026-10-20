@@ -1,0 +1,7 @@
+id = "best-team-with-no-conflicts"
+title = "Best Team With No Conflicts"
+difficulty = "medium"
+leetcode = 1626
+url = "https://leetcode.com/problems/best-team-with-no-conflicts/"
+key_idea = "Sort players by (age, score); then a team is valid iff scores are non-decreasing in that order, so run an O(n^2) LIS-style DP of max sum ending at each player."
+hints = ["Sorting by one attribute turns the conflict rule into a condition on the other attribute only.", "Think of it as the heaviest non-decreasing subsequence."]

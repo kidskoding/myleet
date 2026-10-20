@@ -1,0 +1,7 @@
+id = "n-th-tribonacci-number"
+title = "N-th Tribonacci Number"
+difficulty = "easy"
+leetcode = 1137
+url = "https://leetcode.com/problems/n-th-tribonacci-number/"
+key_idea = "Iterate keeping only the last three values, shifting them forward n - 2 times."
+hints = ["Each term depends only on the three before it.", "You do not need an array; three variables are enough."]

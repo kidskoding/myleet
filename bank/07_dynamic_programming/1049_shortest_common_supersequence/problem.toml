@@ -1,0 +1,7 @@
+id = "shortest-common-supersequence"
+title = "Shortest Common Supersequence"
+difficulty = "hard"
+leetcode = 1092
+url = "https://leetcode.com/problems/shortest-common-supersequence/"
+key_idea = "Build the LCS table, then walk it back: shared LCS characters are written once and every other character from either string is written as you pass it."
+hints = ["The answer's length is len(str1) + len(str2) minus something you already know how to compute.", "Characters in a longest common subsequence can be shared; trace the DP table to interleave the rest."]

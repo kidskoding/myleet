@@ -1,0 +1,7 @@
+id = "minimum-operations-to-reduce-an-integer-to-0"
+title = "Minimum Operations to Reduce an Integer to 0"
+difficulty = "medium"
+leetcode = 2571
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
+key_idea = "Scan bits from low to high: a lone 1 bit costs one subtraction, while a run of 1s is cheaper to clear by adding the lowest bit to carry it upward."
+hints = ["Think about n in binary and what adding or subtracting a power of two does to it.", "Treat an isolated 1 bit differently from a run of consecutive 1 bits."]

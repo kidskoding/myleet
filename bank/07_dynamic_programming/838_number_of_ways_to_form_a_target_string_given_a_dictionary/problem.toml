@@ -1,0 +1,7 @@
+id = "number-of-ways-to-form-a-target-string-given-a-dictionary"
+title = "Number of Ways to Form a Target String Given a Dictionary"
+difficulty = "hard"
+leetcode = 1639
+url = "https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/"
+key_idea = "Count each letter per column across all words; dp over (target index, column) where using column k for target[i] multiplies by that column's count of target[i]."
+hints = ["Which word a character comes from does not matter, only which column it is in.", "Precompute how many words have each letter in each column."]
