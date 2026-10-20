@@ -1,0 +1,135 @@
+title = "PayPal"
+focus = "string and stack processing, binary search variants, matrix traversal, union find over relationships, and knapsack-style DP."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "11_dp", "12_greedy_algorithms", "15_bit_manipulation"]
+
+[[entries]]
+title = "Single Number"
+url = "https://leetcode.com/problems/single-number/"
+
+[[entries]]
+title = "Hamming Distance"
+url = "https://leetcode.com/problems/hamming-distance/"
+
+[[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
+title = "Backspace String Compare"
+url = "https://leetcode.com/problems/backspace-string-compare/"
+
+[[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
+
+[[entries]]
+title = "Minimum Add to Make Parentheses Valid"
+url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
+
+[[entries]]
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Remove K Digits"
+url = "https://leetcode.com/problems/remove-k-digits/"
+
+[[entries]]
+title = "Next Greater Element II"
+url = "https://leetcode.com/problems/next-greater-element-ii/"
+
+[[entries]]
+title = "Online Stock Span"
+url = "https://leetcode.com/problems/online-stock-span/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "Find Peak Element"
+url = "https://leetcode.com/problems/find-peak-element/"
+
+[[entries]]
+title = "Find First and Last Position of Element in Sorted Array"
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+
+[[entries]]
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+
+[[entries]]
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
+
+[[entries]]
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
+
+[[entries]]
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"
+
+[[entries]]
+title = "Gas Station"
+url = "https://leetcode.com/problems/gas-station/"
+
+[[entries]]
+title = "Jump Game II"
+url = "https://leetcode.com/problems/jump-game-ii/"
+
+[[entries]]
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
+
+[[entries]]
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
+
+[[entries]]
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Optimal Account Balancing"
+url = "https://leetcode.com/problems/optimal-account-balancing/"
+
+[[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"

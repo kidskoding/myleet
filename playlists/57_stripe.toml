@@ -1,0 +1,127 @@
+title = "Stripe"
+focus = "string parsing, hash-map bookkeeping, interval merging, rate limiting, and small design-style data structures built cleanly under time pressure."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Number of Recent Calls"
+url = "https://leetcode.com/problems/number-of-recent-calls/"
+
+[[entries]]
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+
+[[entries]]
+title = "Summary Ranges"
+url = "https://leetcode.com/problems/summary-ranges/"
+
+[[entries]]
+title = "Find the Index of the First Occurrence in a String"
+url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
+
+[[entries]]
+title = "Determine if Two Events Have Conflict"
+url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
+title = "Subdomain Visit Count"
+url = "https://leetcode.com/problems/subdomain-visit-count/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
+title = "UTF-8 Validation"
+url = "https://leetcode.com/problems/utf-8-validation/"
+
+[[entries]]
+title = "Fraction to Recurring Decimal"
+url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Design Authentication Manager"
+url = "https://leetcode.com/problems/design-authentication-manager/"
+
+[[entries]]
+title = "Stock Price Fluctuation "
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
+
+[[entries]]
+title = "Process Tasks Using Servers"
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
+
+[[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
+title = "Range Module"
+url = "https://leetcode.com/problems/range-module/"
+
+[[entries]]
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"
+
+[[entries]]
+title = "Find Servers That Handled Most Number of Requests"
+url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"

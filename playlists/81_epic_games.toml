@@ -1,0 +1,131 @@
+title = "Epic Games"
+focus = "grid traversal with BFS and DFS, matrix simulation, computational geometry with rectangles and points, and shortest paths on game maps."
+review_modules = ["10_graphs", "16_math_geometry", "11_dp", "09_backtracking", "17_advanced"]
+
+[[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
+
+[[entries]]
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
+
+[[entries]]
+title = "Spiral Matrix II"
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Rectangle Overlap"
+url = "https://leetcode.com/problems/rectangle-overlap/"
+
+[[entries]]
+title = "Valid Square"
+url = "https://leetcode.com/problems/valid-square/"
+
+[[entries]]
+title = "Largest Triangle Area"
+url = "https://leetcode.com/problems/largest-triangle-area/"
+
+[[entries]]
+title = "Robot Bounded In Circle"
+url = "https://leetcode.com/problems/robot-bounded-in-circle/"
+
+[[entries]]
+title = "Walking Robot Simulation"
+url = "https://leetcode.com/problems/walking-robot-simulation/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Number of Closed Islands"
+url = "https://leetcode.com/problems/number-of-closed-islands/"
+
+[[entries]]
+title = "Number of Enclaves"
+url = "https://leetcode.com/problems/number-of-enclaves/"
+
+[[entries]]
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
+
+[[entries]]
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
+
+[[entries]]
+title = "01 Matrix"
+url = "https://leetcode.com/problems/01-matrix/"
+
+[[entries]]
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+
+[[entries]]
+title = "Nearest Exit from Entrance in Maze"
+url = "https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/"
+
+[[entries]]
+title = "The Maze"
+url = "https://leetcode.com/problems/the-maze/"
+
+[[entries]]
+title = "Shortest Bridge"
+url = "https://leetcode.com/problems/shortest-bridge/"
+
+[[entries]]
+title = "Rectangle Area"
+url = "https://leetcode.com/problems/rectangle-area/"
+
+[[entries]]
+title = "Minimum Area Rectangle"
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
+
+[[entries]]
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
+
+[[entries]]
+title = "Path With Minimum Effort"
+url = "https://leetcode.com/problems/path-with-minimum-effort/"
+
+[[entries]]
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
+
+[[entries]]
+title = "Minimum Moves to Reach Target with Rotations"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
+
+[[entries]]
+title = "Unique Paths III"
+url = "https://leetcode.com/problems/unique-paths-iii/"
+
+[[entries]]
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+
+[[entries]]
+title = "Perfect Rectangle"
+url = "https://leetcode.com/problems/perfect-rectangle/"
+
+[[entries]]
+title = "Rectangle Area II"
+url = "https://leetcode.com/problems/rectangle-area-ii/"
+
+[[entries]]
+title = "Erect the Fence"
+url = "https://leetcode.com/problems/erect-the-fence/"

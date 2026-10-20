@@ -1,0 +1,123 @@
+title = "Citadel"
+focus = "math and numeric edge cases, streaming statistics with heaps, interval bookkeeping, stock-trading DP, simulation, and performance-sensitive array scans."
+review_modules = ["05_binary_search", "08_heaps", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
+
+[[entries]]
+title = "Power of Two"
+url = "https://leetcode.com/problems/power-of-two/"
+
+[[entries]]
+title = "Sqrt(x)"
+url = "https://leetcode.com/problems/sqrtx/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
+title = "Last Stone Weight"
+url = "https://leetcode.com/problems/last-stone-weight/"
+
+[[entries]]
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+
+[[entries]]
+title = "Count Primes"
+url = "https://leetcode.com/problems/count-primes/"
+
+[[entries]]
+title = "Pow(x, n)"
+url = "https://leetcode.com/problems/powx-n/"
+
+[[entries]]
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
+
+[[entries]]
+title = "Stock Price Fluctuation "
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "New 21 Game"
+url = "https://leetcode.com/problems/new-21-game/"
+
+[[entries]]
+title = "Knight Probability in Chessboard"
+url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Range Sum Query - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-mutable/"
+
+[[entries]]
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "IPO"
+url = "https://leetcode.com/problems/ipo/"
+
+[[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock III"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+
+[[entries]]
+title = "Count of Smaller Numbers After Self"
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+
+[[entries]]
+title = "Shortest Subarray with Sum at Least K"
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+
+[[entries]]
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
+
+[[entries]]
+title = "Minimum Cost to Hire K Workers"
+url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
+
+[[entries]]
+title = "The Skyline Problem"
+url = "https://leetcode.com/problems/the-skyline-problem/"
+
+[[entries]]
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"
+
+[[entries]]
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
+
+[[entries]]
+title = "Count of Range Sum"
+url = "https://leetcode.com/problems/count-of-range-sum/"

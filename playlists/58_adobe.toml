@@ -1,0 +1,127 @@
+title = "Adobe"
+focus = "array and string manipulation, matrix and image-style grid traversal, rectangle geometry, binary trees, and classic 2D DP."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "07_trees", "10_graphs", "11_dp", "16_math_geometry"]
+
+[[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
+
+[[entries]]
+title = "Add Strings"
+url = "https://leetcode.com/problems/add-strings/"
+
+[[entries]]
+title = "Excel Sheet Column Title"
+url = "https://leetcode.com/problems/excel-sheet-column-title/"
+
+[[entries]]
+title = "Power of Two"
+url = "https://leetcode.com/problems/power-of-two/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+
+[[entries]]
+title = "Merge Sorted Array"
+url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
+title = "Rectangle Overlap"
+url = "https://leetcode.com/problems/rectangle-overlap/"
+
+[[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
+
+[[entries]]
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+
+[[entries]]
+title = "Subtree of Another Tree"
+url = "https://leetcode.com/problems/subtree-of-another-tree/"
+
+[[entries]]
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+
+[[entries]]
+title = "Find All Duplicates in an Array"
+url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
+
+[[entries]]
+title = "Spiral Matrix II"
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
+
+[[entries]]
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
+
+[[entries]]
+title = "Rectangle Area"
+url = "https://leetcode.com/problems/rectangle-area/"
+
+[[entries]]
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+
+[[entries]]
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
+
+[[entries]]
+title = "Kth Smallest Element in a Sorted Matrix"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+
+[[entries]]
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Minimum Path Sum"
+url = "https://leetcode.com/problems/minimum-path-sum/"
+
+[[entries]]
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "Maximum Swap"
+url = "https://leetcode.com/problems/maximum-swap/"
+
+[[entries]]
+title = "Sort List"
+url = "https://leetcode.com/problems/sort-list/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+
+[[entries]]
+title = "Word Break II"
+url = "https://leetcode.com/problems/word-break-ii/"

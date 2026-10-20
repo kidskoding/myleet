@@ -1,0 +1,123 @@
+title = "Anthropic"
+focus = "practical data processing with hash maps and parsing, design-style stateful data structures, and graph traversal over dependencies."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Number of Recent Calls"
+url = "https://leetcode.com/problems/number-of-recent-calls/"
+
+[[entries]]
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
+
+[[entries]]
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Tweet Counts Per Frequency"
+url = "https://leetcode.com/problems/tweet-counts-per-frequency/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Stock Price Fluctuation "
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+
+[[entries]]
+title = "Web Crawler"
+url = "https://leetcode.com/problems/web-crawler/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
+
+[[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
+
+[[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "Design File System"
+url = "https://leetcode.com/problems/design-file-system/"
+
+[[entries]]
+title = "Sort Items by Groups Respecting Dependencies"
+url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
+
+[[entries]]
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
+
+[[entries]]
+title = "Range Module"
+url = "https://leetcode.com/problems/range-module/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+
+[[entries]]
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"

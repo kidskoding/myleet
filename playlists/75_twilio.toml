@@ -1,0 +1,127 @@
+title = "Twilio"
+focus = "string building and parsing, stack-based expression evaluation, input validation, sliding windows over text, and rate-limit and token-expiry designs."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "09_backtracking", "11_dp"]
+
+[[entries]]
+title = "Add Strings"
+url = "https://leetcode.com/problems/add-strings/"
+
+[[entries]]
+title = "Find the Index of the First Occurrence in a String"
+url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
+
+[[entries]]
+title = "Repeated Substring Pattern"
+url = "https://leetcode.com/problems/repeated-substring-pattern/"
+
+[[entries]]
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
+
+[[entries]]
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Substrings of Size Three with Distinct Characters"
+url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
+
+[[entries]]
+title = "Permutation in String"
+url = "https://leetcode.com/problems/permutation-in-string/"
+
+[[entries]]
+title = "Find All Anagrams in a String"
+url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+
+[[entries]]
+title = "Number of Substrings Containing All Three Characters"
+url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "UTF-8 Validation"
+url = "https://leetcode.com/problems/utf-8-validation/"
+
+[[entries]]
+title = "Restore IP Addresses"
+url = "https://leetcode.com/problems/restore-ip-addresses/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Design Authentication Manager"
+url = "https://leetcode.com/problems/design-authentication-manager/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"
+
+[[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
+title = "Word Break II"
+url = "https://leetcode.com/problems/word-break-ii/"
+
+[[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"

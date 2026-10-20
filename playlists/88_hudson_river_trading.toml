@@ -1,0 +1,127 @@
+title = "Hudson River Trading"
+focus = "bit manipulation, in-place and cache-friendly array tricks, fixed-size data structure design, grid simulation, monotonic deques, and heap scheduling."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "08_heaps", "15_bit_manipulation", "16_math_geometry"]
+
+[[entries]]
+title = "Single Number"
+url = "https://leetcode.com/problems/single-number/"
+
+[[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
+title = "Hamming Distance"
+url = "https://leetcode.com/problems/hamming-distance/"
+
+[[entries]]
+title = "Reverse Bits"
+url = "https://leetcode.com/problems/reverse-bits/"
+
+[[entries]]
+title = "Counting Bits"
+url = "https://leetcode.com/problems/counting-bits/"
+
+[[entries]]
+title = "Missing Number"
+url = "https://leetcode.com/problems/missing-number/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
+title = "Find All Duplicates in an Array"
+url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
+
+[[entries]]
+title = "Single Number III"
+url = "https://leetcode.com/problems/single-number-iii/"
+
+[[entries]]
+title = "Total Hamming Distance"
+url = "https://leetcode.com/problems/total-hamming-distance/"
+
+[[entries]]
+title = "Bitwise AND of Numbers Range"
+url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
+
+[[entries]]
+title = "Sum of Two Integers"
+url = "https://leetcode.com/problems/sum-of-two-integers/"
+
+[[entries]]
+title = "Maximum XOR of Two Numbers in an Array"
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Candy Crush"
+url = "https://leetcode.com/problems/candy-crush/"
+
+[[entries]]
+title = "Walking Robot Simulation"
+url = "https://leetcode.com/problems/walking-robot-simulation/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Minimum Cost to Connect Sticks"
+url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
+
+[[entries]]
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
+
+[[entries]]
+title = "Sum of Subarray Minimums"
+url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
+
+[[entries]]
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+
+[[entries]]
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
+
+[[entries]]
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Constrained Subsequence Sum"
+url = "https://leetcode.com/problems/constrained-subsequence-sum/"
+
+[[entries]]
+title = "Max Value of Equation"
+url = "https://leetcode.com/problems/max-value-of-equation/"
+
+[[entries]]
+title = "Maximum Number of Robots Within Budget"
+url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
+
+[[entries]]
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+
+[[entries]]
+title = "Rectangle Area II"
+url = "https://leetcode.com/problems/rectangle-area-ii/"

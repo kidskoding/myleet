@@ -1,0 +1,127 @@
+title = "JPMorgan Chase"
+focus = "clean array and string fundamentals, hash maps, stack-based parsing, and classic one- and two-dimensional DP."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "11_dp", "12_greedy_algorithms"]
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Roman to Integer"
+url = "https://leetcode.com/problems/roman-to-integer/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
+
+[[entries]]
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
+
+[[entries]]
+title = "Find the Difference"
+url = "https://leetcode.com/problems/find-the-difference/"
+
+[[entries]]
+title = "Remove Element"
+url = "https://leetcode.com/problems/remove-element/"
+
+[[entries]]
+title = "Maximum Average Subarray I"
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
+
+[[entries]]
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "String to Integer (atoi)"
+url = "https://leetcode.com/problems/string-to-integer-atoi/"
+
+[[entries]]
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Spiral Matrix II"
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
+
+[[entries]]
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Longest Repeating Character Replacement"
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Online Stock Span"
+url = "https://leetcode.com/problems/online-stock-span/"
+
+[[entries]]
+title = "Remove K Digits"
+url = "https://leetcode.com/problems/remove-k-digits/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Jump Game"
+url = "https://leetcode.com/problems/jump-game/"
+
+[[entries]]
+title = "Gas Station"
+url = "https://leetcode.com/problems/gas-station/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Perfect Squares"
+url = "https://leetcode.com/problems/perfect-squares/"
+
+[[entries]]
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"

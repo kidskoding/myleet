@@ -1,0 +1,131 @@
+title = "AMD"
+focus = "bit manipulation, matrix and in-place array transforms, linked lists, cache-style design, and task scheduling with heaps."
+review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "08_heaps", "13_intervals"]
+
+[[entries]]
+title = "Power of Four"
+url = "https://leetcode.com/problems/power-of-four/"
+
+[[entries]]
+title = "Complement of Base 10 Integer"
+url = "https://leetcode.com/problems/complement-of-base-10-integer/"
+
+[[entries]]
+title = "Find the Difference"
+url = "https://leetcode.com/problems/find-the-difference/"
+
+[[entries]]
+title = "Convert Binary Number in a Linked List to Integer"
+url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
+
+[[entries]]
+title = "Minimum Bit Flips to Convert Number"
+url = "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/"
+
+[[entries]]
+title = "Plus One"
+url = "https://leetcode.com/problems/plus-one/"
+
+[[entries]]
+title = "Move Zeroes"
+url = "https://leetcode.com/problems/move-zeroes/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+
+[[entries]]
+title = "Single Number III"
+url = "https://leetcode.com/problems/single-number-iii/"
+
+[[entries]]
+title = "Gray Code"
+url = "https://leetcode.com/problems/gray-code/"
+
+[[entries]]
+title = "Total Hamming Distance"
+url = "https://leetcode.com/problems/total-hamming-distance/"
+
+[[entries]]
+title = "Minimum Flips to Make a OR b Equal to c"
+url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
+
+[[entries]]
+title = "Divide Two Integers"
+url = "https://leetcode.com/problems/divide-two-integers/"
+
+[[entries]]
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Spiral Matrix II"
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Odd Even Linked List"
+url = "https://leetcode.com/problems/odd-even-linked-list/"
+
+[[entries]]
+title = "Palindrome Linked List"
+url = "https://leetcode.com/problems/palindrome-linked-list/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
+title = "Design Circular Deque"
+url = "https://leetcode.com/problems/design-circular-deque/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Last Stone Weight"
+url = "https://leetcode.com/problems/last-stone-weight/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Sort List"
+url = "https://leetcode.com/problems/sort-list/"
+
+[[entries]]
+title = "Find the Duplicate Number"
+url = "https://leetcode.com/problems/find-the-duplicate-number/"
+
+[[entries]]
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
+
+[[entries]]
+title = "Longest Nice Subarray"
+url = "https://leetcode.com/problems/longest-nice-subarray/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Maximum XOR With an Element From Array"
+url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"

@@ -1,0 +1,123 @@
+title = "Cloudflare"
+focus = "bit manipulation and IP math, tries for prefix matching, string hashing and pattern search, range and interval structures, and cache designs."
+review_modules = ["15_bit_manipulation", "14_tries", "13_intervals", "01_arrays_and_hashing", "17_advanced"]
+
+[[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
+title = "Hamming Distance"
+url = "https://leetcode.com/problems/hamming-distance/"
+
+[[entries]]
+title = "Power of Two"
+url = "https://leetcode.com/problems/power-of-two/"
+
+[[entries]]
+title = "Reverse Bits"
+url = "https://leetcode.com/problems/reverse-bits/"
+
+[[entries]]
+title = "Single Number III"
+url = "https://leetcode.com/problems/single-number-iii/"
+
+[[entries]]
+title = "Total Hamming Distance"
+url = "https://leetcode.com/problems/total-hamming-distance/"
+
+[[entries]]
+title = "Bitwise AND of Numbers Range"
+url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
+
+[[entries]]
+title = "Validate IP Address"
+url = "https://leetcode.com/problems/validate-ip-address/"
+
+[[entries]]
+title = "IP to CIDR"
+url = "https://leetcode.com/problems/ip-to-cidr/"
+
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Replace Words"
+url = "https://leetcode.com/problems/replace-words/"
+
+[[entries]]
+title = "Longest Word in Dictionary"
+url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+
+[[entries]]
+title = "Map Sum Pairs"
+url = "https://leetcode.com/problems/map-sum-pairs/"
+
+[[entries]]
+title = "Implement Magic Dictionary"
+url = "https://leetcode.com/problems/implement-magic-dictionary/"
+
+[[entries]]
+title = "Short Encoding of Words"
+url = "https://leetcode.com/problems/short-encoding-of-words/"
+
+[[entries]]
+title = "Repeated String Match"
+url = "https://leetcode.com/problems/repeated-string-match/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Corporate Flight Bookings"
+url = "https://leetcode.com/problems/corporate-flight-bookings/"
+
+[[entries]]
+title = "My Calendar III"
+url = "https://leetcode.com/problems/my-calendar-iii/"
+
+[[entries]]
+title = "Range Module"
+url = "https://leetcode.com/problems/range-module/"
+
+[[entries]]
+title = "Maximum XOR of Two Numbers in an Array"
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+
+[[entries]]
+title = "Maximum XOR With an Element From Array"
+url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
+
+[[entries]]
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"
+
+[[entries]]
+title = "Longest Common Suffix Queries"
+url = "https://leetcode.com/problems/longest-common-suffix-queries/"
+
+[[entries]]
+title = "Longest Happy Prefix"
+url = "https://leetcode.com/problems/longest-happy-prefix/"
+
+[[entries]]
+title = "Shortest Palindrome"
+url = "https://leetcode.com/problems/shortest-palindrome/"
+
+[[entries]]
+title = "Longest Duplicate Substring"
+url = "https://leetcode.com/problems/longest-duplicate-substring/"

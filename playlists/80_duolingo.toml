@@ -1,0 +1,123 @@
+title = "Duolingo"
+focus = "string comparison and edit-distance DP, palindromes, word-list hashing and ordering, backtracking over letters, and greedy warmups."
+review_modules = ["01_arrays_and_hashing", "11_dp", "09_backtracking", "14_tries", "12_greedy_algorithms", "10_graphs"]
+
+[[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
+
+[[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
+
+[[entries]]
+title = "Assign Cookies"
+url = "https://leetcode.com/problems/assign-cookies/"
+
+[[entries]]
+title = "Can Place Flowers"
+url = "https://leetcode.com/problems/can-place-flowers/"
+
+[[entries]]
+title = "Shortest Word Distance"
+url = "https://leetcode.com/problems/shortest-word-distance/"
+
+[[entries]]
+title = "Verifying an Alien Dictionary"
+url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
+
+[[entries]]
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+
+[[entries]]
+title = "Letter Case Permutation"
+url = "https://leetcode.com/problems/letter-case-permutation/"
+
+[[entries]]
+title = "One Edit Distance"
+url = "https://leetcode.com/problems/one-edit-distance/"
+
+[[entries]]
+title = "Minimum Deletions to Make Character Frequencies Unique"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
+
+[[entries]]
+title = "Count Sorted Vowel Strings"
+url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
+
+[[entries]]
+title = "Letter Tile Possibilities"
+url = "https://leetcode.com/problems/letter-tile-possibilities/"
+
+[[entries]]
+title = "Split a String Into the Max Number of Unique Substrings"
+url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
+
+[[entries]]
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
+
+[[entries]]
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
+
+[[entries]]
+title = "Delete Operation for Two Strings"
+url = "https://leetcode.com/problems/delete-operation-for-two-strings/"
+
+[[entries]]
+title = "Longest Palindromic Subsequence"
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+
+[[entries]]
+title = "Longest String Chain"
+url = "https://leetcode.com/problems/longest-string-chain/"
+
+[[entries]]
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
+
+[[entries]]
+title = "Palindrome Partitioning"
+url = "https://leetcode.com/problems/palindrome-partitioning/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
+title = "Palindrome Partitioning II"
+url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+
+[[entries]]
+title = "Palindrome Pairs"
+url = "https://leetcode.com/problems/palindrome-pairs/"
+
+[[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
+
+[[entries]]
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"
+
+[[entries]]
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
