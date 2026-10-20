@@ -191,3 +191,25 @@ func TestMapGuidePreviewsSelectedNote(t *testing.T) {
 		t.Fatalf("the third card should preview the selected guide note:\n%s", view)
 	}
 }
+
+func TestMapBankSetApart(t *testing.T) {
+	for _, width := range []int{80, 120} {
+		lines := strings.Split(plain(mapModel(t, width)), "\n")
+		found := false
+		for i, l := range lines {
+			if strings.Contains(l, "Problem Bank") {
+				found = true
+				if above := strings.Trim(lines[i-1], " │"); above != "" {
+					t.Fatalf("width %d: a blank row should sit above the bank, got %q", width, lines[i-1])
+				}
+			}
+		}
+		if !found {
+			t.Fatalf("width %d: bank row missing", width)
+		}
+	}
+	m := send(mapModel(t, 80), key("down"), key("down"))
+	if mp := m.(Model).top().(*Map); !mp.module().Bank || !strings.Contains(plain(m), "▸ Problem Bank") {
+		t.Fatalf("down from the last module should land on the bank, not the gap:\n%s", plain(m))
+	}
+}

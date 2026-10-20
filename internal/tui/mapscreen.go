@@ -254,14 +254,39 @@ func (m *Map) previewRows(para []string, width int) []string {
 	return append(rows, "", m.s.Theme.Muted.Render("enter to read"))
 }
 
+// bankRow is the module-column row holding the problem bank, or -1.
+func (m *Map) bankRow() int {
+	mods := m.s.App.Catalog.Modules
+	if len(mods) == 0 || !mods[len(mods)-1].Bank {
+		return -1
+	}
+	return m.size(0) - 1
+}
+
 // column marks the selection in levels above the current one so the path stays visible.
-func (m *Map) column(level int, title string, rows []string, width, height int) string {
+// A blank line goes above row gapAt (when >= 0) to set it apart.
+func (m *Map) column(level int, title string, rows []string, width, height, gapAt int) string {
 	th := m.s.Theme
 	cursor := *[...]*int{&m.mod, &m.tech, &m.prob}[level]
+	lines := make([]int, 0, len(rows)+1) // row index per display line, -1 for the gap
+	at := cursor
+	for i := range rows {
+		if i == gapAt && i > 0 {
+			lines = append(lines, -1)
+		}
+		if i == cursor {
+			at = len(lines)
+		}
+		lines = append(lines, i)
+	}
 	visible := max(height-2, 1)
-	m.offsets[level] = scrollWindow(cursor, m.offsets[level], visible)
+	m.offsets[level] = scrollWindow(at, m.offsets[level], visible)
 	var body []string
-	for i := m.offsets[level]; i < len(rows) && i < m.offsets[level]+visible; i++ {
+	for _, i := range lines[min(m.offsets[level], len(lines)):min(m.offsets[level]+visible, len(lines))] {
+		if i < 0 {
+			body = append(body, "")
+			continue
+		}
 		marker := "  "
 		switch {
 		case i == cursor && level == m.level:
@@ -291,9 +316,9 @@ func (m *Map) View(w, h int) string {
 		mod, tech := min(42, avail*4/10), min(36, avail*35/100)
 		widths := [3]int{mod, tech, avail - mod - tech}
 		cols := []string{
-			m.column(0, "modules", m.moduleRows(states, widths[0]-6), widths[0], height),
-			m.column(1, strings.ToLower(m.title()), m.techniqueRows(states, today, widths[1]-6), widths[1], height),
-			m.column(2, techTitle, m.problemRows(states, widths[2]-6), widths[2], height),
+			m.column(0, "modules", m.moduleRows(states, widths[0]-6), widths[0], height, m.bankRow()),
+			m.column(1, strings.ToLower(m.title()), m.techniqueRows(states, today, widths[1]-6), widths[1], height, -1),
+			m.column(2, techTitle, m.problemRows(states, widths[2]-6), widths[2], height, -1),
 		}
 		if m.onGuide() {
 			cols[2] = ui.Card(m.s.Theme, strings.ToLower(m.guide()[m.tech].Title), strings.Join(padLines(clip(m.guidePreview(widths[2]-4), height-2), height-2), "\n"), widths[2], false)
@@ -317,7 +342,11 @@ func (m *Map) View(w, h int) string {
 	default:
 		rows[2] = m.problemRows(states, inner-6)
 	}
-	return "\n" + strings.Join(indent(m.column(m.level, strings.Join(crumbs, " › "), rows[m.level], inner, height), 2), "\n")
+	gap := -1
+	if m.level == 0 {
+		gap = m.bankRow()
+	}
+	return "\n" + strings.Join(indent(m.column(m.level, strings.Join(crumbs, " › "), rows[m.level], inner, height, gap), 2), "\n")
 }
 
 type Notes struct {
