@@ -1,0 +1,7 @@
+id = "minimum-length-of-string-after-operations"
+title = "Minimum Length of String After Operations"
+difficulty = "medium"
+leetcode = 3223
+url = "https://leetcode.com/problems/minimum-length-of-string-after-operations/"
+key_idea = "Each operation removes two copies of one letter and needs three present, so a letter with count c ends at c if c <= 2, else 1 when c is odd and 2 when even."
+hints = ["Letters never interact, so handle each letter's count separately.", "Track what an operation does to one letter's count and when it must stop."]

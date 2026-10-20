@@ -1,0 +1,46 @@
+id = "strings-differ-by-one-character"
+title = "Strings Differ by One Character"
+difficulty = "medium"
+leetcode = 1554
+url = "https://leetcode.com/problems/strings-differ-by-one-character/"
+key_idea = "For each position, mask that character with a wildcard and look for two strings with the same masked form in a set; since strings are distinct, a collision means they differ exactly there."
+hints = ["Two strings differ in exactly one place if they become equal once that place is ignored.", "Handle one position at a time and use a set to spot collisions."]
+prompt = """
+Implement `differ_by_one(words)`, which takes a list of distinct strings that all have the
+same length and returns `True` if some two of them differ in exactly one position (same
+index, different character), and `False` otherwise.
+
+**Example 1:**
+
+```
+Input: words = ["abcd","acbd","aacd"]
+Output: true
+```
+
+`"abcd"` and `"aacd"` differ only at index 1.
+
+**Example 2:**
+
+```
+Input: words = ["ab","cd","yz"]
+Output: false
+```
+
+**Example 3:**
+
+```
+Input: words = ["abcd","cccc","abyd","abab"]
+Output: true
+```
+
+`"abcd"` and `"abyd"` differ only at index 2.
+
+**Constraints:**
+
+- The total number of characters across `words` is at most `10^5`
+- All strings in `words` have the same length and are distinct
+- Strings contain only lowercase English letters
+
+**Follow-up:** can you do it in `O(n * m)` time, where `n` is the number of words and `m`
+their length?
+"""

@@ -1,0 +1,7 @@
+id = "report-spam-message"
+title = "Report Spam Message"
+difficulty = "medium"
+leetcode = 3295
+url = "https://leetcode.com/problems/report-spam-message/"
+key_idea = "Put the banned words in a set and count message words found in it, stopping at two."
+hints = ["Repeated membership checks against a list are slow.", "The same banned word appearing twice in the message counts twice."]

@@ -1,0 +1,7 @@
+id = "calculate-score-after-performing-instructions"
+title = "Calculate Score After Performing Instructions"
+difficulty = "medium"
+leetcode = 3522
+url = "https://leetcode.com/problems/calculate-score-after-performing-instructions/"
+key_idea = "Simulate with a visited set (or boolean array): stop when the index leaves the array or lands on an instruction already executed."
+hints = ["Each instruction can run at most once, so the walk is at most n steps.", "You need a cheap way to ask whether an index has already been executed."]

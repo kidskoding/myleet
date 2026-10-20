@@ -1,0 +1,7 @@
+id = "html-entity-parser"
+title = "HTML Entity Parser"
+difficulty = "medium"
+leetcode = 1410
+url = "https://leetcode.com/problems/html-entity-parser/"
+key_idea = "Scan left to right once; at each '&', check the six entities from a dictionary and emit the replacement and skip it, otherwise copy the character, so replaced output is never re-parsed."
+hints = ["Chained str.replace calls can decode something twice; think about \"&amp;gt;\".", "Walk the string once and decide at every '&' whether a known entity starts there."]

@@ -1,0 +1,7 @@
+id = "identify-the-largest-outlier-in-an-array"
+title = "Identify the Largest Outlier in an Array"
+difficulty = "medium"
+leetcode = 3371
+url = "https://leetcode.com/problems/identify-the-largest-outlier-in-an-array/"
+key_idea = "If x is the outlier, the rest sums to 2 * (sum element), so (total - x) must be even and (total - x) / 2 must appear in the array at another index; check each x with a value counter."
+hints = ["Once the outlier is removed, the remaining numbers are the special numbers plus their sum. What is the total of those?", "Try each element as the outlier and ask whether the required sum element exists elsewhere."]
