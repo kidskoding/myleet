@@ -144,19 +144,23 @@ func loadGuide(dir string) []GuideNote {
 		if m == nil {
 			continue
 		}
-		out = append(out, GuideNote{Title: noteTitle(f, m[2]), Path: f})
+		out = append(out, GuideNote{Title: NoteTitle(f), Path: f})
 	}
 	return out
 }
 
-// noteTitle is the note's first "# " heading, else its file name in title case.
-func noteTitle(path, id string) string {
+// NoteTitle is the note's first "# " heading, else its file name in title case.
+func NoteTitle(path string) string {
 	if data, err := os.ReadFile(path); err == nil {
 		for _, line := range strings.Split(string(data), "\n") {
 			if title, ok := strings.CutPrefix(line, "# "); ok {
 				return strings.TrimSpace(title)
 			}
 		}
+	}
+	id := strings.TrimSuffix(filepath.Base(path), ".md")
+	if m := numbered.FindStringSubmatch(id); m != nil {
+		id = m[2]
 	}
 	words := strings.Split(id, "_")
 	for i, w := range words {

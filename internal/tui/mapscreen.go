@@ -2,7 +2,6 @@ package tui
 
 import (
 	"fmt"
-	"path/filepath"
 	"strings"
 	"time"
 
@@ -352,15 +351,18 @@ func (m *Map) View(w, h int) string {
 type Notes struct {
 	s      *Shared
 	path   string
+	title  string
 	lines  []string
 	width  int
 	offset int
 	height int
 }
 
-func NewNotes(s *Shared, path string) Screen { return &Notes{s: s, path: path} }
+func NewNotes(s *Shared, path string) Screen {
+	return &Notes{s: s, path: path, title: catalog.NoteTitle(path)}
+}
 
-func (n *Notes) Title() string { return strings.TrimSuffix(filepath.Base(n.path), ".md") }
+func (n *Notes) Title() string { return n.title }
 
 func (n *Notes) Help() []string {
 	return []string{"↑/↓ j/k        scroll", "pgup/pgdn      half page", "home/end g/G   top/bottom", "esc            back"}

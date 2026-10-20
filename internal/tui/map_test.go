@@ -113,7 +113,7 @@ func TestMapNarrowBreadcrumb(t *testing.T) {
 
 func TestNotesCardShowsProgress(t *testing.T) {
 	view := plain(send(mapModel(t, 80), key("n")))
-	if !strings.Contains(view, "╭─ 01_a · 100%") {
+	if !strings.Contains(view, "╭─ Alpha One · 100%") {
 		t.Fatalf("notes should sit in a card with a scroll percentage:\n%s", view)
 	}
 }
