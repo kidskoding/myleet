@@ -63,3 +63,12 @@ func TestStatsHeatmapCard(t *testing.T) {
 func TestStatsGoldenWide(t *testing.T) {
 	assertGolden(t, "stats_wide", plain(statsWithHistory(t, 120)))
 }
+
+func TestStatsEmptyKeepsTheLayout(t *testing.T) {
+	view := plain(statsModel(t))
+	for _, want := range []string{"╭─ streak", "╭─ mastered", "╭─ last ", "No attempts yet"} {
+		if !strings.Contains(view, want) {
+			t.Fatalf("empty stats should still show the dashboard with a getting-started note, missing %q:\n%s", want, view)
+		}
+	}
+}

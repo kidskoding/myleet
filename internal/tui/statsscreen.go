@@ -88,11 +88,6 @@ func (st *Stats) View(w, h int) string {
 			finished++
 		}
 	}
-	if finished == 0 {
-		empty := ui.Card(th, "stats", "No attempts yet. Finish a problem and your stats start here.", cardW, false)
-		return "\n" + strings.Join(indent(empty, 2), "\n")
-	}
-
 	tileW := (cardW - 4) / 3
 	tiles := ui.Columns(2,
 		ui.Card(th, "streak", th.Title.Render(plural(sum.Streak, "day", "days")), tileW, false),
@@ -102,6 +97,10 @@ func (st *Stats) View(w, h int) string {
 	lines := append([]string{""}, indent(tiles, 2)...)
 	heat, weeks := st.heatmap(sum, now, cardW-4)
 	lines = append(lines, indent(ui.Card(th, fmt.Sprintf("last %d weeks", weeks), strings.Join(heat, "\n"), cardW, false), 2)...)
+	if finished == 0 {
+		note := "No attempts yet. Finish a problem from Today (1) to start your streak;\nyour weakest techniques show up here after a few attempts."
+		lines = append(lines, indent(ui.Card(th, "getting started", th.Muted.Render(note), cardW, false), 2)...)
+	}
 	if len(sum.Weakest) > 0 {
 		var rows []string
 		for _, ws := range sum.Weakest {
