@@ -1,0 +1,7 @@
+id = "maximum-number-of-eaten-apples"
+title = "Maximum Number of Eaten Apples"
+difficulty = "medium"
+leetcode = 1705
+url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
+key_idea = "Simulate day by day with a min-heap of (rot day, count); drop rotten batches and eat one apple from the batch that rots soonest, continuing past day n until the heap empties."
+hints = ["On any given day, which available apple is the safest one to eat?", "Keep the batches you hold ordered by when they spoil, and remember you can keep eating after the last growing day."]

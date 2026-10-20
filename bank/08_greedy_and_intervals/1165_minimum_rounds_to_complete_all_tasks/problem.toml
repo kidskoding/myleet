@@ -1,0 +1,7 @@
+id = "minimum-rounds-to-complete-all-tasks"
+title = "Minimum Rounds to Complete All Tasks"
+difficulty = "medium"
+leetcode = 2244
+url = "https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/"
+key_idea = "Count each difficulty; a count of 1 is impossible, and any other count c needs ceil(c / 3) rounds of threes topped up with twos."
+hints = ["Difficulties are independent, so count them first.", "Use as many groups of three as you can; what remainder can twos absorb?"]

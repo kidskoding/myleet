@@ -1,0 +1,7 @@
+id = "minimum-cost-to-equalize-arrays-using-swaps"
+title = "Minimum Cost to Equalize Arrays Using Swaps"
+difficulty = "medium"
+leetcode = 3868
+url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
+key_idea = "Every value's combined count must be even; each array then needs exactly half of it, and one paid swap fixes one surplus copy in nums1, so the answer is the total surplus in nums1."
+hints = ["Free swaps inside an array mean only the multiset of each array matters.", "Work out how many copies of each value nums1 must end up holding."]

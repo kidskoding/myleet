@@ -1,0 +1,7 @@
+id = "maximum-median-sum-of-subsequences-of-size-3"
+title = "Maximum Median Sum of Subsequences of Size 3"
+difficulty = "medium"
+leetcode = 3627
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
+key_idea = "Sort; pair each group's median with the largest remaining element and sacrifice the smallest one, so the medians are every second element starting at index n/3."
+hints = ["Each group of three throws away one small value and one value at least as large as the median.", "After sorting, decide which elements should serve as the throwaway minimum and which as the throwaway maximum."]
