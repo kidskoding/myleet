@@ -1,0 +1,7 @@
+id = "count-ways-to-build-rooms-in-an-ant-colony"
+title = "Count Ways to Build Rooms in an Ant Colony"
+difficulty = "hard"
+leetcode = 1916
+url = "https://leetcode.com/problems/count-ways-to-build-rooms-in-an-ant-colony/"
+key_idea = "Valid build orders are topological orders of a tree, which number n! divided by the product of all subtree sizes, computed mod 1e9+7 with modular inverses."
+hints = ["Each room's subtree must start with that room, and otherwise its subtrees interleave freely.", "Start from all n! orders and ask what fraction of them builds each room before everything in its subtree."]

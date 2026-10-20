@@ -1,0 +1,7 @@
+id = "maximum-points-after-collecting-coins-from-all-nodes"
+title = "Maximum Points After Collecting Coins From All Nodes"
+difficulty = "hard"
+leetcode = 2920
+url = "https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/"
+key_idea = "DFS with state (node, number of halvings applied by ancestors), capped near 14 since coins hit zero by then; at each node pick the better of coins >> h minus k or (coins >> h) // 2 with h + 1 passed down."
+hints = ["The second option's effect on descendants is just a count of how many halvings they inherit.", "Coins are at most 10^4, so after about 14 halvings everything is 0."]

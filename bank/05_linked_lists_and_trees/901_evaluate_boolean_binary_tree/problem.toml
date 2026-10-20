@@ -1,0 +1,7 @@
+id = "evaluate-boolean-binary-tree"
+title = "Evaluate Boolean Binary Tree"
+difficulty = "easy"
+leetcode = 2331
+url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
+key_idea = "Post-order recursion: a leaf returns its value as a boolean; an internal node evaluates both children and applies OR (2) or AND (3)."
+hints = ["The tree is full, so a node either has two children or none.", "You need both children's results before you can evaluate a parent."]

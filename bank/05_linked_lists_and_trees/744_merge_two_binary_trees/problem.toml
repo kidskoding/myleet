@@ -1,0 +1,7 @@
+id = "merge-two-binary-trees"
+title = "Merge Two Binary Trees"
+difficulty = "easy"
+leetcode = 617
+url = "https://leetcode.com/problems/merge-two-binary-trees/"
+key_idea = "Recurse on both trees together: if either node is missing return the other, otherwise build a node with the summed value and merge the children pairwise."
+hints = ["Think about what the merged tree is when one of the two roots is empty.", "The left child of the result depends only on the two left children."]

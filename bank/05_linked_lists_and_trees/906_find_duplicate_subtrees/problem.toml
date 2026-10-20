@@ -1,0 +1,7 @@
+id = "find-duplicate-subtrees"
+title = "Find Duplicate Subtrees"
+difficulty = "medium"
+leetcode = 652
+url = "https://leetcode.com/problems/find-duplicate-subtrees/"
+key_idea = "Serialize every subtree bottom-up into a canonical key (or an interned id) and report a root the second time its key is seen."
+hints = ["Two subtrees are equal exactly when some string description of them is equal. Which traversal makes that description unique?", "Count how many times each description appears while doing a post-order walk."]

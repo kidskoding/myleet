@@ -1,0 +1,7 @@
+id = "univalued-binary-tree"
+title = "Univalued Binary Tree"
+difficulty = "easy"
+leetcode = 965
+url = "https://leetcode.com/problems/univalued-binary-tree/"
+key_idea = "Traverse the tree (DFS or BFS) and check that every node's value equals the root's value."
+hints = ["Every node must match one specific value.", "Any traversal that visits all nodes works; stop early on the first mismatch."]

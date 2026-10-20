@@ -1,0 +1,7 @@
+id = "find-minimum-diameter-after-merging-two-trees"
+title = "Find Minimum Diameter After Merging Two Trees"
+difficulty = "hard"
+leetcode = 3203
+url = "https://leetcode.com/problems/find-minimum-diameter-after-merging-two-trees/"
+key_idea = "Connect the two tree centres: the answer is max(d1, d2, ceil(d1 / 2) + ceil(d2 / 2) + 1), with each diameter found by two BFS passes."
+hints = ["The merged diameter either stays inside one tree or crosses the new edge.", "To keep the crossing path short, attach each tree at the node whose farthest distance is smallest."]

@@ -1,0 +1,7 @@
+id = "unique-binary-search-trees"
+title = "Unique Binary Search Trees"
+difficulty = "medium"
+leetcode = 96
+url = "https://leetcode.com/problems/unique-binary-search-trees/"
+key_idea = "dp[n] = sum over root i of dp[i - 1] * dp[n - i]: the left subtree holds the i - 1 smaller keys and the right subtree the n - i larger keys."
+hints = ["Pick which value sits at the root.", "Once the root is fixed, the left and right subtrees are independent smaller versions of the same problem."]

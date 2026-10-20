@@ -1,0 +1,7 @@
+id = "delete-nodes-and-return-forest"
+title = "Delete Nodes And Return Forest"
+difficulty = "medium"
+leetcode = 1110
+url = "https://leetcode.com/problems/delete-nodes-and-return-forest/"
+key_idea = "Post-order DFS with a set of values to delete: a deleted node pushes its surviving children into the answer and returns None to its parent; the root is added if it survives."
+hints = ["Process children before deciding about the parent, so links can be cut on the way back up.", "When a node is deleted, each surviving child becomes the root of a new tree."]

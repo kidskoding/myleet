@@ -1,0 +1,47 @@
+id = "insert-into-a-sorted-circular-linked-list"
+title = "Insert into a Sorted Circular Linked List"
+difficulty = "medium"
+leetcode = 708
+url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
+key_idea = "Walk the cycle once looking for prev <= x <= next, or for the wrap point (prev > next) where x is a new max or min; if a full loop finds neither (all equal), insert anywhere."
+hints = ["The given node may be anywhere in the ring, so the smallest value is not necessarily first. Where does the order 'wrap around'?", "Handle the empty list and the list where every value is the same as their own cases."]
+prompt = """
+Implement `insert(head, insert_val)`. `head` is some node of a circular singly linked list
+whose values are sorted in non-descending order going around the ring. It is not
+necessarily the node with the smallest value. Each node is a `ListNode` with `val` and
+`next`, and the last node's `next` points back to the first.
+
+Insert a new node holding `insert_val` so that the ring is still sorted. If several spots
+work, any of them is fine.
+
+If the list is empty (`head` is `None`), create a single node that points to itself and
+return it. Otherwise return the original `head` node.
+
+**Example 1:**
+
+```
+Input: head = [3,4,1], insert_val = 2
+Output: [3,4,1,2]
+```
+
+The ring is `3 -> 4 -> 1 -> 3`; `2` goes between `1` and `3`.
+
+**Example 2:**
+
+```
+Input: head = [], insert_val = 1
+Output: [1]
+```
+
+**Example 3:**
+
+```
+Input: head = [1], insert_val = 0
+Output: [1,0]
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[0, 5 * 10^4]`
+- `-10^6 <= Node.val, insert_val <= 10^6`
+"""

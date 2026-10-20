@@ -1,0 +1,40 @@
+id = "serialize-and-deserialize-n-ary-tree"
+title = "Serialize and Deserialize N-ary Tree"
+difficulty = "hard"
+leetcode = 428
+url = "https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree/"
+key_idea = "Write a preorder walk that records each node's value followed by its child count; reading the same sequence back rebuilds the tree with a stack of nodes still owed children."
+hints = ["A value list alone is ambiguous for an N-ary tree; what extra number per node removes the ambiguity?", "With value and child count in preorder, a stack of (node, children still to read) rebuilds the tree in one pass."]
+prompt = """
+Implement the `Codec` class for an N-ary tree. Each `Node` has an integer `val` and a list
+`children` of any length (possibly empty).
+
+- `serialize(root)` turns the tree into a string. `root` may be `None`.
+- `deserialize(data)` takes a string produced by `serialize` and rebuilds a tree with the
+  same values and the same shape, children in the same order. It returns `None` for an
+  empty tree.
+
+The string format is up to you; the only requirement is that `deserialize(serialize(root))`
+reproduces the original tree.
+
+**Example 1:**
+
+```
+Input: root = 1 with children [3, 2, 4], and 3 has children [5, 6]
+Output: a tree with exactly that structure after a round trip
+```
+
+**Example 2:**
+
+```
+Input: root = None
+Output: None after a round trip
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[0, 10^4]`
+- `0 <= Node.val <= 10^4` (your codec may also handle negative values)
+- The depth of the tree is at most `1000`
+- Do not keep state between calls; the string alone must carry the tree
+"""

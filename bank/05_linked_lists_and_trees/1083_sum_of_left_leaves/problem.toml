@@ -1,0 +1,7 @@
+id = "sum-of-left-leaves"
+title = "Sum of Left Leaves"
+difficulty = "easy"
+leetcode = 404
+url = "https://leetcode.com/problems/sum-of-left-leaves/"
+key_idea = "Traverse the tree and add a node's left child value whenever that left child is a leaf."
+hints = ["Whether a leaf is a 'left leaf' depends on its parent, not on the leaf itself.", "While visiting a node, look at its left child and check that it has no children."]

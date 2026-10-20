@@ -1,0 +1,7 @@
+id = "recover-a-tree-from-preorder-traversal"
+title = "Recover a Tree From Preorder Traversal"
+difficulty = "hard"
+leetcode = 1028
+url = "https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/"
+key_idea = "Keep a stack holding the current root-to-node path; for each (depth, value) pop until the stack has depth nodes, then attach as left child if free, else right."
+hints = ["Parse the string into (depth, value) pairs first.", "The parent of a node at depth d is the most recent node seen at depth d - 1."]

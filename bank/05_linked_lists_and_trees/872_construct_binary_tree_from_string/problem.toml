@@ -1,0 +1,46 @@
+id = "construct-binary-tree-from-string"
+title = "Construct Binary Tree from String"
+difficulty = "medium"
+leetcode = 536
+url = "https://leetcode.com/problems/construct-binary-tree-from-string/"
+key_idea = "Scan left to right with a stack of open nodes: a number creates a node attached to the stack top (left first, then right), '(' is skipped, and ')' pops the finished subtree."
+hints = ["Each pair of parentheses holds exactly one child subtree.", "When a subtree's closing parenthesis arrives, its node is done and the parent is next in line."]
+prompt = """
+Implement `str2tree(s)`, which builds a binary tree from its string encoding and returns
+the root (or `None` for an empty string).
+
+The encoding of a tree is the root's integer value, optionally followed by one or two
+parenthesised child encodings. The first pair of parentheses holds the left subtree and
+the second pair, if present, holds the right subtree. Values may be negative and may have
+several digits.
+
+**Example 1:**
+
+```
+Input: s = "4(2(3)(1))(6(5))"
+Output: [4,2,6,3,1,5]
+```
+
+The root `4` has left child `2` (with children `3` and `1`) and right child `6` (with left
+child `5`). The output shows the tree in level order.
+
+**Example 2:**
+
+```
+Input: s = "4(2(3)(1))(6(5)(7))"
+Output: [4,2,6,3,1,5,7]
+```
+
+**Example 3:**
+
+```
+Input: s = "-4(2(3)(1))(6(5)(7))"
+Output: [-4,2,6,3,1,5,7]
+```
+
+**Constraints:**
+
+- `0 <= s.length <= 3 * 10^4`
+- `s` consists of digits, `'('`, `')'` and `'-'` only
+- A node with only one child always has it as the left child
+"""

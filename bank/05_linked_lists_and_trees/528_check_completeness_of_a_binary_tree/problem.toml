@@ -1,0 +1,7 @@
+id = "check-completeness-of-a-binary-tree"
+title = "Check Completeness of a Binary Tree"
+difficulty = "medium"
+leetcode = 958
+url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
+key_idea = "BFS that enqueues children including None; once a None has been dequeued, any later real node means the tree is not complete."
+hints = ["In a complete tree, level order lists all real nodes before any gap.", "Push missing children too, and watch for a node after the first gap."]

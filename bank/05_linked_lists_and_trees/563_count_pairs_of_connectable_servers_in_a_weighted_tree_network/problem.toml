@@ -1,0 +1,7 @@
+id = "count-pairs-of-connectable-servers-in-a-weighted-tree-network"
+title = "Count Pairs of Connectable Servers in a Weighted Tree Network"
+difficulty = "medium"
+leetcode = 3067
+url = "https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/"
+key_idea = "For each center c, DFS into each neighbor's branch counting nodes at distance divisible by signalSpeed, and combine branches pairwise with a running sum."
+hints = ["Paths from c that share no edge must leave c through different neighbors.", "Count good nodes per branch of c; pairs come from multiplying counts of different branches."]

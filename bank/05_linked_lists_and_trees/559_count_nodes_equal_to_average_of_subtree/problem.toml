@@ -1,0 +1,7 @@
+id = "count-nodes-equal-to-average-of-subtree"
+title = "Count Nodes Equal to Average of Subtree"
+difficulty = "medium"
+leetcode = 2265
+url = "https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/"
+key_idea = "Post-order DFS returning (sum, count) for each subtree, checking the node against sum // count on the way back up."
+hints = ["A node's subtree average needs its subtree's sum and size.", "Compute both from the children's results and return them upward in one pass."]

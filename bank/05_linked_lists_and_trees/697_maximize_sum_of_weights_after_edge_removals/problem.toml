@@ -1,0 +1,7 @@
+id = "maximize-sum-of-weights-after-edge-removals"
+title = "Maximize Sum of Weights after Edge Removals"
+difficulty = "hard"
+leetcode = 3367
+url = "https://leetcode.com/problems/maximize-sum-of-weights-after-edge-removals/"
+key_idea = "Tree DP with two values per node (best subtree sum when it may keep k child edges, and when it may keep only k - 1 because its parent edge stays); each child offers a gain for keeping its edge, and you take the largest positive gains."
+hints = ["Root the tree and decide, for each node, which child edges to keep.", "Whether a node's parent edge is kept changes how many child edges it can afford."]

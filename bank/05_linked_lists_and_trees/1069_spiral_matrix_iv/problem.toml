@@ -1,0 +1,7 @@
+id = "spiral-matrix-iv"
+title = "Spiral Matrix IV"
+difficulty = "medium"
+leetcode = 2326
+url = "https://leetcode.com/problems/spiral-matrix-iv/"
+key_idea = "Walk the matrix in spiral order with a direction vector, turning right whenever the next cell is outside or already filled, writing list values until the list runs out."
+hints = ["Start with an m x n grid full of -1 so unfilled cells are already correct.", "Turn clockwise when the next step would leave the grid or hit a cell you already wrote."]

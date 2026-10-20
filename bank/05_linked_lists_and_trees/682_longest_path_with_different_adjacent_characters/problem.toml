@@ -1,0 +1,7 @@
+id = "longest-path-with-different-adjacent-characters"
+title = "Longest Path With Different Adjacent Characters"
+difficulty = "hard"
+leetcode = 2246
+url = "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/"
+key_idea = "Post-order over the tree: each node keeps its two longest child chains whose child character differs from its own, and the best path through it is 1 + those two."
+hints = ["The longest path bends at exactly one highest node.", "From each node, return the longest downward chain that starts there."]

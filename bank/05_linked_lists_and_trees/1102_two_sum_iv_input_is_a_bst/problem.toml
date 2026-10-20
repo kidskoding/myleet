@@ -1,0 +1,7 @@
+id = "two-sum-iv-input-is-a-bst"
+title = "Two Sum IV - Input is a BST"
+difficulty = "easy"
+leetcode = 653
+url = "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/"
+key_idea = "An in-order traversal gives the values sorted; then run two pointers from both ends (or traverse once with a seen-set)."
+hints = ["The classic Two Sum trick works on any traversal.", "The BST property gives you a sorted sequence for free."]

@@ -1,0 +1,35 @@
+id = "closest-binary-search-tree-value-ii"
+title = "Closest Binary Search Tree Value II"
+difficulty = "hard"
+leetcode = 272
+url = "https://leetcode.com/problems/closest-binary-search-tree-value-ii/"
+key_idea = "An inorder traversal yields sorted values, and the k closest form a contiguous window; slide a size-k deque, dropping the front whenever the new value is closer."
+hints = ["What order does an inorder traversal of a BST produce?", "In a sorted list, the k values closest to a target are next to each other."]
+prompt = """
+Implement `closest_k_values(root, target, k)`. Given the root of a binary search tree, a
+floating-point `target` and an integer `k`, return the `k` node values closest to
+`target`, in any order. The answer is guaranteed to be unique.
+
+**Example 1:**
+
+```
+Input: root = [4,2,5,1,3], target = 3.714286, k = 2
+Output: [4,3]
+```
+
+**Example 2:**
+
+```
+Input: root = [1], target = 0.000000, k = 1
+Output: [1]
+```
+
+**Constraints:**
+
+- The number of nodes `n` is in the range `[1, 10^4]`
+- `1 <= k <= n`
+- `0 <= Node.val <= 10^9`
+- `-10^9 <= target <= 10^9`
+
+**Follow-up:** if the tree is balanced, can you do better than `O(n)`?
+"""

@@ -1,0 +1,7 @@
+id = "most-profitable-path-in-a-tree"
+title = "Most Profitable Path in a Tree"
+difficulty = "medium"
+leetcode = 2467
+url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
+key_idea = "Find Bob's path to the root and the time he reaches each node on it; then DFS Alice from 0, taking the full amount if she arrives first, half on a tie, nothing if Bob was there earlier, and maximise over leaves."
+hints = ["Bob's route is fixed: the unique path from his node to 0. Record when he passes each node.", "Alice's time at a node is its depth. Compare it with Bob's time to decide the share."]

@@ -1,0 +1,7 @@
+id = "number-of-nodes-in-the-sub-tree-with-the-same-label"
+title = "Number of Nodes in the Sub-Tree With the Same Label"
+difficulty = "medium"
+leetcode = 1519
+url = "https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/"
+key_idea = "Post-order DFS from node 0 returning a 26-letter count per subtree; each node's answer is its subtree count for its own label."
+hints = ["Root the tree at 0 so every node has a well defined subtree.", "A child can hand its parent a count of every label below it."]

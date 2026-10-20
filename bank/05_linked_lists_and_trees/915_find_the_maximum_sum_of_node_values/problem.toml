@@ -1,0 +1,7 @@
+id = "find-the-maximum-sum-of-node-values"
+title = "Find the Maximum Sum of Node Values"
+difficulty = "hard"
+leetcode = 3068
+url = "https://leetcode.com/problems/find-the-maximum-sum-of-node-values/"
+key_idea = "Chaining edge operations along a path flips any two nodes, so any even-sized set of nodes can be XORed; take every positive gain and, if the count is odd, drop the smallest gain or add the least-bad loss."
+hints = ["Apply the operation along every edge of the path between two nodes. Which nodes actually change?", "So the tree shape does not matter, only how many nodes you flip. What parity constraint remains?"]

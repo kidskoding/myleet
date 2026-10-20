@@ -1,0 +1,7 @@
+id = "pythagorean-distance-nodes-in-a-tree"
+title = "Pythagorean Distance Nodes in a Tree"
+difficulty = "medium"
+leetcode = 3820
+url = "https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree/"
+key_idea = "Run BFS from x, y and z to get all distances, then count nodes whose sorted distances a <= b <= c satisfy a^2 + b^2 = c^2."
+hints = ["You need each node's distance to three fixed nodes.", "One traversal per target node gives distances to everyone."]

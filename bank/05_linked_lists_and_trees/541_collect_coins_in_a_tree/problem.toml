@@ -1,0 +1,7 @@
+id = "collect-coins-in-a-tree"
+title = "Collect Coins in a Tree"
+difficulty = "hard"
+leetcode = 2603
+url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
+key_idea = "Repeatedly strip leaves with no coin, then strip two more rounds of leaves (coins within distance 2 are collected from afar); every remaining edge is walked twice."
+hints = ["Branches that contain no coins are never worth entering.", "You can grab a coin from two steps away, so the outermost two layers of what remains never need visiting."]

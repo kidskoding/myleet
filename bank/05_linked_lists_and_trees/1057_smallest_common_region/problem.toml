@@ -1,0 +1,42 @@
+id = "smallest-common-region"
+title = "Smallest Common Region"
+difficulty = "medium"
+leetcode = 1257
+url = "https://leetcode.com/problems/smallest-common-region/"
+key_idea = "Regions form a tree; record each region's parent, collect all ancestors of region1, then climb from region2 until you hit one of them."
+hints = ["Each list says its first region directly contains the rest; that is a parent pointer.", "This is a lowest common ancestor query on a tree given by parent pointers."]
+prompt = """
+Implement `find_smallest_region(regions, region1, region2)`. Each entry of `regions` is a
+list whose first element is a region and whose remaining elements are the regions it
+directly contains. Containment is transitive, and a region counts as containing itself.
+Together the lists describe a single tree with one outermost region.
+
+Return the smallest region that contains both `region1` and `region2`.
+
+**Example 1:**
+
+```
+Input: regions = [["Earth","North America","South America"],
+                  ["North America","United States","Canada"],
+                  ["United States","New York","Boston"],
+                  ["Canada","Ontario","Quebec"],
+                  ["South America","Brazil"]],
+       region1 = "Quebec", region2 = "New York"
+Output: "North America"
+```
+
+**Example 2:**
+
+```
+Input: same regions, region1 = "Canada", region2 = "South America"
+Output: "Earth"
+```
+
+**Constraints:**
+
+- `2 <= regions.length <= 10^4`
+- `2 <= regions[i].length <= 20`
+- Region names are 1 to 20 English letters and spaces
+- No region is directly contained in more than one other region
+- `region1` and `region2` appear in `regions`
+"""

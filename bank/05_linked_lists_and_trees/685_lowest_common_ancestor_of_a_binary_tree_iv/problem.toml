@@ -1,0 +1,48 @@
+id = "lowest-common-ancestor-of-a-binary-tree-iv"
+title = "Lowest Common Ancestor of a Binary Tree IV"
+difficulty = "medium"
+leetcode = 1676
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
+key_idea = "One DFS against a set of the target nodes: a node that is a target, or whose left and right subtrees both report a hit, is the answer; otherwise pass up whichever side found something."
+hints = ["Generalize the two-node LCA recursion to any number of targets.", "Use a set so checking whether a node is a target is O(1)."]
+prompt = """
+Implement `lowest_common_ancestor(root, nodes)`. You get the root of a binary tree and a
+list `nodes` of `TreeNode` objects taken from that tree. Return the lowest common ancestor
+of all of them: the deepest node that has every node in `nodes` in its subtree. A node
+counts as part of its own subtree, so it can be its own ancestor.
+
+Return the actual node from the tree, not a copy. The examples write trees in level order
+and show `nodes` by their values.
+
+**Example 1:**
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], nodes = [4,7]
+Output: 2
+```
+
+Nodes `4` and `7` are both children of `2`.
+
+**Example 2:**
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], nodes = [1]
+Output: 1
+```
+
+A single node is its own lowest common ancestor.
+
+**Example 3:**
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], nodes = [7,6,2,4]
+Output: 5
+```
+
+**Constraints:**
+
+- The number of nodes in the tree is in the range `[1, 10^4]`
+- `-10^9 <= Node.val <= 10^9`
+- All `Node.val` are unique
+- All entries of `nodes` exist in the tree and are distinct
+"""

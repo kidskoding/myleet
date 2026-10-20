@@ -1,0 +1,47 @@
+id = "maximum-subtree-of-the-same-color"
+title = "Maximum Subtree of the Same Color"
+difficulty = "medium"
+leetcode = 3004
+url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
+key_idea = "Post-order DFS from the root: a subtree is uniform when every child subtree is uniform and shares the node's color; track sizes and keep the largest uniform one."
+hints = ["Whether a subtree is single-colored depends only on its children's answers and colors.", "Process nodes children-first (iteratively to avoid deep recursion), returning each subtree's size and whether it is uniform."]
+prompt = """
+Write `maximum_subtree_size(edges, colors)`. A tree has `n` nodes labeled `0` to `n - 1` and
+is rooted at node `0`. `edges` lists its `n - 1` undirected edges as pairs `[u, v]`, and
+`colors[i]` is the color of node `i`.
+
+The subtree of a node is that node together with all of its descendants. Return the number of
+nodes in the largest subtree in which every node has the same color.
+
+**Example 1:**
+
+```
+Input: edges = [[0,1],[0,2],[0,3]], colors = [1,1,2,3]
+Output: 1
+```
+
+The root's subtree mixes three colors, so only single leaves qualify.
+
+**Example 2:**
+
+```
+Input: edges = [[0,1],[0,2],[0,3]], colors = [1,1,1,1]
+Output: 4
+```
+
+**Example 3:**
+
+```
+Input: edges = [[0,1],[0,2],[2,3],[2,4]], colors = [1,2,3,3,3]
+Output: 3
+```
+
+Node 2 and its children 3 and 4 all have color 3.
+
+**Constraints:**
+
+- `n == len(edges) + 1 == len(colors)`
+- `1 <= n <= 5 * 10^4`
+- `0 <= u, v < n`, and the edges form a tree
+- `1 <= colors[i] <= 10^5`
+"""

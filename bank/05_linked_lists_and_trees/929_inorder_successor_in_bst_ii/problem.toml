@@ -1,0 +1,46 @@
+id = "inorder-successor-in-bst-ii"
+title = "Inorder Successor in BST II"
+difficulty = "medium"
+leetcode = 510
+url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
+key_idea = "If the node has a right subtree, the successor is that subtree's leftmost node; otherwise climb parents until you arrive from a left child, and that parent is the successor."
+hints = ["Split into two cases: does the node have a right child or not?", "Without a right child, the successor is an ancestor. Which one, in terms of the direction you came up from?"]
+prompt = """
+Implement `inorder_successor(node)`. You get a node of a binary search tree, but not the
+root. Every `Node` has `val`, `left`, `right` and `parent`; the root's `parent` is `None`.
+
+Return the node that comes right after `node` in an in-order traversal, which in a BST is
+the node with the smallest value greater than `node.val`. Return `None` when `node` holds
+the largest value. All values are distinct.
+
+**Example 1:**
+
+```
+Input: tree = [2,1,3], node = 1
+Output: 2
+```
+
+**Example 2:**
+
+```
+Input: tree = [5,3,6,2,4,null,null,1], node = 6
+Output: null
+```
+
+`6` is the largest value, so it has no successor.
+
+**Example 3:**
+
+```
+Input: tree = [5,3,6,2,4,null,null,1], node = 4
+Output: 5
+```
+
+`4` has no right child, so the answer is found by walking up through `3` to `5`.
+
+**Constraints:**
+
+- The number of nodes is in the range `[1, 10^4]`
+- `-10^5 <= Node.val <= 10^5`
+- All values are unique
+"""

@@ -1,0 +1,32 @@
+id = "closest-binary-search-tree-value"
+title = "Closest Binary Search Tree Value"
+difficulty = "easy"
+leetcode = 270
+url = "https://leetcode.com/problems/closest-binary-search-tree-value/"
+key_idea = "Walk a single root-to-leaf path, going left or right by comparing with target and keeping the closest value seen (smaller value on ties)."
+hints = ["You do not need to visit the whole tree.", "At each node, which subtree could possibly hold something closer?"]
+prompt = """
+Implement `closest_value(root, target)`. Given the root of a binary search tree and a
+floating-point `target`, return the node value closest to `target`. If two values are
+equally close, return the smaller one.
+
+**Example 1:**
+
+```
+Input: root = [4,2,5,1,3], target = 3.714286
+Output: 4
+```
+
+**Example 2:**
+
+```
+Input: root = [1], target = 4.428571
+Output: 1
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[1, 10^4]`
+- `0 <= Node.val <= 10^9`
+- `-10^9 <= target <= 10^9`
+"""

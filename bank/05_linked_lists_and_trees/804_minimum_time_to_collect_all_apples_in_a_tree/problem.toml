@@ -1,0 +1,7 @@
+id = "minimum-time-to-collect-all-apples-in-a-tree"
+title = "Minimum Time to Collect All Apples in a Tree"
+difficulty = "medium"
+leetcode = 1443
+url = "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/"
+key_idea = "Post-order DFS from node 0: a child's edge costs 2 seconds (there and back) whenever that child's subtree contains an apple; sum those costs."
+hints = ["The edges are undirected; root the tree at 0 first.", "An edge must be walked exactly twice if anything below it holds an apple, and never otherwise."]

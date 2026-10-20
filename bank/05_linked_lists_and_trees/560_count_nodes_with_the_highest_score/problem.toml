@@ -1,0 +1,7 @@
+id = "count-nodes-with-the-highest-score"
+title = "Count Nodes With the Highest Score"
+difficulty = "medium"
+leetcode = 2049
+url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
+key_idea = "Compute every subtree size once; removing a node leaves its child subtrees plus the n - size part above it, so its score is their product."
+hints = ["When a node is removed, the pieces are its children's subtrees and everything else.", "Get all subtree sizes in one post-order pass, then score each node from them."]

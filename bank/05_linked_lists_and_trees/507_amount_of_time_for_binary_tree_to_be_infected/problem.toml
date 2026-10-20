@@ -1,0 +1,7 @@
+id = "amount-of-time-for-binary-tree-to-be-infected"
+title = "Amount of Time for Binary Tree to Be Infected"
+difficulty = "medium"
+leetcode = 2385
+url = "https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/"
+key_idea = "Record each node's parent, then BFS outward from the start node over left, right, and parent edges; the number of levels minus one is the answer."
+hints = ["Infection spreads upward too, which a plain tree traversal cannot follow.", "Turn the tree into an undirected graph, then ask how far the farthest node is from start."]

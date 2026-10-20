@@ -1,0 +1,7 @@
+id = "validate-binary-tree-nodes"
+title = "Validate Binary Tree Nodes"
+difficulty = "medium"
+leetcode = 1361
+url = "https://leetcode.com/problems/validate-binary-tree-nodes/"
+key_idea = "Every node needs at most one parent and exactly one node has none; from that root, a BFS or DFS must reach all n nodes (which also rules out cycles)."
+hints = ["Count how many parents each node has.", "Having one root with correct parent counts is not enough: check that everything is reachable from it."]

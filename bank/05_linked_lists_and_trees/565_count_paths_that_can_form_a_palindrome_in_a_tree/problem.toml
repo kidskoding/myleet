@@ -1,0 +1,7 @@
+id = "count-paths-that-can-form-a-palindrome-in-a-tree"
+title = "Count Paths That Can Form a Palindrome in a Tree"
+difficulty = "hard"
+leetcode = 2791
+url = "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/"
+key_idea = "Give each node a 26-bit parity mask of the edge letters from the root; a path u-v works when mask[u] ^ mask[v] has at most one bit set, so count matches with a hash map."
+hints = ["A multiset of letters can form a palindrome when at most one letter has an odd count.", "Parity of the u-v path equals the XOR of the root-to-u and root-to-v parities, because the shared part cancels."]
