@@ -10,11 +10,12 @@ Prim differs from it by exactly one line.
 
 Module paths in this ledger are relative to `curriculum/`. Readers go through the
 repo in module order, so "above" means lower module
-number, or lower note number inside the same module.
+number, or lower note number inside the same module. The `guide/` notes at the
+repo root come before every module.
 
 Update this file whenever a note is added, renamed, or changes what it covers.
 
-## 00_fundamentals
+## guide
 
 | Note                         | Establishes                                                                                                                                                |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |

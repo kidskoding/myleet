@@ -4,7 +4,7 @@ A **subset** of a collection is any selection of its elements where each element
 is taken at most once and the order you list them in does not matter. `[1, 3]`
 and `[3, 1]` are the same subset of `[1, 2, 3]`, and both the empty selection
 `[]` and the whole thing `[1, 2, 3]` count. A subset is not a
-[slice](../../00_fundamentals/notes/02_python_basics.md), because a slice has to
+[slice](../../../guide/02_python_basics.md), because a slice has to
 be contiguous and a subset can skip freely
 
 The collection of every subset is called the **power set**. Its size follows from

@@ -27,9 +27,10 @@ ______________________________________________________________________
 myleet/
 ├── cmd/myleet/                 the `myleet` trainer binary (Go)
 ├── internal/                engine (catalog, runner, scheduler, ...) and TUI
+├── guide/                   start-here notes shown at the top of the map
 ├── curriculum/
 │   ├── _lib/                shared Python helpers importable from every test
-│   ├── 00_fundamentals/ … 18_mixed_interview_practice/
+│   ├── 01_arrays_and_hashing/ … 18_mixed_interview_practice/
 │   │   ├── module.toml      title, description
 │   │   ├── README.md
 │   │   ├── notes/           the notes book

@@ -618,13 +618,13 @@ is the number of nodes in the second list wherever two lists are involved
 
 **Walking and editing a singly linked list**
 
-| Operation                         | Time                                                                                                                                                           | Space                                                                    |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| reaching index `i`                | `O(i)`: one `next` hop per index, and `O(n)` in the worst case, since there is no arithmetic route to a node                                                   | `O(1)`: a single pointer variable regardless of how far it walks         |
-| unlink or insert given `prev`     | `O(1)`: two reference assignments, and nothing after the edit point moves                                                                                      | `O(1)`: no allocation for an unlink, one node for an insert              |
-| unlink given only the target node | `O(n)`: the predecessor is unreachable, so it has to be found by walking from the head                                                                         | `O(1)`: the walk stores nothing                                          |
-| length, or reaching the last node | `O(n)`: nothing is stored about size, so the only way to find the end is to arrive at `None`                                                                   | `O(1)`: a counter and a pointer                                          |
-| the same edits on an array        | `O(n)`: inserting or deleting in the middle shifts every later element, per [common operation costs](../../00_fundamentals/notes/04_common_operation_costs.md) | `O(1)`: in place, which is the trade the array makes for `O(1)` indexing |
+| Operation                         | Time                                                                                                                                              | Space                                                                    |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| reaching index `i`                | `O(i)`: one `next` hop per index, and `O(n)` in the worst case, since there is no arithmetic route to a node                                      | `O(1)`: a single pointer variable regardless of how far it walks         |
+| unlink or insert given `prev`     | `O(1)`: two reference assignments, and nothing after the edit point moves                                                                         | `O(1)`: no allocation for an unlink, one node for an insert              |
+| unlink given only the target node | `O(n)`: the predecessor is unreachable, so it has to be found by walking from the head                                                            | `O(1)`: the walk stores nothing                                          |
+| length, or reaching the last node | `O(n)`: nothing is stored about size, so the only way to find the end is to arrive at `None`                                                      | `O(1)`: a counter and a pointer                                          |
+| the same edits on an array        | `O(n)`: inserting or deleting in the middle shifts every later element, per [common operation costs](../../../guide/04_common_operation_costs.md) | `O(1)`: in place, which is the trade the array makes for `O(1)` indexing |
 
 **Removing every node with a given value**
 

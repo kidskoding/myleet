@@ -57,7 +57,7 @@ If the most recently added item is the one you want back, you want a [stack](01_
 
 A list can `append` at the back and `pop(0)` from the
 front, meaning it can behave like a queue. While it does work, it is `O(n)` per removal, since
-[every remaining element shifts left](../../00_fundamentals/notes/04_common_operation_costs.md)
+[every remaining element shifts left](../../../guide/04_common_operation_costs.md)
 to keep the front at index 0. Draining `n` elements that way costs `O(n²)`, which
 is a correct solution, but can time out for larger inputs
 
@@ -286,7 +286,7 @@ assert (leftmost, rightmost) == (5, 30)
 assert list(double_ended) == [10, 20]
 ```
 
-[Operation Costs](../../00_fundamentals/notes/04_common_operation_costs.md):
+[Operation Costs](../../../guide/04_common_operation_costs.md):
 
 ```text
 deque.append / appendleft / pop / popleft    O(1)   no element ever moves

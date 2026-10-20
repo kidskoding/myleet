@@ -12,7 +12,7 @@ appear?", and "Which group owns this word?" are all lookup questions.
   an index, count, group, or other information.
 
 The previous Python notes introduced their syntax and the requirement that keys
-be [hashable](../../00_fundamentals/notes/02_python_basics.md). This note is about
+be [hashable](../../../guide/02_python_basics.md). This note is about
 choosing what the key and stored value should mean.
 
 ## Replace Repeated Scans With Stored Answers

@@ -54,7 +54,7 @@ problem solving. They saw an answer arrive. That is the single largest gap
 between someone's LeetCode record and their interview record, and it is invisible
 until a mock makes it visible
 
-The [live-interview conversation](../../00_fundamentals/notes/05_interview_problem_solving.md)
+The [live-interview conversation](../../../guide/05_interview_problem_solving.md)
 already covers how to narrate each step. What a mock adds is the audit: a
 recording that shows you which of those four rows you actually left evidence for
 
@@ -142,7 +142,7 @@ combines, which makes it a perfect stand-in for an interviewer's first nudge. Ru
 you may open it once, only after twelve minutes with no approach, and opening it
 gets written into the debrief. This preserves the distinction the book already
 draws between a
-[cold solve and a hint-assisted one](../../00_fundamentals/notes/01_how_to_prep.md)
+[cold solve and a hint-assisted one](../../../guide/01_how_to_prep.md)
 
 **Record the session.** Screen plus audio, or a phone on the desk. This is the
 ingredient that does the most work, because a recording is the only thing that

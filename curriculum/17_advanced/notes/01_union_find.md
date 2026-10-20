@@ -336,7 +336,7 @@ assert UnionFind(1).count == 1
 **The cost, stated the way an interviewer wants to hear it**: with path
 compression and union by size together, a sequence of `m` operations over `n`
 items costs `O(m * α(n))`
-[amortized](../../00_fundamentals/notes/03_time_and_space_complexity.md), where
+[amortized](../../../guide/03_time_and_space_complexity.md), where
 `α` is the inverse Ackermann function. That function grows so slowly that `α(n)`
 stays below 5 for any `n` that will ever be typed into a computer, so the honest
 sentence is **"near-constant amortized time per operation"**. Say *amortized*, and

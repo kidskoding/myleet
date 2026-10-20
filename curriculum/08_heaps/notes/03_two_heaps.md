@@ -34,7 +34,7 @@ slot each new number into its correct position with `bisect.insort`. That gives
 a genuinely `O(1)` median, since the middle of a sorted list is an index lookup.
 
 Insertion is what kills it. Putting a value into the middle of a Python list
-[shifts every larger element one slot right](../../00_fundamentals/notes/04_common_operation_costs.md),
+[shifts every larger element one slot right](../../../guide/04_common_operation_costs.md),
 which is `O(n)` per arrival and `O(n²)` across the whole stream. The binary
 search that finds the position is fast, and then the write undoes all of that
 saving.

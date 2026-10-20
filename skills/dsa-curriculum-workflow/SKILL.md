@@ -19,10 +19,10 @@ copy will drift.
 
 ## Curriculum Order
 
-Modules are read in order, so a module may assume every module before it:
+Modules are read in order, so a module may assume every module before it and
+the `guide/` notes at the repo root:
 
 ```text
-00_fundamentals          09_backtracking
 01_arrays_and_hashing    10_graphs
 02_two_pointers          11_dp
 03_stacks_and_queues     12_greedy_algorithms
@@ -31,7 +31,7 @@ Modules are read in order, so a module may assume every module before it:
 06_linked_lists          15_bit_manipulation
 07_trees                 16_math_geometry
 08_heaps                 17_advanced
-                         18_mixed_interview_practice
+09_backtracking          18_mixed_interview_practice
 ```
 
 Advanced graph algorithms, sorting internals, divide and conquer, segment and

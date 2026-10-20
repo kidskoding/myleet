@@ -547,7 +547,7 @@ Let `n` be the number of input items.
 A loop that pops inside a loop that pushes is not automatically `O(n²)`. If each
 item can enter once and leave once, the total number of stack operations is
 linear. This one-push, one-pop argument is the standard
-[amortized analysis](../../00_fundamentals/notes/03_time_and_space_complexity.md)
+[amortized analysis](../../../guide/03_time_and_space_complexity.md)
 for stack problems.
 
 ## Summary

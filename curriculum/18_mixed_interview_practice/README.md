@@ -23,4 +23,4 @@ with `myleet`: press `m`, open this module, and pick a technique.
 
 - Read the notes first, then drill the module problem set once it exists.
 - Keep implementation files and tests grouped by the same patterns as the notes.
-- The overall prep strategy lives in `00_fundamentals/notes/01_how_to_prep.md`.
+- The overall prep strategy lives in [`guide/01_how_to_prep.md`](../../guide/01_how_to_prep.md).

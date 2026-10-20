@@ -45,7 +45,7 @@ factor rather than by one slot. Across `n` appends, the copied amounts form a
 geometric series such as `1 + 2 + 4 + ...`, whose total is `O(n)`. The complete
 sequence therefore costs `O(n)`, or `O(1)` **amortized** per append. This is the
 same amortized analysis introduced in
-[time and space complexity](../../00_fundamentals/notes/03_time_and_space_complexity.md).
+[time and space complexity](../../../guide/03_time_and_space_complexity.md).
 
 > "A list append is `O(1)` amortized. Most appends use spare capacity, while an
 > occasional resize copies the current elements. Geometric growth keeps all of

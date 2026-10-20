@@ -28,7 +28,7 @@ goes to introductions, the interviewer reading the problem out, and questions at
 the end. In that window the interviewer needs to see a contract, an approach with
 a stated tradeoff, code that runs, a test you performed rather than asserted, and
 a complexity claim you can defend. All five, in the
-[order that makes them a conversation](../../00_fundamentals/notes/05_interview_problem_solving.md)
+[order that makes them a conversation](../../../guide/05_interview_problem_solving.md)
 
 Running out of time is not a small deduction against an otherwise strong
 performance. It deletes the evidence entirely. An interviewer cannot write "would
@@ -41,7 +41,7 @@ Two things this is not:
   words per minute instead of 90. Time is lost in the two places where you are not
   typing at all, which are deriving an approach you cannot finish and debugging
   code you never traced
-- It is not the [online assessment](../../00_fundamentals/notes/01_how_to_prep.md),
+- It is not the [online assessment](../../../guide/01_how_to_prep.md),
   where you are alone with a submit button and the right move is to bank the
   easiest points across the whole set. Here there is one problem and a person
   watching, so the currency is visible progress rather than throughput

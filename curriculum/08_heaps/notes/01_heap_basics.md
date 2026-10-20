@@ -236,7 +236,7 @@ before the swap
 ## heapq Is A Heap On A Plain List
 
 Python ships this as `heapq`, which you met by name in
-[common operation costs](../../00_fundamentals/notes/04_common_operation_costs.md).
+[common operation costs](../../../guide/04_common_operation_costs.md).
 It is a module of functions rather than a class, and every function takes an
 ordinary list and rearranges it in place, so there is no wrapper object and
 `len(heap)`, truthiness, and iteration all behave like a list

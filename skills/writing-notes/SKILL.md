@@ -483,7 +483,7 @@ feels helpful.
 The queue note originally spent a whole section explaining that a Python list
 stores values in contiguous slots, so removing index 0 shifts everything left.
 That belongs to
-[common operation costs](../../00_fundamentals/notes/04_common_operation_costs.md)
+[common operation costs](../../../guide/04_common_operation_costs.md)
 and [dynamic arrays](../../01_arrays_and_hashing/notes/01_dynamic_arrays.md),
 both of which the reader has already read. The whole section collapsed to two
 sentences and a link, and nothing was lost.
@@ -603,7 +603,7 @@ volunteer complexity, and name the edge case being guarded. A short blockquote
 is useful when it captures a candidate's exact explanation.
 
 Keep it specific to the technique. Generic advice belongs in
-`curriculum/00_fundamentals/notes/05_interview_problem_solving.md`.
+`guide/05_interview_problem_solving.md`.
 
 ### Put pitfalls beside the branch they explain
 

@@ -227,7 +227,7 @@ run the identical walk, reach the identical node, and return opposite answers
 
 The `dict[str, TrieNode]` above is the default worth writing, because it works
 for any alphabet, costs
-[`O(1)` per lookup](../../00_fundamentals/notes/04_common_operation_costs.md),
+[`O(1)` per lookup](../../../guide/04_common_operation_costs.md),
 and allocates only the branches that exist. The alternative is a fixed array
 `[None] * 26` indexed by `ord(ch) - ord("a")`, which is a little faster by a
 constant factor and hands you a-to-z child order for free, which is convenient

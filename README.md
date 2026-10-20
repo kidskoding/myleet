@@ -27,7 +27,7 @@ A problem is done only when you can:
 
 ## How To Prep
 
-Start with [General Technical Interview Preparation](curriculum/00_fundamentals/notes/01_how_to_prep.md) before choosing a module or company problem set.
+Start with [General Technical Interview Preparation](guide/01_how_to_prep.md) before choosing a module or company problem set.
 
 The short version:
 
@@ -87,13 +87,13 @@ Your in-progress code and snapshots stay in `~/.local/share/myleet/` either way.
 Five tabs sit across the top; press `1`-`5` (or `tab`) to switch. The bar at the bottom
 shows the keys for the current screen, and `?` opens the full list.
 
-| Tab | Screen    | What it does                                                       |
-| --- | --------- | ------------------------------------------------------------------ |
-| `1` | Today     | Due reviews, most overdue first, then a few new problems           |
-| `2` | Map       | Modules → techniques → problems with mastery bars; `n` opens notes |
-| `3` | Interview | Timed 45-minute round, technique hidden, hints cost 3 minutes      |
-| `4` | Playlists | Company problem sets with progress per company                     |
-| `5` | Stats     | Streak, mastery, median time, solve heatmap, weakest techniques    |
+| Tab | Screen    | What it does                                                            |
+| --- | --------- | ----------------------------------------------------------------------- |
+| `1` | Today     | Due reviews, most overdue first, then a few new problems                |
+| `2` | Map       | Start-here notes, then modules → techniques → problems; `n` opens notes |
+| `3` | Interview | Timed 45-minute round, technique hidden, hints cost 3 minutes           |
+| `4` | Playlists | Company problem sets with progress per company                          |
+| `5` | Stats     | Streak, mastery, median time, solve heatmap, weakest techniques         |
 
 `enter` on a problem opens **Focus**: the statement on the left and a sidebar with the
 timer, every test by name, and the say-it-aloud checklist (stacked on narrow
@@ -185,9 +185,9 @@ uv run mdformat README.md    # or any .md path
 myleet/
 ├── cmd/myleet/                     the trainer binary
 ├── internal/                    engine and TUI (Go)
+├── guide/                       start-here notes: prep, Python, complexity, interviewing
 ├── curriculum/
 │   ├── _lib/                    shared Python helpers (ListNode, TreeNode, builders)
-│   ├── 00_fundamentals/notes/
 │   └── 01_arrays_and_hashing/
 │       ├── module.toml          title, description
 │       ├── notes/               the notes book for this module
