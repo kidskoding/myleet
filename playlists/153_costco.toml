@@ -76,16 +76,8 @@ title = "Merge Two Sorted Lists"
 url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Number of Islands"
@@ -108,10 +100,6 @@ title = "Combination Sum"
 url = "https://leetcode.com/problems/combination-sum/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
@@ -130,18 +118,6 @@ url = "https://leetcode.com/problems/lru-cache/"
 [[entries]]
 title = "Apply Discount Every n Orders"
 url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
-
-[[entries]]
-title = "Final Prices With a Special Discount in a Shop"
-url = "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/"
-
-[[entries]]
-title = "Maximum Units on a Truck"
-url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
-
-[[entries]]
-title = "Design Parking System"
-url = "https://leetcode.com/problems/design-parking-system/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
@@ -166,3 +142,43 @@ url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 [[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"

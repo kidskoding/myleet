@@ -152,10 +152,6 @@ title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
@@ -168,13 +164,21 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
-
-[[entries]]
 title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
 title = "Compare Version Numbers"
 url = "https://leetcode.com/problems/compare-version-numbers/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"

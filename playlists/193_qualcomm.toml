@@ -4,44 +4,8 @@ focus = "bit manipulation, in-place array and pointer work, linked list surgery,
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "16_math_geometry"]
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Peak Index in a Mountain Array"
-url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
 
 [[entries]]
 title = "Reverse Bits"
@@ -52,32 +16,24 @@ title = "Power of Two"
 url = "https://leetcode.com/problems/power-of-two/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
-
-[[entries]]
-title = "Remove Nth Node From End of List"
-url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
-
-[[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
+title = "Hamming Distance"
+url = "https://leetcode.com/problems/hamming-distance/"
 
 [[entries]]
 title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
+title = "Missing Number"
+url = "https://leetcode.com/problems/missing-number/"
+
+[[entries]]
 title = "Counting Bits"
 url = "https://leetcode.com/problems/counting-bits/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Middle of the Linked List"
@@ -88,66 +44,6 @@ title = "Merge Two Sorted Lists"
 url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
-title = "String Compression III"
-url = "https://leetcode.com/problems/string-compression-iii/"
-
-[[entries]]
-title = "Maximum Number of Ones"
-url = "https://leetcode.com/problems/maximum-number-of-ones/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Rectangle Overlap"
-url = "https://leetcode.com/problems/rectangle-overlap/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
-title = "Implement Queue using Stacks"
-url = "https://leetcode.com/problems/implement-queue-using-stacks/"
-
-[[entries]]
-title = "Count the Number of Fair Pairs"
-url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
-
-[[entries]]
-title = "Count Array Pairs Divisible by K"
-url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
-
-[[entries]]
-title = "Hamming Distance"
-url = "https://leetcode.com/problems/hamming-distance/"
-
-[[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
-
-[[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
 
@@ -156,20 +52,16 @@ title = "Reverse Integer"
 url = "https://leetcode.com/problems/reverse-integer/"
 
 [[entries]]
-title = "Add Binary"
-url = "https://leetcode.com/problems/add-binary/"
-
-[[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
-
-[[entries]]
 title = "Sum of Two Integers"
 url = "https://leetcode.com/problems/sum-of-two-integers/"
 
 [[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
+title = "String to Integer (atoi)"
+url = "https://leetcode.com/problems/string-to-integer-atoi/"
+
+[[entries]]
+title = "Remove Nth Node From End of List"
+url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
 
 [[entries]]
 title = "Single Number II"
@@ -182,6 +74,10 @@ url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
 [[entries]]
 title = "UTF-8 Validation"
 url = "https://leetcode.com/problems/utf-8-validation/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
 
 [[entries]]
 title = "Reverse Linked List II"
@@ -202,3 +98,103 @@ url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 [[entries]]
 title = "Copy List with Random Pointer"
 url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Maximum XOR of Two Numbers in an Array"
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+
+[[entries]]
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+
+[[entries]]
+title = "Maximum Number of Ones"
+url = "https://leetcode.com/problems/maximum-number-of-ones/"
+
+[[entries]]
+title = "String Compression III"
+url = "https://leetcode.com/problems/string-compression-iii/"
+
+[[entries]]
+title = "Count Array Pairs Divisible by K"
+url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
+
+[[entries]]
+title = "Peak Index in a Mountain Array"
+url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
+
+[[entries]]
+title = "Count the Number of Fair Pairs"
+url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
+
+[[entries]]
+title = "Last Substring in Lexicographical Order"
+url = "https://leetcode.com/problems/last-substring-in-lexicographical-order/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"
+
+[[entries]]
+title = "Pow(x, n)"
+url = "https://leetcode.com/problems/powx-n/"
+
+[[entries]]
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"

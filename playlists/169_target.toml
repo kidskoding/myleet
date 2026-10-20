@@ -4,30 +4,6 @@ focus = "arrays and sliding window, heaps and k-th element, trees and graph bfs,
 review_modules = ["02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "10_graphs"]
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
-
-[[entries]]
-title = "Longest Path With Different Adjacent Characters"
-url = "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/"
-
-[[entries]]
-title = "Product of the Last K Numbers"
-url = "https://leetcode.com/problems/product-of-the-last-k-numbers/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
-
-[[entries]]
 title = "Best Time to Buy and Sell Stock II"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
@@ -58,6 +34,30 @@ url = "https://leetcode.com/problems/3sum/"
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Longest Path With Different Adjacent Characters"
+url = "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/"
+
+[[entries]]
+title = "Product of the Last K Numbers"
+url = "https://leetcode.com/problems/product-of-the-last-k-numbers/"
+
+[[entries]]
+title = "Sort Characters By Frequency"
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+
+[[entries]]
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
 
 [[entries]]
 title = "Word Ladder"

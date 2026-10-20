@@ -4,8 +4,8 @@ focus = "arrays and greedy, stacks and parentheses, sliding window, matrix trave
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "11_dp", "12_greedy_algorithms", "16_math_geometry"]
 
 [[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
+title = "Design Graph With Shortest Path Calculator"
+url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"
 
 [[entries]]
 title = "Diagonal Traverse"
@@ -16,48 +16,44 @@ title = "Longest Valid Parentheses"
 url = "https://leetcode.com/problems/longest-valid-parentheses/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Design Graph With Shortest Path Calculator"
-url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"
-
-[[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
-
-[[entries]]
-title = "Can Place Flowers"
-url = "https://leetcode.com/problems/can-place-flowers/"
-
-[[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Find the Duplicate Number"
+url = "https://leetcode.com/problems/find-the-duplicate-number/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock II"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
 [[entries]]
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
 title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Happy Number"
+url = "https://leetcode.com/problems/happy-number/"
+
+[[entries]]
+title = "Can Place Flowers"
+url = "https://leetcode.com/problems/can-place-flowers/"
 
 [[entries]]
 title = "Flatten Nested List Iterator"
@@ -180,9 +176,9 @@ title = "Valid Anagram"
 url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
 title = "Flatten a Multilevel Doubly Linked List"
 url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

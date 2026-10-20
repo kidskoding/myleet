@@ -4,22 +4,6 @@ focus = "linked lists, sliding window, arrays/strings, DP, backtracking, and sys
 review_modules = ["04_sliding_window", "06_linked_lists", "08_heaps", "09_backtracking", "11_dp"]
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Combination Sum"
-url = "https://leetcode.com/problems/combination-sum/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
 title = "Sliding Window Maximum"
 url = "https://leetcode.com/problems/sliding-window-maximum/"
 
@@ -38,6 +22,22 @@ url = "https://leetcode.com/problems/minimum-time-visiting-all-points/"
 [[entries]]
 title = "Best Time to Buy and Sell Stock"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -194,7 +194,3 @@ url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 [[entries]]
 title = "Validate IP Address"
 url = "https://leetcode.com/problems/validate-ip-address/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"

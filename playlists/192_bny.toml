@@ -4,82 +4,6 @@ focus = "graphs, trees, dp, greedy, sliding window"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
-
-[[entries]]
-title = "Lexicographically Maximum MEX Array"
-url = "https://leetcode.com/problems/lexicographically-maximum-mex-array/"
-
-[[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Find the Maximum Length of a Good Subsequence II"
-url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
-
-[[entries]]
-title = "Minimize Malware Spread"
-url = "https://leetcode.com/problems/minimize-malware-spread/"
-
-[[entries]]
-title = "Car Fleet"
-url = "https://leetcode.com/problems/car-fleet/"
-
-[[entries]]
-title = "Bitwise ORs of Subarrays"
-url = "https://leetcode.com/problems/bitwise-ors-of-subarrays/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Find the Count of Monotonic Pairs II"
-url = "https://leetcode.com/problems/find-the-count-of-monotonic-pairs-ii/"
-
-[[entries]]
-title = "Count Number of Maximum Bitwise-OR Subsets"
-url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
-
-[[entries]]
-title = "Count Good Subarrays"
-url = "https://leetcode.com/problems/count-good-subarrays/"
-
-[[entries]]
-title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
-url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
-
-[[entries]]
-title = "Count Visited Nodes in a Directed Graph"
-url = "https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/"
-
-[[entries]]
-title = "Sum of Distances"
-url = "https://leetcode.com/problems/sum-of-distances/"
-
-[[entries]]
-title = "Minimize Length of Array Using Operations"
-url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
@@ -94,6 +18,74 @@ url = "https://leetcode.com/problems/valid-parentheses/"
 [[entries]]
 title = "Two Sum II - Input Array Is Sorted"
 url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+
+[[entries]]
+title = "Count Visited Nodes in a Directed Graph"
+url = "https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/"
+
+[[entries]]
+title = "Lexicographically Maximum MEX Array"
+url = "https://leetcode.com/problems/lexicographically-maximum-mex-array/"
+
+[[entries]]
+title = "Find the Maximum Length of a Good Subsequence II"
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
+
+[[entries]]
+title = "Minimize Length of Array Using Operations"
+url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
+
+[[entries]]
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
+
+[[entries]]
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
+
+[[entries]]
+title = "Sum of Distances"
+url = "https://leetcode.com/problems/sum-of-distances/"
+
+[[entries]]
+title = "Find the Count of Monotonic Pairs II"
+url = "https://leetcode.com/problems/find-the-count-of-monotonic-pairs-ii/"
+
+[[entries]]
+title = "Minimize Malware Spread"
+url = "https://leetcode.com/problems/minimize-malware-spread/"
+
+[[entries]]
+title = "Count Good Subarrays"
+url = "https://leetcode.com/problems/count-good-subarrays/"
+
+[[entries]]
+title = "Bitwise ORs of Subarrays"
+url = "https://leetcode.com/problems/bitwise-ors-of-subarrays/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
+
+[[entries]]
+title = "Count Number of Maximum Bitwise-OR Subsets"
+url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
+
+[[entries]]
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
 title = "Task Scheduler"
@@ -146,6 +138,10 @@ url = "https://leetcode.com/problems/partition-equal-subset-sum/"
 [[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "House Robber"
@@ -202,3 +198,7 @@ url = "https://leetcode.com/problems/3sum/"
 [[entries]]
 title = "Maximum XOR of Two Numbers in an Array"
 url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"

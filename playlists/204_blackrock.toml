@@ -4,74 +4,6 @@ focus = "arrays, trees, intervals, hashing, oop design"
 review_modules = ["01_arrays_and_hashing", "07_trees", "11_dp", "13_intervals", "16_math_geometry"]
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Transform Binary String Using Subsequence Sort"
-url = "https://leetcode.com/problems/transform-binary-string-using-subsequence-sort/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Search Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Find the Maximum Sum of Node Values"
-url = "https://leetcode.com/problems/find-the-maximum-sum-of-node-values/"
-
-[[entries]]
-title = "Maximum Subtree of the Same Color"
-url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Maximum Profit From Trading Stocks"
-url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
-
-[[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
-
-[[entries]]
 title = "Sort an Array"
 url = "https://leetcode.com/problems/sort-an-array/"
 
@@ -90,6 +22,46 @@ url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Transform Binary String Using Subsequence Sort"
+url = "https://leetcode.com/problems/transform-binary-string-using-subsequence-sort/"
+
+[[entries]]
+title = "Maximum Subtree of the Same Color"
+url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
+
+[[entries]]
+title = "Find the Maximum Sum of Node Values"
+url = "https://leetcode.com/problems/find-the-maximum-sum-of-node-values/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Search Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Maximum Profit From Trading Stocks"
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
+
+[[entries]]
+title = "Find the Duplicate Number"
+url = "https://leetcode.com/problems/find-the-duplicate-number/"
+
+[[entries]]
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "Happy Number"
+url = "https://leetcode.com/problems/happy-number/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
 title = "Design Tic-Tac-Toe"
@@ -148,10 +120,6 @@ title = "Valid Anagram"
 url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
-
-[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
@@ -202,3 +170,15 @@ url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

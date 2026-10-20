@@ -4,22 +4,6 @@ focus = "embedded C, bit manipulation, integer math, linked lists, DP, and array
 review_modules = ["03_stacks_and_queues", "06_linked_lists", "11_dp", "15_bit_manipulation", "16_math_geometry"]
 
 [[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
-
-[[entries]]
-title = "Substring with Concatenation of All Words"
-url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Delete Node in a Linked List"
-url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
-
-[[entries]]
 title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
@@ -34,6 +18,22 @@ url = "https://leetcode.com/problems/powx-n/"
 [[entries]]
 title = "Jump Game II"
 url = "https://leetcode.com/problems/jump-game-ii/"
+
+[[entries]]
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+
+[[entries]]
+title = "Minimum Path Sum"
+url = "https://leetcode.com/problems/minimum-path-sum/"
+
+[[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
 title = "Number of 1 Bits"
@@ -100,44 +100,12 @@ title = "Missing Number"
 url = "https://leetcode.com/problems/missing-number/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
-title = "Middle of the Linked List"
-url = "https://leetcode.com/problems/middle-of-the-linked-list/"
-
-[[entries]]
 title = "Remove Nth Node From End of List"
 url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
 
 [[entries]]
 title = "Partition Equal Subset Sum"
@@ -146,10 +114,6 @@ url = "https://leetcode.com/problems/partition-equal-subset-sum/"
 [[entries]]
 title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
 
 [[entries]]
 title = "Coin Change"
@@ -180,16 +144,8 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
-
-[[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
@@ -202,3 +158,27 @@ url = "https://leetcode.com/problems/lru-cache/"
 [[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"

@@ -92,20 +92,8 @@ title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
 title = "Add Two Numbers"
 url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
@@ -140,20 +128,8 @@ title = "Apply Discount Every n Orders"
 url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
 
 [[entries]]
-title = "Maximum Units on a Truck"
-url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
-
-[[entries]]
-title = "Design Parking System"
-url = "https://leetcode.com/problems/design-parking-system/"
-
-[[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
 
 [[entries]]
 title = "Coin Change"
@@ -172,5 +148,37 @@ title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
-title = "Summary Ranges"
-url = "https://leetcode.com/problems/summary-ranges/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"

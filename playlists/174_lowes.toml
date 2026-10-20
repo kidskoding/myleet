@@ -4,30 +4,6 @@ focus = "dp and subsequences, sliding window, stack-based expression parsing, ar
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "08_heaps", "11_dp"]
 
 [[entries]]
-title = "Find the Original Typed String I"
-url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
-
-[[entries]]
-title = "Minimum Operations to Make Array Values Equal to K"
-url = "https://leetcode.com/problems/minimum-operations-to-make-array-values-equal-to-k/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "The Number of Good Subsets"
-url = "https://leetcode.com/problems/the-number-of-good-subsets/"
-
-[[entries]]
-title = "Groups of Strings"
-url = "https://leetcode.com/problems/groups-of-strings/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
 title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
@@ -38,6 +14,22 @@ url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
 [[entries]]
 title = "Basic Calculator"
 url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
+title = "Groups of Strings"
+url = "https://leetcode.com/problems/groups-of-strings/"
+
+[[entries]]
+title = "The Number of Good Subsets"
+url = "https://leetcode.com/problems/the-number-of-good-subsets/"
+
+[[entries]]
+title = "Minimum Operations to Make Array Values Equal to K"
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-values-equal-to-k/"
+
+[[entries]]
+title = "Find the Original Typed String I"
+url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
 
 [[entries]]
 title = "Basic Calculator II"
@@ -156,6 +148,10 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
@@ -186,3 +182,7 @@ url = "https://leetcode.com/problems/3sum/"
 [[entries]]
 title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"

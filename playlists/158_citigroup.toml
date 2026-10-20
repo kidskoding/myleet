@@ -4,16 +4,20 @@ focus = "arrays, sliding window, dp, hashing, practical design"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "16_math_geometry"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Number of Visible People in a Queue"
+url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"
+
+[[entries]]
+title = "Minimum Size Subarray Sum"
+url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
 
 [[entries]]
 title = "Evaluate Reverse Polish Notation"
@@ -24,20 +28,16 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
-title = "Minimum Size Subarray Sum"
-url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Number of Visible People in a Queue"
-url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "LRU Cache"
@@ -160,10 +160,6 @@ title = "Linked List Cycle"
 url = "https://leetcode.com/problems/linked-list-cycle/"
 
 [[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
-
-[[entries]]
 title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
@@ -198,7 +194,3 @@ url = "https://leetcode.com/problems/top-k-frequent-words/"
 [[entries]]
 title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
