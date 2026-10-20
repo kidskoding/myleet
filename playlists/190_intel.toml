@@ -4,6 +4,86 @@ focus = "bit tricks, string and number conversion, binary search, two-pointer ar
 review_modules = ["15_bit_manipulation", "16_math_geometry", "05_binary_search", "02_two_pointers", "06_linked_lists", "03_stacks_and_queues"]
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Palindrome Number"
+url = "https://leetcode.com/problems/palindrome-number/"
+
+[[entries]]
+title = "Count Primes"
+url = "https://leetcode.com/problems/count-primes/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Find Consecutive Integers from a Data Stream"
+url = "https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream/"
+
+[[entries]]
+title = "Maximum Nesting Depth of the Parentheses"
+url = "https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Copy List with Random Pointer"
+url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
+
+[[entries]]
+title = "Palindrome Linked List"
+url = "https://leetcode.com/problems/palindrome-linked-list/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Linked List Cycle"
+url = "https://leetcode.com/problems/linked-list-cycle/"
+
+[[entries]]
 title = "Number of Steps to Reduce a Number to Zero"
 url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/"
 
@@ -18,10 +98,6 @@ url = "https://leetcode.com/problems/decode-xored-array/"
 [[entries]]
 title = "Reverse String"
 url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
 
 [[entries]]
 title = "Valid Palindrome"
@@ -52,20 +128,12 @@ title = "Two Sum II - Input Array Is Sorted"
 url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
 [[entries]]
-title = "Count Primes"
-url = "https://leetcode.com/problems/count-primes/"
-
-[[entries]]
 title = "Add Strings"
 url = "https://leetcode.com/problems/add-strings/"
 
 [[entries]]
 title = "Pow(x, n)"
 url = "https://leetcode.com/problems/powx-n/"
-
-[[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
 title = "Implement Queue using Stacks"
@@ -90,10 +158,6 @@ url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 [[entries]]
 title = "Search a 2D Matrix"
 url = "https://leetcode.com/problems/search-a-2d-matrix/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
 title = "Maximum Product Subarray"
@@ -130,7 +194,3 @@ url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
 [[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
