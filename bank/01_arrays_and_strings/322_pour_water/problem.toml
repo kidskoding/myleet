@@ -1,0 +1,48 @@
+id = "pour-water"
+title = "Pour Water"
+difficulty = "medium"
+leetcode = 755
+url = "https://leetcode.com/problems/pour-water/"
+key_idea = "Simulate each droplet: scan left while terrain does not rise and remember the lowest spot; if none is lower than k, scan right the same way; otherwise it stays at k."
+hints = ["Drop the units one at a time. For a single droplet, what does 'it would eventually fall moving left' mean in terms of the heights?", "Walk left from k while heights[i-1] <= heights[i], remembering the nearest strictly lowest index; use it if lower than k. Otherwise repeat to the right; else land on k."]
+prompt = """
+Write `pour_water(heights, volume, k)`. `heights[i]` is the height of a column of terrain of
+width 1, and `volume` units of water are poured one unit at a time at index `k`. Each unit
+lands on top of whatever is at its index (terrain or water already there) and then settles:
+
+- If moving left would eventually take it to a lower level, it moves left.
+- Otherwise, if moving right would eventually take it to a lower level, it moves right.
+- Otherwise it stays at its current index.
+
+A unit never climbs higher, and when several reachable spots in a direction are equally low it
+stops at the one closest to `k`. Treat the area outside the array as infinitely high walls.
+Return the final combined height (terrain plus water) at every index.
+
+**Example 1:**
+
+```
+Input: heights = [2,1,1,2,1,2,2], volume = 4, k = 3
+Output: [2,2,2,3,2,2,2]
+```
+
+**Example 2:**
+
+```
+Input: heights = [1,2,3,4], volume = 2, k = 2
+Output: [2,3,3,4]
+```
+
+**Example 3:**
+
+```
+Input: heights = [3,1,3], volume = 5, k = 1
+Output: [4,4,4]
+```
+
+**Constraints:**
+
+- `1 <= len(heights) <= 100`
+- `0 <= heights[i] <= 99`
+- `0 <= volume <= 2000`
+- `0 <= k < len(heights)`
+"""

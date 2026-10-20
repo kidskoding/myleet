@@ -1,0 +1,45 @@
+id = "binary-tree-vertical-order-traversal"
+title = "Binary Tree Vertical Order Traversal"
+difficulty = "medium"
+leetcode = 314
+url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
+key_idea = "BFS carrying a column index (left -1, right +1), appending to a column -> list map, then output columns from min to max."
+hints = ["Give every node a column number relative to the root.", "Use BFS, not DFS, so nodes in a column come out top to bottom and left to right."]
+prompt = """
+Implement `vertical_order(root)`, which takes the root of a binary tree and returns its
+node values grouped by vertical column.
+
+The root sits in column `0`. A node's left child is one column to the left of it, and its
+right child is one column to the right. Return one list per column, ordered from the
+leftmost column to the rightmost. Within a column, list values from the top level down;
+when two nodes share both a column and a level, the one further left in that level comes
+first. Return an empty list for an empty tree.
+
+**Example 1:**
+
+```
+Input: root = [1,2,3,4,5,6,7]
+Output: [[4],[2],[1,5,6],[3],[7]]
+```
+
+Nodes `5` and `6` are both on the third level of column `0`; `5` is further left.
+
+**Example 2:**
+
+```
+Input: root = [3,9,8,4,0,1,7,null,null,null,2,5]
+Output: [[4],[9,5],[3,0,1],[8,2],[7]]
+```
+
+**Example 3:**
+
+```
+Input: root = []
+Output: []
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[0, 100]`
+- `-100 <= Node.val <= 100`
+"""

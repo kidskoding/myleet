@@ -1,0 +1,8 @@
+id = "zigzag-conversion"
+title = "Zigzag Conversion"
+difficulty = "medium"
+leetcode = 6
+url = "https://leetcode.com/problems/zigzag-conversion/"
+key_idea = "Walk the string assigning characters to rows, bouncing the row index between 0 and num_rows - 1, then join the rows."
+hints = ["You do not need a 2D grid; only which row each character lands in matters.", "Keep a current row and a direction that flips at the top and bottom row; append each character to its row's list."]
+prompt = ""

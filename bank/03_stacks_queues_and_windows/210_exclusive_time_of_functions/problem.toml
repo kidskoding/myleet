@@ -1,0 +1,8 @@
+id = "exclusive-time-of-functions"
+title = "Exclusive Time of Functions"
+difficulty = "medium"
+leetcode = 636
+url = "https://leetcode.com/problems/exclusive-time-of-functions/"
+key_idea = "Call stack of function ids; on each log, credit the elapsed time since the previous event to the function on top."
+hints = ["Function calls nest like parentheses. Which function is running at any moment?", "Keep a stack and a 'previous timestamp'. A start credits the current top up to now; an end credits the popped function through the end of that unit (end is inclusive)."]
+prompt = ""

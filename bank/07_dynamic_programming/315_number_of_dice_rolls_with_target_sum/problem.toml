@@ -1,0 +1,8 @@
+id = "number-of-dice-rolls-with-target-sum"
+title = "Number of Dice Rolls With Target Sum"
+difficulty = "medium"
+leetcode = 1155
+url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
+key_idea = "DP over dice: ways[s] after i dice is the sum of ways[s - face] after i - 1 dice for each face 1..k, mod 1e9+7."
+hints = ["Think about the last die. If it shows f, what must the first n - 1 dice add up to?", "dp[i][s] = sum over f in 1..k of dp[i-1][s-f]; start with dp[0][0] = 1 and take everything mod 10^9 + 7."]
+prompt = ""

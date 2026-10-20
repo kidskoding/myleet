@@ -1,0 +1,44 @@
+id = "meeting-scheduler"
+title = "Meeting Scheduler"
+difficulty = "medium"
+leetcode = 1229
+url = "https://leetcode.com/problems/meeting-scheduler/"
+key_idea = "Sort both slot lists and sweep with two pointers; the overlap is [max(starts), min(ends)], and advance whichever slot ends first."
+hints = ["If both lists were sorted by start time, how would you walk them together like merging?", "For the current pair the overlap is max(start) to min(end); if it is long enough you are done, otherwise drop the slot that ends earlier."]
+prompt = """
+Write `min_available_duration(slots1, slots2, duration)`. Each argument `slots1` and `slots2` is
+one person's free time, given as a list of `[start, end]` intervals. Within one person's list
+the intervals never overlap, but they are not necessarily sorted.
+
+Return the earliest interval `[start, start + duration]` during which both people are free.
+If no shared free stretch is at least `duration` long, return an empty list.
+
+**Example 1:**
+
+```
+Input: slots1 = [[10,50],[60,120],[140,210]], slots2 = [[0,15],[60,70]], duration = 8
+Output: [60,68]
+```
+
+**Example 2:**
+
+```
+Input: slots1 = [[10,50],[60,120],[140,210]], slots2 = [[0,15],[60,70]], duration = 12
+Output: []
+```
+
+**Example 3:**
+
+```
+Input: slots1 = [[0,10]], slots2 = [[10,20]], duration = 1
+Output: []
+```
+
+The two intervals only touch at time 10, so no shared time exists.
+
+**Constraints:**
+
+- `1 <= len(slots1), len(slots2) <= 10^4`
+- `0 <= slots[i][0] < slots[i][1] <= 10^9`
+- `1 <= duration <= 10^6`
+"""

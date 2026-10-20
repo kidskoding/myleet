@@ -1,0 +1,33 @@
+id = "strobogrammatic-number-ii"
+title = "Strobogrammatic Number II"
+difficulty = "medium"
+leetcode = 247
+url = "https://leetcode.com/problems/strobogrammatic-number-ii/"
+key_idea = "Build from the middle out: wrap every length n-2 answer with each rotation pair, skipping 0 on the outermost layer."
+hints = ["Peeling the outer two digits off a strobogrammatic number leaves a shorter one.", "Recurse on n - 2 and wrap each result with the pairs 00, 11, 69, 88, 96; base cases are n = 0 and n = 1, and the outer layer cannot use 0."]
+prompt = """
+Write `find_strobogrammatic(n)`. A number is strobogrammatic if it reads as the same number
+after a 180-degree rotation: `0`, `1`, and `8` map to themselves, `6` and `9` map to each
+other, and no other digit survives the rotation.
+
+Return every strobogrammatic number with exactly `n` digits, as strings, in any order.
+A number with more than one digit may not start with `0`.
+
+**Example 1:**
+
+```
+Input: n = 2
+Output: ["11","69","88","96"]
+```
+
+**Example 2:**
+
+```
+Input: n = 1
+Output: ["0","1","8"]
+```
+
+**Constraints:**
+
+- `1 <= n <= 14`
+"""

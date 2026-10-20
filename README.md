@@ -200,6 +200,8 @@ myleet/
 │                   ├── starter.py       what you start from
 │                   ├── test_problem.py  imports from `solution`
 │                   └── solution.py      optional reference solution
+├── bank/                        problem bank: playlist problems no lesson covers
+│   └── 01_arrays_and_strings/…  same problem folders, grouped by topic
 ├── playlists/                   company problem sets
 ├── mock-interviews/
 └── tools/migrate/               one-time migration from the old layout

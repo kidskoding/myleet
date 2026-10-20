@@ -1,0 +1,8 @@
+id = "minimum-time-difference"
+title = "Minimum Time Difference"
+difficulty = "medium"
+leetcode = 539
+url = "https://leetcode.com/problems/minimum-time-difference/"
+key_idea = "Convert to minutes and sort; the answer is the smallest adjacent gap, including the wrap-around gap from the last time to the first plus 1440."
+hints = ["Comparing every pair is quadratic. If the times were in order, which pairs could possibly be closest?", "Sort the minute values; check neighbors and also first + 1440 - last for the gap across midnight."]
+prompt = ""

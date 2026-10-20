@@ -1,0 +1,8 @@
+id = "add-binary"
+title = "Add Binary"
+difficulty = "easy"
+leetcode = 67
+url = "https://leetcode.com/problems/add-binary/"
+key_idea = "Walk both strings from the right, adding digit pairs plus a carry like grade-school addition."
+hints = ["Line the strings up at their last characters.", "Keep a carry; each step the output bit is total % 2 and the carry is total // 2."]
+prompt = ""

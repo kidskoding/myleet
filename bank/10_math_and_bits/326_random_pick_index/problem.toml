@@ -1,0 +1,8 @@
+id = "random-pick-index"
+title = "Random Pick Index"
+difficulty = "medium"
+leetcode = 398
+url = "https://leetcode.com/problems/random-pick-index/"
+key_idea = "Reservoir sampling: scan nums, and when you see the c-th match of target, keep its index with probability 1/c."
+hints = ["Precomputing a map from value to indices works but uses O(n) extra memory. Can you choose uniformly in one pass without knowing how many matches there are?", "Count matches as you scan; on the c-th match replace your chosen index with probability 1/c. Each match ends up chosen with probability 1/total."]
+prompt = ""

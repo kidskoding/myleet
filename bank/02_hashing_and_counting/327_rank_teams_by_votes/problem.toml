@@ -1,0 +1,8 @@
+id = "rank-teams-by-votes"
+title = "Rank Teams by Votes"
+difficulty = "medium"
+leetcode = 1366
+url = "https://leetcode.com/problems/rank-teams-by-votes/"
+key_idea = "Count, for each team, how many votes put it at each position; sort teams by that count vector descending, breaking full ties alphabetically."
+hints = ["The comparison between two teams only needs how often each was ranked 1st, 2nd, and so on. What table would hold that?", "Build counts[team][position], then sort with the key (negated counts tuple, team letter)."]
+prompt = ""

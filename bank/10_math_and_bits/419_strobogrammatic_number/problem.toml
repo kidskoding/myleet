@@ -1,0 +1,42 @@
+id = "strobogrammatic-number"
+title = "Strobogrammatic Number"
+difficulty = "easy"
+leetcode = 246
+url = "https://leetcode.com/problems/strobogrammatic-number/"
+key_idea = "Two pointers from both ends, checking each pair against the rotation map {0:0, 1:1, 6:9, 8:8, 9:6}."
+hints = ["Only a few digits still look like digits when turned upside down.", "Compare the digit at the left end with the rotated digit at the right end, moving inward."]
+prompt = """
+Write `is_strobogrammatic(num)`. A number is strobogrammatic if it reads as the same number
+after you rotate it by 180 degrees, as if you turned the page upside down. Under that
+rotation `0`, `1`, and `8` stay the same, `6` becomes `9`, `9` becomes `6`, and every other
+digit stops being a digit.
+
+Given `num` as a string, return `True` if it is strobogrammatic and `False` otherwise.
+
+**Example 1:**
+
+```
+Input: num = "69"
+Output: True
+```
+
+**Example 2:**
+
+```
+Input: num = "88"
+Output: True
+```
+
+**Example 3:**
+
+```
+Input: num = "962"
+Output: False
+```
+
+**Constraints:**
+
+- `1 <= len(num) <= 50`
+- `num` contains only digits
+- `num` has no leading zeros except for the number `"0"` itself
+"""

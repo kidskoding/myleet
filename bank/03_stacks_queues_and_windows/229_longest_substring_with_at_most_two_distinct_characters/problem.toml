@@ -1,0 +1,41 @@
+id = "longest-substring-with-at-most-two-distinct-characters"
+title = "Longest Substring with At Most Two Distinct Characters"
+difficulty = "medium"
+leetcode = 159
+url = "https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/"
+key_idea = "Variable sliding window with a character count map; shrink from the left while more than two distinct."
+hints = ["If a window has too many distinct characters, extending it to the right never fixes that.", "Grow the right edge, counting characters in a dict; while the dict has more than two keys, move the left edge and drop counts that hit zero."]
+prompt = """
+Write `length_of_longest_substring_two_distinct(s)`. Return the length of the longest
+contiguous substring of `s` that contains at most two different characters.
+
+**Example 1:**
+
+```
+Input: s = "eceba"
+Output: 3
+```
+
+`"ece"` uses only `e` and `c`.
+
+**Example 2:**
+
+```
+Input: s = "abaccc"
+Output: 4
+```
+
+`"accc"` is the longest valid substring.
+
+**Example 3:**
+
+```
+Input: s = ""
+Output: 0
+```
+
+**Constraints:**
+
+- `0 <= len(s) <= 10^5`
+- `s` consists of English letters
+"""

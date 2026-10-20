@@ -1,0 +1,8 @@
+id = "final-array-state-after-k-multiplication-operations-i"
+title = "Final Array State After K Multiplication Operations I"
+difficulty = "easy"
+leetcode = 3264
+url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
+key_idea = "Min-heap of (value, index) so ties break on the smaller index; pop, multiply, push back k times."
+hints = ["Each step needs the current minimum, with ties going to the earliest index.", "Push (value, index) pairs into a min-heap; tuples compare by value then index."]
+prompt = ""

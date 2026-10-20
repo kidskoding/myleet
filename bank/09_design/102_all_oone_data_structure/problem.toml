@@ -1,0 +1,8 @@
+id = "all-oone-data-structure"
+title = "All O`one Data Structure"
+difficulty = "hard"
+leetcode = 432
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+key_idea = "Doubly linked list of count buckets (each a set of keys) plus a key -> bucket map, so every move is to a neighbor bucket."
+hints = ["A key's count only ever changes by one, so it only moves to an adjacent count.", "Keep buckets for each count in a sorted doubly linked list; the head and tail hold the min and max."]
+prompt = ""

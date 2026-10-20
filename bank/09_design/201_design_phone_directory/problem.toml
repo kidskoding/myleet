@@ -1,0 +1,38 @@
+id = "design-phone-directory"
+title = "Design Phone Directory"
+difficulty = "medium"
+leetcode = 379
+url = "https://leetcode.com/problems/design-phone-directory/"
+key_idea = "Keep a queue of free numbers plus a set for O(1) availability checks."
+hints = ["You need to hand out any free number fast and also answer 'is this number free?' fast.", "A queue gives you the next free number; a set mirrors it for membership checks."]
+prompt = """
+Implement a `PhoneDirectory` class that manages the phone numbers `0` through
+`max_numbers - 1`. Every number starts out free.
+
+- `PhoneDirectory(max_numbers)` sets up the directory.
+- `get()` assigns some free number to a caller and returns it, or returns `-1` if no
+  number is free. Any free number is an acceptable answer.
+- `check(number)` returns `True` if `number` is currently free, `False` if it is assigned.
+- `release(number)` makes `number` free again. Releasing a number that is already free
+  does nothing.
+
+**Example 1:**
+
+```
+Input: PhoneDirectory(1); get(); get(); release(0); check(0); get()
+Output: 0, -1, None, True, 0
+```
+
+**Example 2:**
+
+```
+Input: PhoneDirectory(2); get(); get(); release(1); release(1); get(); get()
+Output: (0 or 1), (the other one), None, None, 1, -1
+```
+
+**Constraints:**
+
+- `1 <= max_numbers <= 10^4`
+- `0 <= number < max_numbers`
+- At most `2 * 10^4` calls in total
+"""

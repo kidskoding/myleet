@@ -1,0 +1,8 @@
+id = "text-justification"
+title = "Text Justification"
+difficulty = "hard"
+leetcode = 68
+url = "https://leetcode.com/problems/text-justification/"
+key_idea = "Greedy line packing, then distribute the spaces evenly with the extras going to the leftmost gaps; last line left-justified."
+hints = ["Fill each line with as many words as fit with single spaces.", "For a full line, spread the leftover spaces over the gaps with divmod, giving the remainder to the left gaps; the last line and one-word lines are left-justified and padded."]
+prompt = ""

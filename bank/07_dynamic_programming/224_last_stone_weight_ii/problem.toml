@@ -1,0 +1,8 @@
+id = "last-stone-weight-ii"
+title = "Last Stone Weight II"
+difficulty = "medium"
+leetcode = 1049
+url = "https://leetcode.com/problems/last-stone-weight-ii/"
+key_idea = "Reframe as partitioning into two groups with minimum difference: 0/1 subset-sum up to total // 2."
+hints = ["Every smash subtracts one stone from another. In the end, each stone is effectively added or subtracted.", "Find the largest reachable subset sum s <= total // 2 with a 0/1 knapsack set or boolean array; the answer is total - 2 * s."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "design-authentication-manager"
+title = "Design Authentication Manager"
+difficulty = "medium"
+leetcode = 1797
+url = "https://leetcode.com/problems/design-authentication-manager/"
+key_idea = "Map token -> expiry time; renew only if expiry > now; count tokens whose expiry > now."
+hints = ["Store the expiry time, not the creation time.", "A token expiring exactly at the current time already counts as expired, so compare with a strict >."]
+prompt = ""

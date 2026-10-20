@@ -1,0 +1,8 @@
+id = "predict-the-winner"
+title = "Predict the Winner"
+difficulty = "medium"
+leetcode = 486
+url = "https://leetcode.com/problems/predict-the-winner/"
+key_idea = "Interval DP on score difference: best(i, j) = max(nums[i] - best(i+1, j), nums[j] - best(i, j-1)); player 1 wins if best(0, n-1) >= 0."
+hints = ["Both players play optimally, so think about what the player to move can guarantee on the remaining range nums[i..j].", "Track the mover's best score minus the opponent's score on nums[i..j]; taking an end gives that value minus the opponent's best on what remains."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "product-of-the-last-k-numbers"
+title = "Product of the Last K Numbers"
+difficulty = "medium"
+leetcode = 1352
+url = "https://leetcode.com/problems/product-of-the-last-k-numbers/"
+key_idea = "Keep prefix products since the last zero; the product of the last k is prefix[-1] // prefix[-1-k], or 0 if a zero falls inside the window."
+hints = ["Prefix sums answer range sums in O(1). What is the multiplication version, and what breaks it?", "Store running products and restart the list whenever a 0 is added; if k reaches past the restart, the answer is 0, otherwise divide two prefix products."]
+prompt = ""

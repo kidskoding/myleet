@@ -1,0 +1,8 @@
+id = "subdomain-visit-count"
+title = "Subdomain Visit Count"
+difficulty = "medium"
+leetcode = 811
+url = "https://leetcode.com/problems/subdomain-visit-count/"
+key_idea = "For each entry, add its count to every dot-suffix of the domain in a hash map."
+hints = ["A visit to a.b.c also counts for b.c and c.", "Split on dots and accumulate the count into a dict for each suffix."]
+prompt = ""

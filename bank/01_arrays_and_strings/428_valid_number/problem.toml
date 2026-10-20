@@ -1,0 +1,8 @@
+id = "valid-number"
+title = "Valid Number"
+difficulty = "hard"
+leetcode = 65
+url = "https://leetcode.com/problems/valid-number/"
+key_idea = "Single scan with flags for seen digit, seen dot, and seen exponent, enforcing where each symbol may appear."
+hints = ["Split the job: a decimal or integer part, then an optional exponent that must be followed by an integer.", "Track seen_digit, seen_dot, seen_exp; a sign is only legal at the start or right after e/E, a dot only before any dot or exponent, and digits must appear on both sides of an exponent."]
+prompt = ""

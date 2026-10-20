@@ -1,0 +1,8 @@
+id = "knight-probability-in-chessboard"
+title = "Knight Probability in Chessboard"
+difficulty = "medium"
+leetcode = 688
+url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
+key_idea = "DP over moves: probability grid after each step, each on-board cell spreading 1/8 to its knight moves."
+hints = ["The probability of being on a cell after step t depends only on the grid after step t - 1.", "Keep an n x n grid of probabilities. For each of k steps, push grid[r][c] / 8 to every on-board knight move; the answer is the grid's total after k steps."]
+prompt = ""

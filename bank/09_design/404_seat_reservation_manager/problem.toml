@@ -1,0 +1,8 @@
+id = "seat-reservation-manager"
+title = "Seat Reservation Manager"
+difficulty = "medium"
+leetcode = 1845
+url = "https://leetcode.com/problems/seat-reservation-manager/"
+key_idea = "Keep the free seats in a min-heap: reserve pops the smallest, unreserve pushes back."
+hints = ["You always need the smallest available seat number.", "A min-heap of free seats gives that in log time; a counter can avoid preloading all n."]
+prompt = ""

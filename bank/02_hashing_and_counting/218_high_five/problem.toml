@@ -1,0 +1,38 @@
+id = "high-five"
+title = "High Five"
+difficulty = "easy"
+leetcode = 1086
+url = "https://leetcode.com/problems/high-five/"
+key_idea = "Group scores by id in a hash map, keep each student's top five, and integer-average them."
+hints = ["Bucket the scores by student first; the rest is per-student work.", "For each id, sort descending (or keep a size-5 min-heap), sum the first five, and floor-divide by 5."]
+prompt = """
+Write `high_five(items)`. Each entry of `items` is `[id, score]`: one test score for the
+student with that id. For every student, take their five highest scores and compute the
+average with integer division (round down).
+
+Return a list of `[id, average]` pairs sorted by id in increasing order.
+
+**Example 1:**
+
+```
+Input: items = [[2,1],[2,1],[2,1],[2,1],[2,2]]
+Output: [[2,1]]
+```
+
+The five scores sum to `6`, and `6 // 5 = 1`.
+
+**Example 2:**
+
+```
+Input: items = [[4,0],[4,100],[4,100],[4,100],[4,100],[4,100]]
+Output: [[4,100]]
+```
+
+The `0` is not among student 4's top five.
+
+**Constraints:**
+
+- `1 <= len(items) <= 1000`
+- `1 <= id <= 1000`, `0 <= score <= 100`
+- Every student has at least five scores
+"""

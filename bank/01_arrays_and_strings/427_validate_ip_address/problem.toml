@@ -1,0 +1,8 @@
+id = "validate-ip-address"
+title = "Validate IP Address"
+difficulty = "medium"
+leetcode = 468
+url = "https://leetcode.com/problems/validate-ip-address/"
+key_idea = "Split on '.' or ':' and validate each part's length, characters, range, and leading zeros."
+hints = ["Decide which family to check by whether the string contains a dot or a colon.", "IPv4: exactly 4 decimal parts, 0-255, no leading zeros. IPv6: exactly 8 hex parts of 1-4 characters."]
+prompt = ""

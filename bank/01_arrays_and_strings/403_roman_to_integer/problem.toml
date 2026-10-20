@@ -1,0 +1,8 @@
+id = "roman-to-integer"
+title = "Roman to Integer"
+difficulty = "easy"
+leetcode = 13
+url = "https://leetcode.com/problems/roman-to-integer/"
+key_idea = "Scan left to right; subtract a symbol when a larger one follows it, otherwise add it."
+hints = ["Most symbols just add their value.", "A smaller symbol directly before a larger one is subtracted instead."]
+prompt = ""

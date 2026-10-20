@@ -1,0 +1,55 @@
+id = "analyze-user-website-visit-pattern"
+title = "Analyze User Website Visit Pattern"
+difficulty = "medium"
+leetcode = 1152
+url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
+key_idea = "Sort visits by time, collect each user's distinct 3-site patterns into a set, count users per pattern, take max score then smallest pattern."
+hints = ["Group each user's visits in time order first.", "Use a set of 3-tuples per user so one user counts at most once per pattern, then tally across users."]
+prompt = """
+Implement `most_visited_pattern(username, timestamp, website)`. The three lists have the
+same length; entry `i` says that user `username[i]` opened page `website[i]` at time
+`timestamp[i]`.
+
+A *pattern* is an ordered triple of page names. A user follows a pattern if, reading that
+user's visits in increasing time order, the three pages appear in that order (not
+necessarily back to back). Page names may repeat inside a pattern. The *score* of a
+pattern is the number of distinct users who follow it; a user following it in several
+ways still adds only one.
+
+Return the pattern with the highest score as a list of three strings. If several patterns
+share the highest score, return the lexicographically smallest one.
+
+**Example 1:**
+
+```
+Input: username = ["ann","ann","ann","bob","bob","bob","bob"],
+       timestamp = [1,2,3,4,5,6,7],
+       website = ["home","shop","cart","home","shop","cart","pay"]
+Output: ["home","shop","cart"]
+```
+
+Both users follow `home -> shop -> cart`; every other pattern scores 1.
+
+**Example 2:**
+
+```
+Input: username = ["u","u","u","v","v","v"], timestamp = [1,2,3,4,5,6],
+       website = ["b","c","d","a","b","c"]
+Output: ["a","b","c"]
+```
+
+**Example 3:**
+
+```
+Input: username = ["x","x","x"], timestamp = [30,10,20], website = ["c","a","b"]
+Output: ["a","b","c"]
+```
+
+**Constraints:**
+
+- `3 <= username.length <= 50`
+- `username.length == timestamp.length == website.length`
+- Names and pages are 1 to 10 lowercase English letters
+- All timestamps are distinct, `1 <= timestamp[i] <= 10^9`
+- At least one user has three or more visits
+"""

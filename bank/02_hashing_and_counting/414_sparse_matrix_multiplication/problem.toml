@@ -1,0 +1,38 @@
+id = "sparse-matrix-multiplication"
+title = "Sparse Matrix Multiplication"
+difficulty = "medium"
+leetcode = 311
+url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
+key_idea = "Skip zeros: for each nonzero mat1[i][k], add it times row k of mat2's nonzeros into result row i."
+hints = ["Most entries are zero, so most multiplications are wasted.", "Loop i, then k, and only when mat1[i][k] is nonzero walk the nonzero entries of row k in mat2."]
+prompt = """
+Write `multiply(mat1, mat2)`. `mat1` is an `m x k` matrix and `mat2` is a `k x n` matrix,
+and both are sparse, meaning most of their entries are zero. Return their matrix product,
+an `m x n` matrix.
+
+**Example 1:**
+
+```
+Input: mat1 = [[1,0,0],[-1,0,3]], mat2 = [[7,0,0],[0,0,0],[0,0,1]]
+Output: [[7,0,0],[-7,0,3]]
+```
+
+**Example 2:**
+
+```
+Input: mat1 = [[0]], mat2 = [[0]]
+Output: [[0]]
+```
+
+**Example 3:**
+
+```
+Input: mat1 = [[1,2]], mat2 = [[1,0,2],[0,3,0]]
+Output: [[1,6,2]]
+```
+
+**Constraints:**
+
+- `1 <= m, k, n <= 100`
+- `-100 <= mat1[i][j], mat2[i][j] <= 100`
+"""

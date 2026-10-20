@@ -1,0 +1,8 @@
+id = "design-parking-system"
+title = "Design Parking System"
+difficulty = "easy"
+leetcode = 1603
+url = "https://leetcode.com/problems/design-parking-system/"
+key_idea = "Keep a remaining-slot counter per car type and decrement it if positive."
+hints = ["Three counters are all the state you need.", "Index the counters by car type (1, 2, 3) and return whether a slot was available."]
+prompt = ""

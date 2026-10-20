@@ -1,0 +1,44 @@
+id = "strobogrammatic-number-iii"
+title = "Strobogrammatic Number III"
+difficulty = "hard"
+leetcode = 248
+url = "https://leetcode.com/problems/strobogrammatic-number-iii/"
+key_idea = "Generate strobogrammatic numbers for each length between len(low) and len(high), counting those within range by string comparison at the boundary lengths."
+hints = ["You cannot scan every integer up to 10^15, but there are far fewer strobogrammatic numbers.", "Build all strobogrammatic strings of each length from len(low) to len(high); only strings of the boundary lengths need a comparison against low or high."]
+prompt = """
+Write `strobogrammatic_in_range(low, high)`. A number is strobogrammatic if it reads as the
+same number after a 180-degree rotation: `0`, `1`, and `8` map to themselves, `6` and `9`
+map to each other, and no other digit survives the rotation.
+
+`low` and `high` are non-negative integers written as strings. Return how many
+strobogrammatic numbers `x` satisfy `low <= x <= high`.
+
+**Example 1:**
+
+```
+Input: low = "50", high = "100"
+Output: 3
+```
+
+The numbers are 69, 88, and 96.
+
+**Example 2:**
+
+```
+Input: low = "0", high = "0"
+Output: 1
+```
+
+**Example 3:**
+
+```
+Input: low = "0", high = "1000"
+Output: 19
+```
+
+**Constraints:**
+
+- `1 <= len(low), len(high) <= 15`
+- `low` and `high` contain only digits and have no leading zeros except for `"0"` itself
+- `low <= high` as integers
+"""

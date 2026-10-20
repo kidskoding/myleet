@@ -1,0 +1,8 @@
+id = "stone-game-ii"
+title = "Stone Game II"
+difficulty = "medium"
+leetcode = 1140
+url = "https://leetcode.com/problems/stone-game-ii/"
+key_idea = "Memo DP on (index, M) with suffix sums: best stones = suffix total minus the opponent's best after taking X piles."
+hints = ["The state is where the remaining piles start and the current M.", "With suffix sums, your best take from i is suffix[i] - min over X in [1, 2M] of dp(i + X, max(M, X))."]
+prompt = ""

@@ -1,0 +1,43 @@
+id = "minimize-max-distance-to-gas-station"
+title = "Minimize Max Distance to Gas Station"
+difficulty = "hard"
+leetcode = 774
+url = "https://leetcode.com/problems/minimize-max-distance-to-gas-station/"
+key_idea = "Binary search on the answer D (a real number): the stations needed for gap g is ceil(g / D) - 1; find the smallest D needing at most k."
+hints = ["Instead of choosing where to put stations, guess the final maximum gap D. Can you check a guess quickly?", "For a guess D, each gap g needs ceil(g / D) - 1 new stations. Fewer than k needed means D can shrink; binary search D on reals."]
+prompt = """
+Write `minmax_gas_dist(stations, k)`. Gas stations stand on a number line at the strictly
+increasing positions in `stations`. You must build exactly `k` new stations, and each new one
+can go at any real position, not just integers.
+
+After building, look at the largest distance between two neighboring stations. Return the
+smallest possible value of that largest distance. Answers within `10^-5` of the true value are
+accepted.
+
+**Example 1:**
+
+```
+Input: stations = [1,2,3,4,5,6,7,8,9,10], k = 9
+Output: 0.5
+```
+
+**Example 2:**
+
+```
+Input: stations = [23,24,36,39,46,56,57,65,84,98], k = 1
+Output: 14.0
+```
+
+**Example 3:**
+
+```
+Input: stations = [0,4,10], k = 2
+Output: 3.0
+```
+
+**Constraints:**
+
+- `2 <= len(stations) <= 2000`
+- `0 <= stations[i] <= 10^8`, strictly increasing
+- `0 <= k <= 10^6`
+"""

@@ -1,0 +1,8 @@
+id = "minimum-bit-flips-to-convert-number"
+title = "Minimum Bit Flips to Convert Number"
+difficulty = "easy"
+leetcode = 2220
+url = "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/"
+key_idea = "XOR start and goal; every set bit in the result is a position that must flip, so count the set bits."
+hints = ["Which bit positions actually need to change? Is there an operator that marks exactly those?", "start ^ goal has a 1 exactly where the bits differ; count its 1 bits."]
+prompt = ""

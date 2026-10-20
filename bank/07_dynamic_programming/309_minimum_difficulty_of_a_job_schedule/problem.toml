@@ -1,0 +1,8 @@
+id = "minimum-difficulty-of-a-job-schedule"
+title = "Minimum Difficulty of a Job Schedule"
+difficulty = "hard"
+leetcode = 1335
+url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
+key_idea = "Partition DP: dp[d][i] is the best cost to schedule jobs[i:] in d days; try every end for today's block while tracking its running max."
+hints = ["Each day takes a contiguous block from the front of the remaining jobs. What subproblem is left after choosing today's block?", "dp(i, d) = min over j >= i of max(jobs[i..j]) + dp(j + 1, d - 1); leave at least d - 1 jobs for the remaining days."]
+prompt = ""

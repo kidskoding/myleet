@@ -1,0 +1,8 @@
+id = "decode-ways-ii"
+title = "Decode Ways II"
+difficulty = "hard"
+leetcode = 639
+url = "https://leetcode.com/problems/decode-ways-ii/"
+key_idea = "Decode Ways DP over positions, multiplying by how many letters a one-char or two-char chunk (with '*' wildcards) can mean."
+hints = ["Same recurrence as Decode Ways: the last letter uses one character or two.", "Write two helpers: how many ways one character can decode, and how many ways a two-character chunk can, counting each '*' case."]
+prompt = ""

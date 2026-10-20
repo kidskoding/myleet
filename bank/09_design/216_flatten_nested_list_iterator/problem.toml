@@ -1,0 +1,8 @@
+id = "flatten-nested-list-iterator"
+title = "Flatten Nested List Iterator"
+difficulty = "medium"
+leetcode = 341
+url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+key_idea = "Lazy flattening with a stack of pending items; has_next expands lists on top until an integer surfaces."
+hints = ["Flattening everything up front works, but can you do the work lazily, only as values are requested?", "Push the items in reverse onto a stack. In has_next, while the top is a list, pop it and push its contents in reverse; stop when the top is an integer."]
+prompt = ""

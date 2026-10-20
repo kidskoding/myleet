@@ -38,7 +38,7 @@ select = ["E", "F", "I"]
 extra-paths = ["curriculum/_lib"]
 
 [tool.ty.src]
-exclude = ["curriculum/**/techniques/**", "tools/migrate/tests/fixtures/**", "internal/**/testdata/**"]
+exclude = ["curriculum/**/techniques/**", "bank/**", "tools/migrate/tests/fixtures/**", "internal/**/testdata/**"]
 
 [tool.ty.rules]
 empty-body = "ignore"

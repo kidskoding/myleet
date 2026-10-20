@@ -1,0 +1,8 @@
+id = "guess-the-word"
+title = "Guess the Word"
+difficulty = "hard"
+leetcode = 843
+url = "https://leetcode.com/problems/guess-the-word/"
+key_idea = "Minimax elimination: guess the candidate whose worst-case match group is smallest, then keep only words consistent with the reply."
+hints = ["After a guess returns k matches, which candidates can still be the secret?", "Filter to words that match your guess in exactly k positions, and choose each guess to minimise the largest group of candidates that could share one reply."]
+prompt = ""

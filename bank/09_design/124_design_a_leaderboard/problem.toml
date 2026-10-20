@@ -1,0 +1,40 @@
+id = "design-a-leaderboard"
+title = "Design A Leaderboard"
+difficulty = "medium"
+leetcode = 1244
+url = "https://leetcode.com/problems/design-a-leaderboard/"
+key_idea = "Hash map player -> score; top(K) takes the K largest values with a heap (or a sorted structure)."
+hints = ["Keep each player's running total in a dictionary.", "For top(K), you only need the K largest scores: a size-K heap avoids sorting everyone."]
+prompt = """
+Implement the `Leaderboard` class, which tracks a running score per player.
+
+- `Leaderboard()` starts with no players.
+- `add_score(player_id, score)` adds `score` to the player's total. A player who is not
+  on the board joins with a total of `score`.
+- `top(k)` returns the sum of the `k` highest totals currently on the board.
+- `reset(player_id)` removes the player from the board (their total is back to zero and
+  they no longer count). The player is guaranteed to be on the board.
+
+**Example 1:**
+
+```
+Input:  add_score(1, 10), add_score(2, 20), add_score(3, 30), top(2)
+Output: top(2) -> 50
+```
+
+**Example 2:**
+
+```
+Input:  add_score(1, 50), add_score(2, 40), reset(1), top(1), add_score(1, 5), top(2)
+Output: top(1) -> 40, top(2) -> 45
+```
+
+After the reset, player `1` rejoins with only 5 points.
+
+**Constraints:**
+
+- `1 <= player_id, k <= 10^4`
+- `1 <= score <= 100`
+- `k` never exceeds the number of players on the board
+- At most `1000` calls in total
+"""

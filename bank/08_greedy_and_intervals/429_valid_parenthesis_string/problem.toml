@@ -1,0 +1,8 @@
+id = "valid-parenthesis-string"
+title = "Valid Parenthesis String"
+difficulty = "medium"
+leetcode = 678
+url = "https://leetcode.com/problems/valid-parenthesis-string/"
+key_idea = "Greedy range of possible open counts [lo, hi]: '(' raises both, ')' lowers both, '*' widens; fail if hi < 0, answer lo == 0."
+hints = ["Instead of trying every choice for '*', track the range of how many '(' could be open.", "Keep lo and hi; '*' does lo -= 1, hi += 1. If hi ever drops below 0 it is invalid; clamp lo at 0; valid if lo is 0 at the end."]
+prompt = ""

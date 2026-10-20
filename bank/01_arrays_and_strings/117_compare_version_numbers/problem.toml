@@ -1,0 +1,8 @@
+id = "compare-version-numbers"
+title = "Compare Version Numbers"
+difficulty = "medium"
+leetcode = 165
+url = "https://leetcode.com/problems/compare-version-numbers/"
+key_idea = "Split on '.', compare revisions as integers pairwise, treating missing revisions as 0."
+hints = ["Leading zeros vanish if you convert each revision to an int.", "Pad the shorter list with zeros (or use zip_longest) before comparing."]
+prompt = ""

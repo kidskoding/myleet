@@ -1,0 +1,8 @@
+id = "design-underground-system"
+title = "Design Underground System"
+difficulty = "medium"
+leetcode = 1396
+url = "https://leetcode.com/problems/design-underground-system/"
+key_idea = "Map open check-ins by id, and keep a running (total, count) per (start, end) route."
+hints = ["What do you need to remember between a check-in and its matching check-out?", "Store id -> (station, time) for open trips, and for each (start, end) pair keep a total time and a trip count so the average is one division."]
+prompt = ""

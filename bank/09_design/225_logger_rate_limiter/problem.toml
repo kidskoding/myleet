@@ -1,0 +1,38 @@
+id = "logger-rate-limiter"
+title = "Logger Rate Limiter"
+difficulty = "easy"
+leetcode = 359
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+key_idea = "Hash map from message to the next timestamp at which it may print."
+hints = ["The only state you need per message is when it last printed.", "Store message -> earliest allowed time (last print + 10). Print and update only if now >= that time."]
+prompt = """
+Implement a `Logger` class that throttles repeated messages.
+
+`should_print_message(timestamp, message)` is called for each incoming message, with
+`timestamp` in seconds. Return `True` (and treat the message as printed) if this exact
+message has not been printed in the last 10 seconds: a message printed at time `t` may be
+printed again at time `t + 10` or later. Otherwise return `False`. Calls that return
+`False` do not count as printing.
+
+**Example 1:**
+
+```
+Input: (1,"foo"), (2,"bar"), (3,"foo"), (8,"bar"), (10,"foo"), (11,"foo")
+Output: True, True, False, False, False, True
+```
+
+**Example 2:**
+
+```
+Input: (0,"a"), (5,"a"), (10,"a")
+Output: True, False, True
+```
+
+The rejected call at time 5 does not restart the 10-second wait.
+
+**Constraints:**
+
+- `0 <= timestamp <= 10^9`, and timestamps never decrease between calls
+- `1 <= len(message) <= 30`
+- At most `10^4` calls
+"""

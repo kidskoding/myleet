@@ -1,0 +1,8 @@
+id = "robot-bounded-in-circle"
+title = "Robot Bounded In Circle"
+difficulty = "medium"
+leetcode = 1041
+url = "https://leetcode.com/problems/robot-bounded-in-circle/"
+key_idea = "Simulate one pass; the robot is bounded iff it returns to the origin or ends facing a different direction."
+hints = ["Run the instructions once and look at the final position and heading.", "If the heading changed, four passes at most bring the robot back to the start."]
+prompt = ""

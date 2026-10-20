@@ -1,0 +1,8 @@
+id = "word-pattern"
+title = "Word Pattern"
+difficulty = "easy"
+leetcode = 290
+url = "https://leetcode.com/problems/word-pattern/"
+key_idea = "Two hash maps enforce a bijection between pattern letters and words; lengths must match."
+hints = ["Each letter must always map to the same word.", "Also no two letters may map to the same word, so keep a map in each direction (and check the counts match)."]
+prompt = ""

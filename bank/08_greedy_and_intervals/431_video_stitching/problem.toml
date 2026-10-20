@@ -1,0 +1,8 @@
+id = "video-stitching"
+title = "Video Stitching"
+difficulty = "medium"
+leetcode = 1024
+url = "https://leetcode.com/problems/video-stitching/"
+key_idea = "Jump-game greedy: for each reach boundary, extend to the farthest end among clips starting within it."
+hints = ["Sort or bucket clips by start; you always want to cover the current frontier with the clip that reaches farthest.", "Keep the current covered end and the farthest end reachable; when you pass the current end, take a clip (count += 1) and jump to the farthest."]
+prompt = ""

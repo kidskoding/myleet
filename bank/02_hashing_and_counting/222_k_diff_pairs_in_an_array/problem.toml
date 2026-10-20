@@ -1,0 +1,8 @@
+id = "k-diff-pairs-in-an-array"
+title = "K-diff Pairs in an Array"
+difficulty = "medium"
+leetcode = 532
+url = "https://leetcode.com/problems/k-diff-pairs-in-an-array/"
+key_idea = "Count values; for k > 0 count distinct x with x + k present, for k == 0 count values seen at least twice."
+hints = ["Pairs are counted by distinct values, so duplicates only matter in one special case.", "Build a Counter. If k == 0, count keys with frequency >= 2; otherwise count keys x where x + k is a key."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "maximum-product-of-word-lengths"
+title = "Maximum Product of Word Lengths"
+difficulty = "medium"
+leetcode = 318
+url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
+key_idea = "Encode each word's letters as a 26-bit mask; two words share no letters exactly when their masks AND to 0."
+hints = ["Comparing two words letter by letter is slow. Can you summarize a word's letter set in one number?", "Store a bitmask per word (bit c set if letter c appears); check mask_a & mask_b == 0 for every pair."]
+prompt = ""

@@ -1,0 +1,33 @@
+id = "shortest-word-distance"
+title = "Shortest Word Distance"
+difficulty = "easy"
+leetcode = 243
+url = "https://leetcode.com/problems/shortest-word-distance/"
+key_idea = "One pass remembering the last index of each word; update the gap whenever either word appears."
+hints = ["You do not need every pair of positions.", "Keep the most recent index of word1 and of word2; each new sighting only needs to be compared with the other's latest index."]
+prompt = """
+Write `shortest_distance(words_dict, word1, word2)`. You get a list of words and two
+different words that both appear in it at least once. Return the smallest gap, measured
+in positions, between any occurrence of `word1` and any occurrence of `word2`.
+
+**Example 1:**
+
+```
+Input: words_dict = ["practice","makes","perfect","coding","makes"], word1 = "coding", word2 = "practice"
+Output: 3
+```
+
+**Example 2:**
+
+```
+Input: words_dict = ["practice","makes","perfect","coding","makes"], word1 = "makes", word2 = "coding"
+Output: 1
+```
+
+**Constraints:**
+
+- `2 <= len(words_dict) <= 3 * 10^4`
+- Every word is lowercase English letters, length 1 to 10
+- `word1` and `word2` both appear in `words_dict`
+- `word1 != word2`
+"""

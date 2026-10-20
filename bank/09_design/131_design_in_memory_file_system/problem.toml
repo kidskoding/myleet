@@ -1,0 +1,48 @@
+id = "design-in-memory-file-system"
+title = "Design In-Memory File System"
+difficulty = "hard"
+leetcode = 588
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+key_idea = "A trie of path segments where each node has a children map and optional file content; walk/create nodes per segment."
+hints = ["Split paths on '/' and walk a tree of nodes, one node per segment.", "Give each node a children dict and a content string; a node with content is a file, and ls on a file returns just its name."]
+prompt = """
+Implement an in-memory file system as the `FileSystem` class. Paths are absolute: `"/"`
+is the root, and other paths are segments of lowercase letters each preceded by `/`,
+such as `"/a/b"`. Directories and files share one namespace.
+
+- `FileSystem()` starts with an empty root directory.
+- `ls(path)`: if `path` is a file, return a list holding only that file's name. If it is a
+  directory, return the names of everything directly inside it (files and directories),
+  sorted lexicographically.
+- `mkdir(path)` creates the directory `path`, creating any missing parent directories.
+  Creating a directory that already exists changes nothing.
+- `add_content_to_file(file_path, content)` creates the file with `content` if it does
+  not exist (its parent directories already exist or are created as needed); otherwise
+  it appends `content` to the end of the file.
+- `read_content_from_file(file_path)` returns the file's full content.
+
+`ls` and `read_content_from_file` are only called on paths that exist, and no file is
+ever used as a directory.
+
+**Example 1:**
+
+```
+Input:  ls("/"), mkdir("/a/b/c"), add_content_to_file("/a/b/c/d", "hello"),
+        ls("/"), read_content_from_file("/a/b/c/d")
+Output: ls("/") -> [], ls("/") -> ["a"], read -> "hello"
+```
+
+**Example 2:**
+
+```
+Input:  add_content_to_file("/log", "ab"), add_content_to_file("/log", "cd"),
+        read_content_from_file("/log"), ls("/log")
+Output: read -> "abcd", ls("/log") -> ["log"]
+```
+
+**Constraints:**
+
+- `1 <= path.length, file_path.length <= 100`
+- `1 <= content.length <= 50`
+- At most `300` calls in total
+"""

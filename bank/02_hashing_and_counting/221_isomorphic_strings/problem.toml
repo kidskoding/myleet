@@ -1,0 +1,8 @@
+id = "isomorphic-strings"
+title = "Isomorphic Strings"
+difficulty = "easy"
+leetcode = 205
+url = "https://leetcode.com/problems/isomorphic-strings/"
+key_idea = "Two hash maps enforce a one-to-one character mapping in both directions."
+hints = ["A mapping from s to t alone is not enough. What goes wrong with s = 'ab', t = 'aa'?", "Keep s->t and t->s maps; any conflict in either direction means not isomorphic."]
+prompt = ""

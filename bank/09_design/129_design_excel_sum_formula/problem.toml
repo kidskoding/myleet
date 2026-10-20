@@ -1,0 +1,52 @@
+id = "design-excel-sum-formula"
+title = "Design Excel Sum Formula"
+difficulty = "hard"
+leetcode = 631
+url = "https://leetcode.com/problems/design-excel-sum-formula/"
+key_idea = "Store per cell either a value or a formula as a Counter of referenced cells; get() evaluates formulas recursively so changes propagate."
+hints = ["A sum cell must keep tracking its inputs, so store the formula, not the number it produced.", "Expand ranges into a multiset of cells (a cell can appear more than once); get() sums count * get(cell) recursively, and set() erases any formula."]
+prompt = """
+Implement a small spreadsheet, the `Excel` class. Rows are numbered from `1`; columns are
+named by single uppercase letters starting at `"A"`. Cell references are written as the
+column letter followed by the row, such as `"B3"`.
+
+- `Excel(height, width)` creates a sheet with rows `1..height` and columns `"A"` through
+  the letter `width`. Every cell starts at `0`.
+- `set(row, column, val)` stores the number `val` in that cell. If the cell held a
+  formula, the formula is discarded.
+- `get(row, column)` returns the current value of the cell.
+- `sum(row, column, numbers)` turns the cell into a formula and returns its current value.
+  Each entry of `numbers` is either one reference like `"A1"` or a rectangle like
+  `"A1:B2"` (top-left and bottom-right corners, inclusive). The cell's value is the sum
+  of every referenced cell, counting a cell once per time it is referenced. The formula
+  stays live: whenever a referenced cell changes, so does this cell.
+
+No formula will ever depend on itself, directly or indirectly.
+
+**Example 1:**
+
+```
+Input:  Excel(3, "C"), set(1, "A", 2), sum(3, "C", ["A1", "A1:B2"]), set(2, "B", 2), get(3, "C")
+Output: sum(...) -> 4, get(3, "C") -> 6
+```
+
+`A1` is referenced twice (once alone, once inside the rectangle), giving `2 + 2 = 4`.
+Setting `B2` to `2` raises the formula cell to `6`.
+
+**Example 2:**
+
+```
+Input:  Excel(2, "B"), set(1, "A", 3), sum(2, "B", ["A1"]), set(2, "B", 10), set(1, "A", 100), get(2, "B")
+Output: get(2, "B") -> 10
+```
+
+Setting `B2` directly removed its formula, so later changes to `A1` no longer affect it.
+
+**Constraints:**
+
+- `1 <= height <= 26`, and `width` is between `"A"` and `"Z"`
+- All referenced cells lie inside the sheet
+- `-100 <= val <= 100`
+- `1 <= numbers.length <= 5`
+- At most `100` calls in total
+"""

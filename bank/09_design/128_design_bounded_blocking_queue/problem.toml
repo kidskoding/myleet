@@ -1,0 +1,49 @@
+id = "design-bounded-blocking-queue"
+title = "Design Bounded Blocking Queue"
+difficulty = "medium"
+leetcode = 1188
+url = "https://leetcode.com/problems/design-bounded-blocking-queue/"
+key_idea = "A deque guarded by one lock with two conditions (not_full, not_empty): wait in a while loop, then notify the other side."
+hints = ["Every method touches shared state, so protect it with a single lock.", "Use threading.Condition: enqueue waits while full, dequeue waits while empty, and each wakes the other side after changing the queue."]
+prompt = """
+Implement a thread-safe `BoundedBlockingQueue` that many producer and consumer threads
+use at the same time.
+
+- `BoundedBlockingQueue(capacity)` creates an empty first-in, first-out queue that can
+  hold at most `capacity` elements.
+- `enqueue(element)` adds `element` to the back. If the queue is full, the calling thread
+  blocks until there is room.
+- `dequeue()` removes and returns the element at the front. If the queue is empty, the
+  calling thread blocks until an element arrives.
+- `size()` returns the number of elements currently in the queue.
+
+Do not use `queue.Queue` or any other ready-made thread-safe queue; build it from
+primitives in the `threading` module.
+
+**Example 1:**
+
+```
+Input:  capacity = 2; enqueue(1), enqueue(2), size(), dequeue(), dequeue(), size()
+Output: size() -> 2, dequeue() -> 1, dequeue() -> 2, size() -> 0
+```
+
+**Example 2:**
+
+```
+Input:  capacity = 1; a consumer thread calls dequeue(), then the main thread calls enqueue(7)
+Output: the consumer stays blocked until the enqueue, then dequeue() -> 7
+```
+
+**Example 3:**
+
+```
+Input:  capacity = 1; enqueue(1), then a producer thread calls enqueue(2), then dequeue()
+Output: the producer blocks until dequeue() -> 1 frees space; a later dequeue() -> 2
+```
+
+**Constraints:**
+
+- `1 <= capacity <= 30`
+- `0 <= element <= 20`
+- At most `40` calls to `enqueue` and `dequeue` combined per test, from up to 8 threads
+"""

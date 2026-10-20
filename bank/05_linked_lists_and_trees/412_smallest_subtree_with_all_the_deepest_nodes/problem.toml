@@ -1,0 +1,8 @@
+id = "smallest-subtree-with-all-the-deepest-nodes"
+title = "Smallest Subtree with all the Deepest Nodes"
+difficulty = "medium"
+leetcode = 865
+url = "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/"
+key_idea = "Post-order returning (depth, answer node): equal child depths make the current node the answer, otherwise pass up the deeper side."
+hints = ["Each subtree can report its depth and the node that covers all its deepest leaves.", "If left and right depths tie, the current node is the answer; otherwise take the deeper child's answer."]
+prompt = ""

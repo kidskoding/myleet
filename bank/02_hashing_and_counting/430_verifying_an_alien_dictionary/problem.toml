@@ -1,0 +1,8 @@
+id = "verifying-an-alien-dictionary"
+title = "Verifying an Alien Dictionary"
+difficulty = "easy"
+leetcode = 953
+url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
+key_idea = "Map each letter to its rank, then check each adjacent pair at its first differing letter (or by length if one is a prefix)."
+hints = ["Turn the order string into a letter-to-position lookup.", "It is enough to compare neighbors; the first differing character decides, and a longer word cannot come before its own prefix."]
+prompt = ""

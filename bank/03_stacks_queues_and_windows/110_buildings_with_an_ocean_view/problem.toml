@@ -1,0 +1,44 @@
+id = "buildings-with-an-ocean-view"
+title = "Buildings With an Ocean View"
+difficulty = "medium"
+leetcode = 1762
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
+key_idea = "Scan right to left keeping the tallest height seen; a building sees the ocean iff it beats that max."
+hints = ["A building's view depends only on what is to its right.", "Walk from the right end, remembering the tallest building so far; reverse the collected indices at the end."]
+prompt = """
+Implement `find_buildings(heights)`. There are `n` buildings in a row, and `heights[i]`
+is the height of building `i`. The ocean lies past the right end of the row.
+
+A building can see the ocean when every building to its right is strictly shorter than
+it. Return the indices of all buildings that can see the ocean, in increasing order.
+
+**Example 1:**
+
+```
+Input: heights = [4,2,3,1]
+Output: [0,2,3]
+```
+
+Building `1` (height 2) is blocked by building `2` (height 3).
+
+**Example 2:**
+
+```
+Input: heights = [2,2,2]
+Output: [2]
+```
+
+A building of equal height blocks the view.
+
+**Example 3:**
+
+```
+Input: heights = [6,1,5,2,3]
+Output: [0,2,4]
+```
+
+**Constraints:**
+
+- `1 <= heights.length <= 10^5`
+- `1 <= heights[i] <= 10^9`
+"""

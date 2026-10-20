@@ -1,0 +1,8 @@
+id = "sliding-puzzle"
+title = "Sliding Puzzle"
+difficulty = "hard"
+leetcode = 773
+url = "https://leetcode.com/problems/sliding-puzzle/"
+key_idea = "BFS over board states encoded as strings; neighbors swap the 0 with an adjacent tile."
+hints = ["There are only 6! board arrangements, so you can search all of them.", "Encode the board as a 6-character string and BFS from it; each move swaps 0 with a neighbor index."]
+prompt = ""

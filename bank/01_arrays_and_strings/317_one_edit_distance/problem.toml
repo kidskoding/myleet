@@ -1,0 +1,40 @@
+id = "one-edit-distance"
+title = "One Edit Distance"
+difficulty = "medium"
+leetcode = 161
+url = "https://leetcode.com/problems/one-edit-distance/"
+key_idea = "Walk both strings to the first mismatch; then the rest must match after skipping one char in the longer string (or one char in both when lengths are equal)."
+hints = ["If the lengths differ by more than one, you are done. Otherwise, what can the strings look like around the single edit?", "Find the first index where they differ. Equal lengths: compare the tails after it. Different lengths: skip the char in the longer string and compare. No mismatch means they differ only by a trailing char."]
+prompt = """
+Write `is_one_edit_distance(s, t)`. Return `True` if you can turn `s` into `t` with exactly one
+edit, and `False` otherwise. An edit is one of: insert a single character anywhere, delete a
+single character, or replace a single character with a different one.
+
+Two identical strings are zero edits apart, so they return `False`.
+
+**Example 1:**
+
+```
+Input: s = "ab", t = "acb"
+Output: true
+```
+
+**Example 2:**
+
+```
+Input: s = "", t = ""
+Output: false
+```
+
+**Example 3:**
+
+```
+Input: s = "ab", t = "ba"
+Output: false
+```
+
+**Constraints:**
+
+- `0 <= len(s), len(t) <= 10^4`
+- `s` and `t` contain lowercase letters, uppercase letters, and digits
+"""

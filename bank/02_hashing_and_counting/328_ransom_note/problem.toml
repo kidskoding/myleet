@@ -1,0 +1,8 @@
+id = "ransom-note"
+title = "Ransom Note"
+difficulty = "easy"
+leetcode = 383
+url = "https://leetcode.com/problems/ransom-note/"
+key_idea = "Count the magazine's letters, then spend one count per ransom letter; fail as soon as a count goes negative."
+hints = ["Order does not matter here, only how many of each letter you have. What structure tracks that?", "Build a frequency count of the magazine and decrement it for every letter of the note; any letter that runs out means false."]
+prompt = ""

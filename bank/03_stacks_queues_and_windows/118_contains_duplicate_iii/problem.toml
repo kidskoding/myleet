@@ -1,0 +1,8 @@
+id = "contains-duplicate-iii"
+title = "Contains Duplicate III"
+difficulty = "hard"
+leetcode = 220
+url = "https://leetcode.com/problems/contains-duplicate-iii/"
+key_idea = "Sliding window of the last index_diff values bucketed by value // (value_diff + 1); a match is in the same or an adjacent bucket."
+hints = ["Only the last index_diff elements matter at any moment, so keep a window.", "Buckets of width value_diff + 1 mean two values in one bucket always match; also check the two neighbor buckets."]
+prompt = ""

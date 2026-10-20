@@ -1,0 +1,45 @@
+id = "campus-bikes-ii"
+title = "Campus Bikes II"
+difficulty = "medium"
+leetcode = 1066
+url = "https://leetcode.com/problems/campus-bikes-ii/"
+key_idea = "Bitmask DP: process workers in order, state = set of used bikes, dp[mask] = min total distance."
+hints = ["Greedy closest-pair can be wrong here; you need to consider assignments jointly.", "With at most 10 bikes, a bitmask of used bikes is a small state; worker i is the popcount of the mask."]
+prompt = """
+Implement `assign_bikes(workers, bikes)`. A campus is a grid; `workers[i] = [x, y]` is the
+position of worker `i` and `bikes[j] = [x, y]` is the position of bike `j`. There are at
+least as many bikes as workers. Distance is Manhattan distance:
+`|x1 - x2| + |y1 - y2|`.
+
+Give each worker exactly one bike, with no bike shared, so that the sum of the distances
+from each worker to their bike is as small as possible. Return that minimum sum.
+
+**Example 1:**
+
+```
+Input: workers = [[0,0],[2,1]], bikes = [[1,2],[3,3]]
+Output: 6
+```
+
+Worker `0` takes bike `0` (distance 3) and worker `1` takes bike `1` (distance 3).
+
+**Example 2:**
+
+```
+Input: workers = [[0,0],[3,0]], bikes = [[2,0],[5,0]]
+Output: 4
+```
+
+**Example 3:**
+
+```
+Input: workers = [[0,0],[1,0]], bikes = [[0,5],[1,1],[0,1],[9,9]]
+Output: 2
+```
+
+**Constraints:**
+
+- `1 <= workers.length <= bikes.length <= 10`
+- `0 <= x, y < 1000`
+- All worker and bike positions are distinct
+"""

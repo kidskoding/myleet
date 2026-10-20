@@ -1,0 +1,45 @@
+id = "basic-calculator-iii"
+title = "Basic Calculator III"
+difficulty = "hard"
+leetcode = 772
+url = "https://leetcode.com/problems/basic-calculator-iii/"
+key_idea = "Stack of signed terms per parenthesis level: apply * and / to the top immediately, push + and - terms, and recurse (or push a frame) on '('."
+hints = ["Handle precedence by keeping a stack of terms that will be summed at the end.", "Treat '(' as a sub-expression: evaluate it to a number (recursion or a saved stack), then use that number like a digit run."]
+prompt = """
+Implement `calculate(s)`, which evaluates the arithmetic expression in the string `s` and
+returns its integer value.
+
+The expression uses non-negative integer literals, the binary operators `+`, `-`, `*`,
+`/`, and parentheses. Multiplication and division bind tighter than addition and
+subtraction, and operators of equal precedence group left to right. Integer division
+truncates toward zero, so `-7 / 2` is `-3`. Do not call `eval` or any other built-in
+expression evaluator.
+
+**Example 1:**
+
+```
+Input: s = "6-4/2"
+Output: 4
+```
+
+**Example 2:**
+
+```
+Input: s = "2*(5+5*2)/3+(6/2+8)"
+Output: 21
+```
+
+**Example 3:**
+
+```
+Input: s = "(1-8)/2"
+Output: -3
+```
+
+**Constraints:**
+
+- `1 <= s.length <= 10^4`
+- `s` contains only digits, `+`, `-`, `*`, `/`, `(`, and `)`, with no spaces
+- `s` is a valid expression; there is no unary minus
+- Every intermediate result fits in a 32-bit signed integer, and no division is by zero
+"""

@@ -1,0 +1,51 @@
+id = "campus-bikes"
+title = "Campus Bikes"
+difficulty = "medium"
+leetcode = 1057
+url = "https://leetcode.com/problems/campus-bikes/"
+key_idea = "Sort every (distance, worker, bike) triple, then greedily take each pair whose worker and bike are both still free."
+hints = ["The rule always picks the globally closest free pair next, with ties broken by indices.", "Distances are small integers, so you can sort all pairs (or bucket them by distance) once and sweep."]
+prompt = """
+Implement `assign_bikes(workers, bikes)`. A campus is a grid; `workers[i] = [x, y]` is the
+position of worker `i` and `bikes[j] = [x, y]` is the position of bike `j`. There are at
+least as many bikes as workers. Distance is Manhattan distance:
+`|x1 - x2| + |y1 - y2|`.
+
+Bikes are handed out one at a time. At each step, among all workers without a bike and
+all bikes not yet taken, choose the pair with the smallest distance. Break ties by the
+smaller worker index, then by the smaller bike index. Assign that bike to that worker and
+repeat until every worker has a bike.
+
+Return a list `answer` where `answer[i]` is the index of the bike given to worker `i`.
+
+**Example 1:**
+
+```
+Input: workers = [[0,0],[2,1]], bikes = [[1,2],[3,3]]
+Output: [1,0]
+```
+
+Worker `1` and bike `0` are the closest pair (distance 2), so they match first.
+
+**Example 2:**
+
+```
+Input: workers = [[0,1],[1,0]], bikes = [[0,0],[1,1]]
+Output: [0,1]
+```
+
+Every pair has distance 1, so the index tie-breaks decide.
+
+**Example 3:**
+
+```
+Input: workers = [[0,0]], bikes = [[5,5],[1,1],[0,2]]
+Output: [1]
+```
+
+**Constraints:**
+
+- `1 <= workers.length <= bikes.length <= 1000`
+- `0 <= x, y < 1000`
+- All worker and bike positions are distinct
+"""

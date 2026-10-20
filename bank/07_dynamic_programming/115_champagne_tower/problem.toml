@@ -1,0 +1,8 @@
+id = "champagne-tower"
+title = "Champagne Tower"
+difficulty = "medium"
+leetcode = 799
+url = "https://leetcode.com/problems/champagne-tower/"
+key_idea = "Simulate row by row: pour everything into the top glass, and each glass passes (amount - 1) / 2 to each glass below; clamp the answer at 1."
+hints = ["Track how much liquid flows through each glass, not just how much it holds.", "Any excess above 1 cup splits evenly to the two glasses below; the answer is min(1, flow)."]
+prompt = ""

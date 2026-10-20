@@ -1,0 +1,8 @@
+id = "shortest-path-in-a-grid-with-obstacles-elimination"
+title = "Shortest Path in a Grid with Obstacles Elimination"
+difficulty = "hard"
+leetcode = 1293
+url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
+key_idea = "BFS over states (row, col, eliminations left), keeping the best remaining k seen per cell."
+hints = ["A plain BFS on cells is not enough; how many removals you have left matters too.", "Make the state (r, c, k_left) and BFS it; skip a state if that cell was already reached with at least as many removals left."]
+prompt = ""

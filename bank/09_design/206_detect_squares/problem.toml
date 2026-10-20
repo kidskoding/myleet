@@ -1,0 +1,8 @@
+id = "detect-squares"
+title = "Detect Squares"
+difficulty = "medium"
+leetcode = 2013
+url = "https://leetcode.com/problems/detect-squares/"
+key_idea = "Count points in a hash map; for a query, try each stored point as the diagonal corner and multiply corner counts."
+hints = ["Once you fix the query point and the opposite (diagonal) corner, the square's other two corners are forced.", "Store point -> count. For each stored point with |dx| == |dy| != 0, add count(diag) * count(qx, y) * count(x, qy)."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "xor-queries-of-a-subarray"
+title = "XOR Queries of a Subarray"
+difficulty = "medium"
+leetcode = 1310
+url = "https://leetcode.com/problems/xor-queries-of-a-subarray/"
+key_idea = "Prefix XOR: the XOR of arr[l..r] is prefix[r + 1] ^ prefix[l]."
+hints = ["XOR undoes itself, much like subtraction undoes addition.", "Build prefix[i] = arr[0] ^ ... ^ arr[i - 1]; each query is prefix[r + 1] ^ prefix[l]."]
+prompt = ""

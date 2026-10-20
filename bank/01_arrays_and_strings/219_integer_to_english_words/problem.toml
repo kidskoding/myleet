@@ -1,0 +1,8 @@
+id = "integer-to-english-words"
+title = "Integer to English Words"
+difficulty = "hard"
+leetcode = 273
+url = "https://leetcode.com/problems/integer-to-english-words/"
+key_idea = "Split the number into groups of three digits, spell each group under 1000, and append its scale word."
+hints = ["English reads big numbers in chunks of three digits: billions, millions, thousands, ones.", "Write a helper for 1..999 (hundreds, then tens >= 20, then 1..19), apply it to each nonzero chunk, attach Thousand/Million/Billion, and skip zero chunks entirely."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "stone-game"
+title = "Stone Game"
+difficulty = "medium"
+leetcode = 877
+url = "https://leetcode.com/problems/stone-game/"
+key_idea = "Interval DP on the score difference the player to move can secure from piles[i..j]."
+hints = ["Think in terms of how far ahead the current player can get on a sub-range.", "diff(i, j) = max(piles[i] - diff(i+1, j), piles[j] - diff(i, j-1)); Alice wins if diff(0, n-1) > 0. (There is also a parity argument.)"]
+prompt = ""

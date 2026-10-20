@@ -1,0 +1,8 @@
+id = "soup-servings"
+title = "Soup Servings"
+difficulty = "medium"
+leetcode = 808
+url = "https://leetcode.com/problems/soup-servings/"
+key_idea = "Memoized DP on (a, b) in units of 25 mL, with the answer treated as 1.0 once n is large enough."
+hints = ["Every serving amount is a multiple of 25, so scale everything down by 25.", "Recurse on remaining (a, b) averaging the four outcomes; for large n the probability is within 1e-5 of 1, so cap it."]
+prompt = ""

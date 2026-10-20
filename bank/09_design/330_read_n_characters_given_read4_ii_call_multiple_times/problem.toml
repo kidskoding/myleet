@@ -1,0 +1,48 @@
+id = "read-n-characters-given-read4-ii-call-multiple-times"
+title = "Read N Characters Given read4 II - Call Multiple Times"
+difficulty = "hard"
+leetcode = 158
+url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
+key_idea = "Keep leftover characters from the last read4 call (a 4-slot buffer plus read/size pointers) and serve them before calling read4 again."
+hints = ["If one call needs 1 character but read4 returns 4, the other 3 must not be lost. Where do they go?", "Store read4's output and a pointer into it on the Reader; each read first drains that buffer, refilling with read4 only when it is empty, and stops when read4 returns 0."]
+prompt = """
+Implement the class `Reader`. A file can only be read through the function `read4(buf4)`: it
+takes a list `buf4` with 4 slots, writes up to the next 4 characters of the file into `buf4[0]`,
+`buf4[1]`, and so on, and returns how many characters it wrote. It returns fewer than 4 once the
+end of the file is reached, and 0 after that.
+
+- `Reader(read4)` receives the `read4` function for one file.
+- `read(buf, n)` copies up to the next `n` unread characters of the file into `buf` (a list with
+  at least `n` slots, starting at index 0) and returns how many it copied.
+
+`read` may be called many times on the same `Reader`, and every call continues exactly where the
+previous one left off. You may only access the file through `read4`.
+
+**Example 1:**
+
+```
+Input: file = "abc", calls = read(1), read(2), read(1)
+Output: "a", "bc", ""
+```
+
+**Example 2:**
+
+```
+Input: file = "abc", calls = read(4), read(1)
+Output: "abc", ""
+```
+
+**Example 3:**
+
+```
+Input: file = "abcdefgh", calls = read(3), read(3), read(3)
+Output: "abc", "def", "gh"
+```
+
+**Constraints:**
+
+- `0 <= len(file) <= 500`
+- `1 <= n <= 500` for every call
+- At most `100` calls to `read`
+- The file contains English letters and digits
+"""

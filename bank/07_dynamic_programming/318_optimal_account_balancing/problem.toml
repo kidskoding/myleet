@@ -1,0 +1,46 @@
+id = "optimal-account-balancing"
+title = "Optimal Account Balancing"
+difficulty = "hard"
+leetcode = 465
+url = "https://leetcode.com/problems/optimal-account-balancing/"
+key_idea = "Reduce to nonzero net balances; the answer is (number of people) minus the most disjoint zero-sum groups, found by bitmask DP over subsets."
+hints = ["Only each person's net balance matters, not the original transactions. How many transfers does a group whose balances sum to 0 need at most?", "A zero-sum group of size m settles in m - 1 transfers, so maximize the number of disjoint zero-sum groups: dp[mask] = best group count for the people in mask."]
+prompt = """
+Write `min_transfers(transactions)`. Each transaction `[from_id, to_id, amount]` records that
+person `from_id` gave person `to_id` that many dollars. After all transactions, some people are
+owed money and some owe it.
+
+Return the minimum number of transfers needed so that everyone ends up even. Any person may pay
+any other person any amount in a single transfer.
+
+**Example 1:**
+
+```
+Input: transactions = [[0,1,10],[2,0,5]]
+Output: 2
+```
+
+Person 1 pays 5 to person 0 and 5 to person 2.
+
+**Example 2:**
+
+```
+Input: transactions = [[0,1,10],[1,0,1],[1,2,5],[2,0,5]]
+Output: 1
+```
+
+Person 1 pays person 0 four dollars and everyone is settled.
+
+**Example 3:**
+
+```
+Input: transactions = [[0,1,5],[1,0,5]]
+Output: 0
+```
+
+**Constraints:**
+
+- `0 <= len(transactions) <= 8`
+- `0 <= from_id, to_id < 12`, and `from_id != to_id`
+- `1 <= amount <= 100`
+"""

@@ -1,0 +1,8 @@
+id = "longest-string-chain"
+title = "Longest String Chain"
+difficulty = "medium"
+leetcode = 1048
+url = "https://leetcode.com/problems/longest-string-chain/"
+key_idea = "Sort by length; dp[word] = 1 + max dp over every word formed by deleting one character."
+hints = ["A word's predecessor is always exactly one character shorter, so process words from short to long.", "Sort by length and keep a dict word -> best chain ending there; for each word try deleting each position and look the result up."]
+prompt = ""

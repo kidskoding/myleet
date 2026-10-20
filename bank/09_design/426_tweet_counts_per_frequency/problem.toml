@@ -1,0 +1,8 @@
+id = "tweet-counts-per-frequency"
+title = "Tweet Counts Per Frequency"
+difficulty = "medium"
+leetcode = 1348
+url = "https://leetcode.com/problems/tweet-counts-per-frequency/"
+key_idea = "Store each tweet's times in a list per name; for a query, bucket every time in range by (t - start) // interval."
+hints = ["Keep all recorded times per tweet name.", "The number of buckets is (end - start) // size + 1; each time in [start, end] lands in bucket (t - start) // size."]
+prompt = ""

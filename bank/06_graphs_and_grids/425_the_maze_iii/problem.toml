@@ -1,0 +1,49 @@
+id = "the-maze-iii"
+title = "The Maze III"
+difficulty = "hard"
+leetcode = 499
+url = "https://leetcode.com/problems/the-maze-iii/"
+key_idea = "Dijkstra over stopping cells keyed by (distance, path string), rolling each direction until a wall or the hole."
+hints = ["The ball only chooses at the cells where it stops, so those are the graph nodes; an edge is one full roll.", "Use a priority queue ordered by (distance, path) so ties break lexicographically, and stop a roll early if it passes over the hole."]
+prompt = """
+Write `find_shortest_way(maze, ball, hole)`. The maze is a grid of `0` (open) and `1`
+(wall) cells, and the area outside the grid counts as wall. A ball sits at `ball` and a hole
+is at `hole`, both given as `[row, col]` on open cells. The ball can be pushed up (`"u"`),
+down (`"d"`), left (`"l"`), or right (`"r"`); once pushed it keeps rolling in that direction
+until it hits a wall, and only then can it be pushed again. If the ball rolls over the
+hole, it drops in and stops there.
+
+The distance of a route is the number of cells the ball travels, not counting its start
+cell. Return the sequence of push letters for the shortest route into the hole. If several
+routes share the shortest distance, return the lexicographically smallest string. If the
+ball cannot reach the hole, return `"impossible"`.
+
+**Example 1:**
+
+```
+Input: maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], ball = [4,3], hole = [0,1]
+Output: "lul"
+```
+
+Both `"lul"` and `"ul"` travel 6 cells, and `"lul"` comes first alphabetically.
+
+**Example 2:**
+
+```
+Input: maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], ball = [4,3], hole = [3,0]
+Output: "impossible"
+```
+
+**Example 3:**
+
+```
+Input: maze = [[0,0,0]], ball = [0,0], hole = [0,1]
+Output: "r"
+```
+
+**Constraints:**
+
+- `1 <= rows, cols <= 100`
+- Each `maze[r][c]` is `0` or `1`
+- `ball` and `hole` are different open cells
+"""

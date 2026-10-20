@@ -1,0 +1,8 @@
+id = "design-an-ordered-stream"
+title = "Design an Ordered Stream"
+difficulty = "easy"
+leetcode = 1656
+url = "https://leetcode.com/problems/design-an-ordered-stream/"
+key_idea = "Array of slots plus a pointer to the first unfilled slot; after each insert, emit the consecutive filled run starting at the pointer."
+hints = ["Store each value at its id's slot.", "Keep a pointer to the next id you are waiting for; an insert releases values only when that slot becomes filled."]
+prompt = ""

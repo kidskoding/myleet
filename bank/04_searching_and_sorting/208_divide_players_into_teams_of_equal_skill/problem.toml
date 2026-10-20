@@ -1,0 +1,8 @@
+id = "divide-players-into-teams-of-equal-skill"
+title = "Divide Players Into Teams of Equal Skill"
+difficulty = "medium"
+leetcode = 2491
+url = "https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/"
+key_idea = "Sort, then pair smallest with largest; every pair must hit the same sum."
+hints = ["If every team has the same total, what must the weakest player's partner be?", "Sort and pair the ends moving inward; the target sum is first + last, and any mismatch means -1."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "task-scheduler-ii"
+title = "Task Scheduler II"
+difficulty = "medium"
+leetcode = 2365
+url = "https://leetcode.com/problems/task-scheduler-ii/"
+key_idea = "Simulate days in order with a hash map of each task type's earliest allowed next day."
+hints = ["Tasks must be done in the given order, so just walk through them tracking the current day.", "Remember for each type the first day it may run again; jump the clock forward to that day when needed."]
+prompt = ""

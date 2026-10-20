@@ -1,0 +1,8 @@
+id = "string-compression"
+title = "String Compression"
+difficulty = "medium"
+leetcode = 443
+url = "https://leetcode.com/problems/string-compression/"
+key_idea = "Read/write two pointers: scan each run, write the char then its count digits if the run is longer than 1."
+hints = ["Process the array one run of equal characters at a time.", "Use a separate write index; it never passes the read index, so you can overwrite in place."]
+prompt = ""

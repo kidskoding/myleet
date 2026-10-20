@@ -1,0 +1,8 @@
+id = "design-skiplist"
+title = "Design Skiplist"
+difficulty = "hard"
+leetcode = 1206
+url = "https://leetcode.com/problems/design-skiplist/"
+key_idea = "Layered sorted linked lists with random promotion; walk down from the top level recording predecessors."
+hints = ["Start from a single sorted linked list. What would let a search skip many nodes at once?", "Give each node a random number of levels (coin flips) and keep, per level, a sorted list; search right then down, remembering the last node before the target on every level."]
+prompt = ""

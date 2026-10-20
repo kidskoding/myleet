@@ -1,0 +1,8 @@
+id = "prison-cells-after-n-days"
+title = "Prison Cells After N Days"
+difficulty = "medium"
+leetcode = 957
+url = "https://leetcode.com/problems/prison-cells-after-n-days/"
+key_idea = "There are at most 2^6 inner states, so the sequence repeats; store each state's first day in a dict, find the cycle, and skip ahead with modulo."
+hints = ["n can be a billion, but how many different 8-cell states are even possible after day 1?", "Record the day each state was first seen; when one repeats you know the cycle length, so reduce the remaining days modulo it."]
+prompt = ""

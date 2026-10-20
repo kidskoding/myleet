@@ -1,0 +1,8 @@
+id = "minimum-cost-for-tickets"
+title = "Minimum Cost For Tickets"
+difficulty = "medium"
+leetcode = 983
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
+key_idea = "DP over travel days: cost(i) = min over the three passes of pass price + cost of the first travel day the pass does not cover."
+hints = ["On the first travel day not yet covered, you must buy one of three passes. What happens after each choice?", "Let dp[i] be the cheapest way to cover days[i:]; for each pass, jump to the first day >= days[i] + length and add its cost."]
+prompt = ""

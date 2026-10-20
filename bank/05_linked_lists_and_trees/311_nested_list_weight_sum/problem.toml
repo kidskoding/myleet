@@ -1,0 +1,45 @@
+id = "nested-list-weight-sum"
+title = "Nested List Weight Sum"
+difficulty = "medium"
+leetcode = 339
+url = "https://leetcode.com/problems/nested-list-weight-sum/"
+key_idea = "DFS carrying the current depth; add value * depth for each integer and recurse into sublists with depth + 1."
+hints = ["The nesting forms a tree: each list is a node and integers are leaves. What extra information does each leaf need?", "Recurse with a depth argument starting at 1; integers contribute value * depth, lists recurse at depth + 1."]
+prompt = """
+Write `depth_sum(nested_list)`. The input is a Python list whose elements are either integers
+or further lists of the same shape, nested to any depth. The depth of an integer is the number
+of lists it sits inside, so integers directly inside `nested_list` have depth 1.
+
+Return the sum of every integer multiplied by its depth.
+
+**Example 1:**
+
+```
+Input: nested_list = [[1,1],2,[1,1]]
+Output: 10
+```
+
+Four 1s at depth 2 and one 2 at depth 1: 4 * 1 * 2 + 2 * 1 = 10.
+
+**Example 2:**
+
+```
+Input: nested_list = [1,[4,[6]]]
+Output: 27
+```
+
+1 * 1 + 4 * 2 + 6 * 3 = 27.
+
+**Example 3:**
+
+```
+Input: nested_list = []
+Output: 0
+```
+
+**Constraints:**
+
+- The input holds at most `50` values and lists in total
+- Integers are in the range `[-100, 100]`
+- The nesting depth is at most `50`
+"""

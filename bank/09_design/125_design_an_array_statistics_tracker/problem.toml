@@ -1,0 +1,47 @@
+id = "design-an-array-statistics-tracker"
+title = "Design an Array Statistics Tracker"
+difficulty = "hard"
+leetcode = 3369
+url = "https://leetcode.com/problems/design-an-array-statistics-tracker/"
+key_idea = "Queue for insertion order, a sorted multiset for the median, a running sum for the mean, and counts plus a lazy max-heap of (-count, value) for the mode."
+hints = ["Each statistic wants its own structure; keep them all in sync on every add and remove.", "For the mode, push (-count, value) whenever a count changes and skip stale heap entries when reading."]
+prompt = """
+Implement the `StatisticsTracker` class, which holds a sequence of integers and reports
+statistics about it.
+
+- `StatisticsTracker()` starts empty.
+- `add_number(number)` appends `number` to the sequence.
+- `remove_first_added_number()` removes the oldest number still in the sequence.
+- `get_mean()` returns the average of the numbers, rounded down to an integer.
+- `get_median()` returns the middle value after sorting. When the count is even, there
+  are two middle values; return the larger one.
+- `get_mode()` returns the value that occurs most often. If several values tie, return
+  the smallest of them.
+
+The `remove` and `get` methods are only called while the sequence is non-empty.
+
+**Example 1:**
+
+```
+Input:  add_number(4), add_number(4), add_number(2), add_number(3),
+        get_mean(), get_median(), get_mode()
+Output: get_mean() -> 3, get_median() -> 4, get_mode() -> 4
+```
+
+The sum is 13, so the mean is `13 // 4 = 3`. Sorted, the sequence is `[2,3,4,4]`, and
+the larger middle value is `4`.
+
+**Example 2:**
+
+```
+Input:  (continuing) remove_first_added_number(), get_mean(), get_median(), get_mode()
+Output: get_mean() -> 3, get_median() -> 3, get_mode() -> 2
+```
+
+The sequence is now `[4,2,3]`; every value occurs once, so the smallest, `2`, is the mode.
+
+**Constraints:**
+
+- `1 <= number <= 10^9`
+- At most `10^5` calls in total
+"""

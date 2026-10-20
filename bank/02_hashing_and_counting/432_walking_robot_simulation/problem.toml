@@ -1,0 +1,8 @@
+id = "walking-robot-simulation"
+title = "Walking Robot Simulation"
+difficulty = "medium"
+leetcode = 874
+url = "https://leetcode.com/problems/walking-robot-simulation/"
+key_idea = "Simulate step by step with obstacles in a hash set, tracking the max squared distance."
+hints = ["Moves are at most 9 units, so stepping one cell at a time is cheap.", "Put obstacles in a set of tuples for O(1) lookup; before each single step check whether the next cell is blocked."]
+prompt = ""

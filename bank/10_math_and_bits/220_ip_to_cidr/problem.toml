@@ -1,0 +1,38 @@
+id = "ip-to-cidr"
+title = "IP to CIDR"
+difficulty = "medium"
+leetcode = 751
+url = "https://leetcode.com/problems/ip-to-cidr/"
+key_idea = "Treat the IP as a 32-bit integer; greedily take the largest aligned block allowed by the lowest set bit and the remaining count."
+hints = ["Convert the address to one integer. A /k block of size 2^(32-k) must start at a multiple of its size.", "From the current address x, the biggest block is x & -x (the lowest set bit); halve it until it fits in the remaining count, emit it, and advance."]
+prompt = """
+Write `ip_to_cidr(ip, n)`. An IPv4 address `a.b.c.d` is a 32-bit number written as four
+bytes. A CIDR block `a.b.c.d/k` stands for every address whose first `k` bits equal the
+first `k` bits of `a.b.c.d`, which is `2^(32 - k)` addresses. In this problem a block's
+written address must be the first address it covers.
+
+Return the shortest list of CIDR blocks that together cover exactly the `n` consecutive
+addresses starting at `ip`, no more and no fewer, listed in increasing address order.
+
+**Example 1:**
+
+```
+Input: ip = "255.0.0.7", n = 10
+Output: ["255.0.0.7/32","255.0.0.8/29","255.0.0.16/32"]
+```
+
+The blocks cover `.7`, then `.8` through `.15`, then `.16`.
+
+**Example 2:**
+
+```
+Input: ip = "10.0.0.255", n = 2
+Output: ["10.0.0.255/32","10.0.1.0/32"]
+```
+
+**Constraints:**
+
+- `ip` is a valid IPv4 address
+- `1 <= n <= 1000`
+- Every address in the range is a valid IPv4 address
+"""

@@ -1,0 +1,8 @@
+id = "longest-common-prefix"
+title = "Longest Common Prefix"
+difficulty = "easy"
+leetcode = 14
+url = "https://leetcode.com/problems/longest-common-prefix/"
+key_idea = "Vertical scan: compare column by column across all strings and stop at the first mismatch or end of a string."
+hints = ["The prefix can be no longer than the shortest string.", "Walk index i across the first string; return its prefix as soon as any other string is too short or differs at i."]
+prompt = ""

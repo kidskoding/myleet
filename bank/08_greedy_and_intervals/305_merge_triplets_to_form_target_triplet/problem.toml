@@ -1,0 +1,8 @@
+id = "merge-triplets-to-form-target-triplet"
+title = "Merge Triplets to Form Target Triplet"
+difficulty = "medium"
+leetcode = 1899
+url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"
+key_idea = "Greedy filter: discard any triplet that exceeds the target in some position, then check the survivors cover each target value."
+hints = ["Merging takes element-wise maximums, so a value can never go back down. Which triplets can you never use?", "Keep only triplets with every coordinate <= target; the answer is true if those triplets together hit each target coordinate exactly."]
+prompt = ""

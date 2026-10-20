@@ -1,0 +1,8 @@
+id = "shuffle-an-array"
+title = "Shuffle an Array"
+difficulty = "medium"
+leetcode = 384
+url = "https://leetcode.com/problems/shuffle-an-array/"
+key_idea = "Fisher-Yates: for each index i from the end, swap it with a uniformly random index in [0, i]."
+hints = ["Keep an untouched copy of the input so reset is trivial.", "To shuffle uniformly, walk from the back and swap each slot with a random slot at or before it."]
+prompt = ""

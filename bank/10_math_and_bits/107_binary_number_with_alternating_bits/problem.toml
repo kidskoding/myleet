@@ -1,0 +1,8 @@
+id = "binary-number-with-alternating-bits"
+title = "Binary Number with Alternating Bits"
+difficulty = "easy"
+leetcode = 693
+url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
+key_idea = "n ^ (n >> 1) is all ones exactly when bits alternate; check x & (x + 1) == 0."
+hints = ["Compare each bit with its neighbor.", "Shifting n right by one lines each bit up with its neighbor; XOR them."]
+prompt = ""

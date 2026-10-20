@@ -1,0 +1,46 @@
+id = "web-crawler"
+title = "Web Crawler"
+difficulty = "medium"
+leetcode = 1236
+url = "https://leetcode.com/problems/web-crawler/"
+key_idea = "BFS or DFS from the start URL with a visited set, only following links whose hostname matches the start's."
+hints = ["This is graph traversal where pages are nodes and links are edges.", "Extract the hostname (the part between 'http://' and the next '/'), and only enqueue unseen URLs with the same hostname."]
+prompt = """
+Write `crawl(start_url, html_parser)`. You are building a tiny web crawler. The object
+`html_parser` has one method, `html_parser.get_urls(url)`, which returns the list of URLs
+linked from the page at `url`. Starting from `start_url`, visit every page you can reach by
+following links, but only pages whose hostname is the same as the hostname of `start_url`.
+Return all those URLs, including `start_url`, in any order, with each URL listed once.
+
+Every URL looks like `http://hostname/optional/path` with no port, and the hostname is the
+text between `http://` and the next `/` (or the end of the string). `http://news.yahoo.com`
+and `http://news.yahoo.com/us` share a hostname, while `http://yahoo.com` is a different
+hostname. Treat two URLs as the same page only if the strings are identical, and call
+`get_urls` at most once per page.
+
+**Example 1:**
+
+```
+Input: links = {
+  "http://news.yahoo.com/news/topics/": ["http://news.yahoo.com/news", "http://news.yahoo.com"],
+  "http://news.yahoo.com/news": ["http://news.google.com"],
+  "http://news.yahoo.com": ["http://news.yahoo.com/us", "http://news.yahoo.com/news/topics/"],
+  "http://news.google.com": ["http://news.yahoo.com/news"],
+  "http://news.yahoo.com/us": []
+}, start_url = "http://news.yahoo.com/news/topics/"
+Output: ["http://news.yahoo.com", "http://news.yahoo.com/news", "http://news.yahoo.com/news/topics/", "http://news.yahoo.com/us"]
+```
+
+**Example 2:**
+
+```
+Input: same links as above, start_url = "http://news.google.com"
+Output: ["http://news.google.com"]
+```
+
+**Constraints:**
+
+- At most 1000 distinct URLs, each at most 300 characters
+- Hostnames are lowercase letters, digits, `.`, and `-`
+- `start_url` is one of the URLs the parser knows about
+"""

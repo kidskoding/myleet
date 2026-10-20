@@ -1,0 +1,43 @@
+id = "paint-house"
+title = "Paint House"
+difficulty = "medium"
+leetcode = 256
+url = "https://leetcode.com/problems/paint-house/"
+key_idea = "Row-by-row DP: the cheapest way to paint house i color c is costs[i][c] plus the cheaper of the other two colors for house i - 1."
+hints = ["Greedy picks of the cheapest color fail. What do you need to remember about the previous house?", "Keep the best total for each of the 3 colors at the previous house; new[c] = costs[i][c] + min of the previous totals for the other two colors."]
+prompt = """
+Write `min_cost(costs)`. A row of `n` houses must each be painted red, green, or blue, and no
+two neighboring houses may share a color. `costs[i]` is a list of three numbers: the price of
+painting house `i` red, green, and blue, in that order.
+
+Return the minimum total price to paint every house. An empty row costs 0.
+
+**Example 1:**
+
+```
+Input: costs = [[17,2,17],[16,16,5],[14,3,19]]
+Output: 10
+```
+
+Paint house 0 green, house 1 blue, house 2 green: 2 + 5 + 3 = 10.
+
+**Example 2:**
+
+```
+Input: costs = [[7,6,2]]
+Output: 2
+```
+
+**Example 3:**
+
+```
+Input: costs = [[1,2,100],[1,100,100]]
+Output: 3
+```
+
+**Constraints:**
+
+- `0 <= n <= 100`
+- `len(costs[i]) == 3`
+- `1 <= costs[i][j] <= 20`
+"""

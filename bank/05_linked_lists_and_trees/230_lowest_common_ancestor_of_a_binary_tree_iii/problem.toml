@@ -1,0 +1,37 @@
+id = "lowest-common-ancestor-of-a-binary-tree-iii"
+title = "Lowest Common Ancestor of a Binary Tree III"
+difficulty = "medium"
+leetcode = 1650
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
+key_idea = "Parent pointers turn each node's path to the root into a linked list; find the intersection with two switching pointers."
+hints = ["Following parent pointers from p and from q gives two lists that merge at some node. Seen this before?", "Walk a from p and b from q upward; when one falls off the root, restart it at the other start node. They meet at the LCA after at most depth(p) + depth(q) steps."]
+prompt = """
+Write `lowest_common_ancestor(p, q)`. Every `Node` of a binary tree has `val`, `left`,
+`right` and `parent` (the root's parent is `None`). You are given only the two nodes `p`
+and `q`, not the root.
+
+Return the lowest common ancestor of `p` and `q`: the deepest node that has both of them
+as descendants, where a node counts as a descendant of itself. Return the node object.
+
+**Example 1:**
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+```
+
+**Example 2:**
+
+```
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+```
+
+`5` is an ancestor of `4`, and a node is its own descendant.
+
+**Constraints:**
+
+- The number of nodes is in the range `[2, 10^5]`
+- All `Node.val` are unique
+- `p` and `q` are both in the same tree
+"""

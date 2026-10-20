@@ -1,0 +1,39 @@
+id = "design-tic-tac-toe"
+title = "Design Tic-Tac-Toe"
+difficulty = "medium"
+leetcode = 348
+url = "https://leetcode.com/problems/design-tic-tac-toe/"
+key_idea = "Signed counters per row, column and both diagonals; a player wins when a counter reaches +-n."
+hints = ["Do you need to scan the board after each move, or only the lines through the new mark?", "Keep one running sum per row, column and diagonal: +1 for player 1, -1 for player 2. An absolute value of n means that line is full of one player."]
+prompt = """
+Implement a `TicTacToe` class for an `n x n` board played by players `1` and `2`.
+
+- `TicTacToe(n)` creates an empty board.
+- `move(row, col, player)` places `player`'s mark in the empty cell `(row, col)` and
+  returns the winner after this move: `player` if they now own a complete row, column,
+  main diagonal or anti-diagonal, otherwise `0`.
+
+Every move is to an empty cell, and no moves are made after someone has won.
+
+**Example 1:**
+
+```
+Input: TicTacToe(3); move(0,0,1); move(1,0,2); move(0,1,1); move(1,1,2); move(0,2,1)
+Output: 0, 0, 0, 0, 1
+```
+
+**Example 2:**
+
+```
+Input: TicTacToe(3); move(0,2,2); move(0,0,1); move(1,1,2); move(1,0,1); move(2,0,2)
+Output: 0, 0, 0, 0, 2
+```
+
+Player 2 completes the anti-diagonal `(0,2), (1,1), (2,0)`.
+
+**Constraints:**
+
+- `1 <= n <= 100`
+- `player` is `1` or `2`
+- At most `n * n` calls to `move`
+"""

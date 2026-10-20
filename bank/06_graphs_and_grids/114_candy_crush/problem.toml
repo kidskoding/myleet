@@ -1,0 +1,52 @@
+id = "candy-crush"
+title = "Candy Crush"
+difficulty = "medium"
+leetcode = 723
+url = "https://leetcode.com/problems/candy-crush/"
+key_idea = "Repeat: mark every horizontal/vertical run of 3+ equal non-zero cells (mark all before clearing), zero them, then drop each column with a write pointer; stop when nothing is marked."
+hints = ["Find all crushable cells in one pass before changing anything, because one cell can be in a row run and a column run.", "After clearing, compact each column from the bottom up, then loop until a pass finds nothing."]
+prompt = """
+Implement `candy_crush(board)`. The grid `board` holds candies: a positive integer is a
+candy type and `0` is an empty cell. Settle the board with these rules and return it
+(modifying it in place is fine):
+
+1. Find every group of three or more cells in a straight horizontal or vertical line that
+   hold the same non-zero type. Mark all such cells at once; a cell can belong to both a
+   horizontal and a vertical group.
+2. If nothing is marked, the board is stable; return it.
+3. Otherwise set every marked cell to `0`. Then, in each column, let candies fall down
+   to fill the empty cells below them, keeping their order. Empty cells end up at the
+   top of the column.
+4. Go back to step 1.
+
+**Example 1:**
+
+```
+Input: board = [[1,1,1],[1,2,3],[1,4,5]]
+Output: [[0,0,0],[0,2,3],[0,4,5]]
+```
+
+The top row and the left column are both groups and are cleared together.
+
+**Example 2:**
+
+```
+Input: board = [[3,1,4],[2,2,2],[3,5,6],[3,7,8]]
+Output: [[0,0,0],[0,1,4],[0,5,6],[0,7,8]]
+```
+
+Clearing the row of `2`s drops the top `3` onto the two `3`s below it, which forms a
+new vertical group.
+
+**Example 3:**
+
+```
+Input: board = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [[1,2,3],[4,5,6],[7,8,9]]
+```
+
+**Constraints:**
+
+- `3 <= board.length, board[i].length <= 50`
+- `1 <= board[i][j] <= 2000` in the input
+"""

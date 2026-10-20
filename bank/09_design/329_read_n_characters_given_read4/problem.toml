@@ -1,0 +1,47 @@
+id = "read-n-characters-given-read4"
+title = "Read N Characters Given Read4"
+difficulty = "easy"
+leetcode = 157
+url = "https://leetcode.com/problems/read-n-characters-given-read4/"
+key_idea = "Loop calling read4 into a 4-slot temp buffer and copy min(got, n - total) chars into buf; stop when read4 returns fewer than 4 or n is reached."
+hints = ["read4 can only hand you chunks of up to 4 characters. How do you keep track of how many you still need?", "Repeatedly fill a temp list of 4 slots, copy only as many as you still need into buf, and stop on a short read or when you have n characters."]
+prompt = """
+Write `read(buf, n, read4)`. A file can only be read through the function `read4(buf4)`: it
+takes a list `buf4` with 4 slots, writes up to the next 4 characters of the file into
+`buf4[0]`, `buf4[1]`, and so on, and returns how many characters it wrote. It returns fewer
+than 4 once the end of the file is reached, and 0 after that. Each call continues where the
+previous one stopped.
+
+Using only `read4`, copy up to `n` characters of the file into `buf` (a list with at least `n`
+slots, starting at index 0) and return how many characters you copied. `read` is called once
+per file.
+
+**Example 1:**
+
+```
+Input: file = "abc", n = 4
+Output: 3, buf starts with "abc"
+```
+
+The file only has 3 characters.
+
+**Example 2:**
+
+```
+Input: file = "leetcode", n = 5
+Output: 5, buf starts with "leetc"
+```
+
+**Example 3:**
+
+```
+Input: file = "abcdABCD1234", n = 12
+Output: 12, buf starts with "abcdABCD1234"
+```
+
+**Constraints:**
+
+- `0 <= len(file) <= 500`
+- `1 <= n <= 1000`
+- The file contains English letters and digits
+"""

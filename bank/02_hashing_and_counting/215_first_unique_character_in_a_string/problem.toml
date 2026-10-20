@@ -1,0 +1,8 @@
+id = "first-unique-character-in-a-string"
+title = "First Unique Character in a String"
+difficulty = "easy"
+leetcode = 387
+url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
+key_idea = "Count characters in one pass, then return the first index whose count is 1."
+hints = ["You cannot know a character is unique until you have seen the whole string.", "Build a frequency map first, then scan again from the left for a count of 1."]
+prompt = ""

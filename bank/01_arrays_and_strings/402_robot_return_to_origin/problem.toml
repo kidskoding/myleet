@@ -1,0 +1,8 @@
+id = "robot-return-to-origin"
+title = "Robot Return to Origin"
+difficulty = "easy"
+leetcode = 657
+url = "https://leetcode.com/problems/robot-return-to-origin/"
+key_idea = "Count moves: the robot is home iff U equals D and L equals R."
+hints = ["Track the horizontal and vertical offset separately.", "Opposite moves cancel, so compare the counts of each pair."]
+prompt = ""

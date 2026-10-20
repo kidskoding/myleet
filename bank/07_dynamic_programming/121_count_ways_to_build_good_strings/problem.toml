@@ -1,0 +1,8 @@
+id = "count-ways-to-build-good-strings"
+title = "Count Ways To Build Good Strings"
+difficulty = "medium"
+leetcode = 2466
+url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
+key_idea = "dp[length] = dp[length - zero] + dp[length - one] (mod 1e9+7), summed over lengths in [low, high]."
+hints = ["Only the length of the string matters, not its contents so far.", "The number of strings of length L is the count of length L - zero plus the count of length L - one."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "longest-arithmetic-subsequence"
+title = "Longest Arithmetic Subsequence"
+difficulty = "medium"
+leetcode = 1027
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence/"
+key_idea = "dp[i][diff] = length of the longest arithmetic subsequence ending at i with that difference, extended from every j < i."
+hints = ["A subsequence ending at index i is defined by its last element and its common difference.", "Give each index a dict diff -> length. For every j < i, dp[i][a[i] - a[j]] = dp[j].get(diff, 1) + 1."]
+prompt = ""

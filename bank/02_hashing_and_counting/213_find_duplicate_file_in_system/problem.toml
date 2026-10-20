@@ -1,0 +1,8 @@
+id = "find-duplicate-file-in-system"
+title = "Find Duplicate File in System"
+difficulty = "medium"
+leetcode = 609
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+key_idea = "Parse each entry and group full file paths by content in a hash map; keep groups of size > 1."
+hints = ["Two files are duplicates when their content strings match. What should the map key be?", "Split each line into directory and files, split each file at '(' into name and content, and append directory/name to map[content]."]
+prompt = ""

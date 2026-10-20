@@ -1,0 +1,8 @@
+id = "reorder-data-in-log-files"
+title = "Reorder Data in Log Files"
+difficulty = "medium"
+leetcode = 937
+url = "https://leetcode.com/problems/reorder-data-in-log-files/"
+key_idea = "Custom sort key: letter-logs get (0, content, identifier) and digit-logs get (1,), and a stable sort keeps digit-logs in their original order."
+hints = ["There are two kinds of logs with different ordering rules. Can a single sort key encode both?", "Split each log into identifier and content; key letter-logs by (0, content, identifier) and digit-logs by (1,). Python's sort is stable, so digit-logs keep their order."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "shopping-offers"
+title = "Shopping Offers"
+difficulty = "medium"
+leetcode = 638
+url = "https://leetcode.com/problems/shopping-offers/"
+key_idea = "Memoized DFS over the remaining needs tuple: try every applicable offer, or buy the rest at list price."
+hints = ["The state is just how many of each item you still need.", "From a state, either pay list price for everything left or apply one offer that does not overshoot, then recurse with memoization."]
+prompt = ""

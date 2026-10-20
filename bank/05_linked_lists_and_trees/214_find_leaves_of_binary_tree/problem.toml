@@ -1,0 +1,33 @@
+id = "find-leaves-of-binary-tree"
+title = "Find Leaves of Binary Tree"
+difficulty = "medium"
+leetcode = 366
+url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
+key_idea = "Group nodes by height from the bottom (leaf = 0) with a post-order DFS; height h goes in round h."
+hints = ["In which removal round does a node disappear? Think about its distance to the deepest leaf below it.", "Compute height bottom-up (leaf = 0, parent = 1 + max child) and append each node to bucket[height]."]
+prompt = """
+Write `find_leaves(root)`. Repeatedly remove every leaf of the binary tree until the
+tree is empty, and record the values removed in each round. Return the rounds as a list
+of lists, first round first. Within one round, list the values from left to right.
+
+**Example 1:**
+
+```
+Input: root = [1,2,3,4,5]
+Output: [[4,5,3],[2],[1]]
+```
+
+Leaves `4`, `5` and `3` go first, which makes `2` a leaf, then only `1` remains.
+
+**Example 2:**
+
+```
+Input: root = [1,2,null,3]
+Output: [[3],[2],[1]]
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[0, 100]`
+- `-100 <= Node.val <= 100`
+"""

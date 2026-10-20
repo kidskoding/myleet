@@ -1,0 +1,43 @@
+id = "design-snake-game"
+title = "Design Snake Game"
+difficulty = "medium"
+leetcode = 353
+url = "https://leetcode.com/problems/design-snake-game/"
+key_idea = "Deque for the body plus a set of occupied cells; drop the tail before the collision check unless eating."
+hints = ["Each move only changes the two ends of the snake. Which structure updates both ends in O(1)?", "Keep the body in a deque and its cells in a set. Remove the tail first when not eating, so moving into the cell the tail just left is legal."]
+prompt = """
+Implement a `SnakeGame` class for a snake moving on a grid with `height` rows and `width`
+columns. The snake starts in the top-left cell `[0, 0]` with length 1.
+
+`food` is a list of `[row, col]` cells. Food appears one piece at a time, in list order:
+the next piece shows up only after the current one is eaten, and it never appears on the
+snake. Eating food makes the snake one cell longer and adds one point to the score.
+
+`move(direction)` moves the head one cell, where `direction` is `"U"`, `"D"`, `"L"` or
+`"R"`, and returns the score after the move. Return `-1` if the move ends the game: the
+head leaves the grid or lands on the snake's own body. The cell the tail vacates during
+the same move counts as free.
+
+**Example 1:**
+
+```
+Input: SnakeGame(3, 2, [[1, 2], [0, 1]]); moves R, D, R, U, L, U
+Output: 0, 0, 1, 1, 2, -1
+```
+
+**Example 2:**
+
+```
+Input: SnakeGame(3, 3, [[0, 1], [1, 1], [1, 0]]); moves R, D, L, U, R
+Output: 1, 2, 3, 3, 3
+```
+
+The length-4 snake loops around a 2x2 square, always stepping into the cell its tail
+just left.
+
+**Constraints:**
+
+- `1 <= width, height <= 10^4`
+- `0 <= len(food) <= 50`, every food cell is inside the grid
+- No `move` is called after the game has ended
+"""

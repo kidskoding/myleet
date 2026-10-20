@@ -1,0 +1,8 @@
+id = "count-and-say"
+title = "Count and Say"
+difficulty = "medium"
+leetcode = 38
+url = "https://leetcode.com/problems/count-and-say/"
+key_idea = "Iterate n - 1 times, run-length encoding the previous string as count followed by digit."
+hints = ["Each term describes the previous term out loud.", "Scan the previous term grouping equal adjacent digits, and write count then digit for each group."]
+prompt = ""

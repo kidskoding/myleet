@@ -1,0 +1,48 @@
+id = "design-file-system"
+title = "Design File System"
+difficulty = "medium"
+leetcode = 1166
+url = "https://leetcode.com/problems/design-file-system/"
+key_idea = "Hash map from full path to value; a create succeeds only if the path is new and its parent prefix (up to the last '/') exists."
+hints = ["The only rule is about the parent path, which is everything before the last slash.", "A dictionary keyed by the full path string is enough; the root's children have an empty parent."]
+prompt = """
+Implement the `FileSystem` class, which stores an integer value at each created path.
+A path is one or more segments of lowercase letters, each preceded by `/`, such as
+`"/leet"` or `"/leet/code"`. The empty path and `"/"` are never used.
+
+- `FileSystem()` starts with no paths.
+- `create_path(path, value)` creates `path` holding `value` and returns `True`. It
+  creates nothing and returns `False` if `path` already exists, or if its parent (the
+  path with its last segment removed) does not exist. Top-level paths like `"/a"` have
+  no parent requirement.
+- `get(path)` returns the value stored at `path`, or `-1` if the path does not exist.
+
+**Example 1:**
+
+```
+Input:  create_path("/leet", 1), create_path("/leet/code", 2), get("/leet/code")
+Output: True, True, 2
+```
+
+**Example 2:**
+
+```
+Input:  create_path("/c/d", 1), get("/c")
+Output: False, -1
+```
+
+`"/c"` does not exist, so `"/c/d"` cannot be created.
+
+**Example 3:**
+
+```
+Input:  create_path("/a", 1), create_path("/a", 5), get("/a")
+Output: True, False, 1
+```
+
+**Constraints:**
+
+- `2 <= path.length <= 100`
+- `1 <= value <= 10^9`
+- At most `10^4` calls in total
+"""

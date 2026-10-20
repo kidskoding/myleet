@@ -1,0 +1,38 @@
+id = "dot-product-of-two-sparse-vectors"
+title = "Dot Product of Two Sparse Vectors"
+difficulty = "medium"
+leetcode = 1570
+url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
+key_idea = "Store only nonzero (index, value) entries in a dict and iterate the smaller one."
+hints = ["Most entries are zero and contribute nothing. What is the minimum you need to store?", "Keep index -> value for nonzeros only; loop over the smaller map and look up the other."]
+prompt = """
+Implement a `SparseVector` class for vectors where most entries are zero.
+
+- `SparseVector(nums)` builds a vector from the list `nums`.
+- `dot_product(vec)` returns the dot product of this vector with another
+  `SparseVector` of the same length: the sum of `self[i] * vec[i]` over every index.
+
+Store the vector so that the work in `dot_product` depends on how many nonzero entries
+there are, not on the full length.
+
+**Example 1:**
+
+```
+Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
+Output: 8
+```
+
+Only index 3 is nonzero in both: `2 * 4 = 8`.
+
+**Example 2:**
+
+```
+Input: nums1 = [0,1,0,0,2,0,0], nums2 = [1,0,0,0,3,0,4]
+Output: 6
+```
+
+**Constraints:**
+
+- `1 <= len(nums) <= 10^5`, both vectors have the same length
+- `-100 <= nums[i] <= 100`
+"""

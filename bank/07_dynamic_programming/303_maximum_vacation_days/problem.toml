@@ -1,0 +1,49 @@
+id = "maximum-vacation-days"
+title = "Maximum Vacation Days"
+difficulty = "hard"
+leetcode = 568
+url = "https://leetcode.com/problems/maximum-vacation-days/"
+key_idea = "DP over weeks: best[c] is the most vacation days possible while spending the current week in city c; transition from every city that can stay or fly to c."
+hints = ["Your choice each week only depends on which city you are in at the start of it. What state does that suggest?", "Keep best[c] for the current week; next week's best[c'] is max over cities c that equal c' or have a flight to c', plus days[c'][week]."]
+prompt = """
+Write `max_vacation_days(flights, days)`. There are `n` cities numbered `0` to `n - 1`, and you
+will travel for `k` weeks, starting in city `0`. `flights[i][j] == 1` means a direct flight goes
+from city `i` to city `j` (flights are one-way; `flights[i][i]` is always `0`). Flights only
+leave on the first morning of a week, and you may take at most one flight that morning,
+including the morning of week `0`. You may also simply stay where you are.
+
+`days[i][w]` is the number of vacation days you are allowed to take if you spend week `w` in
+city `i`. Return the largest total number of vacation days you can take over all `k` weeks.
+
+**Example 1:**
+
+```
+Input: flights = [[0,1,1],[1,0,1],[1,1,0]], days = [[1,3,1],[6,0,3],[3,3,3]]
+Output: 12
+```
+
+Fly to city 1 for week 0 (6 days), fly to city 2 for week 1 (3 days), stay in city 2 for week 2 (3 days).
+
+**Example 2:**
+
+```
+Input: flights = [[0,0,0],[0,0,0],[0,0,0]], days = [[1,1,1],[7,7,7],[7,7,7]]
+Output: 3
+```
+
+No flights exist, so you spend every week in city 0.
+
+**Example 3:**
+
+```
+Input: flights = [[0,1],[0,0]], days = [[1,1,1],[0,9,0]]
+Output: 10
+```
+
+**Constraints:**
+
+- `n == len(flights) == len(days)`, `k == len(days[i])`
+- `1 <= n, k <= 100`
+- `flights[i][j]` is `0` or `1`, and `flights[i][i] == 0`
+- `0 <= days[i][w] <= 7`
+"""

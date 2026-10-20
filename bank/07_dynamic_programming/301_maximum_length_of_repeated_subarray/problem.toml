@@ -1,0 +1,8 @@
+id = "maximum-length-of-repeated-subarray"
+title = "Maximum Length of Repeated Subarray"
+difficulty = "medium"
+leetcode = 718
+url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
+key_idea = "DP where dp[i][j] is the length of the common run ending at nums1[i-1] and nums2[j-1]; reset to 0 on mismatch."
+hints = ["A shared subarray must end somewhere in both arrays. What do you know if it ends at nums1[i] and nums2[j]?", "If nums1[i] == nums2[j], the run ending there is one longer than the run ending at (i-1, j-1); otherwise it is 0."]
+prompt = ""

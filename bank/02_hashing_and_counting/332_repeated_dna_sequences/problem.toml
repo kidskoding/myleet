@@ -1,0 +1,8 @@
+id = "repeated-dna-sequences"
+title = "Repeated DNA Sequences"
+difficulty = "medium"
+leetcode = 187
+url = "https://leetcode.com/problems/repeated-dna-sequences/"
+key_idea = "Slide a length-10 window and record each substring in a seen set; a window already in seen goes into the answer set."
+hints = ["There are only len(s) - 9 windows of length 10. How do you notice the second time a window shows up?", "Keep a set of windows seen once and a set of windows seen again; return the second set. A rolling 2-bit encoding makes each window O(1)."]
+prompt = ""

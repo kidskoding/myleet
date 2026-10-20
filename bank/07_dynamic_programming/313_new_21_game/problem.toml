@@ -1,0 +1,8 @@
+id = "new-21-game"
+title = "New 21 Game"
+difficulty = "medium"
+leetcode = 837
+url = "https://leetcode.com/problems/new-21-game/"
+key_idea = "Probability DP with a sliding window: P(x) = (sum of P over the previous max_pts totals that are still drawing) / max_pts."
+hints = ["Let P(x) be the chance of ever standing on total x. Which earlier totals can lead directly to x?", "P(x) = (P(x-1) + ... + P(x-max_pts)) / max_pts, counting only totals below k (she stops at k); keep that window sum running instead of re-adding it."]
+prompt = ""

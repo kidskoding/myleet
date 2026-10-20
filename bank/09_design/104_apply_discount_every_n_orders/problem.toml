@@ -1,0 +1,8 @@
+id = "apply-discount-every-n-orders"
+title = "Apply Discount Every n Orders"
+difficulty = "medium"
+leetcode = 1357
+url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
+key_idea = "Map product id -> price once, count bills, and apply the percentage discount when the count hits a multiple of n."
+hints = ["Build a price lookup in the constructor.", "Keep a running customer counter; every n-th bill multiplies by (100 - discount) / 100."]
+prompt = ""

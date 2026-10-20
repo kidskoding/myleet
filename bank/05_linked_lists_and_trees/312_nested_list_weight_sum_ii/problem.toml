@@ -1,0 +1,49 @@
+id = "nested-list-weight-sum-ii"
+title = "Nested List Weight Sum II"
+difficulty = "medium"
+leetcode = 364
+url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
+key_idea = "Two passes: find the maximum depth of any integer, then DFS adding value * (max_depth - depth + 1)."
+hints = ["The weight of an integer depends on the deepest integer anywhere in the input. What must you know before you can weight anything?", "First DFS for the maximum depth at which an integer appears (empty lists do not count), then a second DFS with weight max_depth - depth + 1."]
+prompt = """
+Write `depth_sum_inverse(nested_list)`. The input is a Python list whose elements are either
+integers or further lists of the same shape, nested to any depth. The depth of an integer is the
+number of lists it sits inside, so integers directly inside `nested_list` have depth 1.
+
+Let `max_depth` be the largest depth of any integer in the input (lists that contain no integers
+do not count). The weight of an integer is `max_depth - depth + 1`, so the deepest integers have
+weight 1. Return the sum of every integer multiplied by its weight.
+
+**Example 1:**
+
+```
+Input: nested_list = [[1,1],2,[1,1]]
+Output: 8
+```
+
+`max_depth` is 2. Four 1s with weight 1 and one 2 with weight 2: 4 + 4 = 8.
+
+**Example 2:**
+
+```
+Input: nested_list = [1,[4,[6]]]
+Output: 17
+```
+
+1 * 3 + 4 * 2 + 6 * 1 = 17.
+
+**Example 3:**
+
+```
+Input: nested_list = [[],3]
+Output: 3
+```
+
+The empty list holds no integer, so `max_depth` is 1.
+
+**Constraints:**
+
+- The input holds at most `50` values and lists in total
+- Integers are in the range `[-100, 100]`
+- The nesting depth is at most `50`
+"""

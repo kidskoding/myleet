@@ -1,0 +1,8 @@
+id = "delete-operation-for-two-strings"
+title = "Delete Operation for Two Strings"
+difficulty = "medium"
+leetcode = 583
+url = "https://leetcode.com/problems/delete-operation-for-two-strings/"
+key_idea = "Find the longest common subsequence with a 2D DP; answer = len(a) + len(b) - 2 * LCS."
+hints = ["What survives the deletions is a common subsequence of both strings.", "Maximize what survives: compute the LCS length, and every other character is deleted."]
+prompt = ""

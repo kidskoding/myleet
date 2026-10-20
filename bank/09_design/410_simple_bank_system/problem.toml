@@ -1,0 +1,8 @@
+id = "simple-bank-system"
+title = "Simple Bank System"
+difficulty = "medium"
+leetcode = 2043
+url = "https://leetcode.com/problems/simple-bank-system/"
+key_idea = "Store balances in a list; validate account numbers and funds before mutating anything."
+hints = ["Accounts are numbered from 1, so map account a to index a - 1.", "Check both accounts exist and the balance covers the amount before changing either balance."]
+prompt = ""

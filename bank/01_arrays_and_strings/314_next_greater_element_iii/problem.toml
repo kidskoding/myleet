@@ -1,0 +1,8 @@
+id = "next-greater-element-iii"
+title = "Next Greater Element III"
+difficulty = "medium"
+leetcode = 556
+url = "https://leetcode.com/problems/next-greater-element-iii/"
+key_idea = "Next permutation on the digits: find the rightmost dip, swap it with the smallest larger digit to its right, reverse the suffix; reject results above 2^31 - 1."
+hints = ["Treat the digits as a sequence. Which digit is the rightmost one you can increase by rearranging only what is to its right?", "Find the rightmost i with d[i] < d[i+1], swap d[i] with the rightmost digit larger than it, then reverse d[i+1:]. Check the 32-bit limit."]
+prompt = ""
