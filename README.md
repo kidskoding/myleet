@@ -92,7 +92,7 @@ shows the keys for the current screen, and `?` opens the full list.
 | `1` | Today     | Due reviews, most overdue first, then a few new problems                |
 | `2` | Map       | Start-here notes, then modules → techniques → problems; `n` opens notes |
 | `3` | Interview | Timed 45-minute round, technique hidden, hints cost 3 minutes           |
-| `4` | Playlists | Company problem sets with progress per company                          |
+| `4` | Playlists | 207 company problem sets in five groups, with progress per company      |
 | `5` | Stats     | Streak, mastery, median time, solve heatmap, weakest techniques         |
 
 `enter` on a problem opens **Focus**: the statement on the left and a sidebar with the
