@@ -1,0 +1,7 @@
+id = "count-the-number-of-incremovable-subarrays-ii"
+title = "Count the Number of Incremovable Subarrays II"
+difficulty = "hard"
+leetcode = 2972
+url = "https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-ii/"
+key_idea = "What survives is a strictly increasing prefix plus a strictly increasing suffix whose first element exceeds the prefix's last; for each prefix end, move a pointer over the increasing suffix to count valid suffix starts."
+hints = ["After removing a subarray, what remains is a prefix glued to a suffix. What must each look like?", "As the kept prefix grows, the earliest allowed suffix start only moves right."]

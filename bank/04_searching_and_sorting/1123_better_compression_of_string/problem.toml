@@ -1,0 +1,48 @@
+id = "better-compression-of-string"
+title = "Better Compression of String"
+difficulty = "medium"
+leetcode = 3167
+url = "https://leetcode.com/problems/better-compression-of-string/"
+key_idea = "Parse each letter and its (possibly multi-digit) count, sum counts per letter in a 26-slot table, then emit letters in alphabetical order."
+hints = ["A count can have more than one digit, so read digits until the next letter.", "The same letter can show up in several places; its counts add up."]
+prompt = """
+Implement `better_compression(compressed)`.
+
+`compressed` is a compressed string: a sequence of pieces, each a lowercase letter followed by
+a positive integer saying how many times that letter appears. For example `"a3b1a1c2"`
+describes `"aaabaccc"`. The same letter may appear in more than one piece.
+
+Return a better compression of the same multiset of letters, in which:
+
+- every letter appears in only one piece, with its total count, and
+- the pieces are in alphabetical order.
+
+**Example 1:**
+
+```
+Input: compressed = "a3c9b2c1"
+Output: "a3b2c10"
+```
+
+The letter `c` appears in two pieces, so its counts `9` and `1` combine into `10`.
+
+**Example 2:**
+
+```
+Input: compressed = "c2b3a1"
+Output: "a1b3c2"
+```
+
+**Example 3:**
+
+```
+Input: compressed = "a2b4c1"
+Output: "a2b4c1"
+```
+
+**Constraints:**
+
+- `1 <= compressed.length <= 6 * 10^4`
+- `compressed` is a valid compression: lowercase letters each followed by a count
+- Each count is between `1` and `10^4` and has no leading zeros
+"""

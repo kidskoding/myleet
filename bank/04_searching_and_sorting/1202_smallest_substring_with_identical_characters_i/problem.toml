@@ -1,0 +1,7 @@
+id = "smallest-substring-with-identical-characters-i"
+title = "Smallest Substring With Identical Characters I"
+difficulty = "hard"
+leetcode = 3398
+url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-i/"
+key_idea = "Binary search the answer m: for m = 1 compare s against both alternating patterns; for m >= 2 a run of length L needs L // (m + 1) flips, so check the total against numOps."
+hints = ["If a maximum run length m is achievable, so is any larger one.", "For a fixed limit, count flips per maximal run independently, but treat a limit of 1 separately because flips there interact with neighbors."]

@@ -1,0 +1,7 @@
+id = "word-squares-ii"
+title = "Word Squares II"
+difficulty = "medium"
+leetcode = 3799
+url = "https://leetcode.com/problems/word-squares-ii/"
+key_idea = "With at most 15 words, try every ordered choice of four distinct words for top, left, right and bottom, pruning as soon as a corner letter disagrees, then sort the squares."
+hints = ["Only the first and last letters of each word matter.", "Fix the top word first; it constrains the first letters of both left and right."]

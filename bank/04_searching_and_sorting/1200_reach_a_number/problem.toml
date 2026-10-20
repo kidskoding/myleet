@@ -1,0 +1,7 @@
+id = "reach-a-number"
+title = "Reach a Number"
+difficulty = "medium"
+leetcode = 754
+url = "https://leetcode.com/problems/reach-a-number/"
+key_idea = "By symmetry use |target|; take the smallest k with 1+...+k >= target, then keep adding steps until the overshoot is even, since flipping step i changes the sum by 2i."
+hints = ["The sign of the target does not matter, and moving only right gives the triangular numbers.", "Reversing the direction of one step changes your final position by an even amount."]

@@ -1,0 +1,7 @@
+id = "sort-the-jumbled-numbers"
+title = "Sort the Jumbled Numbers"
+difficulty = "medium"
+leetcode = 2191
+url = "https://leetcode.com/problems/sort-the-jumbled-numbers/"
+key_idea = "Compute each number's mapped value digit by digit and use it as a stable sort key, keeping the original numbers."
+hints = ["Build the mapped value from the decimal digits, remembering that 0 is a digit too.", "Python's sort is stable, so equal keys keep their input order."]

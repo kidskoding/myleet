@@ -1,0 +1,7 @@
+id = "sort-the-matrix-diagonally"
+title = "Sort the Matrix Diagonally"
+difficulty = "medium"
+leetcode = 1329
+url = "https://leetcode.com/problems/sort-the-matrix-diagonally/"
+key_idea = "Cells on one diagonal share i - j: bucket values by i - j, sort each bucket, and write them back in row order."
+hints = ["Find a quantity that is constant along a top-left to bottom-right diagonal.", "Sort each group, then refill the cells in the same order you read them."]

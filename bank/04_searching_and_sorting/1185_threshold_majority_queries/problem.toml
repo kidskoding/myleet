@@ -1,0 +1,7 @@
+id = "threshold-majority-queries"
+title = "Threshold Majority Queries"
+difficulty = "hard"
+leetcode = 3636
+url = "https://leetcode.com/problems/threshold-majority-queries/"
+key_idea = "Offline Mo's algorithm with rollback: group queries by the block of their left end, grow the right end monotonically, add the left part temporarily and undo it, so the best (frequency, smallest value) only ever needs insertions."
+hints = ["Answering each query from scratch costs too much; reorder the queries offline.", "Tracking the most frequent value is easy when you only add elements, so arrange the work to avoid removals."]

@@ -1,0 +1,7 @@
+id = "subsequence-with-the-minimum-score"
+title = "Subsequence With the Minimum Score"
+difficulty = "hard"
+leetcode = 2565
+url = "https://leetcode.com/problems/subsequence-with-the-minimum-score/"
+key_idea = "Removing a whole index range is optimal, so precompute for each split of s the shortest suffix of t matchable to its right, then sweep the greedy prefix match of t and minimise the gap between them."
+hints = ["Once you remove t[left] and t[right], removing everything between them is free.", "Match a prefix of t greedily from the left of s and a suffix of t greedily from the right; where can they meet?"]
