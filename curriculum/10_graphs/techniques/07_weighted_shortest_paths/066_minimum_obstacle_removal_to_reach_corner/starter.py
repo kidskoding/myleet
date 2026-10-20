@@ -1,5 +1,5 @@
 def minimum_obstacles(grid: list[list[int]]) -> int:
-    # Problem 66: Minimum Obstacle Removal To Reach Corner
+    # Problem 66: Minimum Obstacle Removal to Reach Corner
     # Time:
     # Space:
 

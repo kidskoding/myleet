@@ -1,5 +1,5 @@
 def open_lock(deadends: list[str], target: str) -> int:
-    # Problem 51: Open The Lock
+    # Problem 51: Open the Lock
     # Time:
     # Space:
 

@@ -5,7 +5,7 @@ def max_probability(
     start: int,
     end: int,
 ) -> float:
-    # Problem 63: Path With Maximum Probability
+    # Problem 63: Path with Maximum Probability
     # Time:
     # Space:
 
