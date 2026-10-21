@@ -1,0 +1,7 @@
+id = "count-subarrays-with-median-k"
+title = "Count Subarrays With Median K"
+difficulty = "hard"
+leetcode = 2488
+url = "https://leetcode.com/problems/count-subarrays-with-median-k/"
+key_idea = "Map values to -1/0/+1 relative to k; from k's index, balance prefixes of +1 vs -1 so the median stays k (balance 0 or 1 for odd/even length)."
+hints = ["The median of a subarray is k only if the subarray contains k.", "Track running #greater - #less as you expand left and right from k."]

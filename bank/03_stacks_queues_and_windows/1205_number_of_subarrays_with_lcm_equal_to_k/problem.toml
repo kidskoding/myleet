@@ -1,0 +1,7 @@
+id = "number-of-subarrays-with-lcm-equal-to-k"
+title = "Number of Subarrays With LCM Equal to K"
+difficulty = "medium"
+leetcode = 2470
+url = "https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/"
+key_idea = "For each left endpoint, grow right while updating LCM; stop when LCM exceeds k; count equals."
+hints = ["LCM only grows (or stays) as the window expands.", "lcm(a,b) = a*b // gcd(a,b); break early once LCM > k."]

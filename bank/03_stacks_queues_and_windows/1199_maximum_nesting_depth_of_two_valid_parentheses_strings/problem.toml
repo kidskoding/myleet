@@ -1,0 +1,8 @@
+id = "maximum-nesting-depth-of-two-valid-parentheses-strings"
+title = "Maximum Nesting Depth of Two Valid Parentheses Strings"
+difficulty = "medium"
+leetcode = 1111
+url = "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/"
+key_idea = "Split parentheses by depth parity so the two groups max depths stay as balanced as possible."
+hints = ["Assign each open paren by current depth parity.", "Closing paren uses the depth after decrement."]
+prompt = ""

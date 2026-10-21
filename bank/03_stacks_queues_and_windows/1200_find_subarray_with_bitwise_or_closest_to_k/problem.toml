@@ -1,0 +1,7 @@
+id = "find-subarray-with-bitwise-or-closest-to-k"
+title = "Find Subarray With Bitwise OR Closest to K"
+difficulty = "hard"
+leetcode = 3171
+url = "https://leetcode.com/problems/find-subarray-with-bitwise-or-closest-to-k/"
+key_idea = "For each right endpoint keep the O(log) distinct OR values of subarrays ending there; OR is monotone so the set stays tiny."
+hints = ["Extending a subarray can only turn more bits on.", "At most ~30 distinct OR values end at any index."]

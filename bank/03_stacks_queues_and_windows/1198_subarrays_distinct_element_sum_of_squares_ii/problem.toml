@@ -1,0 +1,8 @@
+id = "subarrays-distinct-element-sum-of-squares-ii"
+title = "Subarrays Distinct Element Sum of Squares II"
+difficulty = "hard"
+leetcode = 2916
+url = "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-ii/"
+key_idea = "Scan by right endpoint; when a value reappears, range-add +1 to distinct counts on (prev, r] in a segment tree that tracks sum of squares."
+hints = ["(x+1)^2 = x^2 + 2x + 1, so a range increment updates sum and sum-of-squares together.", "Only left endpoints after the previous occurrence of nums[r] gain a new distinct."]
+prompt = ""

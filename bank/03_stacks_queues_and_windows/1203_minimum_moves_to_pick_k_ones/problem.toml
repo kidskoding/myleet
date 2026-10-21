@@ -1,0 +1,7 @@
+id = "minimum-moves-to-pick-k-ones"
+title = "Minimum Moves to Pick K Ones"
+difficulty = "hard"
+leetcode = 3086
+url = "https://leetcode.com/problems/minimum-moves-to-pick-k-ones/"
+key_idea = "Take a sliding window of existing ones (median gather cost) and cover the rest with 2-move changes; at most three nearby ones beat farther gathers."
+hints = ["Creating a one next to Alice and swapping it in costs 2 moves.", "For a fixed count of real ones, the cheapest gather point is their median index."]

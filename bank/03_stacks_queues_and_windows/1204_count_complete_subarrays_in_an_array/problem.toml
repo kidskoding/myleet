@@ -1,0 +1,7 @@
+id = "count-complete-subarrays-in-an-array"
+title = "Count Complete Subarrays in an Array"
+difficulty = "medium"
+leetcode = 2799
+url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
+key_idea = "A complete subarray has the same distinct count as the whole array; grow a right pointer and shrink the left while the window is complete."
+hints = ["First count how many distinct values the full array has.", "For each right end, every left index up to the first incomplete window contributes."]

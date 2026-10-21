@@ -1,0 +1,8 @@
+id = "score-of-parentheses"
+title = "Score of Parentheses"
+difficulty = "medium"
+leetcode = 856
+url = "https://leetcode.com/problems/score-of-parentheses/"
+key_idea = "Use a stack: an empty pair scores 1, and wrapping a group doubles its score."
+hints = ["Push a frame on open paren and combine on close.", "Empty pair is 1; otherwise closed group is twice the inner sum."]
+prompt = ""

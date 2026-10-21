@@ -1,0 +1,8 @@
+id = "minimum-insertions-to-balance-a-parentheses-string"
+title = "Minimum Insertions to Balance a Parentheses String"
+difficulty = "medium"
+leetcode = 1541
+url = "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/"
+key_idea = "Track needed closings: each open needs two closes, and handle a lone close by inserting partners on the fly."
+hints = ["Maintain how many closing parens you still owe.", "A lone close forces an insertion of either an open or another close."]
+prompt = ""
