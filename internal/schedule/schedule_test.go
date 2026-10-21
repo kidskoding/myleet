@@ -185,3 +185,41 @@ func TestCheckpointModeSkippedFromAttempts(t *testing.T) {
 		t.Fatalf("checkpoint events must not build attempts: %+v", atts)
 	}
 }
+
+func TestDrillSoftTouchDoesNotMoveLadder(t *testing.T) {
+	// Climb to mastered on the normal ladder, then a messy drill must not drop Due/Rung.
+	pass := func(id string, day, hour int) []progress.Event {
+		start := at(day, hour, 0)
+		return []progress.Event{
+			{Time: start, Kind: progress.Opened, Problem: "p", Attempt: id, Mode: progress.Practice},
+			{Time: start.Add(5 * time.Minute), Kind: progress.Passed, Problem: "p", Attempt: id, Mode: progress.Practice, Data: map[string]string{"elapsed_ms": "300000"}},
+		}
+	}
+	var events []progress.Event
+	events = append(events, pass("a0", 1, 10)...)
+	events = append(events, pass("a1", 2, 10)...) // climb
+	events = append(events, pass("a2", 5, 10)...) // climb again
+	before := Compute(events, target, chicago)["p"]
+	if before.Rung < 2 {
+		t.Fatalf("setup rung = %d, want >= 2", before.Rung)
+	}
+	dueBefore, rungBefore := before.Due, before.Rung
+	drillID := "drill1"
+	drillAt := at(10, 12, 0)
+	events = append(events,
+		progress.Event{Time: drillAt, Kind: progress.Opened, Problem: "p", Attempt: drillID, Mode: progress.Drill},
+		progress.Event{Time: drillAt.Add(time.Minute), Kind: progress.HintRevealed, Problem: "p", Attempt: drillID, Mode: progress.Drill},
+		progress.Event{Time: drillAt.Add(2 * time.Minute), Kind: progress.Passed, Problem: "p", Attempt: drillID, Mode: progress.Drill, Data: map[string]string{"elapsed_ms": "120000"}},
+	)
+	after := Compute(events, target, chicago)["p"]
+	if after.Rung != rungBefore || !after.Due.Equal(dueBefore) {
+		t.Fatalf("drill moved ladder: before rung=%d due=%s; after rung=%d due=%s",
+			rungBefore, dueBefore, after.Rung, after.Due)
+	}
+	if !after.LastFinished.Equal(drillAt.Add(2 * time.Minute)) {
+		t.Fatalf("drill should refresh LastFinished: %v", after.LastFinished)
+	}
+	if after.Attempts != before.Attempts+1 || after.HintAttempts != before.HintAttempts+1 {
+		t.Fatalf("drill should count attempts/hints: before=%+v after=%+v", before, after)
+	}
+}

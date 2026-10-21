@@ -158,9 +158,36 @@ func Compute(events []progress.Event, target func(id string) time.Duration, loc 
 		}
 	}
 	for _, a := range finished {
+		if a.Mode == progress.Drill {
+			states[a.Problem] = SoftTouch(states[a.Problem], a)
+			continue
+		}
 		states[a.Problem] = Apply(states[a.Problem], a, loc)
 	}
 	return states
+}
+
+// SoftTouch records a keep-sharp drill without moving Due or Rung. Freshness and
+// struggle stats still update so Today can prefer cold / shaky work next time.
+func SoftTouch(st State, a Attempt) State {
+	if st.Rung < 0 {
+		return st // drills never introduce unseen problems
+	}
+	st.LastFinished = a.End
+	st.Attempts++
+	if a.Outcome == OutcomeFail {
+		st.Fails++
+	}
+	if a.Hints > 0 {
+		st.HintAttempts++
+	}
+	if a.Clean {
+		st.CleanPasses++
+	}
+	if a.Outcome == OutcomePass && (st.BestElapsed == 0 || a.Elapsed < st.BestElapsed) {
+		st.BestElapsed = a.Elapsed
+	}
+	return st
 }
 
 // Apply: first finish lands on 1d, a clean pass on a later day climbs one rung,

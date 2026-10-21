@@ -33,6 +33,9 @@ const (
 	Interview  Mode = "interview"
 	Placement  Mode = "placement"
 	Checkpoint Mode = "checkpoint"
+	// Drill is a keep-sharp attempt: it counts for streak/stats freshness but
+	// does not climb or drop the spaced-repetition ladder.
+	Drill Mode = "drill"
 )
 
 // Event Data keys: test_run passed,total; passed elapsed_ms; say_aloud_checked item;
