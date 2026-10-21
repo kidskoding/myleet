@@ -1,0 +1,7 @@
+id = "incremental-memory-leak"
+title = "Incremental Memory Leak"
+difficulty = "medium"
+leetcode = 1860
+url = "https://leetcode.com/problems/incremental-memory-leak/"
+key_idea = "Simulate second i allocating i bits from the stick with more free memory until neither can pay."
+hints = ["On a tie, always debit memory1.", "The crash second is the first i that neither stick can afford."]

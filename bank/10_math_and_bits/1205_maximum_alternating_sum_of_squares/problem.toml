@@ -1,0 +1,8 @@
+id = "maximum-alternating-sum-of-squares"
+title = "Maximum Alternating Sum of Squares"
+difficulty = "medium"
+leetcode = 3727
+url = "https://leetcode.com/problems/maximum-alternating-sum-of-squares/"
+key_idea = "Only squared magnitudes matter; assign the largest squares to the ceil(n/2) plus slots and the rest to minus slots."
+hints = ["Signs of the original numbers disappear after squaring.", "Sort by square and put the larger half on plus positions."]
+prompt = ""

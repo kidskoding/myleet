@@ -1,0 +1,7 @@
+id = "maximum-number-that-makes-result-of-bitwise-and-zero"
+title = "Maximum Number That Makes Result of Bitwise AND Zero"
+difficulty = "medium"
+leetcode = 3125
+url = "https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero/"
+key_idea = "AND of [x, n] hits 0 once the range crosses the highest power of two <= n; answer is that power minus 1."
+hints = ["Find the highest bit set in n.", "x = 2^bit - 1 forces the range to straddle that power-of-two boundary."]

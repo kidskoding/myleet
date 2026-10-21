@@ -1,0 +1,8 @@
+id = "minimum-sum-of-squared-difference"
+title = "Minimum Sum of Squared Difference"
+difficulty = "medium"
+leetcode = 2333
+url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
+key_idea = "Pool k1+k2 decrements on absolute diffs and binary-search the final max diff, then spend leftovers to shave one more level."
+hints = ["Only absolute differences matter; k1 and k2 can be pooled.", "Binary search the largest remaining difference after reductions."]
+prompt = ""

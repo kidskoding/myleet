@@ -1,0 +1,7 @@
+id = "closest-prime-numbers-in-range"
+title = "Closest Prime Numbers in Range"
+difficulty = "medium"
+leetcode = 2523
+url = "https://leetcode.com/problems/closest-prime-numbers-in-range/"
+key_idea = "Sieve primes up to right, then scan consecutive primes in [left, right] for the minimum gap."
+hints = ["Generate all primes through right with the Sieve of Eratosthenes.", "If fewer than two primes fall in range, return [-1, -1]."]

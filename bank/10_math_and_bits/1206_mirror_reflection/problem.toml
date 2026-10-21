@@ -1,0 +1,7 @@
+id = "mirror-reflection"
+title = "Mirror Reflection"
+difficulty = "medium"
+leetcode = 858
+url = "https://leetcode.com/problems/mirror-reflection/"
+key_idea = "Unfold the room: reduce p and q by gcd, then receptor follows the parity of the reduced sides."
+hints = ["Reflecting the ray is the same as continuing straight through mirrored rooms.", "After dividing out gcd(p, q), even/odd of the reduced values pick receptor 0, 1, or 2."]

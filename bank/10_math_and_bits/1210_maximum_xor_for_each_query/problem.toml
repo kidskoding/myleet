@@ -1,0 +1,7 @@
+id = "maximum-xor-for-each-query"
+title = "Maximum XOR for Each Query"
+difficulty = "medium"
+leetcode = 1829
+url = "https://leetcode.com/problems/maximum-xor-for-each-query/"
+key_idea = "Prefix XOR of the remaining array XOR the all-ones mask of width maximumBit is the optimal k; shrink from the end."
+hints = ["The maximum XOR you can force is always 2^maximumBit - 1.", "k = current_xor XOR mask, then peel off the last element by XORing it out."]
