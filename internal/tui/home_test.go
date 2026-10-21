@@ -54,14 +54,50 @@ func TestHomeGolden80x24(t *testing.T) {
 	assertGolden(t, "home", view)
 }
 
-func TestHomeEmptyQueue(t *testing.T) {
+func TestHomeEmptyQueueBecomesKeepSharp(t *testing.T) {
 	var events []progress.Event
 	for _, id := range []string{"two-sum", "p-one", "p-two", "p-three"} {
 		events = append(events, passedEvents(id, 19)...)
 	}
 	view := plain(homeModel(t, events...))
-	if !strings.Contains(view, "all caught up") || !strings.Contains(view, "curriculum map") {
-		t.Fatalf("view:\n%s", view)
+	for _, want := range []string{
+		"keep sharp", "interview drill", "DRILL",
+		"Curriculum on track", "drills leave your schedule alone",
+	} {
+		if !strings.Contains(view, want) {
+			t.Fatalf("caught-up Today should offer keep-sharp drills, missing %q:\n%s", want, view)
+		}
+	}
+	if strings.Contains(view, "all caught up") {
+		t.Fatalf("should not show the dead-end empty card when drills are available:\n%s", view)
+	}
+}
+
+func TestHomeKeepSharpOpensDrillMode(t *testing.T) {
+	var events []progress.Event
+	for _, id := range []string{"two-sum", "p-one", "p-two", "p-three"} {
+		events = append(events, passedEvents(id, 19)...)
+	}
+	// Snooze after the passes so a check-in card does not steal focus from the drill path.
+	events = append(events, progress.Event{
+		Time: testNow.Add(time.Hour), Kind: progress.CheckpointDone, Mode: progress.Checkpoint,
+		Data: map[string]string{"through": "99", "snoozed": "1"},
+	})
+	m := homeModel(t, events...).(Model)
+	_, cmd := m.Update(key("enter"))
+	if cmd == nil {
+		t.Fatal("enter should push a drill")
+	}
+	msg, ok := cmd().(PushMsg)
+	if !ok {
+		t.Fatalf("want PushMsg, got %T", cmd())
+	}
+	f, ok := msg.Screen.(*Focus)
+	if !ok {
+		t.Fatalf("keep-sharp enter should open Focus, got %T", msg.Screen)
+	}
+	if f.mode != progress.Drill {
+		t.Fatalf("keep-sharp enter should open Drill mode, got %q", f.mode)
 	}
 }
 

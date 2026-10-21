@@ -33,6 +33,10 @@ func (h *Home) Help() []string {
 		return []string{"enter  begin the placement warm-up", "n      skip the warm-up for now",
 			"m      open the curriculum map", "i      open timed practice", "p      open playlists", "s      open stats"}
 	}
+	if keepSharpQueue(h.queue()) {
+		return []string{"enter  start the selected interview drill",
+			"m      open the curriculum map", "i      open a full timed mock", "p      open playlists", "s      open stats"}
+	}
 	return []string{"enter  start the selected problem", "c      start the recommended check-in", "n      snooze the check-in",
 		"m      open the curriculum map", "i      open timed practice", "p      open playlists", "s      open stats"}
 }
@@ -90,7 +94,11 @@ func (h *Home) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		h.cursor = max(h.cursor-1, 0)
 	case "enter":
 		if h.cursor < len(items) {
-			return h, push(NewFocus(h.s, items[h.cursor].Problem, progress.Practice))
+			mode := progress.Practice
+			if items[h.cursor].Kind == session.Practice {
+				mode = progress.Drill // keep-sharp: no ladder climb/drop
+			}
+			return h, push(NewFocus(h.s, items[h.cursor].Problem, mode))
 		}
 	case "c":
 		if through > 0 {
@@ -120,11 +128,23 @@ func (h *Home) Keys() []ui.Key {
 	if h.needsPlacement() {
 		return []ui.Key{{Key: "enter", Label: "begin"}, {Key: "n", Label: "skip for now"}}
 	}
+	sharp := keepSharpQueue(h.queue())
+	startLabel := "start"
+	if sharp {
+		startLabel = "drill"
+	}
 	if h.suggestCheckpoint() > 0 {
-		return []ui.Key{
-			{Key: "enter", Label: "start"}, {Key: "c", Label: "check-in"}, {Key: "n", Label: "snooze"},
+		keys := []ui.Key{
+			{Key: "enter", Label: startLabel}, {Key: "c", Label: "check-in"}, {Key: "n", Label: "snooze"},
 			{Key: "↑/↓", Label: "move"},
 		}
+		if sharp {
+			keys = append(keys, ui.Key{Key: "i", Label: "mock"})
+		}
+		return keys
+	}
+	if sharp {
+		return []ui.Key{{Key: "enter", Label: "drill"}, {Key: "↑/↓", Label: "move"}, {Key: "i", Label: "mock"}, {Key: "/", Label: "search"}}
 	}
 	return []ui.Key{{Key: "enter", Label: "start"}, {Key: "↑/↓", Label: "move"}, {Key: "/", Label: "search"}}
 }
@@ -148,7 +168,8 @@ func (h *Home) row(it session.Item, now time.Time, titleW, reasonW int, selected
 	}
 	kind := ui.Badge(th, "NEW", ui.BadgeNew) + "   "
 	age := h.reason(it)
-	if it.Kind == session.Review {
+	switch it.Kind {
+	case session.Review:
 		kind = ui.Badge(th, "REVIEW", ui.BadgeReview)
 		switch days := daysSince(it.State, now); {
 		case it.OverdueDays > 0:
@@ -158,6 +179,8 @@ func (h *Home) row(it session.Item, now time.Time, titleW, reasonW int, selected
 		default:
 			age = th.Due.Render("due")
 		}
+	case session.Practice:
+		kind = ui.Badge(th, "DRILL", ui.BadgeInfo) + "  "
 	}
 	return marker + title + "  " + kind + "  " + difficultyBadge(th, it.Problem.Difficulty) + "  " + ui.Truncate(age, reasonW)
 }
@@ -166,12 +189,26 @@ func (h *Home) reason(it session.Item) string {
 	th := h.s.Theme
 	style := th.Muted
 	switch it.Reason {
-	case session.ReasonWeak:
+	case session.ReasonWeak, session.ReasonKeepSharp:
 		style = th.Fail
-	case session.ReasonInProgress:
+	case session.ReasonInProgress, session.ReasonInterviewMix:
 		style = th.Accent
+	case session.ReasonColdRedo:
+		style = th.Due
 	}
 	return style.Render(string(it.Reason)) + th.Muted.Render(" · "+strings.ToLower(it.Problem.Technique.Title))
+}
+
+func keepSharpQueue(items []session.Item) bool {
+	if len(items) == 0 {
+		return false
+	}
+	for _, it := range items {
+		if it.Kind != session.Practice {
+			return false
+		}
+	}
+	return true
 }
 
 func (h *Home) placementWarmupCard(width int) string {
@@ -219,7 +256,7 @@ func (h *Home) checkpointCard(through, width int) string {
 	return ui.Card(th, "recommended check-in", body, width, true)
 }
 
-func (h *Home) youCard(sum stats.Summary, states map[string]schedule.State, now time.Time, width int) string {
+func (h *Home) youCard(sum stats.Summary, states map[string]schedule.State, now time.Time, width int, sharp bool) string {
 	th := h.s.Theme
 	lines := []string{
 		th.Title.Render("Practice streak") + "  " + h.streakDots(sum, now) + "  " + th.Muted.Render(fmt.Sprintf("%d day streak", sum.Streak)),
@@ -229,7 +266,15 @@ func (h *Home) youCard(sum stats.Summary, states map[string]schedule.State, now 
 	if n := h.upcoming(states, now); n > 0 {
 		lines = append(lines, th.Muted.Render(fmt.Sprintf("%s coming due this week.", plural(n, "review", "reviews"))))
 	}
-	if len(sum.Weakest) > 0 {
+	if sharp {
+		lines = append(lines, "",
+			th.Title.Render("Stay interview-ready"),
+			th.Muted.Render("Nothing is due, so we queued drills across"),
+			th.Muted.Render("techniques — cold redos and shaky spots first."),
+			th.Muted.Render("Drills do not change your review schedule."),
+			th.Muted.Render("A full mock is always on tab ")+th.Accent.Render("3")+".",
+		)
+	} else if len(sum.Weakest) > 0 {
 		n := min(len(sum.Weakest), 3)
 		names := make([]string, n)
 		for i := 0; i < n; i++ {
@@ -249,8 +294,8 @@ func (h *Home) queueCard(items []session.Item, now time.Time, width, bodyRows in
 	th := h.s.Theme
 	if len(items) == 0 {
 		body := strings.Join([]string{
-			"You are all caught up for today. When you are ready for more practice,",
-			"try one of these:",
+			"No reviews due and nothing left to introduce yet.",
+			"When you are ready for more practice:",
 			"",
 			th.Accent.Render("2") + "  open the curriculum map",
 			th.Accent.Render("3") + "  start a timed mock interview",
@@ -258,6 +303,7 @@ func (h *Home) queueCard(items []session.Item, now time.Time, width, bodyRows in
 		}, "\n")
 		return ui.Card(th, "you're all caught up", body, width, false)
 	}
+	sharp := keepSharpQueue(items)
 	inner := width - 4
 	const fixed = 2 + 2 + 8 + 2 + 4 + 2
 	longest, reasonNeed := 0, 0
@@ -268,18 +314,29 @@ func (h *Home) queueCard(items []session.Item, now time.Time, width, bodyRows in
 	titleW := max(min(longest, inner-fixed-min(reasonNeed, 16)), 14)
 	reasonW := max(inner-fixed-titleW, 0)
 	bodyRows = max(bodyRows, 1)
-	visible := max(min(bodyRows, len(items)), 1)
+	listBudget := bodyRows
+	if sharp {
+		listBudget = max(bodyRows-1, 1) // one line for the keep-sharp pitch
+	}
+	visible := max(min(listBudget, len(items)), 1)
 	h.offset = scrollWindow(h.cursor, h.offset, visible)
 	var rows []string
-	for i := h.offset; i < len(items) && len(rows) < visible; i++ {
+	if sharp {
+		// Pitch stays with the drills so a check-in card never buries it.
+		rows = append(rows, th.Muted.Render("Cold redos & shaky spots · drills leave your schedule alone"))
+	}
+	for i := h.offset; i < len(items) && len(rows) < bodyRows; i++ {
 		rows = append(rows, h.row(items[i], now, titleW, reasonW, i == h.cursor))
 	}
 	for len(rows) < bodyRows {
 		rows = append(rows, "")
 	}
 	title := "today"
+	if sharp {
+		title = "keep sharp"
+	}
 	if len(items) > visible {
-		title = fmt.Sprintf("today · %d/%d", h.cursor+1, len(items))
+		title = fmt.Sprintf("%s · %d/%d", title, h.cursor+1, len(items))
 	}
 	return ui.Card(th, title, strings.Join(rows, "\n"), width, true)
 }
@@ -298,12 +355,16 @@ func (h *Home) View(w, ht int) string {
 
 	items := h.queue()
 	h.cursor = min(h.cursor, max(len(items)-1, 0))
+	sharp := keepSharpQueue(items)
 
-	reviews, fresh := 0, 0
+	reviews, fresh, drills := 0, 0, 0
 	for _, it := range items {
-		if it.Kind == session.Review {
+		switch it.Kind {
+		case session.Review:
 			reviews++
-		} else {
+		case session.Practice:
+			drills++
+		default:
 			fresh++
 		}
 	}
@@ -314,12 +375,18 @@ func (h *Home) View(w, ht int) string {
 		}
 	}
 
-	lines := []string{"", "  " + th.Title.Render(greeting(now)) + th.Muted.Render(" · "+plural(reviews, "review", "reviews")+fmt.Sprintf(" and %d new today", fresh))}
+	sub := plural(reviews, "review", "reviews") + fmt.Sprintf(" and %d new today", fresh)
+	if sharp {
+		sub = "keep sharp · " + plural(drills, "interview drill", "interview drills")
+	}
+	lines := []string{"", "  " + th.Title.Render(greeting(now)) + th.Muted.Render(" · "+sub)}
 	if err := h.s.App.PythonErr; err != nil {
 		lines = append(lines, "  "+th.Fail.Render("tests cannot run: "+err.Error()))
 	}
 	if finished == 0 {
 		lines = append(lines, ui.Truncate("  "+th.Muted.Render("Complete a few problems and we will learn where you are strongest."), w))
+	} else if sharp {
+		lines = append(lines, ui.Truncate("  "+th.Muted.Render("Curriculum on track — drills below keep you interview-ready."), w))
 	}
 	lines = append(lines, "")
 
@@ -334,12 +401,12 @@ func (h *Home) View(w, ht int) string {
 
 	var panels string
 	if sideBySide {
-		you := h.youCard(sum, states, now, rightW)
+		you := h.youCard(sum, states, now, rightW, sharp)
 		queueRows := max(avail-2, 3)
 		queue := h.queueCard(items, now, leftW, queueRows)
 		panels = ui.JoinPanels(queue, you, gap, cardW)
 	} else {
-		you := h.youCard(sum, states, now, cardW)
+		you := h.youCard(sum, states, now, cardW, sharp)
 		youH := lipgloss.Height(you)
 		queueRows := max(avail-youH-3, 3)
 		queue := h.queueCard(items, now, cardW, queueRows)

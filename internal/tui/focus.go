@@ -103,6 +103,11 @@ func (f *Focus) examMode() bool {
 	return f.mode == progress.Interview || f.mode == progress.Placement || f.mode == progress.Checkpoint
 }
 
+// practiceLike is open practice or a keep-sharp drill (hints, solution, give-up).
+func (f *Focus) practiceLike() bool {
+	return f.mode == progress.Practice || f.mode == progress.Drill
+}
+
 func (f *Focus) Title() string {
 	switch f.mode {
 	case progress.Interview:
@@ -111,6 +116,8 @@ func (f *Focus) Title() string {
 		return "placement"
 	case progress.Checkpoint:
 		return "check-in"
+	case progress.Drill:
+		return "drill"
 	}
 	return f.p.Title
 }
@@ -243,7 +250,7 @@ func (f *Focus) Close() {
 	if f.path != "" && f.edited() {
 		_, _ = f.s.App.Workspace.Snapshot(f.p.ID, f.s.App.Now())
 	}
-	if f.mode == progress.Practice && !f.gaveUp && !f.passed && f.path != "" {
+	if f.practiceLike() && !f.gaveUp && !f.passed && f.path != "" {
 		f.s.Record(f.event(progress.Left, nil))
 	}
 }
@@ -342,6 +349,18 @@ func (f *Focus) bannerText(before, after schedule.State) string {
 			att = a
 		}
 	}
+	if f.mode == progress.Drill {
+		switch {
+		case att.Peeks > 0:
+			return "drill complete (solution peeked) · review schedule unchanged"
+		case att.Hints > 0:
+			return "drill complete (hint used) · review schedule unchanged"
+		case !att.Clean:
+			return "drill complete · review schedule unchanged"
+		default:
+			return "sharp · review schedule unchanged · next due " + dateLabel(after.Due)
+		}
+	}
 	next := "next " + dateLabel(after.Due)
 	switch {
 	case att.Peeks > 0:
@@ -392,7 +411,7 @@ func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
 			f.s.Record(f.event(progress.HintRevealed, data))
 		}
 	case "s":
-		if f.p.HasSolution && f.mode == progress.Practice {
+		if f.p.HasSolution && f.practiceLike() {
 			f.togglePane(paneSolution)
 		}
 	case "d":
@@ -406,7 +425,7 @@ func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
 	case "r":
 		f.confirm = true
 	case "g":
-		if f.mode == progress.Practice && !f.passed {
+		if f.practiceLike() && !f.passed {
 			f.gaveUp = true
 			f.s.Record(f.event(progress.GaveUp, nil))
 			return f, pop
@@ -592,6 +611,8 @@ func (f *Focus) header(w int) string {
 	switch {
 	case f.mode == progress.Checkpoint:
 		where = strings.ToLower(f.p.Technique.Module.Title) + " · ???"
+	case f.mode == progress.Drill:
+		where = "keep sharp · " + strings.ToLower(f.p.Technique.Title)
 	case !f.examMode():
 		where = strings.ToLower(f.p.Technique.Module.Title + " · " + f.p.Technique.Title)
 	}
