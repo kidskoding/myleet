@@ -15,17 +15,21 @@ import (
 type Kind string
 
 const (
-	Review Kind = "review"
-	New    Kind = "new"
+	Review   Kind = "review"
+	New      Kind = "new"
+	Practice Kind = "practice" // keep-sharp drills when the normal queue is empty
 )
 
 // Reason says why a new problem was picked, so the plan reads as personal.
 type Reason string
 
 const (
-	ReasonWeak       Reason = "weak spot"
-	ReasonInProgress Reason = "in progress"
-	ReasonNewTopic   Reason = "new topic"
+	ReasonWeak         Reason = "weak spot"
+	ReasonInProgress   Reason = "in progress"
+	ReasonNewTopic     Reason = "new topic"
+	ReasonKeepSharp    Reason = "keep sharp"
+	ReasonInterviewMix Reason = "interview mix"
+	ReasonColdRedo     Reason = "cold redo"
 )
 
 type Item struct {
@@ -57,6 +61,8 @@ func Today(c *catalog.Catalog, states map[string]schedule.State, today time.Time
 }
 
 // TodayWithEvents is Today, but weak-spot picking also uses placement and checkpoint results.
+// When nothing is due and no new slots remain, it fills a keep-sharp drill queue so a
+// caught-up or fully mastered learner still has interview-ready practice.
 func TodayWithEvents(c *catalog.Catalog, states map[string]schedule.State, today time.Time, newPerDay int, events []progress.Event) []Item {
 	day := midnight(today)
 	var reviews []Item
@@ -79,7 +85,15 @@ func TodayWithEvents(c *catalog.Catalog, states map[string]schedule.State, today
 		}
 		return a.Problem.Order - b.Problem.Order
 	})
-	return append(reviews, pickNew(c, states, max(0, newPerDay-startedToday), weakModules(events))...)
+	out := append(reviews, pickNew(c, states, max(0, newPerDay-startedToday), weakModules(events))...)
+	if len(out) > 0 {
+		return out
+	}
+	slots := newPerDay
+	if slots <= 0 {
+		slots = 3
+	}
+	return pickKeepSharp(c, states, today, slots)
 }
 
 // weakModules merges placement and checkpoint gaps; checkpoint wins on overlap

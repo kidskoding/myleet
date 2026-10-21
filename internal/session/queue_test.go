@@ -52,8 +52,42 @@ func TestTodayNewSlotsShrinkAfterStartingNew(t *testing.T) {
 	if got := summary(Today(c, states, tu.Day(19), 3)); got != "new:p-two,new:p-three" {
 		t.Fatalf("queue = %s", got)
 	}
-	if got := summary(Today(c, states, tu.Day(19), 1)); got != "" {
+	// Daily new slots are used up, but keep-sharp still offers a drill so Today is never a dead end.
+	if got := summary(Today(c, states, tu.Day(19), 1)); got != "practice:p-one" {
 		t.Fatalf("queue with newPerDay 1 = %q", got)
+	}
+}
+
+func TestTodayKeepSharpWhenCaughtUp(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	// Everything seen, nothing due, no new slots left → interview drills across techniques.
+	states := map[string]schedule.State{
+		"p-one":   {Status: schedule.Mastered, Rung: 3, Attempts: 4, CleanPasses: 4, LastFinished: tu.Day(5), Due: tu.Midnight(25)},
+		"p-two":   {Status: schedule.Mastered, Rung: 3, Attempts: 5, CleanPasses: 2, Fails: 2, LastFinished: tu.Day(12), Due: tu.Midnight(25)},
+		"p-three": {Status: schedule.Reviewing, Rung: 2, Attempts: 3, CleanPasses: 3, LastFinished: tu.Day(1), Due: tu.Midnight(30)},
+		"two-sum": {Status: schedule.Mastered, Rung: 4, Attempts: 2, CleanPasses: 2, LastFinished: tu.Day(10), Due: tu.Midnight(28)},
+	}
+	items := Today(c, states, tu.Day(19), 3)
+	if len(items) != 3 {
+		t.Fatalf("want 3 keep-sharp drills, got %s", summary(items))
+	}
+	techs := map[string]bool{}
+	for _, it := range items {
+		if it.Kind != Practice {
+			t.Fatalf("keep-sharp item should be practice: %s", summary(items))
+		}
+		techs[it.Problem.Technique.Title] = true
+	}
+	if len(techs) < 2 {
+		t.Fatalf("drills should spread techniques, got %s", summary(items))
+	}
+	// Cold / shaky work should surface with a keep-sharp reason, not "new topic".
+	for _, it := range items {
+		switch it.Reason {
+		case ReasonKeepSharp, ReasonColdRedo, ReasonInterviewMix:
+		default:
+			t.Fatalf("unexpected reason %q on %s", it.Reason, it.Problem.ID)
+		}
 	}
 }
 
