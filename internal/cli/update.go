@@ -27,6 +27,10 @@ func updateContent(stdout, stderr io.Writer) int {
 		fmt.Fprintln(stderr, "myleet:", err)
 		return 1
 	}
+	if err := catalog.SyncDeps(root, stderr); err != nil {
+		fmt.Fprintln(stderr, "myleet:", err)
+		return 1
+	}
 	fmt.Fprintln(stdout, "curriculum up to date.")
 	return 0
 }

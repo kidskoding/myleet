@@ -52,27 +52,62 @@ func FindRoot(start string) (string, error) {
 }
 
 // EnsureRoot finds the curriculum, falling back to a clone under dataDir/content.
-// When it clones, it writes a short note to warn.
+// For the installed copy it also ensures a python env (uv sync) so tests work
+// after a plain `go install` + `myleet` with no manual setup.
 func EnsureRoot(start, dataDir string, warn io.Writer) (string, error) {
 	if root, err := FindRoot(start); err == nil {
-		return root, nil
+		return root, nil // local checkout: leave the venv to the developer
 	} else if os.Getenv("MYLEET_ROOT") != "" {
 		return "", err // explicit root must not be replaced by a clone
 	}
 	content := ContentDir(dataDir)
-	if isRoot(content) {
-		return content, nil
+	if !isRoot(content) {
+		if warn != nil {
+			fmt.Fprintf(warn, "myleet: no local curriculum found; cloning into %s\n", content)
+		}
+		if err := BootstrapContent(content, DefaultRepo); err != nil {
+			return "", fmt.Errorf("install curriculum: %w\nfix: clone https://github.com/kidskoding/myleet and run from that directory, or set MYLEET_ROOT", err)
+		}
 	}
-	if warn != nil {
-		fmt.Fprintf(warn, "myleet: no local curriculum found; cloning into %s\n", content)
-	}
-	if err := BootstrapContent(content, DefaultRepo); err != nil {
-		return "", fmt.Errorf("install curriculum: %w\nfix: clone https://github.com/kidskoding/myleet and run from that directory, or set MYLEET_ROOT", err)
-	}
-	if warn != nil {
-		fmt.Fprintf(warn, "myleet: curriculum ready. Run `uv sync` in %s so problem tests can run.\n", content)
+	if err := ensureVenv(content, warn); err != nil && warn != nil {
+		fmt.Fprintf(warn, "myleet: %v\n", err)
+		fmt.Fprintf(warn, "myleet: install uv (https://docs.astral.sh/uv/), then re-run myleet\n")
 	}
 	return content, nil
+}
+
+func hasVenv(root string) bool {
+	_, err := os.Stat(filepath.Join(root, ".venv", "bin", "python"))
+	return err == nil
+}
+
+// ensureVenv runs uv sync when the installed tree has no .venv yet.
+func ensureVenv(root string, warn io.Writer) error {
+	if hasVenv(root) {
+		return nil
+	}
+	if _, err := os.Stat(filepath.Join(root, "pyproject.toml")); err != nil {
+		return nil // incomplete tree (tests); nothing to sync
+	}
+	return SyncDeps(root, warn)
+}
+
+// SyncDeps installs project deps (pytest) into root/.venv via uv.
+func SyncDeps(root string, warn io.Writer) error {
+	uv, err := exec.LookPath("uv")
+	if err != nil {
+		return errors.New("uv is required for problem tests")
+	}
+	if warn != nil {
+		fmt.Fprintf(warn, "myleet: setting up python env...\n")
+	}
+	cmd := exec.Command(uv, "sync", "--directory", root)
+	cmd.Stdout = os.Stderr
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("uv sync failed: %w", err)
+	}
+	return nil
 }
 
 // BootstrapContent shallow-clones repoURL into dest.
