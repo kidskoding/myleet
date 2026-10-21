@@ -20,13 +20,19 @@ const (
 	Left            Kind = "left"
 	Reset           Kind = "reset"
 	SayAloudChecked Kind = "say_aloud_checked"
+	// PlacementDone marks that the new-user diagnostic finished or was skipped.
+	PlacementDone Kind = "placement_done"
+	// CheckpointDone marks that a curriculum-slice checkpoint exam finished.
+	CheckpointDone Kind = "checkpoint_done"
 )
 
 type Mode string
 
 const (
-	Practice  Mode = "practice"
-	Interview Mode = "interview"
+	Practice   Mode = "practice"
+	Interview  Mode = "interview"
+	Placement  Mode = "placement"
+	Checkpoint Mode = "checkpoint"
 )
 
 // Event Data keys: test_run passed,total; passed elapsed_ms; say_aloud_checked item;
