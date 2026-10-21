@@ -55,13 +55,13 @@ Put `$(go env GOPATH)/bin` on your `PATH` if `myleet` is not found after install
 | Browser + scattered notes              | Terminal trainer + notes book + 200+ company playlists                |
 
 A problem is mastered only when you can explain the pattern, pick the right shape, code
-it cleanly, pass the tests, and state time/space — under interview pressure.
+it cleanly, pass the tests, and state time/space under interview pressure.
 
 Start with [How to prep](guide/01_how_to_prep.md) if you are new to live coding interviews.
 
 ## Screens
 
-Press `1`–`5` or `tab`. Bottom bar shows keys for the current screen; `?` lists them all.
+Press `1`-`5` or `tab`. Bottom bar shows keys for the current screen; `?` lists them all.
 
 |     | Screen        |                                                                                                           |
 | --- | ------------- | --------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ Edit in your editor (`e`); tests rerun on save or `space`.
 | `d`      | diff vs last attempt |
 | `o`      | open LeetCode        |
 | `r`      | reset to starter     |
-| `1`–`3`  | tick say-aloud items |
+| `1`-`3`  | tick say-aloud items |
 | `g`      | give up              |
 | `/`      | filter this list     |
 | `ctrl+k` | search everything    |
@@ -93,9 +93,9 @@ Edit in your editor (`e`); tests rerun on save or `space`.
 
 1. **Reviews** due today (most overdue first).
 2. **New problems** (default 3, `new_per_day` in config), labelled:
-   - **weak spot** — techniques you have started but mostly not clean-passed
-   - **in progress** — started, not finished
-   - **new topic** — untouched, in curriculum order
+   - **weak spot**: techniques you have started but mostly not clean-passed
+   - **in progress**: started, not finished
+   - **new topic**: untouched, in curriculum order
 
 New work rotates across techniques. Playlist-only problems (`bank/`) are trackable in
 playlists but never appear as new on Today or on the Map.
