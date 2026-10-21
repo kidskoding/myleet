@@ -99,9 +99,18 @@ func newFocus(s *Shared, p *catalog.Problem, mode progress.Mode) *Focus {
 	return &Focus{s: s, p: p, mode: mode, attempt: progress.NewAttemptID(), checked: make([]bool, len(p.SayAloud))}
 }
 
+func (f *Focus) examMode() bool {
+	return f.mode == progress.Interview || f.mode == progress.Placement || f.mode == progress.Checkpoint
+}
+
 func (f *Focus) Title() string {
-	if f.mode == progress.Interview {
-		return "interview"
+	switch f.mode {
+	case progress.Interview:
+		return "timed"
+	case progress.Placement:
+		return "placement"
+	case progress.Checkpoint:
+		return "check-in"
 	}
 	return f.p.Title
 }
@@ -144,7 +153,7 @@ func (f *Focus) Init() tea.Cmd {
 // shouldStartCold: otherwise a review would reopen yesterday's passing solution.
 // Work edited after the last finished attempt is unfinished, so it is kept.
 func (f *Focus) shouldStartCold() bool {
-	if f.mode == progress.Interview {
+	if f.examMode() {
 		return true
 	}
 	st := statusOf(f.s.States(), f.p.ID)
@@ -195,7 +204,7 @@ func (f *Focus) fetchPrompt() tea.Cmd {
 // The key idea names the approach, so it is only offered as the last hint, and
 // never in interviews.
 func (f *Focus) hintList() []string {
-	if f.p.KeyIdea == "" || f.mode == progress.Interview {
+	if f.p.KeyIdea == "" || f.examMode() {
 		return f.p.Hints
 	}
 	return append(append([]string{}, f.p.Hints...), "key idea: "+f.p.KeyIdea)
@@ -311,7 +320,7 @@ func (f *Focus) finishRun(res runner.Result, logged bool) tea.Cmd {
 	if f.green {
 		_, _ = f.s.App.Workspace.Snapshot(f.p.ID, f.s.App.Now())
 	}
-	if f.green && logged && !f.passed && f.mode == progress.Practice {
+	if f.green && logged && !f.passed && !f.examMode() {
 		f.recordPass()
 	}
 	return nil
@@ -561,9 +570,14 @@ func testLabel(fn, test string) string {
 }
 
 func (f *Focus) Keys() []ui.Key {
-	keys := []ui.Key{{Key: "e", Label: "edit"}}
+	keys := []ui.Key{{Key: "e", Label: "edit"}, {Key: "space", Label: "rerun"}}
 	if hints := f.hintList(); f.hints < len(hints) {
 		keys = append(keys, ui.Key{Key: "t", Label: fmt.Sprintf("hint %d/%d", f.hints+1, len(hints))})
+	}
+	if f.p.SolutionPath() != "" {
+		if _, err := os.Stat(f.p.SolutionPath()); err == nil {
+			keys = append(keys, ui.Key{Key: "s", Label: "solution"})
+		}
 	}
 	keys = append(keys, ui.Key{Key: "d", Label: "diff"})
 	if f.p.URL != "" {
@@ -575,7 +589,10 @@ func (f *Focus) Keys() []ui.Key {
 func (f *Focus) header(w int) string {
 	th := f.s.Theme
 	where := "??? hidden"
-	if f.mode == progress.Practice {
+	switch {
+	case f.mode == progress.Checkpoint:
+		where = strings.ToLower(f.p.Technique.Module.Title) + " · ???"
+	case !f.examMode():
 		where = strings.ToLower(f.p.Technique.Module.Title + " · " + f.p.Technique.Title)
 	}
 	right := "  " + difficultyBadge(th, f.p.Difficulty) + "  " + th.Muted.Render(where)

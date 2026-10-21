@@ -103,11 +103,14 @@ func NewShared(a *app.App) *Shared {
 }
 
 func openURL(url string) error {
-	name := "xdg-open"
-	if runtime.GOOS == "darwin" {
-		name = "open"
+	switch runtime.GOOS {
+	case "darwin":
+		return exec.Command("open", url).Start()
+	case "windows":
+		return exec.Command("rundll32", "url.dll,FileProtocolHandler", url).Start()
+	default:
+		return exec.Command("xdg-open", url).Start()
 	}
-	return exec.Command(name, url).Start()
 }
 
 func (s *Shared) Record(e progress.Event) {
@@ -133,7 +136,7 @@ type (
 	keyed  interface{ Keys() []ui.Key }
 )
 
-var tabNames = []string{"today", "map", "interview", "playlists", "stats"}
+var tabNames = []string{"today", "map", "timed", "playlists", "stats"}
 
 func newTab(s *Shared, i int) Screen {
 	switch i {
@@ -144,7 +147,7 @@ func newTab(s *Shared, i int) Screen {
 	case 3:
 		return NewPlaylists(s)
 	case 4:
-		return NewStats(s)
+		return NewSettings(s)
 	}
 	return NewHome(s)
 }

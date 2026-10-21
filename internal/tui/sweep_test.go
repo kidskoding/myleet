@@ -13,7 +13,7 @@ func TestAllScreensFitAllSizes(t *testing.T) {
 	screens := map[string]func(t *testing.T) tea.Model{
 		"today":     func(t *testing.T) tea.Model { return homeModel(t) },
 		"map":       func(t *testing.T) tea.Model { return send(homeModel(t), key("2"), key("l")) },
-		"interview": func(t *testing.T) tea.Model { return send(homeModel(t), key("3")) },
+		"timed":     func(t *testing.T) tea.Model { return send(homeModel(t), key("3")) },
 		"playlists": func(t *testing.T) tea.Model { return send(homeModel(t), key("4")) },
 		"stats":     func(t *testing.T) tea.Model { return send(homeModel(t), key("5")) },
 		"search":    func(t *testing.T) tea.Model { return send(homeModel(t), key("/")) },

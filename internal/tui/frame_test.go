@@ -33,14 +33,14 @@ func TestNumberKeysSwitchTabs(t *testing.T) {
 		t.Fatalf("2 should switch to the map tab, top=%T stack=%d", m.(Model).top(), len(m.(Model).stack))
 	}
 	m = send(m, key("5"))
-	if _, ok := m.(Model).top().(*Stats); !ok {
+	if _, ok := m.(Model).top().(*Settings); !ok {
 		t.Fatalf("5 should switch to stats, top=%T", m.(Model).top())
 	}
 	m = send(m, key("tab"))
 	if _, ok := m.(Model).top().(*Home); !ok {
 		t.Fatalf("tab from the last tab wraps to today, top=%T", m.(Model).top())
 	}
-	if !strings.Contains(strings.Split(plain(send(m, key("3"))), "\n")[0], "interview") {
+	if !strings.Contains(strings.Split(plain(send(m, key("3"))), "\n")[0], "timed") {
 		t.Fatal("tab bar should still render")
 	}
 }

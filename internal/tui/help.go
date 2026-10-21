@@ -12,7 +12,7 @@ var globalHelp = []string{
 	"esc       back",
 	"/         filter this list, or search everything where there is no list",
 	"ctrl+k    search problems, companies, topics and notes",
-	"1-5 tab   switch tabs (today, map, interview, playlists, stats)",
+	"1-5 tab   switch tabs (today, map, timed, playlists, stats)",
 	"?         close this help",
 	"q         quit",
 }

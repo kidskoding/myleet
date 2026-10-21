@@ -9,31 +9,31 @@ import (
 	"github.com/kidskoding/myleet/internal/progress"
 )
 
-func statsModel(t *testing.T, events ...progress.Event) tea.Model {
+func settingsModel(t *testing.T, events ...progress.Event) tea.Model {
 	t.Helper()
 	s := newTestShared(t, newTestApp(t, events...), &fakeRunner{})
 	return send(New(s, ""), tea.WindowSizeMsg{Width: 80, Height: 24}, key("s"))
 }
 
-func TestStatsEmpty(t *testing.T) {
-	if view := plain(statsModel(t)); !strings.Contains(view, "No attempts yet") {
+func TestSettingsEmptyShowsStats(t *testing.T) {
+	if view := plain(settingsModel(t)); !strings.Contains(view, "No attempts yet") {
 		t.Fatalf("view:\n%s", view)
 	}
 }
 
-func TestStatsGolden80x24(t *testing.T) {
+func TestSettingsGolden80x24(t *testing.T) {
 	var events []progress.Event
 	for _, day := range []int{1, 2, 5, 12, 18} {
 		events = append(events, passedEvents("two-sum", day)...)
 	}
 	events = append(events, passedEvents("p-one", 18)...)
 	events = append(events, passedEvents("p-two", 19)...)
-	view := plain(statsModel(t, events...))
+	view := plain(settingsModel(t, events...))
 	if !strings.Contains(view, "2 days") || !strings.Contains(view, "1 / 4") {
 		t.Fatalf("view:\n%s", view)
 	}
 	assertFits(t, view, 80, 24)
-	assertGolden(t, "stats", view)
+	assertGolden(t, "settings", view)
 }
 
 func statsWithHistory(t *testing.T, width int) tea.Model {
@@ -42,33 +42,54 @@ func statsWithHistory(t *testing.T, width int) tea.Model {
 		events = append(events, passedEvents("two-sum", day)...)
 	}
 	events = append(events, passedEvents("p-one", 18)...)
-	return send(statsModel(t, events...), tea.WindowSizeMsg{Width: width, Height: 32})
+	return send(settingsModel(t, events...), tea.WindowSizeMsg{Width: width, Height: 32})
 }
 
-func TestStatsTiles(t *testing.T) {
-	for _, l := range strings.Split(plain(statsWithHistory(t, 100)), "\n") {
-		if strings.Count(l, "╭─") == 3 && strings.Contains(l, "streak") && strings.Contains(l, "mastered") && strings.Contains(l, "median") {
-			return
+func TestSettingsOverviewCard(t *testing.T) {
+	view := plain(statsWithHistory(t, 100))
+	for _, want := range []string{"╭─ overview", "Streak", "Mastered", "Median"} {
+		if !strings.Contains(view, want) {
+			t.Fatalf("settings should open on the overview card, missing %q:\n%s", want, view)
 		}
 	}
-	t.Fatalf("stats should open with three tiles:\n%s", plain(statsWithHistory(t, 100)))
 }
 
-func TestStatsHeatmapCard(t *testing.T) {
+func TestSettingsHeatmapCard(t *testing.T) {
 	if view := plain(statsWithHistory(t, 100)); !strings.Contains(view, "╭─ last ") || !strings.Contains(view, " weeks ─") {
 		t.Fatalf("view:\n%s", view)
 	}
 }
 
-func TestStatsGoldenWide(t *testing.T) {
-	assertGolden(t, "stats_wide", plain(statsWithHistory(t, 120)))
+func TestSettingsGoldenWide(t *testing.T) {
+	assertGolden(t, "settings_wide", plain(statsWithHistory(t, 120)))
 }
 
-func TestStatsEmptyKeepsTheLayout(t *testing.T) {
-	view := plain(statsModel(t))
-	for _, want := range []string{"╭─ streak", "╭─ mastered", "╭─ last ", "No attempts yet"} {
+func TestSettingsEmptyKeepsTheLayout(t *testing.T) {
+	m := send(settingsModel(t), tea.WindowSizeMsg{Width: 80, Height: 40})
+	view := plain(m)
+	for _, want := range []string{"╭─ overview", "╭─ last ", "No attempts yet"} {
 		if !strings.Contains(view, want) {
-			t.Fatalf("empty stats should still show the dashboard with a getting-started note, missing %q:\n%s", want, view)
+			t.Fatalf("empty settings should still show the dashboard, missing %q:\n%s", want, view)
 		}
+	}
+	if strings.Contains(view, "╭─ progress") {
+		t.Fatal("settings should not list per-module progress; the map already does that")
+	}
+	if view := plain(send(m, key("G"))); !strings.Contains(view, "danger zone") {
+		t.Fatalf("G should scroll to the danger zone:\n%s", view)
+	}
+}
+
+func TestSettingsEnterOnlyResets(t *testing.T) {
+	m := send(settingsModel(t), tea.WindowSizeMsg{Width: 80, Height: 40}, key("enter"))
+	if _, ok := m.(Model).top().(*Settings); !ok {
+		t.Fatalf("enter on overview should stay in settings, top=%T", m.(Model).top())
+	}
+	if strings.Contains(plain(m), "start fresh?") {
+		t.Fatal("enter on overview must not start a reset")
+	}
+	m = send(m, key("G"), key("enter"))
+	if !strings.Contains(plain(m), "start fresh?") {
+		t.Fatalf("enter on danger zone should confirm reset:\n%s", plain(m))
 	}
 }
