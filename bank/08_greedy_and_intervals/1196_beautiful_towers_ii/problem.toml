@@ -1,0 +1,8 @@
+id = "beautiful-towers-ii"
+title = "Beautiful Towers II"
+difficulty = "medium"
+leetcode = 2866
+url = "https://leetcode.com/problems/beautiful-towers-ii/"
+key_idea = "For each peak, use monotonic-stack DP to get left and right mountain sums in O(n), then take max of left[i]+right[i]-height[i]."
+hints = ["A beautiful array is non-decreasing to a peak then non-increasing.", "Precompute best left/right sums ending at each index with a monotonic stack."]
+prompt = ""

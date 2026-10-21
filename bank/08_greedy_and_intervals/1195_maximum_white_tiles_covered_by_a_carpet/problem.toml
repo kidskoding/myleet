@@ -1,0 +1,8 @@
+id = "maximum-white-tiles-covered-by-a-carpet"
+title = "Maximum White Tiles Covered by a Carpet"
+difficulty = "medium"
+leetcode = 2271
+url = "https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/"
+key_idea = "Sort tile intervals and slide a window of carpet length over prefix sums of covered cells."
+hints = ["Always place the carpet left end at some tile left endpoint.", "Use prefix sums plus two pointers over the sorted intervals."]
+prompt = ""

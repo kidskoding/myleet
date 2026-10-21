@@ -1,0 +1,7 @@
+id = "previous-permutation-with-one-swap"
+title = "Previous Permutation With One Swap"
+difficulty = "medium"
+leetcode = 1053
+url = "https://leetcode.com/problems/previous-permutation-with-one-swap/"
+key_idea = "Find the rightmost ascent break, then swap with the largest smaller value to its right (leftmost among ties)."
+hints = ["Scan from the right for the first index that can be decreased.", "Among candidates strictly smaller than the pivot, pick the largest value and its leftmost occurrence."]

@@ -1,0 +1,7 @@
+id = "put-marbles-in-bags"
+title = "Put Marbles in Bags"
+difficulty = "hard"
+leetcode = 2551
+url = "https://leetcode.com/problems/put-marbles-in-bags/"
+key_idea = "Each of the k-1 cuts costs weights[i]+weights[i+1]; max-min score is sum of largest vs smallest cut costs."
+hints = ["Endpoints always contribute; only the cut positions change the score.", "Sort adjacent pair sums and compare the top and bottom k-1."]

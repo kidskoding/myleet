@@ -1,0 +1,7 @@
+id = "beautiful-towers-i"
+title = "Beautiful Towers I"
+difficulty = "medium"
+leetcode = 2865
+url = "https://leetcode.com/problems/beautiful-towers-i/"
+key_idea = "Try each index as peak; heights non-increase outward under maxHeights caps — O(n^2) enum or mono-stack prefixes."
+hints = ["A beautiful arrangement is a mountain with a chosen peak.", "From the peak, each side can only stay flat or drop, never exceed the local maxHeights."]
