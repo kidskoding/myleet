@@ -1,0 +1,7 @@
+id = "number-of-ways-to-reach-destination-in-the-grid"
+title = "Number of Ways to Reach Destination in the Grid"
+difficulty = "hard"
+leetcode = 2912
+url = "https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid/"
+key_idea = "Compress cells into four relations to the source (same cell / same column / same row / other) and DP those counts for k moves."
+hints = ["n and m are up to 1e9, so you cannot build the grid.", "Each move jumps to another cell sharing a row or a column."]

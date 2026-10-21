@@ -1,0 +1,7 @@
+id = "maximize-grid-happiness"
+title = "Maximize Grid Happiness"
+difficulty = "hard"
+leetcode = 1659
+url = "https://leetcode.com/problems/maximize-grid-happiness/"
+key_idea = "Compress each row to a ternary mask; DP over row index, previous mask, and remaining introverts/extroverts, precomputing within-row and between-row happiness deltas."
+hints = ["With n <= 5 a row is only 3^n states—empty, introvert, or extrovert per cell.", "Introvert–introvert costs 60 total, introvert–extrovert 10, extrovert–extrovert gains 40; bake those into row and pairwise tables."]

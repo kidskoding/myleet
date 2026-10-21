@@ -1,0 +1,8 @@
+id = "check-if-there-is-a-valid-parentheses-string-path"
+title = "Check if There Is a Valid Parentheses String Path"
+difficulty = "hard"
+leetcode = 2267
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/"
+key_idea = "DFS/DP from (0,0) tracking balance; only move right/down and prune when balance goes negative or exceeds remaining cells."
+hints = ["Balance must stay non-negative and end at zero at the bottom-right.", "Memoize (r, c, balance); prune when balance exceeds remaining steps."]
+prompt = ""

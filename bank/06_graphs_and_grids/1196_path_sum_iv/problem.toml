@@ -1,0 +1,7 @@
+id = "path-sum-iv"
+title = "Path Sum IV"
+difficulty = "medium"
+leetcode = 666
+url = "https://leetcode.com/problems/path-sum-iv/"
+key_idea = "Map depth-position keys to values and DFS from root 11, adding path sums at leaves."
+hints = ["Each code is hundreds=depth, tens=position in level, ones=value.", "Child positions follow the full-binary-tree indexing rule from the parent."]

@@ -1,0 +1,7 @@
+id = "sum-of-matrix-after-queries"
+title = "Sum of Matrix After Queries"
+difficulty = "medium"
+leetcode = 2718
+url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
+key_idea = "Process queries in reverse; the first time a row/column appears is its final value over unset cells."
+hints = ["Later overwrites erase earlier writes, so go backwards.", "A finalized row only fills columns that aren't finalized yet."]

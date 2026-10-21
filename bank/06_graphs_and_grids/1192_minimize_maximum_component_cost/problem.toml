@@ -1,0 +1,7 @@
+id = "minimize-maximum-component-cost"
+title = "Minimize Maximum Component Cost"
+difficulty = "medium"
+leetcode = 3613
+url = "https://leetcode.com/problems/minimize-maximum-component-cost/"
+key_idea = "Sort edges by weight and Kruskal-union until at most k components remain; that edge weight is the minimax component cost."
+hints = ["A component's cost is its heaviest kept edge—minimize that maximum.", "If k equals n every edge can be dropped and the answer is 0."]

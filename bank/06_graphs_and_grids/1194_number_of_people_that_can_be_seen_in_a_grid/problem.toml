@@ -1,0 +1,7 @@
+id = "number-of-people-that-can-be-seen-in-a-grid"
+title = "Number of People That Can Be Seen in a Grid"
+difficulty = "medium"
+leetcode = 2282
+url = "https://leetcode.com/problems/number-of-people-that-can-be-seen-in-a-grid/"
+key_idea = "For each row and column, a decreasing monotonic stack from the far end counts visible people to the right/below."
+hints = ["Looking right and looking down are independent; add the two answers.", "Pop strictly shorter people (each is visible), then count one more if anyone remains."]

@@ -1,0 +1,7 @@
+id = "distance-to-a-cycle-in-undirected-graph"
+title = "Distance to a Cycle in Undirected Graph"
+difficulty = "hard"
+leetcode = 2204
+url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
+key_idea = "Peel degree-1 leaves until the cycle remains, then assign distances in reverse deletion order."
+hints = ["Nodes of degree 1 cannot lie on the unique cycle.", "After trimming, leftover nodes are distance 0; walk back out along the peel parents."]

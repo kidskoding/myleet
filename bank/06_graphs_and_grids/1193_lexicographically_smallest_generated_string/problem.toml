@@ -1,0 +1,7 @@
+id = "lexicographically-smallest-generated-string"
+title = "Lexicographically Smallest Generated String"
+difficulty = "hard"
+leetcode = 3474
+url = "https://leetcode.com/problems/lexicographically-smallest-generated-string/"
+key_idea = "Stamp every T-window with str2 (conflict ⇒ impossible), fill the rest with 'a', then break each F-window at its rightmost free index."
+hints = ["Word length is n + m - 1.", "When an F window still equals str2, change the rightmost unfixed char to 'b'."]
