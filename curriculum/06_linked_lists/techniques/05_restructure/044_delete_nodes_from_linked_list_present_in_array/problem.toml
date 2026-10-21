@@ -1,0 +1,11 @@
+id = "delete-nodes-from-linked-list-present-in-array"
+title = "Delete Nodes From Linked List Present in Array"
+difficulty = "medium"
+leetcode = 3217
+url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
+key_idea = "Put nums in a set; walk with a dummy and unlink any node whose value is present."
+hints = [
+  "Membership in a set makes each check O(1).",
+  "A dummy head simplifies deleting the original head.",
+]
+prompt = ""

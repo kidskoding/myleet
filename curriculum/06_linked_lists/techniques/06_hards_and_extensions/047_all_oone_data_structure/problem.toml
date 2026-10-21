@@ -1,0 +1,11 @@
+id = "all-oone-data-structure"
+title = "All O`one Data Structure"
+difficulty = "hard"
+leetcode = 432
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+key_idea = "Doubly linked frequency buckets plus a key→bucket map so inc/dec/min/max are O(1)."
+hints = [
+  "Group keys that share a count in a bucket; order buckets by count.",
+  "inc/dec move a key to a neighboring bucket; min/max read the ends of the bucket list.",
+]
+prompt = ""

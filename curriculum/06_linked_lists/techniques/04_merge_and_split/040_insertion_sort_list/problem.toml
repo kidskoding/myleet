@@ -1,0 +1,11 @@
+id = "insertion-sort-list"
+title = "Insertion Sort List"
+difficulty = "medium"
+leetcode = 147
+url = "https://leetcode.com/problems/insertion-sort-list/"
+key_idea = "Build a sorted list by inserting each node into its place with a dummy head."
+hints = [
+  "Keep a dummy head for the growing sorted prefix.",
+  "For each next unsorted node, walk from the dummy until you find the insert spot.",
+]
+prompt = ""

@@ -1,0 +1,40 @@
+id = "delete-n-nodes-after-m-nodes-of-a-linked-list"
+title = "Delete N Nodes After M Nodes of a Linked List"
+difficulty = "easy"
+leetcode = 1474
+url = "https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/"
+key_idea = "Walk keeping m nodes, then skip/delete the next n; repeat until the end."
+hints = [
+  "Advance m steps to find the last kept node of the current keep block.",
+  "From there, advance n more steps to skip the delete block, then reconnect.",
+]
+prompt = """
+Write `delete_nodes(head, m, n)`. You are given the head of a linked list and two
+integers `m` and `n`.
+
+Traverse the linked list from the beginning. Keep the first `m` nodes, then delete
+the next `n` nodes. Continue doing this until you reach the end of the list. Return
+the head of the modified list.
+
+**Example 1:**
+
+```
+Input: head = [1,2,3,4,5,6,7,8,9,10,11,12,13], m = 2, n = 3
+Output: [1,2,6,7,11,12]
+```
+
+Keep `1,2`, delete `3,4,5`, keep `6,7`, delete `8,9,10`, keep `11,12`, delete `13`.
+
+**Example 2:**
+
+```
+Input: head = [1,2,3,4,5,6,7,8,9,10,11], m = 1, n = 3
+Output: [1,5,9]
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[1, 10^4]`
+- `1 <= Node.val <= 10^6`
+- `1 <= m, n <= 1000`
+"""

@@ -1,0 +1,11 @@
+id = "linked-list-components"
+title = "Linked List Components"
+difficulty = "medium"
+leetcode = 817
+url = "https://leetcode.com/problems/linked-list-components/"
+key_idea = "Walk the list; a component starts when a value in nums is preceded by one not in nums."
+hints = [
+  "Put nums into a set for O(1) membership checks.",
+  "Count a new component each time you enter a run of values that are in the set.",
+]
+prompt = ""

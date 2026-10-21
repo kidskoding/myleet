@@ -1,0 +1,11 @@
+id = "convert-sorted-list-to-binary-search-tree"
+title = "Convert Sorted List to Binary Search Tree"
+difficulty = "medium"
+leetcode = 109
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
+key_idea = "Find the mid with slow/fast, recurse on left and right halves for a balanced BST."
+hints = [
+  "The middle of the sorted list is a good root for balance.",
+  "Cut the list at mid (keep a prev pointer), then build left and right recursively.",
+]
+prompt = ""

@@ -1,0 +1,11 @@
+id = "linked-list-random-node"
+title = "Linked List Random Node"
+difficulty = "medium"
+leetcode = 382
+url = "https://leetcode.com/problems/linked-list-random-node/"
+key_idea = "Reservoir sampling: at node i (1-indexed), replace the answer with probability 1/i."
+hints = [
+  "You may not know the length up front — sample as you walk.",
+  "Keep a candidate; at the i-th node, replace it with probability 1/i.",
+]
+prompt = ""

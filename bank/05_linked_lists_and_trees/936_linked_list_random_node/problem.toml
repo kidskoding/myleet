@@ -1,7 +1,0 @@
-id = "linked-list-random-node"
-title = "Linked List Random Node"
-difficulty = "medium"
-leetcode = 382
-url = "https://leetcode.com/problems/linked-list-random-node/"
-key_idea = "Reservoir sampling: walk the list and replace the chosen value with the i-th node's value with probability 1/i."
-hints = ["Copying the values into an array works. Can you pick uniformly without knowing the length up front?", "As you walk, decide for each node whether it should replace your current pick. What probability keeps every node equally likely?"]

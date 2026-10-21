@@ -1,0 +1,11 @@
+id = "circular-array-loop"
+title = "Circular Array Loop"
+difficulty = "medium"
+leetcode = 457
+url = "https://leetcode.com/problems/circular-array-loop/"
+key_idea = "Floyd on index jumps; require same-direction cycles of length > 1."
+hints = [
+  "Treat each index as a node and nums[i] as the jump to the next index (modulo n).",
+  "Run slow/fast from each start; reject cycles that mix directions or have length 1.",
+]
+prompt = ""

@@ -1,0 +1,39 @@
+id = "plus-one-linked-list"
+title = "Plus One Linked List"
+difficulty = "medium"
+leetcode = 369
+url = "https://leetcode.com/problems/plus-one-linked-list/"
+key_idea = "Reverse (or recurse) to add one from the least-significant digit, then reverse back."
+hints = [
+  "The least significant digit is at the tail, so reverse first or recurse to the end.",
+  "Propagate carry while rewriting digits; a leftover carry becomes a new head node.",
+]
+prompt = """
+Write `plus_one(head)`. You are given the head of a non-empty linked list that
+represents a non-negative integer without leading zeros. Digits are stored with the
+most significant digit at the head.
+
+Add one to the integer and return the head of the resulting linked list. The result
+must also have no leading zeros (except for the number `0` itself, which does not
+appear here since the list is non-empty and we only add one).
+
+**Example 1:**
+
+```
+Input: head = [1,2,3]
+Output: [1,2,4]
+```
+
+**Example 2:**
+
+```
+Input: head = [9,9,9]
+Output: [1,0,0,0]
+```
+
+**Constraints:**
+
+- The number of nodes is in the range `[1, 100]`
+- `0 <= Node.val <= 9`
+- The list does not contain leading zeros except for the number `0`
+"""

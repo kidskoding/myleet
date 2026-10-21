@@ -1,8 +1,0 @@
-id = "convert-sorted-list-to-binary-search-tree"
-title = "Convert Sorted List to Binary Search Tree"
-difficulty = "medium"
-leetcode = 109
-url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
-key_idea = "Make the middle node the root and recurse on each half (or build in-order with a moving list pointer for O(n))."
-hints = ["A balanced BST built from sorted values puts the median at the root.", "Count the nodes, then build recursively over index ranges while advancing a single list pointer in in-order sequence."]
-prompt = ""

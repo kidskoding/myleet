@@ -1,0 +1,11 @@
+id = "remove-zero-sum-consecutive-nodes-from-linked-list"
+title = "Remove Zero Sum Consecutive Nodes from Linked List"
+difficulty = "medium"
+leetcode = 1171
+url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+key_idea = "Prefix sums: same running sum means the sublist between them sums to zero — unlink it."
+hints = [
+  "Track the prefix sum at each node in a map from sum to node.",
+  "When a prefix sum repeats, the nodes after the earlier occurrence sum to zero — skip them.",
+]
+prompt = ""

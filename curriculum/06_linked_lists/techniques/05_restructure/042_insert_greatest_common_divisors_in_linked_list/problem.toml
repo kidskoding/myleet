@@ -1,0 +1,11 @@
+id = "insert-greatest-common-divisors-in-linked-list"
+title = "Insert Greatest Common Divisors in Linked List"
+difficulty = "medium"
+leetcode = 2807
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
+key_idea = "Walk adjacent pairs; insert a new node with gcd(a, b) between them."
+hints = [
+  "For each pair of consecutive nodes, compute math.gcd of their values.",
+  "Splice a new node between them, then advance past the inserted node.",
+]
+prompt = ""
