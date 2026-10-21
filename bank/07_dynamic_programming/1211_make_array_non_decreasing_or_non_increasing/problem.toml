@@ -1,0 +1,7 @@
+id = "make-array-non-decreasing-or-non-increasing"
+title = "Make Array Non-decreasing or Non-increasing"
+difficulty = "hard"
+leetcode = 2263
+url = "https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing/"
+key_idea = "Greedy heap cost to make non-increasing; negate and reuse for non-decreasing; take the min."
+hints = ["Making the sequence monotone one way reduces to adjusting peaks with a heap.", "Non-decreasing is the same problem on negated values."]

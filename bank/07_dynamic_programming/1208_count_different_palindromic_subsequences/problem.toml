@@ -1,0 +1,7 @@
+id = "count-different-palindromic-subsequences"
+title = "Count Different Palindromic Subsequences"
+difficulty = "hard"
+leetcode = 730
+url = "https://leetcode.com/problems/count-different-palindromic-subsequences/"
+key_idea = "Interval DP: for each char c, find leftmost/rightmost occurrences in [i,j] and combine inner counts with wrapping c...c, mod 10^9+7."
+hints = ["Distinct palindromes, so track by endpoint character rather than listing strings.", "When the same letter appears twice as ends, add the empty wrap and all inner palindromes."]

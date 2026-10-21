@@ -1,0 +1,7 @@
+id = "count-the-number-of-inversions"
+title = "Count the Number of Inversions"
+difficulty = "hard"
+leetcode = 3193
+url = "https://leetcode.com/problems/count-the-number-of-inversions/"
+key_idea = "DP f[i][j] = ways to arrange 0..i with j inversions; inserting i can add 0..i new inversions, then zero out states that miss a prefix requirement."
+hints = ["Building the permutation by inserting the next largest value adds a controllable number of inversions.", "When a prefix end has a required count, keep only that inversion column."]

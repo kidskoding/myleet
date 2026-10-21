@@ -1,0 +1,8 @@
+id = "longest-non-decreasing-subarray-after-replacing-at-most-one-element"
+title = "Longest Non-Decreasing Subarray After Replacing at Most One Element"
+difficulty = "medium"
+leetcode = 3738
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-after-replacing-at-most-one-element/"
+key_idea = "Precompute non-decreasing runs ending/starting at each index, then try replacing each position to join the left and right runs when possible."
+hints = ["Build left[i] and right[i] for longest non-decreasing streaks through i.", "When nums[i-1] > nums[i+1], replacing i cannot fully join both sides."]
+prompt = ""

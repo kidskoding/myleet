@@ -1,0 +1,7 @@
+id = "smallest-subsequence-of-distinct-characters"
+title = "Smallest Subsequence of Distinct Characters"
+difficulty = "medium"
+leetcode = 1081
+url = "https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/"
+key_idea = "Monotonic increasing stack: pop a larger letter when it still appears later and is not yet required."
+hints = ["Track the last index of every character.", "Never pick a character twice; skip if it is already on the stack."]

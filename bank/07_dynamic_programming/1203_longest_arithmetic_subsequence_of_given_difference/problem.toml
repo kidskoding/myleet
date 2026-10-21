@@ -1,0 +1,8 @@
+id = "longest-arithmetic-subsequence-of-given-difference"
+title = "Longest Arithmetic Subsequence of Given Difference"
+difficulty = "medium"
+leetcode = 1218
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/"
+key_idea = "Scan left to right and store dp[x] = dp[x - difference] + 1 in a hash map."
+hints = ["Only the previous value x - difference matters for extending a chain ending at x.", "Process the array in order so earlier occurrences are already finalized."]
+prompt = ""

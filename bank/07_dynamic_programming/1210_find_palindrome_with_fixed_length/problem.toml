@@ -1,0 +1,7 @@
+id = "find-palindrome-with-fixed-length"
+title = "Find Palindrome With Fixed Length"
+difficulty = "medium"
+leetcode = 2217
+url = "https://leetcode.com/problems/find-palindrome-with-fixed-length/"
+key_idea = "Enumerate the first half (including the middle digit when odd); mirror it to build the palindrome."
+hints = ["A length-L palindrome is determined by ceil(L/2) free digits.", "The q-th half is start + q - 1; out of range means -1."]

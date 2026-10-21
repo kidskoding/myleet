@@ -1,0 +1,7 @@
+id = "equalize-strings-by-adding-or-removing-characters-at-ends"
+title = "Equalize Strings by Adding or Removing Characters at Ends"
+difficulty = "medium"
+leetcode = 3135
+url = "https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends/"
+key_idea = "Keep the longest common contiguous substring; ops = len(initial) + len(target) - 2 * that length."
+hints = ["Only end edits are allowed, so a preserved middle must be a contiguous shared substring.", "DP for longest common substring ending at (i, j)."]

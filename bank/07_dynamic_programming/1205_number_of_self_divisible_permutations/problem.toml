@@ -1,0 +1,7 @@
+id = "number-of-self-divisible-permutations"
+title = "Number of Self-Divisible Permutations"
+difficulty = "medium"
+leetcode = 2992
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
+key_idea = "Bitmask DP over used numbers; place an unused j at position i only when gcd(i, j) == 1."
+hints = ["n <= 12, so 2^n states are fine.", "The next index to fill is mask.bit_count() + 1."]
