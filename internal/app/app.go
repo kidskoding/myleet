@@ -48,7 +48,7 @@ func Load(warn io.Writer) (*App, error) {
 	if err != nil {
 		return nil, err
 	}
-	root, err := catalog.FindRoot(cwd)
+	root, err := catalog.EnsureRoot(cwd, config.DataDir(), warn)
 	if err != nil {
 		return nil, err
 	}
@@ -161,6 +161,38 @@ func (a *App) Record(e progress.Event) error {
 		return nil
 	}
 	return savestate.Write(a.StatePath, a.Catalog, a.states, a.Loc)
+}
+
+// ResetProgress clears the save file, archives and empties the event log, and
+// wipes attempt/snapshot files. Prompt cache is kept.
+func (a *App) ResetProgress() error {
+	now := time.Now().UTC()
+	if a.Now != nil {
+		now = a.Now().UTC()
+	}
+	if a.Log != nil {
+		backup := ""
+		if path := a.Log.Path(); path != "" {
+			backup = path + ".bak-" + now.Format("20060102T150405Z")
+		}
+		if err := a.Log.Replace(nil, backup); err != nil {
+			return err
+		}
+	}
+	a.Events = nil
+	a.states = map[string]schedule.State{}
+	a.applied = map[string]bool{}
+	if a.StatePath != "" {
+		if err := savestate.Write(a.StatePath, a.Catalog, a.states, a.Loc); err != nil {
+			return err
+		}
+	}
+	if a.Workspace.Dir != "" {
+		if err := a.Workspace.ClearAttempts(); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 // moveOutOfRepo migrates progress from <repo>/.myleet, where it briefly lived.

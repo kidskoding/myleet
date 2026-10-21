@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/kidskoding/myleet/internal/app"
+	"github.com/kidskoding/myleet/internal/version"
 )
 
 const usage = `usage: myleet [command]
@@ -18,7 +19,14 @@ const usage = `usage: myleet [command]
   myleet doctor                     check python, pytest, editor, data dir
   myleet stats                      print progress stats
   myleet prompts                    download problem statements for offline use
-  myleet progress                   edit your save file (progress.toml) in $EDITOR`
+  myleet progress                   edit your save file (progress.toml) in $EDITOR
+  myleet update                     pull the latest curriculum (installed content)
+  myleet version                    print build version
+
+Install the binary, then run myleet once — it clones the curriculum if needed:
+
+  go install github.com/kidskoding/myleet/cmd/myleet@latest
+  myleet doctor && myleet`
 
 // StartTUI is set by cmd/myleet so cli tests do not import the TUI.
 var StartTUI func(a *app.App, openID string) error
@@ -32,10 +40,15 @@ func Run(args []string, stdout, stderr io.Writer) int {
 		cmd, args = args[0], args[1:]
 	}
 	switch cmd {
+	case "version", "-v", "--version":
+		fmt.Fprintln(stdout, version.String())
+		return 0
 	case "validate":
 		return validate(args, stdout, stderr)
 	case "progress":
 		return editProgress(stdout, stderr)
+	case "update":
+		return updateContent(stdout, stderr)
 	case "check", "doctor", "stats", "prompts", "", "open":
 	case "-h", "--help", "help":
 		fmt.Fprintln(stdout, usage)

@@ -8,11 +8,12 @@ import (
 	"strings"
 
 	"github.com/kidskoding/myleet/internal/catalog"
+	"github.com/kidskoding/myleet/internal/config"
 )
 
 func validate(args []string, stdout, stderr io.Writer) int {
 	cwd, _ := os.Getwd()
-	root, err := catalog.FindRoot(cwd)
+	root, err := catalog.EnsureRoot(cwd, config.DataDir(), stderr)
 	if err != nil {
 		fmt.Fprintln(stderr, "myleet:", err)
 		return 1
@@ -46,7 +47,7 @@ func validate(args []string, stdout, stderr io.Writer) int {
 		return 1
 	}
 	curriculum := len(c.Curriculum())
-	fmt.Fprintf(stdout, "%s %d curriculum problems, %d in the bank, %d playlists\n", th.Pass.Render("ok:"), curriculum, len(ids)-curriculum, len(c.Playlists))
+	fmt.Fprintf(stdout, "%s %d curriculum problems, %d playlist-only, %d playlists\n", th.Pass.Render("ok:"), curriculum, len(ids)-curriculum, len(c.Playlists))
 	if fresh := len(ids) - len(locked); locked != nil && fresh > 0 {
 		fmt.Fprintf(stdout, "%s %d new problem ids are not in %s yet; run `myleet validate --lock`\n", th.Due.Render("note:"), fresh, catalog.LockFile)
 	}

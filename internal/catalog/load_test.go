@@ -1,6 +1,7 @@
 package catalog
 
 import (
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -110,14 +111,33 @@ func TestFindRoot(t *testing.T) {
 	if err != nil || root != good {
 		t.Fatalf("FindRoot = %q, %v", root, err)
 	}
+	t.Setenv("MYLEET_ROOT", good)
+	if root, err := FindRoot(os.TempDir()); err != nil || root != good {
+		t.Fatalf("MYLEET_ROOT should win: %q, %v", root, err)
+	}
 	t.Setenv("MYLEET_ROOT", "/elsewhere")
-	if root, _ := FindRoot(nested); root != "/elsewhere" {
-		t.Fatalf("MYLEET_ROOT ignored: %q", root)
+	if _, err := FindRoot(nested); err == nil {
+		t.Fatal("MYLEET_ROOT without curriculum/ should fail")
 	}
 	t.Setenv("MYLEET_ROOT", "")
 	if _, err := FindRoot(os.TempDir()); err == nil {
 		t.Fatal("want error outside a repo")
 	}
+}
+
+func TestEnsureRootUsesInstalledContent(t *testing.T) {
+	good, _ := filepath.Abs(filepath.Join("testdata", "good"))
+	data := t.TempDir()
+	content := ContentDir(data)
+	if err := os.MkdirAll(filepath.Join(content, "curriculum"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	t.Setenv("MYLEET_ROOT", "")
+	root, err := EnsureRoot(os.TempDir(), data, io.Discard)
+	if err != nil || root != content {
+		t.Fatalf("EnsureRoot = %q, %v (want %q)", root, err, content)
+	}
+	_ = good
 }
 
 func TestLoadRealCurriculum(t *testing.T) {

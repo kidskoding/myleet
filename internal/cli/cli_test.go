@@ -49,7 +49,7 @@ func repoPython(t *testing.T) {
 func TestValidateGood(t *testing.T) {
 	env(t, tu.GoodRoot())
 	code, out := run("validate")
-	if code != 0 || !strings.Contains(out, "ok: 4 curriculum problems, 1 in the bank, 2 playlists") {
+	if code != 0 || !strings.Contains(out, "ok: 4 curriculum problems, 1 playlist-only, 2 playlists") {
 		t.Fatalf("code=%d out=%s", code, out)
 	}
 }
@@ -91,6 +91,13 @@ func TestStatsEmpty(t *testing.T) {
 func TestUnknownCommand(t *testing.T) {
 	env(t, tu.GoodRoot())
 	if code, out := run("frobnicate"); code != 2 || !strings.Contains(out, "usage") {
+		t.Fatalf("code=%d out=%s", code, out)
+	}
+}
+
+func TestVersion(t *testing.T) {
+	code, out := run("version")
+	if code != 0 || !strings.Contains(out, "myleet") {
 		t.Fatalf("code=%d out=%s", code, out)
 	}
 }

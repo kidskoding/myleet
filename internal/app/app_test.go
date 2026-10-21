@@ -130,3 +130,29 @@ func TestStateDirFromConfig(t *testing.T) {
 		t.Fatal("save file should follow state_dir")
 	}
 }
+
+func TestResetProgress(t *testing.T) {
+	e := newEnv(t)
+	a := e.load(t)
+	pass(a, "p-one", time.Now())
+	ws := filepath.Join(e.state, "workspace", "p-one")
+	os.MkdirAll(ws, 0o755)
+	os.WriteFile(filepath.Join(ws, "attempt.py"), []byte("x\n"), 0o644)
+	if err := a.ResetProgress(); err != nil {
+		t.Fatal(err)
+	}
+	if len(a.Events) != 0 || a.States()["p-one"].Attempts != 0 {
+		t.Fatalf("memory not cleared: events=%d state=%+v", len(a.Events), a.States()["p-one"])
+	}
+	data, _ := os.ReadFile(e.save())
+	if strings.Contains(string(data), "[p-one]") {
+		t.Fatalf("save file still has p-one:\n%s", data)
+	}
+	if _, err := os.Stat(filepath.Join(ws, "attempt.py")); !os.IsNotExist(err) {
+		t.Fatal("workspace attempt should be gone")
+	}
+	matches, _ := filepath.Glob(filepath.Join(e.state, "events.jsonl.bak-*"))
+	if len(matches) == 0 {
+		t.Fatal("history should be archived")
+	}
+}

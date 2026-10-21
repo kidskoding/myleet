@@ -10,8 +10,10 @@ import (
 	"strings"
 
 	"github.com/kidskoding/myleet/internal/app"
+	"github.com/kidskoding/myleet/internal/catalog"
 	"github.com/kidskoding/myleet/internal/config"
 	"github.com/kidskoding/myleet/internal/editor"
+	"github.com/kidskoding/myleet/internal/version"
 )
 
 func doctor(a *app.App, stdout io.Writer) int {
@@ -25,6 +27,9 @@ func doctor(a *app.App, stdout io.Writer) int {
 		fmt.Fprintf(stdout, "%s  %-8s %s\n      %s\n", failTag(), what, detail, th.Due.Render("fix: "+fix))
 	}
 
+	fmt.Fprintln(stdout, version.String())
+	kind := catalog.RootKind(a.Root, config.DataDir())
+	report(true, "root", fmt.Sprintf("%s (%s)", a.Root, kind), "")
 	report(a.PythonErr == nil, "python", strings.Join(a.Runner.Python, " "), "run `uv sync` in "+a.Root)
 	if a.PythonErr == nil {
 		py := a.Runner.Python
