@@ -67,6 +67,10 @@ func Attempts(events []progress.Event, target func(id string) time.Duration) []A
 	}
 	extras := []*extra{}
 	for _, e := range events {
+		if e.Mode == progress.Placement || e.Mode == progress.Checkpoint ||
+			e.Kind == progress.PlacementDone || e.Kind == progress.CheckpointDone {
+			continue // diagnostic / checkpoint attempts do not move the review ladder
+		}
 		i, ok := index[e.Attempt]
 		if !ok {
 			i = len(out)

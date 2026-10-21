@@ -6,6 +6,9 @@ import (
 	"time"
 
 	"github.com/kidskoding/myleet/internal/catalog"
+	"github.com/kidskoding/myleet/internal/checkpoint"
+	"github.com/kidskoding/myleet/internal/placement"
+	"github.com/kidskoding/myleet/internal/progress"
 	"github.com/kidskoding/myleet/internal/schedule"
 )
 
@@ -50,6 +53,11 @@ func daysBetween(from, to time.Time) int {
 // started techniques, then untouched ones in reading order. New problems rotate
 // across techniques, and the slots shrink by new problems already finished today.
 func Today(c *catalog.Catalog, states map[string]schedule.State, today time.Time, newPerDay int) []Item {
+	return TodayWithEvents(c, states, today, newPerDay, nil)
+}
+
+// TodayWithEvents is Today, but weak-spot picking also uses placement and checkpoint results.
+func TodayWithEvents(c *catalog.Catalog, states map[string]schedule.State, today time.Time, newPerDay int, events []progress.Event) []Item {
 	day := midnight(today)
 	var reviews []Item
 	startedToday := 0
@@ -71,7 +79,24 @@ func Today(c *catalog.Catalog, states map[string]schedule.State, today time.Time
 		}
 		return a.Problem.Order - b.Problem.Order
 	})
-	return append(reviews, pickNew(c, states, max(0, newPerDay-startedToday))...)
+	return append(reviews, pickNew(c, states, max(0, newPerDay-startedToday), weakModules(events))...)
+}
+
+// weakModules merges placement and checkpoint gaps; checkpoint wins on overlap
+// by applying second so both sets are unioned (same bool map).
+func weakModules(events []progress.Event) map[string]bool {
+	out := map[string]bool{}
+	if r, ok := placement.Load(events); ok && !r.Skipped {
+		for id := range placement.WeakModules(r) {
+			out[id] = true
+		}
+	}
+	if r, ok := checkpoint.Load(events); ok {
+		for id := range checkpoint.WeakModules(r) {
+			out[id] = true
+		}
+	}
+	return out
 }
 
 type candidate struct {
@@ -80,8 +105,8 @@ type candidate struct {
 	struggle float64
 }
 
-func pickNew(c *catalog.Catalog, states map[string]schedule.State, slots int) []Item {
-	var started, untouched []*candidate
+func pickNew(c *catalog.Catalog, states map[string]schedule.State, slots int, weakMods map[string]bool) []Item {
+	var started, untouched, placed []*candidate
 	for _, m := range c.Modules {
 		if m.Bank {
 			continue
@@ -103,6 +128,12 @@ func pickNew(c *catalog.Catalog, states map[string]schedule.State, slots int) []
 				continue
 			}
 			if !seen {
+				if weakMods[m.ID] {
+					cand.reason = ReasonWeak
+					cand.struggle = 1
+					placed = append(placed, cand)
+					continue
+				}
 				untouched = append(untouched, cand)
 				continue
 			}
@@ -117,7 +148,8 @@ func pickNew(c *catalog.Catalog, states map[string]schedule.State, slots int) []
 		}
 	}
 	slices.SortStableFunc(started, func(a, b *candidate) int { return cmp.Compare(b.struggle, a.struggle) })
-	order := append(started, untouched...)
+	slices.SortStableFunc(placed, func(a, b *candidate) int { return cmp.Compare(b.struggle, a.struggle) })
+	order := append(placed, append(started, untouched...)...)
 
 	var out []Item
 	for round := 0; len(out) < slots; round++ {

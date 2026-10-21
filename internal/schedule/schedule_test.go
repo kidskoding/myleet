@@ -158,3 +158,30 @@ func TestStatusForRung(t *testing.T) {
 		}
 	}
 }
+
+func TestPlacementModeSkippedFromAttempts(t *testing.T) {
+	id := "place1"
+	events := []progress.Event{
+		{Time: at(1, 10, 0), Kind: progress.Opened, Problem: "p", Attempt: id, Mode: progress.Placement},
+		{Time: at(1, 10, 5), Kind: progress.Passed, Problem: "p", Attempt: id, Mode: progress.Placement, Data: map[string]string{"elapsed_ms": "300000"}},
+		{Time: at(1, 10, 6), Kind: progress.PlacementDone, Mode: progress.Placement, Data: map[string]string{"skipped": "1"}},
+	}
+	if atts := Attempts(events, target); len(atts) != 0 {
+		t.Fatalf("placement events must not build attempts: %+v", atts)
+	}
+	if st := Compute(events, target, chicago)["p"]; st.Status != Unseen && st.Attempts != 0 {
+		t.Fatalf("placement must not move the ladder: %+v", st)
+	}
+}
+
+func TestCheckpointModeSkippedFromAttempts(t *testing.T) {
+	id := "chk1"
+	events := []progress.Event{
+		{Time: at(1, 10, 0), Kind: progress.Opened, Problem: "p", Attempt: id, Mode: progress.Checkpoint},
+		{Time: at(1, 10, 5), Kind: progress.Passed, Problem: "p", Attempt: id, Mode: progress.Checkpoint, Data: map[string]string{"elapsed_ms": "300000"}},
+		{Time: at(1, 10, 6), Kind: progress.CheckpointDone, Mode: progress.Checkpoint, Data: map[string]string{"through": "1"}},
+	}
+	if atts := Attempts(events, target); len(atts) != 0 {
+		t.Fatalf("checkpoint events must not build attempts: %+v", atts)
+	}
+}

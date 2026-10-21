@@ -31,7 +31,7 @@ var DefaultSayAloud = []string{"brute force", "why it dies", "complexity"}
 type Module struct {
 	ID, Title, Description, Dir string
 	Number                      int
-	Bank                        bool // problems outside the lessons, reachable from playlists and search
+	Bank                        bool // playlist-only trackable problems (not on the map)
 	Notes                       []string
 	Techniques                  []*Technique
 }

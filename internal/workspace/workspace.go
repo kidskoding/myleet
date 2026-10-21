@@ -76,3 +76,14 @@ func (w Workspace) Snapshots(id string) ([]string, error) {
 func (w Workspace) Reset(p *catalog.Problem) error {
 	return w.copyStarter(p, w.AttemptPath(p.ID))
 }
+
+// ClearAttempts removes all attempt files and snapshots (keeps prompts cache elsewhere).
+func (w Workspace) ClearAttempts() error {
+	for _, name := range []string{"workspace", "snapshots"} {
+		path := filepath.Join(w.Dir, name)
+		if err := os.RemoveAll(path); err != nil {
+			return err
+		}
+	}
+	return nil
+}

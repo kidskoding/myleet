@@ -84,3 +84,95 @@ func sample(weights []float64, ok func(int) bool, rng *rand.Rand) int {
 	}
 	return last
 }
+
+func checkpointWeight(p *catalog.Problem, st schedule.State, seen bool) float64 {
+	w := 2.0
+	switch p.Difficulty {
+	case catalog.Easy:
+		w = 3.0
+	case catalog.Hard:
+		w = 1.0
+	}
+	if !seen || st.Status == schedule.Unseen {
+		w *= 1.5
+	}
+	return w
+}
+
+// PickCheckpoint samples a broad-coverage exam through module number `through`.
+// Prefer one problem per module in the slice, then fill by technique diversity.
+// Soft preference for unseen/easy so the exam is fair.
+func PickCheckpoint(c *catalog.Catalog, states map[string]schedule.State, through, n int, rng *rand.Rand) []*catalog.Problem {
+	if through <= 0 || n <= 0 {
+		return nil
+	}
+	var pool []*catalog.Problem
+	for _, p := range c.Curriculum() {
+		m := p.Technique.Module
+		if m.Bank || m.ID == mixedModule || m.Number > through {
+			continue
+		}
+		pool = append(pool, p)
+	}
+	if len(pool) == 0 {
+		return nil
+	}
+	n = min(n, len(pool))
+	weights := make([]float64, len(pool))
+	for i, p := range pool {
+		st, seen := states[p.ID]
+		weights[i] = checkpointWeight(p, st, seen)
+	}
+	taken := make([]bool, len(pool))
+	usedMod := map[int]bool{}
+	usedTech := map[*catalog.Technique]bool{}
+	var out []*catalog.Problem
+
+	// Pass 1: one problem per module.
+	for len(out) < n {
+		pick := sample(weights, func(i int) bool {
+			return !taken[i] && !usedMod[pool[i].Technique.Module.Number]
+		}, rng)
+		if pick < 0 {
+			break
+		}
+		taken[pick] = true
+		usedMod[pool[pick].Technique.Module.Number] = true
+		usedTech[pool[pick].Technique] = true
+		out = append(out, pool[pick])
+	}
+	// Pass 2: technique diversity.
+	for len(out) < n {
+		pick := sample(weights, func(i int) bool {
+			return !taken[i] && !usedTech[pool[i].Technique]
+		}, rng)
+		if pick < 0 {
+			break
+		}
+		taken[pick] = true
+		usedTech[pool[pick].Technique] = true
+		out = append(out, pool[pick])
+	}
+	// Pass 3: anything left.
+	for len(out) < n {
+		pick := sample(weights, func(i int) bool { return !taken[i] }, rng)
+		if pick < 0 {
+			break
+		}
+		taken[pick] = true
+		out = append(out, pool[pick])
+	}
+	return out
+}
+
+// CheckpointSize is the default problem count for a slice: one per module, capped at 5.
+func CheckpointSize(c *catalog.Catalog, through int) int {
+	n := 0
+	for _, m := range c.Modules {
+		if m.Bank || m.ID == mixedModule || m.Number > through {
+			continue
+		}
+		n++
+	}
+	return min(5, n)
+}

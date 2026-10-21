@@ -63,3 +63,38 @@ func TestPickSkipsBank(t *testing.T) {
 		}
 	}
 }
+
+func TestPickCheckpointCoversModules(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	n := CheckpointSize(c, 2)
+	if n != 2 {
+		t.Fatalf("size = %d", n)
+	}
+	got := PickCheckpoint(c, nil, 2, n, rand.New(rand.NewSource(3)))
+	if len(got) != 2 {
+		t.Fatalf("picked %d", len(got))
+	}
+	mods := map[int]bool{}
+	for _, p := range got {
+		if p.Technique.Module.Number > 2 || p.Technique.Module.Bank {
+			t.Fatalf("out of slice: %s", p.ID)
+		}
+		mods[p.Technique.Module.Number] = true
+	}
+	if len(mods) != 2 {
+		t.Fatalf("want one per module, got %v", mods)
+	}
+}
+
+func TestPickCheckpointRespectsCeiling(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	got := PickCheckpoint(c, nil, 1, 5, rand.New(rand.NewSource(1)))
+	if len(got) == 0 {
+		t.Fatal("empty")
+	}
+	for _, p := range got {
+		if p.Technique.Module.Number > 1 {
+			t.Fatalf("%s is past ceiling", p.ID)
+		}
+	}
+}

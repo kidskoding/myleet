@@ -3,6 +3,9 @@ package session
 import (
 	"testing"
 
+	"github.com/kidskoding/myleet/internal/checkpoint"
+	"github.com/kidskoding/myleet/internal/placement"
+	"github.com/kidskoding/myleet/internal/progress"
 	"github.com/kidskoding/myleet/internal/schedule"
 	tu "github.com/kidskoding/myleet/internal/testutil"
 )
@@ -47,4 +50,35 @@ func equal(a, b []string) bool {
 		}
 	}
 	return true
+}
+
+func TestNewPrefersModulesFromPlacement(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	events := []progress.Event{{
+		Kind: progress.PlacementDone, Mode: progress.Placement,
+		Data: placement.Encode([]placement.ItemResult{
+			{Topic: "beta", ProblemID: "two-sum", ModuleID: "beta", Outcome: placement.OutcomeFailed},
+		}),
+	}}
+	got := newIDs(TodayWithEvents(c, nil, tu.Day(19), 3, events))
+	if want := []string{"two-sum", "p-one", "p-three"}; !equal(got, want) {
+		t.Fatalf("placement weak modules should lead: got %v, want %v", got, want)
+	}
+	if TodayWithEvents(c, nil, tu.Day(19), 1, events)[0].Reason != ReasonWeak {
+		t.Fatal("placement-boosted problems should be labeled weak spot")
+	}
+}
+
+func TestNewPrefersModulesFromCheckpoint(t *testing.T) {
+	c := tu.GoodCatalog(t)
+	events := []progress.Event{{
+		Kind: progress.CheckpointDone, Mode: progress.Checkpoint,
+		Data: checkpoint.Encode(2, []checkpoint.ItemResult{
+			{Topic: "Beta", ProblemID: "two-sum", ModuleID: "beta", Outcome: checkpoint.OutcomeFailed},
+		}),
+	}}
+	got := newIDs(TodayWithEvents(c, nil, tu.Day(19), 3, events))
+	if want := []string{"two-sum", "p-one", "p-three"}; !equal(got, want) {
+		t.Fatalf("checkpoint weak modules should lead: got %v, want %v", got, want)
+	}
 }
