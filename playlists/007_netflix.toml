@@ -1,7 +1,7 @@
 title = "Netflix"
 group = "Big tech"
-focus = "caching, streams, heaps, intervals, graphs, string processing, trees, and DP."
-review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "14_tries", "17_advanced"]
+focus = "hashing, sliding windows, heaps, caching/design, graphs, and string processing."
+review_modules = ["01_arrays_and_hashing", "06_linked_lists", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
 title = "LRU Cache"
@@ -12,116 +12,36 @@ title = "LFU Cache"
 url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
-
-[[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
-
-[[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "My Calendar III"
-url = "https://leetcode.com/problems/my-calendar-iii/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
-title = "Min Cost to Connect All Points"
-url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Contains Duplicate III"
@@ -132,12 +52,36 @@ title = "Parallel Courses"
 url = "https://leetcode.com/problems/parallel-courses/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
 title = "Reconstruct Itinerary"
 url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Contains Duplicate II"
+url = "https://leetcode.com/problems/contains-duplicate-ii/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
 title = "String to Integer (atoi)"
@@ -152,24 +96,28 @@ title = "Maximum Length of Repeated Subarray"
 url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
 title = "Fruit Into Baskets"
 url = "https://leetcode.com/problems/fruit-into-baskets/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
 title = "Snapshot Array"
 url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
 title = "Koko Eating Bananas"
@@ -180,9 +128,57 @@ title = "Find Peak Element"
 url = "https://leetcode.com/problems/find-peak-element/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+
+[[entries]]
+title = "New 21 Game"
+url = "https://leetcode.com/problems/new-21-game/"
+
+[[entries]]
+title = "Soup Servings"
+url = "https://leetcode.com/problems/soup-servings/"
+
+[[entries]]
+title = "Number of Dice Rolls With Target Sum"
+url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
+
+[[entries]]
+title = "Dice Roll Simulation"
+url = "https://leetcode.com/problems/dice-roll-simulation/"
+
+[[entries]]
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
+
+[[entries]]
+title = "Super Ugly Number"
+url = "https://leetcode.com/problems/super-ugly-number/"
+
+[[entries]]
+title = "Nth Magical Number"
+url = "https://leetcode.com/problems/nth-magical-number/"
+
+[[entries]]
+title = "Water and Jug Problem"
+url = "https://leetcode.com/problems/water-and-jug-problem/"
+
+[[entries]]
+title = "Bulb Switcher"
+url = "https://leetcode.com/problems/bulb-switcher/"
+
+[[entries]]
+title = "Reach a Number"
+url = "https://leetcode.com/problems/reach-a-number/"
+
+[[entries]]
+title = "Mirror Reflection"
+url = "https://leetcode.com/problems/mirror-reflection/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"

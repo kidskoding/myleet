@@ -1,183 +1,67 @@
 title = "OpenAI"
 group = "AI labs / high growth"
-focus = "deep reasoning, graphs, DP, trees, search, optimization, and clean abstractions."
-review_modules = ["07_trees", "10_graphs", "11_dp", "09_backtracking", "05_binary_search"]
-
-[[entries]]
-title = "Compare Version Numbers"
-url = "https://leetcode.com/problems/compare-version-numbers/"
-
-[[entries]]
-title = "Minimum Interval to Include Each Query"
-url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
-
-[[entries]]
-title = "Russian Doll Envelopes"
-url = "https://leetcode.com/problems/russian-doll-envelopes/"
-
-[[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
-
-[[entries]]
-title = "Queue Reconstruction by Height"
-url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
-
-[[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
-
-[[entries]]
-title = "Majority Element II"
-url = "https://leetcode.com/problems/majority-element-ii/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
-
-[[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
-
-[[entries]]
-title = "Construct Binary Tree from Preorder and Inorder Traversal"
-url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
-
-[[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
-
-[[entries]]
-title = "Shortest Path to Get All Keys"
-url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"
-
-[[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
-
-[[entries]]
-title = "Pow(x, n)"
-url = "https://leetcode.com/problems/powx-n/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "N-Queens"
-url = "https://leetcode.com/problems/n-queens/"
-
-[[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
-
-[[entries]]
-title = "Regular Expression Matching"
-url = "https://leetcode.com/problems/regular-expression-matching/"
-
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "Burst Balloons"
-url = "https://leetcode.com/problems/burst-balloons/"
-
-[[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
-
-[[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
-
-[[entries]]
-title = "Minimum Cost to Make at Least One Valid Path in a Grid"
-url = "https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/"
-
-[[entries]]
-title = "Swim in Rising Water"
-url = "https://leetcode.com/problems/swim-in-rising-water/"
-
-[[entries]]
-title = "Design SQL"
-url = "https://leetcode.com/problems/design-sql/"
+focus = "design-style data structures, encoding, graphs/BFS, and clean abstractions."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "06_linked_lists", "10_graphs", "17_advanced"]
 
 [[entries]]
 title = "Design Memory Allocator"
 url = "https://leetcode.com/problems/design-memory-allocator/"
 
 [[entries]]
-title = "IP to CIDR"
-url = "https://leetcode.com/problems/ip-to-cidr/"
+title = "Design SQL"
+url = "https://leetcode.com/problems/design-sql/"
 
 [[entries]]
 title = "Encode and Decode Strings"
 url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
-title = "Design Authentication Manager"
-url = "https://leetcode.com/problems/design-authentication-manager/"
-
-[[entries]]
 title = "Flatten Nested List Iterator"
 url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
 
 [[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "IP to CIDR"
+url = "https://leetcode.com/problems/ip-to-cidr/"
+
+[[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+
+[[entries]]
+title = "Largest Local Values in a Matrix"
+url = "https://leetcode.com/problems/largest-local-values-in-a-matrix/"
 
 [[entries]]
 title = "Design Excel Sum Formula"
@@ -188,17 +72,113 @@ title = "Design Spreadsheet"
 url = "https://leetcode.com/problems/design-spreadsheet/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Design Authentication Manager"
+url = "https://leetcode.com/problems/design-authentication-manager/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+
+[[entries]]
+title = "New 21 Game"
+url = "https://leetcode.com/problems/new-21-game/"
+
+[[entries]]
+title = "Soup Servings"
+url = "https://leetcode.com/problems/soup-servings/"
+
+[[entries]]
+title = "Number of Dice Rolls With Target Sum"
+url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
+
+[[entries]]
+title = "Dice Roll Simulation"
+url = "https://leetcode.com/problems/dice-roll-simulation/"
+
+[[entries]]
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
+
+[[entries]]
+title = "Super Ugly Number"
+url = "https://leetcode.com/problems/super-ugly-number/"
+
+[[entries]]
+title = "Nth Magical Number"
+url = "https://leetcode.com/problems/nth-magical-number/"
+
+[[entries]]
+title = "Water and Jug Problem"
+url = "https://leetcode.com/problems/water-and-jug-problem/"
+
+[[entries]]
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
+
+[[entries]]
+title = "Bulb Switcher"
+url = "https://leetcode.com/problems/bulb-switcher/"
+
+[[entries]]
+title = "Reach a Number"
+url = "https://leetcode.com/problems/reach-a-number/"
+
+[[entries]]
+title = "Mirror Reflection"
+url = "https://leetcode.com/problems/mirror-reflection/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Different Ways to Add Parentheses"
+url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
+
+[[entries]]
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"

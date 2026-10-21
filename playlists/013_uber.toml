@@ -1,199 +1,131 @@
 title = "Uber"
 group = "Big tech"
-focus = "graphs, heaps, intervals, maps, practical modeling, and fast implementation."
-review_modules = ["10_graphs", "08_heaps", "13_intervals", "01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "05_binary_search"]
+focus = "heaps, graphs, grids, intervals, trees, and optimization under constraints."
+review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "13_intervals"]
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
-title = "Design Linked List"
-url = "https://leetcode.com/problems/design-linked-list/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
-title = "Redundant Connection II"
-url = "https://leetcode.com/problems/redundant-connection-ii/"
-
-[[entries]]
-title = "Minimum Moves to Reach Target with Rotations"
-url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
-
-[[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
-
-[[entries]]
-title = "Kth Smallest Element in a BST"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
-
-[[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
-
-[[entries]]
-title = "Add Binary"
-url = "https://leetcode.com/problems/add-binary/"
-
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
-
-[[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
-
-[[entries]]
-title = "Min Cost to Connect All Points"
-url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
-
-[[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
-
-[[entries]]
-title = "Video Stitching"
-url = "https://leetcode.com/problems/video-stitching/"
-
-[[entries]]
-title = "Minimum Window Subsequence"
-url = "https://leetcode.com/problems/minimum-window-subsequence/"
-
-[[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock IV"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
-
-[[entries]]
-title = "IPO"
-url = "https://leetcode.com/problems/ipo/"
-
-[[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
-
-[[entries]]
-title = "Subsets"
-url = "https://leetcode.com/problems/subsets/"
-
-[[entries]]
-title = "Number of Closed Islands"
-url = "https://leetcode.com/problems/number-of-closed-islands/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
-
-[[entries]]
-title = "Partition Equal Subset Sum"
-url = "https://leetcode.com/problems/partition-equal-subset-sum/"
-
-[[entries]]
-title = "First Unique Number"
-url = "https://leetcode.com/problems/first-unique-number/"
-
-[[entries]]
-title = "Number of Islands II"
-url = "https://leetcode.com/problems/number-of-islands-ii/"
-
-[[entries]]
-title = "Construct Quad Tree"
-url = "https://leetcode.com/problems/construct-quad-tree/"
-
-[[entries]]
-title = "The Earliest Moment When Everyone Become Friends"
-url = "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/"
+title = "Optimize Water Distribution in a Village"
+url = "https://leetcode.com/problems/optimize-water-distribution-in-a-village/"
 
 [[entries]]
 title = "Bus Routes"
 url = "https://leetcode.com/problems/bus-routes/"
 
 [[entries]]
-title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
-url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
-
-[[entries]]
-title = "Minimum Edge Reversals So Every Node Is Reachable"
-url = "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/"
-
-[[entries]]
 title = "Alien Dictionary"
 url = "https://leetcode.com/problems/alien-dictionary/"
 
 [[entries]]
-title = "Count Paths That Can Form a Palindrome in a Tree"
-url = "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/"
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
-title = "Find the Closest Palindrome"
-url = "https://leetcode.com/problems/find-the-closest-palindrome/"
+title = "Design Parking System"
+url = "https://leetcode.com/problems/design-parking-system/"
 
 [[entries]]
-title = "Shuffle an Array"
-url = "https://leetcode.com/problems/shuffle-an-array/"
+title = "Escape the Spreading Fire"
+url = "https://leetcode.com/problems/escape-the-spreading-fire/"
 
 [[entries]]
-title = "Maximum Coin Collection"
-url = "https://leetcode.com/problems/maximum-coin-collection/"
+title = "Maximize Sum of Weights after Edge Removals"
+url = "https://leetcode.com/problems/maximize-sum-of-weights-after-edge-removals/"
 
 [[entries]]
-title = "Find Minimum Time to Reach Last Room I"
-url = "https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/"
-
-[[entries]]
-title = "Minimum Cost to Equalize Arrays Using Swaps"
-url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
-
-[[entries]]
-title = "Making A Large Island"
-url = "https://leetcode.com/problems/making-a-large-island/"
+title = "Number of Islands II"
+url = "https://leetcode.com/problems/number-of-islands-ii/"
 
 [[entries]]
 title = "Minimum Number of Refueling Stops"
 url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
 
 [[entries]]
+title = "First Unique Number"
+url = "https://leetcode.com/problems/first-unique-number/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Construct Quad Tree"
+url = "https://leetcode.com/problems/construct-quad-tree/"
+
+[[entries]]
+title = "Count Paths That Can Form a Palindrome in a Tree"
+url = "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/"
+
+[[entries]]
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
+
+[[entries]]
+title = "Find the Closest Palindrome"
+url = "https://leetcode.com/problems/find-the-closest-palindrome/"
+
+[[entries]]
+title = "The Earliest Moment When Everyone Become Friends"
+url = "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/"
+
+[[entries]]
+title = "Maximum Coin Collection"
+url = "https://leetcode.com/problems/maximum-coin-collection/"
+
+[[entries]]
+title = "Points That Intersect With Cars"
+url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
+
+[[entries]]
+title = "Minimum Cost to Equalize Arrays Using Swaps"
+url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+
+[[entries]]
 title = "Falling Squares"
 url = "https://leetcode.com/problems/falling-squares/"
+
+[[entries]]
+title = "Number of Nodes in the Sub-Tree With the Same Label"
+url = "https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Number Of Ways To Reconstruct A Tree"
@@ -202,3 +134,71 @@ url = "https://leetcode.com/problems/number-of-ways-to-reconstruct-a-tree/"
 [[entries]]
 title = "Maximum Number of Eaten Apples"
 url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
+
+[[entries]]
+title = "Array With Elements Not Equal to Average of Neighbors"
+url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
+
+[[entries]]
+title = "Number of People That Can Be Seen in a Grid"
+url = "https://leetcode.com/problems/number-of-people-that-can-be-seen-in-a-grid/"
+
+[[entries]]
+title = "Maximize Win From Two Segments"
+url = "https://leetcode.com/problems/maximize-win-from-two-segments/"
+
+[[entries]]
+title = "Number of Ways to Reach Destination in the Grid"
+url = "https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Maximum Increasing Triplet Value"
+url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
+
+[[entries]]
+title = "Match Alphanumerical Pattern in Matrix I"
+url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
+
+[[entries]]
+title = "Minimum Operations to Make Binary Array Elements Equal to One II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Minimum Edge Reversals So Every Node Is Reachable"
+url = "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/"
+
+[[entries]]
+title = "Maximize Amount After Two Days of Conversions"
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
+
+[[entries]]
+title = "Find Minimum Time to Reach Last Room I"
+url = "https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/"
+
+[[entries]]
+title = "Kth Smallest Element in a BST"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
+
+[[entries]]
+title = "Factor Combinations"
+url = "https://leetcode.com/problems/factor-combinations/"
+
+[[entries]]
+title = "Random Pick with Blacklist"
+url = "https://leetcode.com/problems/random-pick-with-blacklist/"
+
+[[entries]]
+title = "Maximum XOR for Each Query"
+url = "https://leetcode.com/problems/maximum-xor-for-each-query/"

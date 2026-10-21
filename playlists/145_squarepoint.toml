@@ -1,188 +1,184 @@
 title = "Squarepoint Capital"
 group = "Quant"
-focus = "dp, sliding windows, stock profit, tries, two pointers"
-review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "08_heaps", "11_dp"]
-
-[[entries]]
-title = "Minimum Moves to Equal Array Elements"
-url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
-
-[[entries]]
-title = "Maximum Xor Product"
-url = "https://leetcode.com/problems/maximum-xor-product/"
-
-[[entries]]
-title = "Number of Perfect Pairs"
-url = "https://leetcode.com/problems/number-of-perfect-pairs/"
-
-[[entries]]
-title = "Longest Non-decreasing Subarray From Two Arrays"
-url = "https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays/"
-
-[[entries]]
-title = "Find Valid Matrix Given Row and Column Sums"
-url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
-
-[[entries]]
-title = "Minimum Sideway Jumps"
-url = "https://leetcode.com/problems/minimum-sideway-jumps/"
-
-[[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
-
-[[entries]]
-title = "Count Ways To Build Good Strings"
-url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
-
-[[entries]]
-title = "Maximum Palindromes After Operations"
-url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
-
-[[entries]]
-title = "Merge In Between Linked Lists"
-url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
-
-[[entries]]
-title = "Minimum Equal Sum of Two Arrays After Replacing Zeros"
-url = "https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/"
-
-[[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
-title = "Frog Jump"
-url = "https://leetcode.com/problems/frog-jump/"
-
-[[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Couples Holding Hands"
-url = "https://leetcode.com/problems/couples-holding-hands/"
-
-[[entries]]
-title = "Minimum Number of Taps to Open to Water a Garden"
-url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"
-
-[[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
-
-[[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
-
-[[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Min Cost Climbing Stairs"
-url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
-
-[[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
-title = "Two Sum II - Input Array Is Sorted"
-url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Coin Change II"
-url = "https://leetcode.com/problems/coin-change-ii/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+focus = "DP, math, arrays, and quant-developer style coding."
+review_modules = ["16_math_geometry", "11_dp", "08_heaps", "03_stacks_and_queues", "09_backtracking", "10_graphs"]
 
 [[entries]]
 title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Decode Ways"
-url = "https://leetcode.com/problems/decode-ways/"
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Russian Doll Envelopes"
+url = "https://leetcode.com/problems/russian-doll-envelopes/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock III"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
+
+[[entries]]
+title = "New 21 Game"
+url = "https://leetcode.com/problems/new-21-game/"
+
+[[entries]]
+title = "Soup Servings"
+url = "https://leetcode.com/problems/soup-servings/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"
+
+[[entries]]
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+
+[[entries]]
+title = "Number of Dice Rolls With Target Sum"
+url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
+
+[[entries]]
+title = "Dice Roll Simulation"
+url = "https://leetcode.com/problems/dice-roll-simulation/"
+
+[[entries]]
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
+
+[[entries]]
+title = "Water and Jug Problem"
+url = "https://leetcode.com/problems/water-and-jug-problem/"
+
+[[entries]]
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
+
+[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Different Ways to Add Parentheses"
+url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
+
+[[entries]]
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Bus Routes"
+url = "https://leetcode.com/problems/bus-routes/"
+
+[[entries]]
+title = "Shortest Path in a Grid with Obstacles Elimination"
+url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
+
+[[entries]]
+title = "Palindrome Partitioning"
+url = "https://leetcode.com/problems/palindrome-partitioning/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"

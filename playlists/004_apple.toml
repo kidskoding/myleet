@@ -1,204 +1,204 @@
 title = "Apple"
 group = "Big tech"
-focus = "clean code, arrays/strings, trees, graphs, low-level reasoning, and edge cases."
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "07_trees", "10_graphs", "15_bit_manipulation"]
+focus = "arrays, strings, linked lists, trees, graphs, and careful edge-case handling."
+review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Reverse Words in a String"
-url = "https://leetcode.com/problems/reverse-words-in-a-string/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Daily Temperatures"
-url = "https://leetcode.com/problems/daily-temperatures/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Find Minimum in Rotated Sorted Array"
-url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
-
-[[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
-
-[[entries]]
-title = "Binary Tree Zigzag Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
-
-[[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
 title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
+title = "Validate Binary Search Tree"
+url = "https://leetcode.com/problems/validate-binary-search-tree/"
 
 [[entries]]
-title = "Subsets"
-url = "https://leetcode.com/problems/subsets/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
-title = "Find All Lonely Numbers in the Array"
-url = "https://leetcode.com/problems/find-all-lonely-numbers-in-the-array/"
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
 
 [[entries]]
-title = "Calculate Score After Performing Instructions"
-url = "https://leetcode.com/problems/calculate-score-after-performing-instructions/"
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Total Hamming Distance"
-url = "https://leetcode.com/problems/total-hamming-distance/"
+title = "Minimum Cost to Hire K Workers"
+url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
 
 [[entries]]
-title = "Maximum Rows Covered by Columns"
-url = "https://leetcode.com/problems/maximum-rows-covered-by-columns/"
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
+title = "Last Stone Weight II"
+url = "https://leetcode.com/problems/last-stone-weight-ii/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Binary Search Tree to Greater Sum Tree"
+url = "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/"
+
+[[entries]]
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
+
+[[entries]]
+title = "Meeting Rooms III"
+url = "https://leetcode.com/problems/meeting-rooms-iii/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Subarray Product Less Than K"
+url = "https://leetcode.com/problems/subarray-product-less-than-k/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree III"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Number of Squareful Arrays"
-url = "https://leetcode.com/problems/number-of-squareful-arrays/"
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
-title = "Peeking Iterator"
-url = "https://leetcode.com/problems/peeking-iterator/"
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
+
+[[entries]]
+title = "Calculate Score After Performing Instructions"
+url = "https://leetcode.com/problems/calculate-score-after-performing-instructions/"
+
+[[entries]]
 title = "Number of Pairs of Strings With Concatenation Equal to Target"
 url = "https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/"
 
 [[entries]]
-title = "Count the Number of Incremovable Subarrays II"
-url = "https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-ii/"
+title = "Maximum Rows Covered by Columns"
+url = "https://leetcode.com/problems/maximum-rows-covered-by-columns/"
 
 [[entries]]
 title = "Find the Grid of Region Average"
 url = "https://leetcode.com/problems/find-the-grid-of-region-average/"
 
 [[entries]]
-title = "Knight Probability in Chessboard"
-url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
+title = "Peeking Iterator"
+url = "https://leetcode.com/problems/peeking-iterator/"
+
+[[entries]]
+title = "Number of Squareful Arrays"
+url = "https://leetcode.com/problems/number-of-squareful-arrays/"
+
+[[entries]]
+title = "Count the Number of Incremovable Subarrays II"
+url = "https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-ii/"
+
+[[entries]]
+title = "Find Servers That Handled Most Number of Requests"
+url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Array Nesting"
+url = "https://leetcode.com/problems/array-nesting/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Find All Lonely Numbers in the Array"
+url = "https://leetcode.com/problems/find-all-lonely-numbers-in-the-array/"
+
+[[entries]]
+title = "Maximum Path Quality of a Graph"
+url = "https://leetcode.com/problems/maximum-path-quality-of-a-graph/"
+
+[[entries]]
+title = "Reverse Integer"
+url = "https://leetcode.com/problems/reverse-integer/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "Compare Version Numbers"
+url = "https://leetcode.com/problems/compare-version-numbers/"
+
+[[entries]]
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"

@@ -1,191 +1,79 @@
 title = "Salesforce / Slack"
 group = "Big tech"
-focus = "balanced fundamentals, arrays/strings/hashing, trees, BFS/DFS, heaps, OOP-style design, and clear communication."
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp"]
+focus = "trees, BFS/DFS, arrays, hashing, heaps, and clear communication."
+review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "11_dp"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
-
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
-
-[[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Remove Nth Node From End of List"
-url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Binary Tree Right Side View"
-url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
-title = "Binary Search Tree Iterator"
-url = "https://leetcode.com/problems/binary-search-tree-iterator/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
-
-[[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
-
-[[entries]]
-title = "Design Tic-Tac-Toe"
-url = "https://leetcode.com/problems/design-tic-tac-toe/"
-
-[[entries]]
-title = "Range Module"
-url = "https://leetcode.com/problems/range-module/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Is Graph Bipartite?"
-url = "https://leetcode.com/problems/is-graph-bipartite/"
-
-[[entries]]
-title = "Shortest Bridge"
-url = "https://leetcode.com/problems/shortest-bridge/"
-
-[[entries]]
-title = "Making A Large Island"
-url = "https://leetcode.com/problems/making-a-large-island/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Last Stone Weight II"
-url = "https://leetcode.com/problems/last-stone-weight-ii/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock III"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock IV"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
-
-[[entries]]
 title = "Minimum Operations to Reduce an Integer to 0"
 url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
+
+[[entries]]
+title = "Put Marbles in Bags"
+url = "https://leetcode.com/problems/put-marbles-in-bags/"
+
+[[entries]]
+title = "Sum of Matrix After Queries"
+url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
+
+[[entries]]
+title = "Distance to a Cycle in Undirected Graph"
+url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Optimal Account Balancing"
+url = "https://leetcode.com/problems/optimal-account-balancing/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Path Sum II"
+url = "https://leetcode.com/problems/path-sum-ii/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
 
 [[entries]]
 title = "Time Needed to Rearrange a Binary String"
@@ -200,5 +88,117 @@ title = "Smallest Substring With Identical Characters I"
 url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-i/"
 
 [[entries]]
+title = "Minimum Time to Visit All Houses"
+url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
+
+[[entries]]
 title = "Smallest Substring With Identical Characters II"
 url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
+
+[[entries]]
+title = "Check Whether Two Strings are Almost Equivalent"
+url = "https://leetcode.com/problems/check-whether-two-strings-are-almost-equivalent/"
+
+[[entries]]
+title = "Beautiful Towers I"
+url = "https://leetcode.com/problems/beautiful-towers-i/"
+
+[[entries]]
+title = "Check If a Number Is Majority Element in a Sorted Array"
+url = "https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/"
+
+[[entries]]
+title = "Number of Self-Divisible Permutations"
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
+
+[[entries]]
+title = "Maximum Number That Makes Result of Bitwise AND Zero"
+url = "https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero/"
+
+[[entries]]
+title = "Find Subarray With Bitwise OR Closest to K"
+url = "https://leetcode.com/problems/find-subarray-with-bitwise-or-closest-to-k/"
+
+[[entries]]
+title = "Equalize Strings by Adding or Removing Characters at Ends"
+url = "https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends/"
+
+[[entries]]
+title = "Maximize Grid Happiness"
+url = "https://leetcode.com/problems/maximize-grid-happiness/"
+
+[[entries]]
+title = "Find the Last Marked Nodes in Tree"
+url = "https://leetcode.com/problems/find-the-last-marked-nodes-in-tree/"
+
+[[entries]]
+title = "Closest Equal Element Queries"
+url = "https://leetcode.com/problems/closest-equal-element-queries/"
+
+[[entries]]
+title = "Report Spam Message"
+url = "https://leetcode.com/problems/report-spam-message/"
+
+[[entries]]
+title = "Beautiful Towers II"
+url = "https://leetcode.com/problems/beautiful-towers-ii/"
+
+[[entries]]
+title = "Maximum Height of a Triangle"
+url = "https://leetcode.com/problems/maximum-height-of-a-triangle/"
+
+[[entries]]
+title = "Average Waiting Time"
+url = "https://leetcode.com/problems/average-waiting-time/"
+
+[[entries]]
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Minimize Maximum Component Cost"
+url = "https://leetcode.com/problems/minimize-maximum-component-cost/"
+
+[[entries]]
+title = "Power Grid Maintenance"
+url = "https://leetcode.com/problems/power-grid-maintenance/"
+
+[[entries]]
+title = "Count Subarrays With Median K"
+url = "https://leetcode.com/problems/count-subarrays-with-median-k/"
+
+[[entries]]
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+
+[[entries]]
+title = "Find the Minimum Area to Cover All Ones II"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
+
+[[entries]]
+title = "Minimum Removals to Balance Array"
+url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
+
+[[entries]]
+title = "Count the Number of Fair Pairs"
+url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
+
+[[entries]]
+title = "Count the Number of Inversions"
+url = "https://leetcode.com/problems/count-the-number-of-inversions/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
+title = "Find the Minimum Area to Cover All Ones I"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
+
+[[entries]]
+title = "Exam Room"
+url = "https://leetcode.com/problems/exam-room/"

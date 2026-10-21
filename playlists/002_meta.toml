@@ -1,7 +1,11 @@
 title = "Meta"
 group = "Big tech"
-focus = "speed, arrays, strings, trees, graphs, heaps, and backtracking."
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "08_heaps"]
+focus = "arrays, strings, two pointers, trees, graphs, and fast recursive solutions."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "07_trees", "10_graphs", "13_intervals"]
+
+[[entries]]
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
 [[entries]]
 title = "Valid Palindrome II"
@@ -12,72 +16,16 @@ title = "Simplify Path"
 url = "https://leetcode.com/problems/simplify-path/"
 
 [[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
-
-[[entries]]
-title = "Remove Invalid Parentheses"
-url = "https://leetcode.com/problems/remove-invalid-parentheses/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
-
-[[entries]]
-title = "Dot Product of Two Sparse Vectors"
-url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
-
-[[entries]]
-title = "Random Pick Index"
-url = "https://leetcode.com/problems/random-pick-index/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
-
-[[entries]]
-title = "Continuous Subarray Sum"
-url = "https://leetcode.com/problems/continuous-subarray-sum/"
-
-[[entries]]
-title = "Exclusive Time of Functions"
-url = "https://leetcode.com/problems/exclusive-time-of-functions/"
-
-[[entries]]
-title = "Buildings With an Ocean View"
-url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
-
-[[entries]]
-title = "Range Sum of BST"
-url = "https://leetcode.com/problems/range-sum-of-bst/"
 
 [[entries]]
 title = "Binary Tree Vertical Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree III"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
-
-[[entries]]
-title = "Diameter of N-Ary Tree"
-url = "https://leetcode.com/problems/diameter-of-n-ary-tree/"
-
-[[entries]]
-title = "Nested List Weight Sum"
-url = "https://leetcode.com/problems/nested-list-weight-sum/"
-
-[[entries]]
-title = "Nested List Weight Sum II"
-url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
+title = "Diagonal Traverse"
+url = "https://leetcode.com/problems/diagonal-traverse/"
 
 [[entries]]
 title = "Accounts Merge"
@@ -88,117 +36,169 @@ title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "Subsets"
-url = "https://leetcode.com/problems/subsets/"
-
-[[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
-
-[[entries]]
-title = "Combination Sum"
-url = "https://leetcode.com/problems/combination-sum/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Sparse Matrix Multiplication"
-url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
-
-[[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Sum Root to Leaf Numbers"
-url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
+title = "Move Zeroes"
+url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
 title = "Custom Sort String"
 url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
+
+[[entries]]
+title = "Dot Product of Two Sparse Vectors"
+url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
+
+[[entries]]
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
+
+[[entries]]
+title = "Minimum Insertions to Balance a Parentheses String"
+url = "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
 title = "Minimum Add to Make Parentheses Valid"
 url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
 
 [[entries]]
-title = "Binary Tree Right Side View"
-url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Subsets"
+url = "https://leetcode.com/problems/subsets/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
+
+[[entries]]
+title = "Shortest Subarray with Sum at Least K"
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+
+[[entries]]
+title = "Fruit Into Baskets"
+url = "https://leetcode.com/problems/fruit-into-baskets/"
+
+[[entries]]
+title = "Jump Game"
+url = "https://leetcode.com/problems/jump-game/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
 title = "Group Shifted Strings"
 url = "https://leetcode.com/problems/group-shifted-strings/"
 
 [[entries]]
-title = "Insert into a Sorted Circular Linked List"
-url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "Reverse Integer"
+url = "https://leetcode.com/problems/reverse-integer/"
+
+[[entries]]
+title = "Continuous Subarray Sum"
+url = "https://leetcode.com/problems/continuous-subarray-sum/"
+
+[[entries]]
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
+
+[[entries]]
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Permutation in String"
+url = "https://leetcode.com/problems/permutation-in-string/"
+
+[[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
 
 [[entries]]
 title = "Max Consecutive Ones III"
 url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
 
 [[entries]]
-title = "Valid Palindrome III"
-url = "https://leetcode.com/problems/valid-palindrome-iii/"
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
 
 [[entries]]
-title = "Valid Number"
-url = "https://leetcode.com/problems/valid-number/"
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
 
 [[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Convert Binary Search Tree to Sorted Doubly Linked List"
-url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Pow(x, n)"
-url = "https://leetcode.com/problems/powx-n/"
+title = "Score of Parentheses"
+url = "https://leetcode.com/problems/score-of-parentheses/"
+
+[[entries]]
+title = "Stone Game"
+url = "https://leetcode.com/problems/stone-game/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "N-Queens"
+url = "https://leetcode.com/problems/n-queens/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Subsets II"
+url = "https://leetcode.com/problems/subsets-ii/"
+
+[[entries]]
+title = "Minimum Size Subarray Sum"
+url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+
+[[entries]]
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+
+[[entries]]
+title = "Combinations"
+url = "https://leetcode.com/problems/combinations/"

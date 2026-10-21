@@ -1,103 +1,71 @@
 title = "Adobe"
 group = "Big tech"
-focus = "array and string manipulation, matrix and image-style grid traversal, rectangle geometry, binary trees, and classic 2D DP."
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "07_trees", "10_graphs", "11_dp", "16_math_geometry"]
-
-[[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
-title = "Excel Sheet Column Title"
-url = "https://leetcode.com/problems/excel-sheet-column-title/"
-
-[[entries]]
-title = "Two Sum II - Input Array Is Sorted"
-url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
-
-[[entries]]
-title = "Find All Duplicates in an Array"
-url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
-
-[[entries]]
-title = "Spiral Matrix II"
-url = "https://leetcode.com/problems/spiral-matrix-ii/"
-
-[[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
-
-[[entries]]
-title = "Rectangle Area"
-url = "https://leetcode.com/problems/rectangle-area/"
-
-[[entries]]
-title = "Construct Binary Tree from Preorder and Inorder Traversal"
-url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
-
-[[entries]]
-title = "Search a 2D Matrix"
-url = "https://leetcode.com/problems/search-a-2d-matrix/"
-
-[[entries]]
-title = "Kth Smallest Element in a Sorted Matrix"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
-
-[[entries]]
-title = "Range Sum Query 2D - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
-
-[[entries]]
-title = "Max Area of Island"
-url = "https://leetcode.com/problems/max-area-of-island/"
-
-[[entries]]
-title = "Number of Provinces"
-url = "https://leetcode.com/problems/number-of-provinces/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
-
-[[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
-
-[[entries]]
-title = "Maximum Swap"
-url = "https://leetcode.com/problems/maximum-swap/"
-
-[[entries]]
-title = "Sort List"
-url = "https://leetcode.com/problems/sort-list/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+focus = "arrays, strings, matrices, stacks, trees, and classic 2D DP."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "10_graphs", "11_dp", "16_math_geometry"]
 
 [[entries]]
 title = "Largest Rectangle in Histogram"
 url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
 
 [[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"
+
+[[entries]]
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
+
+[[entries]]
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
+
+[[entries]]
+title = "Design Authentication Manager"
+url = "https://leetcode.com/problems/design-authentication-manager/"
+
+[[entries]]
+title = "Find Peak Element"
+url = "https://leetcode.com/problems/find-peak-element/"
+
+[[entries]]
+title = "Building Boxes"
+url = "https://leetcode.com/problems/building-boxes/"
+
+[[entries]]
+title = "Count Subarrays With Fixed Bounds"
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
+
+[[entries]]
+title = "Maximize Distance to Closest Person"
+url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Preimage Size of Factorial Zeroes Function"
@@ -116,89 +84,121 @@ title = "Minimizing Array After Replacing Pairs With Their Product"
 url = "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/"
 
 [[entries]]
+title = "Bitwise OR of Adjacent Elements"
+url = "https://leetcode.com/problems/bitwise-or-of-adjacent-elements/"
+
+[[entries]]
+title = "Minimum Moves to Equal Array Elements III"
+url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-iii/"
+
+[[entries]]
 title = "Number of Increasing Paths in a Grid"
 url = "https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/"
 
 [[entries]]
-title = "Smallest Range II"
-url = "https://leetcode.com/problems/smallest-range-ii/"
-
-[[entries]]
-title = "Count Subarrays With Fixed Bounds"
-url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
-
-[[entries]]
-title = "Plates Between Candles"
-url = "https://leetcode.com/problems/plates-between-candles/"
-
-[[entries]]
-title = "Number of Subarrays with Bounded Maximum"
-url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
-
-[[entries]]
-title = "Threshold Majority Queries"
-url = "https://leetcode.com/problems/threshold-majority-queries/"
-
-[[entries]]
-title = "Minimize XOR"
-url = "https://leetcode.com/problems/minimize-xor/"
-
-[[entries]]
-title = "Merge Operations to Turn Array Into a Palindrome"
-url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
-
-[[entries]]
-title = "Special Binary String"
-url = "https://leetcode.com/problems/special-binary-string/"
+title = "Smallest Range I"
+url = "https://leetcode.com/problems/smallest-range-i/"
 
 [[entries]]
 title = "Divide Intervals Into Minimum Number of Groups"
 url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
 
 [[entries]]
-title = "Count Subarrays Where Max Element Appears at Least K Times"
-url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
+title = "Smallest Range II"
+url = "https://leetcode.com/problems/smallest-range-ii/"
 
 [[entries]]
-title = "Minimum Processing Time"
-url = "https://leetcode.com/problems/minimum-processing-time/"
+title = "Plates Between Candles"
+url = "https://leetcode.com/problems/plates-between-candles/"
 
 [[entries]]
-title = "Reverse Substrings Between Each Pair of Parentheses"
-url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
+title = "Merge Operations to Turn Array Into a Palindrome"
+url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
+
+[[entries]]
+title = "Number of Subarrays with Bounded Maximum"
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
+
+[[entries]]
+title = "Minimize XOR"
+url = "https://leetcode.com/problems/minimize-xor/"
+
+[[entries]]
+title = "Threshold Majority Queries"
+url = "https://leetcode.com/problems/threshold-majority-queries/"
 
 [[entries]]
 title = "Unit Conversion I"
 url = "https://leetcode.com/problems/unit-conversion-i/"
 
 [[entries]]
-title = "Delete Node in a Linked List"
-url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+title = "Special Binary String"
+url = "https://leetcode.com/problems/special-binary-string/"
 
 [[entries]]
-title = "Maximize Distance to Closest Person"
-url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+title = "Count Subarrays Where Max Element Appears at Least K Times"
+url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
 
 [[entries]]
 title = "Validate IP Address"
 url = "https://leetcode.com/problems/validate-ip-address/"
 
 [[entries]]
-title = "Largest Number"
-url = "https://leetcode.com/problems/largest-number/"
+title = "Reverse Substrings Between Each Pair of Parentheses"
+url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Minimum Cost For Tickets"
-url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Shopping Offers"
+url = "https://leetcode.com/problems/shopping-offers/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
+
+[[entries]]
+title = "Fruit Into Baskets"
+url = "https://leetcode.com/problems/fruit-into-baskets/"
+
+[[entries]]
+title = "Minimum Processing Time"
+url = "https://leetcode.com/problems/minimum-processing-time/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Increment Submatrices by One"
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
+
+[[entries]]
+title = "Maximum Profit From Trading Stocks"
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
