@@ -1,0 +1,11 @@
+id = "counting-words-with-a-given-prefix"
+title = "Counting Words With a Given Prefix"
+difficulty = "easy"
+leetcode = 2185
+url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
+key_idea = "insert all words into a trie, then walk the prefix path and count."
+hints = [
+  "You only care whether each word starts with `pref`, not full equality.",
+  "A trie of the words lets you walk `pref` once and report how many words live under that node.",
+]
+prompt = ""

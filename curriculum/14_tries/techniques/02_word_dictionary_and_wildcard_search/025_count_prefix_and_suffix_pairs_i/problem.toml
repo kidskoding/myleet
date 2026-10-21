@@ -1,0 +1,11 @@
+id = "count-prefix-and-suffix-pairs-i"
+title = "Count Prefix and Suffix Pairs I"
+difficulty = "easy"
+leetcode = 3042
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
+key_idea = "word i is a prefix-suffix of word j iff it is both a prefix and a suffix of j."
+hints = [
+  "A pair (i, j) with i < j counts when words[i] is a prefix and a suffix of words[j].",
+  "For the small constraints, check every ordered pair; a combined prefix#suffix trie also works.",
+]
+prompt = ""

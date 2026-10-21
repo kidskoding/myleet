@@ -1,0 +1,12 @@
+id = "extra-characters-in-a-string"
+title = "Extra Characters in a String"
+difficulty = "medium"
+leetcode = 2707
+url = "https://leetcode.com/problems/extra-characters-in-a-string/"
+key_idea = "DP over string positions; from each index, walk a dictionary trie for matches."
+hints = [
+  "Ask: from index `i`, what is the fewest leftover characters needed for the suffix?",
+  "Either skip `s[i]` (one extra char) or match a dictionary word starting at `i`.",
+  "A trie of the dictionary makes the match walk from each index O(remaining length).",
+]
+prompt = ""

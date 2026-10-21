@@ -1,7 +1,0 @@
-id = "number-of-matching-subsequences"
-title = "Number of Matching Subsequences"
-difficulty = "medium"
-leetcode = 792
-url = "https://leetcode.com/problems/number-of-matching-subsequences/"
-key_idea = "Bucket every word by the next character it is waiting for, then scan s once and advance only the words waiting on the current character."
-hints = ["Checking each word independently rescans s many times.", "Group the words by the character each one needs next."]

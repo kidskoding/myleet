@@ -1,0 +1,41 @@
+id = "index-pairs-of-a-string"
+title = "Index Pairs of a String"
+difficulty = "easy"
+leetcode = 1065
+url = "https://leetcode.com/problems/index-pairs-of-a-string/"
+key_idea = "put every dictionary word in a trie, then start a walk from each text index."
+hints = [
+  "For every starting index in `text`, try to match dictionary words forward.",
+  "A trie of `words` lets you advance character by character and record every end-of-word.",
+]
+prompt = """
+Given a string `text` and an array of strings `words`, return all index pairs `[i, j]`
+such that the substring `text[i...j]` (inclusive) is equal to one of the strings in
+`words`.
+
+Return the pairs sorted in ascending order first by `i`, then by `j`.
+
+**Example 1:**
+
+```
+Input: text = "thestoryofleetcodeandme", words = ["story","fleet","leetcode"]
+Output: [[3,7],[9,13],[10,17]]
+```
+
+**Example 2:**
+
+```
+Input: text = "ababa", words = ["aba","ab"]
+Output: [[0,1],[0,2],[2,3],[2,4]]
+```
+
+Explanation: notice that matched substrings may overlap.
+
+**Constraints:**
+
+- `1 <= text.length <= 100`
+- `1 <= words.length <= 20`
+- `1 <= words[i].length <= 50`
+- `text` and `words[i]` consist of lowercase English letters.
+- All strings in `words` are unique.
+"""

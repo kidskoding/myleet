@@ -1,0 +1,12 @@
+id = "sum-of-prefix-scores-of-strings"
+title = "Sum of Prefix Scores of Strings"
+difficulty = "hard"
+leetcode = 2416
+url = "https://leetcode.com/problems/sum-of-prefix-scores-of-strings/"
+key_idea = "trie nodes store prefix frequencies; each word's score is the sum along its path."
+hints = [
+  "The score of a string is how many words share each of its prefixes.",
+  "While inserting every word, bump a counter on every node you visit.",
+  "A second walk per word sums the counters on its path.",
+]
+prompt = ""

@@ -1,0 +1,12 @@
+id = "number-of-matching-subsequences"
+title = "Number of Matching Subsequences"
+difficulty = "medium"
+leetcode = 792
+url = "https://leetcode.com/problems/number-of-matching-subsequences/"
+key_idea = "bucket words by next needed char; advance buckets as you scan s once."
+hints = [
+  "Checking each word against s separately is too slow when both are large.",
+  "Group unfinished words by the next character they still need.",
+  "As you walk s, only advance the bucket for the current character.",
+]
+prompt = ""

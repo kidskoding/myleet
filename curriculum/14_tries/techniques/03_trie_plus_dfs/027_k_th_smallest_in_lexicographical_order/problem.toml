@@ -1,0 +1,12 @@
+id = "k-th-smallest-in-lexicographical-order"
+title = "K-th Smallest in Lexicographical Order"
+difficulty = "hard"
+leetcode = 440
+url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
+key_idea = "denary trie of [1..n]; at each prefix count the subtree size and skip or descend."
+hints = [
+  "Numbers in lex order form a 10-ary trie of digit prefixes.",
+  "From prefix `curr`, count how many values in [1, n] live under it, then either skip that whole block or step into a child.",
+  "Be careful near `n`: the count under a prefix is min(n+1, next_prefix) - curr.",
+]
+prompt = ""
