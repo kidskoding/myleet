@@ -1,0 +1,8 @@
+id = "binary-search-tree-to-greater-sum-tree"
+title = "Binary Search Tree to Greater Sum Tree"
+difficulty = "medium"
+leetcode = 1038
+url = "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/"
+key_idea = "Reverse inorder (right-root-left) while accumulating a running sum so each node gets the sum of all greater keys plus itself."
+hints = ["Visit larger keys first.", "Keep a running total and add it into the current node before going left."]
+prompt = ""

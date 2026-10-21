@@ -1,0 +1,7 @@
+id = "find-the-last-marked-nodes-in-tree"
+title = "Find the Last Marked Nodes in Tree"
+difficulty = "hard"
+leetcode = 3313
+url = "https://leetcode.com/problems/find-the-last-marked-nodes-in-tree/"
+key_idea = "The farthest node from any start is a diameter endpoint; compute distances to both endpoints and pick the farther one per start."
+hints = ["Spreading marks is BFS distance from the start—the last marked node is farthest.", "In a tree, eccentricity is always achieved at a diameter endpoint."]

@@ -1,0 +1,7 @@
+id = "count-increasing-quadruplets"
+title = "Count Increasing Quadruplets"
+difficulty = "hard"
+leetcode = 2552
+url = "https://leetcode.com/problems/count-increasing-quadruplets/"
+key_idea = "O(n^2) DP: for each new right index as l, track how many (i,k) pairs make nums[i]<nums[k]<nums[j] for each j."
+hints = ["You need nums[i] < nums[k] < nums[j] < nums[l] with i < j < k < l.", "Sweep the right endpoint and maintain counts of smaller left values while updating dp[j]."]

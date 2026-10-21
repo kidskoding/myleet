@@ -1,0 +1,7 @@
+id = "random-pick-with-blacklist"
+title = "Random Pick with Blacklist"
+difficulty = "hard"
+leetcode = 710
+url = "https://leetcode.com/problems/random-pick-with-blacklist/"
+key_idea = "Whitelist size is n - |blacklist|; remap every blacklisted index in [0, whitelist) to a surviving index in the upper range."
+hints = ["Sampling uniformly from a hole-punched range is easiest after compacting into [0, M).", "Only blacklisted values below M need a remap entry."]

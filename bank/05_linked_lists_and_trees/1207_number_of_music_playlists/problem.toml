@@ -1,0 +1,7 @@
+id = "number-of-music-playlists"
+title = "Number of Music Playlists"
+difficulty = "hard"
+leetcode = 920
+url = "https://leetcode.com/problems/number-of-music-playlists/"
+key_idea = "DP on (length, unique songs): add a new song or replay one of the (unique - k) eligible ones."
+hints = ["Track how many distinct songs you've used so far, not the full playlist history.", "A song may replay only when unique > k."]

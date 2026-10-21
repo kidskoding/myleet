@@ -1,0 +1,8 @@
+id = "print-binary-tree"
+title = "Print Binary Tree"
+difficulty = "medium"
+leetcode = 655
+url = "https://leetcode.com/problems/print-binary-tree/"
+key_idea = "Height h makes a matrix of height h+1 and width 2^(h+1)-1; place each node in the midpoint of its column range."
+hints = ["First compute the tree height to size the grid.", "Recurse with the left/right half of the current column span."]
+prompt = ""

@@ -1,0 +1,7 @@
+id = "lowest-common-ancestor-of-a-binary-tree-ii"
+title = "Lowest Common Ancestor of a Binary Tree II"
+difficulty = "medium"
+leetcode = 1644
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/"
+key_idea = "Postorder marks subtrees containing p or q; return null if either target is missing."
+hints = ["Unlike classic LCA, a missing target means the answer is null.", "When both sides report a hit, or one side hits and the current node is the other target, you found the LCA."]

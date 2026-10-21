@@ -1,0 +1,7 @@
+id = "binary-tree-tilt"
+title = "Binary Tree Tilt"
+difficulty = "easy"
+leetcode = 563
+url = "https://leetcode.com/problems/binary-tree-tilt/"
+key_idea = "Postorder: tilt of a node is |left_sum - right_sum|; accumulate while returning subtree sums."
+hints = ["Tilt uses subtree sums, not just child values.", "One DFS can return the sum and update a global answer."]

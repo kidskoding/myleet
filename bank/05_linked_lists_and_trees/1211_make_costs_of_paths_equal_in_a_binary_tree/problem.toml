@@ -1,0 +1,7 @@
+id = "make-costs-of-paths-equal-in-a-binary-tree"
+title = "Make Costs of Paths Equal in a Binary Tree"
+difficulty = "medium"
+leetcode = 2673
+url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
+key_idea = "Bottom-up: at each parent, pay |left-right| so both child path sums match, then fold the larger into the parent."
+hints = ["Equal root-to-leaf paths means every subtree has equal leaf-path sums.", "Process nodes from n//2 down to 1 using the heap-style child indices."]

@@ -1,0 +1,7 @@
+id = "second-minimum-node-in-a-binary-tree"
+title = "Second Minimum Node In a Binary Tree"
+difficulty = "easy"
+leetcode = 671
+url = "https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/"
+key_idea = "The root is the global minimum; scan for the smallest value strictly greater than root.val."
+hints = ["Every internal node equals the smaller of its two children.", "You only need values larger than the root—ignore anything that repeats the minimum."]
