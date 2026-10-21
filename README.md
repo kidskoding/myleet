@@ -24,27 +24,28 @@ Requires [Go](https://go.dev/dl/) and [uv](https://docs.astral.sh/uv/) (for prob
 
 ```bash
 go install github.com/kidskoding/myleet/cmd/myleet@latest
-myleet                  # first run clones the curriculum if needed
-uv sync --directory ~/.local/share/myleet/content
-myleet doctor && myleet
+myleet
 ```
+
+First launch clones the curriculum into `~/.local/share/myleet/content` and runs
+`uv sync` so tests work. Put `$(go env GOPATH)/bin` on your `PATH` if `myleet`
+is not found.
 
 **From a clone** (contributors):
 
 ```bash
 git clone https://github.com/kidskoding/myleet.git && cd myleet
 uv sync --group dev
-make install && myleet doctor && myleet
+make install && myleet
 ```
 
 | Tip         |                                                                                        |
 | ----------- | -------------------------------------------------------------------------------------- |
-| Updates     | `myleet update` pulls the installed curriculum clone                                   |
+| Updates     | `myleet update` pulls the installed curriculum and refreshes the python env            |
+| Doctor      | `myleet doctor` checks python, pytest, editor, data dir                                |
 | Version     | `myleet version`                                                                       |
 | Custom root | `export MYLEET_ROOT=/path/to/checkout`                                                 |
 | Binaries    | [GitHub Releases](https://github.com/kidskoding/myleet/releases) (tag `v*` to publish) |
-
-Put `$(go env GOPATH)/bin` on your `PATH` if `myleet` is not found after install.
 
 ## Why myleet
 

@@ -30,11 +30,11 @@ func doctor(a *app.App, stdout io.Writer) int {
 	fmt.Fprintln(stdout, version.String())
 	kind := catalog.RootKind(a.Root, config.DataDir())
 	report(true, "root", fmt.Sprintf("%s (%s)", a.Root, kind), "")
-	report(a.PythonErr == nil, "python", strings.Join(a.Runner.Python, " "), "run `uv sync` in "+a.Root)
+	report(a.PythonErr == nil, "python", strings.Join(a.Runner.Python, " "), "install uv, then re-run myleet")
 	if a.PythonErr == nil {
 		py := a.Runner.Python
 		out, err := exec.Command(py[0], append(py[1:], "-m", "pytest", "--version")...).CombinedOutput()
-		report(err == nil, "pytest", strings.TrimSpace(string(out)), "run `uv sync` in "+a.Root)
+		report(err == nil, "pytest", strings.TrimSpace(string(out)), "install uv, then re-run myleet")
 	}
 	cmd, err := editor.Command(a.Config, "file.py")
 	if err == nil {

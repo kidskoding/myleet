@@ -23,10 +23,10 @@ const usage = `usage: myleet [command]
   myleet update                     pull the latest curriculum (installed content)
   myleet version                    print build version
 
-Install the binary, then run myleet once — it clones the curriculum if needed:
+Install and run (clones curriculum + sets up python on first launch):
 
   go install github.com/kidskoding/myleet/cmd/myleet@latest
-  myleet doctor && myleet`
+  myleet`
 
 // StartTUI is set by cmd/myleet so cli tests do not import the TUI.
 var StartTUI func(a *app.App, openID string) error
