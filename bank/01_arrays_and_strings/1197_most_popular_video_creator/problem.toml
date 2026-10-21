@@ -1,0 +1,7 @@
+id = "most-popular-video-creator"
+title = "Most Popular Video Creator"
+difficulty = "medium"
+leetcode = 2456
+url = "https://leetcode.com/problems/most-popular-video-creator/"
+key_idea = "Aggregate total views per creator and keep each creator's highest-view id (lex-smallest on ties), then emit creators at the global max total."
+hints = ["One pass can update both the running total and the best video for a creator.", "Collect every creator whose total equals the maximum popularity."]

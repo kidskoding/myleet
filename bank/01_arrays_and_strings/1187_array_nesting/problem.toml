@@ -1,0 +1,8 @@
+id = "array-nesting"
+title = "Array Nesting"
+difficulty = "medium"
+leetcode = 565
+url = "https://leetcode.com/problems/array-nesting/"
+key_idea = "nums forms functional cycles; the longest nest is the longest cycle, found by marking visited indices while walking."
+hints = ["From unused index i, follow i -> nums[i] until you loop.", "Each index belongs to at most one cycle, so mark visited to stay O(n)."]
+prompt = ""

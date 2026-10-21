@@ -1,0 +1,7 @@
+id = "minimum-time-to-complete-trips"
+title = "Minimum Time to Complete Trips"
+difficulty = "medium"
+leetcode = 2187
+url = "https://leetcode.com/problems/minimum-time-to-complete-trips/"
+key_idea = "Binary search on time T; a bus of time t contributes T // t trips."
+hints = ["The answer lies between 1 and min(time) * totalTrips.", "Check feasibility by summing floor(T / t) over all buses."]

@@ -1,0 +1,7 @@
+id = "maximum-increasing-triplet-value"
+title = "Maximum Increasing Triplet Value"
+difficulty = "medium"
+leetcode = 3073
+url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
+key_idea = "For each middle j, take the largest left value < nums[j] and the max to the right > nums[j]; maximize left - mid + right."
+hints = ["Suffix maxima answer the best k for each j.", "Keep left values sorted so you can binary-search the largest candidate below nums[j]."]

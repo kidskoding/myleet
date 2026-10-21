@@ -1,0 +1,7 @@
+id = "building-boxes"
+title = "Building Boxes"
+difficulty = "hard"
+leetcode = 1739
+url = "https://leetcode.com/problems/building-boxes/"
+key_idea = "Stack a maximal tetrahedral pile in the corner (layers of triangular numbers), then extend the base with consecutive 1,2,3,... cells for the remainder."
+hints = ["Upper boxes need four sides supported—build against a corner in stairs.", "A full height-k pile holds sum of triangular numbers; leftover boxes add ground cells one by one."]

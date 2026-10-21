@@ -1,0 +1,7 @@
+id = "split-array-with-equal-sum"
+title = "Split Array with Equal Sum"
+difficulty = "hard"
+leetcode = 548
+url = "https://leetcode.com/problems/split-array-with-equal-sum/"
+key_idea = "Fix middle cut j; collect equal left-pair sums in a set, then match equal right-pair sums via prefix sums."
+hints = ["The three cut indices are excluded from the four equal-sum segments.", "Prefix sums make each candidate segment O(1) to check."]

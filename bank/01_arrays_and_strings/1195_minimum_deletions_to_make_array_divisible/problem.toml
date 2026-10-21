@@ -1,0 +1,7 @@
+id = "minimum-deletions-to-make-array-divisible"
+title = "Minimum Deletions to Make Array Divisible"
+difficulty = "hard"
+leetcode = 2344
+url = "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/"
+key_idea = "Let g = gcd(numsDivide); delete until the smallest remaining nums value divides g."
+hints = ["nums[i] must divide every numsDivide value, so it must divide their gcd.", "Sort nums and count how many values are smaller than the first divisor of that gcd."]

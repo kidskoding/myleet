@@ -1,0 +1,7 @@
+id = "find-the-minimum-area-to-cover-all-ones-ii"
+title = "Find the Minimum Area to Cover All Ones II"
+difficulty = "hard"
+leetcode = 3197
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
+key_idea = "Enumerate the six cut topologies that partition the grid into three rectangles; sum bounding-box areas of ones in each part and take the minimum."
+hints = ["Three axis-aligned boxes cover all ones; their cuts are two parallel lines or one cut then a split of one side.", "Bounding-box area of ones inside a subrectangle is a small nested loop."]

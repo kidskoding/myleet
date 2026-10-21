@@ -1,0 +1,7 @@
+id = "minimum-time-to-visit-all-houses"
+title = "Minimum Time to Visit All Houses"
+difficulty = "medium"
+leetcode = 3540
+url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
+key_idea = "Prefix sums on forward and backward arcs give O(1) min distance between any pair on the circle."
+hints = ["Between two houses there are only two routes: clockwise and counterclockwise.", "Precompute prefix sums so each query transition is a constant-time range sum."]

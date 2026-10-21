@@ -1,0 +1,7 @@
+id = "sum-of-squares-of-special-elements"
+title = "Sum of Squares of Special Elements"
+difficulty = "easy"
+leetcode = 2778
+url = "https://leetcode.com/problems/sum-of-squares-of-special-elements/"
+key_idea = "1-indexed positions whose index divides n are special; sum their squares."
+hints = ["Special means i divides len(nums) when i is 1-based.", "Square and accumulate those nums[i-1] values."]

@@ -1,0 +1,7 @@
+id = "maximum-height-of-a-triangle"
+title = "Maximum Height of a Triangle"
+difficulty = "easy"
+leetcode = 3200
+url = "https://leetcode.com/problems/maximum-height-of-a-triangle/"
+key_idea = "Try both color-start choices; greedily assign row sizes 1,2,3,... alternating colors until balls run out."
+hints = ["Row r needs r balls of one color, and adjacent rows must differ.", "The answer is the better of starting with red vs starting with blue."]

@@ -1,0 +1,7 @@
+id = "find-players-with-zero-or-one-losses"
+title = "Find Players With Zero or One Losses"
+difficulty = "medium"
+leetcode = 2225
+url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
+key_idea = "Count losses per player who appeared; answer is sorted lists with 0 losses and exactly 1 loss."
+hints = ["Track every player who wins or loses at least once.", "Ignore players with two or more losses."]

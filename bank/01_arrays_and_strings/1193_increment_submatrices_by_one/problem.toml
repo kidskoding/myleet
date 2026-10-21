@@ -1,0 +1,7 @@
+id = "increment-submatrices-by-one"
+title = "Increment Submatrices by One"
+difficulty = "medium"
+leetcode = 2536
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
+key_idea = "2D difference array: +1 at top-left, -1 just past right/bottom edges, then 2D prefix sums."
+hints = ["Range updates become O(1) corners on a difference grid.", "A double prefix sum materializes the final matrix."]

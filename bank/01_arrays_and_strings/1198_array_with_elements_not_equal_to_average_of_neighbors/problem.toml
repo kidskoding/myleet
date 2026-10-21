@@ -1,0 +1,7 @@
+id = "array-with-elements-not-equal-to-average-of-neighbors"
+title = "Array With Elements Not Equal to Average of Neighbors"
+difficulty = "medium"
+leetcode = 1968
+url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
+key_idea = "Sort, then build a zigzag by taking from the low half and high half so no middle value is the mean of its neighbors."
+hints = ["Any local peak or valley cannot equal the average of its neighbors.", "After sorting, interleave the smaller half with the larger half."]

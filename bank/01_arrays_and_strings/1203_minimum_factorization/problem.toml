@@ -1,0 +1,7 @@
+id = "minimum-factorization"
+title = "Minimum Factorization"
+difficulty = "medium"
+leetcode = 625
+url = "https://leetcode.com/problems/minimum-factorization/"
+key_idea = "Greedily factor digits 9..2, then arrange ascending; fail if a leftover factor remains or the number overflows 32-bit."
+hints = ["Fewer larger digits beat many small ones for a smaller integer.", "After collecting factors from 9 down to 2, sort them ascending."]

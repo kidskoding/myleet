@@ -1,0 +1,7 @@
+id = "sum-of-even-numbers-after-queries"
+title = "Sum of Even Numbers After Queries"
+difficulty = "medium"
+leetcode = 985
+url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
+key_idea = "Maintain a running even-sum; remove old parity contribution, apply the update, add new if even."
+hints = ["Recomputing the full sum each query is fine for tiny n but the running sum is O(1) per query.", "Track whether the value at index was even before and after the add."]

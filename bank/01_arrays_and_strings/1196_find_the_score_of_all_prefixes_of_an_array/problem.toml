@@ -1,0 +1,7 @@
+id = "find-the-score-of-all-prefixes-of-an-array"
+title = "Find the Score of All Prefixes of an Array"
+difficulty = "medium"
+leetcode = 2640
+url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
+key_idea = "conversion[i] = nums[i] + max(nums[0..i]); prefix scores are running sums of conversion."
+hints = ["Track the running maximum while scanning left to right.", "Each prefix score is the previous score plus the new conversion value."]

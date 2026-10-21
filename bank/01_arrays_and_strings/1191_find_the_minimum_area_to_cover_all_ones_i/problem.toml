@@ -1,0 +1,7 @@
+id = "find-the-minimum-area-to-cover-all-ones-i"
+title = "Find the Minimum Area to Cover All Ones I"
+difficulty = "medium"
+leetcode = 3195
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
+key_idea = "The optimal rectangle is the bounding box of all ones—track min/max row and column."
+hints = ["One axis-aligned rectangle must cover every 1.", "Scan once for extreme rows and columns that contain a 1."]

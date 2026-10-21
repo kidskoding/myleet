@@ -1,0 +1,7 @@
+id = "split-concatenated-strings"
+title = "Split Concatenated Strings"
+difficulty = "medium"
+leetcode = 555
+url = "https://leetcode.com/problems/split-concatenated-strings/"
+key_idea = "Normalize every non-cut string to max(s, reverse(s)); try every cut string orientation and cut index."
+hints = ["Strings that are not cut should always use their lexicographically larger orientation.", "Only the string containing the cut needs both orientations tried."]

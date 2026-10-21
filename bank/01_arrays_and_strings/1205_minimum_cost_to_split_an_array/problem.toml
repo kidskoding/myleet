@@ -1,0 +1,7 @@
+id = "minimum-cost-to-split-an-array"
+title = "Minimum Cost to Split an Array"
+difficulty = "hard"
+leetcode = 2547
+url = "https://leetcode.com/problems/minimum-cost-to-split-an-array/"
+key_idea = "DP over start index; for each segment end track frequencies so importance = k + length - uniques."
+hints = ["trimmed length equals segment length minus the count of values that appear once.", "Memoize the min cost from each left endpoint."]

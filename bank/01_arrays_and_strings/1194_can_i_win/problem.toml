@@ -1,0 +1,7 @@
+id = "can-i-win"
+title = "Can I Win"
+difficulty = "medium"
+leetcode = 464
+url = "https://leetcode.com/problems/can-i-win/"
+key_idea = "Bitmask DP over the set of remaining integers; a position wins if some unused number finishes the target or leaves the opponent losing."
+hints = ["If the sum of 1..maxChoosableInteger is below desiredTotal, nobody can win.", "Memoize on the bitmask of used numbers—the running total is determined by the mask."]
