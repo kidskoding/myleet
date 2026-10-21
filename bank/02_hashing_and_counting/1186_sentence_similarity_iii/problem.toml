@@ -1,0 +1,7 @@
+id = "sentence-similarity-iii"
+title = "Sentence Similarity III"
+difficulty = "medium"
+leetcode = 1813
+url = "https://leetcode.com/problems/sentence-similarity-iii/"
+key_idea = "One sentence is the other with one contiguous insertion; match a shared prefix and suffix until the shorter is exhausted."
+hints = ["Split both sentences into word lists.", "After eating the common prefix and suffix, the shorter list must be empty."]

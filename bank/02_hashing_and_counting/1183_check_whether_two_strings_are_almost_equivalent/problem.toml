@@ -1,0 +1,7 @@
+id = "check-whether-two-strings-are-almost-equivalent"
+title = "Check Whether Two Strings are Almost Equivalent"
+difficulty = "easy"
+leetcode = 2068
+url = "https://leetcode.com/problems/check-whether-two-strings-are-almost-equivalent/"
+key_idea = "Count frequency differences for a..z; every absolute gap must be at most 3."
+hints = ["Almost-equivalent only cares about per-letter frequency gaps.", "A single 26-slot counter can add one word and subtract the other."]

@@ -1,0 +1,7 @@
+id = "count-pairs-of-similar-strings"
+title = "Count Pairs Of Similar Strings"
+difficulty = "easy"
+leetcode = 2506
+url = "https://leetcode.com/problems/count-pairs-of-similar-strings/"
+key_idea = "Encode each word's character set as a bitmask; identical masks form pairs."
+hints = ["Similarity ignores order and frequency — only the set of letters matters.", "A 26-bit mask is a compact key for that set."]

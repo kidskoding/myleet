@@ -1,0 +1,7 @@
+id = "count-distinct-numbers-on-board"
+title = "Count Distinct Numbers on Board"
+difficulty = "easy"
+leetcode = 2549
+url = "https://leetcode.com/problems/count-distinct-numbers-on-board/"
+key_idea = "n always pulls in n-1, cascading until every integer from 2..n appears; answer is max(1, n-1)."
+hints = ["For n > 1, n % (n-1) == 1, so n-1 appears the next day.", "After enough days, every value except 1 is present."]

@@ -1,0 +1,7 @@
+id = "split-message-based-on-limit"
+title = "Split Message Based on Limit"
+difficulty = "hard"
+leetcode = 2468
+url = "https://leetcode.com/problems/split-message-based-on-limit/"
+key_idea = "Try increasing part counts k; capacity is limit*k minus digit lengths of all <a/k> suffixes—first feasible k builds the parts."
+hints = ["Suffix length grows when k crosses a power of ten.", "Enumerate k from 1 to n; never need more parts than characters."]

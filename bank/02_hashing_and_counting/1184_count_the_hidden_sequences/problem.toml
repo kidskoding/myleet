@@ -1,0 +1,7 @@
+id = "count-the-hidden-sequences"
+title = "Count the Hidden Sequences"
+difficulty = "medium"
+leetcode = 2145
+url = "https://leetcode.com/problems/count-the-hidden-sequences/"
+key_idea = "Build the prefix of differences; the hidden start must keep every prefix value inside [lower, upper], so count starts in a shrunk interval."
+hints = ["Fix nums[0] = x and express every later value as x + prefix.", "x must lie in [lower - min_prefix, upper - max_prefix]."]

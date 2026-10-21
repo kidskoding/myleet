@@ -1,0 +1,8 @@
+id = "move-pieces-to-obtain-a-string"
+title = "Move Pieces to Obtain a String"
+difficulty = "medium"
+leetcode = 2337
+url = "https://leetcode.com/problems/move-pieces-to-obtain-a-string/"
+key_idea = "Ignore underscores and match L/R sequences; L can only move left and R only right, so each piece index must be feasible."
+hints = ["After removing underscores, start and target must spell the same L/R string.", "For each matched L, start index >= target index; for each R, start index <= target index."]
+prompt = ""

@@ -1,0 +1,8 @@
+id = "separate-black-and-white-balls"
+title = "Separate Black and White Balls"
+difficulty = "medium"
+leetcode = 2938
+url = "https://leetcode.com/problems/separate-black-and-white-balls/"
+key_idea = "Every zero must move left past the ones before it; accumulate the number of ones seen when each zero appears."
+hints = ["Swapping adjacent balls means each zero slides left through ones.", "Count ones as you scan; each zero pays that count."]
+prompt = ""
