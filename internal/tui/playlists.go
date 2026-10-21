@@ -215,6 +215,12 @@ func (pl *Playlists) View(w, h int) string {
 		}
 	}
 	pl.offset = scrollWindow(at, pl.offset, visible)
+	// scrollWindow pins the cursor to the top on the way up, which clips the
+	// group header sitting on the lines above. Pull those lines back in when
+	// they still fit with the cursor on screen.
+	for pl.offset > 0 && lines[pl.offset-1].row < 0 && at < pl.offset-1+visible {
+		pl.offset--
+	}
 	for _, l := range lines[min(pl.offset, len(lines)):min(pl.offset+visible, len(lines))] {
 		if l.row < 0 {
 			body = append(body, l.header)

@@ -1,6 +1,7 @@
 package tui
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 
@@ -115,5 +116,28 @@ func TestPlaylistsCursorSkipsHeaders(t *testing.T) {
 	m := send(homeModel(t), key("4"), key("down"), key("enter"))
 	if pl := m.(Model).top().(*Playlists); pl.open == nil || pl.open.Title != "Stripe" {
 		t.Fatal("down from the last company in a group should land on the next company")
+	}
+}
+
+func TestPlaylistsGroupHeaderReturnsOnScrollUp(t *testing.T) {
+	m, s := playlistModel(t)
+	meta, stripe := s.App.Catalog.Playlists[0], s.App.Catalog.Playlists[1]
+	extras := make([]*catalog.Playlist, 15)
+	for i := range extras {
+		extras[i] = &catalog.Playlist{ID: fmt.Sprintf("big-%d", i), Title: fmt.Sprintf("BigCo%d", i), Group: "Big tech"}
+	}
+	s.App.Catalog.Playlists = append([]*catalog.Playlist{meta}, append(extras, stripe)...)
+	m = send(m, tea.WindowSizeMsg{Width: 80, Height: 12})
+	for range 12 {
+		m = send(m, key("j"))
+	}
+	if strings.Contains(plain(m), "BIG TECH") {
+		t.Fatalf("BIG TECH should scroll off after moving down:\n%s", plain(m))
+	}
+	for range 12 {
+		m = send(m, key("k"))
+	}
+	if view := plain(m); !strings.Contains(view, "BIG TECH") || !strings.Contains(view, "Meta") {
+		t.Fatalf("BIG TECH should return when scrolling back to Meta:\n%s", view)
 	}
 }
