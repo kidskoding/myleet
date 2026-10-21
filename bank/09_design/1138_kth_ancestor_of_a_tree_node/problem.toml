@@ -1,0 +1,8 @@
+id = "kth-ancestor-of-a-tree-node"
+title = "Kth Ancestor of a Tree Node"
+difficulty = "hard"
+leetcode = 1483
+url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
+key_idea = "Binary lifting: preprocess 2^j-th parents so each query jumps by bits of k."
+hints = ["Precompute parent[j][i] = the 2^j-th ancestor of i.", "Walk the bits of k from high to low."]
+prompt = ""
