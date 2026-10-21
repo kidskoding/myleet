@@ -72,6 +72,9 @@ func NewSearch(s *Shared) Screen {
 		sr.add(searchHit{label: pl.Title, hay: pl.Title, playlist: pl})
 	}
 	for _, m := range c.Modules {
+		if m.Bank {
+			continue // playlist-only problems are searchable as problems, not as a map topic
+		}
 		sr.add(searchHit{label: m.Title, hay: m.Title, module: m})
 		for _, t := range m.Techniques {
 			sr.add(searchHit{label: t.Title, hay: t.Title + " " + m.Title, module: m, technique: t})
@@ -124,7 +127,7 @@ func (sr *Search) suggestions() []searchHit {
 			out = append(out, searchHit{label: p.Title, problem: p})
 		}
 	}
-	for _, it := range session.Today(a.Catalog, states, sr.s.Now(), a.Config.NewPerDay) {
+	for _, it := range session.TodayWithEvents(a.Catalog, states, sr.s.Now(), a.Config.NewPerDay, a.Events) {
 		push(it.Problem)
 	}
 	var recent []*catalog.Problem
@@ -333,8 +336,11 @@ func (sr *Search) meta(h searchHit, states map[string]schedule.State) string {
 	th := sr.s.Theme
 	switch {
 	case h.problem != nil:
-		where := ui.Truncate(strings.ToLower(h.problem.Technique.Module.Title+" · "+h.problem.Technique.Title), 28)
-		return " " + th.Muted.Render(where) + " " + difficultyBadge(th, h.problem.Difficulty)
+		where := strings.ToLower(h.problem.Technique.Module.Title + " · " + h.problem.Technique.Title)
+		if h.problem.Technique.Module.Bank {
+			where = "playlist · " + strings.ToLower(h.problem.Technique.Title)
+		}
+		return " " + th.Muted.Render(ui.Truncate(where, 28)) + " " + difficultyBadge(th, h.problem.Difficulty)
 	case h.playlist != nil:
 		m, t, _ := playlistCounts(h.playlist, states)
 		return " " + th.Muted.Render(fmt.Sprintf("%d/%d mastered", m, t))

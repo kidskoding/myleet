@@ -69,6 +69,16 @@ func padLines(lines []string, n int) []string {
 	return lines
 }
 
+func fitHeight(lines []string, n int) []string {
+	if n <= 0 {
+		return nil
+	}
+	if len(lines) > n {
+		lines = lines[:n]
+	}
+	return padLines(lines, n)
+}
+
 func readFile(path string) (string, error) {
 	data, err := os.ReadFile(path)
 	return string(data), err

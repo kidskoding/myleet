@@ -62,6 +62,17 @@ func Pad(s string, width int) string {
 	return s + strings.Repeat(" ", max(width-lipgloss.Width(s), 0))
 }
 
+// WrapLines word-wraps s to width, preserving ANSI sequences. Empty input stays one blank line.
+func WrapLines(s string, width int) []string {
+	if width <= 0 {
+		return nil
+	}
+	if s == "" {
+		return []string{""}
+	}
+	return strings.Split(ansi.Wordwrap(s, width, " "), "\n")
+}
+
 func Card(th theme.Theme, title, body string, width int, active bool) string {
 	if active {
 		return card(th.Accent, th.Selected, title, body, width)
@@ -89,7 +100,9 @@ func card(border, titleStyle lipgloss.Style, title, body string, width int) stri
 	out := []string{top}
 	content := max(inner-2, 0)
 	for _, line := range strings.Split(body, "\n") {
-		out = append(out, border.Render("│")+" "+Pad(line, content)+" "+border.Render("│"))
+		for _, part := range WrapLines(line, content) {
+			out = append(out, border.Render("│")+" "+Pad(part, content)+" "+border.Render("│"))
+		}
 	}
 	out = append(out, border.Render("╰"+strings.Repeat("─", inner)+"╯"))
 	if inner < 2 {
@@ -167,6 +180,11 @@ func KeyBar(th theme.Theme, keys []Key, width int, right string) string {
 }
 
 func Modal(th theme.Theme, title, body string, width, height int) string {
+	return ModalTone(th, title, body, width, height, ToneMuted)
+}
+
+// ModalTone is Modal with a tinted border/title (e.g. ToneFail for destructive confirms).
+func ModalTone(th theme.Theme, title, body string, width, height int, tone Tone) string {
 	widest := lipgloss.Width(title) + 6
 	for _, l := range strings.Split(body, "\n") {
 		widest = max(widest, lipgloss.Width(l)+4)
@@ -176,7 +194,13 @@ func Modal(th theme.Theme, title, body string, width, height int) string {
 	if room := max(height-2, 1); len(lines) > room {
 		lines = append(lines[:room-1], "…")
 	}
-	box := Card(th, title, strings.Join(lines, "\n"), cardW, true)
+	joined := strings.Join(lines, "\n")
+	var box string
+	if tone == ToneMuted {
+		box = Card(th, title, joined, cardW, true)
+	} else {
+		box = CardTone(th, title, joined, cardW, tone)
+	}
 	return lipgloss.Place(max(width, 1), max(height, 1), lipgloss.Center, lipgloss.Center, box)
 }
 
@@ -207,6 +231,42 @@ func Columns(gap int, cols ...string) string {
 		out[r] = b.String()
 	}
 	return strings.Join(out, "\n")
+}
+
+// WideMin is the terminal width at which two-panel Today layouts sit side by side.
+const WideMin = 100
+
+// SplitRow returns left/right column widths for a two-panel row inside totalWidth.
+// ok is false when the terminal is too narrow (caller should stack full-width panels).
+func SplitRow(totalWidth, gap int) (left, right int, ok bool) {
+	if totalWidth < WideMin || totalWidth <= gap {
+		return 0, 0, false
+	}
+	inner := totalWidth - gap
+	left = inner * 3 / 5
+	if left < 24 {
+		left = 24
+	}
+	right = inner - left
+	if right < 20 {
+		return 0, 0, false
+	}
+	return left, right, true
+}
+
+// JoinPanels places left and right side by side with gap, or stacks them when narrow.
+// left and right must already be rendered at leftW/rightW (or totalWidth when stacking).
+func JoinPanels(left, right string, gap, totalWidth int) string {
+	if _, _, ok := SplitRow(totalWidth, gap); !ok {
+		if right == "" {
+			return left
+		}
+		if left == "" {
+			return right
+		}
+		return left + "\n\n" + right
+	}
+	return Columns(gap, left, right)
 }
 
 var spinner = []string{"⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"}

@@ -30,11 +30,31 @@ func TestCardWidthExact(t *testing.T) {
 	}
 }
 
-func TestCardTruncatesLongLines(t *testing.T) {
-	out := Card(th, "t", strings.Repeat("x", 200), 30, false)
-	body := ansi.Strip(lines(out)[1])
-	if !strings.HasSuffix(body, "… │") && !strings.HasSuffix(body, "…│") {
-		t.Fatalf("body line %q", body)
+func TestCardWrapsLongLines(t *testing.T) {
+	out := Card(th, "t", "We'll walk through a few easy problems so we can see which topics feel solid and which ones need more practice.", 40, false)
+	plain := ansi.Strip(out)
+	if strings.Contains(plain, "…") {
+		t.Fatalf("card body should wrap, not truncate:\n%s", plain)
+	}
+	if !strings.Contains(plain, "practice") {
+		t.Fatalf("wrapped card should keep the full sentence:\n%s", plain)
+	}
+	for i, l := range lines(out) {
+		if got := lipgloss.Width(l); got != 40 {
+			t.Fatalf("line %d is %d wide: %q", i, got, ansi.Strip(l))
+		}
+	}
+}
+
+func TestWrapLinesBreaksOnWords(t *testing.T) {
+	got := WrapLines("skip any topic without judgment here", 12)
+	if len(got) < 2 {
+		t.Fatalf("expected multiple lines, got %v", got)
+	}
+	for _, l := range got {
+		if lipgloss.Width(l) > 12 {
+			t.Fatalf("line wider than wrap width: %q", l)
+		}
 	}
 }
 
@@ -105,6 +125,24 @@ func TestColumnsJoin(t *testing.T) {
 		if lipgloss.Width(l) != 14 {
 			t.Fatalf("line %q", l)
 		}
+	}
+}
+
+func TestSplitRowAndJoinPanels(t *testing.T) {
+	if _, _, ok := SplitRow(80, 2); ok {
+		t.Fatal("80 cols should stack")
+	}
+	left, right, ok := SplitRow(120, 2)
+	if !ok || left+right != 118 {
+		t.Fatalf("split = %d+%d ok=%v", left, right, ok)
+	}
+	stacked := JoinPanels("L", "R", 2, 80)
+	if stacked != "L\n\nR" {
+		t.Fatalf("stack = %q", stacked)
+	}
+	side := JoinPanels("L", "R", 2, 120)
+	if !strings.Contains(side, "L") || !strings.Contains(side, "R") || strings.Contains(side, "\n\n") {
+		t.Fatalf("side-by-side = %q", side)
 	}
 }
 

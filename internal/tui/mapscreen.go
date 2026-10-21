@@ -40,14 +40,29 @@ func (m *Map) Help() []string {
 
 func (m *Map) guide() []catalog.GuideNote { return m.s.App.Catalog.Guide }
 
+// modules are the taught curriculum only; playlist-only (bank) problems stay off the map.
+func (m *Map) modules() []*catalog.Module {
+	var out []*catalog.Module
+	for _, mod := range m.s.App.Catalog.Modules {
+		if !mod.Bank {
+			out = append(out, mod)
+		}
+	}
+	return out
+}
+
 // onGuide reports whether the cursor is on Start here, the row above the modules.
 func (m *Map) onGuide() bool { return len(m.guide()) > 0 && m.mod == 0 }
 
 func (m *Map) module() *catalog.Module {
-	if len(m.guide()) > 0 {
-		return m.s.App.Catalog.Modules[max(m.mod-1, 0)]
+	mods := m.modules()
+	if len(mods) == 0 {
+		return nil
 	}
-	return m.s.App.Catalog.Modules[m.mod]
+	if len(m.guide()) > 0 {
+		return mods[max(m.mod-1, 0)]
+	}
+	return mods[m.mod]
 }
 
 func (m *Map) technique() *catalog.Technique {
@@ -73,7 +88,7 @@ func (m *Map) cursor() *int { return [...]*int{&m.mod, &m.tech, &m.prob}[m.level
 func (m *Map) size(level int) int {
 	switch level {
 	case 0:
-		n := len(m.s.App.Catalog.Modules)
+		n := len(m.modules())
 		if len(m.guide()) > 0 {
 			n++
 		}
@@ -82,7 +97,10 @@ func (m *Map) size(level int) int {
 		if m.onGuide() {
 			return len(m.guide())
 		}
-		return len(m.module().Techniques)
+		if mod := m.module(); mod != nil {
+			return len(mod.Techniques)
+		}
+		return 0
 	}
 	return len(m.problems())
 }
@@ -102,7 +120,7 @@ func (m *Map) labels(level int) []string {
 		if len(m.guide()) > 0 {
 			out = append(out, "Start here")
 		}
-		for _, mod := range m.s.App.Catalog.Modules {
+		for _, mod := range m.modules() {
 			out = append(out, mod.Title)
 		}
 	case level == 1 && m.onGuide():
@@ -211,7 +229,7 @@ func (m *Map) moduleRows(states map[string]schedule.State, width int) []string {
 		meta := th.Muted.Render(fmt.Sprintf(" %d notes", n))
 		rows = append(rows, ui.Pad(th.Accent.Render("Start here"), max(width-lipgloss.Width(meta), 4))+meta)
 	}
-	for _, mod := range m.s.App.Catalog.Modules {
+	for _, mod := range m.modules() {
 		mastered, total := 0, 0
 		for _, t := range mod.Techniques {
 			for _, p := range t.Problems {
@@ -222,10 +240,7 @@ func (m *Map) moduleRows(states map[string]schedule.State, width int) []string {
 			}
 		}
 		meter := " " + ui.Bar(th, frac(mastered, total), 10, ui.TonePass) + th.Muted.Render(fmt.Sprintf(" %3.0f%%", 100*frac(mastered, total)))
-		name := mod.Title
-		if !mod.Bank {
-			name = th.Muted.Render(fmt.Sprintf("%02d ", mod.Number)) + name
-		}
+		name := th.Muted.Render(fmt.Sprintf("%02d ", mod.Number)) + mod.Title
 		rows = append(rows, ui.Pad(name, max(width-lipgloss.Width(meter), 4))+meter)
 	}
 	return rows
@@ -297,18 +312,8 @@ func (m *Map) previewRows(para []string, width int) []string {
 	return append(rows, "", m.s.Theme.Muted.Render("enter to read"))
 }
 
-// bankRow is the module-column row holding the problem bank, or -1.
-func (m *Map) bankRow() int {
-	mods := m.s.App.Catalog.Modules
-	if len(mods) == 0 || !mods[len(mods)-1].Bank {
-		return -1
-	}
-	return m.size(0) - 1
-}
-
 // column marks the selection in levels above the current one so the path stays visible.
-// A blank line goes above row gapAt (when >= 0) to set it apart.
-func (m *Map) column(level int, title string, rows []string, width, height, gapAt int) string {
+func (m *Map) column(level int, title string, rows []string, width, height int) string {
 	th := m.s.Theme
 	cursor := *[...]*int{&m.mod, &m.tech, &m.prob}[level]
 	visible := max(height-2, 1)
@@ -317,7 +322,7 @@ func (m *Map) column(level int, title string, rows []string, width, height, gapA
 	if level == m.level && m.filter.on {
 		body = append(body, m.filter.line(th))
 		visible = max(visible-1, 1)
-		shown, gapAt = m.filter.visible(m.labels(level)), -1
+		shown = m.filter.visible(m.labels(level))
 		if len(shown) == 0 {
 			body = append(body, th.Muted.Render("no matches"))
 		}
@@ -326,23 +331,15 @@ func (m *Map) column(level int, title string, rows []string, width, height, gapA
 			shown = append(shown, i)
 		}
 	}
-	lines := make([]int, 0, len(shown)+1) // row index per display line, -1 for the gap
 	at := 0
-	for _, i := range shown {
-		if i == gapAt && i > 0 {
-			lines = append(lines, -1)
+	for i, row := range shown {
+		if row == cursor {
+			at = i
+			break
 		}
-		if i == cursor {
-			at = len(lines)
-		}
-		lines = append(lines, i)
 	}
 	m.offsets[level] = scrollWindow(at, m.offsets[level], visible)
-	for _, i := range lines[min(m.offsets[level], len(lines)):min(m.offsets[level]+visible, len(lines))] {
-		if i < 0 {
-			body = append(body, "")
-			continue
-		}
+	for _, i := range shown[min(m.offsets[level], len(shown)):min(m.offsets[level]+visible, len(shown))] {
 		marker := "  "
 		switch {
 		case i == cursor && level == m.level:
@@ -375,9 +372,9 @@ func (m *Map) View(w, h int) string {
 		mod, tech := min(42, avail*4/10), min(36, avail*35/100)
 		widths := [3]int{mod, tech, avail - mod - tech}
 		cols := []string{
-			m.column(0, "modules", m.moduleRows(states, widths[0]-6), widths[0], height, m.bankRow()),
-			m.column(1, strings.ToLower(m.title()), m.techniqueRows(states, today, widths[1]-6), widths[1], height, -1),
-			m.column(2, techTitle, m.problemRows(states, widths[2]-6), widths[2], height, -1),
+			m.column(0, "modules", m.moduleRows(states, widths[0]-6), widths[0], height),
+			m.column(1, strings.ToLower(m.title()), m.techniqueRows(states, today, widths[1]-6), widths[1], height),
+			m.column(2, techTitle, m.problemRows(states, widths[2]-6), widths[2], height),
 		}
 		if m.onGuide() {
 			cols[2] = ui.Card(m.s.Theme, strings.ToLower(m.guide()[m.tech].Title), strings.Join(padLines(clip(m.guidePreview(widths[2]-4), height-2), height-2), "\n"), widths[2], false)
@@ -401,11 +398,7 @@ func (m *Map) View(w, h int) string {
 	default:
 		rows[2] = m.problemRows(states, inner-6)
 	}
-	gap := -1
-	if m.level == 0 {
-		gap = m.bankRow()
-	}
-	return "\n" + strings.Join(indent(m.column(m.level, strings.Join(crumbs, " › "), rows[m.level], inner, height, gap), 2), "\n")
+	return "\n" + strings.Join(indent(m.column(m.level, strings.Join(crumbs, " › "), rows[m.level], inner, height), 2), "\n")
 }
 
 type Notes struct {

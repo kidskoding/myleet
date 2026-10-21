@@ -14,7 +14,8 @@ import (
 
 func searchModel(t *testing.T, query string) (tea.Model, *Search) {
 	t.Helper()
-	s := newTestShared(t, newTestApp(t), &fakeRunner{})
+	// Placement gate owns "/" so search tests start past the warm-up.
+	s := newTestShared(t, newTestApp(t, placementSkipped(), checkpointSnoozed()), &fakeRunner{})
 	m := send(New(s, ""), tea.WindowSizeMsg{Width: 80, Height: 24}, key("/"))
 	for _, r := range query {
 		m = send(m, key(string(r)))
