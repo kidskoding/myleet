@@ -1,0 +1,12 @@
+id = "construct-quad-tree"
+title = "Construct Quad Tree"
+difficulty = "medium"
+leetcode = 427
+url = "https://leetcode.com/problems/construct-quad-tree/"
+key_idea = "recursively build a node; if the block is uniform, make a leaf, else split into 4."
+hints = [
+  "A leaf represents a square where every cell has the same value.",
+  "Divide the current square into four equal sub-squares and recurse.",
+  "If all four children are leaves with the same value, compress them into one leaf.",
+]
+prompt = ""

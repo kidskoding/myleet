@@ -1,0 +1,12 @@
+id = "sort-an-array"
+title = "Sort an Array"
+difficulty = "medium"
+leetcode = 912
+url = "https://leetcode.com/problems/sort-an-array/"
+key_idea = "implement mergesort (or quicksort) from scratch — split, sort halves, merge."
+hints = [
+  "Built-in sorted is not the point; write a divide-and-conquer sort.",
+  "Mergesort: recursively sort left/right, then merge two sorted runs.",
+  "Watch the merge indices so equal keys stay stable if you choose mergesort.",
+]
+prompt = ""

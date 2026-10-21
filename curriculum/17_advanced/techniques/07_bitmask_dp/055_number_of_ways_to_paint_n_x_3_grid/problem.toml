@@ -1,0 +1,12 @@
+id = "number-of-ways-to-paint-n-x-3-grid"
+title = "Number of Ways to Paint N × 3 Grid"
+difficulty = "hard"
+leetcode = 1411
+url = "https://leetcode.com/problems/number-of-ways-to-paint-n-x-3-grid/"
+key_idea = "enumerate valid 3-cell row colorings; DP transitions only between compatible masks."
+hints = [
+  "Each cell gets one of 3 colors; adjacent cells (including vertical) must differ.",
+  "A row has only a handful of valid color patterns — list them.",
+  "dp[row][pattern] sums from previous patterns that do not clash vertically.",
+]
+prompt = ""

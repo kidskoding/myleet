@@ -1,0 +1,12 @@
+id = "most-stones-removed-with-same-row-or-column"
+title = "Most Stones Removed with Same Row or Column"
+difficulty = "medium"
+leetcode = 947
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
+key_idea = "union stones that share a row or column; answer is n minus the number of connected components."
+hints = [
+  "Two stones can be in the same removal chain if they share a row or a column.",
+  "Model shared rows/columns as edges in a union-find structure.",
+  "You can remove every stone except one per connected component.",
+]
+prompt = ""

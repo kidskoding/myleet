@@ -1,0 +1,12 @@
+id = "count-number-of-teams"
+title = "Count Number of Teams"
+difficulty = "medium"
+leetcode = 1395
+url = "https://leetcode.com/problems/count-number-of-teams/"
+key_idea = "for each middle soldier, count left/right smaller and greater (Fenwick or scans)."
+hints = [
+  "A valid team is three indices i < j < k that are strictly increasing or decreasing in rating.",
+  "Fix the middle index j and count how many ratings on each side are smaller/larger.",
+  "A Fenwick tree over ratings makes those range counts O(log R) per soldier.",
+]
+prompt = ""

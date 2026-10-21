@@ -1,0 +1,12 @@
+id = "number-of-restricted-paths-from-first-to-last-node"
+title = "Number of Restricted Paths From First to Last Node"
+difficulty = "medium"
+leetcode = 1786
+url = "https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node/"
+key_idea = "Dijkstra distances from n; DP restricted paths toward strictly decreasing distance-to-n."
+hints = [
+  "A restricted path only steps to a neighbor closer to n in shortest-path distance.",
+  "Compute distance-to-n for every node with Dijkstra first.",
+  "Then memoize the number of ways from 1 following that decreasing-distance rule.",
+]
+prompt = ""

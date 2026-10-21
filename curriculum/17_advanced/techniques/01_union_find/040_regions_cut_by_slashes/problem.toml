@@ -1,0 +1,12 @@
+id = "regions-cut-by-slashes"
+title = "Regions Cut By Slashes"
+difficulty = "medium"
+leetcode = 959
+url = "https://leetcode.com/problems/regions-cut-by-slashes/"
+key_idea = "split each cell into 4 triangles and union adjacent pieces that are not cut apart."
+hints = [
+  "A slash cuts a cell into regions; track those regions explicitly.",
+  "Represent each cell as four triangular parts (north/east/south/west).",
+  "Union parts inside a cell based on the character, then union across cell borders.",
+]
+prompt = ""

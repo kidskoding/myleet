@@ -1,0 +1,12 @@
+id = "create-sorted-array-through-instructions"
+title = "Create Sorted Array through Instructions"
+difficulty = "hard"
+leetcode = 1649
+url = "https://leetcode.com/problems/create-sorted-array-through-instructions/"
+key_idea = "Fenwick/segment tree of value frequencies; cost is min(strictly-less, strictly-greater) each insert."
+hints = [
+  "For each inserted value, you pay the cheaper of 'how many are already smaller' vs 'how many are already larger'.",
+  "A Fenwick or segment tree over the value domain can answer those prefix counts in log time.",
+  "Insert the value into the tree after querying, and take the answer modulo 10^9+7.",
+]
+prompt = ""

@@ -1,0 +1,12 @@
+id = "repeated-dna-sequences"
+title = "Repeated DNA Sequences"
+difficulty = "medium"
+leetcode = 187
+url = "https://leetcode.com/problems/repeated-dna-sequences/"
+key_idea = "slide a length-10 window; hash or set records which 10-mers appear more than once."
+hints = [
+  "You only care about contiguous substrings of length exactly 10.",
+  "A rolling hash or a set of seen windows finds duplicates in linear time.",
+  "Return each repeated 10-mer once.",
+]
+prompt = ""

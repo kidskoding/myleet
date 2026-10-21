@@ -1,0 +1,50 @@
+id = "prim-minimum-spanning-tree"
+title = "Prim Minimum Spanning Tree"
+difficulty = "medium"
+key_idea = "Prim: grow a tree from node 0 with a min-heap of crossing edges."
+hints = [
+  "Start from one node and always add the cheapest edge that reaches a new node.",
+  "A binary heap of (weight, node) pairs tracks the best known crossing edge.",
+  "If you finish with fewer than n visited nodes, return -1.",
+]
+prompt = """
+You are given `n` nodes labeled `0` through `n - 1` and an undirected weighted adjacency
+list `adj`, where `adj[u]` is a list of `[v, w]` pairs meaning an edge between `u` and
+`v` of weight `w`. Edges appear in both directions.
+
+Implement `prim_mst(n, adj)` that returns the total weight of a minimum spanning tree
+computed with Prim's algorithm starting at node `0`, or `-1` if not every node is
+reachable from `0`. If `n == 1`, return `0`.
+
+**Example 1:**
+
+```
+Input: n = 4, adj = [
+  [[1,1],[2,3]],
+  [[0,1],[2,2],[3,4]],
+  [[0,3],[1,2],[3,4]],
+  [[1,4],[2,4]],
+]
+Output: 7
+```
+
+**Example 2:**
+
+```
+Input: n = 3, adj = [[[1,5]], [[0,5]], []]
+Output: -1
+```
+
+**Example 3:**
+
+```
+Input: n = 1, adj = [[]]
+Output: 0
+```
+
+**Constraints:**
+
+- `1 <= n <= 10^4`
+- sum of `len(adj[u])` is even and at most `2 * 10^4`
+- `1 <= w <= 10^6`
+"""

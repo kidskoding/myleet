@@ -1,0 +1,12 @@
+id = "remove-max-number-of-edges-to-keep-graph-fully-traversable"
+title = "Remove Max Number of Edges to Keep Graph Fully Traversable"
+difficulty = "hard"
+leetcode = 1579
+url = "https://leetcode.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/"
+key_idea = "prefer type-3 edges in two union-find forests (Alice/Bob); count every skipped edge."
+hints = [
+  "Alice only uses type-1 and type-3; Bob only type-2 and type-3.",
+  "Greedy: add shared (type-3) edges first to both forests, then fill each person's gaps.",
+  "An edge is removable when its endpoints are already connected for everyone who needs it.",
+]
+prompt = ""

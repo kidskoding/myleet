@@ -1,7 +1,0 @@
-id = "construct-quad-tree"
-title = "Construct Quad Tree"
-difficulty = "medium"
-leetcode = 427
-url = "https://leetcode.com/problems/construct-quad-tree/"
-key_idea = "Recurse on square subgrids: build the four quadrants, and if all four are leaves with the same value, merge them into one leaf; otherwise return an internal node."
-hints = ["A subgrid is a leaf exactly when every cell in it has the same value.", "Build the children first; a uniform region shows up as four matching leaf children."]

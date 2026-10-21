@@ -1,0 +1,12 @@
+id = "find-the-shortest-superstring"
+title = "Find the Shortest Superstring"
+difficulty = "hard"
+leetcode = 943
+url = "https://leetcode.com/problems/find-the-shortest-superstring/"
+key_idea = "precompute overlap; TSP-style DP over subsets of words to minimize total length."
+hints = [
+  "This is a shortest Hamiltonian path in the complete digraph of words with overlap weights.",
+  "dp[mask][i] = best superstring (or length) ending at word i using exactly the words in mask.",
+  "Reconstruct the path from the DP table, then stitch words using the precomputed overlaps.",
+]
+prompt = ""

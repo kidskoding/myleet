@@ -1,0 +1,12 @@
+id = "maximum-path-quality-of-a-graph"
+title = "Maximum Path Quality of a Graph"
+difficulty = "hard"
+leetcode = 2065
+url = "https://leetcode.com/problems/maximum-path-quality-of-a-graph/"
+key_idea = "DFS/backtrack every walk that returns to 0 within maxTime; score unique nodes once."
+hints = [
+  "You may revisit edges/nodes, but a node's value counts only the first time.",
+  "Search all walks starting and ending at 0 whose total travel time is ≤ maxTime.",
+  "n is tiny (≤ 15 in the hard cases that matter), so exhaustive DFS with pruning works.",
+]
+prompt = ""

@@ -1,7 +1,0 @@
-id = "create-sorted-array-through-instructions"
-title = "Create Sorted Array through Instructions"
-difficulty = "hard"
-leetcode = 1649
-url = "https://leetcode.com/problems/create-sorted-array-through-instructions/"
-key_idea = "Keep a Fenwick tree of value counts; for each insertion query the count of smaller values and the count of larger values (inserted so far minus prefix up to x), add the minimum, then add x."
-hints = ["You need 'how many inserted values are below x' quickly after every insertion.", "Values are at most 10^5, so index a prefix-sum structure by value."]

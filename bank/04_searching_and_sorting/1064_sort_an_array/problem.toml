@@ -1,7 +1,0 @@
-id = "sort-an-array"
-title = "Sort an Array"
-difficulty = "medium"
-leetcode = 912
-url = "https://leetcode.com/problems/sort-an-array/"
-key_idea = "Merge sort: split in half, sort each half recursively, and merge the two sorted halves in linear time."
-hints = ["Built-in sorts are off limits, and quadratic sorts are too slow for 5 * 10^4 elements.", "Two sorted lists can be combined into one sorted list in a single pass."]

@@ -1,0 +1,48 @@
+id = "find-the-closest-marked-node"
+title = "Find the Closest Marked Node"
+difficulty = "medium"
+leetcode = 2737
+url = "https://leetcode.com/problems/find-the-closest-marked-node/"
+key_idea = "Dijkstra from s; answer is the minimum distance among the marked nodes."
+hints = [
+  "You only care about shortest-path distances from the source.",
+  "Run Dijkstra (or an equivalent single-source shortest path) from s.",
+  "Then take the minimum finite distance over the marked set; otherwise -1.",
+]
+prompt = """
+You are given a positive integer `n` (nodes `0..n-1`) and a directed weighted edge list
+`edges`, where each `edges[i] = [u, v, w]` is an edge from `u` to `v` with weight `w`.
+You are also given a source node `s` and an array `marked` of distinct target nodes.
+
+Implement `minimum_distance(n, edges, s, marked)` that returns the minimum shortest-path
+distance from `s` to any node in `marked`, or `-1` if none of the marked nodes are
+reachable. The graph may contain repeated edges and has no self-loops.
+
+**Example 1:**
+
+```
+Input: n = 4, edges = [[0,1,1],[1,2,3],[2,3,2],[0,3,4]], s = 0, marked = [2,3]
+Output: 4
+```
+
+**Example 2:**
+
+```
+Input: n = 5, edges = [[0,1,2],[0,2,4],[1,3,1],[2,3,3],[3,4,2]], s = 1, marked = [0,4]
+Output: 3
+```
+
+**Example 3:**
+
+```
+Input: n = 4, edges = [[0,1,1],[1,2,3],[2,3,2]], s = 3, marked = [0,1]
+Output: -1
+```
+
+**Constraints:**
+
+- `2 <= n <= 500`
+- `1 <= edges.length <= 10^4`
+- `1 <= w <= 10^6`
+- `s` is not in `marked`
+"""

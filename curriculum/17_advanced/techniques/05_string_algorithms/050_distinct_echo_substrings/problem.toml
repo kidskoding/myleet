@@ -1,0 +1,12 @@
+id = "distinct-echo-substrings"
+title = "Distinct Echo Substrings"
+difficulty = "hard"
+leetcode = 1316
+url = "https://leetcode.com/problems/distinct-echo-substrings/"
+key_idea = "an echo is XX; rolling hash (or Z) checks equal halves of every even-length window."
+hints = [
+  "An echo substring is some string concatenated with itself.",
+  "Only even lengths matter; check whether the two halves of each window are equal.",
+  "Rolling hashes let you compare halves in O(1) after O(n) preprocessing.",
+]
+prompt = ""

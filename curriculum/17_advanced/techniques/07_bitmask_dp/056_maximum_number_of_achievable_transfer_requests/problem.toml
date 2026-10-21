@@ -1,0 +1,12 @@
+id = "maximum-number-of-achievable-transfer-requests"
+title = "Maximum Number of Achievable Transfer Requests"
+difficulty = "hard"
+leetcode = 1601
+url = "https://leetcode.com/problems/maximum-number-of-achievable-transfer-requests/"
+key_idea = "enumerate subsets of requests; a subset is achievable iff every building's net change is zero."
+hints = [
+  "Achievable means each building ends with the same employee count.",
+  "m is tiny (≤ 16), so try every subset of requests.",
+  "For a subset, track net inflow/outflow per building; all zeros means valid.",
+]
+prompt = ""

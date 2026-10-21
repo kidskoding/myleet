@@ -1,0 +1,12 @@
+id = "string-matching-in-an-array"
+title = "String Matching in an Array"
+difficulty = "easy"
+leetcode = 1408
+url = "https://leetcode.com/problems/string-matching-in-an-array/"
+key_idea = "return every word that appears as a substring of some other word in the array."
+hints = [
+  "A word is interesting only if it is contained inside a different word.",
+  "Brute force pairwise substring checks are fine for the given constraints.",
+  "Avoid listing the same word twice.",
+]
+prompt = ""
