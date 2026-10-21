@@ -1,0 +1,7 @@
+id = "valid-perfect-square"
+title = "Valid Perfect Square"
+difficulty = "easy"
+leetcode = 367
+url = "https://leetcode.com/problems/valid-perfect-square/"
+key_idea = "Binary search mid*mid against num without using sqrt."
+hints = ["Search the integer range [1, num].", "Compare mid*mid to num and shrink left or right."]

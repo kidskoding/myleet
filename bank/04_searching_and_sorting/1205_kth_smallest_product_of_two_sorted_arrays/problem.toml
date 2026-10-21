@@ -1,0 +1,7 @@
+id = "kth-smallest-product-of-two-sorted-arrays"
+title = "Kth Smallest Product of Two Sorted Arrays"
+difficulty = "hard"
+leetcode = 2040
+url = "https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/"
+key_idea = "Binary search the product value; for each mid count how many nums1[i]*nums2[j] are <= mid with two pointers that respect sign."
+hints = ["Products of two sorted arrays are not sorted, but 'how many products <= x' is monotone.", "Split nums2 handling for positive and negative nums1 separately."]

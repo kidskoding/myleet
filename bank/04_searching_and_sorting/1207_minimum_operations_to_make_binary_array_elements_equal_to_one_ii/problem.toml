@@ -1,0 +1,7 @@
+id = "minimum-operations-to-make-binary-array-elements-equal-to-one-ii"
+title = "Minimum Operations to Make Binary Array Elements Equal to One II"
+difficulty = "medium"
+leetcode = 3192
+url = "https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/"
+key_idea = "Track the parity of suffix flips so far; whenever the effective bit is 0, flip from this index onward."
+hints = ["An operation flips every element from i to the end.", "You never need to flip the same index twice in an optimal plan."]

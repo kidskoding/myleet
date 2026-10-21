@@ -1,0 +1,7 @@
+id = "nth-magical-number"
+title = "Nth Magical Number"
+difficulty = "hard"
+leetcode = 878
+url = "https://leetcode.com/problems/nth-magical-number/"
+key_idea = "Binary search the answer; count multiples of a or b with inclusion-exclusion via lcm."
+hints = ["Ask how many magical numbers are <= mid.", "mid//a + mid//b - mid//lcm(a,b) is the count."]

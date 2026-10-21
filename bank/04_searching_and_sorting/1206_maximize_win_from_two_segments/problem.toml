@@ -1,0 +1,7 @@
+id = "maximize-win-from-two-segments"
+title = "Maximize Win From Two Segments"
+difficulty = "medium"
+leetcode = 2555
+url = "https://leetcode.com/problems/maximize-win-from-two-segments/"
+key_idea = "For each second segment ending at prize i, add the best first-segment score among prizes strictly before that window."
+hints = ["Binary search the leftmost prize still inside a length-k segment ending at position i.", "Keep a prefix DP of the best single segment among the first j prizes."]

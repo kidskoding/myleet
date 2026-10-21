@@ -1,0 +1,7 @@
+id = "check-if-a-number-is-majority-element-in-a-sorted-array"
+title = "Check If a Number Is Majority Element in a Sorted Array"
+difficulty = "easy"
+leetcode = 1150
+url = "https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/"
+key_idea = "Binary search the first occurrence of target; it is majority iff nums[i + n//2] == target."
+hints = ["Because the array is sorted, equal values form one contiguous block.", "If target starts at i, check the element n//2 steps later."]
