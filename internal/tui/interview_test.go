@@ -10,6 +10,7 @@ import (
 	tea "charm.land/bubbletea/v2"
 
 	"github.com/kidskoding/myleet/internal/catalog"
+	"github.com/kidskoding/myleet/internal/checkpoint"
 	"github.com/kidskoding/myleet/internal/progress"
 	"github.com/kidskoding/myleet/internal/runner"
 )
@@ -137,6 +138,9 @@ func TestInterviewSetupCard(t *testing.T) {
 	if !strings.Contains(view, "╭─ mock interview") || !strings.Contains(view, "[1]") || !strings.Contains(view, "[3]") {
 		t.Fatalf("view:\n%s", view)
 	}
+	if strings.Contains(view, "checkpoint") {
+		t.Fatalf("timed tab should not offer checkpoint as a mode:\n%s", view)
+	}
 }
 
 func TestInterviewStepper(t *testing.T) {
@@ -170,4 +174,69 @@ func TestInterviewGoldens(t *testing.T) {
 	assertGolden(t, "interview_setup", plain(setup))
 	round, _, _ := twoProblemRound(t)
 	assertGolden(t, "interview_round", plain(round))
+}
+
+func TestCheckpointSetupAndReveal(t *testing.T) {
+	s := newTestShared(t, newTestApp(t, placementSkipped()), &fakeRunner{results: []runner.Result{green, red}})
+	pl := NewInterviewCheckpoint(s).(*Interview)
+	m := send(Model{s: s, stack: []Screen{NewHome(s), pl}, width: 80, height: 24},
+		tea.WindowSizeMsg{Width: 80, Height: 24})
+	view := plain(m)
+	if !strings.Contains(view, "╭─ practice check-in") {
+		t.Fatalf("view:\n%s", view)
+	}
+	pl.ceilIdx = 0
+	m = send(m, key("enter"))
+	pl = m.(Model).top().(*Interview)
+	if pl.phase != phaseRound || pl.kind != timedCheckpoint {
+		t.Fatalf("phase=%d kind=%d", pl.phase, pl.kind)
+	}
+	for i := 0; i < len(pl.foci); i++ {
+		m = send(m, key("space"))
+	}
+	pl = m.(Model).top().(*Interview)
+	if pl.phase != phaseReveal {
+		t.Fatalf("phase=%d", pl.phase)
+	}
+	view = plain(m)
+	if !strings.Contains(view, "strong") && !strings.Contains(view, "start here") && !strings.Contains(view, "shaky") {
+		t.Fatalf("reveal missing levels:\n%s", view)
+	}
+	var done bool
+	for _, e := range s.App.Events {
+		if e.Kind == progress.CheckpointDone && e.Data["snoozed"] != "1" {
+			done = true
+		}
+	}
+	if !done {
+		t.Fatal("checkpoint_done not recorded")
+	}
+}
+
+func TestHomeRecommendsCheckpoint(t *testing.T) {
+	events := append([]progress.Event{placementSkipped()}, passedEvents("p-one", 16)...)
+	events = append(events, passedEvents("p-two", 17)...)
+	events = append(events, passedEvents("p-three", 18)...)
+	a := newTestApp(t, events...)
+	m := send(New(newTestShared(t, a, &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 100, Height: 30})
+	view := plain(m)
+	if !strings.Contains(view, "recommended check-in") {
+		t.Fatalf("should recommend check-in on Today:\n%s", view)
+	}
+	_, cmd := m.Update(key("c"))
+	if cmd == nil {
+		t.Fatal("c should push checkpoint")
+	}
+	msg := cmd().(PushMsg)
+	iv, ok := msg.Screen.(*Interview)
+	if !ok || iv.kind != timedCheckpoint {
+		t.Fatalf("got %T kind=%v", msg.Screen, iv)
+	}
+	if iv.Tab() != 0 {
+		t.Fatalf("check-in should stay on Today tab, got tab %d", iv.Tab())
+	}
+	m = send(m, key("n"))
+	if checkpoint.SuggestThrough(a.Catalog, a.Events, a.Attempts(), a.Now()) != 0 {
+		t.Fatal("snooze should clear the recommendation")
+	}
 }

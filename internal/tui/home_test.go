@@ -22,7 +22,23 @@ func passedEvents(id string, day int) []progress.Event {
 	}
 }
 
+func placementSkipped() progress.Event {
+	return progress.Event{
+		Time: testNow, Kind: progress.PlacementDone, Mode: progress.Placement,
+		Data: map[string]string{"skipped": "1"},
+	}
+}
+
+func checkpointSnoozed() progress.Event {
+	return progress.Event{
+		Time: testNow, Kind: progress.CheckpointDone, Mode: progress.Checkpoint,
+		Data: map[string]string{"through": "99", "snoozed": "1"},
+	}
+}
+
 func homeModel(t *testing.T, events ...progress.Event) tea.Model {
+	// Most home tests exercise the queue, not placement/checkpoint recommendations.
+	events = append([]progress.Event{placementSkipped(), checkpointSnoozed()}, events...)
 	a := newTestApp(t, events...)
 	m := New(newTestShared(t, a, &fakeRunner{}), "")
 	return send(m, tea.WindowSizeMsg{Width: 80, Height: 24})
@@ -44,7 +60,7 @@ func TestHomeEmptyQueue(t *testing.T) {
 		events = append(events, passedEvents(id, 19)...)
 	}
 	view := plain(homeModel(t, events...))
-	if !strings.Contains(view, "all caught up") {
+	if !strings.Contains(view, "all caught up") || !strings.Contains(view, "curriculum map") {
 		t.Fatalf("view:\n%s", view)
 	}
 }
@@ -85,7 +101,7 @@ func TestHelpToggle(t *testing.T) {
 
 func TestGreetingByHour(t *testing.T) {
 	for hour, want := range map[int]string{9: "Good morning", 14: "Good afternoon", 22: "Good evening", 3: "Good evening"} {
-		a := newTestApp(t)
+		a := newTestApp(t, placementSkipped())
 		now := time.Date(2026, 10, 19, hour, 0, 0, 0, tu.Chicago)
 		a.Now = func() time.Time { return now }
 		m := send(New(newTestShared(t, a, &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 80, Height: 24})
@@ -97,11 +113,38 @@ func TestGreetingByHour(t *testing.T) {
 
 func TestHomeQueueIsOneCard(t *testing.T) {
 	view := plain(homeModel(t))
-	if n := strings.Count(view, "╭"); n != 1 || !strings.Contains(view, "╭─ today") {
-		t.Fatalf("today's queue should be one titled card, found %d cards:\n%s", n, view)
+	if !strings.Contains(view, "╭─ today") || !strings.Contains(view, "╭─ your progress") {
+		t.Fatalf("today should show queue + progress panels:\n%s", view)
 	}
 	if !strings.Contains(view, "▸ ") {
 		t.Fatalf("the selected row should be marked:\n%s", view)
+	}
+}
+
+func TestHomeFocusCardFromWeakest(t *testing.T) {
+	a := newTestApp(t, placementSkipped())
+	for i := 0; i < 3; i++ {
+		att := progress.NewAttemptID()
+		at := testNow.AddDate(0, 0, -5+i)
+		a.Record(progress.Event{Time: at, Kind: progress.Opened, Problem: "p-one", Attempt: att, Mode: progress.Practice})
+		a.Record(progress.Event{Time: at.Add(time.Minute), Kind: progress.GaveUp, Problem: "p-one", Attempt: att, Mode: progress.Practice})
+	}
+	view := plain(send(New(newTestShared(t, a, &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 120, Height: 32}))
+	if !strings.Contains(view, "╭─ your progress") || !strings.Contains(view, "Where to focus") || !strings.Contains(view, "one") {
+		t.Fatalf("progress rail should name the weak technique:\n%s", view)
+	}
+	if !strings.Contains(view, "difficult") || !strings.Contains(view, "prioritize") {
+		t.Fatalf("focus should explain the personalization:\n%s", view)
+	}
+}
+
+func TestHomeNoFocusCardWhenFresh(t *testing.T) {
+	view := plain(homeModel(t))
+	if strings.Contains(view, "Where to focus") {
+		t.Fatalf("fresh home should not show a focus section:\n%s", view)
+	}
+	if !strings.Contains(view, "where you are strongest") {
+		t.Fatalf("cold start should hint that we personalize:\n%s", view)
 	}
 }
 
@@ -111,7 +154,7 @@ func TestHomeTitlesUseTheRoom(t *testing.T) {
 	if err != nil {
 		t.Skip("real curriculum unavailable")
 	}
-	a := newTestApp(t)
+	a := newTestApp(t, placementSkipped())
 	a.Catalog = c
 	m := send(New(newTestShared(t, a, &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 80, Height: 24})
 	view := plain(m)
@@ -122,14 +165,14 @@ func TestHomeTitlesUseTheRoom(t *testing.T) {
 
 func TestHomeShowsUpcomingReviews(t *testing.T) {
 	view := plain(homeModel(t, passedEvents("p-two", 19)...)) // finished today, due tomorrow
-	if !strings.Contains(view, "1 review due this week") {
+	if !strings.Contains(view, "1 review coming due this week") {
 		t.Fatalf("today should preview the reviews coming up:\n%s", view)
 	}
 }
 
 func TestHomeShowsStreakAndMastery(t *testing.T) {
 	view := plain(homeModel(t, passedEvents("p-one", 18)...))
-	if !strings.Contains(view, "day streak") || !strings.Contains(view, "mastery") || !strings.Contains(view, "0/4") {
+	if !strings.Contains(view, "day streak") || !strings.Contains(view, "Mastery") || !strings.Contains(view, "0/4") {
 		t.Fatalf("view:\n%s", view)
 	}
 }
@@ -149,8 +192,8 @@ func TestHomeShowsWhyNewProblemsWerePicked(t *testing.T) {
 	if !strings.Contains(view, "new topic · one") {
 		t.Fatalf("new problems should say why they were picked:\n%s", view)
 	}
-	a := newTestApp(t)
-	for i := 0; i < 2; i++ {
+	a := newTestApp(t, placementSkipped())
+	for i := 0; i < 3; i++ {
 		att := progress.NewAttemptID()
 		at := testNow.AddDate(0, 0, -3+i)
 		a.Record(progress.Event{Time: at, Kind: progress.Opened, Problem: "p-one", Attempt: att, Mode: progress.Practice})
@@ -159,5 +202,46 @@ func TestHomeShowsWhyNewProblemsWerePicked(t *testing.T) {
 	m := send(New(newTestShared(t, a, &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 120, Height: 30})
 	if view := plain(m); !strings.Contains(view, "weak spot · one") {
 		t.Fatalf("a technique you keep failing should be called out:\n%s", view)
+	}
+}
+
+func TestHomePlacementGateForNewUsers(t *testing.T) {
+	m := send(New(newTestShared(t, newTestApp(t), &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 80, Height: 24})
+	view := plain(m)
+	if !strings.Contains(view, "placement warm-up") || !strings.Contains(view, "right place for you to begin") {
+		t.Fatalf("new users should see the placement gate:\n%s", view)
+	}
+	if !strings.Contains(view, "1. arrays and hashing") || !strings.Contains(view, "5. binary search") || !strings.Contains(view, "begin the warm-up") {
+		t.Fatalf("gate should list topics as steps and actions:\n%s", view)
+	}
+	if !strings.Contains(view, "what happens next") {
+		t.Fatalf("gate should explain what happens next:\n%s", view)
+	}
+	if strings.Contains(view, "╭─ today") {
+		t.Fatalf("placement gate should replace the today queue:\n%s", view)
+	}
+	if strings.Contains(lastLine(view), "/ search") {
+		t.Fatalf("placement gate should not offer search:\n%s", view)
+	}
+	wide := plain(send(New(newTestShared(t, newTestApp(t), &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 120, Height: 32}))
+	if !strings.Contains(wide, "what happens next") || !strings.Contains(wide, "placement warm-up") {
+		t.Fatalf("wide gate should keep both panels:\n%s", wide)
+	}
+	m = send(m, key("n"))
+	view = plain(m)
+	if strings.Contains(view, "placement warm-up") || !strings.Contains(view, "╭─ today") {
+		t.Fatalf("skipping placement should unlock today:\n%s", view)
+	}
+}
+
+func TestHomeEnterStartsPlacement(t *testing.T) {
+	m := send(New(newTestShared(t, newTestApp(t), &fakeRunner{}), ""), tea.WindowSizeMsg{Width: 80, Height: 24})
+	m = send(m, key("enter"))
+	pl, ok := m.(Model).top().(*Placement)
+	if !ok {
+		t.Fatalf("got %T, want *Placement", m.(Model).top())
+	}
+	if pl.phase != placeRound {
+		t.Fatalf("enter should skip intro and start the round, phase=%d", pl.phase)
 	}
 }
