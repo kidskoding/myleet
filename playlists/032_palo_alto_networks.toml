@@ -1,5 +1,5 @@
 title = "Palo Alto Networks"
-group = "Big tech"
+group = "Little tech"
 focus = "bitwise tricks, careful string parsing and conversion, tries, interval sweeps, and union-find connectivity."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "14_tries", "13_intervals", "10_graphs", "17_advanced"]
 

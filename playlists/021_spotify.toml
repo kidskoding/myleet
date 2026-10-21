@@ -1,5 +1,5 @@
 title = "Spotify"
-group = "Big tech"
+group = "Little tech"
 focus = "playlist-style linked lists and queues, randomized shuffling and sampling, sliding windows over streams, heaps for ranking, and string DP."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "06_linked_lists", "08_heaps", "10_graphs", "11_dp", "14_tries"]
 

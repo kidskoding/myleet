@@ -1,5 +1,5 @@
 title = "Workday"
-group = "Big tech"
+group = "Little tech"
 focus = "hash maps and sorting over business records, prefix sums, intervals and scheduling, org-chart trees and graphs, and small stateful designs."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "07_trees", "10_graphs", "08_heaps", "12_greedy_algorithms"]
 

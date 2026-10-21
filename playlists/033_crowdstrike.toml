@@ -1,5 +1,5 @@
 title = "CrowdStrike"
-group = "Big tech"
+group = "Little tech"
 focus = "hashing for duplicate and anomaly detection, string and number parsing, sliding windows over event logs, bit tricks, and grouping with union-find."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "15_bit_manipulation", "05_binary_search", "10_graphs"]
 

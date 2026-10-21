@@ -1,5 +1,5 @@
 title = "AMD"
-group = "Fortune 500"
+group = "Big tech"
 focus = "bit manipulation, matrix and in-place array transforms, linked lists, cache-style design, and task scheduling with heaps."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "08_heaps", "13_intervals"]
 
