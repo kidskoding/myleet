@@ -38,7 +38,7 @@ myleet/
 │   │   └── techniques/NN_<technique>/
 │   │       ├── technique.toml          title, linked note
 │   │       └── NNN_<problem>/          problem.toml, starter.py, test_problem.py, [solution.py]
-├── bank/                    problem bank: trackable problems playlists use that no lesson covers
+├── bank/                    playlist-only trackable problems (not on the map / Today new)
 ├── playlists/               company sets as TOML
 ├── mock-interviews/
 └── tools/migrate/           one-time migration from the old multi-problem files
@@ -103,9 +103,17 @@ A note near 50 lines is still a skeleton. Reference exemplar: `17_advanced/notes
 
 Size each technique (each `techniques/NN_<technique>/` folder) to the number of problems that actually builds mastery of that technique — enough coverage to go from warmup to hard and drill the pattern until it is automatic, not a fixed count. Do not leave a section thin (roughly, fewer than 4-5 problems is a smell); if migrating problems out leaves a section sparse, backfill it with more problems of that same technique. The number of problems is the lever that ensures mastery, so err toward more coverage per technique rather than a minimal set.
 
-A playlist problem that no module teaches goes in `bank/<NN_topic>/<NNN_slug>/` (same files as a curriculum problem, plus a `solution.py`), so every playlist entry is trackable. Bank problems are never offered as new on Today.
+A playlist problem that no module teaches goes in `bank/<NN_topic>/<NNN_slug>/` (same files as a curriculum problem, plus a `solution.py`) so playlists can open it in the trainer. Those problems are playlist-only: not on the map, never offered as new on Today.
 
-Company-specific drilling belongs in `playlists/<company>.toml`. These should be curated practice plans, not claims about exact company interview questions. Each playlist is `playlists/NNN_<company>.toml` with `title`, `group` (one of Big tech, Little tech, AI labs / high growth, Quant, Fortune 500; tech companies never go in Fortune 500), `focus`, `review_modules`, and one ordered list of `[[entries]]` (`title`, `url`) with the main high-signal LeetCode-style problems, most asked first; entries whose URL matches a curriculum problem are tracked by the trainer, the rest open in the browser. Do not split playlists into warmup/core/stretch tiers. Do not force a fixed problem count; include enough problems to cover the company's core live-coding techniques. Avoid excessive cross-company overlap by repeating only deliberate anchor problems and otherwise choosing different high-signal problems from the same technique family.
+Company-specific drilling belongs in `playlists/<company>.toml`. These should be curated practice plans, not claims about exact company interview questions. Each playlist is `playlists/NNN_<company>.toml` with `title`, `group`, `focus`, `review_modules`, and one ordered list of `[[entries]]` (`title`, `url`) with the main high-signal LeetCode-style problems, most asked first; entries whose URL matches a curriculum or playlist-only problem are tracked by the trainer, the rest open in the browser. Do not split playlists into warmup/core/stretch tiers. Do not force a fixed problem count; include enough problems to cover the company's core live-coding techniques. Avoid excessive cross-company overlap by repeating only deliberate anchor problems and otherwise choosing different high-signal problems from the same technique family.
+
+Playlist `group` is one of Big tech, Little tech, AI labs / high growth, Quant, Fortune 500 — bucket by recruiting/interview shape, not industry taxonomy:
+
+- Big tech: FAANG-like DSA loop and “big tech” brand (Google…Bloomberg, NVIDIA)
+- Little tech: product tech, still LC, lower brand tier (Spotify, Datadog, DoorDash)
+- AI labs / high growth: hot / private / AI-forward market (OpenAI, Stripe, Cursor)
+- Quant: trading interview track (Jane Street, HRT)
+- Fortune 500: not that tech recruiting track (banks, retail, defense, Dell/IBM/Cisco/chips)
 
 ______________________________________________________________________
 
