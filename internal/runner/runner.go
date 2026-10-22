@@ -8,7 +8,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
-	"syscall"
 	"time"
 )
 
@@ -89,8 +88,7 @@ func (r Runner) run(ctx context.Context, testFile, codeFile string) Result {
 	cmd := exec.CommandContext(ctx, r.Python[0], args...)
 	cmd.Dir = dir
 	cmd.Env = append(os.Environ(), "PYTHONPATH="+r.LibDir, "PYTHONDONTWRITEBYTECODE=1")
-	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
-	cmd.Cancel = func() error { return syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL) }
+	killProcessGroup(cmd)
 	cmd.WaitDelay = time.Second
 	out, _ := cmd.CombinedOutput()
 
