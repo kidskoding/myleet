@@ -61,8 +61,7 @@ func TestHomeEmptyQueueBecomesKeepSharp(t *testing.T) {
 	}
 	view := plain(homeModel(t, events...))
 	for _, want := range []string{
-		"keep sharp", "interview drill", "DRILL",
-		"Curriculum on track", "drills leave your schedule alone",
+		"keep sharp", "interview drill", "DRILL", "Curriculum on track",
 	} {
 		if !strings.Contains(view, want) {
 			t.Fatalf("caught-up Today should offer keep-sharp drills, missing %q:\n%s", want, view)
@@ -122,6 +121,21 @@ func TestHomeNavigation(t *testing.T) {
 func TestResizeNarrow(t *testing.T) {
 	m := send(homeModel(t), tea.WindowSizeMsg{Width: 40, Height: 10})
 	assertFits(t, plain(m), 40, 10)
+}
+
+func TestHomeStackedShortShowsProgress(t *testing.T) {
+	// Half-pane width stacks the cards; short height used to clip "your progress".
+	var events []progress.Event
+	events = append(events, passedEvents("p-three", 17)...)
+	events = append(events, passedEvents("p-two", 18)...)
+	m := send(homeModel(t, events...), tea.WindowSizeMsg{Width: 80, Height: 22})
+	view := plain(m)
+	assertFits(t, view, 80, 22)
+	for _, want := range []string{"your progress", "Practice streak", "Mastery"} {
+		if !strings.Contains(view, want) {
+			t.Fatalf("stacked Today should keep progress visible, missing %q:\n%s", want, view)
+		}
+	}
 }
 
 func TestHelpToggle(t *testing.T) {

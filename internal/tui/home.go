@@ -256,36 +256,38 @@ func (h *Home) checkpointCard(through, width int) string {
 	return ui.Card(th, "recommended check-in", body, width, true)
 }
 
-func (h *Home) youCard(sum stats.Summary, states map[string]schedule.State, now time.Time, width int, sharp bool) string {
+func (h *Home) youCard(sum stats.Summary, states map[string]schedule.State, now time.Time, width int, sharp, compact bool) string {
 	th := h.s.Theme
 	lines := []string{
 		th.Title.Render("Practice streak") + "  " + h.streakDots(sum, now) + "  " + th.Muted.Render(fmt.Sprintf("%d day streak", sum.Streak)),
 		th.Title.Render("Mastery") + "         " + ui.Bar(th, frac(sum.Mastery[0], sum.Mastery[1]), 10, ui.TonePass) +
 			th.Muted.Render(fmt.Sprintf("  %d/%d problems", sum.Mastery[0], sum.Mastery[1])),
 	}
-	if n := h.upcoming(states, now); n > 0 {
-		lines = append(lines, th.Muted.Render(fmt.Sprintf("%s coming due this week.", plural(n, "review", "reviews"))))
-	}
-	if sharp {
-		lines = append(lines, "",
-			th.Title.Render("Stay interview-ready"),
-			th.Muted.Render("Nothing is due, so we queued drills across"),
-			th.Muted.Render("techniques — cold redos and shaky spots first."),
-			th.Muted.Render("Drills do not change your review schedule."),
-			th.Muted.Render("A full mock is always on tab ")+th.Accent.Render("3")+".",
-		)
-	} else if len(sum.Weakest) > 0 {
-		n := min(len(sum.Weakest), 3)
-		names := make([]string, n)
-		for i := 0; i < n; i++ {
-			names[i] = strings.ToLower(sum.Weakest[i].Technique.Title)
+	if !compact {
+		if n := h.upcoming(states, now); n > 0 {
+			lines = append(lines, th.Muted.Render(fmt.Sprintf("%s coming due this week.", plural(n, "review", "reviews"))))
 		}
-		lines = append(lines, "",
-			th.Title.Render("Where to focus"),
-			th.Muted.Render(strings.Join(names, ", ")+"."),
-			th.Muted.Render("These have been difficult lately,"),
-			th.Muted.Render("so we will prioritize them for you."),
-		)
+		if sharp {
+			lines = append(lines, "",
+				th.Title.Render("Stay interview-ready"),
+				th.Muted.Render("Nothing is due, so we queued drills across"),
+				th.Muted.Render("techniques: cold redos and shaky spots first."),
+				th.Muted.Render("Drills do not change your review schedule."),
+				th.Muted.Render("A full mock is always on tab ")+th.Accent.Render("3")+".",
+			)
+		} else if len(sum.Weakest) > 0 {
+			n := min(len(sum.Weakest), 3)
+			names := make([]string, n)
+			for i := 0; i < n; i++ {
+				names[i] = strings.ToLower(sum.Weakest[i].Technique.Title)
+			}
+			lines = append(lines, "",
+				th.Title.Render("Where to focus"),
+				th.Muted.Render(strings.Join(names, ", ")+"."),
+				th.Muted.Render("These have been difficult lately,"),
+				th.Muted.Render("so we will prioritize them for you."),
+			)
+		}
 	}
 	return ui.Card(th, "your progress", strings.Join(lines, "\n"), width, false)
 }
@@ -314,14 +316,16 @@ func (h *Home) queueCard(items []session.Item, now time.Time, width, bodyRows in
 	titleW := max(min(longest, inner-fixed-min(reasonNeed, 16)), 14)
 	reasonW := max(inner-fixed-titleW, 0)
 	bodyRows = max(bodyRows, 1)
+	// Pitch only when there is room for it plus at least one problem row.
+	showPitch := sharp && bodyRows >= 2
 	listBudget := bodyRows
-	if sharp {
-		listBudget = max(bodyRows-1, 1) // one line for the keep-sharp pitch
+	if showPitch {
+		listBudget = bodyRows - 1
 	}
 	visible := max(min(listBudget, len(items)), 1)
 	h.offset = scrollWindow(h.cursor, h.offset, visible)
 	var rows []string
-	if sharp {
+	if showPitch {
 		// Pitch stays with the drills so a check-in card never buries it.
 		rows = append(rows, th.Muted.Render("Cold redos & shaky spots · drills leave your schedule alone"))
 	}
@@ -386,7 +390,7 @@ func (h *Home) View(w, ht int) string {
 	if finished == 0 {
 		lines = append(lines, ui.Truncate("  "+th.Muted.Render("Complete a few problems and we will learn where you are strongest."), w))
 	} else if sharp {
-		lines = append(lines, ui.Truncate("  "+th.Muted.Render("Curriculum on track — drills below keep you interview-ready."), w))
+		lines = append(lines, ui.Truncate("  "+th.Muted.Render("Curriculum on track: drills below keep you interview-ready."), w))
 	}
 	lines = append(lines, "")
 
@@ -401,16 +405,31 @@ func (h *Home) View(w, ht int) string {
 
 	var panels string
 	if sideBySide {
-		you := h.youCard(sum, states, now, rightW, sharp)
-		queueRows := max(avail-2, 3)
+		you := h.youCard(sum, states, now, rightW, sharp, false)
+		queueRows := max(avail-2, 1)
 		queue := h.queueCard(items, now, leftW, queueRows)
 		panels = ui.JoinPanels(queue, you, gap, cardW)
 	} else {
-		you := h.youCard(sum, states, now, cardW, sharp)
+		// Stacked (half-width panes): shrink the queue first, then compact
+		// progress, so "your progress" is never clipped by fitHeight.
+		const stackGap = 2 // blank line JoinPanels inserts between cards
+		you := h.youCard(sum, states, now, cardW, sharp, false)
 		youH := lipgloss.Height(you)
-		queueRows := max(avail-youH-3, 3)
+		queueRows := avail - youH - stackGap - 2 // -2 card chrome
+		if queueRows < 1 {
+			you = h.youCard(sum, states, now, cardW, sharp, true)
+			youH = lipgloss.Height(you)
+			queueRows = avail - youH - stackGap - 2
+		}
+		queueRows = max(queueRows, 1)
 		queue := h.queueCard(items, now, cardW, queueRows)
 		panels = ui.JoinPanels(queue, you, gap, cardW)
+		// If chrome still overflows, drop queue padding by rebuilding tighter.
+		if lipgloss.Height(panels) > avail {
+			queueRows = max(avail-youH-stackGap-2, 1)
+			queue = h.queueCard(items, now, cardW, queueRows)
+			panels = ui.JoinPanels(queue, you, gap, cardW)
+		}
 	}
 	lines = append(lines, indent(panels, 2)...)
 	return strings.Join(fitHeight(lines, ht), "\n")
