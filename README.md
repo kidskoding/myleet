@@ -59,7 +59,7 @@ make install && myleet
 
 | Fixed lists                            | myleet                                                                |
 | -------------------------------------- | --------------------------------------------------------------------- |
-| Same problems, same order for everyone | Today is personalized to your fails, hints, peeks, and slow solves    |
+| Same problems, same order for everyone | Recommends reviews and new work from your fails, hints, peeks, and slow solves |
 | “Done” when you AC once                | Mastery means cold redo on a review ladder (1 → 3 → 7 → 14 → 30 days) |
 | Browser + scattered notes              | Terminal trainer + notes book + 200+ company playlists                |
 
@@ -74,7 +74,7 @@ Press `1`-`5` or `tab`. Bottom bar shows keys for the current screen; `?` lists 
 
 |     | Screen        |                                                                                                           |
 | --- | ------------- | --------------------------------------------------------------------------------------------------------- |
-| `1` | **Today**     | Due reviews + new work from weak spots. Placement for first-timers; check-ins with `c` / snooze with `n`. |
+| `1` | **Today**     | Personalized queue: due reviews, weak spots, then keep-sharp drills when you are caught up. Placement for first-timers; check-ins with `c` / snooze with `n`. |
 | `2` | **Map**       | Guide notes → modules → techniques → problems. `n` opens notes.                                           |
 | `3` | **Timed**     | Mock interview (technique hidden).                                                                        |
 | `4` | **Playlists** | Company sets by recruiting track, with progress.                                                          |
@@ -98,13 +98,17 @@ Edit in your editor (`e`); tests rerun on save or `space`.
 | `ctrl+k` | search everything    |
 | `esc`    | back                 |
 
-## How Today picks work
+## How it recommends practice
+
+Today is your daily plan. It ranks work from *your* history, not a fixed list:
 
 1. **Reviews** due today (most overdue first).
-2. **New problems** (default 3, `new_per_day` in config), labelled:
+2. **New problems** (default 3, `new_per_day` in config), labelled why they were chosen:
    - **weak spot**: techniques you have started but mostly not clean-passed
    - **in progress**: started, not finished
    - **new topic**: untouched, in curriculum order
+3. **Keep sharp** when nothing is due: interview drills across techniques (cold redos
+   and shaky spots first). Drills do not climb or drop your review schedule.
 
 New work rotates across techniques. Playlist-only problems (`bank/`) are trackable in
 playlists but never appear as new on Today or on the Map.
