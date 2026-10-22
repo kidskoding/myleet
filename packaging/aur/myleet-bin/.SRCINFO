@@ -11,8 +11,8 @@ pkgbase = myleet-bin
 	provides = myleet
 	conflicts = myleet
 	source_x86_64 = myleet_0.1.0_linux_amd64.tar.gz::https://github.com/kidskoding/myleet/releases/download/v0.1.0/myleet_0.1.0_linux_amd64.tar.gz
+	sha256sums_x86_64 = a0dc99b22cc43721790034bc4693909318974aa1675dc5e0048f18b51808bce8
 	source_aarch64 = myleet_0.1.0_linux_arm64.tar.gz::https://github.com/kidskoding/myleet/releases/download/v0.1.0/myleet_0.1.0_linux_arm64.tar.gz
-	sha256sums_x86_64 = SKIP
-	sha256sums_aarch64 = SKIP
+	sha256sums_aarch64 = 6f62de66bfa1e8e5ad817f2c68f337a1318ddf15a743b6b98147a239af7c076d
 
 pkgname = myleet-bin
