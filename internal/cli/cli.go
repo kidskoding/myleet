@@ -23,10 +23,12 @@ const usage = `usage: myleet [command]
   myleet update                     pull the latest curriculum (installed content)
   myleet version                    print build version
 
-Install and run (clones curriculum + sets up python on first launch):
+Install (pick one), then run myleet:
 
-  go install github.com/kidskoding/myleet/cmd/myleet@latest
-  myleet`
+  curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh | sh
+  yay -S myleet-bin
+  nix run github:kidskoding/myleet
+  go install github.com/kidskoding/myleet/cmd/myleet@latest   # needs $(go env GOPATH)/bin on PATH`
 
 // StartTUI is set by cmd/myleet so cli tests do not import the TUI.
 var StartTUI func(a *app.App, openID string) error

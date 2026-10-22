@@ -20,16 +20,26 @@ learn a pattern → solve timed → review misses → mix topics
 
 ## Install
 
-Requires [Go](https://go.dev/dl/) and [uv](https://docs.astral.sh/uv/) (for problem tests).
+Needs [git](https://git-scm.com/) and [uv](https://docs.astral.sh/uv/) on your `PATH`
+(for curriculum clone and problem tests). First launch sets those up automatically.
+
+**Recommended** (one line):
 
 ```bash
-go install github.com/kidskoding/myleet/cmd/myleet@latest
+curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh | sh
 myleet
 ```
 
-First launch clones the curriculum into `~/.local/share/myleet/content` and runs
-`uv sync` so tests work. Put `$(go env GOPATH)/bin` on your `PATH` if `myleet`
-is not found.
+Installs into `~/.local/bin`. Add that directory to your `PATH` if the shell cannot
+find `myleet`.
+
+| Channel | Command |
+| ------- | ------- |
+| Install script | `curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh \| sh` |
+| Arch (AUR) | `yay -S myleet-bin` |
+| Nix | `nix run github:kidskoding/myleet` or `nix profile install github:kidskoding/myleet` |
+| GitHub Releases | [download a binary](https://github.com/kidskoding/myleet/releases) |
+| Go (developers) | `go install github.com/kidskoding/myleet/cmd/myleet@latest` then put `$(go env GOPATH)/bin` on `PATH` |
 
 **From a clone** (contributors):
 
@@ -45,7 +55,6 @@ make install && myleet
 | Doctor      | `myleet doctor` checks python, pytest, editor, data dir                                |
 | Version     | `myleet version`                                                                       |
 | Custom root | `export MYLEET_ROOT=/path/to/checkout`                                                 |
-| Binaries    | [GitHub Releases](https://github.com/kidskoding/myleet/releases) (tag `v*` to publish) |
 
 ## Why myleet
 
