@@ -36,7 +36,6 @@ find `myleet`.
 | Channel | Command |
 | ------- | ------- |
 | Install script | `curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh \| sh` |
-| Arch (AUR) | `yay -S myleet-bin` |
 | Nix | `nix run github:kidskoding/myleet` or `nix profile install github:kidskoding/myleet` |
 | GitHub Releases | [download a binary](https://github.com/kidskoding/myleet/releases) |
 | Go (developers) | `go install github.com/kidskoding/myleet/cmd/myleet@latest` then put `$(go env GOPATH)/bin` on `PATH` |

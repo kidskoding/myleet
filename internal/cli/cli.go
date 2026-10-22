@@ -26,7 +26,6 @@ const usage = `usage: myleet [command]
 Install (pick one), then run myleet:
 
   curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh | sh
-  yay -S myleet-bin
   nix run github:kidskoding/myleet
   go install github.com/kidskoding/myleet/cmd/myleet@latest   # needs $(go env GOPATH)/bin on PATH`
 
