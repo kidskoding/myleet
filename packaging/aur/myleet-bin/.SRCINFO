@@ -1,0 +1,18 @@
+pkgbase = myleet-bin
+	pkgdesc = Adaptive LeetCode practice in your terminal
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/kidskoding/myleet
+	arch = x86_64
+	arch = aarch64
+	license = MIT
+	depends = git
+	optdepends = uv: python env for problem tests (auto-synced on first launch)
+	provides = myleet
+	conflicts = myleet
+	source_x86_64 = myleet_0.1.0_linux_amd64.tar.gz::https://github.com/kidskoding/myleet/releases/download/v0.1.0/myleet_0.1.0_linux_amd64.tar.gz
+	source_aarch64 = myleet_0.1.0_linux_arm64.tar.gz::https://github.com/kidskoding/myleet/releases/download/v0.1.0/myleet_0.1.0_linux_arm64.tar.gz
+	sha256sums_x86_64 = SKIP
+	sha256sums_aarch64 = SKIP
+
+pkgname = myleet-bin
