@@ -34,8 +34,8 @@ type (
 	keyOwner interface{ OwnsKey(k string) bool }
 	// filterer screens narrow their own list on /; StartFilter reports whether one did.
 	filterer interface{ StartFilter() bool }
-	mouser   interface{ WantsMouse() bool }
-	helper   interface{ Help() []string }
+	mouser interface{ WantsMouse() bool }
+	helper interface{ Help() []string }
 )
 
 type (
@@ -297,6 +297,12 @@ func (m Model) handleKey(msg tea.KeyPressMsg) (tea.Model, tea.Cmd) {
 	if owner, ok := m.top().(keyOwner); ok && owner.OwnsKey(k) {
 		return m.forward(msg)
 	}
+	switch k {
+	case "]":
+		return m.update(TabMsg{(m.activeTab() + 1) % len(tabNames)})
+	case "[":
+		return m.update(TabMsg{(m.activeTab() + len(tabNames) - 1) % len(tabNames)})
+	}
 	if len(m.stack) == 1 {
 		if n := strings.Index("12345", k); len(k) == 1 && n >= 0 {
 			return m.update(TabMsg{n})
@@ -341,6 +347,13 @@ func (m Model) View() tea.View {
 	}
 	if m.offersSearch(keys) {
 		keys = append(keys, ui.Key{Key: "/", Label: "search"})
+	}
+	owner, owns := m.top().(keyOwner)
+	if !owns || !owner.OwnsKey("]") {
+		keys = append(keys, ui.Key{Key: "[/]", Label: "tabs"})
+		if len(m.stack) == 1 && (!owns || !owner.OwnsKey("1")) {
+			keys = append(keys, ui.Key{Key: "1-5", Label: "jump"})
+		}
 	}
 	toast := ""
 	if m.s.toast != "" {

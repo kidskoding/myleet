@@ -163,3 +163,39 @@ func TestHeatmapGrowsWithWidth(t *testing.T) {
 		t.Fatalf("heatmap should show more weeks on a wider terminal (%d vs %d cells)", wide, narrow)
 	}
 }
+
+func TestBracketsSwitchTabsFromAnywhere(t *testing.T) {
+	m := homeModel(t)
+	m = send(m, key("]"))
+	if _, ok := m.(Model).top().(*Map); !ok {
+		t.Fatalf("] should go to the next tab, top=%T", m.(Model).top())
+	}
+	m = send(m, key("["), key("["))
+	if _, ok := m.(Model).top().(*Settings); !ok {
+		t.Fatalf("[ from today wraps to stats, top=%T", m.(Model).top())
+	}
+	if bar := lastLine(plain(m)); !strings.Contains(bar, "[/] tabs") || !strings.Contains(bar, "1-5 jump") {
+		t.Fatalf("main screens should show the tab keys:\n%s", bar)
+	}
+
+	f, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{red}})
+	if bar := lastLine(plain(f)); !strings.Contains(bar, "[/] tabs") || strings.Contains(bar, "1-5 jump") {
+		t.Fatalf("inside a problem only [/] switch tabs:\n%s", bar)
+	}
+	f = send(f, key("]"))
+	if _, ok := f.(Model).top().(*Map); !ok || len(f.(Model).stack) != 1 {
+		t.Fatalf("] inside a problem should leave it for the next tab, top=%T", f.(Model).top())
+	}
+}
+
+func TestBracketsDoNotLeaveTimedRoundOrSearch(t *testing.T) {
+	m, _, _ := interviewModel(t, &fakeRunner{results: []runner.Result{red}})
+	m = send(m, key("]"))
+	if _, ok := m.(Model).top().(*Interview); !ok {
+		t.Fatalf("] must not abandon a timed round, top=%T", m.(Model).top())
+	}
+	s := send(homeModel(t), key("/"), key("]"))
+	if sr, ok := s.(Model).top().(*Search); !ok || sr.query != "]" {
+		t.Fatalf("] should be typed into search, top=%T", s.(Model).top())
+	}
+}
