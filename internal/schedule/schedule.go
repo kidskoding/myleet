@@ -43,6 +43,7 @@ type Attempt struct {
 	Clean        bool
 	Elapsed      time.Duration
 	Hints, Peeks int
+	Restarts     int
 	Mode         progress.Mode
 }
 
@@ -90,6 +91,10 @@ func Attempts(events []progress.Event, target func(id string) time.Duration) []A
 			if !x.passed {
 				a.Peeks++
 			}
+		case progress.TimerRestarted:
+			if !x.passed {
+				a.Restarts++
+			}
 		case progress.Passed:
 			if !x.passed {
 				x.passed, x.passedAt = true, e.Time
@@ -119,7 +124,7 @@ func Attempts(events []progress.Event, target func(id string) time.Duration) []A
 			if !x.hasElapsed {
 				a.Elapsed = x.passedAt.Sub(a.Start)
 			}
-			a.Clean = a.Hints == 0 && a.Peeks == 0 && a.Elapsed < target(a.Problem)
+			a.Clean = a.Hints == 0 && a.Peeks == 0 && a.Restarts == 0 && a.Elapsed < target(a.Problem)
 		case x.gaveUp, x.left && x.runs > 0:
 			a.Outcome, a.End = OutcomeFail, x.endAt
 		}

@@ -223,3 +223,11 @@ func TestDrillSoftTouchDoesNotMoveLadder(t *testing.T) {
 		t.Fatalf("drill should count attempts/hints: before=%+v after=%+v", before, after)
 	}
 }
+
+func TestTimerRestartMakesPassUnclean(t *testing.T) {
+	events := attempt(at(1, 10, 0), step{progress.TimerRestarted, time.Minute, nil}, pass(5*time.Minute))
+	atts := Attempts(events, target)
+	if atts[0].Clean || atts[0].Restarts != 1 || atts[0].Outcome != OutcomePass {
+		t.Fatalf("a restarted timer must not count as clean: %+v", atts[0])
+	}
+}

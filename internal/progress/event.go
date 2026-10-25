@@ -20,6 +20,7 @@ const (
 	Left            Kind = "left"
 	Reset           Kind = "reset"
 	SayAloudChecked Kind = "say_aloud_checked"
+	TimerRestarted Kind = "timer_restarted"
 	// PlacementDone marks that the new-user diagnostic finished or was skipped.
 	PlacementDone Kind = "placement_done"
 	// CheckpointDone marks that a curriculum-slice checkpoint exam finished.

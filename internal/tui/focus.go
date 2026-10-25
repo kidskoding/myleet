@@ -71,39 +71,43 @@ type Focus struct {
 	start   time.Time
 	path    string
 
-	last      runner.Result
-	ran       bool
-	running   bool
-	green     bool
-	passed    bool
-	elapsed   time.Duration
-	banner    string
-	hints     int
-	peeked    bool
-	gaveUp    bool
-	closed    bool
-	confirm   bool
-	checked   []bool
-	pane      pane
-	paneText  string
-	scroll    int
-	win       window
-	zoom      bool
-	testsTop  int
-	rows      [windowCount]int
-	winY      [windowCount][2]int
-	shown     [windowCount][]string
-	err       string
-	cancel    context.CancelFunc
-	watchCh   <-chan struct{}
-	penalties time.Duration
-	statement string
-	stmtState prompt.Status
-	baseline  []byte               // attempt content when the attempt started
-	clock     func() time.Duration // interview rounds time each problem separately
-	seq       int
-	frame     int
-	fnName    string
+	last           runner.Result
+	ran            bool
+	running        bool
+	green          bool
+	passed         bool
+	elapsed        time.Duration
+	banner         string
+	hints          int
+	peeked         bool
+	gaveUp         bool
+	closed         bool
+	confirm        bool
+	pausedAt       time.Time
+	pausedFor      time.Duration
+	restarted      bool
+	confirmRestart bool
+	checked        []bool
+	pane           pane
+	paneText       string
+	scroll         int
+	win            window
+	zoom           bool
+	testsTop       int
+	rows           [windowCount]int
+	winY           [windowCount][2]int
+	shown          [windowCount][]string
+	err            string
+	cancel         context.CancelFunc
+	watchCh        <-chan struct{}
+	penalties      time.Duration
+	statement      string
+	stmtState      prompt.Status
+	baseline       []byte               // attempt content when the attempt started
+	clock          func() time.Duration // interview rounds time each problem separately
+	seq            int
+	frame          int
+	fnName         string
 }
 
 func NewFocus(s *Shared, p *catalog.Problem, mode progress.Mode) Screen {
@@ -283,7 +287,33 @@ func (f *Focus) Elapsed() time.Duration {
 	if f.clock != nil {
 		return f.clock()
 	}
-	return f.s.App.Now().Sub(f.start) + f.penalties
+	now := f.s.App.Now()
+	if f.paused() {
+		now = f.pausedAt
+	}
+	return now.Sub(f.start) - f.pausedFor + f.penalties
+}
+
+func (f *Focus) paused() bool { return !f.pausedAt.IsZero() }
+
+// Exams keep a real interview clock.
+func (f *Focus) canPause() bool { return f.practiceLike() && !f.passed && !f.gaveUp }
+
+func (f *Focus) togglePause() tea.Cmd {
+	now := f.s.App.Now()
+	if !f.paused() {
+		f.pausedAt = now
+		return nil
+	}
+	f.pausedFor += now.Sub(f.pausedAt)
+	f.pausedAt = time.Time{}
+	return f.run(true) // pick up anything saved while paused
+}
+
+func (f *Focus) restartTimer() {
+	f.start, f.pausedFor, f.pausedAt = f.s.App.Now(), 0, time.Time{}
+	f.restarted = true
+	f.s.Record(f.event(progress.TimerRestarted, nil))
 }
 
 func (f *Focus) Green() bool { return f.green }
@@ -299,6 +329,9 @@ func (f *Focus) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		if msg.f != f || f.closed {
 			return f, nil
 		}
+		if f.paused() {
+			return f, f.waitForChange() // resuming reruns, so a paused save cannot pass
+		}
 		return f, tea.Batch(f.run(true), f.waitForChange())
 	case editorDoneMsg:
 		if msg.f != f || f.closed {
@@ -306,6 +339,9 @@ func (f *Focus) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		}
 		if msg.err != nil {
 			f.err = "editor: " + msg.err.Error()
+		}
+		if f.paused() {
+			return f, nil
 		}
 		return f, f.run(true)
 	case promptMsg:
@@ -395,6 +431,8 @@ func (f *Focus) bannerText(before, after schedule.State) string {
 			return "drill complete (solution peeked) · review schedule unchanged"
 		case att.Hints > 0:
 			return "drill complete (hint used) · review schedule unchanged"
+		case att.Restarts > 0:
+			return "drill complete (timer restarted) · review schedule unchanged"
 		case !att.Clean:
 			return "drill complete · review schedule unchanged"
 		default:
@@ -407,6 +445,8 @@ func (f *Focus) bannerText(before, after schedule.State) string {
 		return "passed (solution peeked) · back to 1d · " + next
 	case att.Hints > 0:
 		return "passed (hint used) · back to 1d · " + next
+	case att.Restarts > 0:
+		return "passed (timer restarted) · back to 1d · " + next
 	case !att.Clean:
 		return fmt.Sprintf("passed (over %s) · back to 1d · %s", f.p.TimeTarget, next)
 	case before.Rung < 0:
@@ -419,6 +459,24 @@ func (f *Focus) bannerText(before, after schedule.State) string {
 }
 
 func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
+	if f.confirmRestart {
+		f.confirmRestart = false
+		if k == "y" {
+			f.restartTimer()
+		}
+		return f, nil
+	}
+	if f.paused() {
+		switch k {
+		case "p":
+			return f, f.togglePause()
+		case "R":
+			f.confirmRestart = true
+		case "esc":
+			return f, pop
+		}
+		return f, nil
+	}
 	if f.confirm {
 		f.confirm = false
 		if k == "y" {
@@ -431,6 +489,14 @@ func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
 		return f, nil
 	}
 	switch k {
+	case "p":
+		if f.canPause() {
+			return f, f.togglePause()
+		}
+	case "R":
+		if f.canPause() {
+			f.confirmRestart = true
+		}
 	case "e":
 		cmd, err := editor.Command(f.s.App.Config, f.path)
 		if err != nil {
@@ -573,12 +639,13 @@ func (f *Focus) previousVersion() string {
 }
 
 // OwnsKey: while a confirm prompt is open, q must answer it rather than quit.
-func (f *Focus) OwnsKey(string) bool { return f.confirm }
+func (f *Focus) OwnsKey(string) bool { return f.confirm || f.confirmRestart }
 
 func (f *Focus) Help() []string {
 	return []string{"e      edit in $EDITOR (tests rerun on save)", "space  rerun tests", "t      reveal next hint",
 		"s      show reference solution", "d      diff against your last attempt", "o      open problem page",
-		"r      reset attempt to starter", "1-3    tick say-it-out-loud items", "g      give up",
+		"r      reset attempt to starter", "p      pause / resume the clock (practice; hides the problem)",
+		"R      restart the clock (practice; the pass will not count as clean)", "1-3    tick say-it-out-loud items", "g      give up",
 		"tab/w  switch between problem and tests", "↑/↓    scroll the focused window", "pgup/pgdn  page · home/end  top/bottom",
 		"z      zoom the focused window", "y      copy the focused window", "mouse  wheel scrolls, click focuses a window", "esc    unzoom, close a pane, or back"}
 }
@@ -665,7 +732,16 @@ func testLabel(fn, test string) string {
 }
 
 func (f *Focus) Keys() []ui.Key {
+	if f.confirm || f.confirmRestart {
+		return []ui.Key{{Key: "y", Label: "yes"}, {Key: "n", Label: "cancel"}}
+	}
+	if f.paused() {
+		return []ui.Key{{Key: "p", Label: "resume"}, {Key: "R", Label: "restart timer"}, {Key: "esc", Label: "back"}}
+	}
 	keys := []ui.Key{{Key: "e", Label: "edit"}, {Key: "space", Label: "rerun"}}
+	if f.canPause() {
+		keys = append(keys, ui.Key{Key: "p", Label: "pause"})
+	}
 	if hints := f.hintList(); f.hints < len(hints) {
 		keys = append(keys, ui.Key{Key: "t", Label: fmt.Sprintf("hint %d/%d", f.hints+1, len(hints))})
 	}
@@ -940,6 +1016,18 @@ const sidebarWidth = 30
 
 func (f *Focus) View(w, h int) string {
 	th := f.s.Theme
+	if f.confirmRestart {
+		return ui.Modal(th, "restart timer", "Set the clock back to 00:00? A pass after a restart will not count as clean, "+
+			"so this problem comes back for review in 1 day.\n\n"+
+			th.Accent.Render("y")+" restart    "+th.Accent.Render("n")+" cancel", w, h)
+	}
+	if f.paused() {
+		body := th.Title.Render(mmss(f.Elapsed())+" / "+mmss(f.p.TimeTarget)) + th.Muted.Render(" · clock stopped") + "\n\n" +
+			"The problem is hidden while paused, and saves rerun tests when you resume.\n\n" +
+			th.Accent.Render("p") + " resume    " + th.Accent.Render("R") + " restart timer    " + th.Accent.Render("esc") + " back"
+		head := []string{"", f.header(w), ""}
+		return strings.Join(append(head, ui.Modal(th, "paused", body, w, max(h-len(head), 1))), "\n")
+	}
 	if f.confirm {
 		return ui.Modal(th, "reset", "Reset to the starter? Your current code is kept as a snapshot.\n\n"+
 			th.Accent.Render("y")+" reset    "+th.Accent.Render("n")+" cancel", w, h)
