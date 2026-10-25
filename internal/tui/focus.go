@@ -91,6 +91,7 @@ type Focus struct {
 	zoom      bool
 	testsTop  int
 	rows      [windowCount]int
+	winY      [windowCount][2]int
 	shown     [windowCount][]string
 	err       string
 	cancel    context.CancelFunc
@@ -328,8 +329,32 @@ func (f *Focus) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		return f, f.tick()
 	case tea.KeyPressMsg:
 		return f.handleKey(msg.String())
+	case tea.MouseWheelMsg:
+		if w, ok := f.windowAt(msg.Y); ok {
+			switch msg.Button {
+			case tea.MouseWheelUp:
+				f.scrollWindow(w, -3)
+			case tea.MouseWheelDown:
+				f.scrollWindow(w, 3)
+			}
+		}
+	case tea.MouseClickMsg:
+		if w, ok := f.windowAt(msg.Y); ok && msg.Button == tea.MouseLeft {
+			f.win = w
+		}
 	}
 	return f, nil
+}
+
+func (f *Focus) WantsMouse() bool { return !f.confirm }
+
+func (f *Focus) windowAt(y int) (window, bool) {
+	for w := range windowCount {
+		if r := f.winY[w]; y >= r[0] && y < r[1] {
+			return w, true
+		}
+	}
+	return 0, false
 }
 
 func (f *Focus) finishRun(res runner.Result, logged bool) tea.Cmd {
@@ -489,9 +514,11 @@ func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
 	return f, nil
 }
 
-func (f *Focus) scrollBy(n int) {
+func (f *Focus) scrollBy(n int) { f.scrollWindow(f.win, n) }
+
+func (f *Focus) scrollWindow(w window, n int) {
 	top := &f.scroll
-	if f.win == winTests {
+	if w == winTests {
 		top = &f.testsTop
 	}
 	*top = max(*top+n, 0)
@@ -553,7 +580,7 @@ func (f *Focus) Help() []string {
 		"s      show reference solution", "d      diff against your last attempt", "o      open problem page",
 		"r      reset attempt to starter", "1-3    tick say-it-out-loud items", "g      give up",
 		"tab/w  switch between problem and tests", "↑/↓    scroll the focused window", "pgup/pgdn  page · home/end  top/bottom",
-		"z      zoom the focused window", "y      copy the focused window", "esc    unzoom, close a pane, or back"}
+		"z      zoom the focused window", "y      copy the focused window", "mouse  wheel scrolls, click focuses a window", "esc    unzoom, close a pane, or back"}
 }
 
 func (f *Focus) paneLines(w int) []string {
@@ -957,7 +984,9 @@ func (f *Focus) View(w, h int) string {
 		probH = space - testH
 	}
 
+	f.winY = [windowCount][2]int{}
 	if probH > 0 {
+		f.winY[winProblem] = [2]int{len(lines), len(lines) + probH}
 		if wide {
 			stmtW := inner - sidebarWidth - 2
 			lines = append(lines, indent(ui.Columns(2, f.statementCard(stmtW, probH), f.sidebar(sidebarWidth, probH)), 2)...)
@@ -967,6 +996,7 @@ func (f *Focus) View(w, h int) string {
 	}
 	lines = append(lines, strip...)
 	if testH > 0 {
+		f.winY[winTests] = [2]int{len(lines), len(lines) + testH}
 		lines = append(lines, indent(f.testsCard(tests, inner, testH), 2)...)
 	}
 	return strings.Join(lines, "\n")

@@ -298,6 +298,8 @@ func (iv *Interview) Close() {
 	}
 }
 
+func (iv *Interview) WantsMouse() bool { return iv.phase == phaseRound }
+
 func (iv *Interview) Update(msg tea.Msg) (Screen, tea.Cmd) {
 	k, isKey := msg.(tea.KeyPressMsg)
 	if !isKey {
@@ -310,6 +312,14 @@ func (iv *Interview) Update(msg tea.Msg) (Screen, tea.Cmd) {
 				return iv, nil
 			}
 			return iv, iv.tick()
+		}
+		if mm, ok := msg.(tea.MouseMsg); ok {
+			if iv.phase != phaseRound {
+				return iv, nil
+			}
+			// The round's status line sits one row above the focused problem's view.
+			_, cmd := iv.foci[iv.cur].Update(shiftMouse(mm, -1))
+			return iv, cmd
 		}
 		var cmds []tea.Cmd
 		for _, f := range iv.foci {

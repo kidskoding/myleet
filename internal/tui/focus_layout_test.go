@@ -189,6 +189,40 @@ func TestFocusScrollMovesOnlyFocusedWindow(t *testing.T) {
 	}
 }
 
+func rowOf(t *testing.T, view, want string) int {
+	t.Helper()
+	for i, l := range strings.Split(view, "\n") {
+		if strings.Contains(l, want) {
+			return i
+		}
+	}
+	t.Fatalf("no row contains %q:\n%s", want, view)
+	return -1
+}
+
+func TestFocusMouseClickFocusesAndWheelScrolls(t *testing.T) {
+	m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{longFailure()}})
+	f := m.(Model).top().(*Focus)
+	if m.View().MouseMode != tea.MouseModeCellMotion {
+		t.Fatal("focus should turn on mouse reporting")
+	}
+	y := rowOf(t, plain(m), "✗ negative")
+	m = send(m, tea.MouseClickMsg{X: 10, Y: y, Button: tea.MouseLeft})
+	if f.win != winTests {
+		t.Fatalf("clicking the tests window should focus it, win=%d", f.win)
+	}
+	m = send(m, tea.MouseWheelMsg{X: 10, Y: y, Button: tea.MouseWheelDown})
+	_ = plain(m)
+	if f.testsTop != 3 || f.scroll != 0 {
+		t.Fatalf("wheel should scroll the window under the pointer, tests=%d problem=%d", f.testsTop, f.scroll)
+	}
+	py := rowOf(t, plain(m), "╭─ problem") + 1
+	send(m, tea.MouseClickMsg{X: 10, Y: py, Button: tea.MouseLeft})
+	if f.win != winProblem {
+		t.Fatalf("clicking the problem window should focus it, win=%d", f.win)
+	}
+}
+
 func TestFocusCopyFocusedWindow(t *testing.T) {
 	m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{longFailure()}})
 	m = send(m, key("tab"))
@@ -198,5 +232,17 @@ func TestFocusCopyFocusedWindow(t *testing.T) {
 	}
 	if !strings.Contains(plain(send(m, key("y"))), "copied test output") {
 		t.Fatal("y should confirm the copy")
+	}
+}
+
+func TestInterviewRoundMouseReachesProblem(t *testing.T) {
+	m, _, iv := interviewModel(t, &fakeRunner{results: []runner.Result{longFailure()}})
+	y := rowOf(t, plain(m), "✗ negative")
+	m = send(m, tea.MouseClickMsg{X: 10, Y: y, Button: tea.MouseLeft})
+	if iv.foci[iv.cur].win != winTests {
+		t.Fatal("a click in a round should land on the current problem's tests window")
+	}
+	if m.View().MouseMode != tea.MouseModeCellMotion {
+		t.Fatal("rounds should turn on mouse reporting")
 	}
 }

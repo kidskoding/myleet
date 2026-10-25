@@ -34,6 +34,7 @@ type (
 	keyOwner interface{ OwnsKey(k string) bool }
 	// filterer screens narrow their own list on /; StartFilter reports whether one did.
 	filterer interface{ StartFilter() bool }
+	mouser   interface{ WantsMouse() bool }
 	helper   interface{ Help() []string }
 )
 
@@ -267,6 +268,11 @@ func (m Model) update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	case tea.KeyPressMsg:
 		return m.handleKey(msg)
+	case tea.MouseMsg:
+		if m.help {
+			return m, nil
+		}
+		return m.forward(shiftMouse(msg, -tabBarHeight))
 	}
 	// Non-key messages reach every screen; each ignores what is not addressed to it.
 	var cmds []tea.Cmd
@@ -362,6 +368,9 @@ func (m Model) View() tea.View {
 	lines = append(lines, ui.KeyBar(th, keys, m.width, toast))
 	v := tea.NewView(fit(strings.Join(lines, "\n"), m.width, m.height))
 	v.AltScreen = true
+	if mo, ok := m.top().(mouser); ok && mo.WantsMouse() && !m.help {
+		v.MouseMode = tea.MouseModeCellMotion
+	}
 	v.WindowTitle = "myleet · " + m.top().Title()
 	return v
 }

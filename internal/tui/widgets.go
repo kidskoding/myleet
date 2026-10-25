@@ -6,6 +6,7 @@ import (
 	"strings"
 	"time"
 
+	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
 
 	"github.com/kidskoding/myleet/internal/catalog"
@@ -47,6 +48,20 @@ func dateLabel(t time.Time) string { return strings.ToLower(t.Format("Mon Jan 2"
 func mmss(d time.Duration) string {
 	d = max(d, 0).Truncate(time.Second)
 	return fmt.Sprintf("%02d:%02d", int(d.Minutes()), int(d.Seconds())%60)
+}
+
+const tabBarHeight = 2
+
+func shiftMouse(msg tea.MouseMsg, dy int) tea.MouseMsg {
+	switch m := msg.(type) {
+	case tea.MouseClickMsg:
+		m.Y += dy
+		return m
+	case tea.MouseWheelMsg:
+		m.Y += dy
+		return m
+	}
+	return msg
 }
 
 func scrollWindow(cursor, offset, rows int) int {
