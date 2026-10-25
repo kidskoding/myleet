@@ -159,14 +159,55 @@ func greeting(now time.Time) string {
 	return "Good evening"
 }
 
-func (h *Home) row(it session.Item, now time.Time, titleW, reasonW int, selected bool) string {
+type queueCols struct {
+	titleW, reasonW int
+	kind, diff      bool
+}
+
+const (
+	queueKindW      = 8 // widest kind badge, " REVIEW "
+	queueDiffW      = 6 // " easy " / " med  " / " hard "
+	queueSep        = 2
+	queueMinTitle   = 12
+	queueMinReason  = 8
+	queueReasonWant = 16
+)
+
+func layoutQueue(inner, longestTitle, reasonNeed int) queueCols {
+	c := queueCols{kind: true, diff: true}
+	fixed := func() int {
+		n := 2 // selection marker
+		if c.kind {
+			n += queueSep + queueKindW
+		}
+		if c.diff {
+			n += queueSep + queueDiffW
+		}
+		return n
+	}
+	if avail := inner - fixed(); avail-queueSep-queueMinReason >= queueMinTitle {
+		c.titleW = max(min(longestTitle, avail-queueSep-min(reasonNeed, queueReasonWant)), queueMinTitle)
+		c.reasonW = avail - queueSep - c.titleW
+		return c
+	}
+	if inner-fixed() < queueMinTitle {
+		c.diff = false
+	}
+	if inner-fixed() < queueMinTitle {
+		c.kind = false
+	}
+	c.titleW = max(min(longestTitle, inner-fixed()), 1)
+	return c
+}
+
+func (h *Home) row(it session.Item, now time.Time, cols queueCols, inner int, selected bool) string {
 	th := h.s.Theme
-	title := ui.Pad(it.Problem.Title, titleW)
+	title := ui.Pad(it.Problem.Title, cols.titleW)
 	marker := "  "
 	if selected {
 		marker, title = th.Accent.Render("▸ "), th.Selected.Render(title)
 	}
-	kind := ui.Badge(th, "NEW", ui.BadgeNew) + "   "
+	kind := ui.Badge(th, "NEW", ui.BadgeNew)
 	age := h.reason(it)
 	switch it.Kind {
 	case session.Review:
@@ -180,9 +221,19 @@ func (h *Home) row(it session.Item, now time.Time, titleW, reasonW int, selected
 			age = th.Due.Render("due")
 		}
 	case session.Practice:
-		kind = ui.Badge(th, "DRILL", ui.BadgeInfo) + "  "
+		kind = ui.Badge(th, "DRILL", ui.BadgeInfo)
 	}
-	return marker + title + "  " + kind + "  " + difficultyBadge(th, it.Problem.Difficulty) + "  " + ui.Truncate(age, reasonW)
+	out := marker + title
+	if cols.kind {
+		out += "  " + ui.Pad(kind, queueKindW)
+	}
+	if cols.diff {
+		out += "  " + ui.Pad(difficultyBadge(th, it.Problem.Difficulty), queueDiffW)
+	}
+	if cols.reasonW > 0 {
+		out += "  " + ui.Truncate(age, cols.reasonW)
+	}
+	return ui.Truncate(out, inner)
 }
 
 func (h *Home) reason(it session.Item) string {
@@ -218,9 +269,9 @@ func (h *Home) placementWarmupCard(width int) string {
 		steps = append(steps, th.Muted.Render("○  ")+fmt.Sprintf("%d. %s", i+1, s.Topic))
 	}
 	body := strings.Join([]string{
-		"We will walk you through a few easy problems, each with an interview-style",
-		"timer (usually 15 minutes). Going over or using a hint tells us that topic",
-		"still needs practice. Skip any topic you want.",
+		"We will walk you through a few easy problems, each with an interview-style " +
+			"timer (usually 15 minutes). Going over or using a hint tells us that topic " +
+			"still needs practice. Skip any topic you want.",
 		"",
 		"You will cover:",
 		strings.Join(steps, "\n"),
@@ -249,8 +300,8 @@ func (h *Home) howTodayWorksCard(width int) string {
 func (h *Home) checkpointCard(through, width int) string {
 	th := h.s.Theme
 	title := checkpoint.ModuleTitle(h.s.App.Catalog, through)
-	body := "You have put in a good stretch of practice. When you are ready, we will\n" +
-		"give you a few timed problems on what you have learned through " + title + ",\n" +
+	body := "You have put in a good stretch of practice. When you are ready, we will " +
+		"give you a few timed problems on what you have learned through " + title + ", " +
 		"then refresh your plan.\n\n" +
 		th.Accent.Render("c") + " start the check-in    " + th.Muted.Render("n") + " remind me later"
 	return ui.Card(th, "recommended check-in", body, width, true)
@@ -270,10 +321,9 @@ func (h *Home) youCard(sum stats.Summary, states map[string]schedule.State, now 
 		if sharp {
 			lines = append(lines, "",
 				th.Title.Render("Stay interview-ready"),
-				th.Muted.Render("Nothing is due, so we queued drills across"),
-				th.Muted.Render("techniques: cold redos and shaky spots first."),
-				th.Muted.Render("Drills do not change your review schedule."),
-				th.Muted.Render("A full mock is always on tab ")+th.Accent.Render("3")+".",
+				th.Muted.Render("Nothing is due, so we queued drills across techniques: "+
+					"cold redos and shaky spots first. Drills do not change your review schedule. "+
+					"A full mock is always on tab ")+th.Accent.Render("3")+".",
 			)
 		} else if len(sum.Weakest) > 0 {
 			n := min(len(sum.Weakest), 3)
@@ -284,8 +334,7 @@ func (h *Home) youCard(sum stats.Summary, states map[string]schedule.State, now 
 			lines = append(lines, "",
 				th.Title.Render("Where to focus"),
 				th.Muted.Render(strings.Join(names, ", ")+"."),
-				th.Muted.Render("These have been difficult lately,"),
-				th.Muted.Render("so we will prioritize them for you."),
+				th.Muted.Render("These have been difficult lately, so we will prioritize them for you."),
 			)
 		}
 	}
@@ -306,15 +355,13 @@ func (h *Home) queueCard(items []session.Item, now time.Time, width, bodyRows in
 		return ui.Card(th, "you're all caught up", body, width, false)
 	}
 	sharp := keepSharpQueue(items)
-	inner := width - 4
-	const fixed = 2 + 2 + 8 + 2 + 4 + 2
+	inner := max(width-4, 0)
 	longest, reasonNeed := 0, 0
 	for _, it := range items {
 		longest = max(longest, lipgloss.Width(it.Problem.Title))
 		reasonNeed = max(reasonNeed, lipgloss.Width(h.reason(it)))
 	}
-	titleW := max(min(longest, inner-fixed-min(reasonNeed, 16)), 14)
-	reasonW := max(inner-fixed-titleW, 0)
+	cols := layoutQueue(inner, longest, reasonNeed)
 	bodyRows = max(bodyRows, 1)
 	// Pitch only when there is room for it plus at least one problem row.
 	showPitch := sharp && bodyRows >= 2
@@ -327,10 +374,10 @@ func (h *Home) queueCard(items []session.Item, now time.Time, width, bodyRows in
 	var rows []string
 	if showPitch {
 		// Pitch stays with the drills so a check-in card never buries it.
-		rows = append(rows, th.Muted.Render("Cold redos & shaky spots · drills leave your schedule alone"))
+		rows = append(rows, ui.Truncate(th.Muted.Render("Cold redos & shaky spots · drills leave your schedule alone"), inner))
 	}
 	for i := h.offset; i < len(items) && len(rows) < bodyRows; i++ {
-		rows = append(rows, h.row(items[i], now, titleW, reasonW, i == h.cursor))
+		rows = append(rows, h.row(items[i], now, cols, inner, i == h.cursor))
 	}
 	for len(rows) < bodyRows {
 		rows = append(rows, "")
@@ -383,7 +430,7 @@ func (h *Home) View(w, ht int) string {
 	if sharp {
 		sub = "keep sharp · " + plural(drills, "interview drill", "interview drills")
 	}
-	lines := []string{"", "  " + th.Title.Render(greeting(now)) + th.Muted.Render(" · "+sub)}
+	lines := []string{"", ui.Truncate("  "+th.Title.Render(greeting(now))+th.Muted.Render(" · "+sub), w)}
 	if err := h.s.App.PythonErr; err != nil {
 		lines = append(lines, "  "+th.Fail.Render("tests cannot run: "+err.Error()))
 	}

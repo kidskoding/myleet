@@ -10,6 +10,7 @@ import (
 
 	"github.com/kidskoding/myleet/internal/catalog"
 	"github.com/kidskoding/myleet/internal/progress"
+	"github.com/kidskoding/myleet/internal/session"
 	tu "github.com/kidskoding/myleet/internal/testutil"
 )
 
@@ -293,5 +294,28 @@ func TestHomeEnterStartsPlacement(t *testing.T) {
 	}
 	if pl.phase != placeRound {
 		t.Fatalf("enter should skip intro and start the round, phase=%d", pl.phase)
+	}
+}
+
+func TestHomeQueueRowsNeverWrap(t *testing.T) {
+	s := newTestShared(t, newTestApp(t, placementSkipped(), checkpointSnoozed()), &fakeRunner{})
+	h := NewHome(s)
+	tech := &catalog.Technique{Title: "Array Manipulation And Prefix & Suffix Sums"}
+	items := []session.Item{
+		{Problem: &catalog.Problem{Title: "Longest Consecutive Sequence", Difficulty: catalog.Medium, Technique: tech}, Kind: session.Review},
+		{Problem: &catalog.Problem{Title: "Range Sum Query - Immutable", Difficulty: catalog.Easy, Technique: tech}, Kind: session.New, Reason: session.ReasonNewTopic},
+		{Problem: &catalog.Problem{Title: "Rotate Array", Difficulty: catalog.Hard, Technique: tech}, Kind: session.Practice, Reason: session.ReasonColdRedo},
+	}
+	for w := 20; w <= 160; w++ {
+		card := plainString(h.queueCard(items, testNow, w, len(items)))
+		lines := strings.Split(card, "\n")
+		if len(lines) != len(items)+2 {
+			t.Fatalf("width %d: %d card lines, want %d (rows wrapped):\n%s", w, len(lines), len(items)+2, card)
+		}
+		for i, l := range lines[1 : len(lines)-1] {
+			if !strings.Contains(l, items[i].Problem.Title[:4]) {
+				t.Fatalf("width %d: row %d lost its title:\n%s", w, i, card)
+			}
+		}
 	}
 }
