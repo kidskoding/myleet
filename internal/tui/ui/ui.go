@@ -190,7 +190,11 @@ func ModalTone(th theme.Theme, title, body string, width, height int, tone Tone)
 		widest = max(widest, lipgloss.Width(l)+4)
 	}
 	cardW := min(max(widest, 30), max(width-4, 4))
-	lines := strings.Split(body, "\n")
+	// Wrap before counting, so wrapped lines cannot push the border off-screen.
+	var lines []string
+	for _, l := range strings.Split(body, "\n") {
+		lines = append(lines, WrapLines(l, max(cardW-4, 1))...)
+	}
 	if room := max(height-2, 1); len(lines) > room {
 		lines = append(lines[:room-1], "…")
 	}
