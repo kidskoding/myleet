@@ -84,6 +84,28 @@ func TestKeyBarDropsToFit(t *testing.T) {
 	}
 }
 
+func TestKeyBarLinesWrapsBeforeDropping(t *testing.T) {
+	keys := []Key{{"e", "edit"}, {"space", "rerun"}, {"tab", "window"}, {"z", "zoom"}, {"o", "leetcode"}, {"esc", "back"}}
+	out := KeyBarLines(th, keys, 50, "saved", 2)
+	if len(out) != 2 {
+		t.Fatalf("want 2 lines, got %d: %q", len(out), out)
+	}
+	plain := ansi.Strip(strings.Join(out, "\n"))
+	for _, want := range []string{"e edit", "esc back", "? more", "saved"} {
+		if !strings.Contains(plain, want) {
+			t.Fatalf("wrapped key bar lost %q:\n%s", want, plain)
+		}
+	}
+	for _, l := range out {
+		if lipgloss.Width(l) != 50 {
+			t.Fatalf("line %q is %d wide, want 50", ansi.Strip(l), lipgloss.Width(l))
+		}
+	}
+	if one := KeyBarLines(th, keys[:2], 40, "", 2); len(one) != 1 {
+		t.Fatalf("keys that fit should stay on one line, got %d", len(one))
+	}
+}
+
 func TestTabBarActive(t *testing.T) {
 	out := TabBar(th, []string{"today", "map", "interview", "playlists", "stats"}, 1, 70)
 	ls := lines(out)

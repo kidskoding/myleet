@@ -335,7 +335,23 @@ func (m Model) forward(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m Model) View() tea.View {
 	th := m.s.Theme
-	bodyH := m.height - 3
+	var keys []ui.Key
+	if k, ok := m.top().(keyed); ok {
+		keys = k.Keys()
+	}
+	if m.offersSearch(keys) {
+		keys = append(keys, ui.Key{Key: "/", Label: "search"})
+	}
+	toast := ""
+	if m.s.toast != "" {
+		toast = th.Accent.Render("● ") + m.s.toast + " "
+	}
+	keyRows := 1
+	if m.height >= 16 {
+		keyRows = 2
+	}
+	keyBar := ui.KeyBarLines(th, keys, m.width, toast, keyRows)
+	bodyH := m.height - tabBarHeight - len(keyBar)
 	if m.s.Status != "" {
 		bodyH--
 	}
@@ -354,18 +370,7 @@ func (m Model) View() tea.View {
 	if m.s.Status != "" {
 		lines = append(lines, " "+th.Fail.Render(m.s.Status))
 	}
-	var keys []ui.Key
-	if k, ok := m.top().(keyed); ok {
-		keys = k.Keys()
-	}
-	if m.offersSearch(keys) {
-		keys = append(keys, ui.Key{Key: "/", Label: "search"})
-	}
-	toast := ""
-	if m.s.toast != "" {
-		toast = th.Accent.Render("● ") + m.s.toast + " "
-	}
-	lines = append(lines, ui.KeyBar(th, keys, m.width, toast))
+	lines = append(lines, keyBar...)
 	v := tea.NewView(fit(strings.Join(lines, "\n"), m.width, m.height))
 	v.AltScreen = true
 	if mo, ok := m.top().(mouser); ok && mo.WantsMouse() && !m.help {

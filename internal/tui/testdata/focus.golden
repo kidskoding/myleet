@@ -11,7 +11,6 @@
   │                                                                          │
   │                                                                          │
   │                                                                          │
-  │                                                                          │
   ╰──────────────────────────────────────────────────────────────────────────╯
   ⏱ 00:00 ░░░░░░░░░░░░ · tests ●✗ 1/2
   say it aloud  [ ] brute force · [ ] why it dies · [ ] complexity
@@ -21,4 +20,5 @@
   │                                                                          │
   │ ✓ add                                                                    │
   ╰──────────────────────────────────────────────────────────────────────────╯
- e edit · space rerun · t hint 1/2 · s solution · tab window · z zoom · ? more  
+ e edit · space rerun · t hint 1/2 · s solution · tab window · z zoom · y copy  
+ d diff · esc back · / search · ? more                                          

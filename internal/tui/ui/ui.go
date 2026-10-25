@@ -158,25 +158,44 @@ func TabBar(th theme.Theme, tabs []string, active, width int) string {
 
 // KeyBar drops trailing keys until the keys and the toast fit.
 func KeyBar(th theme.Theme, keys []Key, width int, right string) string {
+	return KeyBarLines(th, keys, width, right, 1)[0]
+}
+
+func KeyBarLines(th theme.Theme, keys []Key, width int, right string, maxLines int) []string {
 	sep := th.Border.Render(" · ")
 	more := th.Accent.Render("?") + " " + th.Muted.Render("more")
 	rightW := lipgloss.Width(right)
+	maxLines = max(maxLines, 1)
 	for n := len(keys); n >= 0; n-- {
 		parts := make([]string, 0, n+1)
 		for _, k := range keys[:n] {
 			parts = append(parts, th.Accent.Render(k.Key)+" "+th.Muted.Render(k.Label))
 		}
 		parts = append(parts, more)
-		left := " " + strings.Join(parts, sep)
-		gap := width - lipgloss.Width(left) - rightW
-		if gap >= 1 || n == 0 {
-			if right == "" {
-				return Pad(left, width)
+		lines := []string{" " + parts[0]}
+		for _, p := range parts[1:] {
+			last := &lines[len(lines)-1]
+			if lipgloss.Width(*last+sep+p) <= width {
+				*last += sep + p
+			} else {
+				lines = append(lines, " "+p)
 			}
-			return Pad(left+strings.Repeat(" ", max(gap, 1))+right, width)
+		}
+		gap := width - lipgloss.Width(lines[len(lines)-1]) - rightW
+		if (len(lines) <= maxLines && gap >= 1) || n == 0 {
+			lines = lines[:min(len(lines), maxLines)]
+			for i := range lines {
+				lines[i] = Pad(lines[i], width)
+			}
+			if right != "" {
+				i := len(lines) - 1
+				l := strings.TrimRight(lines[i], " ")
+				lines[i] = Pad(l+strings.Repeat(" ", max(width-lipgloss.Width(l)-rightW, 1))+right, width)
+			}
+			return lines
 		}
 	}
-	return Pad(" "+more, width)
+	return []string{Pad(" "+more, width)}
 }
 
 func Modal(th theme.Theme, title, body string, width, height int) string {

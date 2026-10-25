@@ -10,9 +10,10 @@ import (
 	"github.com/kidskoding/myleet/internal/runner"
 )
 
+// lastLine is the key bar, which wraps onto the last two rows in narrow panes.
 func lastLine(view string) string {
 	ls := strings.Split(view, "\n")
-	return ls[len(ls)-1]
+	return strings.Join(ls[max(len(ls)-2, 0):], "\n")
 }
 
 func TestFrameHasTabBarAndKeyBar(t *testing.T) {

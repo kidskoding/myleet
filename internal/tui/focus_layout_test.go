@@ -246,3 +246,16 @@ func TestInterviewRoundMouseReachesProblem(t *testing.T) {
 		t.Fatal("rounds should turn on mouse reporting")
 	}
 }
+
+func TestFocusNarrowKeepsKeysAndChecklist(t *testing.T) {
+	for _, w := range []int{60, 82} {
+		m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{red}})
+		view := plain(send(m, tea.WindowSizeMsg{Width: w, Height: 24}))
+		assertFits(t, view, w, 24)
+		for _, want := range []string{"esc back", "y copy", "tab window", "[ ] complexity", "[ ] brute force"} {
+			if !strings.Contains(view, want) {
+				t.Fatalf("width %d lost %q:\n%s", w, want, view)
+			}
+		}
+	}
+}
