@@ -12,6 +12,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
 
 	"github.com/kidskoding/myleet/internal/catalog"
 	"github.com/kidskoding/myleet/internal/editor"
@@ -32,6 +33,14 @@ const (
 	panePrompt pane = iota
 	paneSolution
 	paneDiff
+)
+
+type window int
+
+const (
+	winProblem window = iota
+	winTests
+	windowCount
 )
 
 type (
@@ -78,6 +87,11 @@ type Focus struct {
 	pane      pane
 	paneText  string
 	scroll    int
+	win       window
+	zoom      bool
+	testsTop  int
+	rows      [windowCount]int
+	shown     [windowCount][]string
 	err       string
 	cancel    context.CancelFunc
 	watchCh   <-chan struct{}
@@ -320,6 +334,7 @@ func (f *Focus) Update(msg tea.Msg) (Screen, tea.Cmd) {
 
 func (f *Focus) finishRun(res runner.Result, logged bool) tea.Cmd {
 	f.running, f.ran, f.last = false, true, res
+	f.testsTop = 0
 	f.green = res.Green()
 	if logged {
 		f.s.Record(f.event(progress.TestRun, map[string]string{"passed": strconv.Itoa(res.Passed), "total": strconv.Itoa(res.Total)}))
@@ -430,11 +445,34 @@ func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
 			f.s.Record(f.event(progress.GaveUp, nil))
 			return f, pop
 		}
+	case "tab", "w":
+		f.win = (f.win + 1) % windowCount
+	case "shift+tab":
+		f.win = (f.win + windowCount - 1) % windowCount
+	case "z":
+		f.zoom = !f.zoom
+	case "y":
+		name := map[window]string{winProblem: "problem", winTests: "test output"}[f.win]
+		text := strings.TrimRight(ansi.Strip(strings.Join(f.shown[f.win], "\n")), "\n ")
+		f.s.Toast("copied " + name)
+		return f, tea.SetClipboard(text)
 	case "j", "down":
-		f.scroll++
+		f.scrollBy(1)
 	case "k", "up":
-		f.scroll = max(f.scroll-1, 0)
+		f.scrollBy(-1)
+	case "pgdown", "ctrl+d":
+		f.scrollBy(max(f.rows[f.win]/2, 1))
+	case "pgup", "ctrl+u":
+		f.scrollBy(-max(f.rows[f.win]/2, 1))
+	case "home":
+		f.scrollBy(-1 << 30)
+	case "end":
+		f.scrollBy(1 << 30) // clamped to the last page when drawn
 	case "esc":
+		if f.zoom {
+			f.zoom = false
+			return f, nil
+		}
 		if f.pane != panePrompt {
 			f.pane, f.scroll = panePrompt, 0
 			return f, nil
@@ -451,7 +489,16 @@ func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
 	return f, nil
 }
 
+func (f *Focus) scrollBy(n int) {
+	top := &f.scroll
+	if f.win == winTests {
+		top = &f.testsTop
+	}
+	*top = max(*top+n, 0)
+}
+
 func (f *Focus) togglePane(p pane) {
+	f.win = winProblem
 	if f.pane == p {
 		f.pane, f.scroll = panePrompt, 0
 		return
@@ -498,13 +545,15 @@ func (f *Focus) previousVersion() string {
 	return ""
 }
 
-// OwnsKey: while the reset prompt is open, q must answer it rather than quit.
+// OwnsKey: while a confirm prompt is open, q must answer it rather than quit.
 func (f *Focus) OwnsKey(string) bool { return f.confirm }
 
 func (f *Focus) Help() []string {
 	return []string{"e      edit in $EDITOR (tests rerun on save)", "space  rerun tests", "t      reveal next hint",
 		"s      show reference solution", "d      diff against your last attempt", "o      open problem page",
-		"r      reset attempt to starter", "1-3    tick say-it-out-loud items", "g      give up", "esc    back"}
+		"r      reset attempt to starter", "1-3    tick say-it-out-loud items", "g      give up",
+		"tab/w  switch between problem and tests", "↑/↓    scroll the focused window", "pgup/pgdn  page · home/end  top/bottom",
+		"z      zoom the focused window", "y      copy the focused window", "esc    unzoom, close a pane, or back"}
 }
 
 func (f *Focus) paneLines(w int) []string {
@@ -598,7 +647,8 @@ func (f *Focus) Keys() []ui.Key {
 			keys = append(keys, ui.Key{Key: "s", Label: "solution"})
 		}
 	}
-	keys = append(keys, ui.Key{Key: "d", Label: "diff"})
+	keys = append(keys, ui.Key{Key: "tab", Label: "window"}, ui.Key{Key: "z", Label: "zoom"},
+		ui.Key{Key: "y", Label: "copy"}, ui.Key{Key: "d", Label: "diff"})
 	if f.p.URL != "" {
 		keys = append(keys, ui.Key{Key: "o", Label: "leetcode"})
 	}
@@ -674,14 +724,14 @@ func (f *Focus) testStatus() string {
 func (f *Focus) sidebar(width, height int) string {
 	th := f.s.Theme
 	inner := width - 4
-	tests, _ := f.testGlyphs()
+	_, dots := f.testGlyphs()
 	body := []string{
 		ui.Bar(th, float64(f.Elapsed())/float64(max(f.p.TimeTarget, time.Second)), inner, f.timerTone()),
 		"",
 		th.Muted.Render("tests ") + f.testStatus(),
+		dots,
+		"", th.Muted.Render("say it aloud"),
 	}
-	body = append(body, tests...)
-	body = append(body, "", th.Muted.Render("say it aloud"))
 	for i, item := range f.p.SayAloud {
 		box := th.Muted.Render("[ ]")
 		if f.checked[i] {
@@ -694,62 +744,169 @@ func (f *Focus) sidebar(width, height int) string {
 	return ui.Card(th, title, strings.Join(body[:max(height-2, 0)], "\n"), width, false)
 }
 
-func (f *Focus) checklistLine() string {
+func (f *Focus) checklistLines(width int) []string {
 	th := f.s.Theme
-	items := make([]string, len(f.p.SayAloud))
+	sep := th.Border.Render(" · ")
+	lines := []string{th.Muted.Render("say it aloud ")}
+	fresh := true
 	for i, item := range f.p.SayAloud {
 		box := th.Muted.Render("[ ]")
 		if f.checked[i] {
 			box = th.Pass.Render("[x]")
 		}
-		items[i] = box + " " + item
+		cell := box + " " + item
+		last := &lines[len(lines)-1]
+		switch {
+		case fresh:
+			*last += " " + cell
+			fresh = false
+		case lipgloss.Width(*last+sep+cell) <= width:
+			*last += sep + cell
+		default:
+			lines = append(lines, cell)
+		}
 	}
-	return th.Muted.Render("say it aloud  ") + strings.Join(items, th.Border.Render(" · "))
+	for i := range lines {
+		lines[i] = ui.Truncate(lines[i], width)
+	}
+	return lines
 }
 
-func (f *Focus) resultCard(width int) string {
-	th := f.s.Theme
-	if f.banner != "" {
-		title, body, _ := strings.Cut(f.banner, " · ")
-		return ui.CardTone(th, "✓ "+title, body, width, ui.TonePass)
-	}
-	res := f.last
-	switch {
-	case !f.ran || res.NotStarted:
+func (f *Focus) bannerCard(width int) string {
+	if f.banner == "" {
 		return ""
+	}
+	title, body, _ := strings.Cut(f.banner, " · ")
+	return ui.CardTone(f.s.Theme, "✓ "+title, body, width, ui.TonePass)
+}
+
+func wrapIndent(s string, indent, width int) []string {
+	pad := strings.Repeat(" ", indent)
+	var out []string
+	for _, line := range strings.Split(strings.TrimRight(s, "\n"), "\n") {
+		for _, part := range ui.WrapLines(line, max(width-indent, 1)) {
+			out = append(out, pad+part)
+		}
+	}
+	return out
+}
+
+func (f *Focus) testLines(width int) []string {
+	th := f.s.Theme
+	res := f.last
+	var out []string
+	add := func(style lipgloss.Style, s string, indent int) {
+		for _, l := range wrapIndent(s, indent, width) {
+			out = append(out, style.Render(l))
+		}
+	}
+	plainStyle := lipgloss.NewStyle()
+	switch {
+	case f.err != "":
+		add(th.Fail, f.err, 0)
+		return out
+	case !f.ran && f.running:
+		return []string{th.Accent.Render(ui.SpinnerFrame(f.frame)) + " running tests…"}
+	case !f.ran:
+		return []string{th.Muted.Render("waiting for the first run")}
 	case res.Err != nil:
-		return ui.Card(th, "✗ tests could not run", res.Err.Error(), width, false)
+		add(th.Fail, "tests could not run: "+res.Err.Error(), 0)
+		if res.Output != "" {
+			out = append(out, "")
+			add(th.Muted, res.Output, 0)
+		}
+		return out
 	case res.TimedOut:
-		return ui.Card(th, "✗ timed out", fmt.Sprintf("the run took longer than %s", f.s.App.Config.Timeout), width, false)
+		add(th.Fail, fmt.Sprintf("timed out: the run took longer than %s", f.s.App.Config.Timeout), 0)
+		if res.Output != "" {
+			out = append(out, "")
+			add(th.Muted, res.Output, 0)
+		}
+		return out
+	case res.NotStarted:
+		add(th.Muted, "not started · press e to code", 0)
+		for _, t := range res.Tests {
+			add(plainStyle, "○ "+testLabel(f.fnName, t.Name), 0)
+		}
+		return out
 	}
 	for _, t := range res.Tests {
 		if t.Outcome == runner.Passed {
 			continue
 		}
+		glyph, style := "✗ ", th.Fail
+		if t.Outcome == runner.Skipped {
+			glyph, style = "– ", th.Muted
+		}
+		out = append(out, style.Render(glyph)+ui.Truncate(testLabel(f.fnName, t.Name), max(width-2, 1)))
 		msg := t.Message
 		if t.Outcome == runner.Errored || msg == "collection failure" {
 			if detail := lastErrorLine(t.Detail); detail != "" {
 				msg = strings.TrimSpace(strings.TrimPrefix(detail, "E"))
 			}
 		}
-		return ui.Card(th, "✗ "+testLabel(f.fnName, t.Name), th.Fail.Render(msg), width, false)
+		if msg != "" {
+			add(style, msg, 2)
+		}
+		if d := strings.TrimSpace(t.Detail); d != "" && d != msg {
+			add(th.Muted, d, 4)
+		}
+		out = append(out, "")
+	}
+	for _, t := range res.Tests {
+		if t.Outcome == runner.Passed {
+			out = append(out, th.Pass.Render("✓ ")+ui.Truncate(testLabel(f.fnName, t.Name), max(width-2, 1)))
+		}
 	}
 	if res.Total == 0 && res.Output != "" {
-		return ui.Card(th, "✗ tests could not run", lastErrorLine(res.Output), width, false)
+		add(th.Fail, "tests could not run", 0)
+		add(th.Muted, res.Output, 0)
 	}
-	return ""
+	for len(out) > 0 && out[len(out)-1] == "" {
+		out = out[:len(out)-1]
+	}
+	return out
+}
+
+func (f *Focus) scrolledCard(title string, lines []string, top *int, width, height int, w window) string {
+	rows := max(height-2, 1)
+	f.rows[w] = rows
+	f.shown[w] = lines
+	*top = min(*top, max(len(lines)-rows, 0))
+	if len(lines) > rows {
+		title += fmt.Sprintf(" · %d-%d/%d", *top+1, min(*top+rows, len(lines)), len(lines))
+	}
+	body := lines[*top:]
+	if len(body) > rows {
+		body = body[:rows]
+	}
+	return ui.Card(f.s.Theme, title, strings.Join(padLines(body, rows), "\n"), width, f.win == w)
 }
 
 func (f *Focus) statementCard(width, height int) string {
 	title := map[pane]string{panePrompt: "problem", paneSolution: "reference solution", paneDiff: "diff vs last version"}[f.pane]
-	rows := max(height-2, 1)
-	body := f.paneLines(max(width-4, 10))
-	f.scroll = min(f.scroll, max(len(body)-rows, 0))
-	body = body[f.scroll:]
-	if len(body) > rows {
-		body = body[:rows]
+	return f.scrolledCard(title, f.paneLines(max(width-4, 10)), &f.scroll, width, height, winProblem)
+}
+
+func (f *Focus) failing() bool {
+	res := f.last
+	switch {
+	case f.err != "":
+		return true
+	case !f.ran || res.NotStarted:
+		return false
+	case res.Err != nil || res.TimedOut:
+		return true
 	}
-	return ui.Card(f.s.Theme, title, strings.Join(padLines(body, rows), "\n"), width, false)
+	return !res.Green()
+}
+
+func (f *Focus) testsCard(lines []string, width, height int) string {
+	title := "tests"
+	if f.ran && f.err == "" && f.last.Err == nil && !f.last.TimedOut && f.last.Total > 0 {
+		title = fmt.Sprintf("tests · %d/%d passed", f.last.Passed, f.last.Total)
+	}
+	return f.scrolledCard(title, lines, &f.testsTop, width, height, winTests)
 }
 
 const sidebarWidth = 30
@@ -762,24 +919,55 @@ func (f *Focus) View(w, h int) string {
 	}
 	lines := []string{"", f.header(w), ""}
 	inner := w - 4
-	result := f.resultCard(inner)
-	resultH := 0
-	if result != "" {
-		resultH = strings.Count(result, "\n") + 1
+	wide := w >= 100
+	banner := f.bannerCard(inner)
+	if banner != "" {
+		lines = append(lines, indent(banner, 2)...)
 	}
-	avail := max(h-len(lines)-resultH, 4)
-	if w >= 100 {
-		stmtW := inner - sidebarWidth - 2
-		lines = append(lines, indent(ui.Columns(2, f.statementCard(stmtW, avail), f.sidebar(sidebarWidth, avail)), 2)...)
-	} else {
+	var strip []string
+	if !wide {
 		_, dots := f.testGlyphs()
 		elapsed := float64(f.Elapsed()) / float64(max(f.p.TimeTarget, time.Second))
-		strip := "  ⏱ " + mmss(f.Elapsed()) + " " + ui.Bar(th, elapsed, 12, f.timerTone()) + th.Muted.Render(" · ") + "tests " + dots + " " + f.testStatus()
-		lines = append(lines, indent(f.statementCard(inner, max(avail-2, 3)), 2)...)
-		lines = append(lines, ui.Truncate(strip, w), ui.Truncate("  "+f.checklistLine(), w))
+		strip = []string{
+			ui.Truncate("  ⏱ "+mmss(f.Elapsed())+" "+ui.Bar(th, elapsed, 12, f.timerTone())+th.Muted.Render(" · ")+"tests "+dots+" "+f.testStatus(), w),
+		}
+		for _, l := range f.checklistLines(max(w-2, 1)) {
+			strip = append(strip, "  "+l)
+		}
 	}
-	if result != "" {
-		lines = append(lines, indent(result, 2)...)
+	space := max(h-len(lines)-len(strip), 3)
+
+	tests := f.testLines(max(inner-4, 1))
+	solo := f.zoom || space < 8
+	var testH, probH int
+	switch {
+	case solo && f.win == winTests:
+		testH = space
+	case solo:
+		probH = space
+	default:
+		limit := space / 2
+		switch {
+		case f.win == winTests:
+			limit = space * 2 / 3
+		case !f.failing() && len(tests)+2 > space/2:
+			limit = max(space/4, 3)
+		}
+		testH = max(min(len(tests)+2, limit), 3)
+		probH = space - testH
+	}
+
+	if probH > 0 {
+		if wide {
+			stmtW := inner - sidebarWidth - 2
+			lines = append(lines, indent(ui.Columns(2, f.statementCard(stmtW, probH), f.sidebar(sidebarWidth, probH)), 2)...)
+		} else {
+			lines = append(lines, indent(f.statementCard(inner, probH), 2)...)
+		}
+	}
+	lines = append(lines, strip...)
+	if testH > 0 {
+		lines = append(lines, indent(f.testsCard(tests, inner, testH), 2)...)
 	}
 	return strings.Join(lines, "\n")
 }

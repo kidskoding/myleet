@@ -1,6 +1,7 @@
 package tui
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 
@@ -95,8 +96,11 @@ func TestFocusPassCard(t *testing.T) {
 
 func TestFocusFailCardShowsAssertion(t *testing.T) {
 	m, _ := wideFocus(t, fakePrompts{status: prompt.NoSource}, red)
-	if view := plain(m); !strings.Contains(view, "╭─ ✗ negative") || !strings.Contains(view, "assert 4 == 0") {
-		t.Fatalf("failing test should show a card:\n%s", view)
+	view := plain(m)
+	for _, want := range []string{"╭─ tests · 1/2 passed", "✗ negative", "assert 4 == 0", "✓ add"} {
+		if !strings.Contains(view, want) {
+			t.Fatalf("tests window missing %q:\n%s", want, view)
+		}
 	}
 }
 
@@ -125,4 +129,74 @@ func TestSpinnerWhileRunning(t *testing.T) {
 func TestFocusGoldenWide(t *testing.T) {
 	m, _ := wideFocus(t, fakePrompts{md: "Given two integers `a` and `b`, return their sum.\n\n**Example 1:**\n\n```\nInput: a = 1, b = 2\nOutput: 3\n```", status: prompt.Fetched}, red)
 	assertGolden(t, "focus_wide", plain(m))
+}
+
+func longFailure() runner.Result {
+	var tb []string
+	for i := 1; i <= 40; i++ {
+		tb = append(tb, fmt.Sprintf("solution.py:%d: in add  frame %d", i, i))
+	}
+	tb = append(tb, "E   AssertionError: the very last line of the traceback")
+	return runner.Result{Passed: 1, Total: 2, Tests: []runner.TestResult{
+		{Name: "test_add", Outcome: runner.Passed},
+		{Name: "test_add_negative", Outcome: runner.Failed, Message: "assert 4 == 0", Detail: strings.Join(tb, "\n")},
+	}}
+}
+
+func TestFocusTestsWindowScrollsToFullTraceback(t *testing.T) {
+	for _, size := range [][2]int{{60, 20}, {80, 24}, {120, 32}, {160, 40}} {
+		m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{longFailure()}})
+		m = send(m, tea.WindowSizeMsg{Width: size[0], Height: size[1]})
+		if view := plain(m); strings.Contains(view, "very last line") {
+			t.Fatalf("%v: traceback should start scrolled to the top:\n%s", size, view)
+		}
+		m = send(m, key("tab"), key("end"))
+		view := plain(m)
+		assertFits(t, view, size[0], size[1])
+		for _, want := range []string{"very last line", "✓ add"} {
+			if !strings.Contains(view, want) {
+				t.Fatalf("%v: tab+end should reveal %q:\n%s", size, want, view)
+			}
+		}
+		m = send(m, key("home"))
+		if view := plain(m); !strings.Contains(view, "✗ negative") {
+			t.Fatalf("%v: home should return to the first failure:\n%s", size, view)
+		}
+	}
+}
+
+func TestFocusZoomGivesWindowWholeBody(t *testing.T) {
+	m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{longFailure()}})
+	m = send(m, key("tab"), key("z"))
+	view := plain(m)
+	if strings.Contains(view, "╭─ problem") || !strings.Contains(view, "╭─ tests") {
+		t.Fatalf("zoomed tests window should hide the problem window:\n%s", view)
+	}
+	assertFits(t, view, 80, 24)
+	view = plain(send(m, key("esc")))
+	if !strings.Contains(view, "╭─ problem") {
+		t.Fatalf("esc should unzoom before leaving:\n%s", view)
+	}
+}
+
+func TestFocusScrollMovesOnlyFocusedWindow(t *testing.T) {
+	m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{longFailure()}})
+	f := m.(Model).top().(*Focus)
+	m = send(m, key("tab"), key("j"), key("j"))
+	_ = plain(m)
+	if f.testsTop != 2 || f.scroll != 0 {
+		t.Fatalf("j should scroll the tests window only, tests=%d problem=%d", f.testsTop, f.scroll)
+	}
+}
+
+func TestFocusCopyFocusedWindow(t *testing.T) {
+	m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{longFailure()}})
+	m = send(m, key("tab"))
+	_, cmd := m.Update(key("y"))
+	if cmd == nil {
+		t.Fatal("y should return a clipboard command")
+	}
+	if !strings.Contains(plain(send(m, key("y"))), "copied test output") {
+		t.Fatal("y should confirm the copy")
+	}
 }

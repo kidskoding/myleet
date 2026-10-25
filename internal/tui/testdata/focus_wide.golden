@@ -7,10 +7,9 @@
   │ Given two integers a and b, return their sum.                                    │  │ ░░░░░░░░░░░░░░░░░░░░░░░░░░ │
   │                                                                                  │  │                            │
   │ Example 1:                                                                       │  │ tests 1/2                  │
-  │                                                                                  │  │ ✓ add                      │
-  │   Input: a = 1, b = 2                                                            │  │ ✗ negative                 │
-  │   Output: 3                                                                      │  │                            │
-  │                                                                                  │  │ say it aloud               │
+  │                                                                                  │  │ ●✗                         │
+  │   Input: a = 1, b = 2                                                            │  │                            │
+  │   Output: 3                                                                      │  │ say it aloud               │
   │                                                                                  │  │ [ ] brute force            │
   │                                                                                  │  │ [ ] why it dies            │
   │                                                                                  │  │ [ ] complexity             │
@@ -23,10 +22,11 @@
   │                                                                                  │  │                            │
   │                                                                                  │  │                            │
   │                                                                                  │  │                            │
-  │                                                                                  │  │                            │
-  │                                                                                  │  │                            │
   ╰──────────────────────────────────────────────────────────────────────────────────╯  ╰────────────────────────────╯
-  ╭─ ✗ negative ─────────────────────────────────────────────────────────────────────────────────────────────────────╮
-  │ assert 4 == 0                                                                                                    │
+  ╭─ tests · 1/2 passed ─────────────────────────────────────────────────────────────────────────────────────────────╮
+  │ ✗ negative                                                                                                       │
+  │   assert 4 == 0                                                                                                  │
+  │                                                                                                                  │
+  │ ✓ add                                                                                                            │
   ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
- e edit · space rerun · t hint 1/2 · s solution · d diff · esc back · / search · ? more                                 
+ e edit · space rerun · t hint 1/2 · s solution · tab window · z zoom · y copy · d diff · esc back · / search · ? more  
