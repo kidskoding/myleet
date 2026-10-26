@@ -113,7 +113,7 @@ Today is your daily plan. It ranks work from *your* history, not a fixed list:
 New work rotates across techniques. Playlist-only problems (`bank/`) are trackable in
 playlists but never appear as new on Today or on the Map.
 
-**Review ladder:** clean pass (green tests, no hint/peek, under time: 15m / 30m / 45m)
+**Review ladder:** clean pass (green tests, no hint/peek, under time: 15m / 25m / 45m)
 climbs one rung. Same-day pass does not climb. Hint, peek, overtime, or give-up drops
 you to 1 day. Mastered at the 14-day rung.
 

@@ -22,7 +22,7 @@ func (d Difficulty) Short() string {
 
 var DefaultTimeTargets = map[Difficulty]time.Duration{
 	Easy:   15 * time.Minute,
-	Medium: 30 * time.Minute,
+	Medium: 25 * time.Minute,
 	Hard:   45 * time.Minute,
 }
 

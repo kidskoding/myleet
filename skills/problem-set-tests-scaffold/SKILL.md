@@ -43,7 +43,7 @@ url = "https://leetcode.com/problems/binary-tree-right-side-view/"
 key_idea = "BFS by level; keep the last node of each level."
 hints = ["Process the queue one level at a time.", "The last node popped per level is visible."]
 prompt = ""                                 # markdown problem statement; optional
-# time_target = "20m"                       # optional; defaults 15m/30m/45m by difficulty
+# time_target = "20m"                       # optional; defaults 15m/25m/45m by difficulty
 # say_aloud = ["invariant", "complexity"]   # optional; default brute force/why it dies/complexity
 ```
 
