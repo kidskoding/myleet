@@ -81,6 +81,7 @@ type Focus struct {
 	hints          int
 	peeked         bool
 	gaveUp         bool
+	timeUp         bool
 	closed         bool
 	confirm        bool
 	pausedAt       time.Time
@@ -281,7 +282,7 @@ func (f *Focus) edited() bool {
 }
 
 func (f *Focus) Elapsed() time.Duration {
-	if f.passed {
+	if f.passed || f.timeUp {
 		return f.elapsed
 	}
 	if f.clock != nil {
@@ -310,6 +311,21 @@ func (f *Focus) togglePause() tea.Cmd {
 	return f.run(true) // pick up anything saved while paused
 }
 
+// expire ends a practice attempt at its time target, so work past it cannot pass.
+func (f *Focus) expire() {
+	if f.timeUp || !f.practiceLike() || f.passed || f.gaveUp || f.paused() || f.Elapsed() < f.p.TimeTarget {
+		return
+	}
+	f.timeUp, f.gaveUp, f.elapsed = true, true, f.p.TimeTarget
+	f.confirm, f.confirmRestart = false, false
+	f.s.Record(f.event(progress.GaveUp, map[string]string{"reason": "time_up"}))
+	if f.mode == progress.Drill {
+		f.banner = "time's up · review schedule unchanged"
+		return
+	}
+	f.banner = "time's up · " + mmss(f.p.TimeTarget) + " reached · back to 1d · next " + dateLabel(statusOf(f.s.States(), f.p.ID).Due)
+}
+
 func (f *Focus) restartTimer() {
 	f.start, f.pausedFor, f.pausedAt = f.s.App.Now(), 0, time.Time{}
 	f.restarted = true
@@ -319,6 +335,7 @@ func (f *Focus) restartTimer() {
 func (f *Focus) Green() bool { return f.green }
 
 func (f *Focus) Update(msg tea.Msg) (Screen, tea.Cmd) {
+	f.expire()
 	switch msg := msg.(type) {
 	case runDoneMsg:
 		if msg.f != f || f.closed || msg.seq != f.seq {
@@ -329,7 +346,7 @@ func (f *Focus) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		if msg.f != f || f.closed {
 			return f, nil
 		}
-		if f.paused() {
+		if f.paused() || f.timeUp {
 			return f, f.waitForChange() // resuming reruns, so a paused save cannot pass
 		}
 		return f, tea.Batch(f.run(true), f.waitForChange())
@@ -340,7 +357,7 @@ func (f *Focus) Update(msg tea.Msg) (Screen, tea.Cmd) {
 		if msg.err != nil {
 			f.err = "editor: " + msg.err.Error()
 		}
-		if f.paused() {
+		if f.paused() || f.timeUp {
 			return f, nil
 		}
 		return f, f.run(true)
@@ -403,7 +420,7 @@ func (f *Focus) finishRun(res runner.Result, logged bool) tea.Cmd {
 	if f.green {
 		_, _ = f.s.App.Workspace.Snapshot(f.p.ID, f.s.App.Now())
 	}
-	if f.green && logged && !f.passed && !f.examMode() {
+	if f.green && logged && !f.passed && !f.timeUp && !f.examMode() {
 		f.recordPass()
 	}
 	return nil
@@ -476,6 +493,12 @@ func (f *Focus) handleKey(k string) (Screen, tea.Cmd) {
 			return f, pop
 		}
 		return f, nil
+	}
+	if f.timeUp {
+		switch k {
+		case "e", "space", "t", "p", "R", "r", "g":
+			return f, nil
+		}
 	}
 	if f.confirm {
 		f.confirm = false
@@ -646,6 +669,7 @@ func (f *Focus) Help() []string {
 		"s      show reference solution", "d      diff against your last attempt", "o      open problem page",
 		"r      reset attempt to starter", "p      pause / resume the clock (practice; hides the problem)",
 		"R      restart the clock (practice; the pass will not count as clean)", "1-3    tick say-it-out-loud items", "g      give up",
+		"       at the time target the attempt ends and counts as a miss (practice)",
 		"tab/w  switch between problem and tests", "↑/↓    scroll the focused window", "pgup/pgdn  page · home/end  top/bottom",
 		"z      zoom the focused window", "y      copy the focused window", "mouse  wheel scrolls, click focuses a window", "esc    unzoom, close a pane, or back"}
 }
@@ -737,6 +761,18 @@ func (f *Focus) Keys() []ui.Key {
 	}
 	if f.paused() {
 		return []ui.Key{{Key: "p", Label: "resume"}, {Key: "R", Label: "restart timer"}, {Key: "esc", Label: "back"}}
+	}
+	if f.timeUp {
+		var keys []ui.Key
+		if f.p.HasSolution {
+			keys = append(keys, ui.Key{Key: "s", Label: "solution"})
+		}
+		keys = append(keys, ui.Key{Key: "d", Label: "diff"}, ui.Key{Key: "tab", Label: "window"}, ui.Key{Key: "z", Label: "zoom"},
+			ui.Key{Key: "y", Label: "copy"})
+		if f.p.URL != "" {
+			keys = append(keys, ui.Key{Key: "o", Label: "leetcode"})
+		}
+		return append(keys, ui.Key{Key: "esc", Label: "back"})
 	}
 	keys := []ui.Key{{Key: "e", Label: "edit"}, {Key: "space", Label: "rerun"}}
 	if f.canPause() {
@@ -880,6 +916,9 @@ func (f *Focus) bannerCard(width int) string {
 		return ""
 	}
 	title, body, _ := strings.Cut(f.banner, " · ")
+	if f.timeUp {
+		return ui.CardTone(f.s.Theme, "✗ "+title, body, width, ui.ToneFail)
+	}
 	return ui.CardTone(f.s.Theme, "✓ "+title, body, width, ui.TonePass)
 }
 

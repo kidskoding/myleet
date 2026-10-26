@@ -86,3 +86,47 @@ func TestExamModesCannotPauseOrRestart(t *testing.T) {
 		t.Fatal("timed rounds must not pause or restart")
 	}
 }
+
+func TestTimeUpEndsPracticeAttempt(t *testing.T) {
+	m, s, f, now := clockedFocus(t, red, green)
+	*now = now.Add(f.p.TimeTarget + time.Second)
+	m = send(m, focusTickMsg{f})
+	if !f.timeUp || f.Elapsed() != f.p.TimeTarget {
+		t.Fatalf("the attempt should end at the target, timeUp=%v elapsed=%s", f.timeUp, f.Elapsed())
+	}
+	view := plain(m)
+	if !strings.Contains(view, "time's up") || strings.Contains(lastLine(view), "e edit") {
+		t.Fatalf("time up should show a banner and drop the edit key:\n%s", view)
+	}
+	runs := f.seq
+	m = send(m, key("e"), key("space"), key("p"), fileChangedMsg{f})
+	if f.seq != runs || f.paused() {
+		t.Fatal("after time's up nothing may edit, rerun or pause")
+	}
+	gave := 0
+	for _, e := range s.App.Events {
+		if e.Kind == progress.GaveUp && e.Data["reason"] == "time_up" {
+			gave++
+		}
+		if e.Kind == progress.Passed {
+			t.Fatal("a time-up attempt must not pass")
+		}
+	}
+	if gave != 1 {
+		t.Fatalf("time up should be recorded once as a miss, got %d", gave)
+	}
+	send(m, key("esc"))
+	if strings.Contains(strings.Join(kinds(s), ","), string(progress.Left)) {
+		t.Fatal("leaving after time up must not record a second outcome")
+	}
+}
+
+func TestPausedClockDoesNotTimeOut(t *testing.T) {
+	m, _, f, now := clockedFocus(t, red)
+	m = send(m, key("p"))
+	*now = now.Add(2 * f.p.TimeTarget)
+	send(m, focusTickMsg{f})
+	if f.timeUp {
+		t.Fatal("paused time must not run out the clock")
+	}
+}
