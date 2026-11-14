@@ -122,6 +122,21 @@ func Badge(th theme.Theme, text string, kind BadgeKind) string {
 	return style.Reverse(true).Bold(true).Render(" " + text + " ")
 }
 
+// Chip is a solid reverse-video label; reverse keeps the terminal's own palette instead of setting a background.
+func Chip(th theme.Theme, text string, tone Tone) string {
+	return toneStyle(th, tone).Reverse(true).Bold(true).Render(" " + text + " ")
+}
+
+func Block(th theme.Theme, text string, width int, tone Tone) string {
+	if width <= 0 {
+		return ""
+	}
+	text = Truncate(text, width)
+	gap := width - lipgloss.Width(text)
+	line := strings.Repeat(" ", gap/2) + text + strings.Repeat(" ", gap-gap/2)
+	return toneStyle(th, tone).Reverse(true).Bold(true).Render(line)
+}
+
 func Bar(th theme.Theme, frac float64, width int, tone Tone) string {
 	if width <= 0 {
 		return ""

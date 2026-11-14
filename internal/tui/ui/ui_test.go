@@ -188,3 +188,28 @@ func TestKitANSIOnly(t *testing.T) {
 		t.Fatalf("kit must only use ANSI 0-15: %q", out)
 	}
 }
+
+func TestBlockFillsWidthAndCentersText(t *testing.T) {
+	out := Block(th, "⏱ 01:00", 20, ToneDue)
+	if got := lipgloss.Width(out); got != 20 {
+		t.Fatalf("block is %d wide, want 20", got)
+	}
+	if plain := ansi.Strip(out); plain != "      ⏱ 01:00       " {
+		t.Fatalf("block text %q", plain)
+	}
+	if !strings.Contains(out, "7") {
+		t.Fatalf("block should be reverse video: %q", out)
+	}
+}
+
+func TestBlockTruncatesLongText(t *testing.T) {
+	if got := lipgloss.Width(Block(th, "a very long block label", 10, ToneFail)); got != 10 {
+		t.Fatalf("block is %d wide, want 10", got)
+	}
+}
+
+func TestChipPadsText(t *testing.T) {
+	if plain := ansi.Strip(Chip(th, "Two Sum", ToneAccent)); plain != " Two Sum " {
+		t.Fatalf("chip text %q", plain)
+	}
+}

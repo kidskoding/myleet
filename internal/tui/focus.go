@@ -704,7 +704,7 @@ func (f *Focus) paneLines(w int) []string {
 			b.WriteString("_Offline: couldn't reach LeetCode for the statement. Press o to open it in the browser._\n\n")
 		}
 		if f.p.URL != "" {
-			b.WriteString("Problem page: " + f.p.URL + " (press o)\n")
+			b.WriteString("Press **o** to open the problem page:\n\n" + f.p.URL + "\n")
 		}
 		md = b.String()
 	}
@@ -767,8 +767,7 @@ func (f *Focus) Keys() []ui.Key {
 		if f.p.HasSolution {
 			keys = append(keys, ui.Key{Key: "s", Label: "solution"})
 		}
-		keys = append(keys, ui.Key{Key: "d", Label: "diff"}, ui.Key{Key: "tab", Label: "window"}, ui.Key{Key: "z", Label: "zoom"},
-			ui.Key{Key: "y", Label: "copy"})
+		keys = append(keys, ui.Key{Key: "d", Label: "diff"})
 		if f.p.URL != "" {
 			keys = append(keys, ui.Key{Key: "o", Label: "leetcode"})
 		}
@@ -786,11 +785,6 @@ func (f *Focus) Keys() []ui.Key {
 			keys = append(keys, ui.Key{Key: "s", Label: "solution"})
 		}
 	}
-	keys = append(keys, ui.Key{Key: "tab", Label: "window"}, ui.Key{Key: "z", Label: "zoom"},
-		ui.Key{Key: "y", Label: "copy"}, ui.Key{Key: "d", Label: "diff"})
-	if f.p.URL != "" {
-		keys = append(keys, ui.Key{Key: "o", Label: "leetcode"})
-	}
 	return append(keys, ui.Key{Key: "esc", Label: "back"})
 }
 
@@ -806,8 +800,8 @@ func (f *Focus) header(w int) string {
 		where = strings.ToLower(f.p.Technique.Module.Title + " · " + f.p.Technique.Title)
 	}
 	right := "  " + difficultyBadge(th, f.p.Difficulty) + "  " + th.Muted.Render(where)
-	title := ui.Truncate(f.p.Title, max(w-4-lipgloss.Width(right), 8))
-	return ui.Truncate("  "+th.Title.Render(title)+right, w)
+	title := ui.Truncate(f.p.Title, max(w-6-lipgloss.Width(right), 8))
+	return ui.Truncate("  "+ui.Chip(th, title, ui.ToneAccent)+right, w)
 }
 
 func (f *Focus) timerTone() ui.Tone {
@@ -865,9 +859,10 @@ func (f *Focus) sidebar(width, height int) string {
 	inner := width - 4
 	_, dots := f.testGlyphs()
 	body := []string{
+		ui.Block(th, "⏱ "+mmss(f.Elapsed())+" / "+mmss(f.p.TimeTarget), inner, f.timerTone()),
 		ui.Bar(th, float64(f.Elapsed())/float64(max(f.p.TimeTarget, time.Second)), inner, f.timerTone()),
 		"",
-		th.Muted.Render("tests ") + f.testStatus(),
+		f.testBlock(inner),
 		dots,
 		"", th.Muted.Render("say it aloud"),
 	}
@@ -879,8 +874,22 @@ func (f *Focus) sidebar(width, height int) string {
 		body = append(body, box+" "+item)
 	}
 	body = padLines(body, height-2)
-	title := mmss(f.Elapsed()) + " / " + mmss(f.p.TimeTarget)
-	return ui.Card(th, title, strings.Join(body[:max(height-2, 0)], "\n"), width, false)
+	return ui.Card(th, "timer", strings.Join(body[:max(height-2, 0)], "\n"), width, false)
+}
+
+func (f *Focus) testBlock(width int) string {
+	res := f.last
+	switch {
+	case f.running, f.err != "", !f.ran:
+		return f.s.Theme.Muted.Render("tests ") + f.testStatus()
+	case res.Err != nil || res.TimedOut:
+		return ui.Block(f.s.Theme, "✗ "+ansi.Strip(f.testStatus()), width, ui.ToneFail)
+	case res.NotStarted:
+		return ui.Block(f.s.Theme, fmt.Sprintf("%d/%d · not started", res.Passed, res.Total), width, ui.ToneMuted)
+	case res.Green():
+		return ui.Block(f.s.Theme, fmt.Sprintf("✓ %d/%d passed", res.Passed, res.Total), width, ui.TonePass)
+	}
+	return ui.Block(f.s.Theme, fmt.Sprintf("✗ %d/%d passed", res.Passed, res.Total), width, ui.ToneFail)
 }
 
 func (f *Focus) checklistLines(width int) []string {
@@ -1083,7 +1092,7 @@ func (f *Focus) View(w, h int) string {
 		_, dots := f.testGlyphs()
 		elapsed := float64(f.Elapsed()) / float64(max(f.p.TimeTarget, time.Second))
 		strip = []string{
-			ui.Truncate("  ⏱ "+mmss(f.Elapsed())+" "+ui.Bar(th, elapsed, 12, f.timerTone())+th.Muted.Render(" · ")+"tests "+dots+" "+f.testStatus(), w),
+			ui.Truncate("  "+ui.Chip(th, "⏱ "+mmss(f.Elapsed()), f.timerTone())+" "+ui.Bar(th, elapsed, 12, f.timerTone())+th.Muted.Render(" · ")+"tests "+dots+" "+f.testStatus(), w),
 		}
 		for _, l := range f.checklistLines(max(w-2, 1)) {
 			strip = append(strip, "  "+l)

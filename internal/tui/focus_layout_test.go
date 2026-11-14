@@ -39,7 +39,7 @@ func wideFocus(t *testing.T, fp fakePrompts, results ...runner.Result) (tea.Mode
 func TestFocusWideHasSidebar(t *testing.T) {
 	m, _ := wideFocus(t, fakePrompts{md: "Add two numbers.", status: prompt.Fetched}, red)
 	view := plain(m)
-	for _, want := range []string{"╭─ 00:00 / 15:00", "tests 1/2", "✓ add", "✗ negative", "say it aloud", "Add two numbers."} {
+	for _, want := range []string{"╭─ timer", "✗ 1/2 passed", "✓ add", "✗ negative", "say it aloud", "Add two numbers."} {
 		if !strings.Contains(view, want) {
 			t.Fatalf("wide focus missing %q:\n%s", want, view)
 		}
@@ -252,10 +252,51 @@ func TestFocusNarrowKeepsKeysAndChecklist(t *testing.T) {
 		m, _ := focusModel(t, "p-one", &fakeRunner{results: []runner.Result{red}})
 		view := plain(send(m, tea.WindowSizeMsg{Width: w, Height: 24}))
 		assertFits(t, view, w, 24)
-		for _, want := range []string{"esc back", "y copy", "tab window", "[ ] complexity", "[ ] brute force"} {
+		for _, want := range []string{"esc back", "e edit", "space rerun", "[ ] complexity", "[ ] brute force"} {
 			if !strings.Contains(view, want) {
 				t.Fatalf("width %d lost %q:\n%s", w, want, view)
 			}
 		}
+	}
+}
+
+func TestFocusSidebarShowsTimerAndTestBlocks(t *testing.T) {
+	m, _ := wideFocus(t, fakePrompts{md: "Add two numbers.", status: prompt.Fetched}, red)
+	view := plain(m)
+	for _, want := range []string{"╭─ timer", "⏱ 00:00 / 15:00", "✗ 1/2 passed"} {
+		if !strings.Contains(view, want) {
+			t.Fatalf("sidebar missing %q:\n%s", want, view)
+		}
+	}
+}
+
+func TestFocusKeyBarShowsOnlyCoreKeys(t *testing.T) {
+	m, _ := wideFocus(t, fakePrompts{md: "Add two numbers.", status: prompt.Fetched}, red)
+	view := plain(m)
+	bar := strings.Join(strings.Split(view, "\n")[30:], "\n")
+	for _, want := range []string{"e edit", "space rerun", "t hint", "s solution", "p pause", "esc back"} {
+		if !strings.Contains(bar, want) {
+			t.Fatalf("key bar missing %q:\n%s", want, bar)
+		}
+	}
+	for _, gone := range []string{"zoom", "copy", "window", "diff"} {
+		if strings.Contains(bar, gone) {
+			t.Fatalf("key bar should leave %q to the ? help:\n%s", gone, bar)
+		}
+	}
+	help := plain(send(m, key("?")))
+	if !strings.Contains(help, "zoom the focused window") {
+		t.Fatalf("help must still list zoom:\n%s", help)
+	}
+}
+
+func TestFocusLinkLineDoesNotSplitTheKey(t *testing.T) {
+	s := newTestShared(t, newTestApp(t), &fakeRunner{})
+	s.Prompts = fakePrompts{status: prompt.Offline}
+	m := tea.Model(New(s, "two-sum"))
+	m = send(m, tea.WindowSizeMsg{Width: 80, Height: 24})
+	view := plain(drain(m, m.Init()))
+	if strings.Contains(view, "(press") || !strings.Contains(view, "https://leetcode.com/problems/two-sum/") {
+		t.Fatalf("link line should show the url on its own:\n%s", view)
 	}
 }
