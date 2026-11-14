@@ -5,7 +5,7 @@
 **Author**: Anirudh Konidala
 **Epic**: rust-rewrite (feature 1)
 
----
+______________________________________________________________________
 
 ## Problem
 
@@ -31,6 +31,7 @@ unchanged.
 ## Requirements
 
 ### Must-have
+
 - Root `Cargo.toml`: package `myleet`, `edition = "2024"`, `rust-version = "1.85"`,
   `license = "MIT"`, one `[[bin]]` named `myleet-rs` at `src/main.rs`.
 - `rust-toolchain.toml` pinning `channel = "stable"` with `rustfmt` and `clippy`.
@@ -48,9 +49,11 @@ unchanged.
 - `Makefile` targets `rs-build` and `rs-test`.
 
 ### Nice-to-have
+
 - `rust` and `cargo` added to the flake `devShell`.
 
 ### Out of scope
+
 - Any ported package (catalog, progress, TUI and so on). Each is its own epic feature.
 - Empty placeholder modules for future ports: modules arrive with the code that fills them.
 - `clap`, `ratatui` or other dependencies. They come with the features that use them.
@@ -86,11 +89,13 @@ None.
 ## Testing Criteria
 
 ### Happy path
+
 - `cargo test`: a unit test checks the version string format with all three values set.
 - A unit test of `run()` in `src/main.rs` calls `version` and asserts exit 0 and a
   `myleet ` prefix. (No top-level `tests/` folder: `CLAUDE.md` forbids one.)
 
 ### Edge cases
+
 - A unit test checks the fallback when values are missing: `myleet (dev)`.
 - A unit test of `run()` calls `validate` and no arguments: exit 2 and stderr mentions
   "not ported yet".

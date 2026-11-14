@@ -46,3 +46,22 @@ jobs:
 
       - name: Check Markdown formatting
         run: find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
+
+  rust:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust from rust-toolchain.toml
+        run: rustup show active-toolchain || rustup toolchain install
+
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Check Rust code
+        run: |
+          cargo fmt --check
+          cargo clippy --all-targets -- -D warnings
+          cargo test

@@ -1,4 +1,4 @@
-.PHONY: install build test vet validate doctor check release clean
+.PHONY: install build test vet validate doctor check release clean rs-build rs-test
 
 PREFIX  ?= $(shell go env GOPATH)
 BINDIR  ?= $(PREFIX)/bin
@@ -33,6 +33,14 @@ check: ## run reference solutions against tests (slow)
 
 release: ## goreleaser snapshot (needs goreleaser installed)
 	goreleaser release --snapshot --clean
+
+rs-build: ## build the Rust port (target/release/myleet-rs)
+	MYLEET_VERSION=$(VERSION) MYLEET_COMMIT=$(COMMIT) MYLEET_DATE=$(DATE) cargo build --release
+
+rs-test: ## fmt, clippy, and test the Rust port
+	cargo fmt --check
+	cargo clippy --all-targets -- -D warnings
+	cargo test
 
 clean:
 	rm -f myleet

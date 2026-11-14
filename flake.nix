@@ -54,6 +54,10 @@
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
           go
+          cargo
+          rustc
+          rustfmt
+          clippy
           git
           uv
           self.packages.${system}.default
