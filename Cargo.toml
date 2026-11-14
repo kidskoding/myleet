@@ -1,0 +1,13 @@
+[package]
+name = "myleet"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+description = "Adaptive LeetCode practice in your terminal"
+repository = "https://github.com/kidskoding/myleet"
+publish = false
+
+[[bin]]
+name = "myleet-rs"
+path = "src/main.rs"

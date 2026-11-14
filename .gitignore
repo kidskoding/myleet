@@ -30,3 +30,6 @@ previous/
 
 # myleet progress (kept outside the repo; ignore it if it ever shows up here)
 .myleet/
+
+# Rust build output
+target/

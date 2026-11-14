@@ -37,7 +37,8 @@ unchanged.
 - `src/main.rs` with `myleet-rs version` / `-v` / `--version` printing
   `myleet <version> (<commit>, <date>)`. Version comes from `MYLEET_VERSION`,
   `MYLEET_COMMIT` and `MYLEET_DATE` at build time (`option_env!`), with the same fallbacks
-  as `internal/version` (`dev`, `none`, `unknown`). Any other argument prints that the
+  as `internal/version` (`dev`, `none`, `unknown`), and `myleet (dev)` when version is
+  `dev` and commit is `none`, exactly like `version.String()`. Any other argument prints that the
   command is not ported yet and exits 2.
 - `Cargo.lock` committed (this is a binary).
 - `target/` added to `.gitignore`.
@@ -69,8 +70,8 @@ None.
 
 ## Edge Cases
 
-1. **No build env vars set** (plain `cargo build`): version prints
-   `myleet dev (none, unknown)`, matching the Go fallback.
+1. **No build env vars set** (plain `cargo build`): version prints `myleet (dev)`,
+   matching the Go fallback.
 2. **Unknown or ported-later command** (`myleet-rs validate`): prints
    `myleet-rs: "validate" is not ported yet; use myleet` to stderr and exits 2. It does not
    panic or silently succeed.
@@ -86,12 +87,12 @@ None.
 
 ### Happy path
 - `cargo test`: a unit test checks the version string format with all three values set.
-- An integration test (`tests/cli.rs`) runs the built binary with `version` and asserts
-  exit 0 and `myleet ` prefix.
+- A unit test of `run()` in `src/main.rs` calls `version` and asserts exit 0 and a
+  `myleet ` prefix. (No top-level `tests/` folder: `CLAUDE.md` forbids one.)
 
 ### Edge cases
-- A unit test checks the fallbacks when values are missing: `myleet dev (none, unknown)`.
-- An integration test runs `validate` and no arguments: exit 2 and stderr mentions
+- A unit test checks the fallback when values are missing: `myleet (dev)`.
+- A unit test of `run()` calls `validate` and no arguments: exit 2 and stderr mentions
   "not ported yet".
 - `cargo fmt --check` and `cargo clippy --all-targets -- -D warnings` pass locally.
 - `go test ./internal/tui/...` and `go vet ./...` still pass (Go untouched).
