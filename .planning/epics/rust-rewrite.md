@@ -31,7 +31,7 @@ code is removed.
 
 | # | Feature | Status | Spec | Plan | Depends On |
 |---|---------|--------|------|------|------------|
-| 1 | Rust crate scaffold + CI | todo | — | — | — |
+| 1 | Rust crate scaffold + CI | spec | [spec](../specs/rust-crate-scaffold.md) | — | — |
 | 2 | Catalog, config, `validate` | todo | — | — | #1 |
 | 3 | Progress log, save state, schedule | todo | — | — | #2 |
 | 4 | Session queue, placement, interview pick, checkpoint, stats | todo | — | — | #3 |
