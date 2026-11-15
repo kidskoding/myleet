@@ -46,7 +46,7 @@ export function whyLine(e: TodayEntry, targetMins: number): string {
   return `You're on the ${here}-day rung. ${rule} moves it to ${next} days`;
 }
 
-export type Budget = "30" | "60" | "all" | "120";
+export type Budget = "plan" | "30" | "60" | "all" | "120";
 
 export const BUDGETS: { id: Budget; label: string; secs: number | null }[] = [
   { id: "30", label: "30 min", secs: 30 * 60 },
@@ -102,14 +102,15 @@ export function weekStrip(states: Record<string, State>, now: Date = new Date())
 const BUDGET_KEY = "myleet:budget";
 
 /** Today's time budget is per day: tomorrow starts back at "All due". */
-export function readBudget(now: Date = new Date()): Budget {
+/** Today's time choice; with a plan, the default is the plan's minutes for today, so finishing Today keeps the plan. */
+export function readBudget(now: Date = new Date(), hasPlan = false): Budget {
   try {
     const v = JSON.parse(localStorage.getItem(BUDGET_KEY) ?? "null") as { day: string; b: Budget } | null;
     if (v && v.day === localDay(now)) return v.b;
   } catch {
     // Default below.
   }
-  return "all";
+  return hasPlan ? "plan" : "all";
 }
 
 export function writeBudget(b: Budget, now: Date = new Date()): void {

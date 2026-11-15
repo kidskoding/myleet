@@ -237,9 +237,10 @@ function weekPanel(c: Ctx): SafeHtml {
     )}</ol></section>`;
 }
 
-function budgetPanel(b: Budget): SafeHtml {
+function budgetPanel(b: Budget, planned: number): SafeHtml {
+  const opts = planned > 0 ? [{ id: "plan" as Budget, label: `Your plan, ${formatMinutes(planned)}` }, ...BUDGETS] : BUDGETS;
   return html`<section class="panel" aria-labelledby="tb"><h2 id="tb">Time today</h2>
-    <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${BUDGETS.map(
+    <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${opts.map(
       (o) => html`<button type="button" data-budget="${o.id}" aria-pressed="${o.id === b ? "true" : "false"}">${o.label}</button>`,
     )}</div></div>
     <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts toward your streak.</p></section>`;
@@ -416,7 +417,8 @@ function paint(c: Ctx): void {
   if (!main || !aside) return;
   if (!signedIn()) return paintGuest(c, main, aside);
   const prefs = readPrefs();
-  const budget = readBudget(c.now);
+  const planned = c.plan?.days[0]?.minutes ?? 0;
+  const budget = readBudget(c.now, planned > 0);
   const skipped = new Set(readSkipped(c.now));
   const extra = budget === "120" ? EXTRA_NEW_FOR_LONG_DAY : 0;
   const states = c.t.states(c.events);
@@ -472,7 +474,7 @@ function paint(c: Ctx): void {
     backlogNote = `${reviews.length} reviews due. Today shows the ${BACKLOG_SHOW} most overdue; the rest roll to tomorrow`;
   }
   const visible = entries.filter((e) => !skipped.has(e.problem));
-  const BUDGET_SECS = BUDGETS.find((b) => b.id === budget)?.secs ?? null;
+  const BUDGET_SECS = budget === "plan" ? planned * 60 : (BUDGETS.find((b) => b.id === budget)?.secs ?? null);
   const queue = fitBudget(visible, BUDGET_SECS, (e) => meta(c.cat, e.problem)?.time_target_secs ?? 1500);
   const mins = (list: TodayEntry[]) => list.reduce((n, e) => n + targetMins(meta(c.cat, e.problem)), 0);
   const work = queue.filter((e) => e.kind !== "practice");
@@ -547,7 +549,7 @@ function paint(c: Ctx): void {
   const next = queueFirst(entries, skipped);
   const nm = next ? meta(c.cat, next) : undefined;
   const skipKey = nm ? `${c.cat.catalog.modules[nm.module]?.id}/${c.cat.catalog.modules[nm.module]?.techniques[nm.technique]?.id}` : null;
-  render(aside, first ? html`` : html`${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget)}`);
+  render(aside, first ? html`` : html`${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget, planned)}`);
   banners(Object.keys(states).length, Object.keys(stats.heatmap).length, c.sample === true);
 }
 
