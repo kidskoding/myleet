@@ -28,16 +28,23 @@ pub fn new_search(_sh: &mut Shared) -> Box<dyn Screen> {
 
 /// The problem screen every other screen opens; `mode` is a `progress::mode` value.
 pub fn new_focus(sh: &mut Shared, problem_id: &str, mode: &str) -> Box<dyn Screen> {
-    let title = sh
-        .app
-        .catalog
-        .problem(problem_id)
-        .map_or(problem_id, |p| p.title.as_str());
-    Box::new(Placeholder {
-        title: format!("{title} ({mode})"),
-        tab: None,
-        kind: Kind::Focus,
-    })
+    let Some(p) = sh.app.catalog.problem(problem_id) else {
+        return Box::new(Placeholder {
+            title: format!("no problem {problem_id:?}"),
+            tab: None,
+            kind: Kind::Focus,
+        });
+    };
+    Box::new(super::focus::Focus::new(sh, p, mode_const(mode)))
+}
+
+/// Modes are compared as constants throughout Focus.
+fn mode_const(mode: &str) -> &'static str {
+    use crate::progress::mode::*;
+    [INTERVIEW, PLACEMENT, CHECKPOINT, DRILL]
+        .into_iter()
+        .find(|m| *m == mode)
+        .unwrap_or(PRACTICE)
 }
 
 struct Placeholder {

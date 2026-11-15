@@ -1,6 +1,7 @@
 //! The interactive trainer: ratatui + crossterm port of internal/tui.
 
 pub mod app;
+mod focus;
 mod help;
 pub mod markdown;
 pub mod screens;

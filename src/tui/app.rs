@@ -392,6 +392,17 @@ impl Shared {
             let _ = tx.send(job());
         });
     }
+
+    /// Messages queued by background jobs, for tests that drive a screen directly.
+    #[cfg(test)]
+    pub(crate) fn queued(&self) -> Vec<Msg> {
+        self.rx.try_iter().collect()
+    }
+
+    #[cfg(test)]
+    pub(crate) fn timer_count(&self) -> usize {
+        self.timers.len()
+    }
 }
 
 fn open_url(url: &str) -> Result<(), String> {
