@@ -44,7 +44,14 @@ describe("Plan copy", () => {
     );
     const none = headCopy({ plan: plan({ interview_date: null }), company: null, name: null, windows: [], today: "2026-11-15" });
     expect(none.title).toBe("Your next four weeks");
-    expect(none.lede).toContain("and the plan adjusts after every solve. Add an interview date whenever you have one and we'll pace everything toward it.");
+    expect(none.lede).toContain("and the plan adjusts after every solve. Keep building a steady practice routine, with reviews that help what you learn stick.");
+  });
+
+  it("supports working toward a company without an interview date", () => {
+    const h = headCopy({ plan: plan({ interview_date: null }), company: "Google", name: "Alex", windows: evenings, weekday: 60, today: "2026-11-15" });
+    expect(h.title).toBe("Your road to Google, Alex");
+    expect(h.lede).toContain("Your plan works toward Google through its practice set");
+    expect(h.lede).not.toContain("days until");
   });
 
   it("groups the forecast into one sentence", () => {
@@ -130,7 +137,7 @@ describe("Plan copy", () => {
     expect(r).toEqual({ solved: 2, clean: 2, best: { title: "Longest Substring", days: 3 } });
     const s = { kept: 3, of: 4, run: 0, onPace: false, slipped: [], days: [{ date: "2026-11-13", status: "done", planned: 60, practised: 60, sessions: 4, kept: 3 }] } as never;
     expect(weeklyCheckin({ standing: s, today: "2026-11-15", windows: [], topics: [], date: null, recap: r })?.body).toBe(
-      "This week you kept three of four sessions and solved two problems, all of them clean. Your best moment: Longest Substring, clean three days after it got the better of you! A few topics are behind. Keep this pace, add a little time, or shift the date if your interview moved.",
+      "This week you kept three of four sessions and solved two problems, all of them clean. Your best moment: Longest Substring, clean three days after it got the better of you! A few topics are behind. Keep this pace, add a little time, or adjust your practice schedule.",
     );
     expect(proseMinutes(1)).toBe("1 minute");
     expect(proseMinutes(150)).toBe("about 3 hours");

@@ -317,7 +317,7 @@ function onClick(e: MouseEvent): void {
     renderDate();
   } else if (t.closest("[data-no-date]")) {
     updatePrefs({ plan: { interviewDate: null } });
-    go("time");
+    go("leetcode");
   } else if (t.closest("[data-change]")) go("goal");
   else if (t.closest("[data-finish-plan]")) {
     const opt = timeOption(readPrefs().plan.dailyMinutes);

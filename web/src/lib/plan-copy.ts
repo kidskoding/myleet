@@ -75,7 +75,7 @@ export function headCopy(o: { plan: Plan; company: string | null; name: string |
   const weekday = o.weekday ?? Math.round(plan.days.filter((d) => !d.off).reduce((m, d) => m + d.minutes, 0) / Math.max(1, plan.days.filter((d) => !d.off).length));
   const planned = `You'll practice ${rhythmPhrase({ weekday, weekend: o.weekend ?? weekday, windows: o.windows })}${mockPart}, and the plan adjusts after every solve.`;
   const after = o.nextAfter ? ` ${o.nextAfter.company ?? "Your next interview"} on ${shortDate(o.nextAfter.date)} comes after that.` : "";
-  if (!date) return { title: `Your next four weeks${you}`, lede: `${planned} Add an interview date whenever you have one and we'll pace everything toward it.` };
+  if (!date) return { title: company ? `Your road to ${company}${you}` : `Your next four weeks${you}`, lede: `${planned}${company ? ` Your plan works toward ${company} through its practice set and the patterns you need to build.` : " Keep building a steady practice routine, with reviews that help what you learn stick."}` };
   const left = daysUntil(date, o.today);
   const when = `${plural(left, "day")} until your ${company ? `${company} ` : ""}interview on ${shortDate(date)}.`;
   return { title: company ? `Your road to ${company}${you}` : `Your road to ${shortDate(date)}${you}`, lede: `${when[0]?.toUpperCase()}${when.slice(1)} ${planned}${after}` };
@@ -221,7 +221,7 @@ export function weeklyCheckin(o: { standing: Standing; today: string; windows: A
   return {
     key: o.today,
     title: "Your weekly check-in",
-    body: `${lead}${best}${moved}${pace}${focus} Keep this pace, add a little time, or shift the date if your interview moved.`,
+    body: `${lead}${best}${moved}${pace}${focus} Keep this pace, add a little time, or ${o.date ? "shift the date if your interview moved" : "adjust your practice schedule"}.`,
   };
 }
 

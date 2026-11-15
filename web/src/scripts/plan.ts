@@ -201,18 +201,18 @@ function currentNote(c: Ctx): PlanNote | null {
   const more = step(WEEKDAY_STEPS, wd, 1);
   const check = weeklyCheckin({ standing: st, today, windows: readPrefs().plan.availability, topics: topicsMoved(c.events, today, topicOf(c)), date: p.interview_date, recap: weekRecap(c.events, today, (id) => c.cat.byId.get(id)?.title ?? null), focus: weekFocus(p) });
   if (check)
-    pool.push({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body, actions: [{ kind: "keep_pace", label: "Keep this pace" }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: "Shift the date" }] } as PlanNote);
+    pool.push({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body, actions: [{ kind: "keep_pace", label: "Keep this pace" }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: p.interview_date ? "Shift the date" : "Adjust your plan" }] } as PlanNote);
   const slip = catchUp(st);
   if (slip)
-    pool.push({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: "Move the date" }] } as PlanNote);
+    pool.push({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: p.interview_date ? "Move the date" : "Adjust your plan" }] } as PlanNote);
   pool.push(...(p.notes ?? []));
   if (c.fixes?.note) pool.push(c.fixes.note);
   if (!p.interview_date && !(p.notes ?? []).some((n) => n.kind === "date_passed"))
     pool.push({
       kind: "no_date" as PlanNote["kind"],
-      title: "No interview yet.",
-      body: "Until you add one, the plan covers the next four weeks. Add your interview, or pick a 15, 30 or 90-day plan, and mocks get closer together as the date nears.",
-      actions: [{ kind: "change_plan", label: "Add an interview" }],
+      title: "Your next four weeks",
+      body: "Keep a steady practice routine or work toward your target companies. Your plan covers the next four weeks and adjusts as you practice. An interview date is optional",
+      actions: [{ kind: "change_plan", label: "Adjust your plan" }],
     });
   return pool.find((n) => !noteDismissed(n)) ?? null;
 }
@@ -696,7 +696,7 @@ function emptyState(c: Ctx): SafeHtml {
   return html`${head(c)}
     <div class="panel state-panel">
       <div><h2>When do you usually practice?</h2>
-        <p>${sug ? html`${raw(sug.text.replace(/\*\*(.+?)\*\*/g, (_m, x: string) => `<b>${x.replace(/[<>&]/g, "")}</b>`))}` : "Tell myleet when you can practice and it lays out every session from now to your interview. For example, choose weekday evenings or weekend mornings"}</p>
+        <p>${sug ? html`${raw(sug.text.replace(/\*\*(.+?)\*\*/g, (_m, x: string) => `<b>${x.replace(/[<>&]/g, "")}</b>`))}` : "Tell myleet when you can practice and it fits your sessions into those hours. For example, choose weekday evenings or weekend mornings"}</p>
         <div class="btns"><button type="button" class="btn btn-primary" data-use-suggest>Use these times</button><button type="button" class="btn btn-secondary" data-act="avail">Choose my own</button></div></div>
       <div><h3>How sessions are scheduled</h3><ol>
         <li>Puts each day's reviews and new problems into sessions inside your windows</li>

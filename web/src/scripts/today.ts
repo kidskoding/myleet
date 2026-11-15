@@ -162,9 +162,9 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   const today = localDay(c.now);
   if (!p.interviewDate) {
     return {
-      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">Your next 4 weeks</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
-        <p class="plan-note">Add an interview date and the plan builds toward it: which techniques to start, a forecast for the date, and mocks closer together near the end</p>
-        <a class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)" href="${ROUTES.settings}#plan">Set date</a></section>`,
+      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">${who ? `Working toward ${who}` : "Your next 4 weeks"}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
+        <p class="plan-note">${who ? `Build toward ${who} with practice and reviews that fit your week` : "Build a steady practice routine, learn new patterns, and review what needs another pass"}</p>
+        <a class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)" href="${ROUTES.settings}#plan">Adjust your goals</a></section>`,
       inline: "",
     };
   }

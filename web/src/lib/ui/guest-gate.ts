@@ -33,14 +33,13 @@ export const signupToToday = (): string => `${signinHref(ROUTES.today)}&mode=sig
 
 /** The diagnostic invitation, aimed at their target company when onboarding named one. */
 export function inviteCopy(company: string | null): SafeHtml {
-  const where = company ? `for your ${company} interview` : "in your interview prep";
-  return html`To find out where you stand ${where}, we'll start with a <strong>diagnostic test</strong>`;
+  return html`Start with a <strong>diagnostic test</strong> to see what you know and where to focus${company ? ` as you work toward ${company}` : ""}`;
 }
 
 const INVITE_STEPS: [string, string][] = [
   ["About 15 minutes", "Two or three real interview problems you code and run, after a few quick warm-up questions"],
   ["Your map, topic by topic", "See what you already know and where you'll grow fastest"],
-  ["A plan built for you", "Every day starts with the right problem, paced to your interview"],
+  ["A plan built for you", "Practice builds on what you know and fits the time you have"],
 ];
 
 /** Numbered step cards: a title and a one-line description each. */
@@ -81,9 +80,9 @@ export function todayResults(greet: string, line: string): SafeHtml {
 const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [string, string][] }> = {
   plan: {
     h: "Your plan",
-    lede: html`A day-by-day schedule built around <strong>your interview</strong>, and it moves with you when a day goes sideways`,
+    lede: html`A day-by-day schedule built around <strong>your goals and free time</strong>, with room to adjust when plans change`,
     steps: [
-      ["Paced to your interview date", "Every practice day builds toward it"],
+      ["Built for what you’re working toward", "Build a practice routine, work toward a company, or prepare for an interview"],
       ["Fits your free hours", "Practice lands in the hours you say you have each week"],
       ["Starts where you're weakest", "What the diagnostic found decides what comes first"],
     ],

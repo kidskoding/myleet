@@ -18,7 +18,7 @@ export const ACCESS = {
   diagnostic: { tier: "guest" },
   mock: { tier: "guest" },
   today: { tier: "account", reason: "Sign up to get a daily plan built from your diagnostic." },
-  "build-plan": { tier: "account", reason: "Sign up to build a plan around your interview date and free hours." },
+  "build-plan": { tier: "account", reason: "Sign up to build a plan around your goals and free hours." },
   progress: { tier: "account", reason: "Sign up to track your streak, mastery and reviews." },
   "save-plan": { tier: "account", reason: "Sign up to save this plan and have it follow you to every device." },
   "calendar-sync": { tier: "account", reason: "Sign up to add your plan to your calendar. It stays up to date as the plan changes." },
