@@ -52,3 +52,40 @@ export async function sendReminder(body: string): Promise<void> {
   if (reg) await reg.showNotification("myleet", opts);
   else new Notification("myleet", opts);
 }
+
+export interface PlannedSession {
+  start_ms: number;
+  title: string;
+  minutes: number;
+}
+
+/** `HH:MM` inside the quiet range, which may wrap past midnight (23:00 to 08:00). */
+export function inQuiet(d: Date, from: string, to: string): boolean {
+  const m = d.getHours() * 60 + d.getMinutes();
+  const [fh = 0, fm = 0] = from.split(":").map(Number);
+  const [th = 0, tm = 0] = to.split(":").map(Number);
+  const a = fh * 60 + fm;
+  const b = th * 60 + tm;
+  if (a === b) return false;
+  return a < b ? m >= a && m < b : m >= a || m < b;
+}
+
+/**
+ * The next session reminder: `lead` minutes before a session still ahead, never inside
+ * the quiet hours, once per session (`sent` holds the start times already reminded).
+ */
+export function nextSessionReminder(
+  now: Date,
+  sessions: PlannedSession[],
+  o: { lead: number; quietFrom: string; quietTo: string; sent: number[] },
+): { delay: number; key: number; body: string } | null {
+  for (const s of [...sessions].sort((a, b) => a.start_ms - b.start_ms)) {
+    if (s.start_ms <= now.getTime() || o.sent.includes(s.start_ms)) continue;
+    const at = new Date(s.start_ms - o.lead * 60_000);
+    if (inQuiet(at, o.quietFrom, o.quietTo)) continue;
+    const time = new Date(s.start_ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }).replace(":00", "");
+    const len = s.minutes < 60 ? `${s.minutes} min` : s.minutes % 60 ? `${Math.floor(s.minutes / 60)} h ${s.minutes % 60}` : `${s.minutes / 60} h`;
+    return { delay: Math.max(0, at.getTime() - now.getTime()), key: s.start_ms, body: `Session at ${time}: ${s.title}. About ${len}.` };
+  }
+  return null;
+}

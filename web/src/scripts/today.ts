@@ -329,6 +329,14 @@ function paint(c: Ctx): void {
   } catch {
     c.skills = null;
   }
+  if (c.plan) {
+    try {
+      const d0 = c.plan.days[0];
+      localStorage.setItem("myleet:sessions", JSON.stringify({ day: d0?.date, sessions: (d0?.sessions ?? []).map((s) => ({ start_ms: s.start_ms, title: s.title, minutes: s.minutes })) }));
+    } catch {
+      // Reminders fall back to the daily time.
+    }
+  }
   const plan = planInfo(c);
   const note = (c.plan?.notes ?? []).find((n) => n.kind !== "date_passed" && !noteDismissed(n));
   const noteHtml = note ? replanNote(note, { dismiss: true, link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : html``;

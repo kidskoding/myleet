@@ -3,7 +3,7 @@
 import { navigate } from "astro:transitions/client";
 import { AUTH_ERRORS, cachedMe, fetchMe, initials, takeReturn, type Me } from "../lib/account";
 import { applyMotionPref, applyTheme, readPrefs, resolvedTheme, toggleTheme } from "../lib/prefs";
-import { lastReminder, reminderDelay, reminderSupport, sendReminder } from "../lib/reminders";
+import { lastReminder, nextSessionReminder, reminderDelay, reminderSupport, sendReminder, type PlannedSession } from "../lib/reminders";
 import { ROUTES } from "../lib/routes";
 import { localDay, readStreak, STREAK_MILESTONES, streakNow } from "../lib/streak";
 import { html } from "../lib/ui/html";
@@ -258,10 +258,44 @@ addEventListener("beforeinstallprompt", (e) => {
 // ---- reminders ----
 
 let reminderTimer: ReturnType<typeof setTimeout> | undefined;
+const SESSION_SENT = "myleet:session-reminded";
+
+/** Today's planned sessions, written by Today and Plan whenever they re-plan. */
+function plannedToday(): PlannedSession[] | null {
+  try {
+    const v = JSON.parse(localStorage.getItem("myleet:sessions") ?? "null") as { day: string; sessions: PlannedSession[] } | null;
+    return v && v.day === localDay() && v.sessions.length ? v.sessions : null;
+  } catch {
+    return null;
+  }
+}
+
+function sentSessions(): number[] {
+  try {
+    return JSON.parse(localStorage.getItem(SESSION_SENT) ?? "[]") as number[];
+  } catch {
+    return [];
+  }
+}
+
 function scheduleReminder(): void {
   clearTimeout(reminderTimer);
   const p = readPrefs();
   if (!p.reminders.on || reminderSupport() !== "granted") return;
+  const sessions = plannedToday();
+  if (sessions) {
+    const r = nextSessionReminder(new Date(), sessions, { lead: p.reminders.lead, quietFrom: p.reminders.quietFrom, quietTo: p.reminders.quietTo, sent: sentSessions() });
+    if (!r) return;
+    reminderTimer = setTimeout(() => {
+      try {
+        localStorage.setItem(SESSION_SENT, JSON.stringify([...sentSessions().filter((t) => t > Date.now() - 86_400_000), r.key]));
+      } catch {
+        // Might remind twice; harmless.
+      }
+      void sendReminder(r.body).then(scheduleReminder);
+    }, r.delay);
+    return;
+  }
   const delay = reminderDelay(new Date(), p.reminders.time, streakNow(readStreak()).solvedToday, lastReminder());
   if (delay === null) return;
   reminderTimer = setTimeout(() => {
@@ -338,5 +372,6 @@ void bootAccount();
 (window.requestIdleCallback ?? ((fn: () => void) => setTimeout(fn, 2000)))(() => void import("./palette"));
 void registerServiceWorker();
 scheduleReminder();
-setInterval(paintStreak, 10 * 60_000);
+// Today and Plan rewrite the day's sessions as they re-plan; pick them up.
+setInterval(() => (paintStreak(), scheduleReminder()), 10 * 60_000);
 
