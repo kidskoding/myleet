@@ -113,11 +113,11 @@ export function forecastLead(o: { forecast: Forecast[]; date: string | null; com
   const one = o.companies.length === 1 ? o.companies[0] : null;
   const many = o.companies.length > 1;
   const by = o.date ? `by ${shortDate(o.date)}` : "in four weeks";
-  if (ready === n) return `At this pace you'll be ready for all ${one ? `${n} of ${one}'s core topics` : many ? `${n} core topics your companies lean on` : `${n} core topics`} ${by}.`;
+  if (ready === n) return `At this pace you'll be ready for all ${one ? `${n} of ${one}'s core topics` : many ? `${n} core topics your companies lean on` : `${n} core topics`} ${by}`;
   const of = one ? `${one}'s ${n} core topics` : many ? `the ${n} core topics your companies lean on` : `${n} core topics`;
-  const extra = o.closeAll && o.closeAll > o.weekday ? ` Adding ${fmtM(o.closeAll - o.weekday)} on weekdays gets you to all of them.` : "";
-  if (!ready) return `None of ${of.replace(/^the /, "the ")} ${n === 1 ? "is" : "are"} on pace ${by} yet.${extra}`;
-  return `At this pace you'll be ready for ${ready} of ${of} ${by}.${extra}`;
+  const extra = o.closeAll && o.closeAll > o.weekday ? ` Adding ${fmtM(o.closeAll - o.weekday)} on weekdays gets you to all of them` : "";
+  if (!ready) return `None of ${of.replace(/^the /, "the ")} ${n === 1 ? "is" : "are"} on pace ${by} yet${extra ? `.${extra}` : ""}`;
+  return `At this pace you'll be ready for ${ready} of ${of} ${by}${extra ? `.${extra}` : ""}`;
 }
 
 /** "You solve mediums in about 22 minutes, a bit faster than the 25-minute target." */
@@ -141,9 +141,9 @@ export function onTrackLine(s: Standing, date: string | null, company: string | 
   if (!s.of) return "";
   const goal = date ? `${company ? `${company} on ` : ""}${shortDate(date)}` : "";
   const pace = s.onPace ? (date ? `you're right on pace for ${goal}` : "you're on pace for the next four weeks") : date ? `a few topics are running behind for ${goal}` : "a few topics are running behind";
-  if (!s.kept) return `Your last ${s.of === 1 ? "session" : `${count(s.of)} sessions`} slipped by, so the work moved forward. Right now ${pace}.`;
+  if (!s.kept) return `Your last ${s.of === 1 ? "session" : `${count(s.of)} sessions`} slipped by, so the work moved forward. Right now ${pace}`;
   const kept = s.kept === s.of ? `You've kept ${s.of === 1 ? "your first session" : `all ${count(s.of)} of your last sessions`}` : `You've kept ${count(s.kept)} of your last ${count(s.of)} sessions`;
-  return `${kept}, and ${pace}.`;
+  return `${kept}, and ${pace}`;
 }
 
 /** "68 minutes", "about 3 hours": minutes inside a sentence. */
@@ -236,7 +236,7 @@ export function weeklyCheckin(o: { standing: Standing; today: string; windows: A
   return {
     key: o.today,
     title: "Your weekly check-in",
-    body: `${lead}${best}${moved}${pace}${focus} Keep this pace, add a little time, or ${o.date ? "shift the date if your interview moved" : "adjust your practice schedule"}.`,
+    body: `${lead}${best}${moved}${pace}${focus} Keep this pace, add a little time, or ${o.date ? "shift the date if your interview moved" : "adjust your practice schedule"}`,
   };
 }
 

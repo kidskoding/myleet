@@ -760,6 +760,8 @@ pub fn diagnosis(c: &Catalog, s: &Skill) -> String {
             s.recent
         );
     }
+    // UI copy never ends a block with a period.
+    out.truncate(out.trim_end_matches('.').len());
     out
 }
 
@@ -1329,7 +1331,7 @@ mod tests {
         assert!(s.weak() && !s.flagged() && s.watch());
         assert!(
             s.diagnosis
-                .ends_with("With 2 attempts this is a first read, not a verdict."),
+                .ends_with("With 2 attempts this is a first read, not a verdict"),
             "{}",
             s.diagnosis
         );

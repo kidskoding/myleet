@@ -143,7 +143,7 @@ function applyIndexFilter(): void {
     if (!any)
       render(
         empty,
-        html`<h2>No set for “${query.trim()}”</h2><p>There is no practice set with that name yet. Try a similar company or continue with the core topics in Learn.</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear-find>Clear search</button></div>`,
+        html`<h2>No set for “${query.trim()}”</h2><p>There is no practice set with that name yet. Try a similar company or continue with the core topics in Learn</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear-find>Clear search</button></div>`,
       );
   }
 }
@@ -230,7 +230,7 @@ function renderLeans(c: Ctx, p: Playlist): void {
   render(
     $("[data-leans]"),
     html`<h2 id="ln">Techniques in this set</h2>
-      <p class="text-small text-muted">Choose a technique to filter the problems.</p>
+      <p class="text-small text-muted">Choose a technique to filter the problems</p>
       <ol>${l.slice(0, 5).map(row)}</ol>
       ${l.length > 5 ? html`<details><summary class="link">Show all ${l.length} techniques</summary><ol>${l.slice(5).map(row)}</ol></details>` : ""}`,
   );

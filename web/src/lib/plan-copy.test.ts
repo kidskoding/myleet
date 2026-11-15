@@ -69,10 +69,10 @@ describe("Plan copy", () => {
     const f = (behind: number) => ({ behind_by: behind, companies: ["Meta"] }) as Forecast;
     const forecast = [...Array.from({ length: 9 }, () => f(0)), ...Array.from({ length: 5 }, () => f(2))];
     expect(forecastLead({ forecast, date: "2026-12-15", companies: ["Meta"], weekday: 60, closeAll: 90 })).toBe(
-      "At this pace you'll be ready for 9 of Meta's 14 core topics by Dec 15. Adding 30 min on weekdays gets you to all of them.",
+      "At this pace you'll be ready for 9 of Meta's 14 core topics by Dec 15. Adding 30 min on weekdays gets you to all of them",
     );
     expect(forecastLead({ forecast: forecast.slice(0, 9), date: null, companies: [], weekday: 60, closeAll: null })).toBe(
-      "At this pace you'll be ready for all 9 core topics in four weeks.",
+      "At this pace you'll be ready for all 9 core topics in four weeks",
     );
   });
 
@@ -106,8 +106,8 @@ describe("Plan copy", () => {
     const s = standing(plan(), events, new Date("2026-11-15T12:00:00"));
     expect(s.days.map((d) => d.status)).toEqual(["done", "missed"]);
     expect([s.kept, s.of]).toEqual([1, 2]);
-    expect(onTrackLine(s, "2026-12-15")).toBe("You've kept one of your last two sessions, and you're right on pace for Dec 15.");
-    expect(onTrackLine(s, "2026-12-15", "Meta")).toBe("You've kept one of your last two sessions, and you're right on pace for Meta on Dec 15.");
+    expect(onTrackLine(s, "2026-12-15")).toBe("You've kept one of your last two sessions, and you're right on pace for Dec 15");
+    expect(onTrackLine(s, "2026-12-15", "Meta")).toBe("You've kept one of your last two sessions, and you're right on pace for Meta on Dec 15");
     expect(catchUp(s)?.title).toBe("Saturday's session didn't happen");
   });
 
@@ -125,9 +125,9 @@ describe("Plan copy", () => {
       .join("\n");
     const s = standing(plan(), events, new Date("2026-11-15T12:00:00"));
     expect([s.kept, s.of, s.slipped.length]).toEqual([1, 2, 1]);
-    expect(onTrackLine(s, null)).toBe("You've kept one of your last two sessions, and you're on pace for the next four weeks.");
+    expect(onTrackLine(s, null)).toBe("You've kept one of your last two sessions, and you're on pace for the next four weeks");
     expect(weeklyCheckin({ standing: s, today: "2026-11-15", windows: [], topics: ["Opposite-End Pointers"], date: "2026-11-27", focus: "Stack Fundamentals" })?.body).toBe(
-      "This week you kept one of two sessions. You moved forward on opposite-end pointers. You're on pace for Nov 27. Next week leans on stack fundamentals, the topic furthest behind. Keep this pace, add a little time, or shift the date if your interview moved.",
+      "This week you kept one of two sessions. You moved forward on opposite-end pointers. You're on pace for Nov 27. Next week leans on stack fundamentals, the topic furthest behind. Keep this pace, add a little time, or shift the date if your interview moved",
     );
     expect(catchUp(s)?.body).toContain("spread those 50 minutes");
   });
@@ -148,7 +148,7 @@ describe("Plan copy", () => {
     expect(r).toEqual({ solved: 2, clean: 2, best: { title: "Longest Substring", days: 3 } });
     const s = { kept: 3, of: 4, run: 0, onPace: false, slipped: [], days: [{ date: "2026-11-13", status: "done", planned: 60, practised: 60, sessions: 4, kept: 3 }] } as never;
     expect(weeklyCheckin({ standing: s, today: "2026-11-15", windows: [], topics: [], date: null, recap: r })?.body).toBe(
-      "This week you kept three of four sessions and solved two problems, all of them clean. Your best moment: Longest Substring, clean three days after it got the better of you! A few topics are behind. Keep this pace, add a little time, or adjust your practice schedule.",
+      "This week you kept three of four sessions and solved two problems, all of them clean. Your best moment: Longest Substring, clean three days after it got the better of you! A few topics are behind. Keep this pace, add a little time, or adjust your practice schedule",
     );
     expect(proseMinutes(1)).toBe("1 minute");
     expect(proseMinutes(150)).toBe("about 3 hours");
