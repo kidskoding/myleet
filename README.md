@@ -35,7 +35,6 @@ find `myleet`.
 | Channel            | Command                                                                                               |
 | ------------------ | ----------------------------------------------------------------------------------------------------- |
 | Install script     | `curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh \| sh`      |
-| Nix                | `nix run github:kidskoding/myleet` or `nix profile install github:kidskoding/myleet`                  |
 | GitHub Releases    | [download a binary](https://github.com/kidskoding/myleet/releases)                                    |
 | Cargo (developers) | `cargo install --git https://github.com/kidskoding/myleet --locked` then put `~/.cargo/bin` on `PATH` |
 

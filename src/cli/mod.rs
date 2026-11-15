@@ -28,7 +28,6 @@ const USAGE: &str = "usage: myleet [command]
 Install (pick one), then run myleet:
 
   curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh | sh
-  nix run github:kidskoding/myleet
   cargo install --git https://github.com/kidskoding/myleet --locked";
 
 /// A writer plus whether it may print colors (a terminal with `NO_COLOR` unset).
