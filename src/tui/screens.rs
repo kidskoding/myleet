@@ -40,6 +40,15 @@ pub fn new_focus(sh: &mut Shared, problem_id: &str, mode: &str) -> Box<dyn Scree
     })
 }
 
+/// The recommended check-in Today's `c` opens (Go `NewInterviewCheckpoint`).
+pub fn new_checkpoint(_sh: &mut Shared) -> Box<dyn Screen> {
+    Box::new(Placeholder {
+        title: "check-in".into(),
+        tab: None,
+        kind: Kind::Other,
+    })
+}
+
 struct Placeholder {
     title: String,
     tab: Option<usize>,
