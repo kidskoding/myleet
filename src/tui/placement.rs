@@ -564,7 +564,8 @@ mod tests {
             .app
             .events
             .iter()
-            .filter(|e| !e.problem.is_empty())
+            // Focus records `opened` itself; placement owns the final outcome events.
+            .filter(|e| !e.problem.is_empty() && e.kind != kind::OPENED)
             .map(|e| (e.kind.as_str(), e.attempt.as_str(), e.mode.as_str()))
             .collect();
         assert_eq!(

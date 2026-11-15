@@ -148,13 +148,10 @@ pub fn run_with<O: Write, E: Write>(
 }
 
 fn launch(a: App, open_id: Option<&str>) -> Result<(), String> {
-    if open_id.is_some() {
-        return Err("opening a problem is not ported yet; use myleet".into());
-    }
     if !std::io::stdout().is_terminal() {
         return Err("the trainer needs a terminal".into());
     }
-    crate::tui::run(crate::tui::Shared::new(a)).map_err(|e| e.to_string())
+    crate::tui::run(crate::tui::Shared::new(a), open_id).map_err(|e| e.to_string())
 }
 
 #[cfg(test)]
@@ -223,14 +220,13 @@ mod tests {
     }
 
     #[test]
-    fn trainer_needs_a_terminal_and_open_waits_for_focus() {
+    fn trainer_and_open_need_a_terminal() {
         let e = TestEnv::new("good");
-        let (code, out) = call(&e, &[]);
-        assert_eq!(code, 1);
-        assert!(out.contains("needs a terminal"), "{out}");
-        let (code, out) = call(&e, &["open", "p-one"]);
-        assert_eq!(code, 1);
-        assert!(out.contains("not ported yet"), "{out}");
+        for args in [&[][..], &["open", "p-one"][..]] {
+            let (code, out) = call(&e, args);
+            assert_eq!(code, 1, "{args:?}");
+            assert!(out.contains("needs a terminal"), "{args:?}: {out}");
+        }
     }
 
     #[test]

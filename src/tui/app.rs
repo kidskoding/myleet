@@ -2,6 +2,9 @@
 //! status line and help modal. Ported from internal/tui/app.go.
 
 use std::any::Any;
+use std::path::Path;
+use std::process::Command;
+use std::sync::Arc;
 use std::sync::mpsc::{self, Receiver, Sender};
 use std::time::{Duration, Instant};
 
@@ -14,6 +17,9 @@ use super::screens;
 use super::theme::Theme;
 use super::ui::{self, Key, Lines};
 use super::widgets::TAB_BAR_HEIGHT;
+use crate::catalog::Problem;
+use crate::prompt::PromptResult;
+use crate::runner::RunResult;
 
 pub const TAB_NAMES: [&str; 5] = ["today", "map", "timed", "playlists", "stats"];
 
@@ -145,6 +151,9 @@ pub enum Msg {
     Custom(Box<dyn Any + Send>),
 }
 
+/// Builds the message delivered when an `Exec` command exits.
+pub type ExecDone = Box<dyn FnOnce(Result<(), String>) -> Msg + Send>;
+
 /// What a screen asks the app to do after handling a message.
 #[derive(Default)]
 pub enum Cmd {
@@ -157,6 +166,10 @@ pub enum Cmd {
     Tab(usize),
     Quit,
     Batch(Vec<Cmd>),
+    /// Suspends the terminal, runs the command (an editor), resumes, then delivers done.
+    Exec(Command, ExecDone),
+    /// Puts text on the system clipboard (OSC 52).
+    Copy(String),
 }
 
 /// Lets the app treat a few screens specially, like the Go type switches on
@@ -211,6 +224,33 @@ pub trait Screen {
     fn close(&mut self, _sh: &mut Shared) {}
 }
 
+/// Runs one problem's tests; swapped for a fake in tests.
+pub trait TestRunner: Send + Sync {
+    fn run(&self, test_file: &Path, code_file: &Path) -> RunResult;
+}
+
+impl TestRunner for crate::runner::Runner {
+    fn run(&self, test_file: &Path, code_file: &Path) -> RunResult {
+        crate::runner::Runner::run(self, test_file, code_file)
+    }
+}
+
+/// Finds a problem's statement; swapped for a fake in tests.
+pub trait PromptSource: Send + Sync {
+    fn get(&self, p: &Problem) -> PromptResult;
+}
+
+impl PromptSource for crate::prompt::Source {
+    fn get(&self, p: &Problem) -> PromptResult {
+        crate::prompt::Source::get(self, p)
+    }
+}
+
+/// Opens a URL in the browser.
+pub type OpenFn = Box<dyn Fn(&str) -> Result<(), String>>;
+
+pub type WatchFn = fn(&Path, Duration) -> notify::Result<crate::watch::FileWatch>;
+
 /// State every screen can reach.
 pub struct Shared {
     pub theme: Theme,
@@ -218,6 +258,13 @@ pub struct Shared {
     pub app: crate::app::App,
     /// An error that stays on screen until restart (e.g. a failed save).
     pub status: String,
+    pub runner: Arc<dyn TestRunner>,
+    pub prompts: Arc<dyn PromptSource>,
+    /// None turns off rerun-on-save.
+    pub watch: Option<WatchFn>,
+    pub open: OpenFn,
+    /// Tests run background jobs inline so their messages are queued deterministically.
+    pub(crate) inline_jobs: bool,
     toast: String,
     toast_id: u64,
     timers: Vec<(Instant, Msg)>,
@@ -233,12 +280,65 @@ pub(crate) fn test_shared() -> Shared {
     let workspace = crate::workspace::Workspace {
         dir: dir.join("work"),
     };
-    Shared::new(crate::app::App::new(
+    let mut sh = Shared::new(crate::app::App::new(
         crate::testutil::good_catalog(),
         log,
         events,
         workspace,
-    ))
+    ));
+    // Like Go's newTestShared: no network, no python, no watcher, no browser.
+    sh.runner = Arc::new(FakeRunner::default());
+    sh.prompts = Arc::new(FakePrompts::default());
+    sh.watch = None;
+    sh.open = Box::new(|_| Ok(()));
+    sh.inline_jobs = true;
+    sh
+}
+
+/// Returns its results in order, repeating the last; a default result when empty.
+#[cfg(test)]
+#[derive(Default)]
+pub(crate) struct FakeRunner {
+    pub results: Vec<RunResult>,
+    pub calls: std::sync::atomic::AtomicUsize,
+}
+
+#[cfg(test)]
+impl TestRunner for FakeRunner {
+    fn run(&self, _test: &Path, _code: &Path) -> RunResult {
+        let n = self.calls.fetch_add(1, std::sync::atomic::Ordering::SeqCst);
+        match self.results.len() {
+            0 => RunResult::default(),
+            len => self.results[n.min(len - 1)].clone(),
+        }
+    }
+}
+
+#[cfg(test)]
+pub(crate) struct FakePrompts {
+    pub md: String,
+    pub status: crate::prompt::Status,
+}
+
+#[cfg(test)]
+impl Default for FakePrompts {
+    fn default() -> FakePrompts {
+        FakePrompts {
+            md: String::new(),
+            status: crate::prompt::Status::NoSource,
+        }
+    }
+}
+
+#[cfg(test)]
+impl PromptSource for FakePrompts {
+    fn get(&self, _p: &Problem) -> PromptResult {
+        PromptResult {
+            markdown: self.md.clone(),
+            status: self.status,
+            err: None,
+        }
+    }
 }
 
 impl Shared {
@@ -246,6 +346,11 @@ impl Shared {
         let (tx, rx) = mpsc::channel();
         Shared {
             theme: Theme::new(),
+            runner: Arc::new(app.runner.clone()),
+            prompts: Arc::new(app.prompts.clone()),
+            watch: Some(crate::watch::file),
+            open: Box::new(open_url),
+            inline_jobs: false,
             app,
             status: String::new(),
             toast: String::new(),
@@ -275,6 +380,45 @@ impl Shared {
     pub fn sender(&self) -> Sender<Msg> {
         self.tx.clone()
     }
+
+    /// Runs blocking work off the UI thread and delivers its message to every screen.
+    pub fn spawn(&self, job: impl FnOnce() -> Msg + Send + 'static) {
+        let tx = self.tx.clone();
+        if self.inline_jobs {
+            let _ = tx.send(job());
+            return;
+        }
+        std::thread::spawn(move || {
+            let _ = tx.send(job());
+        });
+    }
+
+    /// Messages queued by background jobs, for tests that drive a screen directly.
+    #[cfg(test)]
+    pub(crate) fn queued(&self) -> Vec<Msg> {
+        self.rx.try_iter().collect()
+    }
+
+    #[cfg(test)]
+    pub(crate) fn timer_count(&self) -> usize {
+        self.timers.len()
+    }
+}
+
+fn open_url(url: &str) -> Result<(), String> {
+    let program = if cfg!(target_os = "macos") {
+        "open"
+    } else {
+        "xdg-open"
+    };
+    Command::new(program)
+        .arg(url)
+        .stdin(std::process::Stdio::null())
+        .stdout(std::process::Stdio::null())
+        .stderr(std::process::Stdio::null())
+        .spawn()
+        .map(|_| ())
+        .map_err(|e| e.to_string())
 }
 
 pub struct App {
@@ -285,6 +429,8 @@ pub struct App {
     help: bool,
     seen_toast: u64,
     quit: bool,
+    exec: Option<(Command, ExecDone)>,
+    clipboard: Option<String>,
 }
 
 impl App {
@@ -298,10 +444,29 @@ impl App {
             help: false,
             seen_toast: 0,
             quit: false,
+            exec: None,
+            clipboard: None,
         };
         let cmd = app.stack[0].init(&mut app.sh);
         app.apply(cmd);
         app
+    }
+
+    /// Opens a problem over Today, like Go's `tui.New(s, openID)`; unknown ids are ignored.
+    pub fn open_problem(&mut self, id: &str) {
+        if self.sh.app.catalog.problem(id).is_some() {
+            let f = screens::new_focus(&mut self.sh, id, crate::progress::mode::PRACTICE);
+            self.push(f);
+        }
+    }
+
+    /// The command a screen asked to run with the terminal suspended.
+    pub fn take_exec(&mut self) -> Option<(Command, ExecDone)> {
+        self.exec.take()
+    }
+
+    pub fn take_clipboard(&mut self) -> Option<String> {
+        self.clipboard.take()
     }
 
     pub fn top(&self) -> &dyn Screen {
@@ -447,6 +612,8 @@ impl App {
                 self.quit = true;
             }
             Cmd::Tab(i) => self.switch_tab(i),
+            Cmd::Exec(c, done) => self.exec = Some((c, done)),
+            Cmd::Copy(text) => self.clipboard = Some(text),
             Cmd::Push(s) => self.push(s),
             Cmd::Jump(s) => {
                 if self.stack.len() > 1 {

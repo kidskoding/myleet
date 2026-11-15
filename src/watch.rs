@@ -54,6 +54,14 @@ pub fn file(path: &Path, debounce: Duration) -> notify::Result<FileWatch> {
     })
 }
 
+impl FileWatch {
+    /// Splits the handle so a thread can block on `events`; the watch runs until the
+    /// returned watcher is dropped.
+    pub fn into_parts(self) -> (Receiver<()>, RecommendedWatcher) {
+        (self.events, self._watcher)
+    }
+}
+
 fn relevant(ev: &Event, name: &OsString) -> bool {
     let kind_ok = match ev.kind {
         EventKind::Create(_) => true,
