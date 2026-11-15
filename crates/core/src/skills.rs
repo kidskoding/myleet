@@ -675,20 +675,45 @@ fn latest<'s, 'a>(scored: &'s [Scored<'a>], f: impl Fn(&Scored) -> bool) -> Opti
     scored.iter().rev().find(|s| f(s))
 }
 
-/// "Grid DFS" reads as "grid DFS" mid-sentence; "1D DP" stays as it is.
+/// Proper nouns among technique titles keep their capital mid-sentence.
+const PROPER: [&str; 1] = ["Kadane"];
+
+/// Catalog titles are Title Case; mid-sentence they read "grid DFS", "merge and split",
+/// "top-K", "GCD and LCM": capitalised words drop to lowercase, acronyms and names stay.
 pub fn mid_sentence(title: &str) -> String {
-    let first = title.split_whitespace().next().unwrap_or("");
-    let shouty = first
-        .chars()
-        .filter(|c| c.is_alphabetic())
-        .all(|c| c.is_uppercase());
-    if shouty {
-        return title.to_string();
+    let word = |w: &str| {
+        let mut cs = w.chars();
+        let titled = cs.next().is_some_and(char::is_uppercase)
+            && w.chars().count() > 1
+            && cs.all(|c| !c.is_uppercase());
+        if titled && !PROPER.contains(&w) {
+            w.to_lowercase()
+        } else {
+            w.to_string()
+        }
+    };
+    title
+        .split(' ')
+        .map(|w| w.split('-').map(word).collect::<Vec<_>>().join("-"))
+        .collect::<Vec<_>>()
+        .join(" ")
+}
+
+#[cfg(test)]
+#[test]
+fn mid_sentence_keeps_acronyms_and_names() {
+    for (a, b) in [
+        ("Grid DFS", "grid DFS"),
+        ("Merge And Split", "merge and split"),
+        ("1D DP", "1D DP"),
+        ("Top-K", "top-K"),
+        ("K-Way Merge", "K-way merge"),
+        ("GCD And LCM", "GCD and LCM"),
+        ("Kadane", "Kadane"),
+        ("Root-To-Leaf Paths", "root-to-leaf paths"),
+    ] {
+        assert_eq!(mid_sentence(a), b);
     }
-    let mut cs = title.chars();
-    cs.next().map_or(String::new(), |f| {
-        f.to_lowercase().collect::<String>() + cs.as_str()
-    })
 }
 
 /// The plain-words reading of a technique: counts first, then the cause, then what was right.

@@ -275,6 +275,9 @@ pub struct Coverage {
     pub companies: Vec<String>,
     pub goal: usize,
     pub started_now: usize,
+    /// Started problems already on the mastered rung.
+    #[serde(default)]
+    pub mastered_now: usize,
     pub projected: usize,
     /// `on_track` or `behind`.
     pub status: String,
@@ -773,7 +776,11 @@ fn session_title(items: &[PlanItem]) -> String {
     if count(ItemKind::Note) > 0 {
         parts.push("note".into());
     }
-    parts.join(" + ")
+    let mut cs = parts.join(", ").chars().collect::<Vec<_>>();
+    if let Some(c) = cs.first_mut() {
+        *c = c.to_ascii_uppercase();
+    }
+    cs.into_iter().collect()
 }
 
 /// Builds the plan with its re-plan notes. `tz_name` is echoed into the plan for
@@ -1455,6 +1462,15 @@ fn build(
                 .map_or(vec![], |v| v.iter().map(|x| x.0.clone()).collect()),
             goal: t.goal,
             started_now: s.seen,
+            mastered_now: tech
+                .problems
+                .iter()
+                .filter(|&&i| {
+                    states
+                        .get(&c.problems()[i].id)
+                        .is_some_and(|st| st.status == Status::Mastered)
+                })
+                .count(),
             projected,
             status: if behind_by == 0 { "on_track" } else { "behind" }.into(),
             behind_by,
