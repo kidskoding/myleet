@@ -1,4 +1,5 @@
 // Today (/app): built live from the wasm trainer and local progress.
+import { editGoalsLabel, editGoalsLink } from "../lib/ui/goals-editor";
 import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
 import { signedIn } from "../lib/account";
@@ -173,7 +174,7 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
           const pct = Math.round((r.ready / Math.max(1, r.tracked)) * 100);
           return html`<li><span class="gr-name">${r.kind === "company" ? companyLogo(r.id, "ready-logo") : ""}${r.name}</span><span class="gr-n"><b>${r.ready}</b> of ${r.tracked} ready</span><span class="ready-bar" role="meter" aria-label="${r.name}: ${r.ready} of ${r.tracked} problems ready" aria-valuemin="0" aria-valuemax="${r.tracked}" aria-valuenow="${r.ready}"><span style="width:${pct}%"></span></span></li>`;
         })}</ul>` : ""}
-        <a class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)" href="${ROUTES.settings}#plan">Adjust your goals</a></section>`,
+        <div class="goal-actions">${editGoalsLink()}</div></section>`,
       inline: "",
     };
   }
@@ -182,7 +183,7 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
     return {
       panel: html`<section class="panel" aria-labelledby="cd"><h2 id="cd">${title}</h2>
         <p class="plan-note">Your ${who ? `${who} ` : ""}interview date was ${shortDate(p.interviewDate)}. Keep practicing or set a date for your next interview</p>
-        <div style="display:flex;gap:var(--space-2);margin-top:var(--space-4);flex-wrap:wrap"><a class="btn btn-secondary btn-sm" href="${ROUTES.settings}#plan">Set a new date</a><button class="btn btn-ghost btn-sm" type="button" data-remove-date>Keep practicing without a date</button></div></section>`,
+        <div class="goal-actions"><a class="btn btn-secondary btn-sm" href="${ROUTES.goals}">${editGoalsLabel()}</a><button class="btn btn-ghost btn-sm" type="button" data-remove-date>Keep practicing without a date</button></div></section>`,
       inline: "",
     };
   }
@@ -196,6 +197,7 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
       ${readiness(c, p.interviewDate)}
       ${rows.length ? html`<div class="fc">${forecastRows(rows, { date: p.interviewDate })}</div>` : ""}
       <p class="fineprint">${rows.length ? "If you keep to the plan. Behind by N means N problems short on the date" : (c.plan?.summary.headline ?? "")}</p>
+      <div class="goal-actions">${editGoalsLink()}</div>
     </section>`,
     inline,
   };

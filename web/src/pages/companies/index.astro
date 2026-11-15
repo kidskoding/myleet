@@ -4,7 +4,7 @@ import Base from "../../layouts/Base.astro";
 import { buildCatalog } from "../../lib/build-catalog";
 import { companySlug, listedCompany } from "../../lib/catalog";
 import { companyLogo } from "../../lib/company-logos";
-import { companyHref } from "../../lib/routes";
+import { companyHref, ROUTES } from "../../lib/routes";
 import { icon } from "../../lib/ui/icons";
 import type { PlaylistGroup } from "../../lib/types";
 
@@ -22,7 +22,7 @@ const total = c.playlists.length;
 const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 ---
 
-<Base title="Companies" nav="companies" description={`${total} curated company practice sets, most asked problems first. Pin the companies you're interviewing with and your plan mixes their problems in.`}>
+<Base title="Companies" nav="companies" description={`${total} curated company practice sets, most asked problems first. Add the companies you're aiming for to your goals and your plan mixes their problems in.`}>
   <div class="page cos" data-cos="index">
     <div class="head">
       <div>
@@ -33,7 +33,7 @@ const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     </div>
 
     <section class="pinned when-in" aria-labelledby="pn" data-pinned hidden>
-      <div class="section-head"><h2 id="pn">Your companies</h2><span class="meta">Pinned to your plan</span></div>
+      <div class="section-head"><h2 id="pn">Your dream companies</h2><a class="btn btn-secondary btn-sm" href={ROUTES.goals}><Fragment set:html={icon("target").value} />Edit goals</a></div>
       <ul class="panel pin-list" data-pin-list></ul>
     </section>
 

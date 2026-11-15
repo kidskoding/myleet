@@ -298,13 +298,13 @@ function renderPin(p: Playlist): void {
   if (b) {
     b.setAttribute("aria-pressed", String(pinned));
     b.className = `btn ${pinned ? "btn-secondary" : "btn-primary"}`;
-    b.textContent = pinned ? "Unpin" : "Pin to your plan";
+    b.textContent = pinned ? "Remove from goals" : "Add to my goals";
   }
   const note = $("[data-pinned-note]");
   if (note) {
     const date = readPrefs().plan.interviewDate;
     note.hidden = !pinned;
-    note.textContent = `Pinned. Your plan leans toward ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
+    note.textContent = `One of your dream companies. Your plan leans toward ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
   }
 }
 
@@ -314,7 +314,7 @@ function togglePin(p: Playlist): void {
   const pinned = before.includes(slug);
   updatePrefs({ plan: { companies: pinned ? before.filter((s) => s !== slug) : [...before, slug] } });
   rerender();
-  toast(pinned ? `${p.title} unpinned` : `${p.title} pinned to your plan`, {
+  toast(pinned ? `${p.title} removed from your dream companies` : `${p.title} added to your dream companies`, {
     action: {
       label: "Undo",
       run: () => {

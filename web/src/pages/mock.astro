@@ -1,5 +1,6 @@
 ---
 import { Ellipsis, EyeOff, GitCommitHorizontal, Search, Timer } from "lucide-static";
+import Icon from "../components/Icon.astro";
 import Base from "../layouts/Base.astro";
 import { buildCatalog } from "../lib/build-catalog";
 import { listedCompany } from "../lib/catalog";
@@ -73,7 +74,7 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
     </div>
 
     <dialog class="dlg company-picker-dialog" id="company-picker-dialog" data-company-dialog aria-labelledby="company-picker-title">
-      <div class="dlg-head"><h2 id="company-picker-title">Choose companies</h2><button class="icon-btn" type="button" data-company-close aria-label="Close company picker">×</button></div>
+      <div class="dlg-head"><h2 id="company-picker-title">Choose companies</h2><button class="icon-btn" type="button" data-company-close aria-label="Close company picker"><Icon name="x" /></button></div>
       <div class="company-search"><input class="input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="company-picker-results" aria-label="Search companies" placeholder="Search companies" autocomplete="off" data-company-search /></div>
       <div class="company-results" id="company-picker-results" role="listbox" aria-multiselectable="true" aria-label="Companies" data-company-results></div>
       <div class="company-picker-foot"><span data-company-count aria-live="polite"></span><button class="btn btn-primary btn-sm" type="button" data-company-done>Done</button></div>
