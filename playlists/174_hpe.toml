@@ -1,8 +1,26 @@
+# Sources (checked 2026-11-15):
+# - HPE Glassdoor report (Sep 2024): https://www.glassdoor.sg/Interview/Hewlett-Packard-Enterprise-HPE-Interview-E1093046-RVW93462478.htm
+# - HPE Jointaro Bengaluru report: https://www.jointaro.com/interviews/companies/hewlett-packard-enterprise/experiences/software-engineer-bengaluru-karnataka-october-12-2024-no-offer-neutral-b0d04d26
 title = "Hewlett Packard Enterprise"
 group = "Consumer and Business Tech"
-focus = "linked lists, sliding window, arrays/strings, DP, backtracking, and systems-flavored C++ fundamentals."
+focus = "Easy to medium rounds led by linked lists (reversal, cycle removal), then trees, graphs and arrays, with OS and resume questions."
 review_modules = ["04_sliding_window", "06_linked_lists", "08_heaps", "09_backtracking", "11_dp"]
 
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Linked List Cycle II"
+url = "https://leetcode.com/problems/linked-list-cycle-ii/"
+
+[[entries]]
+title = "Flatten Binary Tree to Linked List"
+url = "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Count Number of Maximum Bitwise-OR Subsets"
@@ -55,10 +73,6 @@ url = "https://leetcode.com/problems/wiggle-subsequence/"
 [[entries]]
 title = "Count Paths That Can Form a Palindrome in a Tree"
 url = "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/"
-
-[[entries]]
-title = "Linked List Cycle II"
-url = "https://leetcode.com/problems/linked-list-cycle-ii/"
 
 [[entries]]
 title = "Squares of a Sorted Array"
@@ -191,7 +205,3 @@ url = "https://leetcode.com/problems/closest-prime-numbers-in-range/"
 [[entries]]
 title = "Convert to Base -2"
 url = "https://leetcode.com/problems/convert-to-base-2/"
-
-[[entries]]
-title = "Design Skiplist"
-url = "https://leetcode.com/problems/design-skiplist/"

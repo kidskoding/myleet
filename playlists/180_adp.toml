@@ -1,8 +1,22 @@
+# Sources (checked 2026-11-15):
+# - ADP Glassdoor SDE reports (2025): https://www.glassdoor.com/Interview/ADP-Software-Development-Engineer-SDE-Interview-Questions-EI_IE64.0,3_KO4,37.htm
+# - ADP AmbitionBox associate software engineer reports: https://www.ambitionbox.com/interviews/automatic-data-processing-adp-interview-questions/associate-software-engineer
 title = "ADP"
 group = "Consumer and Business Tech"
-focus = "Payroll-style array, interval, greedy and sliding window problems with two pointers and trees."
+focus = "Easy LeetCode-style problems (linked list reversal, binary search trees) after resume questions, with SQL and language fundamentals."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "02_two_pointers", "12_greedy_algorithms", "04_sliding_window", "07_trees"]
 
+[[entries]]
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Search in a Binary Search Tree"
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
 
 [[entries]]
 title = "Mark Elements on Array by Performing Queries"

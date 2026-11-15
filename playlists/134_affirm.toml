@@ -1,8 +1,14 @@
+# Sources (checked 2026-11-15):
+# - Affirm Jointaro Canada report (Jul 2025): https://www.jointaro.com/interviews/companies/affirm/experiences/software-engineer-canada-july-1-2025-accepted-offer-positive-4705fc45
+# - Affirm Interview Query guide (2025): https://www.interviewquery.com/guides/affirm-software-engineer
 title = "Affirm"
 group = "Consumer and Business Tech"
-focus = "DP, arrays, prefix sums, financial-style state transitions, intervals, graphs, heaps, and data-structure design."
+focus = "A LeetCode-style online assessment, then practical coding rounds with arrays and hashing, a randomized set design, and extend-the-simulation follow-ups."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "16_math_geometry", "17_advanced"]
 
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
 title = "Maximum OR"

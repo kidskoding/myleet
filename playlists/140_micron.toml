@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Micron Jointaro Visakhapatnam report (Sep 2025): https://www.jointaro.com/interviews/companies/micron-technology/experiences/software-engineer-visakhapatnam-andhra-pradesh-september-1-2025-no-offer-positive-892e5d34
+# - Micron Jointaro India report (Nov 2025): https://www.jointaro.com/interviews/companies/micron-technology/experiences/software-engineer-india-november-18-2025-no-offer-neutral-60c00544
 title = "Micron"
 group = "Consumer and Business Tech"
-focus = "arrays/strings, bit manipulation, number problems, trees, graphs, and intervals."
+focus = "An online test with two easy to medium DSA questions (prefix products, tries), then tree and graph questions and resume-based rounds."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "15_bit_manipulation", "16_math_geometry"]
 
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
 title = "Binary Tree Zigzag Level Order Traversal"

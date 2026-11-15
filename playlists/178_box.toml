@@ -1,8 +1,22 @@
+# Sources (checked 2026-11-15):
+# - Box Glassdoor report (2025): https://www.glassdoor.sg/Interview/Box-Interview-E254092-RVW96789882.htm
+# - Box Glassdoor report (2025): https://www.glassdoor.ca/Interview/Box-Interview-E254092-RVW91405966.htm
 title = "Box"
 group = "Consumer and Business Tech"
-focus = "File-tree and folder-style problems with trees, graphs, linked lists, tries and stacks."
+focus = "Medium hash map and heap problems (top K frequent words), bit manipulation and primes, plus an open-ended design round such as an elevator system."
 review_modules = ["07_trees", "01_arrays_and_hashing", "10_graphs", "06_linked_lists", "03_stacks_and_queues", "14_tries"]
 
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Count Primes"
+url = "https://leetcode.com/problems/count-primes/"
+
+[[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
 
 [[entries]]
 title = "Number of Perfect Pairs"

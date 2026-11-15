@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Rubrik LeetCode Discuss G5 report (2025): https://leetcode.com/discuss/interview-experience/6794886
+# - Rubrik Jointaro Santa Clara report (Nov 2025): https://www.jointaro.com/interviews/companies/rubrik/experiences/software-engineer-santa-clara-california-november-1-2025-no-offer-neutral-51f48bc0
+# - Rubrik Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/rubrik/experiences/software-engineer-october-16-2025-no-offer-neutral-47ccdcfd
 title = "Rubrik"
 group = "Consumer and Business Tech"
-focus = "design data structures, intervals, greedy, math, trees"
+focus = "Medium to hard rounds with topological sort, binary lifting and time-window counting, plus system coding rounds on concurrency and low-level design."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "13_intervals", "18_mixed_interview_practice"]
 
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Kth Ancestor of a Tree Node"
+url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
+
+[[entries]]
+title = "Count Zero Request Servers"
+url = "https://leetcode.com/problems/count-zero-request-servers/"
 
 [[entries]]
 title = "Maximum Points After Enemy Battles"
@@ -55,10 +70,6 @@ url = "https://leetcode.com/problems/maximum-subsequence-score/"
 [[entries]]
 title = "Find X Value of Array II"
 url = "https://leetcode.com/problems/find-x-value-of-array-ii/"
-
-[[entries]]
-title = "Count Zero Request Servers"
-url = "https://leetcode.com/problems/count-zero-request-servers/"
 
 [[entries]]
 title = "Add Digits"
@@ -195,7 +206,3 @@ url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are
 [[entries]]
 title = "Mirror Reflection"
 url = "https://leetcode.com/problems/mirror-reflection/"
-
-[[entries]]
-title = "Range Module"
-url = "https://leetcode.com/problems/range-module/"

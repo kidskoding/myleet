@@ -1,8 +1,22 @@
+# Sources (checked 2026-11-15):
+# - HP Glassdoor report (2025): https://www.glassdoor.sg/Interview/HP-Inc-Interview-E1093161-RVW95484205.htm
+# - HP Glassdoor software developer intern reports: https://www.glassdoor.co.uk/Interview/HP-Inc-Software-Developer-Intern-Interview-Questions-EI_IE1093161.0,6_KO7,32.htm
 title = "HP"
 group = "Consumer and Business Tech"
-focus = "arrays/strings, linked lists, stacks, hashing, trees, and C/OOP fundamentals."
+focus = "Mostly easy online tests with two coding problems (grids, strings, duplicates), then project and CS fundamentals rounds."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Roman to Integer"
+url = "https://leetcode.com/problems/roman-to-integer/"
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
 title = "Spiral Matrix IV"

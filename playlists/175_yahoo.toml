@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Yahoo Jointaro Mumbai report (Aug 2025): https://www.jointaro.com/interviews/companies/yahoo/experiences/software-development-engineer-sde-mumbai-august-6-2025-declined-offer-negative-4dab2a80
+# - Yahoo Jointaro intern report (Feb 2025): https://www.jointaro.com/interviews/companies/yahoo/experiences/software-engineerinternship-united-states-february-1-2025-no-offer-neutral-170ae53c
 title = "Yahoo"
 group = "Consumer and Business Tech"
-focus = "graphs and bfs, union-find, hash maps and ordered sets, trees, linked lists, strings, and design"
+focus = "Easy to medium CoderPad rounds (hash maps, monotonic stacks), occasionally a harder DP or graph problem, plus project questions."
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "17_advanced"]
 
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
 title = "Most Stones Removed with Same Row or Column"

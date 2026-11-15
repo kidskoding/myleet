@@ -1,8 +1,22 @@
+# Sources (checked 2026-11-15):
+# - Splunk Glassdoor SDE reports (2025): https://www.glassdoor.com/Interview/Splunk-Software-Development-Engineer-SDE-Interview-Questions-EI_IE117313.0,6_KO7,40.htm
+# - Splunk Glassdoor software engineer reports (2025): https://www.glassdoor.co.uk/Interview/Splunk-Software-Engineer-Interview-Questions-EI_IE117313.0,6_KO7,24.htm
 title = "Splunk"
 group = "Consumer and Business Tech"
-focus = "logs/streams, hashing, sliding windows, heaps, and design-style data structures."
+focus = "Karat-style rounds with easy to medium problems on sequences, sliding windows, tree traversals and DFS, plus a recursion or DP question."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "17_advanced", "10_graphs"]
 
+[[entries]]
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Reorder Data in Log Files"

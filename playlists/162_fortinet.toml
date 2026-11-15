@@ -1,8 +1,26 @@
+# Sources (checked 2026-11-15):
+# - Fortinet Jointaro Vancouver report (Nov 2025): https://www.jointaro.com/interviews/companies/fortinet/experiences/software-engineer-vancouver-british-columbia-november-13-2025-no-offer-positive-87a8832c
+# - Fortinet Glassdoor report (2025): https://www.glassdoor.ca/Interview/Fortinet-Interview-E23128-RVW99845578.htm
 title = "Fortinet"
 group = "Consumer and Business Tech"
-focus = "Bit manipulation, stack parsing, trie matching, graph traversal and hash map problems."
+focus = "Linked list, bit counting and binary search tree coding (often in C), with operating systems and networking fundamentals."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "14_tries", "16_math_geometry"]
 
+[[entries]]
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+
+[[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
 
 [[entries]]
 title = "Unique Substrings With Equal Digit Frequency"
@@ -19,10 +37,6 @@ url = "https://leetcode.com/problems/beautiful-towers-i/"
 [[entries]]
 title = "Count Prefix and Suffix Pairs II"
 url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
-
-[[entries]]
-title = "Delete Node in a Linked List"
-url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
 
 [[entries]]
 title = "Reshape the Matrix"

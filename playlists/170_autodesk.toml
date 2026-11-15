@@ -1,8 +1,30 @@
+# Sources (checked 2026-11-15):
+# - Autodesk LeetCode Discuss Bengaluru report (Nov 2025): https://leetcode.com/discuss/interview-experience/7386726
+# - Autodesk Glassdoor intern report (Feb 2025): https://www.glassdoor.es/Interview/Autodesk-Intern-Software-Engineer-Interview-Questions-EI_IE1155.0,8_KO9,33_IP2.htm
 title = "Autodesk"
 group = "Consumer and Business Tech"
-focus = "caches, stacks, recursion and tree traversal, grids, sliding windows, strings, and binary search"
+focus = "A CodeSignal OA then two LeetCode-style problems per round (parentheses, intervals, trees, a file system), plus project discussion."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "16_math_geometry"]
 
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
 title = "Maximum Area of Two Non-Overlapping Square Submatrices"

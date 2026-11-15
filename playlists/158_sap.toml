@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - SAP Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/sap/experiences/software-development-engineer-sde-october-10-2025-no-offer-neutral-6268eb26
+# - SAP Jointaro India report (Oct 2025): https://www.jointaro.com/interviews/companies/sap/experiences/software-engineer-india-october-15-2025-no-offer-positive-a964e998
 title = "SAP"
 group = "Consumer and Business Tech"
-focus = "fundamentals, arrays/maps, strings, trees, and reliable enterprise-style coding."
+focus = "An online test with two or three easy to medium problems on arrays, strings and graphs, then resume-centric technical rounds."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "07_trees", "10_graphs", "03_stacks_and_queues"]
 
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Sort an Array"
+url = "https://leetcode.com/problems/sort-an-array/"
 
 [[entries]]
 title = "Minimum Length of String After Deleting Similar Ends"

@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Yelp Glassdoor Calgary backend report (Jul 2025): https://www.glassdoor.com.au/Interview/Yelp-Software-Engineer-App-Backend-Interview-Questions-EI_IE43314.0,4_KO5,34.htm
+# - Yelp Dataford software engineer guide: https://dataford.io/interview-guides/yelp/software-engineer
 title = "Yelp"
 group = "Consumer and Business Tech"
-focus = "search/ranking, heaps, strings, graphs, intervals, tries, trees, and DP."
+focus = "An easy string question then a medium, mostly coding time per round, with sliding-window substrings, tries and basic linked lists."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
 title = "Jump Game III"

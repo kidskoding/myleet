@@ -1,8 +1,38 @@
+# Sources (checked 2026-11-15):
+# - Expedia Glassdoor London report (2025): https://www.glassdoor.com.hk/Interview/Expedia-Group-Interview-E9876-RVW54624217.htm
+# - Expedia Glassdoor software engineer reports (2025): https://www.glassdoor.co.uk/Interview/Expedia-Group-Interview-E9876-RVW14122970.htm
 title = "Expedia Group"
 group = "Consumer and Business Tech"
-focus = "mostly medium. Heavy on binary-search-on-answer, monotonic stacks, heaps, string manipulation, BFS/graphs, trees/BST, sliding window, and intervals. Travel-domain framing (flights, itineraries, capacity) is common but the underlying patterns are standard."
+focus = "Easy to medium LeetCode-style rounds on arrays, intervals and parentheses, plus an object-oriented design round such as a parking lot."
 review_modules = ["03_stacks_and_queues", "05_binary_search", "08_heaps", "01_arrays_and_hashing", "04_sliding_window", "07_trees", "10_graphs", "13_intervals", "11_dp"]
 
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Minimum Absolute Difference"
+url = "https://leetcode.com/problems/minimum-absolute-difference/"
 
 [[entries]]
 title = "Minimum Time to Complete Trips"
@@ -175,31 +205,3 @@ url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-bi
 [[entries]]
 title = "Unique Substrings With Equal Digit Frequency"
 url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
-
-[[entries]]
-title = "Rearranging Fruits"
-url = "https://leetcode.com/problems/rearranging-fruits/"
-
-[[entries]]
-title = "Number of Good Binary Strings"
-url = "https://leetcode.com/problems/number-of-good-binary-strings/"
-
-[[entries]]
-title = "The Earliest Moment When Everyone Become Friends"
-url = "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/"
-
-[[entries]]
-title = "Maximum 69 Number"
-url = "https://leetcode.com/problems/maximum-69-number/"
-
-[[entries]]
-title = "Minimum Swaps to Group All 1's Together"
-url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
-
-[[entries]]
-title = "Rearrange Words in a Sentence"
-url = "https://leetcode.com/problems/rearrange-words-in-a-sentence/"
-
-[[entries]]
-title = "Minimize Deviation in Array"
-url = "https://leetcode.com/problems/minimize-deviation-in-array/"

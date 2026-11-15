@@ -1,8 +1,26 @@
+# Sources (checked 2026-11-15):
+# - Nutanix Glassdoor report (2025): https://www.glassdoor.com/Interview/Nutanix-Interview-E429159-RVW104060899.htm
+# - Nutanix Glassdoor report: https://www.glassdoor.ca/Interview/Nutanix-Interview-E429159-RVW97378716.htm
 title = "Nutanix"
 group = "Consumer and Business Tech"
-focus = "graphs and shortest paths, stacks and monotonic stacks, sliding windows, intervals and heaps, design caches, trees, and dp"
+focus = "LeetCode-medium rounds on top-k, linked lists and stack or queue design, with resume deep dives and sometimes a concurrency follow-up."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "10_graphs"]
 
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Swap Nodes in Pairs"
+url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
+
+[[entries]]
+title = "Implement Queue using Stacks"
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
 title = "Find the Closest Marked Node"
@@ -187,19 +205,3 @@ url = "https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even
 [[entries]]
 title = "Sum Game"
 url = "https://leetcode.com/problems/sum-game/"
-
-[[entries]]
-title = "Remove Digit From Number to Maximize Result"
-url = "https://leetcode.com/problems/remove-digit-from-number-to-maximize-result/"
-
-[[entries]]
-title = "Valid Triangle Number"
-url = "https://leetcode.com/problems/valid-triangle-number/"
-
-[[entries]]
-title = "Dot Product of Two Sparse Vectors"
-url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
-
-[[entries]]
-title = "Basic Calculator IV"
-url = "https://leetcode.com/problems/basic-calculator-iv/"

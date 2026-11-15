@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Samsung Jointaro Hwaseong report (Oct 2025): https://www.jointaro.com/interviews/companies/samsung/experiences/software-engineer-hwaseong-october-4-2025-accepted-offer-positive-ce1cc710
+# - Samsung Jointaro Bengaluru report (Aug 2025): https://www.jointaro.com/interviews/companies/samsung/experiences/software-engineer-bengaluru-karnataka-august-1-2025-accepted-offer-positive-ec87a67d
+# - Samsung LeetCode Discuss report (2025): https://leetcode.com/discuss/interview-experience/6934872
 title = "Samsung"
 group = "Consumer and Business Tech"
-focus = "graphs and grid bfs/dfs, dynamic programming, backtracking, arrays and two pointers, and caches"
+focus = "An online test with simulation and DFS problems at easy to medium level, then Dijkstra, linked list and DP questions in the technical rounds."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "09_backtracking", "10_graphs"]
 
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Combinations"
@@ -191,15 +206,3 @@ url = "https://leetcode.com/problems/sentence-screen-fitting/"
 [[entries]]
 title = "Fibonacci Number"
 url = "https://leetcode.com/problems/fibonacci-number/"
-
-[[entries]]
-title = "Push Dominoes"
-url = "https://leetcode.com/problems/push-dominoes/"
-
-[[entries]]
-title = "Sort Integers by The Power Value"
-url = "https://leetcode.com/problems/sort-integers-by-the-power-value/"
-
-[[entries]]
-title = "Make Array Non-decreasing or Non-increasing"
-url = "https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing/"

@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Fiserv Glassdoor internship report (May 2025): https://www.glassdoor.com.ar/Interview/Fiserv-Software-Engineer-Internship-Interview-Questions-EI_IE1384.0,6_KO7,35.htm
+# - Fiserv Glassdoor report (2025): https://www.glassdoor.com.au/Interview/Fiserv-Interview-E1384-RVW89384201.htm
 title = "Fiserv"
 group = "Consumer and Business Tech"
-focus = "Payments-style array, interval, greedy and dynamic programming problems with stacks and trees."
+focus = "Easy Java-style coding such as reversing a string and finding the most frequent value, with REST and OOP questions."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "12_greedy_algorithms", "11_dp", "03_stacks_and_queues", "07_trees"]
 
+[[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
+
+[[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
 
 [[entries]]
 title = "Minimizing Array After Replacing Pairs With Their Product"

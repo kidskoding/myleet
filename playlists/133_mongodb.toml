@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - MongoDB Jointaro New York report (Jul 2025): https://www.jointaro.com/interviews/companies/mongodb/experiences/software-engineer-new-york-ny-july-1-2025-no-offer-neutral-0cd8e470
+# - MongoDB Glassdoor software engineer reports (2025): https://www.glassdoor.co.in/Interview/MongoDB-Software-Engineer-Interview-Questions-EI_IE433703.0,7_KO8,25.htm
 title = "MongoDB"
 group = "Consumer and Business Tech"
-focus = "trees, tries, range queries, hash maps, design data structures, graph traversal, intervals, and DP."
+focus = "Live coding where the code must compile and run, with a hash map warmup like Group Anagrams, a rate limiter, and concurrency-flavored design questions."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
 title = "Design File System"

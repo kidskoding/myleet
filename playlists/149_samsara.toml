@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Samsara Glassdoor reports (2025): https://www.glassdoor.com.au/Interview/Samsara-Interview-E1169265-RVW96452193.htm
+# - Samsara Glassdoor London report: https://www.glassdoor.ie/Interview/Samsara-Interview-E1169265-RVW100802188.htm
 title = "Samsara"
 group = "Consumer and Business Tech"
-focus = "string parsing and stacks, simulation, sliding windows over sensor streams, hashing, intervals, and matrix validation"
+focus = "LeetCode-style medium problems (sudoku validation, substring windows) plus practical tasks like a parser or a small library, then system design."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "09_backtracking", "13_intervals", "16_math_geometry"]
 
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Alternating Groups II"

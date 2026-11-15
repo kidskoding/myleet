@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Okta Jointaro India staff report (Feb 2025): https://www.jointaro.com/interviews/companies/okta/experiences/staff-software-engineer-india-february-1-2025-accepted-offer-positive-a0e8a851
+# - Okta Jointaro intern report (Oct 2025): https://www.jointaro.com/interviews/companies/okta/experiences/software-engineer-intern-october-13-2025-no-offer-positive-a1ad86ce
 title = "Okta"
 group = "Consumer and Business Tech"
-focus = "design data structures, heaps and streams, hashing, graphs and topological sort, binary search, and rate limiting"
+focus = "Easy to medium coding rounds (top-k heaps, graph traversal) plus system design and resume discussion, with a harder CodeSignal test for interns."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "10_graphs", "18_mixed_interview_practice"]
 
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Reorder Data in Log Files"

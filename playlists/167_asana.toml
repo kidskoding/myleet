@@ -1,8 +1,14 @@
+# Sources (checked 2026-11-15):
+# - Asana engineering interview guide: https://asana.com/eng/interview-guide
+# - Asana Glassdoor report (2025): https://www.glassdoor.com.au/Interview/Asana-Interview-E567443-RVW95832197.htm
 title = "Asana"
 group = "Consumer and Business Tech"
-focus = "task graphs, topological ordering, intervals, strings, design data structures, heaps, and DP."
+focus = "A CodeSignal screen then medium to hard LeetCode-style coding (k closest points, class design) in an IDE, plus system design and behavioral rounds."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
+[[entries]]
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
 title = "Count Number of Teams"

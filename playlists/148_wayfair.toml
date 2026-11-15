@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Wayfair Interview Query guide (2025): https://interviewquery.com/interview-guides/wayfair-software-engineer
+# - Wayfair PracHub onsite report (2025): https://prachub.com/interview-experiences/wayfair-software-engineer-interview-experience-four-round-virtual-onsite-rejection
 title = "Wayfair"
 group = "Consumer and Business Tech"
-focus = "hash maps and counting, sorting with custom keys, string processing, intervals and greedy scheduling, and BFS over small graphs."
+focus = "Easy to medium HackerRank and live coding on strings and hash maps (IP validation, string compression), plus a low-level design round such as a parking lot."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
+[[entries]]
+title = "Validate IP Address"
+url = "https://leetcode.com/problems/validate-ip-address/"
+
+[[entries]]
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
 title = "Number of Adjacent Elements With the Same Color"

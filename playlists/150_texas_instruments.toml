@@ -1,8 +1,30 @@
+# Sources (checked 2026-11-15):
+# - Texas Instruments Glassdoor software engineer intern reports (2025): https://www.glassdoor.sg/Interview/Texas-Instruments-Software-Engineer-Intern-Interview-Questions-EI_IE651.0,17_KO18,42.htm
+# - Texas Instruments Prepfully software engineer questions: https://prepfully.com/interview-questions/texas-instruments/software-engineer?page=5
 title = "Texas Instruments"
 group = "Consumer and Business Tech"
-focus = "embedded C, bit manipulation, integer math, linked lists, DP, and arrays/strings."
+focus = "Two coding questions (one easy, one medium) after an aptitude test, with linked lists, bit manipulation, BFS and DFS, and C fundamentals."
 review_modules = ["03_stacks_and_queues", "06_linked_lists", "11_dp", "15_bit_manipulation", "16_math_geometry"]
 
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
+title = "Reverse Bits"
+url = "https://leetcode.com/problems/reverse-bits/"
 
 [[entries]]
 title = "Count Lattice Points Inside a Circle"

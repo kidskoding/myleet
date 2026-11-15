@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Arista Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/arista-networks/experiences/software-engineer-october-22-2025-no-offer-negative-b9fe511e
+# - Arista 1point3acres onsite report (2025): https://www.1point3acres.com/interview/post/7240229
 title = "Arista Networks"
 group = "Consumer and Business Tech"
-focus = "linked lists, strings and stacks, sliding windows, hashing, binary search, trees, and bit manipulation"
+focus = "Coding screens on strings, linked lists, a stack with edge cases and a trie-based contact list, with debugging and C pointer questions."
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "07_trees", "09_backtracking"]
 
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
 title = "Find the Smallest Divisor Given a Threshold"
