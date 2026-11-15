@@ -35,9 +35,29 @@ const KEEP_DAYS = 120;
 const DONE_SHARE = 0.8;
 const RECENT = 10;
 
-type Ledger = Record<string, { minutes: number; sessions: number }>;
+/** `at` is when the record was written (epoch ms), so devices can keep the newest. */
+export type Ledger = Record<string, { minutes: number; sessions: number; at?: number }>;
 
-function readLedger(): Ledger {
+/** Union of two ledgers: the newest record per day wins, the larger load on a tie. */
+export function mergeLedger(a: Ledger, b: Ledger): Ledger {
+  const out: Ledger = { ...a };
+  for (const [day, r] of Object.entries(b)) {
+    const cur = out[day];
+    const newer = !cur || (r.at ?? 0) > (cur.at ?? 0) || ((r.at ?? 0) === (cur.at ?? 0) && r.minutes > cur.minutes);
+    if (newer) out[day] = r;
+  }
+  return out;
+}
+
+export function writeLedger(led: Ledger): void {
+  try {
+    localStorage.setItem(LEDGER_KEY, JSON.stringify(led));
+  } catch {
+    // Without storage the record starts again next visit.
+  }
+}
+
+export function readLedger(): Ledger {
   try {
     return JSON.parse(localStorage.getItem(LEDGER_KEY) ?? "{}") as Ledger;
   } catch {
@@ -52,7 +72,7 @@ export function recordPlanned(plan: Plan): void {
   const led = readLedger();
   const cur = led[d.date];
   if (cur && cur.minutes >= d.minutes) return;
-  led[d.date] = { minutes: d.minutes, sessions: d.sessions.length };
+  led[d.date] = { minutes: d.minutes, sessions: d.sessions.length, at: Date.now() };
   const cutoff = addDays(d.date, -KEEP_DAYS);
   for (const k of Object.keys(led)) if (k < cutoff) delete led[k];
   try {

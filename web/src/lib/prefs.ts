@@ -127,6 +127,15 @@ function storage(): Storage | undefined {
   }
 }
 
+type HistoryLine = Prefs["plan"]["history"][number];
+
+/** Union of two histories by `date|kind|text`, oldest first. */
+export function mergeHistory(a: HistoryLine[], b: HistoryLine[]): HistoryLine[] {
+  const seen = new Map<string, HistoryLine>();
+  for (const h of [...a, ...b]) seen.set(`${h.date}|${h.kind}|${h.text}`, h);
+  return [...seen.values()].sort((x, y) => x.date.localeCompare(y.date));
+}
+
 export function readPrefs(): Prefs {
   try {
     const raw = storage()?.getItem(PREFS_KEY);

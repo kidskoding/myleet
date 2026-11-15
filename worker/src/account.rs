@@ -193,6 +193,26 @@ pub enum Goal {
     Newgrad,
 }
 
+/// One line of "Change plan" history; devices union these by `date|kind|text`.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct HistoryEntry {
+    pub date: String,
+    pub kind: String,
+    pub text: String,
+}
+
+/// What a day's plan asked for, recorded when the day was first planned. `at` (epoch ms)
+/// lets the newest record per day win when devices merge.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct DayRecord {
+    pub minutes: u32,
+    pub sessions: u32,
+    #[serde(default)]
+    pub at: u64,
+}
+
 /// Minutes per difficulty.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -224,6 +244,10 @@ const MOVE_MINUTES: std::ops::RangeInclusive<u32> = 1..=1440;
 const MAX_DAY_BUDGETS: usize = 100;
 const MAX_MOVES: usize = 100;
 const TIME_TARGET_MINUTES: std::ops::RangeInclusive<u32> = 1..=240;
+const MAX_PLAN_HISTORY: usize = 200;
+const MAX_PLAN_LEDGER: usize = 150;
+const HISTORY_KINDS: [&str; 4] = ["date", "company", "time", "preset"];
+const MAX_HISTORY_TEXT: usize = 200;
 /// The `extra` column; the caps above keep it far below this.
 pub const MAX_EXTRA_BYTES: usize = 32 * 1024;
 
@@ -282,6 +306,12 @@ pub struct Extra {
     /// Every interview, each with a date and an optional company slug.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interviews: Option<Vec<Interview>>,
+    /// "Change plan" lines, oldest first.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub plan_history: Option<Vec<HistoryEntry>>,
+    /// Planned load per past day, `YYYY-MM-DD` to its record.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub plan_ledger: Option<BTreeMap<String, DayRecord>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -377,6 +407,8 @@ pub struct SettingsPatch {
     pub plan_started_at: Option<Option<String>>,
     pub onboarded: Option<bool>,
     pub interviews: Option<Vec<Interview>>,
+    pub plan_history: Option<Vec<HistoryEntry>>,
+    pub plan_ledger: Option<BTreeMap<String, DayRecord>>,
 }
 
 impl Settings {
@@ -597,6 +629,32 @@ impl Extra {
                     .map(|i| Interview { name: None, ..i })
                     .collect(),
             );
+        }
+        if let Some(v) = p.plan_history.clone() {
+            if v.len() > MAX_PLAN_HISTORY {
+                return Err(format!("at most {MAX_PLAN_HISTORY} plan_history entries"));
+            }
+            if !v.iter().all(|h| {
+                valid_date(&h.date)
+                    && HISTORY_KINDS.contains(&h.kind.as_str())
+                    && !h.text.is_empty()
+                    && h.text.len() <= MAX_HISTORY_TEXT
+            }) {
+                return Err("plan_history needs a date, a known kind and short text".to_string());
+            }
+            x.plan_history = Some(v);
+        }
+        if let Some(v) = p.plan_ledger.clone() {
+            if v.len() > MAX_PLAN_LEDGER {
+                return Err(format!("at most {MAX_PLAN_LEDGER} plan_ledger days"));
+            }
+            if !v
+                .iter()
+                .all(|(d, r)| valid_date(d) && DAY_BUDGET_MINUTES.contains(&r.minutes))
+            {
+                return Err("plan_ledger must map YYYY-MM-DD to planned minutes".to_string());
+            }
+            x.plan_ledger = Some(v);
         }
         if serde_json::to_string(&x).map_or(usize::MAX, |j| j.len()) > MAX_EXTRA_BYTES {
             return Err(format!("settings are over {MAX_EXTRA_BYTES} bytes"));
@@ -978,7 +1036,9 @@ mod tests {
                     "editor_ligatures":false,"editor_minimap":true,"editor_indent":2,
                     "editor_format_on_save":false,"editor_run_on_save":true,
                     "goal":"coop","plan_started_at":"2026-11-01","onboarded":true,
-                    "interviews":[{"date":"2026-12-15","company":"meta"},{"date":"2027-01-10","company":null}]}"#,
+                    "interviews":[{"date":"2026-12-15","company":"meta"},{"date":"2027-01-10","company":null}],
+                    "plan_history":[{"date":"2026-11-15","kind":"date","text":"Set the interview for Dec 15"}],
+                    "plan_ledger":{"2026-11-14":{"minutes":60,"sessions":2,"at":1763000000000}}}"#,
             ))
             .unwrap();
         assert_eq!(s.extra.weekend_minutes, Some(Some(120)));
@@ -1002,6 +1062,15 @@ mod tests {
         assert_eq!(p.moves.len(), 1);
         assert_eq!(p.interviews.len(), 2);
         assert_eq!(p.interviews[0].company.as_deref(), Some("meta"));
+        assert_eq!(s.extra.plan_history.as_ref().map(Vec::len), Some(1));
+        assert_eq!(
+            s.extra
+                .plan_ledger
+                .as_ref()
+                .and_then(|l| l.get("2026-11-14"))
+                .map(|r| r.sessions),
+            Some(2)
+        );
     }
 
     #[test]
@@ -1035,6 +1104,10 @@ mod tests {
             r#"{"plan_started_at":"soon"}"#.to_string(),
             r#"{"interviews":[{"date":"2026-13-01"}]}"#.to_string(),
             r#"{"interviews":[{"date":"2026-12-01","company":"Meta Inc"}]}"#.to_string(),
+            r#"{"plan_history":[{"date":"2026-12-01","kind":"mood","text":"x"}]}"#.to_string(),
+            r#"{"plan_history":[{"date":"2026-12-01","kind":"date","text":""}]}"#.to_string(),
+            r#"{"plan_ledger":{"2026-02-30":{"minutes":60,"sessions":1}}}"#.to_string(),
+            r#"{"plan_ledger":{"2026-12-01":{"minutes":601,"sessions":1}}}"#.to_string(),
         ] {
             assert!(base.apply(patch(&bad)).is_err(), "{bad}");
         }

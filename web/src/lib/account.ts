@@ -1,7 +1,8 @@
 // The Worker's account API (worker/README.md). Every call is same-origin with the
 // session cookie. Without a Worker (astro preview, offline) the app is simply signed out.
 import type { Accent, Flavor, NightFlavor } from "./flavors";
-import { DEFAULT_PREFS, readPrefs, validWindows, type Prefs } from "./prefs";
+import { DEFAULT_PREFS, mergeHistory, readPrefs, validWindows, type Prefs } from "./prefs";
+import { mergeLedger, readLedger, writeLedger, type Ledger } from "./plan-progress";
 import type { Availability, Interview } from "./types";
 
 export type Provider = "github" | "google" | "email";
@@ -18,6 +19,9 @@ export interface ServerSettings {
   interview_date: string | null;
   /** Absent on a Worker that predates interview lists. */
   interviews?: Interview[];
+  /** Absent on a Worker that predates plan history. */
+  plan_history?: Prefs["plan"]["history"];
+  plan_ledger?: Ledger;
   target_companies: string[];
   reminders: boolean;
   public_profile: boolean;
@@ -251,6 +255,8 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     new_per_day: p.newPerDay,
     interview_date: p.plan.interviewDate,
     interviews: p.plan.interviews.map(({ date, company }) => ({ date, company })),
+    plan_history: p.plan.history,
+    plan_ledger: readLedger(),
     target_companies: p.plan.companies,
     reminders: p.reminders.on,
     public_profile: p.publicProfile,
@@ -264,6 +270,8 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
 
 /** The account's values as a prefs patch. */
 export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
+  // The ledger lives outside prefs; merging keeps this device's days and the account's.
+  if (s.plan_ledger) writeLedger(mergeLedger(readLedger(), s.plan_ledger));
   return {
     editor: { ...base.editor, keymap: s.editor_keymap, fontSize: s.editor_font_size },
     newPerDay: s.new_per_day,
@@ -272,6 +280,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
     plan: {
       ...base.plan,
       interviewDate: s.interview_date,
+      history: mergeHistory(base.plan.history, s.plan_history ?? []),
       interviews: s.interviews ?? (s.interview_date ? [{ date: s.interview_date, company: null }] : []),
       companies: s.target_companies,
       dailyMinutes: s.daily_minutes ?? base.plan.dailyMinutes,

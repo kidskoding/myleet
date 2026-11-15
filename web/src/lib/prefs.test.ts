@@ -107,3 +107,22 @@ describe("interviews", () => {
     expect(readPrefs().plan.interviewDate).toBe("2099-03-02");
   });
 });
+
+describe("plan history and day records", () => {
+  const server = (extra: Partial<ServerSettings>) => ({ ...toServer(readPrefs()), theme: "system", ...extra }) as ServerSettings;
+
+  it("unions history by entry and keeps the newest record per day", () => {
+    const a = { date: "2099-01-01", kind: "date" as const, text: "Set the interview for Feb 13" };
+    const b = { date: "2099-01-05", kind: "time" as const, text: "Daily time from 1 hour to 2 hours on weekdays" };
+    updatePrefs({ plan: { history: [a] } });
+    localStorage.setItem("myleet:plan-ledger", JSON.stringify({ "2099-01-02": { minutes: 60, sessions: 2, at: 100 }, "2099-01-03": { minutes: 30, sessions: 1, at: 50 } }));
+    updatePrefs(fromServer(server({ plan_history: [b, a], plan_ledger: { "2099-01-02": { minutes: 45, sessions: 1, at: 200 }, "2099-01-04": { minutes: 20, sessions: 1, at: 10 } } })));
+    expect(readPrefs().plan.history).toEqual([a, b]);
+    expect(JSON.parse(localStorage.getItem("myleet:plan-ledger") ?? "{}")).toEqual({
+      "2099-01-02": { minutes: 45, sessions: 1, at: 200 },
+      "2099-01-03": { minutes: 30, sessions: 1, at: 50 },
+      "2099-01-04": { minutes: 20, sessions: 1, at: 10 },
+    });
+    expect(toServer(readPrefs()).plan_history).toEqual([a, b]);
+  });
+});
