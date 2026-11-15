@@ -30,6 +30,6 @@ id = "39c7aef4210a474fa881da6d0cd499f3"
 # Local dev reads both from .dev.vars (gitignored; see .dev.vars.example).
 [vars]
 SITE_ORIGIN = "https://myleet.anirudhkonidala.workers.dev"
-GITHUB_CLIENT_ID = "replace-with-github-oauth-client-id"
+GITHUB_CLIENT_ID = "Ov23lifOFJZIw2RR9RMi"
 GOOGLE_CLIENT_ID = "replace-with-google-oauth-client-id.apps.googleusercontent.com"
 EMAIL_FROM = "myleet <login@myleet.example.com>"
