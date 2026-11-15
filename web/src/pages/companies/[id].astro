@@ -39,8 +39,13 @@ const topics = TOPICS.map(([re, label]) => ({ label, at: focus.search(re) }))
   .slice(0, 3)
   .map((t) => t.label);
 const list = new Intl.ListFormat("en", { type: "conjunction" }).format(topics).replace(", and ", " and ");
-const firstEntry = p.entries.find((e) => e.problem !== null);
-const example = firstEntry?.problem != null ? c.problems[firstEntry.problem] : undefined;
+// The example is the most distinctive of the set's first ten problems: the one the fewest
+// other company sets share, so pages don't all say "Two Sum".
+const shared = new Map<number, number>();
+for (const set of c.playlists) for (const e of set.entries) if (e.problem !== null) shared.set(e.problem, (shared.get(e.problem) ?? 0) + 1);
+const lead10 = p.entries.slice(0, 10).flatMap((e) => (e.problem === null ? [] : [e.problem]));
+const pick = lead10.reduce<number | undefined>((best, i) => (best === undefined || (shared.get(i) ?? 0) < (shared.get(best) ?? 0) ? i : best), undefined);
+const example = pick !== undefined ? c.problems[pick] : undefined;
 ---
 
 <Base title={`${p.title} prep`} nav="companies" description={`A curated ${p.title} practice set of ${n} problems, most asked first, with the techniques it leans on. Not a list of actual interview questions.`}>
