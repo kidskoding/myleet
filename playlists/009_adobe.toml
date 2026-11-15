@@ -1,8 +1,15 @@
+# Sources (checked 2026-11-15):
+# - Glassdoor Adobe report (2025): https://www.glassdoor.com.au/Interview/Adobe-Interview-E1090-RVW98731624.htm
+# - Jointaro Adobe report (Aug 2025): https://www.jointaro.com/interviews/companies/adobe/experiences/software-development-engineer-sde-bengaluru-august-1-2025-no-offer-positive-eaa89294
+# - Jointaro Adobe internship report (Oct 2025): https://www.jointaro.com/interviews/companies/adobe/experiences/software-engineerinternship-united-states-october-21-2025-no-offer-positive-9367e156
 title = "Adobe"
 group = "Big Tech"
-focus = "Grid and matrix traversal, 2D dynamic programming, and classic string handling."
+focus = "Online assessment with several LeetCode medium to hard graph, tree, stack and array dynamic programming problems, then medium linked list, priority queue and course-schedule style rounds."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "10_graphs", "11_dp", "16_math_geometry"]
 
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Spiral Matrix II"
@@ -143,7 +150,3 @@ url = "https://leetcode.com/problems/decode-string/"
 [[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Largest Rectangle in Histogram"
-url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"

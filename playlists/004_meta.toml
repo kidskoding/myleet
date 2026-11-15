@@ -1,8 +1,14 @@
+# Sources (checked 2026-11-15):
+# - Glassdoor Meta interview reports (2025): https://static.glassdoor.com.ar/Interview/Meta-Software-Engineer-Interview-Questions-EI_IE40772.0,4_KO5,22_IP26.htm
+# - Glassdoor Meta senior engineer report (Sep 2025): https://static.glassdoor.nl/Interview/Meta-Sr-Software-Engineer-Interview-Questions-EI_IE40772.0,4_KO5,25_IP3.htm
 title = "Meta"
 group = "Big Tech"
-focus = "Arrays, strings, two pointers, prefix sums, trees, and graphs, solved quickly and cleanly in a plain editor."
+focus = "Two LeetCode medium problems in about 45 minutes, covering graphs, trees, dynamic programming, sliding window, stacks and strings such as Valid Palindrome II."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "07_trees", "10_graphs", "13_intervals"]
 
+[[entries]]
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
 
 [[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
@@ -167,7 +173,3 @@ url = "https://leetcode.com/problems/powx-n/"
 [[entries]]
 title = "Perfect Rectangle"
 url = "https://leetcode.com/problems/perfect-rectangle/"
-
-[[entries]]
-title = "Buildings With an Ocean View"
-url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"

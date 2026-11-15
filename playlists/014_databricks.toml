@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Jointaro Databricks report (Nov 2025): https://www.jointaro.com/interviews/companies/databricks/experiences/software-engineer-united-states-november-12-2025-no-offer-neutral-75940d40
+# - Glassdoor Databricks report (2025): https://www.glassdoor.sg/Interview/Databricks-Interview-E954734-RVW99244748.htm
+# - Interview Query Databricks guide (2025): https://www.interviewquery.com/interview-guides/databricks
 title = "Databricks"
 group = "AI & Startups"
-focus = "Cache and streaming designs, sliding windows, trees, grids, and scheduling with heaps."
+focus = "Medium to hard LeetCode problems on dynamic programming, grid shortest path, bit manipulation and sliding window, plus class-design questions."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp", "17_advanced"]
 
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
+
+[[entries]]
+title = "Shortest Path in Binary Matrix"
+url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
 
 [[entries]]
 title = "Apply Operations to Make All Array Elements Equal to Zero"
@@ -77,10 +92,6 @@ title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
-
-[[entries]]
 title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
@@ -147,11 +158,3 @@ url = "https://leetcode.com/problems/house-robber-iii/"
 [[entries]]
 title = "Minimum Window Substring"
 url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Jump Game VI"
-url = "https://leetcode.com/problems/jump-game-vi/"
-
-[[entries]]
-title = "Count Number of Nice Subarrays"
-url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"

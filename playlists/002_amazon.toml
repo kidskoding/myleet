@@ -1,8 +1,11 @@
+# Sources (checked 2026-11-15):
+# - Glassdoor Amazon interview reports (2025): https://static.glassdoor.it/Interview/Amazon--Software-Development-Engineer-Interview-Questions-EI_IE6036.0,6_KO7,37_IP18.htm
+# - Jointaro Amazon reports (2025): https://www.jointaro.com/interviews/companies/amazon/experiences/software-development-engineer-sde-ii-austin-tx-october-12-2025-accepted-offer-positive-3c92609e
+# - Jointaro Amazon new grad report (Oct 2025): https://www.jointaro.com/interviews/companies/amazon/experiences/software-engineer-new-grad-seattle-wa-october-5-2025-no-offer-positive-378a7a91
 title = "Amazon"
 group = "Big Tech"
-focus = "Trees and BFS/DFS, heaps, intervals, sliding windows, linked lists, and a few classic design questions."
+focus = "Two-problem online assessment at LeetCode easy to medium level, mostly dynamic programming and trees, then loop rounds that pair coding with Leadership Principles."
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
-
 
 [[entries]]
 title = "Merge k Sorted Lists"

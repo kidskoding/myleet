@@ -1,8 +1,15 @@
+# Sources (checked 2026-11-15):
+# - Jointaro xAI report (May 2025): https://www.jointaro.com/interviews/companies/xai/experiences/software-engineer-japan-may-29-2025-no-offer-neutral-6f33a8bf
+# - Jointaro xAI report (Sep 2025): https://www.jointaro.com/interviews/companies/xai/experiences/software-engineer-united-states-september-26-2025-no-offer-neutral-f9d20572
+# - Exponent xAI guide (2025): https://www.tryexponent.com/guides/xai-software-engineer-interview
 title = "xAI"
 group = "AI & Startups"
-focus = "caches, iterators, key-value stores with transactions, rate limiters, streams, scheduling, and intervals"
+focus = "Practical object-oriented coding such as designing a file system, plus medium-hard LeetCode and hard simulation problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
 title = "Maximum Product After K Increments"
@@ -191,7 +198,3 @@ url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-rem
 [[entries]]
 title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
-
-[[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"

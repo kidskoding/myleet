@@ -1,8 +1,27 @@
+# Sources (checked 2026-11-15):
+# - Glassdoor NVIDIA report (2025): https://www.glassdoor.sg/Interview/NVIDIA-Interview-E7633-RVW95887427.htm
+# - Glassdoor NVIDIA report (2025): https://www.glassdoor.ca/Interview/NVIDIA-Interview-E7633-RVW98848542.htm
+# - Medium NVIDIA experience (2025): https://medium.com/career-drill/software-engineer-nvidia-interview-experience-c96ba7cabc96
 title = "NVIDIA"
 group = "Big Tech"
-focus = "Bit manipulation, binary search, matrix and grid problems, and dynamic programming, with an eye on running time and memory."
+focus = "Medium to hard data structure and algorithm problems on arrays, strings and graphs under time pressure, plus design-style structures such as LRU cache and O(1) reset."
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "15_bit_manipulation", "16_math_geometry"]
 
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+
+[[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
 title = "Find Median from Data Stream"
@@ -147,19 +166,3 @@ url = "https://leetcode.com/problems/minimum-falling-path-sum/"
 [[entries]]
 title = "Path With Minimum Effort"
 url = "https://leetcode.com/problems/path-with-minimum-effort/"
-
-[[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
-
-[[entries]]
-title = "As Far from Land as Possible"
-url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
-
-[[entries]]
-title = "01 Matrix"
-url = "https://leetcode.com/problems/01-matrix/"
-
-[[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"

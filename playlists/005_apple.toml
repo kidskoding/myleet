@@ -1,8 +1,11 @@
+# Sources (checked 2026-11-15):
+# - Jointaro Apple report (Aug 2025): https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-singapore-august-18-2025-no-offer-positive-bf14b825/
+# - Jointaro Apple report (Jun 2025): https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-cupertino-ca-june-23-2025-no-offer-neutral-1179c538
+# - PracHub Apple report (2025): https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-three-day-onsite-full-of-behavioral-questions-then-ghosted
 title = "Apple"
 group = "Big Tech"
-focus = "Arrays, strings, linked lists, trees, and graph traversal, with careful handling of edge cases and clear complexity talk."
+focus = "Medium to hard LeetCode-style coding that varies a lot by team, with some easy C++ screens and plenty of behavioral questions."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
-
 
 [[entries]]
 title = "LRU Cache"

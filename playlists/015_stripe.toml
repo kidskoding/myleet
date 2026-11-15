@@ -1,8 +1,11 @@
+# Sources (checked 2026-11-15):
+# - Jointaro Stripe report (Nov 2025): https://www.jointaro.com/interviews/companies/stripe/experiences/software-engineer-new-grad-united-states-november-5-2025-no-offer-neutral-d8d78bbd
+# - Jointaro Stripe SWE II report (Nov 2025): https://www.jointaro.com/interviews/companies/stripe/experiences/software-engineer-swe-ii-united-states-november-20-2025-no-offer-neutral-9638304d
+# - Interview Query Stripe guide (2025): https://interviewquery.com/interview-guides/stripe-software-engineer
 title = "Stripe"
 group = "AI & Startups"
-focus = "String parsing, hash-map bookkeeping, intervals, rate limiting, and small in-memory designs."
+focus = "Practical multi-part coding problems at medium to hard difficulty, often with data structures, trees or nodes, plus debugging and API rounds."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "13_intervals", "17_advanced"]
-
 
 [[entries]]
 title = "Evaluate Division"

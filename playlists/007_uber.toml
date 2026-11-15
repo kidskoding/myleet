@@ -1,8 +1,19 @@
+# Sources (checked 2026-11-15):
+# - Jointaro Uber report (Nov 2025): https://www.jointaro.com/interviews/companies/uber/experiences/software-engineer-bellevue-washington-november-7-2025-no-offer-neutral-1eac8562
+# - Jointaro Uber report (Aug 2025): https://www.jointaro.com/interviews/companies/uber/experiences/software-engineer-new-york-ny-august-16-2025-no-offer-positive-473da68d
+# - Glassdoor Uber reports (2025): https://static.glassdoor.nl/Interview/Uber-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,22_IP3.htm
 title = "Uber"
 group = "Big Tech"
-focus = "Intervals, heaps, shortest paths on graphs and grids, and greedy optimization under constraints."
+focus = "Medium to hard problems on graph traversal, trees and DFS, linked lists and Alien Dictionary, with a CodeSignal screen and one hard live round."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "13_intervals"]
 
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Minesweeper"
+url = "https://leetcode.com/problems/minesweeper/"
 
 [[entries]]
 title = "Car Pooling"
@@ -147,11 +158,3 @@ url = "https://leetcode.com/problems/remove-covered-intervals/"
 [[entries]]
 title = "Hand of Straights"
 url = "https://leetcode.com/problems/hand-of-straights/"
-
-[[entries]]
-title = "Advantage Shuffle"
-url = "https://leetcode.com/problems/advantage-shuffle/"
-
-[[entries]]
-title = "Shortest Path to Get All Keys"
-url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"

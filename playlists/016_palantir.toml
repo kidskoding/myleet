@@ -1,8 +1,11 @@
+# Sources (checked 2026-11-15):
+# - Jointaro Palantir report (Nov 2025): https://www.jointaro.com/interviews/companies/palantir/experiences/softwre-engineer-united-states-november-20-2025-no-offer-neutral-a8aa38a0
+# - Jointaro Palantir intern report (Sep 2025): https://www.jointaro.com/interviews/companies/palantir/experiences/software-engineer-intern-united-states-september-27-2025-no-offer-neutral-57a1cb53
+# - Prepfully Palantir guide (2025): https://prepfully.com/video-interview-guides/palantir-swe-interview-format-interview-questions-
 title = "Palantir"
 group = "AI & Startups"
-focus = "Union-find, grid and graph search, intervals, and modeling messy real-world data in code."
+focus = "LeetCode medium problems using sets and hash maps in a Karat-style screen, then onsite rounds on decomposition, learning, re-engineering, coding and system design."
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
-
 
 [[entries]]
 title = "Merge Two Sorted Lists"

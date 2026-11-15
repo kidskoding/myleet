@@ -1,8 +1,14 @@
+# Sources (checked 2026-11-15):
+# - Glassdoor Microsoft SDE interview reports (2025): https://static.glassdoor.com.br/Interview/Microsoft-Software-Development-Engineer-Interview-Questions-EI_IE1651.0,9_KO10,39_IP163.htm
+# - Glassdoor Microsoft software engineer reports (2025): https://static.glassdoor.it/Interview/Microsoft--Software-Engineer-Interview-Questions-EI_IE1651.0,9_KO10,28_IP21.htm
 title = "Microsoft"
 group = "Big Tech"
-focus = "Linked lists, strings, trees, arrays, and basic DP, written as clean, tested code with the edge cases named."
+focus = "Mostly LeetCode medium arrays, trees, recursion and dynamic programming, with the occasional hard graph problem and Sudoku-style validation."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "14_tries", "17_advanced"]
 
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
 title = "Permutation in String"
@@ -43,10 +49,6 @@ url = "https://leetcode.com/problems/merge-intervals/"
 [[entries]]
 title = "Binary Tree Right Side View"
 url = "https://leetcode.com/problems/binary-tree-right-side-view/"
-
-[[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
 title = "Reverse Linked List II"

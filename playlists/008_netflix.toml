@@ -1,8 +1,11 @@
+# Sources (checked 2026-11-15):
+# - Jointaro Netflix report (Nov 2025): https://www.jointaro.com/interviews/companies/netflix/experiences/software-engineer-internship-los-gatos-california-november-11-2025-no-offer-positive-d09e5ef6
+# - PracHub Netflix report (2025): https://prachub.com/interview-experiences/netflix-software-engineer-interview-experience-two-phone-screens-then-a-week-of-silence-before-rejection
+# - AlgoMonster Netflix guide (2025): https://algo.monster/interview-guides/netflix
 title = "Netflix"
 group = "Big Tech"
-focus = "Hash maps, sliding windows, heaps, and small caching and streaming designs, plus shortest-path graph problems."
+focus = "CodeSignal screen then LeetCode easy to hard rounds with fast follow-ups, including TTL and LRU caches, task ordering from prerequisites, merge intervals and greedy problems."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
-
 
 [[entries]]
 title = "LRU Cache"
@@ -11,6 +14,10 @@ url = "https://leetcode.com/problems/lru-cache/"
 [[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -155,7 +162,3 @@ url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 [[entries]]
 title = "Path with Maximum Probability"
 url = "https://leetcode.com/problems/path-with-maximum-probability/"
-
-[[entries]]
-title = "Substring with Concatenation of All Words"
-url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
