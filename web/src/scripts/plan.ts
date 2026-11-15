@@ -570,9 +570,18 @@ function placeBracket(): void {
   const b = all[Math.min(all.length - 1, offset + cols() - 1)];
   if (!a || !b || view !== "week") return void (br.style.display = "none");
   const base = prof.getBoundingClientRect();
-  br.style.left = `${a.getBoundingClientRect().left - base.left}px`;
-  br.style.width = `${b.getBoundingClientRect().right - a.getBoundingClientRect().left}px`;
+  const left = a.getBoundingClientRect().left - base.left;
+  const width = b.getBoundingClientRect().right - a.getBoundingClientRect().left;
+  br.style.left = `${left}px`;
+  br.style.width = `${width}px`;
+  // The chart re-renders on every move, so glide the window from where it was instead of jumping.
+  const prev = lastBracket;
+  lastBracket = { left, width };
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce";
+  if (prev && !still && (prev.left !== left || prev.width !== width))
+    br.animate([{ left: `${prev.left}px`, width: `${prev.width}px` }, { left: `${left}px`, width: `${width}px` }], { duration: 240, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)" });
 }
+let lastBracket: { left: number; width: number } | null = null;
 
 // ---- morphing between plans (state feedback, 240 ms, interruptible) ----
 
@@ -766,7 +775,13 @@ function openPop(id: string, opts: { move?: boolean } = {}): void {
     pop.style.left = `${(right ? r.right + 12 : Math.max(8, r.left - 12 - 384)) - hr.left}px`;
     pop.style.top = `${Math.max(r.top - 40, 70) - hr.top}px`;
     pop.style.setProperty("--origin", right ? "left top" : "right top");
-  }
+    // Speech-bubble tail: points at the session's middle, on the side facing it.
+    pop.dataset.side = right ? "right" : "left";
+    const tail = r.top + r.height / 2 - Math.max(r.top - 40, 70);
+    pop.style.setProperty("--tail-y", `${Math.min(Math.max(tail, 20), pop.offsetHeight - 20)}px`);
+  } else delete pop.dataset.side;
+  document.querySelectorAll(".ses.is-open").forEach((el) => el.classList.remove("is-open"));
+  anchor?.classList.add("is-open");
   ($("[data-pop-close]", pop) as HTMLElement | null)?.focus({ preventScroll: true });
 }
 
@@ -774,6 +789,7 @@ function closePop(): void {
   const pop = $("[data-pop]");
   if (!pop || pop.hidden) return;
   pop.hidden = true;
+  document.querySelectorAll(".ses.is-open").forEach((el) => el.classList.remove("is-open"));
   const id = openPopId;
   openPopId = null;
   if (id) $<HTMLElement>(`[data-ses="${id}"]`)?.focus({ preventScroll: true });
@@ -1124,7 +1140,7 @@ function goTo(index: number, openFirst = false): void {
   paint();
   if (!day) return;
   if (openFirst && day.sessions[0]) openPop(day.sessions[0].id);
-  else $<HTMLElement>(`.dh[data-date="${day.date}"]`)?.focus();
+  else $<HTMLElement>(`.dh[data-date="${day.date}"]`)?.focus({ preventScroll: true });
 }
 
 function onClick(e: MouseEvent): void {
@@ -1132,10 +1148,9 @@ function onClick(e: MouseEvent): void {
   const t = e.target as Element;
   const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],[data-nav],[data-today],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol,.ag-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href],[data-roadmap]");
   if (!t.closest(".daymenu-pop") && !t.closest("[data-daymenu]")) closeDayMenu();
-  if (!a) {
-    if (!t.closest("[data-pop]") && !t.closest(".ses") && !t.closest(".toast")) closePop();
-    return;
-  }
+  // Any click outside the popover closes it; a session click reopens it on that session.
+  if (!t.closest("[data-pop]") && !t.closest(".ses") && !t.closest(".toast")) closePop();
+  if (!a) return;
   const d = a.dataset;
   if (d.startHref) return void (location.href = d.startHref);
   if (d.roadmap) return pickRoadmap(d.roadmap);

@@ -124,6 +124,10 @@ import Base from "../layouts/Base.astro";
   /* popover / sheet */
   .pop { position: absolute; z-index: 30; width: 384px; max-width: calc(100vw - 32px); background: var(--surface-raised); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: var(--space-5); transform-origin: var(--origin, left top); }
   .pop[hidden] { display: none; }
+  .pop[data-side]::before { content: ""; position: absolute; top: calc(var(--tail-y, 24px) - 7px); width: 14px; height: 14px; background: inherit; transform: rotate(45deg); box-shadow: inherit; clip-path: polygon(0 0, 0 100%, 100% 100%); }
+  .pop[data-side="right"]::before { left: -7px; }
+  .pop[data-side="left"]::before { right: -7px; transform: rotate(-135deg); }
+  .ses.is-open { outline: 2px solid var(--accent); outline-offset: 1px; z-index: 5; }
   @media (prefers-reduced-motion: no-preference) { :root:not([data-motion="reduce"]) .pop:not([hidden]) { animation: popin var(--dur-base) var(--ease-out); } }
   @keyframes popin { from { opacity: 0; transform: scale(.97); } }
   .pop-head { display: flex; justify-content: space-between; gap: var(--space-3); align-items: flex-start; }
