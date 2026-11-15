@@ -1,8 +1,13 @@
 ---
 import Base from "../../layouts/Base.astro";
+
+// Dev-only: /dev/runner exists under `astro dev` and is left out of production builds.
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { tool: "runner" } }] : [];
+}
 ---
 
-<Base title="Runner check">
+<Base title="Runner check" noindex>
   <h1>Runner check</h1>
   <p>Manual check for the in-browser test runner. Not linked from the app.</p>
   <form id="f">
