@@ -34,6 +34,7 @@ export const openSignIn = (error?: string) => import("./auth-ui").then((m) => m.
 
 const G_ROUTES: Record<string, string> = {
   t: ROUTES.today,
+  s: ROUTES.plan,
   l: ROUTES.learn,
   c: ROUTES.companies,
   m: ROUTES.mock,

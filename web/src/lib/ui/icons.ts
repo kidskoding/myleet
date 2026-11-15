@@ -47,6 +47,29 @@ import {
   Lock,
   MailCheck,
   Smartphone,
+  ArrowRightLeft,
+  BellOff,
+  Calendar,
+  CalendarClock,
+  CalendarDays,
+  CalendarPlus,
+  ChevronLeft,
+  ChevronRight,
+  CircleHelp,
+  Clock3,
+  Crosshair,
+  Ellipsis,
+  Footprints,
+  Gauge,
+  History,
+  Lightbulb,
+  Link,
+  ListChecks,
+  Move,
+  Repeat,
+  RotateCcw,
+  Scale,
+  TrendingUp,
 } from "lucide-static";
 import { esc, raw, type SafeHtml } from "./html";
 
@@ -107,6 +130,29 @@ const ICONS = {
   user: User,
   "wifi-off": WifiOff,
   x: X,
+  "arrow-right-left": ArrowRightLeft,
+  "bell-off": BellOff,
+  calendar: Calendar,
+  "calendar-clock": CalendarClock,
+  "calendar-days": CalendarDays,
+  "calendar-plus": CalendarPlus,
+  "chevron-left": ChevronLeft,
+  "chevron-right": ChevronRight,
+  "circle-help": CircleHelp,
+  "clock-3": Clock3,
+  crosshair: Crosshair,
+  ellipsis: Ellipsis,
+  footprints: Footprints,
+  gauge: Gauge,
+  history: History,
+  lightbulb: Lightbulb,
+  link: Link,
+  "list-checks": ListChecks,
+  move: Move,
+  repeat: Repeat,
+  "rotate-ccw": RotateCcw,
+  scale: Scale,
+  "trending-up": TrendingUp,
 } as const;
 
 export type IconName = keyof typeof ICONS;
@@ -122,6 +168,9 @@ function body(name: IconName): string {
   }
   return s;
 }
+
+/** True for names the core may send (why chips, insights) that this set can draw. */
+export const isIcon = (name: string): name is IconName => Object.hasOwn(ICONS, name);
 
 /** A 1.75-stroke Lucide icon (or a brand mark). Decorative unless `label` is given. */
 export function icon(name: IconName, opts: { label?: string; cls?: string } = {}): SafeHtml {

@@ -4,6 +4,8 @@ import { companySlug } from "./catalog";
 export const ROUTES = {
   home: "/",
   today: "/app",
+  plan: "/plan",
+  skills: "/progress/skills",
   learn: "/learn",
   companies: "/companies",
   mock: "/mock",
@@ -26,6 +28,13 @@ export function problemHref(id: string, mode?: ProblemMode): string {
 }
 
 /** `path` is a catalog note path such as `curriculum/04_sliding_window/notes/02_variable_size_window.md`. */
+/** Opens a problem as part of a planned session (`/p/<id>?session=YYYY-MM-DD`). */
+export const sessionHref = (id: string, day: string): string => `/p/${encodeURIComponent(id)}?session=${day}`;
+
+export const planDayHref = (day: string): string => `${ROUTES.plan}#${day}`;
+
+export const skillHref = (moduleId: string, techniqueId: string): string => `${ROUTES.skills}#${moduleId}/${techniqueId}`;
+
 export const noteHref = (path: string): string => `/notes/${path.replace(/\.md$/, "")}`;
 
 export const companyHref = (playlistId: string): string => `/companies/${companySlug(playlistId)}`;

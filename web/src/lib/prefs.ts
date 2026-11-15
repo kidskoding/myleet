@@ -1,7 +1,7 @@
 // Device preferences and the learner's plan. Local-first (localStorage); the account
 // copy is pushed by lib/account.ts when signed in. Theme lives under its own key so the
 // blocking head script can read it before first paint.
-import type { Availability, Difficulty, PlanSettings } from "./types";
+import type { Availability, Difficulty, PlanMove, PlanSettings } from "./types";
 
 export type ThemePref = "system" | "light" | "dark";
 export type Goal = "internship" | "coop" | "newgrad";
@@ -22,8 +22,14 @@ export interface Plan {
   companies: string[];
   /** `YYYY-MM-DD` in the learner's zone. */
   interviewDate: string | null;
-  /** Minutes on most days (null until onboarding asks; the planner defaults to 60). */
+  /** Minutes on weekdays (null until onboarding asks; the planner defaults to 60). */
   dailyMinutes: number | null;
+  /** Saturday and Sunday budget; null = same as weekdays. Device-local for now. */
+  weekendMinutes: number | null;
+  /** One-day budgets ("Shorter day"). Device-local for now. */
+  dayMinutes: { date: string; minutes: number }[];
+  /** Sessions dragged to another window or day. Device-local for now. */
+  moves: PlanMove[];
   /** Longest single sitting the planner schedules. */
   sessionMinutes: number;
   /** Weekly windows to plan sessions in; empty = around the hour you usually practise. */
@@ -44,7 +50,11 @@ export interface Prefs {
   newPerDay: number;
   /** Minutes per difficulty. */
   timeTargets: Record<Difficulty, number>;
-  reminders: { on: boolean; time: string };
+  /**
+   * Browser notifications: `lead` minutes before each planned session (or at `time` on a
+   * day without one), never inside the quiet hours.
+   */
+  reminders: { on: boolean; time: string; lead: number; quietFrom: string; quietTo: string };
   publicProfile: boolean;
   plan: Plan;
 }
@@ -57,13 +67,16 @@ export const DEFAULT_PREFS: Prefs = {
   editor: { keymap: "standard", fontSize: 14, ligatures: true, minimap: false, indent: 4, formatOnSave: true, runOnSave: false },
   newPerDay: 3,
   timeTargets: { easy: 15, medium: 25, hard: 40 },
-  reminders: { on: false, time: "19:00" },
+  reminders: { on: false, time: "19:00", lead: 15, quietFrom: "23:00", quietTo: "08:00" },
   publicProfile: false,
   plan: {
     goal: null,
     companies: [],
     interviewDate: null,
     dailyMinutes: null,
+    weekendMinutes: null,
+    dayMinutes: [],
+    moves: [],
     sessionMinutes: 45,
     availability: [],
     daysOff: [],
@@ -138,9 +151,12 @@ export function planSettings(p: Prefs = readPrefs()): PlanSettings {
     target_companies: p.plan.companies,
     new_per_day: p.newPerDay,
     daily_minutes: p.plan.dailyMinutes ?? 60,
+    weekend_minutes: p.plan.weekendMinutes,
     session_minutes: p.plan.sessionMinutes,
     availability: validWindows(p.plan.availability),
     days_off: p.plan.daysOff,
+    day_minutes: Object.fromEntries(p.plan.dayMinutes.map((d) => [d.date, d.minutes])),
+    moves: p.plan.moves,
   };
 }
 

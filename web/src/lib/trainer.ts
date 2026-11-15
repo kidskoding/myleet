@@ -8,7 +8,10 @@ import type {
   Mode,
   Placement,
   PlacementResult,
+  AttemptFeedback,
+  Habits,
   Plan,
+  PlanFixes,
   PlanSettings,
   Skills,
   State,
@@ -48,6 +51,12 @@ export interface TrainerApi {
   /** Day-by-day plan to the interview (28 days without one). */
   plan(events: string, settings?: PlanSettings, opts?: When): Plan;
   skills(events: string, settings?: PlanSettings, opts?: When): Skills;
+  /** The weekday budget that closes each forecast gap, and the over-budget note. */
+  planFixes(events: string, settings?: PlanSettings, opts?: When): PlanFixes;
+  /** Practice history (painter dots, suggestion) and "Noticed this week". */
+  habits(events: string, opts?: When & { limit?: number }): Habits;
+  /** What one attempt changed for its technique; null when it isn't a finished attempt. */
+  attemptFeedback(events: string, attempt: string, opts?: When): AttemptFeedback | null;
   /** iCalendar text for a plan. */
   planIcs(plan: Plan, options?: { site?: string; alarm_minutes?: number | null; uid_suffix?: string; name?: string }): string;
 }
@@ -80,6 +89,9 @@ export function createTrainer(catalogText: string, module?: WasmInput): TrainerA
     interviewRules: () => parse(wasm.interview_rules()),
     plan: (ev, settings, o = {}) => parse(t.plan(ev, settings ? JSON.stringify(settings) : "", now(o.now), o.tz ?? "")),
     skills: (ev, settings, o = {}) => parse(t.skills(ev, now(o.now), o.tz ?? "", settings ? JSON.stringify(settings) : "")),
+    planFixes: (ev, settings, o = {}) => parse(t.plan_fixes(ev, settings ? JSON.stringify(settings) : "", now(o.now), o.tz ?? "")),
+    habits: (ev, o = {}) => parse(t.habits(ev, now(o.now), o.tz ?? "", o.limit ?? 3)),
+    attemptFeedback: (ev, attempt, o = {}) => parse(t.attempt_feedback(ev, attempt, now(o.now), o.tz ?? "")),
     planIcs: (plan, options) => wasm.plan_ics(JSON.stringify(plan), options ? JSON.stringify(options) : ""),
   };
 }

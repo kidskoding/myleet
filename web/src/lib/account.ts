@@ -179,6 +179,27 @@ export const exportUrl = "/api/me/export";
 export const putPlan = (plan: unknown): Promise<{ changed: boolean; updated_at: number }> =>
   api("/api/plan", { method: "PUT", body: JSON.stringify({ plan }) });
 
+export interface CalendarStatus {
+  enabled: boolean;
+  created_at: number | null;
+  plan_updated_at: number | null;
+}
+
+/** The private feed's links; the Worker returns them only when the token is made. */
+export interface CalendarLinks {
+  https_url: string;
+  webcal_url: string;
+  google_url: string;
+  outlook_url: string;
+  outlook365_url: string;
+  created_at: number;
+}
+
+export const calendarStatus = (): Promise<CalendarStatus> => api("/api/calendar");
+/** Creates the feed, or rotates it (the old URL stops at once). */
+export const makeCalendarLink = (): Promise<CalendarLinks> => api("/api/calendar/token", { method: "POST" });
+export const turnOffCalendarLink = (): Promise<void> => api("/api/calendar/token", { method: "DELETE" });
+
 export const fetchProfile = (username: string): Promise<PublicProfile> =>
   api(`/api/u/${encodeURIComponent(username)}`);
 

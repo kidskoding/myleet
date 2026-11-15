@@ -42,7 +42,7 @@ export function planWeeks(plan: Plan): PlanWeek[] {
     const items = days.flatMap((d) => d.sessions.flatMap((s) => s.items));
     const techniques: string[] = [];
     for (const it of items)
-      if (it.kind === "new" && !seen.has(it.technique)) {
+      if (it.kind === "new" && it.technique && !seen.has(it.technique)) {
         seen.add(it.technique);
         techniques.push(it.technique);
       }

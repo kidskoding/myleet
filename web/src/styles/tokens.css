@@ -154,6 +154,29 @@
   --z-sticky: 10;
   --z-overlay: 40;
   --z-toast: 50;
+
+  /* ---- Plan: derived, no new hex (plan/design.md). Each mix colour is that item's reason tag. ---- */
+  --window: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  --window-edge: color-mix(in srgb, var(--accent) 45%, var(--surface));
+  --mix-review: var(--due-solid);
+  --mix-weak: var(--weak);
+  --mix-new: var(--accent);
+  --mix-progress: var(--ink-2);
+  --mix-sharp: var(--sharp);
+  --mix-mock: var(--ink);
+  --hour: 64px;
+  --fold: 28px;
+
+  /* ---- Skills: mastery level fills (skills/design.md). Green only from Solid up. ---- */
+  --lvl-0: var(--surface);
+  --lvl-1: var(--surface-sunk);
+  --lvl-2: color-mix(in srgb, var(--ink) 9%, var(--surface));
+  --lvl-3: color-mix(in srgb, var(--pass-solid) 24%, var(--surface));
+  --lvl-4: color-mix(in srgb, var(--pass-solid) 38%, var(--surface));
+}
+
+@media (max-width: 1100px) {
+  :root { --hour: 60px; }
 }
 
 /* Night session. Same roles, re-lit for a dark room. */

@@ -213,18 +213,41 @@ export interface PlanSettings {
   session_minutes?: number;
   availability?: Availability[];
   days_off?: string[];
+  /** Device-local (the Worker does not store these yet). */
+  weekend_minutes?: number | null;
+  day_minutes?: Record<string, number>;
+  moves?: PlanMove[];
+}
+
+/** A dragged session: `minutes` at `from_start` on `from` now happen at `to_start` on `to`. */
+export interface PlanMove {
+  from: string;
+  from_start: string;
+  to: string;
+  to_start: string;
+  minutes: number;
 }
 
 export type PlanItemKind = "review" | "new" | "drill" | "note" | "mock" | "checkpoint";
+/** The reason tag an item wears (its hold colour). */
+export type PlanTag = "review" | "weak" | "new" | "progress" | "sharp" | "mock" | "check";
+
+export interface WhyChip {
+  /** A Lucide icon name. */
+  icon: string;
+  text: string;
+}
 
 export interface PlanItem {
   kind: PlanItemKind;
-  problem: string;
+  tag: PlanTag;
+  problem: string | null;
   title: string;
-  technique: string;
+  technique: string | null;
   minutes: number;
   reason: string;
   note?: string;
+  chips?: WhyChip[];
 }
 
 export interface PlanSession {
@@ -234,6 +257,7 @@ export interface PlanSession {
   minutes: number;
   title: string;
   items: PlanItem[];
+  moved_from?: string;
 }
 
 export interface PlanDay {
@@ -242,6 +266,60 @@ export interface PlanDay {
   rest: boolean;
   minutes: number;
   sessions: PlanSession[];
+  cap: number;
+  off: boolean;
+  windows: { start: string; end: string }[];
+}
+
+export interface NoteAction {
+  kind: "weekday_minutes" | "availability" | "set_date" | "clear_date" | "open_plan";
+  label: string;
+  value?: number;
+}
+
+/** A re-plan note: what changed, in counts, and what it means for the date. */
+export interface PlanNote {
+  kind: "missed" | "away" | "great_day" | "over_budget" | "cram" | "date_passed" | "backlog";
+  title: string;
+  body: string;
+  actions: NoteAction[];
+}
+
+export interface PlanFixes {
+  techniques: { module: string; technique: string; weekday_minutes: number | null }[];
+  all: number | null;
+  note: PlanNote | null;
+}
+
+export interface Insight {
+  kind: string;
+  icon: string;
+  /** `**bold**` marks the two facts. */
+  text: string;
+}
+
+export interface Habits {
+  history: {
+    sessions: number;
+    /** `[weekday 0 = Monday, half-hour slot 0..47]`. */
+    cells: [number, number][];
+    suggestion: { windows: Availability[]; sessions: number; text: string } | null;
+  };
+  insights: Insight[];
+}
+
+export type SkillLevel = "new" | "shaky" | "building" | "solid" | "strong";
+
+export interface AttemptFeedback {
+  module: string;
+  technique: string;
+  technique_title: string;
+  before: SkillLevel;
+  after: SkillLevel;
+  trend: "improving" | "flat" | "slipping" | null;
+  text: string;
+  cleared: boolean;
+  weak_spot: boolean;
 }
 
 export type SkillCause = "cant_start" | "wrong_approach" | "edge_cases" | "too_slow" | "forgetting";
@@ -254,6 +332,8 @@ export interface Forecast {
   companies: string[];
   goal: number;
   started_now: number;
+  /** Started problems already on the mastered rung. */
+  mastered_now?: number;
   projected: number;
   status: "on_track" | "behind";
   behind_by: number;
@@ -273,7 +353,10 @@ export interface Plan {
     median_secs: Partial<Record<Difficulty, number>>;
     speed: Record<Difficulty, number>;
     new_minutes: Record<Difficulty, number>;
-    best_hour: number;
+    best_hour: number | null;
+    review_minutes?: number | null;
+    sample?: number;
+    habit?: string | null;
   };
   days: PlanDay[];
   forecast: Forecast[];
@@ -290,6 +373,7 @@ export interface Plan {
     behind: string[];
     headline: string;
   };
+  notes?: PlanNote[];
 }
 
 export interface SkillAction {
@@ -297,6 +381,17 @@ export interface SkillAction {
   problem: string | null;
   note: string | null;
   reason: string;
+  title: string;
+  minutes: number;
+}
+
+export interface SkillAttempt {
+  problem: string;
+  title: string;
+  date: string;
+  mark: "clean" | "missed" | "hint" | "over";
+  cause: SkillCause | null;
+  detail: string;
 }
 
 export interface Skill {
@@ -316,6 +411,18 @@ export interface Skill {
   total: number;
   evidence: Record<string, number>;
   actions: SkillAction[];
+  level: SkillLevel;
+  sureness: "none" | "first_read" | "fairly_sure" | "sure";
+  recent: number;
+  /** Weak with 4+ recent attempts: the only case the UI says "Weak spot". */
+  weak_spot: boolean;
+  /** A first read (1-3 attempts) with a cause: "Watching". */
+  watch: boolean;
+  diagnosis: string;
+  history: SkillAttempt[];
+  clean_per_week: number[];
+  technique_number: number;
+  techniques_in_module: number;
 }
 
 export interface Skills {
