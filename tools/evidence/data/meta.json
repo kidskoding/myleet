@@ -1,6 +1,228 @@
 {
   "company": "meta",
-  "posts_found": 0,
-  "blocked": "HTTP 403 from reddit",
-  "problems": []
+  "posts_found": 23,
+  "by_source": {
+    "devto": 3,
+    "medium": 20,
+    "hn": 0
+  },
+  "problems": [
+    {
+      "id": "valid-parentheses",
+      "mentions": 2,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1",
+        "https://medium.com/@garimajain1105/leetcode-20-valid-parentheses-6354d8a96622?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "course-schedule",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "maximum-subarray-dp",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "palindrome-partitioning",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "set-matrix-zeroes-math_geometry",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "merge-intervals",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "minimum-window-substring",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "set-matrix-zeroes",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "two-sum",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "maximum-subarray-advanced",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "combination-sum",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "group-anagrams",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "median-of-two-sorted-arrays-advanced",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "median-of-two-sorted-arrays",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "maximum-subarray",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "binary-tree-right-side-view",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "number-of-islands",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/meta-coding-interview-questions-what-the-2026-loop-really-tests-51e1"
+      ]
+    },
+    {
+      "id": "valid-word",
+      "mentions": 1,
+      "last_seen": "2024-04-09",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-408-valid-word-abbreviation-0802a72d2464?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "word-abbreviation",
+      "mentions": 1,
+      "last_seen": "2024-04-09",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-408-valid-word-abbreviation-0802a72d2464?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "valid-word-abbreviation",
+      "mentions": 1,
+      "last_seen": "2024-04-09",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-408-valid-word-abbreviation-0802a72d2464?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "continuous-subarray-sum",
+      "mentions": 1,
+      "last_seen": "2024-03-23",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-523-continuous-subarray-sum-ca2bcbf0ec2b?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "delete-nodes-and-return-forest",
+      "mentions": 1,
+      "last_seen": "2024-03-19",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-1110-delete-nodes-and-return-forest-c3b0c48e13f0?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "lowest-common-ancestor-of-a-binary-search-tree",
+      "mentions": 1,
+      "last_seen": "2024-03-13",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-1650-lowest-common-ancestor-of-a-binary-tree-iii-binary-tree-vs-binary-search-tree-lca-18575a6fc613?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "lowest-common-ancestor-of-a-binary-tree-iii",
+      "mentions": 1,
+      "last_seen": "2024-03-13",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-1650-lowest-common-ancestor-of-a-binary-tree-iii-binary-tree-vs-binary-search-tree-lca-18575a6fc613?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "lowest-common-ancestor-of-a-binary-tree",
+      "mentions": 1,
+      "last_seen": "2024-03-13",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-1650-lowest-common-ancestor-of-a-binary-tree-iii-binary-tree-vs-binary-search-tree-lca-18575a6fc613?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "binary-search",
+      "mentions": 1,
+      "last_seen": "2024-03-13",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-1650-lowest-common-ancestor-of-a-binary-tree-iii-binary-tree-vs-binary-search-tree-lca-18575a6fc613?source=rss------facebook_interview-5"
+      ]
+    },
+    {
+      "id": "lowest-common-ancestor-of-a-binary-tree-ii",
+      "mentions": 1,
+      "last_seen": "2024-03-13",
+      "sources": [
+        "https://shuwenzhou.medium.com/leetcode-1650-lowest-common-ancestor-of-a-binary-tree-iii-binary-tree-vs-binary-search-tree-lca-18575a6fc613?source=rss------facebook_interview-5"
+      ]
+    }
+  ]
 }

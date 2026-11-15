@@ -3,6 +3,47 @@ group = "AI & Startups"
 focus = "In-memory data-structure designs, encoding and parsing, and graph search, written with clean abstractions."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "06_linked_lists", "10_graphs", "17_advanced"]
 
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Remove Element"
+url = "https://leetcode.com/problems/remove-element/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "Paint House"
+url = "https://leetcode.com/problems/paint-house/"
+
+[[entries]]
+title = "Web Crawler"
+url = "https://leetcode.com/problems/web-crawler/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Divide Two Integers"
+url = "https://leetcode.com/problems/divide-two-integers/"
+
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
@@ -46,10 +87,6 @@ url = "https://leetcode.com/problems/meeting-rooms-ii/"
 [[entries]]
 title = "Find Duplicate File in System"
 url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
-
-[[entries]]
-title = "Web Crawler"
-url = "https://leetcode.com/problems/web-crawler/"
 
 [[entries]]
 title = "Snapshot Array"

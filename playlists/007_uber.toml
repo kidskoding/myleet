@@ -3,6 +3,35 @@ group = "Big Tech"
 focus = "Intervals, heaps, shortest paths on graphs and grids, and greedy optimization under constraints."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "13_intervals"]
 
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+
 [[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"

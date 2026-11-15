@@ -10,7 +10,7 @@ Run `python3 tools/evidence/collect.py apply` to reorder the playlists from thos
 
 ## Sources
 
-The script reads Reddit's public search JSON for r/leetcode, r/cscareerquestions and r/csMajors, with interview, OA, onsite and phone screen variants of each query. It sends a descriptive User-Agent and waits two and a half seconds between requests. It does not use LeetCode Premium company tags, tag datasets or mirrors of them, and it does not try to get around login walls or blocks. If Reddit answers 403 or 429, the script stops for that company and records the block in the data file.
+The script reads three public sources with no login: the dev.to API (articles tagged interview, leetcode and codinginterview, with the body fetched only when the title or tags name the company), Medium RSS tag feeds (`<company>-interview` and `<company>-interview-questions`), and the Hacker News Algolia search. It keeps posts from 2024 onward, sends a descriptive User-Agent and waits one second between requests. A post is credited to a company only when it is about that company's interview. It does not use LeetCode Premium company tags, tag datasets or mirrors of them, and it does not try to get around login walls or blocks. If a source fails, the script skips it.
 
 ## Matching
 

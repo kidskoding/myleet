@@ -3,6 +3,31 @@ group = "AI & Startups"
 focus = "deep reasoning, design abstractions, graphs, DP, and careful edge cases."
 review_modules = ["01_arrays_and_hashing", "07_trees", "10_graphs", "11_dp", "16_math_geometry", "17_advanced"]
 
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Add Two Numbers"
+url = "https://leetcode.com/problems/add-two-numbers/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
 [[entries]]
 title = "Web Crawler"
 url = "https://leetcode.com/problems/web-crawler/"
@@ -178,7 +203,3 @@ url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 [[entries]]
 title = "Dice Roll Simulation"
 url = "https://leetcode.com/problems/dice-roll-simulation/"
-
-[[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"

@@ -1,6 +1,161 @@
 {
   "company": "amazon",
-  "posts_found": 0,
-  "blocked": "HTTP 403 from reddit",
-  "problems": []
+  "posts_found": 26,
+  "by_source": {
+    "devto": 15,
+    "medium": 10,
+    "hn": 1
+  },
+  "problems": [
+    {
+      "id": "course-schedule",
+      "mentions": 2,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3",
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "merge-k-sorted-lists-heaps",
+      "mentions": 2,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3",
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "two-sum",
+      "mentions": 2,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3",
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "merge-k-sorted-lists",
+      "mentions": 2,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3",
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "group-anagrams",
+      "mentions": 2,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3",
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "number-of-islands",
+      "mentions": 2,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3",
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "set-matrix-zeroes-math_geometry",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3"
+      ]
+    },
+    {
+      "id": "partition-equal-subset-sum",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3"
+      ]
+    },
+    {
+      "id": "set-matrix-zeroes",
+      "mentions": 1,
+      "last_seen": "2026-10-27",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-online-assessment-oa-what-the-2026-test-really-asks-5ep3"
+      ]
+    },
+    {
+      "id": "lru-cache",
+      "mentions": 1,
+      "last_seen": "2026-10-26",
+      "sources": [
+        "https://dev.to/emilywoodsnyc/amazon-interview-question-your-lru-cache-works-now-make-it-expire-1ph6"
+      ]
+    },
+    {
+      "id": "generate-parentheses",
+      "mentions": 1,
+      "last_seen": "2026-10-12",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "combination-sum",
+      "mentions": 1,
+      "last_seen": "2026-10-12",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "task-scheduler",
+      "mentions": 1,
+      "last_seen": "2026-10-12",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "task-scheduler-greedy_algorithms",
+      "mentions": 1,
+      "last_seen": "2026-10-12",
+      "sources": [
+        "https://dev.to/gowthampotureddi/amazon-coding-interview-questions-what-the-2026-loop-really-tests-3dhk"
+      ]
+    },
+    {
+      "id": "rectangle-overlap",
+      "mentions": 1,
+      "last_seen": "2026-09-14",
+      "sources": [
+        "https://dev.to/shaanlabs/rectangle-overlap-leetcode-836-solve-in-seconds-amazon-most-asked-interview--gkf"
+      ]
+    },
+    {
+      "id": "top-k-frequent-elements",
+      "mentions": 1,
+      "last_seen": "2026-09-01",
+      "sources": [
+        "https://dogaozgon.medium.com/this-amazon-interview-question-gets-asked-all-the-time-leetcode347-1216285505c8?source=rss------amazon_interview-5"
+      ]
+    },
+    {
+      "id": "top-k-frequent-elements-heaps",
+      "mentions": 1,
+      "last_seen": "2026-09-01",
+      "sources": [
+        "https://dogaozgon.medium.com/this-amazon-interview-question-gets-asked-all-the-time-leetcode347-1216285505c8?source=rss------amazon_interview-5"
+      ]
+    },
+    {
+      "id": "merge-intervals",
+      "mentions": 1,
+      "last_seen": "2026-08-30",
+      "sources": [
+        "https://dogaozgon.medium.com/this-amazon-interview-question-gets-asked-all-the-time-merge-intervals-54bd2b14ff38?source=rss------amazon_interview-5"
+      ]
+    }
+  ]
 }

@@ -1,6 +1,101 @@
 {
   "company": "openai",
-  "posts_found": 0,
-  "blocked": "HTTP 403 from reddit",
-  "problems": []
+  "posts_found": 11,
+  "by_source": {
+    "devto": 7,
+    "medium": 4,
+    "hn": 0
+  },
+  "problems": [
+    {
+      "id": "median-of-two-sorted-arrays-advanced",
+      "mentions": 2,
+      "last_seen": "2026-10-19",
+      "sources": [
+        "https://dev.to/landthelab/the-12-coding-questions-openai-keeps-asking-its-screen-bans-autocomplete-39ep",
+        "https://dev.to/landthelab/cursor-sells-ai-coding-but-its-screens-allow-only-autocomplete-openais-allow-none-kf7"
+      ]
+    },
+    {
+      "id": "median-of-two-sorted-arrays",
+      "mentions": 2,
+      "last_seen": "2026-10-19",
+      "sources": [
+        "https://dev.to/landthelab/the-12-coding-questions-openai-keeps-asking-its-screen-bans-autocomplete-39ep",
+        "https://dev.to/landthelab/cursor-sells-ai-coding-but-its-screens-allow-only-autocomplete-openais-allow-none-kf7"
+      ]
+    },
+    {
+      "id": "remove-element",
+      "mentions": 1,
+      "last_seen": "2026-11-01",
+      "sources": [
+        "https://dev.to/landthelab/we-tracked-40-questions-openai-asked-in-october-only-5-were-about-ai-3gin"
+      ]
+    },
+    {
+      "id": "longest-increasing-subsequence",
+      "mentions": 1,
+      "last_seen": "2026-11-01",
+      "sources": [
+        "https://dev.to/landthelab/we-tracked-40-questions-openai-asked-in-october-only-5-were-about-ai-3gin"
+      ]
+    },
+    {
+      "id": "paint-house",
+      "mentions": 1,
+      "last_seen": "2026-11-01",
+      "sources": [
+        "https://dev.to/landthelab/we-tracked-40-questions-openai-asked-in-october-only-5-were-about-ai-3gin"
+      ]
+    },
+    {
+      "id": "web-crawler",
+      "mentions": 1,
+      "last_seen": "2026-11-01",
+      "sources": [
+        "https://dev.to/landthelab/we-tracked-40-questions-openai-asked-in-october-only-5-were-about-ai-3gin"
+      ]
+    },
+    {
+      "id": "merge-two-sorted-lists",
+      "mentions": 1,
+      "last_seen": "2026-10-20",
+      "sources": [
+        "https://dev.to/landthelab/72-of-anthropics-design-questions-are-ai-or-ml-62-of-openais-are-classic-hkp"
+      ]
+    },
+    {
+      "id": "next-permutation",
+      "mentions": 1,
+      "last_seen": "2026-10-19",
+      "sources": [
+        "https://dev.to/landthelab/the-12-coding-questions-openai-keeps-asking-its-screen-bans-autocomplete-39ep"
+      ]
+    },
+    {
+      "id": "first-missing-positive",
+      "mentions": 1,
+      "last_seen": "2026-10-19",
+      "sources": [
+        "https://dev.to/landthelab/the-12-coding-questions-openai-keeps-asking-its-screen-bans-autocomplete-39ep"
+      ]
+    },
+    {
+      "id": "longest-palindromic-substring",
+      "mentions": 1,
+      "last_seen": "2026-10-18",
+      "sources": [
+        "https://dev.to/landthelab/openai-still-asks-you-to-design-tinyurl-mistral-asks-about-mixture-of-experts-3594"
+      ]
+    },
+    {
+      "id": "divide-two-integers",
+      "mentions": 1,
+      "last_seen": "2026-10-18",
+      "sources": [
+        "https://dev.to/landthelab/openai-still-asks-you-to-design-tinyurl-mistral-asks-about-mixture-of-experts-3594"
+      ]
+    }
+  ]
 }

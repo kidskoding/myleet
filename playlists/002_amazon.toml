@@ -3,6 +3,55 @@ group = "Big Tech"
 focus = "Trees and BFS/DFS, heaps, intervals, sliding windows, linked lists, and a few classic design questions."
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
@@ -10,10 +59,6 @@ url = "https://leetcode.com/problems/meeting-rooms-ii/"
 [[entries]]
 title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Min Stack"
@@ -24,14 +69,6 @@ title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
@@ -40,28 +77,12 @@ title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
 title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
 title = "Trapping Rain Water"
 url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
 title = "Top K Frequent Words"

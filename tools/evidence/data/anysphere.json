@@ -1,6 +1,10 @@
 {
   "company": "anysphere",
   "posts_found": 0,
-  "blocked": "HTTP 403 from reddit",
+  "by_source": {
+    "devto": 0,
+    "medium": 0,
+    "hn": 0
+  },
   "problems": []
 }
