@@ -96,6 +96,13 @@ function cache(me: Me | null): void {
   } catch {
     // Storage blocked: the shell just renders signed out until the fetch answers.
   }
+  // Pages paint from the cached state; when the live answer differs (first load after
+  // signing in, or a session that expired), tell them so they repaint as the right person.
+  const next = me ? "in" : "out";
+  if (typeof document !== "undefined" && document.documentElement.dataset.auth !== next) {
+    document.documentElement.dataset.auth = next;
+    window.dispatchEvent(new CustomEvent("myleet:auth", { detail: me }));
+  }
 }
 
 /** What the shell painted: `<html data-auth>`. Signed-out pages show no personal progress. */

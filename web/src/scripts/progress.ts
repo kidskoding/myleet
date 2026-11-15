@@ -688,4 +688,5 @@ document.addEventListener("keydown", (e) => {
 });
 
 document.addEventListener("astro:page-load", init);
+window.addEventListener("myleet:auth", () => void init());
 for (const ev of ["myleet:synced", "myleet:progress", "myleet:notes"]) addEventListener(ev, () => void refresh());

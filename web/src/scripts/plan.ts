@@ -1901,6 +1901,7 @@ function wire(): void {
 
 wire();
 document.addEventListener("astro:page-load", () => void init());
+window.addEventListener("myleet:auth", () => void init());
 document.addEventListener("astro:before-swap", () => {
   closeDrawer();
   ctx = undefined;

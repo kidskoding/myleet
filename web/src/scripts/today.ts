@@ -786,6 +786,7 @@ document.addEventListener("click", (e) => {
 setInterval(paintMock, 60_000);
 
 document.addEventListener("astro:page-load", () => void init());
+window.addEventListener("myleet:auth", () => void init());
 for (const ev of ["myleet:synced", "myleet:progress", "myleet:prefs"]) addEventListener(ev, () => void refresh());
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") paintMock();
