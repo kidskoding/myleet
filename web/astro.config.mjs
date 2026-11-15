@@ -46,5 +46,7 @@ export default defineConfig({
   vite: {
     worker: { format: "es" },
     plugins: [liveContent()],
+    // Dev has no Worker; problem statements are public and cached, so borrow production's.
+    server: { proxy: { "/api/statement": { target: "https://myleet.anirudhkonidala.workers.dev", changeOrigin: true } } },
   },
 });
