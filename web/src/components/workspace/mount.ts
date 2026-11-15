@@ -42,7 +42,9 @@ import { fetchProblem, loadCatalog } from "../../lib/catalog";
 import { appendEvent, loadDraft, readEvents, saveDraft, type Draft } from "../../lib/progress";
 import { getRunner, PYODIDE_URL, type RunResult } from "../../lib/runner";
 import type { TrainerApi } from "../../lib/trainer";
-import type { Mode, ProblemFiles, ProblemMeta, State } from "../../lib/types";
+import type { Mode, Plan, ProblemFiles, ProblemMeta, State } from "../../lib/types";
+import type { ResultAttempt, ResultExtras } from "../../lib/ui/workspace-personal";
+import { signupHref } from "../../lib/access";
 import { ROUTES } from "../../lib/routes";
 import { icon } from "./icons";
 import { climb, ladderRung, renderLadder } from "./ladder";
@@ -77,6 +79,10 @@ export interface MountOptions {
    */
   renderReason?: (el: HTMLElement, ctx: { problem: string; events: string; trainer: TrainerApi }) => void;
   renderChanges?: (el: HTMLElement, ctx: { problem: string; events: string; trainer: TrainerApi; before: State | undefined; after: State | undefined }) => void;
+  /** The plan before an attempt is recorded, so the result sheet can say what changed. */
+  snapshot?: (ctx: { problem: string; events: string; trainer: TrainerApi }) => Plan | null;
+  /** The personal note, plan change and next problem for the result sheet (practice mode). */
+  resultExtras?: (ctx: { problem: string; events: string; trainer: TrainerApi; snapshot: Plan | null; attempt: ResultAttempt }) => Promise<ResultExtras>;
 }
 
 interface InitialData {
@@ -90,7 +96,7 @@ const MODES: Mode[] = ["practice", "drill", "interview", "placement", "checkpoin
 const SAVE_DELAY_MS = 400;
 const CASES_KEY = (id: string) => `myleet-cases:${id}`;
 
-export function mountFromPage(personal: Pick<MountOptions, "renderReason" | "renderChanges"> = {}): void {
+export function mountFromPage(personal: Pick<MountOptions, "renderReason" | "renderChanges" | "snapshot" | "resultExtras"> = {}): void {
   const root = document.getElementById("workspace");
   if (!root) return;
   const q = new URLSearchParams(location.search);
@@ -114,13 +120,10 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   const backHref = opts.backHref ?? root.dataset["back"] ?? "/";
 
   root.dataset["mode"] = mode;
-  // Solving needs an account; the diagnostic's problems (placement) don't.
-  const locked = () => mode !== "placement" && document.documentElement.dataset["auth"] !== "in";
   if (mode === "placement") {
     $(root, '[data-act="dontKnow"]').hidden = false;
     for (const a of $$<HTMLAnchorElement>(root, "[data-back]")) a.setAttribute("aria-label", "Back to the diagnostic");
   }
-  for (const a of $$<HTMLAnchorElement>(root, "[data-signup-cta]")) a.href = `${ROUTES.signin}?mode=signup&next=${encodeURIComponent(location.pathname + location.search)}`;
   for (const k of $$(root, "[data-kbd]")) k.textContent = keyLabel(k.dataset["kbd"] ?? "", mac).replace("Ctrl+Enter", "Ctrl ↵").replace("Ctrl+", "Ctrl ");
   if (exam) for (const el of $$(root, "[data-exam-hide]")) el.hidden = true;
   if (interview || !meta.hints.length && !meta.key_idea) for (const el of $$(root, "[data-exam-hide-hints]")) el.hidden = true;
@@ -625,6 +628,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       return;
     }
     const before = trainer.states(events)[id];
+    const snapshot = opts.snapshot?.({ problem: id, events, trainer }) ?? null;
     if (exam) {
       await attempt.submit(r.passed, r.total, elapsedMs(timer, Date.now()));
       report("submit", r);
@@ -659,7 +663,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const after = trainer.states(events)[id];
     if (!panes.isZen()) panes.toggleTests(false);
     if (panes.isPhone()) panes.showMobile("tests");
-    showResultSheet(before, after, green);
+    void showResultSheet(before, after, green, snapshot, r);
   }
 
   async function runCases(code: string): Promise<CaseRow[]> {
@@ -706,7 +710,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     }
   }
 
-  function showResultSheet(before: State | undefined, after: State | undefined, green: boolean) {
+  async function showResultSheet(before: State | undefined, after: State | undefined, green: boolean, snapshot: Plan | null, r: RunResult) {
     const from = ladderRung(before?.rung ?? -1);
     const to = ladderRung(after?.rung ?? -1);
     const elapsed = elapsedMs(timer, Date.now());
@@ -747,20 +751,52 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       body = `No hints, under ${Math.round(targetMs / 60_000)} minutes. It climbs to the ${rungName}, so the next review is ${dueText ?? "on schedule"}`;
     }
     const mastered = to >= 4 && from < 4 && green;
+    let extras: ResultExtras | null = null;
+    if (mode === "practice" && opts.resultExtras && trainer) {
+      const kind = !green ? "miss" : attempt.hints > 0 || attempt.peeks > 0 || attempt.restarts > 0 ? "hint" : over ? "over" : "clean";
+      const attemptFacts: ResultAttempt = { kind, passed: r.passed, total: r.total, failing: lastFails.map((f) => f.test), reviewDays: green && kind === "clean" ? days : 1, targetMins: Math.round(targetMs / 60_000) };
+      // Capped so a slow plan build never delays the sheet.
+      extras = await Promise.race([
+        opts.resultExtras({ problem: id, events, trainer, snapshot, attempt: attemptFacts }).catch(() => null),
+        new Promise<null>((res) => setTimeout(() => res(null), 500)),
+      ]);
+      if (extras?.next) {
+        // Warm the next problem so "Next" opens without a wait.
+        void fetchProblem(extras.next.href.replace(/^\/p\//, "").split("?")[0] ?? "").catch(() => {});
+        document.head.append(h("link", { rel: "prefetch", href: extras.next.href }));
+      }
+    }
     // "What this changes" (diagnosis update) mounts here when the shared renderer is present.
     const changes = h("div", { class: "changes", "data-changes": "" });
     if (opts.renderChanges && trainer) opts.renderChanges(changes, { problem: id, events, trainer, before, after });
     const lad = h("span", { class: "ladder" });
-    const next = h("a", { class: "btn btn-primary", href: nextHref() }, "Next problem ", h("kbd", {}, "↵"));
+    const nx = extras?.next;
+    const end = extras?.end;
+    const next = end
+      ? h("a", { class: "btn btn-primary", href: end.tomorrowHref }, "See tomorrow ", h("kbd", {}, "↵"))
+      : nx
+        ? h("a", { class: "btn btn-primary", href: nx.href }, h("span", { class: "nx-title" }, `Next: ${nx.title}`), " ", h("kbd", {}, "↵"))
+        : h("a", { class: "btn btn-primary", href: nextHref() }, "Next problem ", h("kbd", {}, "↵"));
     const sheet = h(
       "div",
       { class: "result", role: "status", "aria-live": "polite" },
       lad,
-      h("div", { class: "txt" }, h("h2", {}, title, mastered ? h("span", { class: "tag tag-pass mtag" }, "Mastered") : null), h("p", {}, body), changes),
+      h(
+        "div",
+        { class: "txt" },
+        h("h2", {}, title, mastered ? h("span", { class: "tag tag-pass mtag" }, "Mastered") : null),
+        h("p", {}, extras?.note ?? body),
+        extras?.change ? h("p", { class: "adapt" }, extras.change) : null,
+        changes,
+        end ? h("p", { class: "endnote" }, end.text) : null,
+      ),
       h(
         "div",
         { class: "acts" },
         next,
+        end?.extra ? h("a", { class: "btn btn-secondary", href: end.extra.href }, `One more: ${end.extra.title}`) : null,
+        nx ? h("p", { class: "nextwhy" }, nx.reason) : null,
+        extras?.guest ? h("a", { class: "nextwhy guest-link", href: signupHref() }, "Create a free account to get a plan built around this") : null,
         files?.solution ? h("button", { class: "btn btn-secondary", onclick: () => (closeResult(), showSolution("diff")) }, "Compare with reference") : null,
       ),
       h("button", { class: "icon-btn x", "aria-label": "Dismiss (Esc)", html: icon("x"), onclick: () => closeResult(true) }),
@@ -774,11 +810,11 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       else if (!green) renderLadder(lad, { rung: to, size: "lg", fell: from > 1 ? from : 0 });
       else if (mode === "drill") renderLadder(lad, { rung: to, size: "lg" });
       else setTimeout(() => climb(lad, from, to, { size: "lg" }), reduce ? 0 : 560);
-      lad.setAttribute("aria-label", `${title}. ${body}`);
+      lad.setAttribute("aria-label", `${title}. ${extras?.note ?? body}`);
       next.focus({ preventScroll: true });
     };
     show();
-    announce(`${title}. ${body}`);
+    announce(`${title}. ${extras?.note ?? body}`);
   }
 
   // ---- Left pane: tabs, statement, hints, solution, history ----
@@ -1558,10 +1594,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   }
 
   async function act(a: Action | string, source?: HTMLElement) {
-    if ((a === "run" || a === "submit" || a === "runCustom") && locked()) {
-      toast(toastSlot, "Sign up free to run and submit your code");
-      return;
-    }
     switch (a) {
       case "dontKnow":
         return dontKnow();
