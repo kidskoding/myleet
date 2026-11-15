@@ -1,0 +1,88 @@
+---
+import { chevronRight, circle } from "../../components/learn/icons";
+import "../../components/learn/learn.css";
+import Base from "../../layouts/Base.astro";
+import { buildCatalog } from "../../lib/build-catalog";
+import { noteMinutes } from "../../lib/build-notes";
+import { moduleSubtitle, sentenceCase } from "../../lib/display";
+import { moduleSlug, noteHref, ROUTES } from "../../lib/routes";
+import type { Module } from "../../lib/types";
+
+export function getStaticPaths() {
+  return buildCatalog()
+    .modules.filter((m) => !m.bank)
+    .map((module) => ({ params: { module: moduleSlug(module) }, props: { module } }));
+}
+
+interface Props {
+  module: Module;
+}
+
+const { module: m } = Astro.props;
+const size = m.techniques.reduce((n, t) => n + t.problems.length, 0);
+const minutes: Record<string, number> = {};
+for (const p of [...m.notes.map((n) => n.path), ...m.techniques.flatMap((t) => (t.note ? [t.note] : []))]) minutes[p] ??= noteMinutes(p);
+const title = sentenceCase(m.title);
+// module.toml descriptions are "A; B; C" lists; read as one sentence.
+const parts = m.description.split(";").map((s) => s.trim()).filter(Boolean);
+const lede = parts.length
+  ? `${parts.map((s, i) => (i === 0 ? s : s.charAt(0).toLowerCase() + s.slice(1))).join(", ")}.`
+  : `${moduleSubtitle(m)}.`;
+---
+
+<Base title={title} nav="learn" description={`Module ${m.number}: ${lede} ${size} problems with notes.`}>
+  <div class="page learn" data-learn="module" data-module={m.id}>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href={ROUTES.learn}>Learn</a><Fragment set:html={chevronRight().value} /><span aria-current="page">Module {m.number}</span></nav>
+    <div class="detail-head">
+      <div>
+        <h1>{title}</h1>
+        <p>{lede}</p>
+      </div>
+      <div>
+        <div class="bar" style="height:10px" data-mod-bar role="img" aria-label={`${size} problems, none started`}></div>
+        <div class="stat-line" data-stats>
+          <span><b>0</b>mastered</span><span><b>0</b>climbing</span><span><b>0</b>started</span><span><b>{size}</b>not started</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="techs" data-techs aria-busy="true">
+        {m.techniques.map(() => <div class="skel" style="height:48px"></div>)}
+      </div>
+      <aside>
+        <section class="panel" aria-labelledby="nl">
+          <h2 id="nl">Notes for this module</h2>
+          <ol class="notes-list">
+            {
+              m.notes.map((n) => (
+                <li>
+                  <a href={noteHref(n.path)} data-note={n.path}>
+                    <span data-note-icon><Fragment set:html={circle("unread").value} /></span>
+                    <span>{n.title}<span class="meta" data-note-meta></span></span>
+                    <span class="meta">{minutes[n.path]} min</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+        <section class="panel" aria-labelledby="nx" data-next>
+          <h2 id="nx">Next in this module</h2>
+          <p class="text-small text-secondary" style="margin-top:var(--space-2)">Start with the first note, then its problems.</p>
+          {m.notes[0] && <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href={noteHref(m.notes[0].path)}>Start reading</a>}
+        </section>
+      </aside>
+    </div>
+    <section class="panel state-note" data-error hidden role="alert" style="margin-top:var(--space-8)">
+      <h2>Couldn't load your progress</h2>
+      <p>The trainer didn't load (network error). Your progress is safe on this device.</p>
+      <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
+    </section>
+    <script type="application/json" data-minutes set:html={JSON.stringify(minutes)} />
+  </div>
+</Base>
+
+<script>
+  import "../../scripts/learn";
+</script>

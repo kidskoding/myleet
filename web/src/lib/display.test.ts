@@ -8,8 +8,9 @@ describe("sentenceCase", () => {
     expect(sentenceCase("Top-K")).toBe("Top-K");
     expect(sentenceCase("K-Way Merge")).toBe("K-way merge");
     expect(sentenceCase("Prefix & Suffix Sums")).toBe("Prefix & suffix sums");
+    expect(sentenceCase("Window Max/Min")).toBe("Window max/min");
   });
   it("joins technique titles into a subtitle", () => {
-    expect(moduleSubtitle({ techniques: [{ title: "Fixed Window" }, { title: "BFS Levels" }] as never })).toBe("Fixed window, BFS levels");
+    expect(moduleSubtitle({ techniques: [{ title: "Fixed Window" }, { title: "BFS Levels" }, { title: "Kadane" }] as never })).toBe("Fixed window, BFS levels, Kadane");
   });
 });

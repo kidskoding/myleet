@@ -1,0 +1,85 @@
+---
+import { chevronRight, listFilter } from "../../components/learn/icons";
+import "../../components/learn/learn.css";
+import Base from "../../layouts/Base.astro";
+import { buildCatalog } from "../../lib/build-catalog";
+import { noteMinutes } from "../../lib/build-notes";
+import { moduleSubtitle, sentenceCase } from "../../lib/display";
+import { moduleHref, noteHref } from "../../lib/routes";
+import { bar } from "../../lib/ui/bits";
+
+const c = buildCatalog();
+const modules = c.modules.filter((m) => !m.bank);
+const size = (m: (typeof modules)[number]) => m.techniques.reduce((n, t) => n + t.problems.length, 0);
+const largest = Math.max(...modules.map(size));
+const total = modules.reduce((n, m) => n + size(m), 0);
+const minutes: Record<string, number> = {};
+for (const n of [...c.guide, ...modules.flatMap((m) => [...m.notes, ...m.techniques.flatMap((t) => (t.note ? [{ path: t.note }] : []))])])
+  minutes[n.path] ??= noteMinutes(n.path);
+const guideMinutes = c.guide.reduce((n, g) => n + (minutes[g.path] ?? 0), 0);
+const words = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty"];
+const count = words[modules.length] ?? String(modules.length);
+---
+
+<Base title="Learn" nav="learn" description={`${count} modules of interview DSA by pattern, with notes that teach and ${total} problems that drill.`}>
+  <div class="page learn" data-learn="map">
+    <div class="head">
+      <div>
+        <h1>Learn</h1>
+        <p data-lede data-count={count}>{count} modules by interview pattern, {total} problems. Read the five start-here notes, then begin at module 1.</p>
+      </div>
+      <div class="tools">
+        <label class="filter-input"><Fragment set:html={listFilter().value} /><input type="search" placeholder="Filter problems" aria-label="Filter modules and problems" data-filter autocomplete="off" /><kbd>/</kbd></label>
+        <div class="seg" role="group" aria-label="Show" data-seg>
+          <button type="button" aria-pressed="true" data-mode="all">All</button>
+          <button type="button" aria-pressed="false" data-mode="due">Due<span class="n" data-n="due"></span></button>
+          <button type="button" aria-pressed="false" data-mode="weak">Weak<span class="n" data-n="weak"></span></button>
+          <button type="button" aria-pressed="false" data-mode="new">Not started</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="panel start" aria-labelledby="sh" data-start>
+      <div class="section-head" style="margin:0"><h2 id="sh">Start here</h2><span class="meta" data-start-meta>{guideMinutes} min in all</span></div>
+      <ol>
+        {c.guide.map((g) => <li><a href={noteHref(g.path)} data-note={g.path}><strong>{g.title}</strong><span>{minutes[g.path]} min</span></a></li>)}
+      </ol>
+    </section>
+
+    <div class="mods-head" aria-hidden="true"><span></span><span>Module</span><span>Problems, filled by mastery</span><span>Your progress</span><span></span></div>
+    <ol class="mods" aria-label="Modules" data-mods>
+      {
+        modules.map((m) => (
+          <li class="mod" data-module={m.id} id={`m-${m.id}`}>
+            <button class="mod-row" type="button" aria-expanded="false" aria-controls={`mb-${m.id}`} data-href={moduleHref(m)}>
+              <span class="mod-num">{String(m.number).padStart(2, "0")}</span>
+              <div class="mod-main">
+                <div class="mod-title">{sentenceCase(m.title)}<span data-mod-tags></span></div>
+                <div class="mod-sub">{moduleSubtitle(m)}</div>
+              </div>
+              <span class="rail" data-rail style={`--w:${((size(m) / largest) * 100).toFixed(1)}%`}>
+                <Fragment set:html={bar([], `${size(m)} problems, not started`).value.replace('class="bar"', 'class="bar" style="width:var(--w)"')} />
+              </span>
+              <span class="mod-count" data-count>{size(m)} problems<span class="l2">Not started</span></span>
+              <Fragment set:html={chevronRight("chev").value} />
+            </button>
+            <div class="mod-body" id={`mb-${m.id}`} hidden></div>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="legend"><span><i style="background:var(--pass-solid)"></i>Mastered</span><span><i style="background:var(--ink)"></i>Climbing the ladder</span><span><i style="background:var(--line-strong)"></i>Started</span><span>Bar length is the module's size.</span></div>
+
+    <section class="panel state-note" data-empty hidden role="status" style="margin-top:var(--space-8)"></section>
+    <section class="panel state-note" data-error hidden role="alert" style="margin-top:var(--space-8)">
+      <h2>Couldn't load your progress</h2>
+      <p>The curriculum or the trainer didn't load (network error). Your progress is safe on this device. Notes and problems you've opened before still work offline.</p>
+      <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
+    </section>
+    <script type="application/json" data-minutes set:html={JSON.stringify(minutes)} />
+  </div>
+</Base>
+
+<script>
+  import "../../scripts/learn";
+</script>

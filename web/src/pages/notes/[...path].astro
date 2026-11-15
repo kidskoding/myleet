@@ -1,26 +1,133 @@
 ---
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+import "@fontsource-variable/literata/opsz.css";
+import "@fontsource-variable/jetbrains-mono/wght.css";
+import "../../components/learn/notes.css";
+import { chevronRight } from "../../components/learn/icons";
 import Base from "../../layouts/Base.astro";
 import { buildCatalog } from "../../lib/build-catalog";
-import type { NoteRef } from "../../lib/types";
+import { renderNote } from "../../lib/build-note-html";
+import { noteText } from "../../lib/build-notes";
+import { sentenceCase } from "../../lib/display";
+import { moduleHref, noteHref, ROUTES } from "../../lib/routes";
+import { icon } from "../../lib/ui/icons";
+import type { Module, NoteRef } from "../../lib/types";
 
 export function getStaticPaths() {
   const c = buildCatalog();
-  const notes = [...c.guide, ...c.modules.flatMap((m) => m.notes)];
-  return notes.map((note) => ({ params: { path: note.path.replace(/\.md$/, "") }, props: { note } }));
+  const book: { note: NoteRef; module: Module | null }[] = [
+    ...c.guide.map((note) => ({ note, module: null })),
+    ...c.modules.filter((m) => !m.bank).flatMap((module) => module.notes.map((note) => ({ note, module }))),
+  ];
+  return book.map((b, i) => ({
+    params: { path: b.note.path.replace(/\.md$/, "") },
+    props: { ...b, prev: book[i - 1]?.note ?? null, next: book[i + 1]?.note ?? null },
+  }));
 }
 
 interface Props {
   note: NoteRef;
+  module: Module | null;
+  prev: NoteRef | null;
+  next: NoteRef | null;
 }
 
-const { note } = Astro.props;
-const md = await createMarkdownProcessor();
-const { code } = await md.render(readFileSync(join(process.cwd(), "public/data/notes", note.path), "utf8"));
+const { note, module: m, prev, next } = Astro.props;
+const c = buildCatalog();
+const md = noteText(note.path);
+const r = renderNote(md, note.path);
+const title = r.title ?? note.title;
+const minutes = Math.max(1, Math.ceil(r.prose / 220 + r.code / 110));
+const siblings = m ? m.notes : c.guide;
+const index = siblings.findIndex((n) => n.path === note.path) + 1;
+const techniques = m ? m.techniques.filter((t) => t.note === note.path) : [];
+const problems = techniques.flatMap((t) => t.problems.map((i) => c.problems[i]).filter((p) => p !== undefined));
+// A problem named in the note is its worked example.
+const lower = md.toLowerCase();
+const mentioned = problems.filter((p) => lower.includes(p.title.toLowerCase())).map((p) => p.id);
+const techTitle = techniques.map((t) => sentenceCase(t.title)).join(" and ");
+const practice = {
+  path: note.path,
+  ids: problems.map((p) => p.id),
+  examples: mentioned,
+  technique: techTitle,
+  all: m ? moduleHref(m) : ROUTES.learn,
+};
+const first = md.replace(/^#.*$/m, "").split(/\n\s*\n/).map((s) => s.trim()).find((s) => s && !s.startsWith("#") && !s.startsWith("```")) ?? "";
+const description = first.replace(/[*_`[\]]/g, "").replace(/\(https?:[^)]*\)/g, "").slice(0, 155);
 ---
 
-<Base title={note.title}>
-  <article set:html={code} />
+<Base title={title} nav="learn" description={description || `${title}: a myleet note.`} ogType="article">
+  <div class="page notes-page" data-note-page data-path={note.path} data-prose-words={r.prose} data-code-words={r.code} data-minutes={minutes}>
+    <div class="reader">
+      <nav class="toc" aria-label="On this note">
+        <div class="prog"><span data-pct>0% read</span><span data-left>{minutes} min left</span></div>
+        <div class="bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress" data-progress><span style="width:0%"></span></div>
+        <div class="tabs" role="tablist" aria-label="Contents or your notes">
+          <button type="button" role="tab" aria-selected="true" aria-controls="toc-list" id="tab-toc" data-tab="toc">Contents</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="toc-mine" id="tab-mine" data-tab="mine">Your notes <span class="count" data-mine-count></span></button>
+        </div>
+        <ol id="toc-list" role="tabpanel" aria-labelledby="tab-toc" data-toc>
+          <li><a href="#top">{title}</a></li>
+          {r.headings.map((h) => <li><a href={`#${h.id}`}>{h.text}</a></li>)}
+        </ol>
+        <div id="toc-mine" class="mine" role="tabpanel" aria-labelledby="tab-mine" data-mine hidden></div>
+      </nav>
+
+      <article aria-labelledby="top">
+        <details class="mob-toc" data-mob-toc>
+          <summary>Contents<span data-mob-prog>{minutes} min read</span></summary>
+          <div class="bar" aria-hidden="true"><span style="width:0%"></span></div>
+          <ol class="mob-list">
+            {r.headings.map((h) => <li><a href={`#${h.id}`}>{h.text}</a></li>)}
+          </ol>
+          <div class="mine" data-mine-mob></div>
+        </details>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href={ROUTES.learn}>Learn</a><Fragment set:html={chevronRight().value} />
+          {m ? <a href={moduleHref(m)}>{sentenceCase(m.title)}</a> : <a href={ROUTES.learn}>Start here</a>}
+          <Fragment set:html={chevronRight().value} /><span aria-current="page">Note {index} of {siblings.length}</span>
+        </nav>
+        <h1 id="top">{title}</h1>
+        <div class="byline">
+          <span>{minutes} min read</span>
+          {problems.length > 0 && <span>Practises {problems.length} problems in {techTitle}</span>}
+          <button class="btn btn-secondary btn-sm" type="button" data-mark-read aria-pressed="false" aria-keyshortcuts="m"><Fragment set:html={icon("check").value} /><span>Mark as read</span></button>
+        </div>
+        <div class="prose" data-prose set:html={r.html} />
+
+        {
+          problems.length > 0 && (
+            <section class="panel practice" aria-labelledby="pt" id="practise">
+              <div class="section-head" style="margin:0"><h2 id="pt">Practise this technique</h2><span class="meta" data-practice-meta>{problems.length} problems</span></div>
+              <ol class="queue" data-practice></ol>
+              <a class="link text-small" href={practice.all} style="display:inline-block;margin-top:var(--space-3)">All {problems.length} {techTitle.toLowerCase()} problems</a>
+            </section>
+          )
+        }
+
+        <nav class="pager" aria-label="More notes">
+          {prev ? <a href={noteHref(prev.path)} data-prev><span>Previous note</span><strong>{prev.title}</strong></a> : <span />}
+          {next ? <a href={noteHref(next.path)} data-next><span>Next note</span><strong>{next.title}</strong></a> : <span />}
+        </nav>
+      </article>
+
+      <aside class="margin" aria-label="Your margin notes" data-margin></aside>
+    </div>
+    <div class="note-pop" role="toolbar" aria-label="Selection" data-pop hidden></div>
+    <dialog class="dlg try-dlg" aria-labelledby="try-h" data-try-dlg>
+      <div class="dlg-head"><h2 id="try-h">Try it</h2><button class="icon-btn" type="button" data-try-close aria-label="Close" set:html={icon("x").value} /></div>
+      <div class="dlg-body">
+        <p>Edit and run the block. It passes when every <code>assert</code> holds.</p>
+        <label class="visually-hidden" for="try-code">Code</label>
+        <textarea id="try-code" class="try-code" spellcheck="false" data-try-code></textarea>
+        <div class="try-out" role="status" aria-live="polite" data-try-out></div>
+      </div>
+      <div class="dlg-actions"><button class="btn btn-ghost" type="button" data-try-close>Close</button><button class="btn btn-primary" type="button" data-try-run>Run</button></div>
+    </dialog>
+    <script type="application/json" data-practice-data set:html={JSON.stringify(practice)} />
+  </div>
 </Base>
+
+<script>
+  import "../../scripts/notes";
+</script>

@@ -2,7 +2,10 @@
 // the UI shows sentence case ("Arrays and hashing"). Problem and note titles keep their casing.
 import type { Module } from "./types";
 
-const keep = (w: string): boolean => /^[A-Z0-9]+$/.test(w) && (w.length > 1 || /[A-Z]/.test(w));
+// Proper names in technique titles stay capitalised.
+const NAMES = new Set(["Kadane", "Dijkstra", "Kruskal", "Prim", "Kahn", "Tarjan", "Manacher", "Fenwick"]);
+
+const keep = (w: string): boolean => NAMES.has(w) || (/^[A-Z0-9]+$/.test(w) && (w.length > 1 || /[A-Z]/.test(w)));
 
 /** "Fast And Slow Pointers" -> "Fast and slow pointers"; acronyms (DP, BFS, 2D) and lone capitals (Top-K) stay. */
 export function sentenceCase(title: string): string {
