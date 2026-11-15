@@ -38,7 +38,11 @@ myleet/
 │   ├── core/                `myleet-core`: catalog model, schedule, session, placement, checkpoint,
 │   │                        interview, stats, event lines, save-file text; no fs, builds for wasm32
 │   └── wasm/                `myleet-wasm`: wasm-bindgen JSON API over core (`just wasm`); see its README
-├── web/                     the web app; web/public/data (`just export`) and web/src/wasm are generated
+├── web/                     the web app (Astro + Bun); web/public/data (`just export`) and web/src/wasm are generated.
+│                            `bun run dev` re-exports on content edits and proxies /api/statement to production.
+│                            Personal copy lives in lib/coach.ts (Today), lib/plan-copy.ts (Plan), lib/sheet-note.ts
+│                            (result sheet) and crates/core/src/reason.rs ("Why this one"); guest vs account rules in lib/access.ts
+├── worker/                  workers-rs backend on Cloudflare (D1, KV): auth, sync, statements, interview reports
 ├── guide/                   start-here notes shown at the top of the map
 ├── curriculum/
 │   ├── _lib/                shared Python helpers importable from every test
@@ -51,8 +55,9 @@ myleet/
 │   │       ├── technique.toml          title, linked note
 │   │       └── NNN_<problem>/          problem.toml, starter.py, test_problem.py, [solution.py]
 ├── bank/                    playlist-only trackable problems (not on the map / Today new)
-├── playlists/               company sets as TOML
+├── playlists/               company sets as TOML; the NNN_ prefix is display order, the slug after it is permanent
 ├── mock-interviews/
+├── tools/evidence/          collects candidate-reported problems from public posts (see its README)
 └── tools/migrate/           one-time migration from the old multi-problem files
 ```
 
@@ -91,7 +96,7 @@ Each chapter should eventually include:
 
 Each problem folder holds:
 
-- `problem.toml`: `id` (globally unique slug), `title`, `difficulty` (`easy`/`medium`/`hard`), optional `leetcode`, `url`, `key_idea`, `hints`, `prompt` (markdown), `time_target`, `say_aloud`
+- `problem.toml`: `id` (globally unique slug), `title`, `difficulty` (`easy`/`medium`/`hard`), optional `leetcode`, `url`, `key_idea`, `hints`, `prompt` (markdown), `time_target` (default 25 minutes for every difficulty), `say_aloud`
 - `starter.py`: the signature, type hints, `# Problem N:` / blank `# Time:` / `# Space:` comments, and `raise NotImplementedError` (no key idea; it is a spoiler and lives in `problem.toml`)
 - `test_problem.py`: imports from `solution` (the trainer stages the learner's attempt or the reference solution under that name); shared helpers come from `curriculum/_lib`
 - `solution.py`: optional reference solution; CI runs it against the tests
