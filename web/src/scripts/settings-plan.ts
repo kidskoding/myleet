@@ -1,19 +1,17 @@
-// Settings: "Plan and schedule" (#plan) and "Reminders" (#reminders). They write the same
-// settings record as the Plan page's panel and onboarding, so all three stay in sync.
+// Settings: "Your goals" (#goals), "Practice schedule" (#schedule) and "Reminders" (#reminders).
+// The goals editor is the same one onboarding and Plan use, saving as you go.
 import { cachedMe, calendarStatus } from "../lib/account";
-import { listedCompany, loadCatalog, type LoadedCatalog } from "../lib/catalog";
-import { sentenceCase } from "../lib/display";
-import { focusModules } from "../lib/goals";
+import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { drawerLede } from "../lib/plan-copy";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { readEvents } from "../lib/progress";
 import { reminderSupport, requestReminderPermission } from "../lib/reminders";
 import { ROUTES } from "../lib/routes";
-import { fmtM, LEAD_TIMES, SESSION_LENGTHS, step, WEEKDAY_STEPS, WEEKEND_STEPS, windowsSummary } from "../lib/schedule";
+import { fmtM, LEAD_TIMES, SESSION_LENGTHS, windowsSummary } from "../lib/schedule";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
-import { mountInterviews } from "../lib/ui/interviews";
+import { goalsOf, mountGoalsEditor, planPatch, type GoalsEditor } from "../lib/ui/goals-editor";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { toast } from "../lib/ui/overlay";
@@ -24,57 +22,15 @@ let trainer: TrainerApi | null = null;
 let offEditor: AvailabilityEditor | null = null;
 let drawerEditor: AvailabilityEditor | null = null;
 let calText = "";
-
-const slugOf = (id: string) => id.replace(/^\d+_/, "");
-
-/** Techniques the chosen companies' sets lean on, by tracked problems in them. */
-function lean(c: LoadedCatalog, slugs: string[]): { title: string; n: number }[] {
-  const counts = new Map<string, number>();
-  for (const pl of c.catalog.playlists.filter((p) => slugs.includes(slugOf(p.id)))) {
-    for (const e of pl.entries) {
-      const p = e.problem !== null && e.problem !== undefined ? c.catalog.problems[e.problem] : undefined;
-      const t = p ? c.catalog.modules[p.module]?.techniques[p.technique]?.title : undefined;
-      if (t) counts.set(t, (counts.get(t) ?? 0) + 1);
-    }
-  }
-  return [...counts.entries()]
-    .map(([title, n]) => ({ title, n }))
-    .sort((a, b) => b.n - a.n || a.title.localeCompare(b.title))
-    .slice(0, 5);
-}
-
-const stepper = (k: string, v: number, steps: number[], label: string): SafeHtml =>
-  html`<span class="stepper" role="group" aria-label="${label}"><button type="button" data-pstep="${k}" data-by="-1" aria-label="Less ${label.toLowerCase()}" ${v <= (steps[0] ?? 0) ? "disabled" : ""}>${icon("minus")}</button><output>${fmtM(v)}</output><button type="button" data-pstep="${k}" data-by="1" aria-label="More ${label.toLowerCase()}" ${v >= (steps.at(-1) ?? 0) ? "disabled" : ""}>${icon("plus")}</button></span>`;
+let goals: GoalsEditor | null = null;
 
 function planGroup(): SafeHtml {
   const p = readPrefs().plan;
-  const wd = p.dailyMinutes ?? 60;
-  const we = p.weekendMinutes ?? wd;
-  const chosen = p.companies.map((s) => ({ slug: s, title: cat?.catalog.playlists.find((x) => slugOf(x.id) === s)?.title ?? s }));
-  const others = (cat?.catalog.playlists ?? []).filter(listedCompany).filter((x) => !p.companies.includes(slugOf(x.id)));
-  const leans = cat ? lean(cat, p.companies) : [];
-  const mods = cat ? focusModules(cat.catalog) : [];
-  const topics = p.focusTopics.map((id) => ({ id, title: sentenceCase(mods.find((m) => m.id === id)?.title ?? id) }));
-  const moreTopics = mods.filter((m) => !p.focusTopics.includes(m.id));
-  const max = Math.max(1, ...leans.map((l) => l.n));
   return html`
-    <div class="row avail-row"><div><div class="lbl" id="iv-l">Interviews</div><div class="desc">Add each interview you have lined up. The plan paces toward the nearest one and leans on that company's set before it. Without a date, it covers the next 4 weeks</div></div>
-      <div class="ctl wide" aria-labelledby="iv-l" data-iv-editor></div></div>
-    <div class="row avail-row"><div><div class="lbl" id="co-l">Target companies</div><div class="desc">Their sets decide which techniques the plan leans on. Curated practice sets, not actual interview questions</div></div>
-      <div class="ctl wide" aria-labelledby="co-l"><div class="co-chips">${chosen.map(
-        (c) => html`<span class="co-chip">${c.title}<button type="button" data-co-remove="${c.slug}" aria-label="Remove ${c.title}">${icon("x")}</button></span>`,
-      )}<label class="co-add"><span class="visually-hidden">Add a company</span><select class="input" data-co-add><option value="">Add a company</option>${others.map((o) => html`<option value="${slugOf(o.id)}">${o.title}</option>`)}</select></label></div>
-      ${leans.length ? html`<div class="lean" aria-label="Techniques your companies lean on, by problem count in their sets">${leans.map((l) => html`<div><span>${l.title}</span><span class="bar" aria-hidden="true"><span style="width:${((l.n / max) * 100).toFixed(0)}%"></span></span><b>${l.n}</b></div>`)}</div>` : ""}</div></div>
-    <div class="row avail-row"><div><div class="lbl" id="ft-l">Focus topics</div><div class="desc">The plan gives these extra time and still covers the rest</div></div>
-      <div class="ctl wide" aria-labelledby="ft-l"><div class="co-chips">${topics.map(
-        (t) => html`<span class="co-chip">${t.title}<button type="button" data-topic-remove="${t.id}" aria-label="Remove ${t.title}">${icon("x")}</button></span>`,
-      )}<label class="co-add"><span class="visually-hidden">Add a topic</span><select class="input" data-topic-add><option value="">Add a topic</option>${moreTopics.map((m) => html`<option value="${m.id}">${sentenceCase(m.title)}</option>`)}</select></label></div></div></div>
-    <div class="row"><div><div class="lbl">Practice windows</div><div class="desc" data-win-summary>${windowsSummary(p.availability)}</div></div>
-      <div class="ctl"><button type="button" class="btn btn-secondary btn-sm" data-edit-windows>Edit windows</button></div></div>
+    <div class="row"><div><div class="lbl">Availability</div><div class="desc" data-win-summary>${windowsSummary(p.availability)}</div></div>
+      <div class="ctl"><button type="button" class="btn btn-secondary btn-sm" data-edit-windows>${icon("clock-3")}Edit availability</button></div></div>
     <div class="row"><div><div class="lbl" id="sl-l">Session length</div><div class="desc">Limit the length of each session. Longer practice days are split into two sessions</div></div>
       <div class="ctl"><div class="seg" role="group" aria-labelledby="sl-l">${SESSION_LENGTHS.map((m) => html`<button type="button" data-psession="${m}" aria-pressed="${p.sessionMinutes === m ? "true" : "false"}">${fmtM(m)}</button>`)}</div></div></div>
-    <div class="row"><div><div class="lbl">Daily time</div><div class="desc">Your daily practice limit. Reviews come first, followed by new problems if time allows</div></div>
-      <div class="ctl daily"><span class="text-secondary">Weekdays</span>${stepper("wd", wd, WEEKDAY_STEPS, "Weekday time")}<span class="text-secondary">Weekends</span>${stepper("we", we, WEEKEND_STEPS, "Weekend time")}</div></div>
     <div class="row avail-row"><div><div class="lbl">Days off</div><div class="desc">Nothing is planned on these days, and nothing piles up after them</div></div>
       <div class="ctl wide" data-off-editor></div></div>`;
 }
@@ -117,8 +73,11 @@ function paint(): void {
     render(planEl, planGroup());
     const host = planEl.querySelector<HTMLElement>("[data-off-editor]");
     if (host) offEditor = mountAvailability(host, { sections: ["daysoff"], headings: false, id: "set-off" });
-    const ivHost = planEl.querySelector<HTMLElement>("[data-iv-editor]");
-    if (ivHost) mountInterviews(ivHost, cat?.catalog.playlists ?? [], { id: "set-iv", get: () => readPrefs().plan.interviews, set: (interviews) => updatePrefs({ plan: { interviews } }) });
+  }
+  const goalsEl = $("[data-goals-settings]");
+  if (goalsEl && cat) {
+    if (goals) goals.refresh();
+    else goals = mountGoalsEditor(goalsEl, { id: "set-goals", catalog: cat.catalog, live: true, get: () => goalsOf(readPrefs().plan), set: (g) => updatePrefs({ plan: planPatch(g) }), availability: openWindows });
   }
   if (remEl) render(remEl, reminderGroup());
 }
@@ -192,18 +151,8 @@ async function openSync(): Promise<void> {
 function onClick(e: MouseEvent): void {
   if (!$("[data-plan-settings]")) return;
   const t = e.target as Element;
-  const ps = t.closest<HTMLElement>("[data-pstep]");
   const sess = t.closest<HTMLElement>("[data-psession]");
-  const rm = t.closest<HTMLElement>("[data-co-remove]");
-  const rmTopic = t.closest<HTMLElement>("[data-topic-remove]");
-  if (ps) {
-    const p = readPrefs().plan;
-    const dir = Number(ps.dataset.by) > 0 ? 1 : -1;
-    if (ps.dataset.pstep === "wd") updatePrefs({ plan: { dailyMinutes: step(WEEKDAY_STEPS, p.dailyMinutes ?? 60, dir), weekendMinutes: p.weekendMinutes ?? p.dailyMinutes ?? 60 } });
-    else updatePrefs({ plan: { weekendMinutes: step(WEEKEND_STEPS, p.weekendMinutes ?? p.dailyMinutes ?? 60, dir) } });
-  } else if (sess) updatePrefs({ plan: { sessionMinutes: Number(sess.dataset.psession) } });
-  else if (rm) updatePrefs({ plan: { companies: readPrefs().plan.companies.filter((c) => c !== rm.dataset.coRemove) } });
-  else if (rmTopic) updatePrefs({ plan: { focusTopics: readPrefs().plan.focusTopics.filter((x) => x !== rmTopic.dataset.topicRemove) } });
+  if (sess) updatePrefs({ plan: { sessionMinutes: Number(sess.dataset.psession) } });
   else if (t.closest("[data-edit-windows]")) openWindows();
   else if (t.closest("[data-drawer-close]")) closeWindows();
   else if (t.closest("[data-cal-manage]")) void openSync();
@@ -212,9 +161,7 @@ function onClick(e: MouseEvent): void {
 async function onChange(e: Event): Promise<void> {
   if (!$("[data-plan-settings]")) return;
   const el = e.target as HTMLInputElement | HTMLSelectElement;
-  if (el.matches("[data-co-add]") && el.value) updatePrefs({ plan: { companies: [...readPrefs().plan.companies, el.value] } });
-  else if (el.matches("[data-topic-add]") && el.value) updatePrefs({ plan: { focusTopics: [...readPrefs().plan.focusTopics, el.value] } });
-  else if (el.matches("[data-lead]")) {
+  if (el.matches("[data-lead]")) {
     const lead = Number(el.value);
     updatePrefs({ reminders: { lead }, plan: readPrefs().plan.reminderMinutes !== null ? { reminderMinutes: lead } : {} });
   } else if (el.matches("[data-quiet]")) updatePrefs({ reminders: { [el.dataset.quiet as "quietFrom" | "quietTo"]: el.value } });
@@ -229,11 +176,14 @@ async function onChange(e: Event): Promise<void> {
 
 async function init(): Promise<void> {
   if (!$("[data-plan-settings]")) return;
+  goals = null;
   paint();
   [cat, trainer] = await Promise.all([loadCatalog().catch(() => null), loadTrainer().catch(() => null)]);
   await refreshCalendar();
   paint();
-  if (location.hash === "#plan" || location.hash === "#reminders") $(location.hash)?.scrollIntoView();
+  // #plan is the old name for the goals.
+  const hash = location.hash === "#plan" ? "#goals" : location.hash;
+  if (["#goals", "#schedule", "#reminders"].includes(hash)) $(hash)?.scrollIntoView();
 }
 
 document.addEventListener("click", onClick);
@@ -241,7 +191,7 @@ document.addEventListener("change", (e) => void onChange(e));
 document.addEventListener("keydown", (e) => e.key === "Escape" && closeWindows());
 document.addEventListener("astro:page-load", () => void init());
 addEventListener("myleet:prefs", () => {
-  const busy = ["[data-av-drawer]", "[data-off-editor]", "[data-iv-editor]"].some((k) => $(k)?.contains(document.activeElement));
+  const busy = ["[data-av-drawer]", "[data-off-editor]", "[data-goals-settings]"].some((k) => $(k)?.contains(document.activeElement));
   if (!$("[data-plan-settings]") || busy) {
     const sum = $("[data-win-summary]");
     if (sum) sum.textContent = windowsSummary(readPrefs().plan.availability);
@@ -249,7 +199,7 @@ addEventListener("myleet:prefs", () => {
   }
   // Keep focus on the control that changed.
   const active = document.activeElement as HTMLElement | null;
-  const key = active?.dataset.pstep ? `[data-pstep="${active.dataset.pstep}"][data-by="${active.dataset.by}"]` : active?.dataset.psession ? `[data-psession="${active.dataset.psession}"]` : null;
+  const key = active?.dataset.psession ? `[data-psession="${active.dataset.psession}"]` : null;
   paint();
   if (key) $(key)?.focus();
 });
