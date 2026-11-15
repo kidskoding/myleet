@@ -58,7 +58,7 @@ const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
                 </li>
               ))}
             </ul>
-            {g.sets.length > 9 && <button type="button" class="btn btn-ghost btn-sm more" data-group={gid(g.name)}>All {g.sets.length} {g.name} sets</button>}
+            {g.sets.length > 9 && <button type="button" class="btn btn-ghost btn-sm btn-flush more" data-group={gid(g.name)}>All {g.sets.length} {g.name} sets</button>}
           </section>
         ))
       }

@@ -245,18 +245,18 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
         return html`<li class="rise" style="--i:${i}">${mi >= 0 ? modChip(mi) : html`<span></span>`}<span class="name">${label(it.topic)}</span><span class="src">${title(it.problem)}${how ? (f ? `. ${how}` : `, ${how}`) : ""}</span>${LEVEL[it.level]}</li>`;
       })}</ul>
     </section>
-    <section class="dres-sec panel start-at" aria-labelledby="dr-week">
+    <section class="dres-sec start-at" aria-labelledby="dr-week">
       <h2 class="sec" id="dr-week">${rec ? `Your first module: ${sentenceCase(rec.title)}` : "Your first module: the core patterns"}</h2>
       <p>${rec ? html`It's the first pattern you marked "Start here" or got shaky on. <a class="link" href="${moduleHref(rec)}">Read its notes</a>` : "Everything came out strong, so your plan starts with the patterns asked most often in interviews"}</p>
-      ${week ? html`<p>Your first week has ${plural(week.problems, "problem")} at ${plural(readPrefs().plan.dailyMinutes ?? 60, "minute")} a day. You can change the time after you sign up.</p><div class="tech">${week.techniques.slice(0, 5).map((x) => tag("new", x))}</div>` : ""}
+      ${week ? html`<p>Your first week has ${plural(week.problems, "problem")} at ${plural(readPrefs().plan.dailyMinutes ?? 60, "minute")} a day. You can change the time after you sign up</p><div class="tech">${week.techniques.slice(0, 5).map((x) => tag("new", x))}</div>` : ""}
       ${firstNew.length ? html`<ol>${firstNew.map((x) => html`<li>${x.title}</li>`)}</ol>` : ""}
     </section>
-    <div class="next"><button class="btn btn-ghost" type="button" data-retake>Take it again</button></div>
+    <div class="next"><button class="btn btn-ghost btn-flush" type="button" data-retake>Take it again</button></div>
     <aside class="l2 save" aria-labelledby="dr-save">
         <h2 id="dr-save">${me ? "Your plan is ready" : "Save this plan"}</h2>
-        <p>${me ? "It starts with the patterns you missed." : "A free account keeps this plan and your progress on every device."}</p>
+        <p>${me ? "It starts with the patterns you missed" : "A free account keeps this plan and your progress on every device"}</p>
         ${cta}
-        ${me ? "" : html`<p class="fine">Until then, your answers stay in this browser.</p>`}
+        ${me ? "" : html`<p class="fine">Until then, your answers stay in this browser</p>`}
       </aside>
   </section>`;
 }

@@ -1,5 +1,5 @@
 ---
-import { Ellipsis, EyeOff, GitCommitHorizontal, Timer } from "lucide-static";
+import { Ellipsis, EyeOff, GitCommitHorizontal, Search, Timer } from "lucide-static";
 import Base from "../layouts/Base.astro";
 import { buildCatalog } from "../lib/build-catalog";
 import { listedCompany } from "../lib/catalog";
@@ -18,7 +18,7 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
         <h1 id="mk-title">Mock interview</h1>
         <p class="lede" data-mock-intro>Practice a coding interview with one timer for the whole round. Hints and technique labels stay hidden until you finish, so you choose the approach yourself.</p>
 
-        <form class="panel setup" data-setup novalidate>
+        <form class="setup" data-setup novalidate>
           <fieldset>
             <legend>Problems</legend>
             <div class="opts">
@@ -36,26 +36,26 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
                 <input type="hidden" name="company" value={playlists[0]?.id ?? ""} data-company />
                 <button class="company-trigger" type="button" data-company-open aria-haspopup="dialog" aria-controls="company-picker-dialog">
                   <span data-company-selected><Fragment set:html={companyLogo(companySlug(playlists[0]?.id ?? "google")).value} />{playlists[0]?.title ?? "Choose a company"}</span>
-                  <span aria-hidden="true">⌕</span>
+                  <Fragment set:html={svg(Search)} />
                 </button>
               </div>
               <label class="opt"><input type="radio" name="src" value="weak" data-weak-input /><strong>Weak spots</strong><span data-weak-text>Only techniques where you've missed clean passes</span></label>
             </div>
           </fieldset>
           <ul class="rules">
-            <li><Fragment set:html={svg(EyeOff)} /><span>Problem titles are visible. Technique labels, module labels, hints, and reference solutions stay hidden during the round.</span></li>
-            <li><Fragment set:html={svg(Timer)} /><span>One clock for the whole round. You can move between problems; time keeps running.</span></li>
-            <li><Fragment set:html={svg(GitCommitHorizontal)} /><span>Results count like reviews: a clean pass climbs a rung, a miss drops that problem to 1 day. A pass counts as clean only if your self-check is all yes.</span></li>
+            <li><Fragment set:html={svg(EyeOff)} /><span>Problem titles are visible. Technique labels, module labels, hints, and reference solutions stay hidden during the round</span></li>
+            <li><Fragment set:html={svg(Timer)} /><span>One clock for the whole round. You can move between problems; time keeps running</span></li>
+            <li><Fragment set:html={svg(GitCommitHorizontal)} /><span>Results count like reviews: a clean pass climbs a rung, a miss drops that problem to 1 day. A pass counts as clean only if your self-check is all yes</span></li>
           </ul>
           <p class="mk-err" data-setup-err role="alert" hidden></p>
           <div class="go">
             <button class="btn btn-primary btn-lg" type="submit" data-start>Start the round <kbd>enter</kbd></button>
-            <p>Focus mode turns on and the top bar hides. End the round any time from the ⋯ menu.</p>
+            <p>Focus mode turns on and the top bar hides. End the round any time from the round menu</p>
           </div>
         </form>
       </section>
 
-      <aside aria-label="Past mocks">
+      <aside class="side-notes" aria-label="Past mocks">
         <section class="panel" aria-labelledby="ph">
           <div class="section-head" style="margin:0"><h2 id="ph">Past mocks</h2><span class="meta" data-hist-count></span></div>
           <div data-hist aria-busy="true">
@@ -140,7 +140,8 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
 <style is:global>
   .mock .mock-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: var(--space-10); align-items: start; }
 
-  .mock .setup { margin-top: var(--space-8); padding: var(--space-6) var(--space-8); display: grid; gap: var(--space-6); }
+  /* No outer box: the option cards are the only bordered layer */
+  .mock .setup { margin-top: var(--space-10); display: grid; gap: var(--space-8); }
   .mock fieldset { border: 0; padding: 0; min-width: 0; display: grid; gap: var(--space-3); }
   .mock legend { font-weight: 650; font-size: var(--text-base); margin-bottom: var(--space-3); padding: 0; }
   .mock .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
@@ -158,15 +159,14 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
   .mock .company-choice > span { font-size: var(--text-sm); color: var(--ink-2); }
   .mock .company-trigger { display: flex; justify-content: space-between; align-items: center; gap: var(--space-2); width: 100%; min-height: 40px; margin-top: var(--space-3); padding: var(--space-2); border: 1px solid var(--control-edge); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); cursor: pointer; text-align: left; }
   .mock .company-trigger [data-company-selected] { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); min-width: 0; }
-  .mock .rules { display: grid; gap: var(--space-2); padding: var(--space-4) var(--space-5); background: var(--surface-sunk); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--ink-2); list-style: none; }
+  .mock .rules { display: grid; gap: var(--space-3); margin: 0; padding: var(--space-6) 0 0; border-top: 1px solid var(--line); font-size: var(--text-sm); color: var(--ink-2); list-style: none; }
   .mock .rules li { display: grid; grid-template-columns: 18px 1fr; gap: var(--space-3); align-items: start; }
   .mock .rules .icon { width: 16px; height: 16px; margin-top: 2px; color: var(--ink-3); }
   .mock .mk-err { font-size: var(--text-sm); color: var(--fail); font-weight: 600; }
   .mock .go { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
   .mock .go p { font-size: var(--text-sm); color: var(--ink-3); flex: 1 1 240px; }
 
-  .mock aside { display: grid; gap: var(--space-5); }
-  .mock aside .panel { padding: var(--space-5); }
+  .mock aside { padding-top: var(--space-3); }
   .mock aside h2 { font-size: var(--text-base); }
   .mock .aside-p { margin: var(--space-2) 0 var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
   .mock .hist { list-style: none; padding: 0; margin-top: var(--space-3); }

@@ -88,10 +88,10 @@ const example = pick !== undefined ? c.problems[pick] : undefined;
         <ol class="panel set queue" aria-label={`${p.title} practice set, most asked first`} data-set>
           <Fragment set:html={p.entries.map((e, i) => setRow(c, e, i + 1).value).join("")} />
         </ol>
-        {n > SET_FOLD && <button type="button" class="btn btn-ghost more" data-show-all aria-expanded="false">Show all {n}</button>}
+        {n > SET_FOLD && <button type="button" class="btn btn-ghost btn-flush more" data-show-all aria-expanded="false">Show all {n}</button>}
         <p class="set-foot" data-set-foot hidden></p>
       </section>
-      <aside data-aside>
+      <aside class="side-notes" data-aside>
         <section class="panel readiness when-in" aria-labelledby="rd" data-readiness>
           <h2 id="rd">Readiness</h2>
           <div class="skel" style="height:44px;width:60%;margin-top:12px"></div>

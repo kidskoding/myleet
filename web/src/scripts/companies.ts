@@ -209,7 +209,7 @@ function renderReadiness(c: Ctx, p: Playlist): void {
       <p class="f">${
         all
           ? `Every problem in this set is mastered or climbing. Keep it sharp with a ${p.title} mock`
-          : `Ready means mastered or climbing the ladder with a clean last pass.${pace !== null && date && left !== null ? ` ${plural(left, "day")} to ${shortDate(date)}: about ${plural(pace, `${p.title} problem`)} a day gets the whole set ready` : ""}`
+          : `Ready means mastered or climbing the ladder with a clean last pass${pace !== null && date && left !== null ? `. ${plural(left, "day")} to ${shortDate(date)}: about ${plural(pace, `${p.title} problem`)} a day gets the whole set ready` : ""}`
       }</p>`,
   );
 }

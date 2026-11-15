@@ -4,6 +4,7 @@ import { cachedMe } from "../lib/account";
 import { signedIn } from "../lib/account";
 import { signupHref } from "../lib/access";
 import { topicById } from "../lib/diagnostic";
+import { companyLogo } from "../lib/company-logos";
 import { guestMode, resultsLine, todayInvite, todayResults, WELCOME_KEY } from "../lib/ui/guest-gate";
 import { viewEvents } from "../lib/sample";
 import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem } from "../lib/attempts";
@@ -15,7 +16,7 @@ import { daysUntil, paceRows, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
 import { reminderSupport, requestReminderPermission, toPlanned } from "../lib/reminders";
-import { noteHref, planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
+import { planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
 import { actionHref, inPlanOn } from "../lib/skills-view";
 import { addDays, localDay, readStreak, recordStats, streakNow } from "../lib/streak";
 import { forecastLead, planStatus, spreadDays, weekFocus } from "../lib/plan-copy";
@@ -198,7 +199,11 @@ function readiness(c: Ctx, date: string): SafeHtml {
   const ready = fc.filter((f) => f.behind_by === 0).length;
   const lead = forecastLead({ forecast: fc, date, companies: [...new Set(fc.flatMap((f) => f.companies))], weekday: readPrefs().plan.dailyMinutes ?? 60, closeAll: null });
   const focus = weekFocus(c.plan);
-  return html`<div class="ready"><p class="ready-line">${lead}</p>
+  const co = targetCompany(c);
+  const slug = readPrefs().plan.companies[0];
+  const pct = Math.round((ready / fc.length) * 100);
+  return html`<div class="ready"><div class="ready-head"><h3>${co && slug ? companyLogo(slug, "ready-logo") : ""}Ready for ${co ?? "your interview"}</h3><span class="ready-pct">${pct}%</span></div>
+    <p class="ready-line">${lead}</p>
     <div class="ready-bar" role="meter" aria-label="Core topics on pace" aria-valuemin="0" aria-valuemax="${fc.length}" aria-valuenow="${ready}"><span style="width:${((ready / fc.length) * 100).toFixed(0)}%"></span></div>
     ${focus && ready < fc.length ? html`<p class="fineprint">Clean passes in ${midSentence(focus)} move this the most</p>` : ""}</div>`;
 }
@@ -319,18 +324,8 @@ function doneRow(c: Ctx, d: DoneItem, states: Record<string, State>): SafeHtml {
 }
 
 function firstRun(c: Ctx): SafeHtml {
-  const guide = c.cat.catalog.guide[0];
   const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null;
-  return html`<section aria-labelledby="fr-title">
-    <div class="greet"><h1>Welcome to myleet${name ? `, ${name}` : ""}</h1><p>Start with the diagnostic. In about 15 minutes it finds what you already know and builds your plan from there.</p></div>
-    <div class="panel firstrun">
-      <div><h2 id="fr-title">Take the diagnostic</h2>
-        <p>You'll answer eight quick questions about which pattern fits a problem, on topics from hashing to graphs, then solve two or three short ones. It doesn't change your review schedule.</p></div>
-      <div class="firstrun-actions">
-        <a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">${icon("flag")} Take the diagnostic</a>
-        <a class="link fineprint" href="${guide ? noteHref(guide.path) : ROUTES.learn}">Skip and start at module 1${c.cat.catalog.modules[0] ? `, ${midSentence(c.cat.catalog.modules[0].title)}` : ""}</a>
-      </div>
-    </div></section>`;
+  return todayInvite(`Welcome to myleet${name ? `, ${name}` : ""}`, targetCompany(c), readPrefs().plan.companies[0] ?? null);
 }
 
 /** "For you": up to three cards built from the learner's own data. */
@@ -556,7 +551,7 @@ function paint(c: Ctx): void {
   render(main, body);
   main.removeAttribute("aria-busy");
   main.removeAttribute("aria-label");
-  const first = main.querySelector("#fr-title") !== null;
+  const first = main.querySelector(".gate-split") !== null;
   main.closest(".today-layout")?.classList.toggle("is-first-run", first);
   paintMock();
   welcome(main, placement.done);

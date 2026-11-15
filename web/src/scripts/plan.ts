@@ -609,7 +609,7 @@ function forecast(c: Ctx): SafeHtml {
   return html`<section class="panel fc-panel" aria-labelledby="fc-h">
     <div class="section-head" style="margin:0"><h2 id="fc-h">${date ? `Where you'll be by ${short(date)}` : "Where you'll be in four weeks"}</h2><span class="meta">If you keep to the plan</span></div>
     ${lead ? html`<p class="fc-lead">${lead}</p>` : ""}
-    ${rows.length ? html`<div class="fc">${forecastRows(rows, { date, fixes: c.fixes, fix: true, scale })}</div>` : html`<p class="fineprint">Add an interview or a target company and this shows the topics their sets lean on, and whether you'll be ready for each in time.</p>`}
+    ${rows.length ? html`<div class="fc">${forecastRows(rows, { date, fixes: c.fixes, fix: true, scale })}</div>` : html`<p class="fineprint">Add an interview or a target company and this shows the topics their sets lean on, and whether you'll be ready for each in time</p>`}
     ${more.length ? html`<details class="fc-more"><summary>See all ${all.length} topics</summary><div class="fc">${forecastRows(more, { date, fixes: c.fixes, fix: true, scale })}</div></details>` : ""}
     ${closeAll}${rows.length ? forecastKey() : ""}
   </section>`;

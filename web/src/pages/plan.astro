@@ -234,8 +234,10 @@ import Base from "../layouts/Base.astro";
   .ag-empty { border-style: solid; border-color: var(--line); }
 
   /* route: profile + forecast */
-  .plan .route { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: var(--space-5); margin-top: var(--space-8); align-items: stretch; }
-  .approach { padding: var(--space-5) var(--space-6) var(--space-4); display: flex; flex-direction: column; }
+  /* The chart and the forecast sit on a hairline, like the notes under them, instead of two boxes */
+  .plan .route { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: var(--space-10); margin-top: var(--space-10); align-items: start; }
+  .plan .route > .panel { padding: var(--space-5) 0 0; background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; }
+  .approach { display: flex; flex-direction: column; }
   .approach .section-head h2, .fc-panel h2, .you h2 { font-size: var(--text-base); }
   .approach .section-head { margin-bottom: var(--space-4); }
   /* The chart and its axis share one fixed summit column, so day labels sit under their bars. */
@@ -274,15 +276,18 @@ import Base from "../layouts/Base.astro";
   .paxis span.thin { visibility: hidden; }
   .paxis .end { visibility: hidden; }
   .approach .legend { margin-top: var(--space-4); }
-  .fc-panel { padding: var(--space-5) var(--space-6); }
+  .fc-panel .section-head { flex-wrap: wrap; row-gap: var(--space-1); }
+  .fc-panel .section-head h2 { flex: none; }
   .fc-panel .fc-more { margin-top: var(--space-3); font-size: var(--text-xs); color: var(--ink-3); }
   .fc-panel .fc-all { margin-top: var(--space-4); }
 
-  .you { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-5); margin-top: var(--space-8); align-items: start; }
-  .you .panel { padding: var(--space-5) var(--space-6); }
-  .pace-tbl { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); margin-top: var(--space-3); }
+  /* Two notes under the plan, set on a hairline rather than boxed, so unequal heights don't show */
+  .you { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-10); margin-top: var(--space-10); align-items: start; }
+  .you .panel { padding: var(--space-5) 0 0; background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; }
+  .you .fineprint { margin-top: var(--space-4); max-width: 52ch; }
+  .pace-tbl { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); margin-top: var(--space-4); }
   .pace-tbl div { display: grid; gap: 2px; }
-  .pace-tbl b { font-size: var(--text-lg); font-weight: 700; font-variation-settings: "wdth" 75; font-variant-numeric: tabular-nums; line-height: 1; }
+  .pace-tbl b { font-family: var(--font-label); font-size: var(--text-lg); font-weight: 650; letter-spacing: var(--track-num); font-variant-numeric: tabular-nums; line-height: 1; }
   .pace-tbl b small { font-size: var(--text-xs); font-weight: 600; color: var(--ink-3); margin-left: 1px; }
   .pace-tbl span { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
 

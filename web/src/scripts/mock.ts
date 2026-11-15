@@ -216,7 +216,7 @@ function paintHistory(): void {
           const when = new Date(m.start).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
           return html`<li><a href="/mock?r=${m.id}"><span class="when">${when}</span><span class="what">${plural(m.problems.length, "problem")}, ${sourceLabel(m)}, ${mins} min${m.timeUp ? ", time up" : ""}</span><span class="score">${solved}<small> / ${m.problems.length}</small></span></a></li>`;
         })}</ol>`
-      : html`<p class="empty-hist">You have not completed a mock interview yet. Start with two problems to practice choosing an approach and managing your time without technique labels.</p>`,
+      : html`<p class="empty-hist">You have not completed a mock interview yet. Start with two problems to practice choosing an approach and managing your time without technique labels</p>`,
   );
 }
 

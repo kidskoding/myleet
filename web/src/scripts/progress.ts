@@ -39,7 +39,7 @@ import type { ProblemMeta, Skill, State, Stats } from "../lib/types";
 import { bar, formatDuration, formatMinutes, plural, tag } from "../lib/ui/bits";
 import { heatmap } from "../lib/ui/heatmap";
 import { signedIn } from "../lib/account";
-import { featureGate } from "../lib/ui/guest-gate";
+import { featureGate, gateSteps } from "../lib/ui/guest-gate";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder } from "../lib/ui/ladder";
@@ -483,10 +483,13 @@ function renderAll(c: Ctx): void {
   if (!started) {
     render(
       root,
-      html`<h1>Progress</h1><p class="lede">Your practice history and review schedule will appear here</p>
-      <section class="panel empty"><h2>Start tracking your progress</h2>
-        <p>As you solve problems, this page tracks your streak and mastery, shows your activity on a heatmap, and lists upcoming reviews. Start with the diagnostic. In about 15 minutes it finds what you already know and where to begin.</p>
-        <a class="btn btn-primary" href="${ROUTES.diagnostic}">Take the diagnostic</a></section>`,
+      html`<section class="gate" aria-labelledby="pg-h"><h1 id="pg-h">Progress</h1><p class="lede">Your streak, mastery and reviews show up here <strong>after your first solve</strong></p>
+        ${gateSteps([
+          ["Your streak", "Days in a row you've practiced, also in the top bar"],
+          ["Topic by topic", "Which patterns are solid and which are still climbing the ladder"],
+          ["Reviews coming due", "Problems come back after 1, 3, 7, 14 and 30 days once you pass them clean"],
+        ])}
+        <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Browse the modules</a></div></section>`,
     );
     return;
   }

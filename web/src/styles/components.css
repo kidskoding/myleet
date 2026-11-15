@@ -21,7 +21,7 @@
 
 .nav { display: flex; align-items: center; gap: var(--space-0); }
 .nav a {
-  position: relative; display: inline-flex; align-items: center; padding: 0 var(--space-3);
+  display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px; white-space: nowrap;
   font-size: var(--text-sm); font-weight: 550; color: var(--ink-2); text-decoration: none;
   border-radius: var(--radius-sm);
   transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
@@ -40,7 +40,7 @@
 
 .search-trigger {
   display: inline-flex; align-items: center; gap: var(--space-2);
-  height: 34px; padding: 0 var(--space-2) 0 var(--space-3); min-width: 220px;
+  height: 32px; padding: 0 var(--space-1) 0 var(--space-3); width: 240px; flex: 0 1 240px; min-width: 160px; white-space: nowrap;
   font-size: var(--text-sm); color: var(--ink-3);
   background: color-mix(in srgb, var(--ctp-text) 3%, var(--surface)); border: 1px solid var(--line); border-radius: var(--radius-sm);
   box-shadow: var(--l1-edge);
@@ -149,6 +149,9 @@ body[data-shell="focused"] .account { display: none; }
 .btn-secondary { background: color-mix(in srgb, var(--ctp-text) 3%, var(--surface)); color: var(--ink); border-color: var(--line-strong); box-shadow: var(--l1-edge); }
 .btn-secondary:hover { background: color-mix(in srgb, var(--ctp-text) 6%, var(--surface)); border-color: color-mix(in srgb, var(--ctp-text) 22%, transparent); }
 .btn-ghost { color: var(--ink-2); }
+/* A ghost button that starts a line of content: its label lines up with the text above, the hover fill hangs into the gutter */
+.btn-ghost.btn-flush { margin-inline-start: calc(-1 * var(--space-4)); }
+.btn-ghost.btn-sm.btn-flush { margin-inline-start: calc(-1 * var(--space-3)); }
 .btn-ghost:hover { background: var(--hover-wash); color: var(--ink); }
 .btn-danger { background: var(--fail-solid); color: var(--on-fail); }
 .btn-danger:hover { background: var(--fail); }
@@ -456,7 +459,7 @@ select.input { appearance: none; padding-right: var(--space-8); background-image
 .stepper output, .stepper input { min-width: 4ch; text-align: center; font-weight: 650; font-variation-settings: "wdth" var(--wdth-tag); border: 0; background: none; width: 5ch; }
 
 /* Pacing status: ink + glyph, never a hold colour */
-.pace-st { display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); white-space: nowrap; }
+.pace-st { display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-sm); font-weight: 500; color: var(--ink-2); white-space: nowrap; }
 .pace-st .icon { width: 14px; height: 14px; }
 .pace-st.behind { color: var(--ink); }
 
@@ -870,15 +873,21 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .iv-co > span[aria-hidden] { margin-left: auto; color: var(--ink-3); }
 .iv-co:hover { border-color: var(--line-strong); }
 
+/* A side column of notes beside the main content (Mock, a company page): hairlines between
+   sections instead of a stack of boxes */
+.side-notes { display: grid; gap: var(--space-6); align-content: start; }
+.side-notes > :where(.panel) { padding: 0; background: none; border: 0; box-shadow: none; border-radius: 0; }
+.side-notes > :where(.panel:not([hidden]) ~ .panel:not([hidden])) { padding-top: var(--space-6); border-top: 1px solid var(--line); }
+
 /* Signed-out Today, Plan and Progress: one invitation instead of personal content */
 .gate { max-width: 640px; }
 .gate p + p { margin-top: var(--space-3); color: var(--ink-2); }
-.gate-steps { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-3); counter-reset: step; }
-.gate-steps li { counter-increment: step; display: grid; grid-template-columns: 32px minmax(0, 1fr); column-gap: var(--space-4); row-gap: 2px; align-items: start; align-content: start; padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+.gate-steps { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-4) var(--space-6); counter-reset: step; }
+.gate-steps li { counter-increment: step; display: grid; grid-template-columns: 32px minmax(0, 1fr); column-gap: var(--space-4); row-gap: 2px; align-items: start; align-content: start; }
 .gate-steps li::before { content: counter(step); grid-row: span 2; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; font: 650 var(--text-sm) var(--font-label); color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
 .gate-steps strong { font-weight: 650; color: var(--ink); }
 .gate-steps span { color: var(--ink-2); font-size: var(--text-sm); line-height: 1.5; }
-@media (min-width: 900px) { .gate { max-width: 860px; } .gate-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .gate { max-width: none; } .gate-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 /* Inside a narrow flow (the diagnostic intro) the steps stack */
 .flow .gate-steps { grid-template-columns: 1fr; }
 .gate-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }

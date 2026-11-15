@@ -53,11 +53,10 @@
 .cos .pinned-note { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); text-align: right; max-width: 36ch; margin-left: auto; }
 
 .cos .prep-grid { margin-top: var(--space-10); display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: var(--space-10); align-items: start; }
-.cos .prep-grid aside { position: sticky; top: calc(var(--topbar-h) + var(--space-4)); display: grid; gap: var(--space-5); }
-.cos aside .panel { padding: var(--space-5); }
+.cos .prep-grid aside { position: sticky; top: calc(var(--topbar-h) + var(--space-4)); padding-top: var(--space-2); }
 .cos aside h2 { font-size: var(--text-base); }
 .cos .readiness .big { display: flex; align-items: baseline; gap: var(--space-2); margin-top: var(--space-3); }
-.cos .readiness .big b { font-size: var(--text-2xl); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); line-height: 1; letter-spacing: -0.02em; }
+.cos .readiness .big b { font-family: var(--font-label); font-size: var(--text-2xl); font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: var(--track-num); }
 .cos .readiness .bar { height: 8px; margin-top: var(--space-3); }
 .cos .keys { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); }
 .cos .keys i { display: inline-block; width: 9px; height: 8px; border-radius: 2px; margin-right: 5px; }
@@ -101,6 +100,7 @@
   .cos .prep-grid { grid-template-columns: 1fr; }
   .cos .prep-grid aside { position: static; order: -1; grid-template-columns: 1fr 1fr; align-items: start; }
   .cos .prep-grid aside .inplan { grid-column: 1 / -1; }
+  .cos .prep-grid aside > .panel:not(.inplan) { padding-top: 0; border-top: 0; }
 }
 @media (max-width: 760px) {
 
@@ -113,6 +113,7 @@
   .cos .actions { justify-content: stretch; } .cos .actions .btn { flex: 1; }
   .cos .pinned-note { text-align: left; margin-left: 0; }
   .cos .prep-grid aside { grid-template-columns: 1fr; }
+  .cos .prep-grid aside > .panel:not([hidden]) ~ .panel:not(.inplan) { padding-top: var(--space-6); border-top: 1px solid var(--line); }
   .cos .set .qrow { grid-template-columns: 24px minmax(0, 1fr) auto; }
   .cos .set .qrow .ladder-cell, .cos .set .qrow .diff { display: none; }
 }
