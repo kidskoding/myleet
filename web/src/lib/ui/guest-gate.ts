@@ -2,6 +2,7 @@
 // to sign up, so a guest gets an invitation (no diagnostic yet) or their diagnostic results
 // with a sign-up button, never a personal queue, countdown or plan.
 import { signinHref } from "../gate";
+import { midSentence } from "../schedule";
 import { ROUTES } from "../routes";
 import type { Level } from "../types";
 import { tag } from "./bits";
@@ -18,7 +19,7 @@ const list = (xs: string[]): string => (xs.length < 2 ? (xs[0] ?? "") : `${xs.sl
 
 /** "You're solid on arrays and hashing, and sliding window is where you'll grow fastest. Two pointers is next." */
 export function resultsLine(items: { topic: string; level: Level }[], name: (topic: string) => string): string {
-  const by = (l: Level) => items.filter((i) => i.level === l).map((i) => name(i.topic).toLowerCase());
+  const by = (l: Level) => items.filter((i) => i.level === l).map((i) => midSentence(name(i.topic)));
   const strong = by("strong").slice(0, 2);
   const grow = [...by("shaky"), ...by("start here")];
   const [first, second] = grow;

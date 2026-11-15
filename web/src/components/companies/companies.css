@@ -23,6 +23,7 @@
 
 .cos .groups { margin-top: var(--space-12); }
 .cos .groups .tabs { overflow-x: auto; scrollbar-width: none; }
+@media (max-width: 600px) { .cos .groups .tabs { flex-wrap: wrap; overflow-x: visible; } }
 .cos .grp-sec { margin-top: var(--space-8); }
 .cos .grp-sec h2 { font-size: var(--text-md); display: flex; gap: var(--space-2); align-items: baseline; }
 .cos .grp-sec h2 span { font-size: var(--text-sm); font-weight: 500; color: var(--ink-3); }

@@ -611,7 +611,7 @@ function prefetchPython(): void {
   const idle = window.requestIdleCallback ?? ((fn: () => void) => setTimeout(fn, 3000));
   idle(() => {
     void import("../lib/runner").then(({ PYODIDE_URL }) => {
-      for (const f of ["pyodide.mjs", "pyodide.asm.js", "pyodide.asm.wasm", "python_stdlib.zip", "pyodide-lock.json"])
+      for (const f of ["pyodide.mjs", "pyodide.asm.wasm", "python_stdlib.zip", "pyodide-lock.json"])
         void fetch(`${PYODIDE_URL}${f}`, { mode: "cors" }).catch(() => undefined);
     });
   });
