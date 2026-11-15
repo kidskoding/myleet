@@ -96,6 +96,22 @@ describe("attempts", () => {
   });
 });
 
+describe("exam attempts", () => {
+  it("finish on Submit's test_run, the latest one deciding", () => {
+    const ev = parseEvents(
+      [
+        line("2026-11-14T13:00:00Z", "opened", "two-sum", "c1", "checkpoint"),
+        line("2026-11-14T13:10:00Z", "test_run", "two-sum", "c1", "checkpoint", { passed: "5", total: "6" }),
+        line("2026-11-14T13:12:00Z", "test_run", "two-sum", "c1", "checkpoint", { passed: "6", total: "6" }),
+        line("2026-11-14T13:20:00Z", "opened", "valid-anagram", "c2", "checkpoint"),
+      ].join("\n"),
+    );
+    const [a, b] = runProgress(ev, ["two-sum", "valid-anagram"], "checkpoint");
+    expect(a?.finished).toMatchObject({ passed: true, elapsedMs: 720_000 });
+    expect(b).toMatchObject({ finished: null, started: true });
+  });
+});
+
 describe("streak and reminders", () => {
   const now = new Date(2026, 10, 14, 21);
   it("lapses after a missed day and is at risk after 8 pm", () => {

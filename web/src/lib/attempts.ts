@@ -40,6 +40,8 @@ export interface Attempt {
   elapsedMs: number | null;
 }
 
+const EXAM_MODES = new Set(["interview", "placement", "checkpoint"]);
+
 export function attempts(events: Ev[]): Attempt[] {
   const by = new Map<string, Attempt>();
   for (const e of events) {
@@ -56,6 +58,13 @@ export function attempts(events: Ev[]): Attempt[] {
       a.end = e.t;
       const ms = Number(e.data.elapsed_ms);
       a.elapsedMs = Number.isFinite(ms) ? ms : e.t - a.start;
+    } else if (e.kind === "test_run" && EXAM_MODES.has(a.mode)) {
+      // Exam modes record only Submit's test_run (workspace README); the latest one is the result.
+      const passed = Number(e.data.passed);
+      const total = Number(e.data.total);
+      a.passed = total > 0 && passed === total;
+      a.end = e.t;
+      a.elapsedMs = e.t - a.start;
     } else if (e.kind === "gave_up") {
       a.gaveUp = true;
       a.end = e.t;
