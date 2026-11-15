@@ -89,7 +89,16 @@ import Base from "../layouts/Base.astro";
   .ruler span.edge { transform: translateY(3px); }
   .hl { position: absolute; left: 52px; right: 0; height: 0; border-top: 1px solid var(--line); pointer-events: none; }
   .hl.half { border-top-style: dashed; border-color: color-mix(in srgb, var(--line) 70%, transparent); }
-  .fold { position: absolute; left: 0; right: 0; z-index: 1; display: flex; align-items: center; padding-left: 60px; font-size: var(--text-xs); color: var(--ink-3); background: var(--surface-sunk); border-block: 1px solid var(--line); pointer-events: none; }
+  .lines { position: absolute; inset: 0; pointer-events: none; }
+  .fold { position: absolute; left: 0; right: 0; z-index: 3; display: flex; align-items: center; padding: 0 0 0 60px; border: 0; border-block: 1px solid var(--line); font: inherit; font-size: var(--text-xs); color: var(--ink-3); background: var(--surface-sunk); cursor: pointer; pointer-events: auto; text-align: left; animation: fold-in 200ms var(--ease-out); }
+  .fold:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 6%, var(--surface-sunk)); }
+  .fold:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  .wk-body.fitting { transition: height 200ms var(--ease-out); }
+  .wk-body.fitting .ses:not(.lifted):not(.kb-lifted), .wk-body.fitting .win { transition: top 200ms var(--ease-out), height 200ms var(--ease-out); }
+  .wk-body.fitting .now { transition: top 200ms var(--ease-out); }
+  @keyframes fold-in { from { opacity: 0; } to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .fold { animation: none; } }
+  :root[data-motion="reduce"] .fold { animation: none; }
   .col { position: relative; border-left: 1px solid var(--line); min-width: 0; container-type: inline-size; }
   /* Narrow columns (the inspector open, 4-day view) keep the title and drop the repeated minutes. */
   @container (max-width: 120px) {

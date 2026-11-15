@@ -77,28 +77,27 @@ export interface Band {
   fold: boolean;
 }
 
-/** Folds any gap of at least this long with nothing in it. */
-export const FOLD_MIN = 180;
+/** Folds any gap of at least this long (minutes) with no session in it. */
+export const FOLD_MIN = 60;
+/** Minutes of air kept around a session before the grid folds the gap beside it. */
+export const FOLD_PAD = 15;
 
 /**
- * Hours the grid shows: from the earliest busy minute to the latest across the visible
- * days, padded to whole hours; any empty gap of 3 h or more folds into one band.
+ * Hours the grid shows: each busy span (a session) padded by 15 minutes and rounded out to a
+ * quarter hour, merged when less than an hour apart; any empty gap of an hour or more folds
+ * into one band. `opened` are folded spans the learner expanded; they stay unfolded.
  */
-export function bands(busy: [number, number][]): Band[] {
-  const spans = busy.filter(([a, b]) => b > a).sort((x, y) => x[0] - y[0]);
+export function bands(busy: [number, number][], opened: [number, number][] = []): Band[] {
+  const spans = [
+    ...busy.filter(([a, b]) => b > a).map(([a, b]): [number, number] => [Math.max(0, Math.floor((a - FOLD_PAD) / 15) * 15), Math.min(1440, Math.ceil((b + FOLD_PAD) / 15) * 15)]),
+    ...opened,
+  ].sort((x, y) => x[0] - y[0]);
   if (!spans.length) return [{ from: 18 * 60, to: 22 * 60, fold: false }];
-  const merged: [number, number][] = [];
-  for (const [a0, b0] of spans) {
-    const a = Math.floor(a0 / 60) * 60;
-    const b = Math.min(1440, Math.ceil(b0 / 60) * 60);
-    const last = merged.at(-1);
-    if (last && a <= last[1]) last[1] = Math.max(last[1], b);
-    else merged.push([a, b]);
-  }
   const out: Band[] = [];
-  for (const [a, b] of merged) {
+  for (const [a, b] of spans) {
     const last = out.at(-1);
     if (!last) out.push({ from: a, to: b, fold: false });
+    else if (a <= last.to) last.to = Math.max(last.to, b);
     else if (a - last.to >= FOLD_MIN) out.push({ from: last.to, to: a, fold: true }, { from: a, to: b, fold: false });
     else last.to = b;
   }

@@ -39,21 +39,22 @@ describe("week grid scale", () => {
     [10 * 60, 12 * 60 + 30],
     [21 * 60, 22 * 60 + 30],
   ]);
-  it("pads to hours and folds an empty gap of 3 h or more", () => {
+  it("pads by 15 minutes and folds an empty gap of an hour or more", () => {
     expect(bs).toEqual([
-      { from: 600, to: 780, fold: false },
-      { from: 780, to: 1260, fold: true },
-      { from: 1260, to: 1380, fold: false },
+      { from: 585, to: 765, fold: false },
+      { from: 765, to: 1245, fold: true },
+      { from: 1245, to: 1365, fold: false },
     ]);
   });
-  it("keeps short gaps open", () => {
-    expect(bands([[19 * 60, 20 * 60], [21 * 60, 22 * 60]])).toEqual([{ from: 1140, to: 1320, fold: false }]);
+  it("keeps short gaps open and lets an opened span stay unfolded", () => {
+    expect(bands([[19 * 60, 20 * 60], [20 * 60 + 45, 22 * 60]])).toEqual([{ from: 1125, to: 1335, fold: false }]);
+    expect(bands([[10 * 60, 12 * 60 + 30], [21 * 60, 22 * 60 + 30]], [[765, 1245]])).toEqual([{ from: 585, to: 1365, fold: false }]);
   });
   it("maps minutes to y and back across a fold", () => {
-    expect(yOf(600, bs, H, F)).toBe(0);
-    expect(yOf(660, bs, H, F)).toBe(64);
-    expect(yOf(1260, bs, H, F)).toBe(3 * 64 + 28);
-    expect(yOf(1290, bs, H, F)).toBe(3 * 64 + 28 + 32);
+    expect(yOf(585, bs, H, F)).toBe(0);
+    expect(yOf(660, bs, H, F)).toBe(80);
+    expect(yOf(1245, bs, H, F)).toBe(3 * 64 + 28);
+    expect(yOf(1290, bs, H, F)).toBe(3 * 64 + 28 + 48);
     for (const m of [600, 700, 1260, 1350]) expect(Math.round(minuteAt(yOf(m, bs, H, F), bs, H, F))).toBe(m);
   });
 });

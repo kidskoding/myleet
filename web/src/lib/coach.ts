@@ -76,7 +76,7 @@ export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): st
   const miss = recentMiss(skill, now);
   const did = miss && attemptPhrase(miss);
   if (miss && did) out.push(`${cap(dayAgo(miss.date, now))} on ${miss.title} you ${did}.`);
-  if (company) out.push(`${company}'s set leans on ${tech}, so it's likely to come up.${near ? ` Your interview is ${days(near)} away.` : ""}`);
+  if (company) out.push(`${company}'s set leans on ${tech}${near ? ` and your interview is ${days(near)} away` : ""}, so it's likely to come up.`);
   else if (near) out.push(`Your interview is ${days(near)} away${weak ? ", and it's the topic you've struggled with most" : ""}.`);
 
   const level = skill?.level;

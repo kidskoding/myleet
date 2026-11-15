@@ -15,7 +15,7 @@ describe("todaySummary", () => {
     const items = [item("review", "Hashing"), item("review", "Trees"), ...[1, 2, 3].map(() => item("new", "Sliding Window", "weak", [{ icon: "b", text: "Meta leans on sliding window" }]))];
     const skills = [skill({ weak_spot: true, history: [attempt({ cause: "edge_cases" })] })];
     expect(todaySummary({ items, skills, daysLeft: 12, now })).toBe(
-      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window, so it's likely to come up. Your interview is 12 days away.\n\nWe'll warm up with two quick reviews, then work through three sliding window problems! Solve them cleanly and you'll stop needing hints on sliding window.",
+      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's likely to come up.\n\nWe'll warm up with two quick reviews, then work through three sliding window problems! Solve them cleanly and you'll stop needing hints on sliding window.",
     );
   });
   it("names a hint without a company", () => {

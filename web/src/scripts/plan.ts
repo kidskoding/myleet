@@ -109,7 +109,20 @@ function vdays(c: Ctx): PlanDay[] {
 
 const cols = () => (matchMedia("(max-width: 1100px) and (min-width: 761px)").matches ? 4 : 7);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce";
-const hourPx = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hour")) || 112;
+/** Space the week grid cannot use: top bar, calendar bar, day headers, legend and margins. */
+const GRID_CHROME = 290;
+const HOUR_MIN = 56;
+const HOUR_MAX = 112;
+/** Hour height that fits the shown spans into the viewport, so the grid needs no page scroll; clamped so 15 minutes stays readable. */
+function fitHour(bs: Band[]): number {
+  const shown = bs.filter((b) => !b.fold);
+  const hours = shown.reduce((n, b) => n + (b.to - b.from) / 60, 0);
+  const room = innerHeight - GRID_CHROME - (bs.length - shown.length) * FOLD;
+  return Math.round(Math.max(HOUR_MIN, Math.min(HOUR_MAX, room / Math.max(1, hours))));
+}
+/** Folded spans the learner opened (a click, a drag hovering, a keyboard move); forgotten when the week changes. */
+let opened: [number, number][] = [];
+let openedFor = -1;
 const say = (m: string) => {
   const sr = $("#plan-sr");
   if (sr) sr.textContent = m;
@@ -246,14 +259,16 @@ interface Grid {
 function grid(c: Ctx): Grid {
   const days = vdays(c).slice(offset, offset + cols());
   const done = days.some((d) => d.date === c.plan.start) ? doneSittings(c) : [];
-  const busy: [number, number][] = [];
-  for (const d of days) {
-    for (const w of windowsOf(d)) busy.push([w.start, w.end]);
-    for (const s of d.sessions) busy.push([minuteOf(s.start_ms), minuteOf(s.start_ms) + Math.round((s.end_ms - s.start_ms) / 60000)]);
-    if (d.off) for (const w of offWindows(d.date)) busy.push([w.start, w.end]);
+  if (openedFor !== offset) {
+    opened = [];
+    openedFor = offset;
   }
+  // Only sessions hold the grid open; windows without one fold away like any other empty time.
+  const busy: [number, number][] = [];
+  for (const d of days) for (const s of d.sessions) busy.push([minuteOf(s.start_ms), minuteOf(s.start_ms) + Math.round((s.end_ms - s.start_ms) / 60000)]);
   for (const s of done) busy.push([s.start, s.end]);
-  return { days, bs: bands(busy), hour: hourPx(), done };
+  const bs = bands(busy, opened);
+  return { days, bs, hour: fitHour(bs), done };
 }
 
 /** A day off has no plan windows; draw its usual ones dashed. */
@@ -294,7 +309,7 @@ function sessionBlock(c: Ctx, d: PlanDay, s: PlanSession, g: Grid, first: boolea
   const finished = mock && mockDone(s) !== null;
   const cls = ["ses", isToday ? "today" : "", mock ? "mockses on-wall" : "", finished ? "mock-done" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
   const label = `${dayName(d.date)} ${span(a, a + len)}, ${fmtM(s.minutes)}: ${s.title}${s.moved_from ? `, moved from ${dayName(s.moved_from)}` : ""}. Open details`;
-  return html`<li><div role="button" tabindex="0" aria-describedby="ses-hint" class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px" data-ses="${s.id}" data-date="${d.date}" aria-label="${label}" title="${s.title}, ${fmtM(s.minutes)}">
+  return html`<li><div role="button" tabindex="0" aria-describedby="ses-hint" class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px" data-m0="${a}" data-m1="${a + len}" data-minh="22" data-ses="${s.id}" data-date="${d.date}" aria-label="${label}" title="${s.title}, ${fmtM(s.minutes)}">
     <span class="t">${span(a, a + len)}${over ? html`, <span class="over">${over} min over</span>` : ""}</span>
     <span class="h">${finished ? html`${icon("check")}Mock done` : s.title}</span><span class="mm">${fmtM(s.minutes)}</span>${mixBar(s.items)}
     ${isToday ? html`<a class="btn btn-primary btn-sm start" href="${startHref(s, d.date)}" data-start aria-label="Start session (s)">${h >= 84 ? html`Start session ${kbd("s")}` : "Start"}</a>` : ""}
@@ -309,44 +324,110 @@ function startHref(s: PlanSession, day: string): string {
   return note ? noteHref(note) : ROUTES.today;
 }
 
-function weekGrid(c: Ctx, g: Grid): SafeHtml {
-  const n = g.days.length;
-  const H = gridHeight(g.bs, g.hour, FOLD);
+/** A window as the grid draws it: clipped to the shown hours, null when it sits wholly inside a fold. */
+function winBox(w: Win, g: Grid): [number, number] | null {
+  const from = g.bs.find((b) => b.fold && w.start >= b.from && w.start < b.to);
+  const to = g.bs.find((b) => b.fold && w.end > b.from && w.end <= b.to);
+  const a = from ? from.to : w.start;
+  const b = to ? to.from : w.end;
+  const top = yOf(a, g.bs, g.hour, FOLD);
+  const h = yOf(b, g.bs, g.hour, FOLD) - top;
+  return b > a && h >= 1 ? [top, h] : null;
+}
+
+/** The hour ruler, rules and folded bands, redrawn whenever the scale changes. */
+function gridLines(g: Grid): { ruler: SafeHtml[]; lines: SafeHtml[] } {
   const ruler: SafeHtml[] = [];
   const lines: SafeHtml[] = [];
   for (const b of g.bs) {
     if (b.fold) {
-      lines.push(html`<div class="fold" style="top:${yOf(b.from, g.bs, g.hour, FOLD)}px;height:${FOLD}px">${span(b.from, b.to)}, no windows</div>`);
+      lines.push(html`<button type="button" class="fold" data-unfold="${b.from}-${b.to}" style="top:${yOf(b.from, g.bs, g.hour, FOLD)}px;height:${FOLD}px" aria-label="Show ${span(b.from, b.to)}">${span(b.from, b.to)}, free</button>`);
       continue;
     }
-    for (let m = b.from; m < b.to; m += 60) {
+    ruler.push(html`<span class="edge" style="top:${yOf(b.from, g.bs, g.hour, FOLD)}px">${clock(b.from)}</span>`);
+    for (let m = Math.ceil(b.from / 30) * 30; m < b.to; m += 30) {
       const y = yOf(m, g.bs, g.hour, FOLD);
-      ruler.push(html`<span class="${m === b.from ? "edge" : ""}" style="top:${y}px">${clock(m)}</span>`);
-      if (m !== b.from) lines.push(html`<div class="hl" style="top:${y}px"></div>`);
-      lines.push(html`<div class="hl half" style="top:${y + g.hour / 2}px"></div>`);
+      if (m % 60) lines.push(html`<div class="hl half" style="top:${y}px"></div>`);
+      else {
+        if (m !== b.from) lines.push(html`<div class="hl" style="top:${y}px"></div>`);
+        if (m - b.from >= 20) ruler.push(html`<span style="top:${y}px">${clock(m)}</span>`);
+      }
     }
   }
+  return { ruler, lines };
+}
+
+let fitTimer = 0;
+/** Re-lays the shown week for a new scale (a band opened or the window resized) in place, so a drag in progress survives; glides for 200 ms. */
+function relayout(c: Ctx): void {
+  const body = $<HTMLElement>(".wk-body");
+  if (!body || view !== "week") return;
+  const g = grid(c);
+  clearTimeout(fitTimer);
+  if (!reduced()) {
+    body.classList.add("fitting");
+    fitTimer = window.setTimeout(() => body.classList.remove("fitting"), 260);
+  }
+  body.style.height = `${gridHeight(g.bs, g.hour, FOLD)}px`;
+  const num = (el: HTMLElement, k: string) => Number(el.dataset[k]);
+  for (const el of body.querySelectorAll<HTMLElement>(".ses[data-m0]")) {
+    const top = yOf(num(el, "m0"), g.bs, g.hour, FOLD);
+    const h = Math.max(num(el, "minh"), yOf(num(el, "m1"), g.bs, g.hour, FOLD) - top);
+    el.style.top = `${top.toFixed(1)}px`;
+    el.style.height = `${h.toFixed(1)}px`;
+    el.classList.toggle("short", h < 54 && !el.classList.contains("today"));
+    el.classList.toggle("tall", h >= 84);
+  }
+  for (const el of body.querySelectorAll<HTMLElement>(".win")) {
+    const box = winBox({ start: num(el, "start"), end: num(el, "end") }, g);
+    el.style.display = box ? "" : "none";
+    if (box) {
+      el.style.top = `${box[0]}px`;
+      el.style.height = `${box[1]}px`;
+    }
+  }
+  for (const el of body.querySelectorAll<HTMLElement>(".now")) el.style.top = `${yOf(num(el, "m0"), g.bs, g.hour, FOLD)}px`;
+  const parts = gridLines(g);
+  const ruler = $<HTMLElement>(".ruler", body);
+  const lines = $<HTMLElement>("[data-lines]", body);
+  if (ruler) render(ruler, html`${parts.ruler}`);
+  if (lines) render(lines, html`${parts.lines}`);
+  if (drag?.m) drag.m.g = g;
+  if (kb) kb.g = g;
+}
+
+/** Opens a folded span so its hours can be seen and dropped into. */
+function unfold(from: number, to: number): void {
+  if (!ctx || opened.some(([a, b]) => a === from && b === to)) return;
+  opened.push([from, to]);
+  relayout(ctx);
+}
+
+function weekGrid(c: Ctx, g: Grid): SafeHtml {
+  const n = g.days.length;
+  const H = gridHeight(g.bs, g.hour, FOLD);
+  const { ruler, lines } = gridLines(g);
   const nowMin = minuteOf(c.now.getTime());
   const columns = g.days.map((d, i) => {
     const isToday = d.date === c.plan.start;
     const wins = d.off ? offWindows(d.date) : windowsOf(d);
     const used = (w: Win) => d.sessions.some((s) => minuteOf(s.start_ms) < w.end && minuteOf(s.end_ms) > w.start) || (isToday && w.end <= nowMin);
-    const winEls = wins.map(
-      (w) =>
-        html`<div class="win" data-start="${w.start}" data-end="${w.end}" style="top:${yOf(w.start, g.bs, g.hour, FOLD)}px;height:${yOf(w.end, g.bs, g.hour, FOLD) - yOf(w.start, g.bs, g.hour, FOLD)}px">${
-          !used(w) && !d.off ? html`<span class="free">Free window</span>` : ""
-        }</div>`,
-    );
+    const winEls = wins.map((w) => {
+      const box = winBox(w, g);
+      return html`<div class="win" data-start="${w.start}" data-end="${w.end}" style="${box ? `top:${box[0]}px;height:${box[1]}px` : "display:none"}">${
+        !used(w) && !d.off ? html`<span class="free">Free window</span>` : ""
+      }</div>`;
+    });
     const done = isToday
       ? g.done.map((s) => {
           const top = yOf(s.start, g.bs, g.hour, FOLD);
           const what = s.clean ? plural(s.clean, "clean pass", "clean passes") : s.solved ? `${s.solved} solved` : plural(s.minutes, "minute");
-          return html`<li><div class="ses done" style="top:${top}px;height:${Math.max(30, yOf(s.end, g.bs, g.hour, FOLD) - top)}px" aria-label="Done today, ${span(s.start, s.end)}: ${what}"><span class="h">${icon("check")}${what}</span></div></li>`;
+          return html`<li><div class="ses done" style="top:${top}px;height:${Math.max(30, yOf(s.end, g.bs, g.hour, FOLD) - top)}px" data-m0="${s.start}" data-m1="${s.end}" data-minh="30" aria-label="Done today, ${span(s.start, s.end)}: ${what}"><span class="h">${icon("check")}${what}</span></div></li>`;
         })
       : [];
     const now =
       isToday && g.bs.length && nowMin >= (g.bs[0]?.from ?? 0) && nowMin <= (g.bs.at(-1)?.to ?? 0)
-        ? html`<div class="now" style="top:${yOf(nowMin, g.bs, g.hour, FOLD)}px" aria-hidden="true"></div>`
+        ? html`<div class="now" data-m0="${nowMin}" style="top:${yOf(nowMin, g.bs, g.hour, FOLD)}px" aria-hidden="true"></div>`
         : "";
     return html`<section class="col${isToday ? " today" : ""}${d.off ? " off" : ""}${d.date < c.plan.start ? " past" : ""}" data-day="${i}" data-date="${d.date}" aria-label="${longDay(d.date)}${d.off ? ", day off" : ""}">${winEls}${
       d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows</span>` : ""
@@ -365,7 +446,7 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
   }
   return html`<div class="panel week-cal" style="--cols:${n}">
     <div class="wk wk-head">${raw("<div></div>")}${g.days.map((d) => dayHeader(c, d, g))}</div>
-    <div class="wk wk-body" style="height:${H}px"><div class="ruler" aria-hidden="true">${ruler}</div>${columns}${lines}</div>
+    <div class="wk wk-body" style="height:${H}px"><div class="ruler" aria-hidden="true">${ruler}</div>${columns}<div class="lines" data-lines>${lines}</div></div>
   </div>`;
 }
 
@@ -1178,6 +1259,9 @@ interface Drag {
   cy: number;
   m: Mover | null;
   frame: number;
+  /** The folded band the block is over and the timer that opens it. */
+  over: string;
+  overTimer: number;
 }
 let drag: Drag | null = null;
 let lastTap = { id: "", at: 0 };
@@ -1196,7 +1280,7 @@ function onPointerDown(e: PointerEvent): void {
   if (!body || !findSession(el.dataset.ses ?? "")) return;
   el.classList.add("pressed");
   el.setPointerCapture(e.pointerId);
-  drag = { el, pointer: e.pointerId, x0: e.clientX, y0: e.clientY, sy0: scrollY, top0: el.offsetTop, bodyLeft: body.getBoundingClientRect().left, cx: e.clientX, cy: e.clientY, m: null, frame: 0 };
+  drag = { el, pointer: e.pointerId, x0: e.clientX, y0: e.clientY, sy0: scrollY, top0: el.offsetTop, bodyLeft: body.getBoundingClientRect().left, cx: e.clientX, cy: e.clientY, m: null, frame: 0, over: "", overTimer: 0 };
 }
 
 function onPointerMove(e: PointerEvent): void {
@@ -1224,8 +1308,39 @@ function dragFrame(): void {
   if (v) scrollBy(0, v);
   const dy = d.cy - d.y0 + (scrollY - d.sy0);
   d.el.style.transform = `translate3d(${d.cx - d.x0}px, ${dy}px, 0)${reduced() ? "" : " scale(1.02)"}`;
+  hoverFold(d, d.top0 + dy);
   preview(d.m, laneAt(d.m, d.cx - d.bodyLeft), minuteAt(d.top0 + dy, d.m.g.bs, d.m.g.hour, FOLD));
   if (v) d.frame = requestAnimationFrame(dragFrame);
+}
+
+/** A block held over a folded band for 400 ms opens it, so a drop can land in those hours. */
+function hoverFold(d: Drag, y: number): void {
+  const g = d.m?.g;
+  if (!g) return;
+  let top = 0;
+  let band: Band | null = null;
+  for (const b of g.bs) {
+    const len = b.fold ? FOLD : ((b.to - b.from) / 60) * g.hour;
+    if (y >= top && y < top + len) band = b.fold ? b : null;
+    top += len;
+  }
+  const key = band ? `${band.from}-${band.to}` : "";
+  if (key === d.over) return;
+  clearTimeout(d.overTimer);
+  d.over = key;
+  if (!band) return;
+  const { from, to } = band;
+  d.overTimer = window.setTimeout(() => {
+    if (drag !== d || !d.m) return;
+    const was = d.top0;
+    unfold(from, to);
+    // The block keeps its place under the pointer while the hours open around it.
+    d.top0 = d.el.offsetTop;
+    d.y0 += d.top0 - was;
+    d.m.key = "";
+    d.over = "";
+    if (!d.frame) d.frame = requestAnimationFrame(dragFrame);
+  }, 400);
 }
 
 function endDrag(e: PointerEvent, cancelled = false): void {
@@ -1233,6 +1348,7 @@ function endDrag(e: PointerEvent, cancelled = false): void {
   const d = drag;
   drag = null;
   cancelAnimationFrame(d.frame);
+  clearTimeout(d.overTimer);
   d.el.classList.remove("pressed");
   if (!d.m) {
     if (cancelled) return;
@@ -1265,10 +1381,11 @@ function kbStep(key: string): void {
   if (key === "ArrowLeft" || key === "ArrowRight") kb.lane = Math.max(0, Math.min(kb.lanes.length - 1, kb.lane + (key === "ArrowRight" ? 1 : -1)));
   else {
     const dir = key === "ArrowDown" ? 1 : -1;
-    const bs = kb.g.bs;
     let next = kb.start + dir * 15;
-    const fold = bs.find((b) => b.fold && next + (dir > 0 ? kb!.minutes : 0) > b.from && next < b.to);
-    if (fold) next = dir > 0 ? fold.to : fold.from - kb.minutes;
+    const fold = kb.g.bs.find((b) => b.fold && next + kb!.minutes > b.from && next < b.to);
+    // Stepping into a folded span opens it, so the move lands in real hours.
+    if (fold) unfold(fold.from, fold.to);
+    const bs = kb.g.bs;
     kb.start = Math.max(bs[0]?.from ?? 0, Math.min(next, (bs.at(-1)?.to ?? 24 * 60) - kb.minutes));
   }
   kbShow();
@@ -1523,7 +1640,7 @@ function goTo(index: number, openFirst = false): void {
 function onClick(e: MouseEvent): void {
   if (!root() || !ctx) return;
   const t = e.target as Element;
-  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],button[data-nav],[data-today],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol[data-p],.ag-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
+  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],button[data-nav],[data-today],[data-unfold],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol[data-p],.ag-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
   if (!t.closest(".daymenu-pop") && !t.closest("[data-daymenu]")) closeDayMenu();
   // Any click outside the popover closes it; a session click reopens it on that session.
   if (!t.closest("[data-pop]") && !t.closest(".ses") && !t.closest(".toast")) closePop();
@@ -1535,6 +1652,10 @@ function onClick(e: MouseEvent): void {
   if (d.act === "sync") return openSync();
   if (d.act === "save") return void requireAccount("save-plan");
   if (a.matches("[data-drawer-close]")) return closeDrawer();
+  if (d.unfold) {
+    const [from, to] = d.unfold.split("-").map(Number);
+    return unfold(from ?? 0, to ?? 0);
+  }
   if (d.step) {
     const p = readPrefs().plan;
     const k = d.step as "wd" | "we";
@@ -1743,12 +1864,17 @@ function wire(): void {
   addEventListener("online", () => root() && ctx && paint());
   addEventListener("offline", () => root() && ctx && paint());
   let wasNarrow = cols();
+  let refit = 0;
   addEventListener("resize", () => {
     if (!root() || !ctx) return;
     if (cols() !== wasNarrow) {
       wasNarrow = cols();
       paint();
-    } else placeBracket();
+    } else {
+      placeBracket();
+      cancelAnimationFrame(refit);
+      refit = requestAnimationFrame(() => ctx && relayout(ctx));
+    }
   });
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible" && ctx && root()) {

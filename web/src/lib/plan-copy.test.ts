@@ -44,7 +44,7 @@ describe("Plan copy", () => {
     );
     const none = headCopy({ plan: plan({ interview_date: null }), company: null, name: null, windows: [], today: "2026-11-15" });
     expect(none.title).toBe("Your next four weeks");
-    expect(none.lede).toContain("Add an interview and the plan paces toward it.");
+    expect(none.lede).toContain("and the plan adjusts after every solve. Add an interview date whenever you have one and we'll pace everything toward it.");
   });
 
   it("groups the forecast into one sentence", () => {
