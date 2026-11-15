@@ -28,6 +28,8 @@ const GROUPS: [PlaylistGroup, string][] = [
   ["Fortune 500", "Fortune 500"],
 ];
 const groups = GROUPS.map(([g, label]) => ({ label, sets: c.playlists.filter((p) => p.group === g) }));
+/** The group's tab on /companies, matching its `gid`. */
+const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
 const TESTS: [string, number][] = [
   ["test_two_sum_normal", 3],
@@ -239,17 +241,17 @@ answer: [0, 1]</code></pre>
             groups.map((g) => (
               <div>
                 <h3>
-                  {g.label} <span>{g.sets.length}</span>
+                  <span class="gname">{g.label}</span> <span class="gcount">{g.sets.length}</span>
                 </h3>
                 <ul>
                   {g.sets.slice(0, 6).map((p) => (
                     <li>
-                      <a href={companyHref(p.id)}><Fragment set:html={companyLogo(companySlug(p.id)).value} /> {p.title}</a>
+                      <a href={companyHref(p.id)} title={p.title} aria-label={p.title}><span class="mark"><Fragment set:html={companyLogo(companySlug(p.id)).value} /></span><span class="nm">{p.title}</span></a>
                     </li>
                   ))}
                   {g.sets.length > 6 && (
                     <li class="more">
-                      <a href={ROUTES.companies}>and {g.sets.length - 6} more</a>
+                      <a class="link" href={`${ROUTES.companies}#${gid(g.label)}`}>See all {g.sets.length}</a>
                     </li>
                   )}
                 </ul>
@@ -257,7 +259,7 @@ answer: [0, 1]</code></pre>
             ))
           }
         </div>
-        <p class="disclaim">Curated practice plans built from each company's common interview patterns, not lists of exact interview questions</p>
+        <p class="disclaim">Pick the companies you're interviewing with, and we'll build your plan around them</p>
       </section>
 
       <section class="close" aria-labelledby="close-h">
@@ -403,10 +405,19 @@ answer: [0, 1]</code></pre>
 
   .landing .companies { padding-top: var(--space-24); }
   .landing .groups { margin-top: var(--space-10); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-6); }
-  .landing .groups h3 { font-size: var(--text-base); display: flex; justify-content: space-between; align-items: baseline; padding-bottom: var(--space-3); border-bottom: 1.5px solid var(--ink); }
-  .landing .groups h3 span { font-size: var(--text-sm); color: var(--ink-3); font-variation-settings: "wdth" var(--wdth-tag); }
-  .landing .groups ul { list-style: none; padding: 0; margin-top: var(--space-3); display: grid; gap: 6px; font-size: var(--text-sm); color: var(--ink-2); }
-  .landing .groups .more { color: var(--ink-3); }
+  /* Headers share one height and sit on the rule, so a two-line name doesn't push its column down */
+  .landing .groups h3 { font-size: var(--text-base); display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-2); height: calc(2lh + var(--space-3) + 1.5px); padding-bottom: var(--space-3); border-bottom: 1.5px solid var(--ink); }
+  .landing .groups h3 .gcount { flex: none; font: 500 var(--label-size) var(--font-label); letter-spacing: var(--label-track); color: var(--ink-3); }
+  .landing .groups ul { list-style: none; padding: 0; margin-top: var(--space-2); display: grid; gap: 2px; font-size: var(--text-sm); color: var(--ink-2); }
+  .landing .groups li a { display: flex; align-items: center; gap: var(--space-3); min-width: 0; min-height: 40px; padding: var(--space-1) var(--space-2); margin-inline: calc(-1 * var(--space-2)); border-radius: var(--radius-sm); transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+  .landing .groups li a:hover { background: var(--hover-wash); color: var(--ink); text-decoration: none; }
+  .landing .groups .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Every mark in the same small tile, centred, at its own aspect ratio */
+  .landing .groups .mark { flex: none; width: 28px; height: 28px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); overflow: hidden; }
+  .landing .groups .mark .co-logo { width: 20px !important; height: 20px !important; vertical-align: 0 !important; border-radius: var(--radius-xs); }
+  .landing .groups .more { margin-top: var(--space-1); }
+  .landing .groups .more a.link { min-height: 40px; display: inline-flex; align-items: center; padding: 0; margin: 0; color: var(--accent); text-decoration-line: underline; }
+  .landing .groups .more a.link:hover { background: none; }
   .landing .disclaim { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--ink-3); }
 
   /* Close: the level check beside a preview of what it hands back, over a verdict-colour mesh */
@@ -446,7 +457,9 @@ answer: [0, 1]</code></pre>
     .landing :is(.band, .notes, .companies, .close) h2 { font-size: var(--text-xl); }
     .landing .notes, .landing .companies { padding-top: var(--space-16); }
     .landing .page-sheet { padding: var(--space-5); }
-    .landing .groups { grid-template-columns: 1fr 1fr; }
+    /* Phones: the columns scroll sideways, one and a bit in view, snapping to each */
+    .landing .groups { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(78%, 280px); overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; margin-inline: calc(-1 * var(--gutter)); padding: 0 var(--gutter) var(--space-2); scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+    .landing .groups > div { scroll-snap-align: start; }
     .landing .close { margin-top: var(--space-16); padding: var(--space-12) 0; }
   }
 </style>

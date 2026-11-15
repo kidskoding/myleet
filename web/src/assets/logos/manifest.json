@@ -821,7 +821,9 @@
   "treatment": "light-background"
  },
  "walmart": {
-  "source": "simple-icons@9.21.0",
+  "source": "website-icon",
+  "domain": "walmart.com",
+  "url": "https://i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg",
   "file": "walmart.svg"
  },
  "unitedhealth": {
@@ -887,8 +889,11 @@
   "icon": "verizon"
  },
  "goldman_sachs": {
-  "source": "simple-icons",
-  "icon": "goldmansachs"
+  "source": "website-icon",
+  "domain": "goldmansachs.com",
+  "url": "https://www.google.com/s2/favicons?domain=goldmansachs.com&sz=128",
+  "file": "goldman_sachs.svg",
+  "treatment": "light-background"
  },
  "wells_fargo": {
   "source": "simple-icons",

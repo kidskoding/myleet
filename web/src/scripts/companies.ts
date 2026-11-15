@@ -151,7 +151,7 @@ function applyIndexFilter(): void {
     if (!any)
       render(
         empty,
-        html`<h2>No set for “${query.trim()}”</h2><p>There is no practice set with that name yet. Try a similar company or continue with the core topics in Learn</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear-find>Clear search</button></div>`,
+        html`<h2>No set for “${query.trim()}”</h2><p>There is no practice set with that name yet. Try a similar company or continue with the core topics in Learn.</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear-find>Clear search</button></div>`,
       );
   }
 }
@@ -396,7 +396,9 @@ async function load(): Promise<void> {
 document.addEventListener("astro:page-load", () => {
   ctx = null;
   show = "all";
-  group = "all";
+  // /companies#big-tech opens on that group's tab (the landing's "See all" links)
+  const h = decodeURIComponent(location.hash.slice(1));
+  group = h && document.querySelector(`[role=tab][data-group="${CSS.escape(h)}"]`) ? h : "all";
   query = "";
   void load();
 });
