@@ -1,0 +1,21 @@
+---
+import { ROUTES } from "../../lib/routes";
+---
+
+<footer class="site-foot">
+  <div class="site-foot-in">
+    <span>myleet is free and open source, MIT licensed.</span>
+    <nav aria-label="Footer">
+      <a href={ROUTES.about}>About</a><a href={ROUTES.privacy}>Privacy</a><a href={ROUTES.terms}>Terms</a><a href="https://github.com/kidskoding/myleet" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<style is:global>
+  .site-foot { border-top: 1px solid var(--line); padding: var(--space-8) 0 var(--space-12); font-size: var(--text-sm); color: var(--ink-3); }
+  .site-foot-in { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--gutter); display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); align-items: center; }
+  .site-foot nav { display: flex; gap: var(--space-5); margin-left: auto; }
+  .site-foot a { color: var(--ink-2); text-decoration: none; }
+  .site-foot a:hover { color: var(--ink); text-decoration: underline; }
+  @media (max-width: 760px) { .site-foot nav { margin-left: 0; } }
+</style>

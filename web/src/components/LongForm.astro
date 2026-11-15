@@ -1,0 +1,98 @@
+---
+// Long-form public page (About, Privacy, Terms): sticky contents beside Literata prose.
+// Pages write their own `<h2 id>` sections in the slot; `toc` lists them in order.
+import "@fontsource-variable/literata/opsz.css";
+import Base from "../layouts/Base.astro";
+import LandingFooter from "./landing/LandingFooter.astro";
+
+interface Props {
+  title: string;
+  /** `<title>` and og:title; defaults to `title`. */
+  pageTitle?: string;
+  description: string;
+  toc: [id: string, label: string][];
+  /** "Nov 14, 2026" */
+  updated?: string;
+}
+const { title, pageTitle = title, description, toc, updated } = Astro.props;
+---
+
+<Base title={pageTitle} description={description} shell="public">
+  <div class="longform page" data-longform>
+    <header class="lf-head">
+      <h1>{title}</h1>
+      {updated && <p class="lf-updated">Last updated {updated}</p>}
+    </header>
+    <div class="lf-grid">
+      <details class="lf-toc" open>
+        <summary>On this page</summary>
+        <nav aria-label="On this page">
+          <ol>{toc.map(([id, label]) => <li><a href={`#${id}`}>{label}</a></li>)}</ol>
+        </nav>
+      </details>
+      <article class="prose lf-prose">
+        <slot />
+      </article>
+    </div>
+  </div>
+  <LandingFooter slot="footer" />
+</Base>
+
+<style is:global>
+  .longform .lf-head { padding-bottom: var(--space-8); }
+  .longform .lf-updated { margin-top: var(--space-2); color: var(--ink-3); font-size: var(--text-sm); }
+  .longform .lf-grid { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--space-12); align-items: start; }
+  .longform .lf-toc { position: sticky; top: calc(var(--topbar-h) + var(--space-6)); font-size: var(--text-sm); }
+  .longform .lf-toc summary { font-weight: 650; color: var(--ink); list-style: none; pointer-events: none; margin-bottom: var(--space-3); }
+  .longform .lf-toc summary::-webkit-details-marker { display: none; }
+  .longform .lf-toc ol { list-style: none; padding: 0; display: grid; gap: 2px; }
+  .longform .lf-toc a { display: block; padding: 6px var(--space-3); color: var(--ink-3); text-decoration: none; border-radius: var(--radius-sm); box-shadow: inset 2px 0 0 transparent; transition: color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
+  .longform .lf-toc a:hover { color: var(--ink); background: var(--surface-sunk); }
+  .longform .lf-toc a[aria-current="location"] { color: var(--ink); box-shadow: inset 2px 0 0 var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .longform .lf-prose h2 { font-size: var(--text-lg); scroll-margin-top: calc(var(--topbar-h) + var(--space-6)); position: relative; }
+  .longform .lf-prose h2:first-child { margin-top: 0; }
+  .longform .lf-prose .anchor { margin-left: var(--space-2); color: var(--ink-3); text-decoration: none; opacity: 0; transition: opacity var(--dur-fast) var(--ease-out); }
+  .longform .lf-prose h2:hover .anchor, .longform .lf-prose .anchor:focus-visible { opacity: 1; }
+  @media (max-width: 760px) {
+    .longform .lf-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+    .longform .lf-toc { position: static; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); padding: var(--space-3) var(--space-4); }
+    .longform .lf-toc summary { pointer-events: auto; cursor: pointer; margin: 0; display: flex; justify-content: space-between; }
+    .longform .lf-toc summary::after { content: "+"; color: var(--ink-3); }
+    .longform .lf-toc[open] summary { margin-bottom: var(--space-2); }
+    .longform .lf-toc[open] summary::after { content: "−"; }
+    .longform .lf-prose { font-size: var(--text-base); }
+    .longform .lf-prose .anchor { opacity: 1; }
+  }
+</style>
+
+<script>
+  // Anchor links on headings, the current section in the contents, contents folded on phones.
+  document.addEventListener("astro:page-load", () => {
+    const root = document.querySelector<HTMLElement>("[data-longform]");
+    if (!root) return;
+    const toc = root.querySelector<HTMLDetailsElement>(".lf-toc");
+    if (toc && matchMedia("(max-width: 760px)").matches) toc.open = false;
+    const links = new Map<string, HTMLAnchorElement>();
+    for (const a of root.querySelectorAll<HTMLAnchorElement>(".lf-toc a")) links.set(a.hash.slice(1), a);
+    const heads = [...root.querySelectorAll<HTMLElement>(".lf-prose h2[id]")];
+    for (const h of heads) {
+      const a = document.createElement("a");
+      a.className = "anchor";
+      a.href = `#${h.id}`;
+      a.textContent = "#";
+      a.setAttribute("aria-label", `Link to ${h.textContent ?? "section"}`);
+      h.append(a);
+    }
+    const mark = (id: string) => links.forEach((a, k) => (k === id ? a.setAttribute("aria-current", "location") : a.removeAttribute("aria-current")));
+    if (heads[0]) mark(heads[0].id);
+    const io = new IntersectionObserver(
+      (entries) => {
+        const top = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (top) mark(top.target.id);
+      },
+      { rootMargin: "-80px 0px -60% 0px" },
+    );
+    heads.forEach((h) => io.observe(h));
+    document.addEventListener("astro:before-swap", () => io.disconnect(), { once: true });
+  });
+</script>

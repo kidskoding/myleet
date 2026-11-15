@@ -1,8 +1,412 @@
 ---
+// The signed-out landing. Returning learners never see it: the inline script below sends
+// anyone with progress or a session to Today before the page paints.
+import "@fontsource-variable/literata/opsz.css";
+import "@fontsource-variable/jetbrains-mono/wght.css";
+import { ArrowUpRight, CheckCheck, CornerLeftDown, Equal } from "lucide-static";
 import Base from "../layouts/Base.astro";
+import LandingFooter from "../components/landing/LandingFooter.astro";
+import { buildCatalog } from "../lib/build-catalog";
+import { sentenceCase } from "../lib/display";
+import { companyHref, moduleHref, ROUTES } from "../lib/routes";
+import type { PlaylistGroup } from "../lib/types";
+import { ladder } from "../lib/ui/ladder";
+
+const c = buildCatalog();
+const modules = c.modules.filter((m) => !m.bank);
+const size = (m: (typeof modules)[number]) => m.techniques.reduce((n, t) => n + t.problems.length, 0);
+const featured = [1, 4, 7, 10, 11].flatMap((n) => modules.filter((m) => m.number === n));
+
+const GROUPS: [PlaylistGroup, string][] = [
+  ["Big tech", "Big tech"],
+  ["Little tech", "Little tech"],
+  ["AI labs / high growth", "AI labs"],
+  ["Quant", "Quant"],
+  ["Fortune 500", "Fortune 500"],
+];
+const groups = GROUPS.map(([g, label]) => ({ label, sets: c.playlists.filter((p) => p.group === g) }));
+
+const TESTS: [string, number][] = [
+  ["test_two_sum_normal", 3],
+  ["test_two_sum_middle_pair", 2],
+  ["test_two_sum_duplicate_values", 2],
+  ["test_two_sum_all_negative", 3],
+  ["test_two_sum_mixed_signs", 2],
+  ["test_two_sum_no_pair", 1],
+];
+const check =
+  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+const svgBody = (s: string) => s.match(/<svg[^>]*>([\s\S]*)<\/svg>/)?.[1] ?? "";
+const ruleIcon = (s: string, cls: string) =>
+  `<svg class="icon ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${svgBody(s)}</svg>`;
 ---
 
-<Base title="myleet">
-  <h1>myleet</h1>
-  <p>Placeholder: the screen design lands here.</p>
+<Base
+  title="myleet"
+  shell="public"
+  description="Solve LeetCode-style problems in the browser with Python tests, then review each one on a 1, 3, 7, 14, 30-day ladder until you can solve it cold. Free, no account needed."
+  ogImage="/og/default.png"
+>
+  <script is:inline>
+    // Returning learners go straight to Today, before first paint.
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem("myleet-prefs") || "{}");
+        if (localStorage.getItem("myleet:me") || localStorage.getItem("myleet:streak") || (p.plan && p.plan.onboarded)) location.replace("/app");
+      } catch (e) {}
+    })();
+  </script>
+  <div class="landing" data-landing>
+    <div class="lwrap">
+      <section class="intro" aria-labelledby="l-h">
+        <h1 id="l-h">Interview practice that schedules your reviews.</h1>
+        <div>
+          <p>Solve in the browser with real Python tests. Every problem comes back on a 1, 3, 7, 14, 30-day ladder until you can solve it cold.</p>
+          <div class="actions">
+            <a class="btn btn-primary btn-lg" href={ROUTES.onboarding}>Start practicing</a>
+            <a class="btn btn-secondary btn-lg" href={ROUTES.signin} data-signin>Sign in</a>
+            <small>Free. No account needed: progress stays on this device until you sign in.</small>
+          </div>
+        </div>
+      </section>
+
+      <article class="panel demo" id="demo" data-state="ran" aria-label="Try it: a working problem workspace">
+        <div class="demo-bar">
+          <h2>Two Sum</h2>
+          <span class="diff" data-level="easy"><i aria-hidden="true"><b></b><b></b><b></b></i>Easy</span>
+          <span class="tag tag-outline no-dot">Arrays and hashing</span>
+          <div class="timer" role="timer" aria-label="6 minutes 40 seconds of 15">
+            <div class="clock">06:40</div>
+            <div><div class="target">of 15:00</div><div class="track"><span style="width:44%"></span></div></div>
+          </div>
+        </div>
+        <div class="pane statement-pane">
+          <div class="pane-title">Problem</div>
+          <div class="prose statement">
+            <p>Given a list of integers <code>nums</code> and an integer <code>target</code>, return the indices of the two numbers that add up to <code>target</code>.</p>
+            <p>Each input has at most one answer, and you may not use the same element twice. Return <code>[]</code> when no pair exists.</p>
+            <pre><code>nums = [2, 7, 11, 15], target = 9
+answer: [0, 1]</code></pre>
+          </div>
+        </div>
+        <div class="pane editor-pane editor" role="img" aria-label="Python editor with a Two Sum solution (demo, read only)">
+          <ol aria-hidden="true">
+            <li><span><span class="kw">def</span> <span class="df">two_sum</span>(nums: <span class="bi">list</span>[<span class="bi">int</span>], target: <span class="bi">int</span>) <span class="op">-&gt;</span> <span class="bi">list</span>[<span class="bi">int</span>]:</span></li>
+            <li><span>    <span class="cm"># Time: O(n)   Space: O(n)</span></span></li>
+            <li><span>    seen: <span class="bi">dict</span>[<span class="bi">int</span>, <span class="bi">int</span>] <span class="op">=</span> {"{}"}</span></li>
+            <li><span>    <span class="kw">for</span> i, value <span class="kw">in</span> <span class="bi">enumerate</span>(nums):</span></li>
+            <li><span>        need <span class="op">=</span> target <span class="op">-</span> value</span></li>
+            <li><span>        <span class="kw">if</span> need <span class="kw">in</span> seen:</span></li>
+            <li><span>            <span class="kw">return</span> [seen[need], i]</span></li>
+            <li class="active"><span>        seen[value] <span class="op">=</span> i<span class="cursor"></span></span></li>
+            <li><span>    <span class="kw">return</span> []</span></li>
+          </ol>
+        </div>
+        <div class="pane testpane">
+          <div class="head">
+            <span class="summary" data-sum aria-live="polite">6 of 6 passed</span>
+            <button class="btn btn-primary btn-sm" type="button" data-run aria-keyshortcuts="Control+Enter Meta+Enter"
+              ><span data-run-label>Run again</span> <kbd data-run-kbd>Ctrl ↵</kbd></button
+            >
+          </div>
+          <ul class="tests">
+            {
+              TESTS.map(([name, ms]) => (
+                <li class="trow">
+                  <div class="trow-line">
+                    <span class="st" set:html={check} />
+                    <span class="tname">{name}</span>
+                    <span class="tms">{ms} ms</span>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="result">
+            <span class="lad lad-before" set:html={ladder({ rung: 2, size: "lg" }).value} />
+            <span class="lad lad-after" set:html={ladder({ rung: 3, size: "lg" }).value} />
+            <p class="msg-before">On the 3-day rung. A clean pass under 15 minutes climbs to 7 days.</p>
+            <p class="msg-after"><strong>Clean pass in 6:40.</strong> Up to the 7-day rung. Next review <span data-next>in 7 days</span>.</p>
+          </div>
+        </div>
+      </article>
+      <script is:inline>
+        // With JavaScript the demo starts idle; without it the ran state stays.
+        (function () {
+          var d = document.getElementById("demo");
+          d.dataset.state = "idle";
+          d.querySelector("[data-sum]").textContent = "6 tests";
+          d.querySelector("[data-run-label]").textContent = "Run tests";
+        })();
+      </script>
+    </div>
+
+    <section class="band" aria-labelledby="ladder-h">
+      <div class="lwrap">
+        <h2 id="ladder-h">A problem comes back until you can solve it cold.</h2>
+        <p class="lede">Solving something once proves little. myleet schedules each problem on a ladder of growing gaps, and only a clean solve moves it up.</p>
+        <div class="topo">
+          <figure>
+            <div class="topo-scroll">
+              <svg viewBox="-40 0 680 300" role="img" aria-labelledby="topo-t topo-d">
+                <title id="topo-t">Example history of one problem on the review ladder</title>
+                <desc id="topo-d">Nov 2 clean pass, due in 1 day. Nov 3 clean, 3 days. Nov 6 used a hint, falls to 1 day. Nov 7 clean, 3 days. Nov 10 clean, 7 days. Nov 17 clean, 14 days: mastered. Next review Dec 1 for the 30-day rung.</desc>
+                <g class="grid"><line x1="60" x2="620" y1="250" y2="250"></line><line x1="60" x2="620" y1="200" y2="200"></line><line x1="60" x2="620" y1="150" y2="150"></line><line x1="60" x2="620" y1="100" y2="100"></line><line x1="60" x2="620" y1="50" y2="50"></line></g>
+                <g class="ax" text-anchor="end"><text x="48" y="254">1 day</text><text x="48" y="204">3 days</text><text x="48" y="154">7 days</text><text x="48" y="104">14 days</text><text x="48" y="54">30 days</text></g>
+                <polyline class="route" points="80,250 160,200"></polyline>
+                <path class="fall" d="M160,200 L240,200 L240,250"></path>
+                <polyline class="route" points="240,250 320,200 400,150"></polyline>
+                <polyline class="route m" points="400,150 500,100"></polyline>
+                <path class="fall next" d="M500,100 L600,50"></path>
+                <circle class="pt" cx="80" cy="250" r="7"></circle><circle class="pt" cx="160" cy="200" r="7"></circle>
+                <circle class="pt hint" cx="240" cy="250" r="7"></circle><circle class="pt" cx="320" cy="200" r="7"></circle>
+                <circle class="pt" cx="400" cy="150" r="7"></circle><circle class="pt m" cx="500" cy="100" r="8"></circle>
+                <circle class="pt next" cx="600" cy="50" r="7"></circle>
+                <g text-anchor="middle">
+                  <text class="ev" x="80" y="282">Nov 2</text><text class="ev" x="160" y="282">Nov 3</text><text class="ev" x="240" y="282">Nov 6</text>
+                  <text class="ev" x="320" y="282">Nov 7</text><text class="ev" x="400" y="282">Nov 10</text><text class="ev" x="500" y="282">Nov 17</text><text class="ev" x="600" y="282">Dec 1</text>
+                  <text class="ev2" x="254" y="244" text-anchor="start">hint</text><text class="ev2" x="500" y="82">mastered</text><text class="ev2" x="600" y="32">next</text>
+                </g>
+              </svg>
+            </div>
+            <figcaption class="topo-cap">One problem's history, Koko Eating Bananas (example). Each dot is a solve; dashed red is a fall.</figcaption>
+          </figure>
+          <ul class="rules">
+            <li><Fragment set:html={ruleIcon(ArrowUpRight, "up")} /><div><strong>Climbs one rung</strong><span>Green tests, no hint or peek, under the time target: 15, 25 or 45 minutes by difficulty.</span></div></li>
+            <li><Fragment set:html={ruleIcon(CornerLeftDown, "down")} /><div><strong>Falls to 1 day</strong><span>A hint, a look at the solution, going over time, or giving up. The miss is recorded, not hidden.</span></div></li>
+            <li><Fragment set:html={ruleIcon(Equal, "same")} /><div><strong>Same day doesn't count</strong><span>Passing again the same day keeps the rung. Memory only shows across a gap.</span></div></li>
+            <li><Fragment set:html={ruleIcon(CheckCheck, "done")} /><div><strong>Mastered at 14 days</strong><span>A clean cold redo two weeks out. After that it visits once a month to stay sharp.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="lwrap">
+      <section class="notes" aria-labelledby="notes-h">
+        <div>
+          <h2 id="notes-h">Read the pattern before you drill it.</h2>
+          <p class="lede">{modules.length} modules by interview pattern, written as one book. Each note starts from the brute force, shows why it fails, and traces the fix by hand.</p>
+          <ul>
+            {
+              featured.map((m) => (
+                <li>
+                  <b>{String(m.number).padStart(2, "0")}</b>
+                  <a href={moduleHref(m)}>
+                    {sentenceCase(m.title)}, {size(m)} problems
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <a class="btn btn-secondary" href={ROUTES.learn}>Open the notes</a>
+        </div>
+        <article class="panel page-sheet" aria-label="Excerpt: Variable-size sliding window">
+          <div class="crumb">Sliding window, note 2 of 4</div>
+          <div class="prose fade">
+            <h3>Longest and shortest use opposite shrink loops</h3>
+            <p>For a <strong>longest</strong> answer, expand first, shrink <strong>while invalid</strong>, and record only after the repair. Minimum Size Subarray Sum is the standard <strong>shortest</strong> version. Expand until valid, then shrink <strong>while valid</strong> and record before each removal, because every successful shrink is a shorter candidate:</p>
+            <pre><code><span class="kw">def</span> <span class="df">min_sub_array_len</span>(target: <span class="bi">int</span>, nums: <span class="bi">list</span>[<span class="bi">int</span>]) <span class="op">-&gt;</span> <span class="bi">int</span>:
+    left <span class="op">=</span> <span class="nu">0</span>
+    window_sum <span class="op">=</span> <span class="nu">0</span>
+    best <span class="op">=</span> <span class="bi">len</span>(nums) <span class="op">+</span> <span class="nu">1</span>
+
+    <span class="kw">for</span> right, value <span class="kw">in</span> <span class="bi">enumerate</span>(nums):
+        window_sum <span class="op">+=</span> value
+        <span class="kw">while</span> window_sum <span class="op">&gt;=</span> target:
+            best <span class="op">=</span> <span class="bi">min</span>(best, right <span class="op">-</span> left <span class="op">+</span> <span class="nu">1</span>)
+            window_sum <span class="op">-=</span> nums[left]
+            left <span class="op">+=</span> <span class="nu">1</span>
+
+    <span class="kw">return</span> <span class="nu">0</span> <span class="kw">if</span> best <span class="op">==</span> <span class="bi">len</span>(nums) <span class="op">+</span> <span class="nu">1</span> <span class="kw">else</span> best</code></pre>
+            <p>On <code>[2, 3, 1, 2, 4, 3]</code> with target 7, <code>right = 4</code> first gives <code>[3, 1, 2, 4]</code> with length 4. Removing 3 leaves <code>[1, 2, 4]</code>, which is still valid and improves the answer to 3. The loop must continue after the first valid window or it misses the shorter one.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="companies" aria-labelledby="co-h">
+        <h2 id="co-h">Aim at a company when the core is solid.</h2>
+        <p class="lede">{c.playlists.length} company sets, ordered most-asked first. Problems you've already climbed show their rung; the rest are new.</p>
+        <div class="groups">
+          {
+            groups.map((g) => (
+              <div>
+                <h3>
+                  {g.label} <span>{g.sets.length}</span>
+                </h3>
+                <ul>
+                  {g.sets.slice(0, 6).map((p) => (
+                    <li>
+                      <a href={companyHref(p.id)}>{p.title}</a>
+                    </li>
+                  ))}
+                  {g.sets.length > 6 && (
+                    <li class="more">
+                      <a href={ROUTES.companies}>and {g.sets.length - 6} more</a>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+        <p class="disclaim">Curated practice plans built from each company's common interview patterns, not lists of exact interview questions.</p>
+      </section>
+
+      <section class="close" aria-labelledby="close-h">
+        <div>
+          <h2 id="close-h">Start with today's first problem.</h2>
+          <p class="lede">A short warm-up places you on the ladder. Sign in later and your progress comes with you.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href={ROUTES.onboarding}>Start practicing</a>
+          <a class="btn btn-secondary btn-lg" href={ROUTES.signin} data-signin>Sign in</a>
+        </div>
+      </section>
+    </div>
+  </div>
+  <LandingFooter slot="footer" />
 </Base>
+
+<style is:global>
+  .landing .lwrap { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--gutter); }
+  .landing section { scroll-margin-top: var(--topbar-h); }
+  .landing h2 { text-wrap: balance; }
+
+  .landing .intro { padding-top: var(--space-10); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: var(--space-4) var(--space-12); align-items: end; }
+  .landing .intro h1 { font-size: var(--text-display); font-weight: 700; letter-spacing: var(--track-display); line-height: 1.02; font-variation-settings: "wdth" 84; }
+  .landing .intro p { color: var(--ink-2); font-size: var(--text-md); line-height: 1.45; max-width: 44ch; font-variation-settings: "wdth" 95; }
+  .landing .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+  .landing .intro .actions { margin-top: var(--space-5); }
+  .landing .intro .actions small { color: var(--ink-3); width: 100%; }
+
+  .landing .demo { margin-top: var(--space-8); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr) minmax(0, 0.95fr); grid-template-rows: auto 1fr; overflow: hidden; box-shadow: var(--shadow-md); border: 0; }
+  .landing .demo-bar { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-4); padding: 0 var(--space-4); height: 48px; border-bottom: 1px solid var(--line); }
+  .landing .demo-bar h2 { font-size: var(--text-base); white-space: nowrap; }
+  .landing .timer { margin-left: auto; display: inline-flex; align-items: center; gap: var(--space-3); }
+  .landing .timer .clock { font-size: var(--text-md); font-weight: 680; font-variation-settings: "wdth" var(--wdth-tag); letter-spacing: -0.01em; line-height: 1; }
+  .landing .timer .target { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; line-height: 1.2; }
+  .landing .timer .track { width: 64px; height: 4px; background: var(--surface-sunk); border-radius: 2px; overflow: hidden; margin-top: 4px; }
+  .landing .timer .track span { display: block; height: 100%; background: var(--ink-2); }
+  .landing .pane { min-width: 0; padding: var(--space-5); }
+  .landing .pane + .pane { border-left: 1px solid var(--line); }
+  .landing .pane-title { font-size: var(--text-xs); font-weight: 650; color: var(--ink-3); margin-bottom: var(--space-3); font-variation-settings: "wdth" var(--wdth-tag); }
+  .landing .statement { font-size: 0.9375rem; line-height: 1.6; }
+  .landing .statement pre { font-size: 0.8125rem; padding: var(--space-3); }
+  .landing .editor { background: var(--code-bg); padding: var(--space-4) 0; font-family: var(--font-code); font-size: 0.8125rem; line-height: 1.75; overflow-x: auto; }
+  .landing .editor ol { list-style: none; padding: 0; counter-reset: ln; }
+  .landing .editor li { counter-increment: ln; display: grid; grid-template-columns: 3.2em 1fr; white-space: pre; }
+  .landing .editor li::before { content: counter(ln); color: var(--code-gutter); text-align: right; padding-right: 1.2em; user-select: none; }
+  .landing .editor li.active { background: var(--code-active-line); }
+  .landing .kw { color: var(--syn-keyword); } .landing .df { color: var(--syn-def); font-weight: 600; } .landing .bi { color: var(--syn-builtin); }
+  .landing .nu { color: var(--syn-number); } .landing .cm { color: var(--syn-comment); font-style: italic; } .landing .op { color: var(--syn-operator); }
+  .landing .cursor { display: inline-block; width: 2px; height: 1.2em; vertical-align: -0.25em; background: var(--code-cursor); }
+  @media (prefers-reduced-motion: no-preference) { :root:not([data-motion="reduce"]) .landing .cursor { animation: l-blink 1.1s steps(1) infinite; } }
+  @keyframes l-blink { 50% { opacity: 0; } }
+
+  .landing .testpane { display: flex; flex-direction: column; }
+  .landing .testpane .head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-2); }
+  .landing .summary { font-size: var(--text-sm); font-weight: 650; }
+  .landing .demo[data-state="ran"] .summary { color: var(--pass); }
+  .landing .tests { list-style: none; padding: 0; font-size: var(--text-sm); }
+  .landing .trow-line { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: var(--space-3); align-items: center; padding: 7px var(--space-3); }
+  .landing .tname { font-family: var(--font-code); font-size: 0.8125rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .landing .tms { font-size: var(--text-xs); color: var(--ink-3); }
+  .landing .st { width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; color: var(--pass); }
+  .landing .st .icon { width: 16px; height: 16px; }
+  .landing .demo:not([data-state="ran"]) .st .icon, .landing .demo:not([data-state="ran"]) .tms { visibility: hidden; }
+  .landing .demo[data-state="idle"] .st::before { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--line-strong); }
+  .landing .demo[data-state="run"] .trow:not(.is-done) .st::before { content: ""; position: absolute; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--line-strong); border-top-color: var(--accent); animation: spin 700ms linear infinite; }
+  .landing .demo[data-state="run"] .trow.is-done .st .icon, .landing .demo[data-state="run"] .trow.is-done .tms { visibility: visible; }
+  .landing .st { position: relative; }
+
+  .landing .result { margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--line); display: grid; gap: var(--space-2); }
+  .landing .result p { font-size: var(--text-sm); color: var(--ink-2); }
+  .landing .result strong { color: var(--ink); }
+  .landing .demo[data-state="ran"] :is(.lad-before, .msg-before), .landing .demo:not([data-state="ran"]) :is(.lad-after, .msg-after) { display: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    :root:not([data-motion="reduce"]) .landing .demo.climbed .lad-after .node.current { animation: l-ring var(--dur-climb) var(--ease-spring) both; transform-box: fill-box; transform-origin: center; }
+    :root:not([data-motion="reduce"]) .landing .demo.climbed .lad-after .route { stroke-dasharray: 400; animation: l-draw var(--dur-climb) var(--ease-out) both; }
+  }
+  @keyframes l-ring { from { transform: scale(0.2); opacity: 0; } }
+  @keyframes l-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+
+  .landing .band { margin-top: var(--space-24); background: var(--wall); color: var(--wall-ink); padding: var(--space-24) 0; }
+  .landing :is(.band, .notes, .companies, .close) h2 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); max-width: 18ch; }
+  .landing .band .lede { margin-top: var(--space-4); color: var(--wall-ink-2); font-size: var(--text-md); max-width: 50ch; line-height: 1.5; }
+  .landing .topo { margin-top: var(--space-12); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--space-12); align-items: start; }
+  .landing .topo svg { width: 100%; height: auto; overflow: visible; }
+  .landing .topo .grid line { stroke: color-mix(in srgb, var(--wall-ink) 18%, transparent); stroke-width: 1; }
+  .landing .topo .ax { font: 600 12px var(--font-ui); font-variation-settings: "wdth" 75; fill: var(--wall-ink-2); }
+  .landing .topo .route { fill: none; stroke: var(--wall-ink); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+  .landing .topo .route.m { stroke: var(--pass-solid); }
+  .landing .topo .fall { fill: none; stroke: var(--fail-solid); stroke-width: 2; stroke-dasharray: 4 4; }
+  .landing .topo .fall.next { stroke: var(--accent); }
+  .landing .topo .pt { fill: var(--wall); stroke: var(--wall-ink); stroke-width: 2.5; }
+  .landing .topo .pt.hint { stroke: var(--fail-solid); }
+  .landing .topo .pt.m { fill: var(--pass-solid); stroke: var(--pass-solid); }
+  .landing .topo .pt.next { stroke: var(--accent); stroke-dasharray: 3 3; }
+  .landing .topo .ev { font: 600 12px var(--font-ui); fill: var(--wall-ink); }
+  .landing .topo .ev2 { font: 500 11px var(--font-ui); fill: var(--wall-ink-2); }
+  .landing .rules { list-style: none; padding: 0; display: grid; gap: var(--space-5); }
+  .landing .rules li { display: grid; grid-template-columns: 28px 1fr; gap: var(--space-3); }
+  .landing .rules strong { display: block; font-size: var(--text-base); color: var(--wall-ink); }
+  .landing .rules span { color: var(--wall-ink-2); font-size: var(--text-sm); }
+  .landing .rules .icon { width: 22px; height: 22px; margin-top: 1px; }
+  .landing .up { color: var(--accent); } .landing .down { color: var(--fail-solid); } .landing .done { color: var(--pass-solid); } .landing .same { color: var(--wall-ink-2); }
+  .landing .topo-cap { margin-top: var(--space-4); font-size: var(--text-xs); color: var(--wall-ink-2); }
+
+  .landing .notes { padding-top: var(--space-24); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-12); align-items: start; }
+  .landing :is(.notes, .companies, .close) .lede { margin-top: var(--space-4); color: var(--ink-2); font-size: var(--text-md); line-height: 1.5; max-width: 42ch; }
+  .landing .notes ul { margin-top: var(--space-6); padding: 0; list-style: none; display: grid; gap: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); }
+  .landing .notes ul li { display: flex; gap: var(--space-2); align-items: baseline; }
+  .landing .notes ul b { font-variation-settings: "wdth" var(--wdth-tag); color: var(--ink); min-width: 2ch; }
+  .landing .notes ul a, .landing .groups a { color: inherit; text-decoration: none; }
+  .landing .notes ul a:hover, .landing .groups a:hover { color: var(--ink); text-decoration: underline; }
+  .landing .notes .btn { margin-top: var(--space-6); }
+  .landing .page-sheet { padding: var(--space-8) var(--space-10); box-shadow: var(--shadow-md); border: 0; }
+  .landing .page-sheet .crumb { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; margin-bottom: var(--space-4); }
+  .landing .page-sheet h3 { font-size: var(--text-lg); margin-top: 0; }
+  .landing .fade { position: relative; max-height: 560px; overflow: hidden; }
+  .landing .fade::after { content: ""; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(transparent, var(--surface)); }
+
+  .landing .companies { padding-top: var(--space-24); }
+  .landing .groups { margin-top: var(--space-10); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-6); }
+  .landing .groups h3 { font-size: var(--text-base); display: flex; justify-content: space-between; align-items: baseline; padding-bottom: var(--space-3); border-bottom: 1.5px solid var(--ink); }
+  .landing .groups h3 span { font-size: var(--text-sm); color: var(--ink-3); font-variation-settings: "wdth" var(--wdth-tag); }
+  .landing .groups ul { list-style: none; padding: 0; margin-top: var(--space-3); display: grid; gap: 6px; font-size: var(--text-sm); color: var(--ink-2); }
+  .landing .groups .more { color: var(--ink-3); }
+  .landing .disclaim { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--ink-3); }
+
+  .landing .close { margin-top: var(--space-24); padding: var(--space-16) 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-8); align-items: end; }
+
+  @media (max-width: 1100px) {
+    .landing .intro { grid-template-columns: 1fr; align-items: start; }
+    .landing .demo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .landing .demo .statement-pane { display: none; }
+    .landing .demo .editor-pane { border-left: 0; }
+    .landing .groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .landing .topo, .landing .notes { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .landing .intro { padding-top: var(--space-6); }
+    .landing .intro p { font-size: var(--text-base); }
+    .landing .intro .actions .btn, .landing .close .actions .btn { flex: 1; }
+    .landing .demo { grid-template-columns: minmax(0, 1fr); }
+    .landing .demo-bar .tag, .landing .demo-bar .diff { display: none; }
+    .landing .editor li { white-space: pre-wrap; }
+    .landing .notes pre, .landing .notes pre code { white-space: pre-wrap; }
+    .landing .demo .pane + .pane { border-left: 0; border-top: 1px solid var(--line); }
+    .landing .topo-scroll { overflow-x: auto; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
+    .landing .topo-scroll svg { width: 560px; max-width: none; }
+    .landing .band { padding: var(--space-16) 0; margin-top: var(--space-16); }
+    .landing :is(.band, .notes, .companies, .close) h2 { font-size: var(--text-xl); }
+    .landing .notes, .landing .companies { padding-top: var(--space-16); }
+    .landing .page-sheet { padding: var(--space-5); }
+    .landing .groups { grid-template-columns: 1fr 1fr; }
+    .landing .close { grid-template-columns: 1fr; margin-top: var(--space-16); padding: var(--space-12) 0; }
+  }
+</style>
+
+<script>
+  import "../scripts/landing";
+</script>

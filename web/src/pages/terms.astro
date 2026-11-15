@@ -1,8 +1,40 @@
 ---
-import Base from "../layouts/Base.astro";
+import LongForm from "../components/LongForm.astro";
+import { ROUTES } from "../lib/routes";
 ---
 
-<Base title="Terms">
-  <h1>Terms</h1>
-  <p>Placeholder: the screen design lands here.</p>
-</Base>
+<LongForm
+  title="Terms"
+  description="Plain-language terms of use."
+  updated="Nov 14, 2026"
+  toc={[
+    ["use", "Using myleet"],
+    ["account", "Your account"],
+    ["content", "Problems and notes"],
+    ["companies", "Company sets"],
+    ["code", "Your code"],
+    ["warranty", "No guarantees"],
+    ["changes", "Changes"],
+  ]}
+>
+  <h2 id="use">Using myleet</h2>
+  <p>myleet is free to use for practising coding interviews. Please don't attack, overload or scrape the service, use it to break the law, or try to get at other people's accounts. We may block access that does.</p>
+
+  <h2 id="account">Your account</h2>
+  <p>An account is optional. If you make one, keep your sign-in method secure and pick a username that doesn't impersonate anyone. You can delete your account at any time in <a href={ROUTES.settings}>Settings</a>; the <a href={ROUTES.privacy}>privacy page</a> says what that removes.</p>
+
+  <h2 id="content">Problems and notes</h2>
+  <p>Problem statements belong to their original sources, such as LeetCode, and link back to them. They are shown for personal practice only. The notes, tests and app code are myleet's own and are open source under the MIT license.</p>
+
+  <h2 id="companies">Company sets</h2>
+  <p>Company sets are curated practice plans built from the patterns a company's interviews tend to use. They are not lists of actual or leaked interview questions, and passing them says nothing about any hiring decision.</p>
+
+  <h2 id="code">Your code</h2>
+  <p>The code you write runs in your own browser. It stays on your device unless you copy it somewhere yourself. You own it.</p>
+
+  <h2 id="warranty">No guarantees</h2>
+  <p>myleet is provided as it is, without warranties. We work to keep it running and your data safe, but we can't promise it is always available or error-free, and we are not liable for interview outcomes or for losses from using it. Export your progress if it matters to you.</p>
+
+  <h2 id="changes">Changes</h2>
+  <p>We may update these terms. When we do, the date above changes; using myleet after that means you accept the new version. Questions: open an issue at <a href="https://github.com/kidskoding/myleet/issues" rel="noopener">github.com/kidskoding/myleet</a>.</p>
+</LongForm>
