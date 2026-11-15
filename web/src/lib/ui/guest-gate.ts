@@ -31,11 +31,14 @@ export function resultsLine(items: { topic: string; level: Level }[], name: (top
 
 export const signupToToday = (): string => `${signinHref(ROUTES.today)}&mode=signup`;
 
-export const INVITE_COPY =
-  "The diagnostic takes about 15 minutes and shows you exactly where you stand, topic by topic. We'll build your plan from what it finds, so every day starts with the right problem.";
+/** The diagnostic invitation, aimed at their target company when onboarding named one. */
+export function inviteCopy(company: string | null): SafeHtml {
+  const where = company ? `for your ${company} interview` : "in your interview prep";
+  return html`To find out where you stand ${where}, we'll start with a <strong>diagnostic test</strong>. It takes about 15 minutes and maps what you already know, topic by topic, and then we'll build your plan around what it finds, so every day starts with the right problem for you!`;
+}
 
-export function todayInvite(greet: string): SafeHtml {
-  return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${INVITE_COPY}</p>
+export function todayInvite(greet: string, company: string | null = null): SafeHtml {
+  return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p>
     <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>`;
 }
 

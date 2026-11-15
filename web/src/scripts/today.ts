@@ -347,6 +347,11 @@ async function load(): Promise<Ctx> {
 }
 
 /** A guest sees the diagnostic invitation or their results, never a personal Today. */
+function targetCompany(c: Ctx): string | null {
+  const slug = readPrefs().plan.companies[0];
+  return (slug && c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title) || null;
+}
+
 function paintGuest(c: Ctx, main: HTMLElement, aside: HTMLElement): void {
   const pl = c.t.placement(c.events);
   const items = pl.result && !pl.result.skipped ? pl.result.items : [];
@@ -359,7 +364,7 @@ function paintGuest(c: Ctx, main: HTMLElement, aside: HTMLElement): void {
       // The welcome line is a nicety.
     }
   }
-  render(main, mode === "results" ? todayResults(greet, resultsLine(items, (t) => topicById(t)?.label ?? t)) : todayInvite(greet));
+  render(main, mode === "results" ? todayResults(greet, resultsLine(items, (t) => topicById(t)?.label ?? t)) : todayInvite(greet, targetCompany(c)));
   main.removeAttribute("aria-busy");
   main.removeAttribute("aria-label");
   main.closest(".today-layout")?.classList.add("is-first-run");
