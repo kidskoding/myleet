@@ -1,6 +1,6 @@
 title = "Perplexity"
 group = "AI & Startups"
-focus = "in-memory file system, versioned kv stores, task dependency graphs, expiring state, tries and streams"
+focus = "Live coding focuses on graphs and tries"
 review_modules = ["03_stacks_and_queues", "08_heaps", "13_intervals", "14_tries", "18_mixed_interview_practice"]
 
 

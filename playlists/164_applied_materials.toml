@@ -1,6 +1,6 @@
 title = "Applied Materials"
 group = "Consumer and Business Tech"
-focus = "arrays/strings, intervals, queues and scheduling, trees, graphs, OOP-style design, and bit basics."
+focus = "Live coding focuses on arrays and strings, intervals, trees and graphs"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "10_graphs", "11_dp"]
 
 

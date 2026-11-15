@@ -1,6 +1,6 @@
 title = "Disney"
 group = "Fortune 500"
-focus = "hash maps and grouping, heaps and top-k, intervals, linked lists, caches, string stacks, and bfs on grids"
+focus = "Live coding focuses on arrays and strings, heaps, intervals and linked lists"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "11_dp", "13_intervals"]
 
 

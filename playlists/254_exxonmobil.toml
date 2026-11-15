@@ -1,6 +1,6 @@
 title = "ExxonMobil"
 group = "Fortune 500"
-focus = "Arrays and hash maps, strings, sorting and intervals, linked lists, binary search, and grid traversal."
+focus = "Live coding focuses on arrays and strings, intervals, linked lists and binary search"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "06_linked_lists", "10_graphs"]
 
 

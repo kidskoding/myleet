@@ -1,6 +1,6 @@
 title = "Brex"
 group = "Consumer and Business Tech"
-focus = "financial-state modeling, hash maps, intervals, graph search, heaps, prefix sums, trees, and DP."
+focus = "Live coding focuses on arrays and strings, intervals, graphs and heaps"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "16_math_geometry", "17_advanced"]
 
 

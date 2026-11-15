@@ -1,6 +1,6 @@
 title = "3M"
 group = "Fortune 500"
-focus = "Arrays and strings, hash maps, stacks, binary search, and a few tree and backtracking problems."
+focus = "Live coding focuses on arrays and strings, stacks, binary search and trees"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "07_trees", "09_backtracking"]
 
 

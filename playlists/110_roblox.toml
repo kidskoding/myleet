@@ -4,7 +4,7 @@
 # - Roblox Jointaro report (Nov 2025): https://www.jointaro.com/interviews/companies/roblox/experiences/software-engineer-united-states-november-19-2025-no-offer-positive-ac4530ed/
 title = "Roblox"
 group = "Consumer and Business Tech"
-focus = "Online assessment with two medium to hard coding questions plus game-style tasks, then live rounds on monotonic stacks, tries and topological sort."
+focus = "Live coding focuses on stacks, tries and graphs at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "16_math_geometry"]
 
 [[entries]]

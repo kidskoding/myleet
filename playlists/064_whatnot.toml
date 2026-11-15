@@ -1,6 +1,6 @@
 title = "Whatnot"
 group = "AI & Startups"
-focus = "arrays and two pointers, stacks, hashing and counting, grid and graph traversal, tries and log aggregation, and dp"
+focus = "Live coding focuses on arrays and strings, two pointers, stacks and graphs"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "11_dp", "16_math_geometry"]
 
 

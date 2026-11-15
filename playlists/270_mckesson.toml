@@ -1,6 +1,6 @@
 title = "McKesson"
 group = "Fortune 500"
-focus = "Arrays and hash maps, strings, intervals, heaps, and basic graph traversal."
+focus = "Live coding focuses on arrays and strings, intervals, heaps and graphs"
 review_modules = ["01_arrays_and_hashing", "08_heaps", "10_graphs", "12_greedy_algorithms", "07_trees"]
 
 

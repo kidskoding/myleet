@@ -3,7 +3,7 @@
 # - Dell Glassdoor Bengaluru report (2025): https://www.glassdoor.co.in/Interview/Dell-Technologies-Interview-E1327-RVW96799928.htm
 title = "Dell Technologies"
 group = "Consumer and Business Tech"
-focus = "An online test with MCQs and one or two easy to medium LeetCode-style problems (flood fill style grids), then project and managerial rounds."
+focus = "Live coding focuses on graphs, arrays and strings and trees"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
 [[entries]]

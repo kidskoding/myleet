@@ -3,7 +3,7 @@
 # - ServiceNow LeetCode Discuss IC2 report (May 2025): https://leetcode.com/discuss/interview-experience/6749919
 title = "ServiceNow"
 group = "Consumer and Business Tech"
-focus = "Two coding rounds of LeetCode medium difficulty (string and stack problems, hash maps with linked lists, arrays, trees and DP), plus system design and an HR round."
+focus = "Live coding focuses on arrays and strings, stacks, linked lists and trees"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "11_dp"]
 
 [[entries]]

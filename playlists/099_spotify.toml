@@ -4,7 +4,7 @@
 # - Spotify Jointaro US report (Jun 2025): https://www.jointaro.com/interviews/companies/spotify/experiences/software-engineer-united-states-june-6-2025-no-offer-neutral-9a9ddcc1
 title = "Spotify"
 group = "Consumer and Business Tech"
-focus = "Easy to medium online assessment and phone screen (strings with hash maps, Kth largest), with a LeetCode hard such as median of a data stream in some loops."
+focus = "Live coding and the online assessment focus on arrays and strings and heaps"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "06_linked_lists", "08_heaps", "10_graphs", "11_dp", "14_tries"]
 
 [[entries]]

@@ -3,7 +3,7 @@
 # - Asana Glassdoor report (2025): https://www.glassdoor.com.au/Interview/Asana-Interview-E567443-RVW95832197.htm
 title = "Asana"
 group = "Consumer and Business Tech"
-focus = "A CodeSignal screen then medium to hard LeetCode-style coding (k closest points, class design) in an IDE, plus system design and behavioral rounds."
+focus = "Live coding focuses on data-structure design at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 [[entries]]

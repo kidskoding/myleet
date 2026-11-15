@@ -4,7 +4,7 @@
 # - DoorDash 1point3acres onsite report (2025): https://www.1point3acres.com/interview/thread/1156257
 title = "DoorDash"
 group = "Consumer and Business Tech"
-focus = "Medium to hard LeetCode rounds, with tree traversal and recursion hards reported, nearest-restaurant style coordinate queries, and three coding rounds plus system design onsite."
+focus = "Live coding focuses on trees, heaps and arrays and strings at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]

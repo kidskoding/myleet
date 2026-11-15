@@ -3,7 +3,7 @@
 # - HPE Jointaro Bengaluru report: https://www.jointaro.com/interviews/companies/hewlett-packard-enterprise/experiences/software-engineer-bengaluru-karnataka-october-12-2024-no-offer-neutral-b0d04d26
 title = "Hewlett Packard Enterprise"
 group = "Consumer and Business Tech"
-focus = "Easy to medium rounds led by linked lists (reversal, cycle removal), then trees, graphs and arrays, with OS and resume questions."
+focus = "Live coding focuses on linked lists, trees, graphs and arrays and strings"
 review_modules = ["04_sliding_window", "06_linked_lists", "08_heaps", "09_backtracking", "11_dp"]
 
 [[entries]]

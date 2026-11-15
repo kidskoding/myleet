@@ -3,7 +3,7 @@
 # - Micron Jointaro India report (Nov 2025): https://www.jointaro.com/interviews/companies/micron-technology/experiences/software-engineer-india-november-18-2025-no-offer-neutral-60c00544
 title = "Micron"
 group = "Consumer and Business Tech"
-focus = "An online test with two easy to medium DSA questions (prefix products, tries), then tree and graph questions and resume-based rounds."
+focus = "Live coding focuses on tries, trees and graphs"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "15_bit_manipulation", "16_math_geometry"]
 
 [[entries]]

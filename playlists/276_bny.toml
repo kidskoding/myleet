@@ -1,6 +1,6 @@
 title = "BNY"
 group = "Fortune 500"
-focus = "graphs, trees, dp, greedy, sliding window"
+focus = "Live coding focuses on graphs, trees, dynamic programming and greedy"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "18_mixed_interview_practice"]
 
 

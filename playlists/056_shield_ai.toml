@@ -1,6 +1,6 @@
 title = "Shield AI"
 group = "AI & Startups"
-focus = "Grid and graph search, shortest paths, geometry helpers, and backtracking for autonomy-style problems."
+focus = "Live coding focuses on graphs and backtracking"
 review_modules = ["10_graphs", "08_heaps", "16_math_geometry", "09_backtracking", "11_dp", "05_binary_search"]
 
 

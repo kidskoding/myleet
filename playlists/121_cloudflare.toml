@@ -4,7 +4,7 @@
 # - Cloudflare PracHub report (2025): https://prachub.com/interview-experiences/cloudflare-software-engineer-interview-experience-hm-chat-hr-screen-then-a-key-value-store-round-where-ai-wrote-my-crypto
 title = "Cloudflare"
 group = "Consumer and Business Tech"
-focus = "Medium difficulty practical coding rounds (LRU cache, key-value store, a container variant, a battleship game) with emphasis on implementation and explaining your reasoning."
+focus = "Live coding focuses on data-structure design, bit manipulation and tries"
 review_modules = ["15_bit_manipulation", "14_tries", "13_intervals", "01_arrays_and_hashing", "17_advanced"]
 
 [[entries]]

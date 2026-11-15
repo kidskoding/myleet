@@ -1,6 +1,6 @@
 title = "USAA"
 group = "Fortune 500"
-focus = "Core array and hash map problems, stacks, sliding window, introductory dynamic programming and trees."
+focus = "Live coding focuses on arrays and strings, stacks, sliding window and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "07_trees", "06_linked_lists"]
 
 

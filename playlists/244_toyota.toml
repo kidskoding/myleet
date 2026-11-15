@@ -1,6 +1,6 @@
 title = "Toyota (North America)"
 group = "Fortune 500"
-focus = "Arrays and strings, hash maps, binary search, trees, and grid and graph traversal, with some design problems."
+focus = "Live coding focuses on arrays and strings, binary search, trees and graphs"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp"]
 
 

@@ -1,6 +1,6 @@
 title = "Kroger"
 group = "Fortune 500"
-focus = "sorting and two pointers, linear scans, substring search, hash maps and anagrams, linked lists, and code-review style debugging"
+focus = "Live coding focuses on two pointers, trees, arrays and strings and linked lists"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "06_linked_lists"]
 
 

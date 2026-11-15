@@ -3,7 +3,7 @@
 # - Nutanix Glassdoor report: https://www.glassdoor.ca/Interview/Nutanix-Interview-E429159-RVW97378716.htm
 title = "Nutanix"
 group = "Consumer and Business Tech"
-focus = "LeetCode-medium rounds on top-k, linked lists and stack or queue design, with resume deep dives and sometimes a concurrency follow-up."
+focus = "Live coding focuses on heaps, linked lists, stacks and data-structure design"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "10_graphs"]
 
 [[entries]]

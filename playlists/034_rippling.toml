@@ -1,6 +1,6 @@
 title = "Rippling"
 group = "AI & Startups"
-focus = "file-system design, scheduling, graphs, intervals, strings, trees, heaps, and stateful implementation."
+focus = "Live coding focuses on intervals, graphs, arrays and strings and trees"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "03_stacks_and_queues", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 

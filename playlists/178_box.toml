@@ -3,7 +3,7 @@
 # - Box Glassdoor report (2025): https://www.glassdoor.ca/Interview/Box-Interview-E254092-RVW91405966.htm
 title = "Box"
 group = "Consumer and Business Tech"
-focus = "Medium hash map and heap problems (top K frequent words), bit manipulation and primes, plus an open-ended design round such as an elevator system."
+focus = "Live coding focuses on arrays and strings, heaps and bit manipulation"
 review_modules = ["07_trees", "01_arrays_and_hashing", "10_graphs", "06_linked_lists", "03_stacks_and_queues", "14_tries"]
 
 [[entries]]

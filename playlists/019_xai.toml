@@ -4,7 +4,7 @@
 # - Exponent xAI guide (2025): https://www.tryexponent.com/guides/xai-software-engineer-interview
 title = "xAI"
 group = "AI & Startups"
-focus = "Practical object-oriented coding such as designing a file system, plus medium-hard LeetCode and hard simulation problems."
+focus = "Live coding focuses on data-structure design and simulation"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
 [[entries]]

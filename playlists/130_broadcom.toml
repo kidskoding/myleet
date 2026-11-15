@@ -4,7 +4,7 @@
 # - Broadcom Jointaro Vancouver report (Sep 2025): https://www.jointaro.com/interviews/companies/broadcom/experiences/software-developer-vancouver-bc-september-30-2025-no-offer-negative-2c7fc9b0
 title = "Broadcom"
 group = "Consumer and Business Tech"
-focus = "Two or three coding questions at easy to hard level (linked lists, arrays, low-level code) for interns and seniors, plus system design for senior roles."
+focus = "Live coding focuses on linked lists and arrays and strings"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "08_heaps", "15_bit_manipulation"]
 
 [[entries]]

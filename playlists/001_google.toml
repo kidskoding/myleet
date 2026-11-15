@@ -1,6 +1,6 @@
 title = "Google"
 group = "Big Tech"
-focus = "Graph search, dynamic programming, trees, binary search on the answer, and backtracking, with a clear explanation of the trade-offs as you go."
+focus = "Live coding focuses on graphs, dynamic programming, trees and binary search"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp", "17_advanced"]
 
 [[entries]]

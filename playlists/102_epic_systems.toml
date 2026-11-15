@@ -4,7 +4,7 @@
 # - Epic Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/epic-systems/experiences/software-engineer-united-states-october-29-2025-no-offer-neutral-e8635129
 title = "Epic Systems"
 group = "Consumer and Business Tech"
-focus = "Long timed online assessment mixing logic, math and three coding problems, with backtracking, DFS, string and matrix questions of uneven difficulty."
+focus = "Live coding and the online assessment focus on backtracking, graphs and arrays and strings"
 review_modules = ["01_arrays_and_hashing", "07_trees", "10_graphs", "06_linked_lists", "09_backtracking", "13_intervals"]
 
 [[entries]]

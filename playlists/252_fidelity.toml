@@ -1,6 +1,6 @@
 title = "Fidelity Investments"
 group = "Fortune 500"
-focus = "strings, arrays, math, hashing"
+focus = "Live coding focuses on arrays and strings, trees and graphs"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "11_dp", "16_math_geometry"]
 
 

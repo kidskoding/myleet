@@ -4,7 +4,7 @@
 # - Bloomberg Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/bloomberg-lp/experiences/software-engineer-october-21-2025-no-offer-positive-889e3ae9
 title = "Bloomberg"
 group = "Consumer and Business Tech"
-focus = "A 15 to 20 minute resume discussion followed by one LeetCode medium problem in about 25 minutes, with interval, string and stack questions reported and communication weighted heavily."
+focus = "Live coding focuses on intervals, arrays and strings and stacks"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]

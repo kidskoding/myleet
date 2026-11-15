@@ -4,7 +4,7 @@
 # - Interview Query Stripe guide (2025): https://interviewquery.com/interview-guides/stripe-software-engineer
 title = "Stripe"
 group = "AI & Startups"
-focus = "Practical multi-part coding problems at medium to hard difficulty, often with data structures, trees or nodes, plus debugging and API rounds."
+focus = "Live coding focuses on data-structure design and trees at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]

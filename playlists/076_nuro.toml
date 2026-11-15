@@ -1,6 +1,6 @@
 title = "Nuro"
 group = "AI & Startups"
-focus = "Graph search, heaps, intervals and geometry for routing and scheduling style problems."
+focus = "Live coding focuses on graphs, heaps and intervals"
 review_modules = ["10_graphs", "08_heaps", "16_math_geometry", "13_intervals", "09_backtracking", "11_dp"]
 
 

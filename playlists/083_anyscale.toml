@@ -1,6 +1,6 @@
 title = "Anyscale"
 group = "AI & Startups"
-focus = "text processing, DAG scheduling and topological order, heaps, partitioning work across workers, and key-value/data-structure design."
+focus = "Live coding focuses on intervals, graphs, heaps and data-structure design"
 review_modules = ["05_binary_search", "08_heaps", "10_graphs", "12_greedy_algorithms", "18_mixed_interview_practice"]
 
 

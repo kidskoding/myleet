@@ -1,6 +1,6 @@
 title = "PNC"
 group = "Fortune 500"
-focus = "arrays, strings, hashmaps, linked lists"
+focus = "Live coding focuses on arrays and strings and linked lists"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "16_math_geometry"]
 
 

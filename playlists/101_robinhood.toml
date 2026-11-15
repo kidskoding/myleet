@@ -4,7 +4,7 @@
 # - Robinhood 1point3acres report (2025): https://www.1point3acres.com/interview/thread/1077467
 title = "Robinhood"
 group = "Consumer and Business Tech"
-focus = "About 70 minutes of easy to medium problems in the online assessment, then LeetCode medium rounds on sliding windows, graphs and currency-exchange style problems."
+focus = "Live coding focuses on sliding window and graphs"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]

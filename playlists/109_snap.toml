@@ -4,7 +4,7 @@
 # - Snap Jointaro LA report (Aug 2025): https://www.jointaro.com/interviews/companies/snap/experiences/software-engineer-iii-los-angeles-ca-august-1-2025-no-offer-neutral-fe6ae546
 title = "Snap"
 group = "Consumer and Business Tech"
-focus = "Medium to hard coding rounds on linked lists, topological sort, graph BFS and DFS, and backtracking with complexity follow-ups, plus system design for experienced hires."
+focus = "Live coding focuses on linked lists, graphs and backtracking at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
 [[entries]]

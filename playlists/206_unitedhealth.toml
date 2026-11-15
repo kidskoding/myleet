@@ -1,6 +1,6 @@
 title = "UnitedHealth Group / Optum"
 group = "Fortune 500"
-focus = "sliding window and strings, dp on strings, grid bfs/dfs, hash maps, linked-list based design, and intervals"
+focus = "Live coding focuses on sliding window, arrays and strings, dynamic programming and graphs"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "10_graphs", "11_dp", "13_intervals"]
 
 

@@ -1,6 +1,6 @@
 title = "Zillow"
 group = "Consumer and Business Tech"
-focus = "search/ranking, heaps, intervals, grids, graph traversal, maps, trees, and DP."
+focus = "Live coding focuses on heaps, intervals, graphs and trees"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
 

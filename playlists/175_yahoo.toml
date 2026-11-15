@@ -3,7 +3,7 @@
 # - Yahoo Jointaro intern report (Feb 2025): https://www.jointaro.com/interviews/companies/yahoo/experiences/software-engineerinternship-united-states-february-1-2025-no-offer-neutral-170ae53c
 title = "Yahoo"
 group = "Consumer and Business Tech"
-focus = "Easy to medium CoderPad rounds (hash maps, monotonic stacks), occasionally a harder DP or graph problem, plus project questions."
+focus = "Live coding focuses on arrays and strings, stacks, dynamic programming and graphs"
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "17_advanced"]
 
 [[entries]]

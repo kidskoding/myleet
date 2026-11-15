@@ -1,6 +1,6 @@
 title = "CDW"
 group = "Fortune 500"
-focus = "Easy to medium arrays, strings, two pointers, stacks, linked lists and tree problems."
+focus = "Live coding focuses on arrays and strings, two pointers, stacks and linked lists"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees", "05_binary_search"]
 
 

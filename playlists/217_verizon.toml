@@ -1,6 +1,6 @@
 title = "Verizon"
 group = "Fortune 500"
-focus = "linked lists, heaps and k-th element, arrays and hash maps, trees, graphs, and network-flavored strings like ip validation"
+focus = "Live coding focuses on linked lists, heaps, arrays and strings and trees"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "08_heaps", "11_dp"]
 
 

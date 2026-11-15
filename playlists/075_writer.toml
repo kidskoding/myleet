@@ -1,6 +1,6 @@
 title = "Writer"
 group = "AI & Startups"
-focus = "Text and parsing problems with tries, stacks, backtracking and hash maps, plus linked lists and trees."
+focus = "Live coding focuses on parsing, tries, stacks and backtracking"
 review_modules = ["14_tries", "01_arrays_and_hashing", "03_stacks_and_queues", "09_backtracking", "07_trees", "06_linked_lists"]
 
 

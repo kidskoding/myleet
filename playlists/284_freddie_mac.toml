@@ -1,6 +1,6 @@
 title = "Freddie Mac"
 group = "Fortune 500"
-focus = "Arrays and strings, hash maps, intervals, dynamic programming, and breadth-first search."
+focus = "Live coding focuses on arrays and strings, intervals and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "10_graphs", "11_dp", "12_greedy_algorithms"]
 
 

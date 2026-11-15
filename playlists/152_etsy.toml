@@ -1,6 +1,6 @@
 title = "Etsy"
 group = "Consumer and Business Tech"
-focus = "Marketplace-style problems with hash maps, heaps, sliding window, tree traversal and basic dynamic programming."
+focus = "Live coding focuses on arrays and strings, heaps, sliding window and trees"
 review_modules = ["01_arrays_and_hashing", "08_heaps", "07_trees", "10_graphs", "11_dp", "05_binary_search"]
 
 

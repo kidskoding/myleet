@@ -1,6 +1,6 @@
 title = "Costco"
 group = "Fortune 500"
-focus = "backtracking basics, arrays and hash maps, two pointers, strings, linked lists, and practical oop design"
+focus = "Live coding focuses on backtracking, arrays and strings, two pointers and linked lists"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "09_backtracking"]
 
 

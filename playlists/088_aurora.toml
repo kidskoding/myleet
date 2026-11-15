@@ -1,6 +1,6 @@
 title = "Aurora"
 group = "AI & Startups"
-focus = "Graph search, heaps, intervals, math and dynamic programming for planning and scheduling problems."
+focus = "Live coding focuses on graphs, heaps, intervals and dynamic programming"
 review_modules = ["10_graphs", "08_heaps", "13_intervals", "16_math_geometry", "11_dp", "05_binary_search"]
 
 

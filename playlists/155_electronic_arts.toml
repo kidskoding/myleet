@@ -1,6 +1,6 @@
 title = "Electronic Arts"
 group = "Consumer and Business Tech"
-focus = "arrays, grids, simulation, graphs, and game-systems style coding."
+focus = "Live coding focuses on arrays and strings, graphs and simulation"
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "08_heaps", "16_math_geometry"]
 
 

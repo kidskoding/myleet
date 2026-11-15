@@ -3,7 +3,7 @@
 # - ADP AmbitionBox associate software engineer reports: https://www.ambitionbox.com/interviews/automatic-data-processing-adp-interview-questions/associate-software-engineer
 title = "ADP"
 group = "Consumer and Business Tech"
-focus = "Easy LeetCode-style problems (linked list reversal, binary search trees) after resume questions, with SQL and language fundamentals."
+focus = "Live coding focuses on linked lists, binary search and trees"
 review_modules = ["01_arrays_and_hashing", "13_intervals", "02_two_pointers", "12_greedy_algorithms", "04_sliding_window", "07_trees"]
 
 [[entries]]

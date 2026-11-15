@@ -1,6 +1,6 @@
 title = "Character.AI"
 group = "AI & Startups"
-focus = "sliding windows, timestamped kv and caches, heaps and streams, intervals, string processing"
+focus = "Live coding focuses on sliding window, data-structure design, heaps and intervals"
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
 

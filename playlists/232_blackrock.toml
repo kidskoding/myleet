@@ -1,6 +1,6 @@
 title = "BlackRock"
 group = "Fortune 500"
-focus = "arrays, trees, intervals, hashing, oop design"
+focus = "Live coding focuses on arrays and strings, trees, intervals and data-structure design"
 review_modules = ["01_arrays_and_hashing", "07_trees", "11_dp", "13_intervals", "16_math_geometry"]
 
 

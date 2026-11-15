@@ -3,7 +3,7 @@
 # - Glassdoor Meta senior engineer report (Sep 2025): https://static.glassdoor.nl/Interview/Meta-Sr-Software-Engineer-Interview-Questions-EI_IE40772.0,4_KO5,25_IP3.htm
 title = "Meta"
 group = "Big Tech"
-focus = "Two LeetCode medium problems in about 45 minutes, covering graphs, trees, dynamic programming, sliding window, stacks and strings such as Valid Palindrome II."
+focus = "Live coding focuses on graphs, trees, dynamic programming and sliding window"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "07_trees", "10_graphs", "13_intervals"]
 
 [[entries]]

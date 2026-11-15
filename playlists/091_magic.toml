@@ -1,6 +1,6 @@
 title = "Magic"
 group = "AI & Startups"
-focus = "long strings and rolling hashes, sliding windows, code parsing, tries, dependency graphs, caches, and heaps"
+focus = "Live coding focuses on arrays and strings, sliding window, parsing and tries"
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "08_heaps", "17_advanced", "18_mixed_interview_practice"]
 
 

@@ -4,7 +4,7 @@
 # - Jointaro Adobe internship report (Oct 2025): https://www.jointaro.com/interviews/companies/adobe/experiences/software-engineerinternship-united-states-october-21-2025-no-offer-positive-9367e156
 title = "Adobe"
 group = "Big Tech"
-focus = "Online assessment with several LeetCode medium to hard graph, tree, stack and array dynamic programming problems, then medium linked list, priority queue and course-schedule style rounds."
+focus = "Live coding focuses on linked lists and heaps at medium to hard difficulty; the online assessment leans on graphs, trees and stacks"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "10_graphs", "11_dp", "16_math_geometry"]
 
 [[entries]]

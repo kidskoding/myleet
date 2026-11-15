@@ -4,7 +4,7 @@
 # - PracHub OpenAI report (2025): https://prachub.com/interview-experiences/openai-software-engineer-interview-experience-a-gpu-credit-coding-question-then-a-surprise-fullstack-design-round
 title = "OpenAI"
 group = "AI & Startups"
-focus = "Practical, fast-paced coding that mixes LeetCode classics such as LRU and LFU caches and longest substring with matrix traversal and multi-part API tasks, plus system design."
+focus = "Live coding focuses on data-structure design, trees and arrays and strings"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "06_linked_lists", "10_graphs", "17_advanced"]
 
 [[entries]]

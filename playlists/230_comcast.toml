@@ -1,6 +1,6 @@
 title = "Comcast"
 group = "Fortune 500"
-focus = "arrays and hash maps, strings and two pointers, binary search and sorting, linked lists, grid bfs/dfs, and rate limiting"
+focus = "Live coding focuses on arrays and strings, two pointers, binary search and linked lists"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "11_dp"]
 
 

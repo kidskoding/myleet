@@ -3,7 +3,7 @@
 # - Samsara Glassdoor London report: https://www.glassdoor.ie/Interview/Samsara-Interview-E1169265-RVW100802188.htm
 title = "Samsara"
 group = "Consumer and Business Tech"
-focus = "LeetCode-style medium problems (sudoku validation, substring windows) plus practical tasks like a parser or a small library, then system design."
+focus = "Live coding focuses on trees, arrays and strings and parsing"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "09_backtracking", "13_intervals", "16_math_geometry"]
 
 [[entries]]

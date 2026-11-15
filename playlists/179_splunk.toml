@@ -3,7 +3,7 @@
 # - Splunk Glassdoor software engineer reports (2025): https://www.glassdoor.co.uk/Interview/Splunk-Software-Engineer-Interview-Questions-EI_IE117313.0,6_KO7,24.htm
 title = "Splunk"
 group = "Consumer and Business Tech"
-focus = "Karat-style rounds with easy to medium problems on sequences, sliding windows, tree traversals and DFS, plus a recursion or DP question."
+focus = "Live coding focuses on sliding window, trees, graphs and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "17_advanced", "10_graphs"]
 
 [[entries]]

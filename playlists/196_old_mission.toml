@@ -1,6 +1,6 @@
 title = "Old Mission"
 group = "Trading Firms"
-focus = "Math, array and binary-search problems, hard dynamic programming, and heap-based design with tight time bounds."
+focus = "Live coding focuses on arrays and strings, dynamic programming, heaps and data-structure design"
 review_modules = ["16_math_geometry", "01_arrays_and_hashing", "11_dp", "05_binary_search", "08_heaps", "17_advanced"]
 
 

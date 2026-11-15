@@ -4,7 +4,7 @@
 # - Jointaro Amazon new grad report (Oct 2025): https://www.jointaro.com/interviews/companies/amazon/experiences/software-engineer-new-grad-seattle-wa-october-5-2025-no-offer-positive-378a7a91
 title = "Amazon"
 group = "Big Tech"
-focus = "Two-problem online assessment at LeetCode easy to medium level, mostly dynamic programming and trees, then loop rounds that pair coding with Leadership Principles."
+focus = "Live coding focuses on graphs, trees and heaps; the online assessment leans on dynamic programming and arrays and strings"
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
 [[entries]]

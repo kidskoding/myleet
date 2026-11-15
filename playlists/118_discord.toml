@@ -1,6 +1,6 @@
 title = "Discord"
 group = "Consumer and Business Tech"
-focus = "messaging-style design, rate limits, strings, heaps, graphs, trees, intervals, and DP."
+focus = "Live coding focuses on data-structure design, arrays and strings, heaps and graphs"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "14_tries", "17_advanced"]
 
 

@@ -1,6 +1,6 @@
 title = "Retool"
 group = "AI & Startups"
-focus = "in-memory sql and spreadsheets, parsing, arrays, trees, recursion, dp"
+focus = "Live coding focuses on parsing, arrays and strings, trees and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "11_dp"]
 
 

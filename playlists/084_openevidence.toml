@@ -1,6 +1,6 @@
 title = "OpenEvidence"
 group = "AI & Startups"
-focus = "Lookup and search problems with tries, hash maps, sliding window, binary search and heaps."
+focus = "Live coding focuses on tries, arrays and strings, sliding window and binary search"
 review_modules = ["14_tries", "01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "08_heaps", "02_two_pointers"]
 
 

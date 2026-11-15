@@ -1,6 +1,6 @@
 title = "Abridge"
 group = "AI & Startups"
-focus = "Sequence and text-processing problems with sliding window, two pointers, hash maps and dynamic programming."
+focus = "Live coding focuses on sliding window, two pointers, arrays and strings and dynamic programming"
 review_modules = ["04_sliding_window", "01_arrays_and_hashing", "02_two_pointers", "11_dp", "03_stacks_and_queues", "07_trees"]
 
 

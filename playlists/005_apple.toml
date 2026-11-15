@@ -4,7 +4,7 @@
 # - PracHub Apple report (2025): https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-three-day-onsite-full-of-behavioral-questions-then-ghosted
 title = "Apple"
 group = "Big Tech"
-focus = "Medium to hard LeetCode-style coding that varies a lot by team, with some easy C++ screens and plenty of behavioral questions."
+focus = "Live coding focuses on data-structure design, arrays and strings, graphs and trees at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
 [[entries]]

@@ -4,7 +4,7 @@
 # - Prepfully Palantir guide (2025): https://prepfully.com/video-interview-guides/palantir-swe-interview-format-interview-questions-
 title = "Palantir"
 group = "AI & Startups"
-focus = "LeetCode medium problems using sets and hash maps in a Karat-style screen, then onsite rounds on decomposition, learning, re-engineering, coding and system design."
+focus = "Live coding and the online assessment focus on arrays and strings"
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
 
 [[entries]]

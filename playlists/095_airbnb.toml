@@ -4,7 +4,7 @@
 # - Airbnb Jointaro senior report (Mar 2025): https://www.jointaro.com/interviews/companies/airbnb/experiences/senior-software-engineer-united-states-march-18-2025-no-offer-neutral-bbd1d629
 title = "Airbnb"
 group = "Consumer and Business Tech"
-focus = "Hard LeetCode-style rounds in 2025 reports, mixing graph search, topological sort, dynamic programming and binary search, plus an object-oriented design round."
+focus = "Live coding focuses on graphs, dynamic programming and binary search"
 review_modules = ["01_arrays_and_hashing", "09_backtracking", "10_graphs", "11_dp", "14_tries", "15_bit_manipulation"]
 
 [[entries]]

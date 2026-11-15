@@ -4,7 +4,7 @@
 # - Samsung LeetCode Discuss report (2025): https://leetcode.com/discuss/interview-experience/6934872
 title = "Samsung"
 group = "Consumer and Business Tech"
-focus = "An online test with simulation and DFS problems at easy to medium level, then Dijkstra, linked list and DP questions in the technical rounds."
+focus = "Live coding focuses on simulation, graphs, linked lists and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "09_backtracking", "10_graphs"]
 
 [[entries]]

@@ -3,7 +3,7 @@
 # - SAP Jointaro India report (Oct 2025): https://www.jointaro.com/interviews/companies/sap/experiences/software-engineer-india-october-15-2025-no-offer-positive-a964e998
 title = "SAP"
 group = "Consumer and Business Tech"
-focus = "An online test with two or three easy to medium problems on arrays, strings and graphs, then resume-centric technical rounds."
+focus = "Live coding focuses on arrays and strings and graphs"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "07_trees", "10_graphs", "03_stacks_and_queues"]
 
 [[entries]]

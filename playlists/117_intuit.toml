@@ -4,7 +4,7 @@
 # - Intuit Glassdoor Bengaluru report (Aug 2025): https://static.glassdoor.at/Interview/Intuit-Staff-Software-Developer-Interview-Questions-EI_IE2293.0,6_KO7,31_IP2.htm
 title = "Intuit"
 group = "Consumer and Business Tech"
-focus = "Easy to medium coding (sliding window, matrix path finding, string hashing, a rate limiter), sometimes four questions in 90 minutes at the intern level, plus system design and AI questions."
+focus = "Live coding focuses on sliding window and arrays and strings"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]

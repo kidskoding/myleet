@@ -3,7 +3,7 @@
 # - Workday Glassdoor SDE reports (2025): https://www.glassdoor.com/Interview/Workday-Software-Development-Engineer-SDE-Interview-Questions-EI_IE197851.0,7_KO8,41.htm
 title = "Workday"
 group = "Consumer and Business Tech"
-focus = "Easy to medium coding rounds on strings, hash maps, arrays and recursion, with a timed online assessment and heavy behavioral weight."
+focus = "Live coding and the online assessment focus on arrays and strings"
 review_modules = ["01_arrays_and_hashing", "13_intervals", "07_trees", "10_graphs", "08_heaps", "12_greedy_algorithms"]
 
 [[entries]]

@@ -1,6 +1,6 @@
 title = "Two Sigma"
 group = "Trading Firms"
-focus = "arrays, DP, graphs, probability-flavored problems, and solid fundamentals."
+focus = "Live coding focuses on arrays and strings, dynamic programming and graphs"
 review_modules = ["16_math_geometry", "11_dp", "08_heaps", "03_stacks_and_queues", "09_backtracking", "10_graphs"]
 
 

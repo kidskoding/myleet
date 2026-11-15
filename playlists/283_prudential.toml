@@ -1,6 +1,6 @@
 title = "Prudential"
 group = "Fortune 500"
-focus = "Arrays and strings, hash maps, intervals, binary search, trees, and basic dynamic programming."
+focus = "Live coding focuses on arrays and strings, intervals, binary search and trees"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "11_dp", "12_greedy_algorithms"]
 
 

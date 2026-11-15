@@ -4,7 +4,7 @@
 # - Medium NVIDIA experience (2025): https://medium.com/career-drill/software-engineer-nvidia-interview-experience-c96ba7cabc96
 title = "NVIDIA"
 group = "Big Tech"
-focus = "Medium to hard data structure and algorithm problems on arrays, strings and graphs under time pressure, plus design-style structures such as LRU cache and O(1) reset."
+focus = "Live coding focuses on data-structure design, arrays and strings and graphs at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "15_bit_manipulation", "16_math_geometry"]
 
 [[entries]]

@@ -3,7 +3,7 @@
 # - Shopify Glassdoor senior report (Jun 2025): https://static.glassdoor.com.br/Interview/Shopify-Sr-Software-Engineer-Interview-Questions-EI_IE675933.0,7_KO8,28_IP2.htm
 title = "Shopify"
 group = "Consumer and Business Tech"
-focus = "LeetCode-style coding rounds of medium difficulty, including LRU cache and autocomplete from search frequencies, plus a 75 minute pair programming session."
+focus = "Live coding focuses on data-structure design and tries"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "08_heaps", "12_greedy_algorithms", "14_tries"]
 
 [[entries]]

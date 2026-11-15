@@ -1,6 +1,6 @@
 title = "Sierra"
 group = "AI & Startups"
-focus = "graph cycle detection, intervals, linked lists and iterators, sliding windows, practical data handling"
+focus = "Live coding focuses on graphs, intervals and linked lists"
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "10_graphs", "13_intervals"]
 
 

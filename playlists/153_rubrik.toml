@@ -4,7 +4,7 @@
 # - Rubrik Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/rubrik/experiences/software-engineer-october-16-2025-no-offer-neutral-47ccdcfd
 title = "Rubrik"
 group = "Consumer and Business Tech"
-focus = "Medium to hard rounds with topological sort, binary lifting and time-window counting, plus system coding rounds on concurrency and low-level design."
+focus = "Live coding focuses on graphs and data-structure design at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "13_intervals", "18_mixed_interview_practice"]
 
 [[entries]]

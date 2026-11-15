@@ -1,6 +1,6 @@
 title = "Cerebras"
 group = "AI & Startups"
-focus = "binary search, grid flood fill and islands, sparse vectors and matrices, union-find, strings, interval DP, and performance-aware fundamentals."
+focus = "Live coding focuses on binary search, graphs, parsing and arrays and strings"
 review_modules = ["05_binary_search", "10_graphs", "11_dp", "16_math_geometry", "17_advanced"]
 
 

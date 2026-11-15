@@ -1,6 +1,6 @@
 title = "Hudson River Trading"
 group = "Trading Firms"
-focus = "hard implementation, simulation, graphs, and performance-sensitive algorithms."
+focus = "Live coding focuses on simulation and graphs"
 review_modules = ["16_math_geometry", "11_dp", "08_heaps", "03_stacks_and_queues", "09_backtracking", "10_graphs"]
 
 

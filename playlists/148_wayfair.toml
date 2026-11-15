@@ -3,7 +3,7 @@
 # - Wayfair PracHub onsite report (2025): https://prachub.com/interview-experiences/wayfair-software-engineer-interview-experience-four-round-virtual-onsite-rejection
 title = "Wayfair"
 group = "Consumer and Business Tech"
-focus = "Easy to medium HackerRank and live coding on strings and hash maps (IP validation, string compression), plus a low-level design round such as a parking lot."
+focus = "Live coding and the online assessment focus on arrays and strings"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
 [[entries]]

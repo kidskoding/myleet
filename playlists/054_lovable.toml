@@ -1,6 +1,6 @@
 title = "Lovable"
 group = "AI & Startups"
-focus = "Tree and nested-structure traversal, stack-based parsing, backtracking, and tries for editor-style features."
+focus = "Live coding focuses on trees, stacks, parsing and backtracking"
 review_modules = ["07_trees", "03_stacks_and_queues", "09_backtracking", "01_arrays_and_hashing", "14_tries", "10_graphs"]
 
 

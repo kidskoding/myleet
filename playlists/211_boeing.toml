@@ -1,6 +1,6 @@
 title = "Boeing"
 group = "Fortune 500"
-focus = "fundamentals, arrays/strings, OOP-style design, graphs/shortest paths, intervals, and clean implementation."
+focus = "Live coding focuses on arrays and strings, data-structure design, graphs and intervals"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "07_trees", "10_graphs"]
 
 

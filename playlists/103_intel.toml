@@ -4,7 +4,7 @@
 # - Intel Jointaro Bengaluru report (Apr 2025): https://www.jointaro.com/interviews/companies/intel/experiences/software-engineer-bengaluru-april-18-2025-accepted-offer-positive-1a2e3653
 title = "Intel"
 group = "Consumer and Business Tech"
-focus = "Medium data structures problems in C or C++ (trees, arrays, grids, linked lists), often two questions per virtual round, with architecture and OS questions mixed in."
+focus = "Live coding focuses on data-structure design, trees, arrays and strings and graphs"
 review_modules = ["15_bit_manipulation", "16_math_geometry", "05_binary_search", "02_two_pointers", "06_linked_lists", "03_stacks_and_queues"]
 
 [[entries]]

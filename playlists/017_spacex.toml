@@ -1,6 +1,6 @@
 title = "SpaceX"
 group = "AI & Startups"
-focus = "practical live coding: matrix work, telemetry streams and rate limiting, task scheduling, simulation, grid and graph pathing, bit-level data, and parsing."
+focus = "Live coding focuses on arrays and strings, intervals, simulation and graphs"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "15_bit_manipulation", "16_math_geometry"]
 
 

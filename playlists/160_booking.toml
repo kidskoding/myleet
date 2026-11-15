@@ -1,6 +1,6 @@
 title = "Booking.com"
 group = "Consumer and Business Tech"
-focus = "hash maps and sliding window over records, interval and calendar scheduling, heaps for ranking and streams, and graph traversal."
+focus = "Live coding focuses on arrays and strings, sliding window, intervals and heaps"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
 

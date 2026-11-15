@@ -3,7 +3,7 @@
 # - Affirm Interview Query guide (2025): https://www.interviewquery.com/guides/affirm-software-engineer
 title = "Affirm"
 group = "Consumer and Business Tech"
-focus = "A LeetCode-style online assessment, then practical coding rounds with arrays and hashing, a randomized set design, and extend-the-simulation follow-ups."
+focus = "Live coding focuses on arrays and strings, data-structure design and simulation"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "16_math_geometry", "17_advanced"]
 
 [[entries]]

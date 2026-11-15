@@ -1,6 +1,6 @@
 title = "Decagon"
 group = "AI & Startups"
-focus = "Conversation-style parsing and lookup problems with hash maps, stacks, tries and linked lists, plus a few mixed problems."
+focus = "Live coding focuses on parsing, arrays and strings, stacks and tries"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "14_tries", "06_linked_lists", "18_mixed_interview_practice", "05_binary_search"]
 
 

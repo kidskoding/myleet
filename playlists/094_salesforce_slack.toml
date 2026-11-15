@@ -1,6 +1,6 @@
 title = "Salesforce"
 group = "Consumer and Business Tech"
-focus = "Tree traversals, prefix and suffix string lookups, subarray counting, and heap-based greedy problems."
+focus = "Live coding focuses on trees, arrays and strings, heaps and greedy"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "11_dp"]
 
 

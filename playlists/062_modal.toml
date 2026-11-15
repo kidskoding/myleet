@@ -1,6 +1,6 @@
 title = "Modal"
 group = "AI & Startups"
-focus = "systems data structures, caches and rate limiters, scheduling with heaps, counting/bucket sorts, randomization, and streaming."
+focus = "Live coding focuses on data-structure design, intervals and heaps"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
 

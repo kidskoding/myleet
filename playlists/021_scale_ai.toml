@@ -1,6 +1,6 @@
 title = "Scale AI"
 group = "AI & Startups"
-focus = "practical data processing with sorting and two pointers, heaps for top-k and ranking, BFS and topological order over task graphs, weighted sampling, and small stateful APIs."
+focus = "Live coding focuses on two pointers, heaps and graphs"
 review_modules = ["02_two_pointers", "08_heaps", "10_graphs", "01_arrays_and_hashing", "16_math_geometry"]
 
 

@@ -3,7 +3,7 @@
 # - Expedia Glassdoor software engineer reports (2025): https://www.glassdoor.co.uk/Interview/Expedia-Group-Interview-E9876-RVW14122970.htm
 title = "Expedia Group"
 group = "Consumer and Business Tech"
-focus = "Easy to medium LeetCode-style rounds on arrays, intervals and parentheses, plus an object-oriented design round such as a parking lot."
+focus = "Live coding focuses on arrays and strings and intervals"
 review_modules = ["03_stacks_and_queues", "05_binary_search", "08_heaps", "01_arrays_and_hashing", "04_sliding_window", "07_trees", "10_graphs", "13_intervals", "11_dp"]
 
 [[entries]]

@@ -1,6 +1,6 @@
 title = "Riot Games"
 group = "Consumer and Business Tech"
-focus = "graphs, grids, heaps, simulation, and game/matchmaking-flavored algorithms."
+focus = "Live coding focuses on graphs, heaps and simulation"
 review_modules = ["10_graphs", "08_heaps", "01_arrays_and_hashing", "11_dp", "09_backtracking"]
 
 

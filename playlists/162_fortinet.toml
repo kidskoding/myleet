@@ -3,7 +3,7 @@
 # - Fortinet Glassdoor report (2025): https://www.glassdoor.ca/Interview/Fortinet-Interview-E23128-RVW99845578.htm
 title = "Fortinet"
 group = "Consumer and Business Tech"
-focus = "Linked list, bit counting and binary search tree coding (often in C), with operating systems and networking fundamentals."
+focus = "Live coding focuses on linked lists, binary search and trees"
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "14_tries", "16_math_geometry"]
 
 [[entries]]

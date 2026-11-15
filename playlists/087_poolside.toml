@@ -1,6 +1,6 @@
 title = "Poolside"
 group = "AI & Startups"
-focus = "code parsing and file paths, diffing, autocomplete tries, dependency graphs, caches, scheduling, and heaps"
+focus = "Live coding focuses on parsing, tries, graphs and data-structure design"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "14_tries"]
 
 

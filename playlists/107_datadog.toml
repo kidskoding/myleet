@@ -4,7 +4,7 @@
 # - Datadog Jointaro Paris report (Oct 2025): https://www.jointaro.com/interviews/companies/datadog/experiences/senior-software-engineer-paris-october-1-2025-accepted-offer-positive-ec203d92/
 title = "Datadog"
 group = "Consumer and Business Tech"
-focus = "Mixed difficulty coding rounds with product of array except self, coin change DP, sliding windows and a buffered file writer, plus system design and behavioral rounds."
+focus = "Live coding focuses on arrays and strings, dynamic programming and sliding window"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 [[entries]]

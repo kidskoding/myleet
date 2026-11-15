@@ -1,6 +1,6 @@
 title = "Motorola Solutions"
 group = "Fortune 500"
-focus = "Bit manipulation, two pointers, stacks, linked lists and number problems for device-software style questions."
+focus = "Live coding focuses on bit manipulation, two pointers, stacks and linked lists"
 review_modules = ["01_arrays_and_hashing", "15_bit_manipulation", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "16_math_geometry"]
 
 

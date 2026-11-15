@@ -4,7 +4,7 @@
 # - AlgoMonster Netflix guide (2025): https://algo.monster/interview-guides/netflix
 title = "Netflix"
 group = "Big Tech"
-focus = "CodeSignal screen then LeetCode easy to hard rounds with fast follow-ups, including TTL and LRU caches, task ordering from prerequisites, merge intervals and greedy problems."
+focus = "Live coding focuses on data-structure design, intervals and greedy; the online assessment leans on data-structure design"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]

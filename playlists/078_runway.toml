@@ -1,6 +1,6 @@
 title = "Runway"
 group = "AI & Startups"
-focus = "Tree and graph traversal, math helpers and dynamic programming for media-pipeline style problems."
+focus = "Live coding focuses on trees, graphs and dynamic programming"
 review_modules = ["07_trees", "10_graphs", "16_math_geometry", "11_dp", "01_arrays_and_hashing", "05_binary_search"]
 
 

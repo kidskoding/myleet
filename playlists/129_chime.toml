@@ -4,7 +4,7 @@
 # - Chime PracHub report (2025): https://prachub.com/interview-experiences/chime-software-engineer-interview-experience-two-back-to-back-phone-screens-rejected-for-pipeline-fit
 title = "Chime"
 group = "Consumer and Business Tech"
-focus = "LeetCode medium coding with clear thought process expected, easy greedy and SQL for some roles, design and simulation problems, and a React or JavaScript task for front-end teams."
+focus = "Live coding focuses on greedy, data-structure design and simulation"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "12_greedy_algorithms", "18_mixed_interview_practice"]
 
 [[entries]]

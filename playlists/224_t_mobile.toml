@@ -1,6 +1,6 @@
 title = "T-Mobile"
 group = "Fortune 500"
-focus = "graph shortest paths and bfs, arrays and hash maps, strings, linked lists, oop design, and small debugging tasks"
+focus = "Live coding focuses on graphs, arrays and strings, linked lists and data-structure design"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "10_graphs", "17_advanced"]
 
 

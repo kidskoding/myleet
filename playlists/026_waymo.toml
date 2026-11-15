@@ -1,6 +1,6 @@
 title = "Waymo"
 group = "AI & Startups"
-focus = "grid and graph search, shortest paths, computational geometry, and interval reasoning over time-ordered events."
+focus = "Live coding focuses on graphs and intervals"
 review_modules = ["10_graphs", "13_intervals", "16_math_geometry", "08_heaps", "17_advanced"]
 
 

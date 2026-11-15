@@ -4,7 +4,7 @@
 # - Interview Query Databricks guide (2025): https://www.interviewquery.com/interview-guides/databricks
 title = "Databricks"
 group = "AI & Startups"
-focus = "Medium to hard LeetCode problems on dynamic programming, grid shortest path, bit manipulation and sliding window, plus class-design questions."
+focus = "Live coding focuses on dynamic programming, graphs, bit manipulation and sliding window at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp", "17_advanced"]
 
 [[entries]]

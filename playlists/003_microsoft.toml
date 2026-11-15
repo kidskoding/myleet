@@ -3,7 +3,7 @@
 # - Glassdoor Microsoft software engineer reports (2025): https://static.glassdoor.it/Interview/Microsoft--Software-Engineer-Interview-Questions-EI_IE1651.0,9_KO10,28_IP21.htm
 title = "Microsoft"
 group = "Big Tech"
-focus = "Mostly LeetCode medium arrays, trees, recursion and dynamic programming, with the occasional hard graph problem and Sudoku-style validation."
+focus = "Live coding focuses on arrays and strings, trees, dynamic programming and graphs"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "14_tries", "17_advanced"]
 
 [[entries]]

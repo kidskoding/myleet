@@ -3,7 +3,7 @@
 # - Yelp Dataford software engineer guide: https://dataford.io/interview-guides/yelp/software-engineer
 title = "Yelp"
 group = "Consumer and Business Tech"
-focus = "An easy string question then a medium, mostly coding time per round, with sliding-window substrings, tries and basic linked lists."
+focus = "Live coding focuses on arrays and strings, trees, tries and linked lists"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
 [[entries]]

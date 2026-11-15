@@ -1,6 +1,6 @@
 title = "Figure"
 group = "AI & Startups"
-focus = "sliding windows over sensor streams, queues and ring buffers, graph and grid traversal, robot motion simulation, scheduling, and top-k retrieval."
+focus = "Live coding focuses on sliding window, graphs, simulation and intervals"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "16_math_geometry", "18_mixed_interview_practice"]
 
 

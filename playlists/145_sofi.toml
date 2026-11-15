@@ -1,6 +1,6 @@
 title = "SoFi"
 group = "Consumer and Business Tech"
-focus = "Fintech-flavored array, dynamic programming, greedy, interval and heap problems."
+focus = "Live coding focuses on arrays and strings, dynamic programming, greedy and intervals"
 review_modules = ["01_arrays_and_hashing", "11_dp", "12_greedy_algorithms", "08_heaps", "13_intervals", "05_binary_search"]
 
 

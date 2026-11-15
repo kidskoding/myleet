@@ -4,7 +4,7 @@
 # - LinkedIn LeetCode Discuss report (2025): https://leetcode.com/discuss/post/8359456/linkedin-software-engineer-interview-exp-dp7a/
 title = "LinkedIn"
 group = "Consumer and Business Tech"
-focus = "Online assessment at easy to medium level, then medium coding rounds with follow-ups, including designing a data structure whose operations all run in O(1)."
+focus = "Live coding focuses on data-structure design, graphs and trees"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "10_graphs", "17_advanced"]
 
 [[entries]]

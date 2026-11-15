@@ -1,6 +1,6 @@
 title = "Lockheed Martin"
 group = "Fortune 500"
-focus = "fundamentals, arrays/strings, linked lists, trees, BFS/DFS, bit basics, and clean OOP implementation."
+focus = "Live coding focuses on arrays and strings, linked lists, trees and graphs"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "07_trees", "10_graphs"]
 
 

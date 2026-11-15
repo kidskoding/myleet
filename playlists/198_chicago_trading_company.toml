@@ -1,6 +1,6 @@
 title = "Chicago Trading Company"
 group = "Trading Firms"
-focus = "Hard dynamic programming, combinatorial backtracking, math and heap problems for trading-style reasoning."
+focus = "Live coding focuses on dynamic programming, backtracking and heaps"
 review_modules = ["11_dp", "16_math_geometry", "09_backtracking", "08_heaps", "10_graphs", "05_binary_search"]
 
 

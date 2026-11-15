@@ -3,7 +3,7 @@
 # - CrowdStrike Jointaro senior report (Mar 2025): https://www.jointaro.com/interviews/companies/crowdstrike/experiences/senior-software-engineer-united-states-march-3-2025-no-offer-neutral-0d70dc27
 title = "CrowdStrike"
 group = "Consumer and Business Tech"
-focus = "Medium LeetCode-style problems in a shared IDE, including a live coding problem over logs and timestamps, a tree traversal with mapping, and distributed-systems design."
+focus = "Live coding focuses on trees and data-structure design"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "15_bit_manipulation", "05_binary_search", "10_graphs"]
 
 [[entries]]

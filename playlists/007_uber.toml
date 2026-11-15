@@ -4,7 +4,7 @@
 # - Glassdoor Uber reports (2025): https://static.glassdoor.nl/Interview/Uber-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,22_IP3.htm
 title = "Uber"
 group = "Big Tech"
-focus = "Medium to hard problems on graph traversal, trees and DFS, linked lists and Alien Dictionary, with a CodeSignal screen and one hard live round."
+focus = "Live coding and the online assessment focus on graphs, trees and linked lists at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "13_intervals"]
 
 [[entries]]

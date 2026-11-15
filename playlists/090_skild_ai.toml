@@ -1,6 +1,6 @@
 title = "Skild AI"
 group = "AI & Startups"
-focus = "Graph and grid search, geometry, backtracking and union find for robotics-style planning problems."
+focus = "Live coding focuses on graphs and backtracking"
 review_modules = ["10_graphs", "16_math_geometry", "09_backtracking", "17_advanced", "08_heaps", "11_dp"]
 
 

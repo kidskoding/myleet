@@ -1,6 +1,6 @@
 title = "Siemens"
 group = "Fortune 500"
-focus = "Arrays, strings, bit manipulation, linked lists, trees, and graph traversal."
+focus = "Live coding focuses on arrays and strings, bit manipulation, linked lists and trees"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs"]
 
 

@@ -1,6 +1,6 @@
 title = "Saronic"
 group = "AI & Startups"
-focus = "Graph and shortest-path search, geometry, heaps and union find for navigation-style problems."
+focus = "Live coding focuses on graphs and heaps"
 review_modules = ["10_graphs", "16_math_geometry", "08_heaps", "17_advanced", "09_backtracking", "05_binary_search"]
 
 

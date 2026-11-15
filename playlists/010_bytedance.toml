@@ -4,7 +4,7 @@
 # - Jointaro TikTok report (Jun 2025): https://www.jointaro.com/interviews/companies/tiktok/experiences/software-engineer-san-jose-ca-june-20-2025-accepted-offer-positive-eb4d3d6f/
 title = "ByteDance"
 group = "Big Tech"
-focus = "Online assessment then three coding rounds of two medium and one hard problem, with LRU cache, binary search on answer, trees, graphs and heaps."
+focus = "Live coding focuses on data-structure design, binary search, trees and graphs"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]

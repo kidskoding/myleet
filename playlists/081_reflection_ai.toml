@@ -1,6 +1,6 @@
 title = "Reflection AI"
 group = "AI & Startups"
-focus = "graph and state-space search, heaps, scheduling, intervals, dynamic programming, sampling, and simulation"
+focus = "Live coding focuses on graphs, heaps, intervals and dynamic programming"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "17_advanced"]
 
 

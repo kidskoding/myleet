@@ -1,6 +1,6 @@
 title = "McDonald's"
 group = "Fortune 500"
-focus = "Easy to medium array and string fundamentals, stacks, sliding window, linked lists and trees."
+focus = "Live coding focuses on arrays and strings, stacks, sliding window and linked lists"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "07_trees", "02_two_pointers"]
 
 

@@ -1,6 +1,6 @@
 title = "Zoox"
 group = "AI & Startups"
-focus = "grid and time-indexed path search, vehicle and robot simulation, geometry, intervals, string parsing and expression evaluation, and queue class design."
+focus = "Live coding focuses on graphs, simulation, intervals and arrays and strings"
 review_modules = ["03_stacks_and_queues", "10_graphs", "13_intervals", "16_math_geometry", "17_advanced"]
 
 

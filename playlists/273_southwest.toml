@@ -1,6 +1,6 @@
 title = "Southwest"
 group = "Fortune 500"
-focus = "Boarding and scheduling flavored interval, heap, graph and greedy problems with array fundamentals."
+focus = "Live coding focuses on intervals, heaps, graphs and greedy"
 review_modules = ["01_arrays_and_hashing", "13_intervals", "10_graphs", "08_heaps", "12_greedy_algorithms", "05_binary_search"]
 
 

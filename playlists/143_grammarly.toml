@@ -1,6 +1,6 @@
 title = "Grammarly"
 group = "Consumer and Business Tech"
-focus = "strings and words, stacks, intervals, linked lists, tries and word break, grids, and small design problems"
+focus = "Live coding focuses on arrays and strings, stacks, intervals and linked lists"
 review_modules = ["03_stacks_and_queues", "05_binary_search", "09_backtracking", "11_dp", "13_intervals"]
 
 

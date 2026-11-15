@@ -1,6 +1,6 @@
 title = "AT&T"
 group = "Fortune 500"
-focus = "arrays, strings and hash maps, debugging, permutations and backtracking, graph traversal, and dynamic programming"
+focus = "Live coding focuses on arrays and strings, backtracking, graphs and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "09_backtracking", "11_dp", "17_advanced"]
 
 

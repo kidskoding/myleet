@@ -3,7 +3,7 @@
 # - Fiserv Glassdoor report (2025): https://www.glassdoor.com.au/Interview/Fiserv-Interview-E1384-RVW89384201.htm
 title = "Fiserv"
 group = "Consumer and Business Tech"
-focus = "Easy Java-style coding such as reversing a string and finding the most frequent value, with REST and OOP questions."
+focus = "Live coding focuses on arrays and strings and trees"
 review_modules = ["01_arrays_and_hashing", "13_intervals", "12_greedy_algorithms", "11_dp", "03_stacks_and_queues", "07_trees"]
 
 [[entries]]

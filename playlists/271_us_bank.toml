@@ -1,6 +1,6 @@
 title = "U.S. Bank"
 group = "Fortune 500"
-focus = "arrays, strings, hashmaps, stacks"
+focus = "Live coding focuses on arrays and strings and stacks"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "11_dp"]
 
 

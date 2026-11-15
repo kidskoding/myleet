@@ -1,6 +1,6 @@
 title = "HubSpot"
 group = "Consumer and Business Tech"
-focus = "hash maps and strings, grouping and aggregating records, intervals and concurrency counts, linked lists, and stateful class design"
+focus = "Live coding focuses on arrays and strings, intervals, linked lists and data-structure design"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
 

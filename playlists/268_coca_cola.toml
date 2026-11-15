@@ -1,6 +1,6 @@
 title = "Coca-Cola"
 group = "Fortune 500"
-focus = "Array and string fundamentals, hash maps, sliding window, linked lists, and easy tree problems."
+focus = "Live coding focuses on arrays and strings, sliding window, linked lists and trees"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "07_trees"]
 
 

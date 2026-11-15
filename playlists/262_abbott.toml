@@ -1,6 +1,6 @@
 title = "Abbott"
 group = "Fortune 500"
-focus = "Bit manipulation, two pointers, stacks, linked lists and number problems at easy to medium level."
+focus = "Live coding focuses on bit manipulation, two pointers, stacks and linked lists"
 review_modules = ["02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "16_math_geometry", "01_arrays_and_hashing", "15_bit_manipulation"]
 
 

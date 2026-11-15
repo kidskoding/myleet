@@ -1,6 +1,6 @@
 title = "Cigna"
 group = "Fortune 500"
-focus = "Arrays, strings, hash maps, linked lists, and trees, kept to easy and medium problems."
+focus = "Live coding focuses on arrays and strings, linked lists and trees"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "11_dp"]
 
 

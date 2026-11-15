@@ -1,6 +1,6 @@
 title = "Suno"
 group = "AI & Startups"
-focus = "Sequence problems with sliding window, dynamic programming, math, stacks and two pointers."
+focus = "Live coding focuses on sliding window, dynamic programming, stacks and two pointers"
 review_modules = ["04_sliding_window", "11_dp", "01_arrays_and_hashing", "16_math_geometry", "03_stacks_and_queues", "02_two_pointers"]
 
 

@@ -4,7 +4,7 @@
 # - Qualcomm Glassdoor San Diego reports (2025): https://static.glassdoor.com.ar/Interview/Qualcomm-Interview-Questions-E640_P16.htm
 title = "Qualcomm"
 group = "Consumer and Business Tech"
-focus = "Easy to medium coding in C or C++ with bit and string manipulation, interval overlap and driver-style code, plus OS topics such as mutexes and semaphores."
+focus = "Live coding focuses on arrays and strings and intervals"
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "16_math_geometry"]
 
 [[entries]]

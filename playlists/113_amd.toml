@@ -4,7 +4,7 @@
 # - AMD Jointaro UK senior report (Jun 2025): https://www.jointaro.com/interviews/companies/amd/experiences/senior-software-engineer-united-kingdom-june-1-2025-no-offer-neutral-62ed14af
 title = "AMD"
 group = "Consumer and Business Tech"
-focus = "Mostly medium data structures questions with an easy DP and an occasional segment tree or maze shortest path, plus C, OS and embedded fundamentals."
+focus = "Live coding focuses on data-structure design, dynamic programming, trees and graphs"
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "08_heaps", "13_intervals"]
 
 [[entries]]

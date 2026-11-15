@@ -1,6 +1,6 @@
 title = "Mastercard"
 group = "Fortune 500"
-focus = "strings, arrays, linked lists, hashing, dp"
+focus = "Live coding focuses on arrays and strings, linked lists and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "11_dp", "16_math_geometry"]
 
 

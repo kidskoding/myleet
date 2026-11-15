@@ -4,7 +4,7 @@
 # - PayPal 1point3acres senior report (2025): https://www.1point3acres.com/interview/post/7488459
 title = "PayPal"
 group = "Consumer and Business Tech"
-focus = "An online assessment, then two LeetCode medium problems on heaps, binary search, stacks and arrays, plus a data structure with O(1) operations and live React for some roles."
+focus = "Live coding focuses on heaps, binary search, stacks and arrays and strings"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "11_dp", "12_greedy_algorithms", "15_bit_manipulation"]
 
 [[entries]]

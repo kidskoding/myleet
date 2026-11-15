@@ -1,6 +1,6 @@
 title = "Charles Schwab"
 group = "Fortune 500"
-focus = "strings, sliding window, hashing, stock-style arrays"
+focus = "Live coding focuses on arrays and strings and sliding window"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "08_heaps"]
 
 

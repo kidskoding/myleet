@@ -1,6 +1,6 @@
 title = "Belvedere Trading"
 group = "Trading Firms"
-focus = "Probability-friendly math, dynamic programming, sliding window and heap problems with tight time bounds."
+focus = "Live coding focuses on dynamic programming, sliding window and heaps"
 review_modules = ["11_dp", "16_math_geometry", "04_sliding_window", "08_heaps", "01_arrays_and_hashing", "12_greedy_algorithms"]
 
 

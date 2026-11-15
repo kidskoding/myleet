@@ -1,6 +1,6 @@
 title = "Roku"
 group = "Consumer and Business Tech"
-focus = "Streaming-flavored heap, interval and graph problems, plus linked lists and tree traversal."
+focus = "Live coding focuses on heaps, intervals, graphs and linked lists"
 review_modules = ["08_heaps", "01_arrays_and_hashing", "10_graphs", "13_intervals", "06_linked_lists", "07_trees"]
 
 
