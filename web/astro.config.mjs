@@ -38,6 +38,7 @@ function liveContent() {
 }
 
 export default defineConfig({
+  site: "https://myleet.anirudhkonidala.workers.dev",
   output: "static",
   outDir: "dist",
   trailingSlash: "ignore",

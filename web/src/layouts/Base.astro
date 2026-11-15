@@ -44,7 +44,7 @@ const {
   gated = false,
 } = Astro.props;
 
-const site = Astro.site ?? new URL("https://myleet.dev");
+const site = Astro.site ?? new URL("https://myleet.anirudhkonidala.workers.dev");
 const fullTitle = title === "myleet" ? title : `${title} · myleet`;
 const canonical = new URL(Astro.url.pathname, site).href;
 const image = new URL(ogImage, site).href;
