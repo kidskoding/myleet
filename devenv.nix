@@ -16,7 +16,7 @@
     uv.enable = true;
   };
 
-  # wasm-pack fetches the wasm-bindgen that matches Cargo.lock; worker-build comes from cargo.
+  # wasm-pack fetches the wasm-bindgen that matches Cargo.lock.
   packages = with pkgs; [
     bacon
     cargo-chef
@@ -28,6 +28,9 @@
     rusty-man
     trunk
     wasm-pack
+    # cargo install worker-build (must match the worker crate version) needs these.
+    openssl
+    pkg-config
     git
     just
   ];
