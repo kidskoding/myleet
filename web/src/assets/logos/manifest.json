@@ -1174,5 +1174,116 @@
   "domain": "neuralink.com",
   "url": "https://www.google.com/s2/favicons?domain=neuralink.com&sz=128",
   "file": "neuralink.svg"
+ },
+ "john_deere": {
+  "source": "simple-icons",
+  "icon": "johndeere"
+ },
+ "caterpillar": {
+  "source": "simple-icons",
+  "icon": "caterpillar"
+ },
+ "accenture": {
+  "source": "simple-icons",
+  "icon": "accenture"
+ },
+ "toyota": {
+  "source": "simple-icons",
+  "icon": "toyota"
+ },
+ "coca_cola": {
+  "source": "simple-icons",
+  "icon": "cocacola"
+ },
+ "siemens": {
+  "source": "simple-icons",
+  "icon": "siemens"
+ },
+ "3m": {
+  "source": "simple-icons",
+  "icon": "3m"
+ },
+ "honeywell": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/honeywell/default.svg",
+  "file": "honeywell.svg"
+ },
+ "johnson_and_johnson": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/johnson-and-johnson/default.svg",
+  "file": "johnson_and_johnson.svg"
+ },
+ "metlife": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/metlife/default.svg",
+  "file": "metlife.svg"
+ },
+ "pepsico": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/pepsico/default.svg",
+  "file": "pepsico.svg"
+ },
+ "pfizer": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/pfizer/default.svg",
+  "file": "pfizer.svg"
+ },
+ "procter_and_gamble": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/procter-and-gamble/default.svg",
+  "file": "procter_and_gamble.svg"
+ },
+ "walgreens": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/walgreens/default.svg",
+  "file": "walgreens.svg"
+ },
+ "cigna": {
+  "source": "website-icon",
+  "domain": "cigna.com",
+  "url": "https://www.google.com/s2/favicons?domain=cigna.com&sz=128",
+  "file": "cigna.svg"
+ },
+ "exxonmobil": {
+  "source": "website-icon",
+  "domain": "exxonmobil.com",
+  "url": "https://www.google.com/s2/favicons?domain=exxonmobil.com&sz=128",
+  "file": "exxonmobil.svg"
+ },
+ "deloitte": {
+  "source": "website-icon",
+  "domain": "deloitte.com",
+  "url": "https://www.google.com/s2/favicons?domain=deloitte.com&sz=128",
+  "file": "deloitte.svg"
+ },
+ "mckesson": {
+  "source": "website-icon",
+  "domain": "mckesson.com",
+  "url": "https://www.google.com/s2/favicons?domain=mckesson.com&sz=128",
+  "file": "mckesson.svg"
+ },
+ "chevron": {
+  "source": "website-icon",
+  "domain": "chevron.com",
+  "url": "https://www.google.com/s2/favicons?domain=chevron.com&sz=128",
+  "file": "chevron.svg"
+ },
+ "fannie_mae": {
+  "source": "website-icon",
+  "domain": "fanniemae.com",
+  "url": "https://www.google.com/s2/favicons?domain=fanniemae.com&sz=128",
+  "file": "fannie_mae.svg"
+ },
+ "prudential": {
+  "source": "website-icon",
+  "domain": "prudential.com",
+  "url": "https://www.google.com/s2/favicons?domain=prudential.com&sz=128",
+  "file": "prudential.svg"
+ },
+ "freddie_mac": {
+  "source": "website-icon",
+  "domain": "freddiemac.com",
+  "url": "https://www.google.com/s2/favicons?domain=freddiemac.com&sz=128",
+  "file": "freddie_mac.svg"
  }
 }
