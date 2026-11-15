@@ -22,7 +22,7 @@ export function openSignupPrompt(reason: string, signupUrl: string, signinUrl: s
       <div class="dlg-actions">
         <button class="btn btn-ghost" type="button" data-not-now>Not now</button>
         <a class="btn btn-secondary" href="${signinUrl}">Sign in</a>
-        <a class="btn btn-primary" href="${signupUrl}" data-sp-up>Sign up free</a>
+        <a class="btn btn-primary" href="${signupUrl}" data-sp-up>Sign up for free</a>
       </div>`,
   );
   d.querySelector("[data-not-now]")?.addEventListener("click", () => closeDialog(d));

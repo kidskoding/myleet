@@ -512,7 +512,7 @@ function paintReveal(m: MockResult): void {
     html`<div class="reveal-head">
         <div><h1 id="rv-title" tabindex="-1">Round results</h1>
         <p class="lede">${when}. ${solved} of ${m.problems.length} solved, ${clock(used)} used${m.timeUp ? ", time ran out" : ""}. ${sourceLabel(m) === "mixed" ? "Mixed" : sourceLabel(m)} draw</p>
-        <p class="track-cta when-out"><span><a class="link" href="${signupHref()}">Sign up free</a> to save this score and add your misses to your plan</span></p></div>
+        <p class="track-cta when-out"><span><a class="link" href="${signupHref()}">Sign up for free</a> to save this score and add your misses to your plan</span></p></div>
         <div class="btns"><a class="btn btn-secondary" href="/mock">Back to mocks</a><a class="btn btn-primary" href="/mock" data-again>Another round</a></div>
       </div>
       <div class="summary">

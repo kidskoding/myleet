@@ -3,7 +3,7 @@
 import Icon from "./Icon.astro";
 
 interface Props {
-  /** What the account would track here, finishing "Sign up free to track this." */
+  /** What the account would track here, finishing "Sign up for free to track this." */
   detail?: string;
   class?: string;
 }
@@ -12,5 +12,5 @@ const { detail, class: cls } = Astro.props;
 
 <p class:list={["track-cta", "when-out", cls]}>
   <Icon name="circle-check" />
-  <span><a class="link" href="/signin?mode=signup" data-signin-link="up">Sign up free to track this</a>{detail && <>. {detail}</>}</span>
+  <span><a class="link" href="/signin?mode=signup" data-signin-link="up">Sign up for free to track this</a>{detail && <>. {detail}</>}</span>
 </p>

@@ -559,8 +559,8 @@ function banners(practised: number, days: number, sample: boolean): void {
   if (sample) {
     showBanner("sample", {
       icon: "sunrise",
-      body: html`<strong>This is a sample day.</strong> Sign up free to get yours`,
-      actions: html`<a class="btn btn-primary btn-sm" href="${signupHref()}">Sign up free</a>`,
+      body: html`<strong>This is a sample day.</strong> Sign up for free to get yours`,
+      actions: html`<a class="btn btn-primary btn-sm" href="${signupHref()}">Sign up for free</a>`,
     });
     hideBanner("local");
     return;
@@ -570,8 +570,8 @@ function banners(practised: number, days: number, sample: boolean): void {
   if (nudge) {
     showBanner("local", {
       icon: "hard-drive",
-      body: html`<strong>Saved on this device.</strong> Sign up free to keep it`,
-      actions: html`<a class="btn btn-secondary btn-sm" href="${signupHref()}">Sign up free</a>`,
+      body: html`<strong>Saved on this device.</strong> Sign up for free to keep it`,
+      actions: html`<a class="btn btn-secondary btn-sm" href="${signupHref()}">Sign up for free</a>`,
       dismissDays: 7,
     });
   } else hideBanner("local");

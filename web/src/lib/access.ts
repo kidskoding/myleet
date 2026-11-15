@@ -6,7 +6,7 @@ export type Tier = "guest" | "account";
 
 export interface Rule {
   tier: Tier;
-  /** Finishes "Sign up free" on the shared prompt; account features only. */
+  /** Finishes "Sign up for free" on the shared prompt; account features only. */
   reason?: string;
 }
 
@@ -96,7 +96,7 @@ export function requireAccount(f: Feature, opts: { sheet?: boolean } = {}): bool
     void import("./ui/signup-prompt").then((m) => m.openSignupPrompt(reason, signupHref("signup"), signupHref("signin")));
   } else {
     void import("./ui/overlay").then((m) =>
-      m.toast(reason, { action: { label: "Sign up free", run: () => location.assign(signupHref("signup")) } }),
+      m.toast(reason, { action: { label: "Sign up for free", run: () => location.assign(signupHref("signup")) } }),
     );
   }
   return false;
