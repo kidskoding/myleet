@@ -10,8 +10,10 @@ use super::widgets::indent;
 /// The root screen for tab i (0 today, 1 map, 2 timed, 3 playlists, 4 stats).
 pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
     let i = if i < TAB_NAMES.len() { i } else { 0 };
-    if i == 1 {
-        return Box::new(super::mapscreen::MapScreen::new());
+    match i {
+        1 => return Box::new(super::mapscreen::MapScreen::new()),
+        3 => return Box::new(super::playlists::Playlists::new()),
+        _ => {}
     }
     Box::new(Placeholder {
         title: TAB_NAMES[i].into(),
@@ -21,12 +23,8 @@ pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
 }
 
 /// The screen `/` and `ctrl+k` push.
-pub fn new_search(_sh: &mut Shared) -> Box<dyn Screen> {
-    Box::new(Placeholder {
-        title: "search".into(),
-        tab: None,
-        kind: Kind::Search,
-    })
+pub fn new_search(sh: &mut Shared) -> Box<dyn Screen> {
+    Box::new(super::search::Search::new(&sh.app.catalog))
 }
 
 /// The problem screen every other screen opens; `mode` is a `progress::mode` value.
