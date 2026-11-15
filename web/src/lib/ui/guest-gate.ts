@@ -80,7 +80,7 @@ export function todayResults(greet: string, line: string): SafeHtml {
 const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [string, string][] }> = {
   plan: {
     h: "Your plan",
-    lede: html`Built around <strong>your goals</strong> and <strong>availability</strong>, and it changes when they do`,
+    lede: html`Tell us what you're working toward and when you're free, and we'll lay out every day for you. If an interview is coming up, we pace you to be <strong>ready by the date</strong>, and if you're aiming for a company someday, we help you build <strong>a habit that sticks</strong>`,
     steps: [
       ["Built for what you’re working toward", "An interview on a date, a few dream companies, the topics you want to get better at, or all of them at once"],
       ["Fits your availability", "Practice lands in the hours you say you have each week"],
