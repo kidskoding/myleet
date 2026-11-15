@@ -1,5 +1,5 @@
 title = "Splunk"
-group = "Fortune 500"
+group = "Enterprise companies"
 focus = "logs/streams, hashing, sliding windows, heaps, and design-style data structures."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "17_advanced", "10_graphs"]
 

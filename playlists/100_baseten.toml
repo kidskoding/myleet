@@ -1,5 +1,5 @@
 title = "Baseten"
-group = "AI labs / high growth"
+group = "AI labs & high growth"
 focus = "parsing and nested structures, serialization, bit tricks, hash-based stores, request queues and rate limiting, and streaming."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "15_bit_manipulation", "18_mixed_interview_practice"]
 

@@ -1,5 +1,5 @@
 title = "Poolside"
-group = "AI labs / high growth"
+group = "AI labs & high growth"
 focus = "code parsing and file paths, diffing, autocomplete tries, dependency graphs, caches, scheduling, and heaps"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "14_tries"]
 

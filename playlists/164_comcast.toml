@@ -1,5 +1,5 @@
 title = "Comcast"
-group = "Fortune 500"
+group = "Enterprise companies"
 focus = "arrays and hash maps, strings and two pointers, binary search and sorting, linked lists, grid bfs/dfs, and rate limiting"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "11_dp"]
 

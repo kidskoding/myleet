@@ -1,5 +1,5 @@
 title = "Physical Intelligence"
-group = "AI labs / high growth"
+group = "AI labs & high growth"
 focus = "caches and eviction, streaming data and sliding windows, heaps and top-k retrieval, scheduling and intervals, matrix and tensor manipulation, and iterators."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 

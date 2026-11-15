@@ -1,5 +1,5 @@
 title = "Cerebras"
-group = "AI labs / high growth"
+group = "AI labs & high growth"
 focus = "binary search, grid flood fill and islands, sparse vectors and matrices, union-find, strings, interval DP, and performance-aware fundamentals."
 review_modules = ["05_binary_search", "10_graphs", "11_dp", "16_math_geometry", "17_advanced"]
 

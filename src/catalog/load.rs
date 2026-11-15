@@ -321,7 +321,29 @@ impl Loader<'_> {
                 entries,
             });
         }
-        out.sort_by_key(|pl| GROUPS.iter().position(|g| *g == pl.group));
+        let leading = [
+            "001_google",
+            "003_amazon",
+            "005_microsoft",
+            "002_meta",
+            "004_apple",
+            "070_anthropic",
+            "072_spacex",
+            "069_openai",
+            "074_databricks",
+            "077_tesla",
+            "071_xai",
+            "224_neuralink",
+        ];
+        out.sort_by_key(|pl| {
+            (
+                GROUPS.iter().position(|g| *g == pl.group),
+                leading
+                    .iter()
+                    .position(|id| *id == pl.id)
+                    .unwrap_or(leading.len()),
+            )
+        });
         self.playlists = out;
     }
 }

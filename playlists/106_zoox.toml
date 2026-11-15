@@ -1,5 +1,5 @@
-title = "Zoox (an Amazon company)"
-group = "AI labs / high growth"
+title = "Zoox"
+group = "AI labs & high growth"
 focus = "grid and time-indexed path search, vehicle and robot simulation, geometry, intervals, string parsing and expression evaluation, and queue class design."
 review_modules = ["03_stacks_and_queues", "10_graphs", "13_intervals", "16_math_geometry", "17_advanced"]
 

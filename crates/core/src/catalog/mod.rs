@@ -57,10 +57,10 @@ pub const DEFAULT_SAY_ALOUD: [&str; 3] = ["brute force", "why it dies", "complex
 /// Playlist groups in the order the playlists screen shows them.
 pub const GROUPS: [&str; 5] = [
     "Big tech",
-    "Little tech",
-    "AI labs / high growth",
-    "Quant",
-    "Fortune 500",
+    "Product companies",
+    "AI labs & high growth",
+    "Trading firms",
+    "Enterprise companies",
 ];
 
 #[derive(Debug)]

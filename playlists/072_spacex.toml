@@ -1,5 +1,5 @@
 title = "SpaceX"
-group = "AI labs / high growth"
+group = "AI labs & high growth"
 focus = "practical live coding: matrix work, telemetry streams and rate limiting, task scheduling, simulation, grid and graph pathing, bit-level data, and parsing."
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "15_bit_manipulation", "16_math_geometry"]
 

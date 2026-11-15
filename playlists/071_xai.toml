@@ -1,5 +1,5 @@
-title = "xAI (a SpaceX company)"
-group = "AI labs / high growth"
+title = "xAI"
+group = "AI labs & high growth"
 focus = "caches, iterators, key-value stores with transactions, rate limiters, streams, scheduling, and intervals"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
