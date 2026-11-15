@@ -143,7 +143,7 @@ function paintMethods(): void {
           : html`<button class="btn btn-secondary btn-sm" type="button" data-connect="${p.id}">${p.add}</button>`;
       return html`<div class="meth"><span class="ic">${icon(p.icon)}</span><div><strong>${p.label}</strong><span class="d">${detail}</span></div>${action}</div>`;
     })}
-    <div class="row"><div class="note" style="grid-column:1/-1">${icon("lock")}<span>Sign-in methods link to the same account when they share a verified email. To stop using one, sign out of its sessions below</span></div></div>`,
+    <div class="row"><div class="note" style="grid-column:1/-1">${icon("lock")}<span>Sign-in methods link to the same account when they share a verified email. To stop using one, sign out of its sessions below.</span></div></div>`,
   );
 }
 
@@ -312,7 +312,7 @@ function deleteFlow(): void {
     html`<div class="dlg-head"><h2 id="dc">Delete your account?</h2></div>
     <div class="dlg-body"><p id="dcd">This removes from our servers:</p>
       <ul><li>Your synced progress and every attempt in it</li><li>Your public profile at ${profileHref(username)}</li><li>Sign-in methods, sessions and settings</li></ul>
-      <p style="margin-top:var(--space-3)">It can't be undone. Download your data first if you want a copy. Progress in this browser stays</p>
+      <p style="margin-top:var(--space-3)">It can't be undone. Download your data first if you want a copy. Progress in this browser stays.</p>
       <label for="dc-in">Type <code>${username}</code> to confirm</label>
       <input class="input" id="dc-in" autocomplete="off" spellcheck="false" autocapitalize="off" style="margin-top:var(--space-2)" />
       <p class="err" data-del-err hidden style="margin-top:var(--space-2);font-size:var(--text-xs);color:var(--fail);font-weight:600"></p>

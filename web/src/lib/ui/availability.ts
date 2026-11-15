@@ -145,7 +145,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
       ${sections.includes("session")
         ? html`<div class="av-sec">${head("Each session")}<div class="seg" role="group" aria-label="Session length">${SESSION_LENGTHS.map(
             (m) => html`<button type="button" data-session="${m}" aria-pressed="${p.sessionMinutes === m ? "true" : "false"}">${fmtM(m)}</button>`,
-          )}</div><p class="help" style="margin-top:var(--space-2)">The longest single sitting. Longer days split into two</p></div>`
+          )}</div><p class="help" style="margin-top:var(--space-2)">The longest single sitting. Longer days split into two.</p></div>`
         : ""}
       ${sections.includes("daysoff") ? html`<div class="av-sec">${head("Days off")}${opts.headings === false ? "" : html`<p class="help">Nothing is planned on these days, and nothing piles up after them</p>`}<div data-off-host>${daysOff()}</div></div>` : ""}`,
     );

@@ -74,7 +74,7 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
   const close = html`<button type="button" class="icon-btn" data-sync-close aria-label="Close (Esc)">${icon("x")}</button>`;
   if (s.view === "signed-out") {
     return html`<div class="dlg-head"><h2 id="sync-title">Add your plan to your calendar</h2>${close}</div>
-      <div class="dlg-body"><p>Sign in to create a calendar link that keeps updating when this tab is closed. Until you sign in, your plan and progress stay on this device</p></div>
+      <div class="dlg-body"><p>Sign in to create a calendar link that keeps updating when this tab is closed. Until you sign in, your plan and progress stay on this device.</p></div>
       <div class="dlg-actions"><button type="button" class="btn btn-ghost" data-sync-close>Not now</button><button type="button" class="btn btn-primary" data-signin data-sync-signin>Sign in to add</button></div>`;
   }
   const offline = s.view === "offline";
@@ -85,25 +85,25 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
   )}</div>`;
   const linkRow = s.links
     ? html`<div class="linkrow"><input class="input" readonly value="${elide(s.links.webcal_url)}" aria-label="Private calendar link (shown once)" /><button type="button" class="btn btn-secondary" data-provider="copy">${icon("copy")}Copy</button></div>
-      <p class="fineprint">This link is shown once. Keep it in your calendar; to see a link again, rotate it</p>`
+      <p class="fineprint">This link is shown once. Keep it in your calendar; to see a link again, rotate it.</p>`
     : s.view === "active"
-      ? html`<p class="sync-active">${icon("circle-check")}<span><b>Your calendar link is on.</b> It was made ${s.status?.created_at ? new Date(s.status.created_at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "earlier"} and was shown once. To add it to another calendar, rotate it for a new one</span></p>`
+      ? html`<p class="sync-active">${icon("circle-check")}<span><b>Your calendar link is on.</b> It was made ${s.status?.created_at ? new Date(s.status.created_at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "earlier"} and was shown once. To add it to another calendar, rotate it for a new one.</span></p>`
       : "";
   const confirm =
     s.confirm === "rotate"
-      ? html`<div class="rotate-confirm" role="alert"><span>The old link stops working. Calendars using it stop updating until you add the new one</span><button type="button" class="btn btn-secondary btn-sm" data-sync-rotate-ok>Rotate link</button><button type="button" class="btn btn-ghost btn-sm" data-sync-rotate-cancel>Cancel</button></div>`
+      ? html`<div class="rotate-confirm" role="alert"><span>The old link stops working. Calendars using it stop updating until you add the new one.</span><button type="button" class="btn btn-secondary btn-sm" data-sync-rotate-ok>Rotate link</button><button type="button" class="btn btn-ghost btn-sm" data-sync-rotate-cancel>Cancel</button></div>`
       : "";
   const facts = html`<div class="howto">
-    <div>${icon("arrow-right-left")}<span><b>One way.</b> Changes in myleet reach your calendar. Moving an event in your calendar doesn't move the session here</span></div>
-    <div>${icon("refresh")}<span><b>It refreshes on the calendar's schedule.</b> Apple Calendar lets you choose how often. Google can take several hours to show a change</span></div>
+    <div>${icon("arrow-right-left")}<span><b>One way.</b> Changes in myleet reach your calendar. Moving an event in your calendar doesn't move the session here.</span></div>
+    <div>${icon("refresh")}<span><b>It refreshes on the calendar's schedule.</b> Apple Calendar lets you choose how often. Google can take several hours to show a change.</span></div>
     <div>${icon("bell-off")}<span><b>Google doesn't play alarms from subscribed calendars.</b> Turn on notifications for this calendar in Google, or use browser reminders from myleet</span></div>
-    <div>${icon("lock")}<span><b>The link is private.</b> Anyone with it can see your session times and problem titles, never your code or results. Rotate it if it leaks</span></div>
+    <div>${icon("lock")}<span><b>The link is private.</b> Anyone with it can see your session times and problem titles, never your code or results. Rotate it if it leaks.</span></div>
   </div>`;
   const evt = preview
     ? html`<div class="evt"><div class="et">${preview.summary}</div><div class="em">${icon("clock-3")}${preview.when}</div>${
         alarm ? html`<div class="em">${icon("bell")}Alarm ${alarm} min before (calendar alarms are on in Settings)</div>` : ""
       }<pre>${preview.description}</pre></div>`
-    : html`<div class="evt"><p class="text-muted text-small">No sessions are planned yet. Once there are, each one shows up like this</p></div>`;
+    : html`<div class="evt"><p class="text-muted text-small">No sessions are planned yet. Once there are, each one shows up like this.</p></div>`;
   const status = s.status?.plan_updated_at
     ? `Plan sent to your account ${ago(s.status.plan_updated_at)}`
     : s.status?.enabled
@@ -111,8 +111,8 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
       : "";
   return html`<div class="dlg-head"><div><h2 id="sync-title">Add your plan to your calendar</h2><p class="sync-lede">Each session shows up as an event in the calendar you already use, and moves when the plan changes</p></div>${close}</div>
     <div class="sync-grid">
-      <div>${s.view === "error" ? html`<p class="sync-error" role="alert">${icon("circle-alert")}Couldn't reach your account. Your plan is safe on this device. Try again in a moment</p>` : ""}${tiles}${linkRow}${confirm}${facts}</div>
-      <div><p class="evt-cap">How a session looks in your calendar</p>${evt}<p class="fineprint">Titles update if the plan changes. Days off have no events</p></div>
+      <div>${s.view === "error" ? html`<p class="sync-error" role="alert">${icon("circle-alert")}Couldn't reach your account. Your plan is safe on this device. Try again in a moment.</p>` : ""}${tiles}${linkRow}${confirm}${facts}</div>
+      <div><p class="evt-cap">How a session looks in your calendar</p>${evt}<p class="fineprint">Titles update if the plan changes. Days off have no events.</p></div>
     </div>
     <div class="sync-foot">${
       s.status?.enabled || s.links

@@ -73,7 +73,7 @@ export async function openShare(opts: { profile?: PublicProfile } = {}): Promise
       </div>
       ${url
         ? html`<div class="share-link"><label class="visually-hidden" for="sh-url">Profile link</label><input class="input" id="sh-url" readonly value="${url}" /><button class="btn btn-secondary" type="button" data-copy>Copy link</button><span class="visually-hidden" role="status" data-copied></span></div>`
-        : html`<p class="fineprint" style="margin-top:var(--space-4)">Sign in and turn on your public profile in <a class="link" href="${ROUTES.settings}#privacy">Settings</a> to share a link. You can still download the image</p>`}
+        : html`<p class="fineprint" style="margin-top:var(--space-4)">Sign in and turn on your public profile in <a class="link" href="${ROUTES.settings}#privacy">Settings</a> to share a link. You can still download the image.</p>`}
     </div>
     <div class="dlg-actions"><button class="btn btn-ghost" type="button" data-download>${icon("download")}Download image</button>${
       "share" in navigator ? html`<button class="btn btn-primary" type="button" data-share>${icon("share")}Share</button>` : ""

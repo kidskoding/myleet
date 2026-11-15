@@ -255,10 +255,10 @@ function renderMap(c: Ctx): void {
 }
 
 function emptyCopy(due: number): SafeHtml {
-  if (query.trim()) return html`<h2>No problem matches “${query.trim()}”</h2><p>Filters match problem titles. Try part of the name, or clear the filter</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear>Clear filter</button></div>`;
+  if (query.trim()) return html`<h2>No problem matches “${query.trim()}”</h2><p>Filters match problem titles. Try part of the name, or clear the filter.</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear>Clear filter</button></div>`;
   if (mode === "weak")
     return html`<h2>No weak spots right now</h2><p>A technique becomes a weak spot when you've started its problems but mostly not passed them cleanly. Everything you've started is on track.${due ? ` The Due filter has ${due} ${due === 1 ? "review" : "reviews"} waiting` : ""}</p>${due ? html`<div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="due">Show due reviews</button></div>` : ""}`;
-  if (mode === "due") return html`<h2>Nothing due</h2><p>Every review is on schedule. Reviews come back on a 1, 3, 7, 14, 30-day ladder after a clean pass</p><div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="all">Show all modules</button></div>`;
+  if (mode === "due") return html`<h2>Nothing due</h2><p>Every review is on schedule. Reviews come back on a 1, 3, 7, 14, 30-day ladder after a clean pass.</p><div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="all">Show all modules</button></div>`;
   return html`<h2>You have started every problem</h2><p>Use the Due filter to find your next reviews</p>`;
 }
 
@@ -323,7 +323,7 @@ function nextPanel(c: Ctx, m: Module): SafeHtml {
   if (practice)
     return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">${due ? "A review here is due" : "Every note in this module is read. Keep going with the problems"}</p>
       <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href="${problemHref(practice)}">Practice ${pTitle ?? practice}</a>`;
-  return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">You have read every note and started every problem. Upcoming reviews will appear on Today</p>`;
+  return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">You have read every note and started every problem. Upcoming reviews will appear on Today.</p>`;
 }
 
 // ---- load ----

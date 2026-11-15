@@ -125,7 +125,7 @@ function checkinPanel(c: Ctx): SafeHtml {
     const finished = progress.filter((p) => p.finished).length;
     return html`<section class="panel checkin" aria-labelledby="ci-h">
       <div class="section-head"><h2 id="ci-h">Check-in</h2><span class="meta">${finished} of ${active.ids.length} done</span></div>
-      <p>Modules 1 to ${active.through}. Solve them cold, like an interview. Anything you don't finish counts as skipped</p>
+      <p>Modules 1 to ${active.through}. Solve them cold, like an interview. Anything you don't finish counts as skipped.</p>
       <ol class="queue">${progress.map((p) => {
         const m = meta(c.cat, p.problem);
         const f = p.finished;
@@ -139,7 +139,7 @@ function checkinPanel(c: Ctx): SafeHtml {
   if (cp.suggest_through <= 0) return html``;
   return html`<section class="panel checkin" aria-labelledby="ci-h">
     <h2 id="ci-h">Check-in on modules 1 to ${cp.suggest_through}</h2>
-    <p>Review the topics you have covered in a mixed set that takes about 45 minutes. The results show what needs more practice without changing your review schedule</p>
+    <p>Review the topics you have covered in a mixed set that takes about 45 minutes. The results show what needs more practice without changing your review schedule.</p>
     <div class="actions"><button class="btn btn-secondary btn-sm" type="button" data-checkin-start="${cp.suggest_through}">Start the check-in</button><button class="btn btn-ghost btn-sm" type="button" data-checkin-snooze="${cp.suggest_through}">Not now</button></div>
   </section>`;
 }
@@ -626,7 +626,7 @@ function errorState(err: unknown): void {
     html`<div class="greet"><h1>${greeting(new Date(), cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null)}</h1></div>
     <div class="panel state-note" style="margin-top:var(--space-8)" role="alert">
       <h2>Couldn't load the curriculum</h2>
-      <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practiced; those work offline</p>
+      <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practiced; those work offline.</p>
       <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
     </div>`,
   );

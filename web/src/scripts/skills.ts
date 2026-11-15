@@ -163,7 +163,7 @@ function paint(): void {
     render(
       el,
       html`${back}<header class="head"><div><h1>Skills</h1></div></header>
-      <div class="panel empty"><div><h2>Weak spots show up after about 10 attempts</h2><p>You've made ${total} so far. Each attempt records how it went: clean, a hint, over time, or a miss, and where it went wrong. Once a technique has a few, this page says what's holding it back and what to do about it</p><div style="margin-top:var(--space-5)"><a class="btn btn-primary" href="${ROUTES.today}">Practice on Today</a></div></div>
+      <div class="panel empty"><div><h2>Weak spots show up after about 10 attempts</h2><p>You've made ${total} so far. Each attempt records how it went: clean, a hint, over time, or a miss, and where it went wrong. Once a technique has a few, this page says what's holding it back and what to do about it.</p><div style="margin-top:var(--space-5)"><a class="btn btn-primary" href="${ROUTES.today}">Practice on Today</a></div></div>
         <div><h3>What it looks for</h3><ol><li><b>Can't start.</b> No test passed before you stopped</li><li><b>Wrong approach.</b> You needed a hint or a restart to find the idea</li><li><b>Edge cases.</b> Most tests passed; an empty input or a boundary failed</li><li><b>Too slow.</b> Clean, but past the time target</li><li><b>Forgetting.</b> Clean once, then missed on a later review</li></ol></div></div>
       ${skillMap(c, true)}`,
     );
@@ -190,11 +190,11 @@ function paint(): void {
     }</p></div>
       <div class="seg" role="group" aria-label="Show"><button type="button" data-mode="weak" aria-pressed="${m === "weak"}">Weak spots first</button><button type="button" data-mode="module" aria-pressed="${m === "module"}">By module</button></div></header>
     ${state === "none-weak"
-      ? html`<div class="panel calm">${icon("circle-check")}<div><h2>No weak spots found</h2><p>Your latest attempt was a clean pass for every technique you have started. Your plan will continue with new topics and review drills</p></div><a class="btn btn-secondary" href="${ROUTES.plan}">See the plan</a></div>`
+      ? html`<div class="panel calm">${icon("circle-check")}<div><h2>No weak spots found</h2><p>Your latest attempt was a clean pass for every technique you have started. Your plan will continue with new topics and review drills.</p></div><a class="btn btn-secondary" href="${ROUTES.plan}">See the plan</a></div>`
       : html`<section class="sec" aria-labelledby="ws-h"><div class="section-head"><h2 id="ws-h">Your weak spots</h2><span class="meta">${meta}</span></div>
         <ol class="spots">${ordered.map((s, i) => spotCard(c, s, i, m === "module"))}</ol>
         ${spots.length > CARDS_SHOWN && !showAll ? html`<button type="button" class="btn btn-ghost spots-more" data-more>Show ${spots.length - CARDS_SHOWN} more</button>` : ""}</section>`}
-    <section class="sec" aria-labelledby="map-h"><div class="section-head"><h2 id="map-h">Skill map</h2><span class="meta">${new Set(c.skills.map((s) => s.module)).size} modules, ${c.skills.length} techniques. Select a technique to see its attempt history</span></div>
+    <section class="sec" aria-labelledby="map-h"><div class="section-head"><h2 id="map-h">Skill map</h2><span class="meta">${new Set(c.skills.map((s) => s.module)).size} modules, ${c.skills.length} techniques. Select a technique to see its attempt history.</span></div>
       <div class="map-legend" aria-label="How to read the map"><span><i style="background:var(--lvl-0)"></i>New</span><span><i style="background:var(--lvl-1)"></i>Shaky</span><span><i style="background:var(--lvl-2)"></i>Building</span><span><i style="background:var(--lvl-3)"></i>Solid</span><span><i style="background:var(--lvl-4)"></i>Strong</span><span><i class="faint"></i>Fewer than 4 attempts: limited history</span><span class="weakw"><i class="wk"></i>Weak spot</span><span>${icon("trending-up")}Improving</span><span>${icon("trending-down")}Slipping</span></div>
       ${skillMap(c, low)}</section>`,
   );
@@ -315,7 +315,7 @@ async function init(): Promise<void> {
     render(
       root(),
       html`<a class="back" href="${ROUTES.progress}">${icon("arrow-left")}Progress</a><header class="head"><div><h1>Skills</h1></div></header>
-      <div class="panel empty" role="alert" style="grid-template-columns:1fr"><div><h2>Couldn't read your attempts</h2><p>Your progress is safe. Try again in a moment</p><div style="margin-top:var(--space-5)"><button type="button" class="btn btn-primary" data-retry>Try again</button></div></div></div>`,
+      <div class="panel empty" role="alert" style="grid-template-columns:1fr"><div><h2>Couldn't read your attempts</h2><p>Your progress is safe. Try again in a moment.</p><div style="margin-top:var(--space-5)"><button type="button" class="btn btn-primary" data-retry>Try again</button></div></div></div>`,
     );
     root()?.querySelector("[data-retry]")?.addEventListener("click", () => void init());
   }

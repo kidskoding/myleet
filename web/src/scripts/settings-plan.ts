@@ -53,18 +53,18 @@ function planGroup(): SafeHtml {
   const leans = cat ? lean(cat, p.companies) : [];
   const max = Math.max(1, ...leans.map((l) => l.n));
   return html`
-    <div class="row avail-row"><div><div class="lbl" id="iv-l">Interviews</div><div class="desc">Add each interview you have lined up. The plan paces toward the nearest one and leans on that company's set before it. Without a date, it covers the next 4 weeks</div></div>
+    <div class="row avail-row"><div><div class="lbl" id="iv-l">Interviews</div><div class="desc">Add each interview you have lined up. The plan paces toward the nearest one and leans on that company's set before it. Without a date, it covers the next 4 weeks.</div></div>
       <div class="ctl wide" aria-labelledby="iv-l" data-iv-editor></div></div>
-    <div class="row avail-row"><div><div class="lbl" id="co-l">Target companies</div><div class="desc">Their sets decide which techniques the plan leans on. Curated practice sets, not actual interview questions</div></div>
+    <div class="row avail-row"><div><div class="lbl" id="co-l">Target companies</div><div class="desc">Their sets decide which techniques the plan leans on. Curated practice sets, not actual interview questions.</div></div>
       <div class="ctl wide" aria-labelledby="co-l"><div class="co-chips">${chosen.map(
         (c) => html`<span class="co-chip">${c.title}<button type="button" data-co-remove="${c.slug}" aria-label="Remove ${c.title}">${icon("x")}</button></span>`,
       )}<label class="co-add"><span class="visually-hidden">Add a company</span><select class="input" data-co-add><option value="">Add a company</option>${others.map((o) => html`<option value="${slugOf(o.id)}">${o.title}</option>`)}</select></label></div>
       ${leans.length ? html`<div class="lean" aria-label="Techniques your companies lean on, by problem count in their sets">${leans.map((l) => html`<div><span>${l.title}</span><span class="bar" aria-hidden="true"><span style="width:${((l.n / max) * 100).toFixed(0)}%"></span></span><b>${l.n}</b></div>`)}</div>` : ""}</div></div>
     <div class="row"><div><div class="lbl">Practice windows</div><div class="desc" data-win-summary>${windowsSummary(p.availability)}</div></div>
       <div class="ctl"><button type="button" class="btn btn-secondary btn-sm" data-edit-windows>Edit windows</button></div></div>
-    <div class="row"><div><div class="lbl" id="sl-l">Session length</div><div class="desc">Limit the length of each session. Longer practice days are split into two sessions</div></div>
+    <div class="row"><div><div class="lbl" id="sl-l">Session length</div><div class="desc">Limit the length of each session. Longer practice days are split into two sessions.</div></div>
       <div class="ctl"><div class="seg" role="group" aria-labelledby="sl-l">${SESSION_LENGTHS.map((m) => html`<button type="button" data-psession="${m}" aria-pressed="${p.sessionMinutes === m ? "true" : "false"}">${fmtM(m)}</button>`)}</div></div></div>
-    <div class="row"><div><div class="lbl">Daily time</div><div class="desc">Your daily practice limit. Reviews come first, followed by new problems if time allows</div></div>
+    <div class="row"><div><div class="lbl">Daily time</div><div class="desc">Your daily practice limit. Reviews come first, followed by new problems if time allows.</div></div>
       <div class="ctl daily"><span class="text-secondary">Weekdays</span>${stepper("wd", wd, WEEKDAY_STEPS, "Weekday time")}<span class="text-secondary">Weekends</span>${stepper("we", we, WEEKEND_STEPS, "Weekend time")}</div></div>
     <div class="row avail-row"><div><div class="lbl">Days off</div><div class="desc">Nothing is planned on these days, and nothing piles up after them</div></div>
       <div class="ctl wide" data-off-editor></div></div>`;
@@ -87,12 +87,12 @@ function reminderGroup(): SafeHtml {
   };
   const me = cachedMe();
   return html`
-    <div class="row"><div><label class="lbl" for="rm-lead">Remind me</label><div class="desc">Before each planned session. Never when today's session is already done</div></div>
+    <div class="row"><div><label class="lbl" for="rm-lead">Remind me</label><div class="desc">Before each planned session. Never when today's session is already done.</div></div>
       <div class="ctl"><select class="input" id="rm-lead" style="width:160px" data-lead>${LEAD_TIMES.map((m) => html`<option value="${m}" ${p.reminders.lead === m ? "selected" : ""}>${fmtM(m)} before</option>`)}</select></div></div>
     <div class="row"><div><div class="lbl" id="bn-l">Browser notifications</div><div class="desc">"Session at 9 pm: 3 reviews, 1 new. About 1 h." On days with no plan, one reminder at ${hourLabel(p.reminders.time)}</div></div>
       <div class="ctl">${status}<label class="switch"><input type="checkbox" data-browser ${p.reminders.on ? "checked" : ""} ${s === "unsupported" ? "disabled" : ""} aria-labelledby="bn-l" /></label></div></div>
     ${note ? html`<div class="row"><div class="note warn" style="grid-column:1/-1">${icon("bell")}<span>${note}</span></div></div>` : ""}
-    <div class="row"><div><div class="lbl" id="ca-l">Calendar alarms</div><div class="desc">Adds an alarm to each event in your calendar link. Google Calendar ignores alarms in subscribed calendars, so set notifications for the calendar in Google instead</div></div>
+    <div class="row"><div><div class="lbl" id="ca-l">Calendar alarms</div><div class="desc">Adds an alarm to each event in your calendar link. Google Calendar ignores alarms in subscribed calendars, so set notifications for the calendar in Google instead.</div></div>
       <div class="ctl"><label class="switch"><input type="checkbox" data-cal-alarm ${p.plan.reminderMinutes !== null ? "checked" : ""} aria-labelledby="ca-l" /></label></div></div>
     <div class="row"><div><div class="lbl" id="qh-l">Quiet hours</div><div class="desc">No notifications in this range, even if a session is planned</div></div>
       <div class="ctl" role="group" aria-labelledby="qh-l"><select class="input" style="width:110px" aria-label="Quiet from" data-quiet="quietFrom">${hours.map((h) => html`<option value="${h}" ${p.reminders.quietFrom === h ? "selected" : ""}>${hourLabel(h)}</option>`)}</select><span class="text-muted">to</span><select class="input" style="width:110px" aria-label="Quiet until" data-quiet="quietTo">${hours.map((h) => html`<option value="${h}" ${p.reminders.quietTo === h ? "selected" : ""}>${hourLabel(h)}</option>`)}</select></div></div>

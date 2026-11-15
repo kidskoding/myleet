@@ -70,7 +70,7 @@ function goalStep(): SafeHtml {
   const g = readPrefs().plan.goal;
   return html`${head("goal")}<section class="q" aria-labelledby="q1">
     <h1 id="q1">What are you preparing for?</h1>
-    <p class="sub">Your goal helps set time targets and the order of topics. You can change it in Settings</p>
+    <p class="sub">Your goal helps set time targets and the order of topics. You can change it in Settings.</p>
     ${radios("goal", "q1", GOALS, g)}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("3")} to pick, ${kbd("enter")} to continue</span></div>
   </section>`;
@@ -110,7 +110,7 @@ function companiesStep(): SafeHtml {
   const n = readPrefs().plan.companies.length;
   return html`${head("companies")}<section class="q" aria-labelledby="q2">
     <h1 id="q2">Which companies are you preparing for?</h1>
-    <p class="sub">This is optional. Your plan will include their practice sets after you have started the core topics. Each company page shows your progress</p>
+    <p class="sub">This is optional. Your plan will include their practice sets after you have started the core topics. Each company page shows your progress.</p>
     <div class="search">${icon("search")}<input type="search" placeholder="Search ${cat?.catalog.playlists.filter(listedCompany).length ?? ""} companies" aria-label="Search companies" value="${query}" data-company-search autocomplete="off" /></div>
     <div data-company-body>${companiesBody()}</div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>${n ? `Continue with ${n}` : "Continue"}</button>${n ? "" : html`<button class="btn btn-ghost" type="button" data-continue>No company yet</button>`}</div>
@@ -142,7 +142,7 @@ function timeStep(): SafeHtml {
   const m = readPrefs().plan.dailyMinutes;
   return html`${head("time")}<section class="q" aria-labelledby="q4">
     <h1 id="q4">How much time do you have on most days?</h1>
-    <p class="sub">Your plan schedules reviews first, then new problems. You can reduce the time for a single day on Today</p>
+    <p class="sub">Your plan schedules reviews first, then new problems. You can reduce the time for a single day on Today.</p>
     ${radios("time", "q4", TIME_OPTIONS.map((o) => ({ id: String(o.minutes), label: o.label, detail: o.detail })), m === null ? null : String(m))}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${m ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("4")} to pick, ${kbd("esc")} to go back</span></div>
   </section>`;
@@ -156,7 +156,7 @@ function whenStep(): SafeHtml {
   if (!readPrefs().plan.availability.length) updatePrefs({ plan: { availability: DEFAULT_WINDOWS } }, { silent: true });
   return html`${head("when")}<section class="q ob-when" aria-labelledby="q5w">
     <h1 id="q5w">When can you practice?</h1>
-    <p class="sub">Choose a schedule, then drag to adjust your available hours. Practice sessions stay within those hours. You can change them later</p>
+    <p class="sub">Choose a schedule, then drag to adjust your available hours. Practice sessions stay within those hours. You can change them later.</p>
     <div data-when-editor></div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Build my plan ${kbd("enter")}</button><span class="hint">You can add days off in Settings</span></div>
   </section>`;
@@ -208,7 +208,7 @@ function planStep(): SafeHtml {
     ${later.length ? html`<p class="later-list">Short of the plan's goal at this pace: ${later.join(", ")}${plan.summary.behind.length > later.length ? ", and more" : ""}. More daily time, or an earlier start on them, closes the gap</p>` : ""}
     <div class="how">
       <p><strong>On track</strong> means a technique is projected to reach the plan's goal by the date</p>
-      <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up</p>
+      <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up.</p>
     </div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Go to Today</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
   </section>`;
@@ -388,7 +388,7 @@ async function init(): Promise<void> {
   if (!cat) {
     render(
       root(),
-      html`<div class="panel state-note" role="alert"><h2>Couldn't load the curriculum</h2><p>Setup needs the problem list once. Your answers so far are saved on this device. Check your connection and try again</p><div class="actions"><button class="btn btn-primary" type="button" onclick="location.reload()">Try again</button></div></div>`,
+      html`<div class="panel state-note" role="alert"><h2>Couldn't load the curriculum</h2><p>Setup needs the problem list once. Your answers so far are saved on this device. Check your connection and try again.</p><div class="actions"><button class="btn btn-primary" type="button" onclick="location.reload()">Try again</button></div></div>`,
     );
     return;
   }

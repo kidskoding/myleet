@@ -135,7 +135,7 @@ function remindPanel(): SafeHtml {
   if (remindState === "unsupported")
     return html`<section class="panel remind" role="status">${icon("bell")}<p><strong>This browser can't show notifications here</strong> On iPhone and iPad, add myleet to your Home Screen (Share, then Add to Home Screen) and open it from there</p><button class="btn btn-ghost btn-sm" type="button" data-remind-close>Close</button></section>`;
   return html`<section class="panel remind" aria-labelledby="rm">${icon("bell")}
-    <p id="rm"><strong>Want a nudge on days you haven't practiced?</strong> One browser notification at the time you pick. Nothing on days you've already solved</p>
+    <p id="rm"><strong>Want a nudge on days you haven't practiced?</strong> One browser notification at the time you pick. Nothing on days you've already solved.</p>
     <label class="visually-hidden" for="rt">Reminder time</label><input class="input" id="rt" type="time" value="${time}" />
     <button class="btn btn-ghost btn-sm" type="button" data-remind-close>Not now</button>
     <button class="btn btn-primary btn-sm" type="button" data-remind-on>Turn on reminders</button>
@@ -171,8 +171,8 @@ function dayList(c: Ctx, by: Map<string, DueItem[]>, day: string): SafeHtml {
   const items = by.get(day) ?? [];
   const mins = Math.round(items.reduce((n, x) => n + targetSecs(c, x.id), 0) / 60);
   const head = html`<h3>${day === c.today ? `Today, ${shortDay(day)}` : longDay(day)}</h3>`;
-  if (day < c.today) return html`${head}<p>Past day. Reviews show from today on</p>`;
-  if (!items.length) return html`${head}<p>No reviews are due. You can work on new problems today</p>`;
+  if (day < c.today) return html`${head}<p>Past day. Reviews show from today on.</p>`;
+  if (!items.length) return html`${head}<p>No reviews are due. You can work on new problems today.</p>`;
   const more = items.length - DAY_LIST_MAX;
   return html`${head}<p>${plural(items.length, "review")}, about ${formatMinutes(mins)}. Most overdue first</p>
     <ol>${items.slice(0, DAY_LIST_MAX).map((x) => {
@@ -253,7 +253,7 @@ function weakSection(c: Ctx): SafeHtml {
     ? html`<p class="weak-lede">Where your attempts most often end with a hint, a peek, overtime or a give-up</p>
       <ol>${rows.map((r) => html`<li><a href="${r.drill ? problemHref(r.drill, "drill") : ROUTES.learn}"><strong>${r.title}</strong><span>${r.module}, ${plural(r.attempts, "attempt")}</span><span class="rate">${r.missed} of ${r.attempts} missed</span></a></li>`)}</ol>
       ${rows[0]?.drill ? html`<a class="btn btn-secondary" href="${problemHref(rows[0].drill, "drill")}">${rows.length === 1 ? `Drill ${rows[0].title}` : `Drill these ${rows.length}, one problem each`}</a>` : ""}`
-    : html`<p class="weak-lede">Nothing stands out yet. A technique shows here after 3 attempts with hints, peeks, overtime or give-ups</p>`;
+    : html`<p class="weak-lede">Nothing stands out yet. A technique shows here after 3 attempts with hints, peeks, overtime or give-ups.</p>`;
   return html`<section aria-labelledby="wk"><div class="section-head"><h2 id="wk">Weakest techniques</h2></div><div class="panel weak">${body}</div></section>`;
 }
 
@@ -516,7 +516,7 @@ function renderAll(c: Ctx): void {
     ${notesSection(c)}
     ${milestonesSection(c, milestoneFacts(c, atts, best))}
     <section class="danger" aria-labelledby="rs">
-      <div><h2 id="rs">Start over</h2><p>Reset clears your ladder, attempts and streak on this device${document.documentElement.dataset.auth === "in" ? " and your account" : ""}. Notes highlights and settings stay. Export first if you want a copy</p></div>
+      <div><h2 id="rs">Start over</h2><p>Reset clears your ladder, attempts and streak on this device${document.documentElement.dataset.auth === "in" ? " and your account" : ""}. Notes highlights and settings stay. Export first if you want a copy.</p></div>
       <div class="danger-actions"><button class="btn btn-ghost" type="button" data-export>${icon("download")}Export data</button><button class="btn btn-quiet-danger" type="button" data-reset>Reset progress</button></div>
     </section>`,
   );
