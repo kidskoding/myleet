@@ -75,7 +75,6 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
   let history = opts.history ?? null;
   let on = cellsFromWindows(readPrefs().plan.availability);
   let cursor = { d: 0, r: 28 };
-  let painting: boolean | null = null;
   let anchor: { d: number; r: number } | null = null;
   let addingOff = false;
 
@@ -138,7 +137,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
           )}</div></div>`
         : ""}
       ${sections.includes("paint")
-        ? html`<div class="av-sec">${head("Your week")}<p class="help" id="${id}-paint-help">Drag to paint windows; drag over a window to erase it. With the keyboard: arrows move, Space toggles, Shift with arrows paints a range</p>
+        ? html`<div class="av-sec">${head("Your week")}<p class="help" id="${id}-paint-help">Drag across the hours you're free, even across several days. Starting on a lit cell erases instead. On a phone, press and hold to start. With the keyboard, arrows move, Space toggles and Shift with arrows paints a block.</p>
           <div data-paint-host>${paintGrid()}</div>
           <div class="paint-key"><span><i></i>Your windows</span>${history?.cells.length ? html`<span><i class="h"></i>You practised here in the last 4 weeks</span>` : ""}</div>
           <div data-list-host>${listAndFits()}</div></div>`
@@ -163,12 +162,21 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
       const pr = PRESETS.find((x) => x.id === b.dataset.preset);
       if (pr) b.setAttribute("aria-pressed", presetOn(on, pr.windows) ? "true" : "false");
     }
+    syncSide();
+  }
+
+  /** The presets' pressed state and the windows list, which follow the cells. */
+  function syncSide(): void {
+    for (const b of el.querySelectorAll<HTMLElement>("[data-preset]")) {
+      const pr = PRESETS.find((x) => x.id === b.dataset.preset);
+      if (pr) b.setAttribute("aria-pressed", presetOn(on, pr.windows) ? "true" : "false");
+    }
     const list = el.querySelector("[data-list-host]");
     if (list) render(list, listAndFits());
   }
 
-  const cellAt = (x: number, y: number) => document.elementFromPoint(x, y)?.closest<HTMLElement>(".paint .cell");
   const keyOf = (c: HTMLElement) => (c.dataset.k ?? "0:0").split(":").map(Number) as [number, number];
+  const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce";
 
   function setCell(k: string, lit: boolean): boolean {
     if (on.has(k) === lit) return false;
@@ -177,33 +185,222 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
     return true;
   }
 
+  // ---- painting a rectangle: pointer, touch (after a short press) and Shift+arrows share it ----
+
+  type Cell = { d: number; r: number };
+  interface Drag {
+    pointer: number;
+    anchor: Cell;
+    at: Cell;
+    add: boolean;
+    grid: HTMLElement;
+    sel: HTMLElement;
+    /** Column and row edges relative to the grid, measured once at the start. */
+    cols: [number, number][];
+    rows: [number, number][];
+    scroller: HTMLElement | null;
+    x: number;
+    y: number;
+    frame: number;
+  }
+  let drag: Drag | null = null;
+  let press: { timer: ReturnType<typeof setTimeout>; x: number; y: number; e: PointerEvent } | null = null;
+  /** The cells as they were before a keyboard range began, so shrinking the range restores them. */
+  let kbBase: Set<string> | null = null;
+
+  const EDGE = 36;
+  const PRESS_MS = 220;
+  const SLOP = 8;
+
+  function rectCells(a: Cell, b: Cell): string[] {
+    const out: string[] = [];
+    for (let d = Math.min(a.d, b.d); d <= Math.max(a.d, b.d); d++) for (let r = Math.min(a.r, b.r); r <= Math.max(a.r, b.r); r++) out.push(cellKey(d, r));
+    return out;
+  }
+
+  function scrollParent(n: HTMLElement): HTMLElement | null {
+    for (let p = n.parentElement; p; p = p.parentElement) {
+      const o = getComputedStyle(p).overflowY;
+      if ((o === "auto" || o === "scroll") && p.scrollHeight > p.clientHeight) return p;
+    }
+    return null;
+  }
+
+  function measure(grid: HTMLElement): { cols: [number, number][]; rows: [number, number][] } {
+    const g = grid.getBoundingClientRect();
+    const box = (d: number, r: number) => grid.querySelector<HTMLElement>(`.cell[data-k="${cellKey(d, r)}"]`)?.getBoundingClientRect();
+    const cols = DAY_SHORT.map((_, d) => {
+      const b = box(d, 0);
+      return [(b?.left ?? 0) - g.left, (b?.right ?? 0) - g.left] as [number, number];
+    });
+    const rows = Array.from({ length: PAINT_ROWS }, (_, r) => {
+      const b = box(0, r);
+      return [(b?.top ?? 0) - g.top, (b?.bottom ?? 0) - g.top] as [number, number];
+    });
+    return { cols, rows };
+  }
+
+  /** The nearest cell to a point, clamped to the grid, from the measured edges (no elementFromPoint). */
+  function cellAt(dr: Drag, x: number, y: number): Cell {
+    const g = dr.grid.getBoundingClientRect();
+    const nearest = (edges: [number, number][], v: number) => {
+      let best = 0;
+      for (let i = 0; i < edges.length; i++) if (v >= (edges[i]?.[0] ?? 0)) best = i;
+      return best;
+    };
+    return { d: nearest(dr.cols, x - g.left), r: nearest(dr.rows, y - g.top) };
+  }
+
+  function placeSel(dr: Drag): void {
+    const [c0, c1] = [Math.min(dr.anchor.d, dr.at.d), Math.max(dr.anchor.d, dr.at.d)];
+    const [r0, r1] = [Math.min(dr.anchor.r, dr.at.r), Math.max(dr.anchor.r, dr.at.r)];
+    const left = dr.cols[c0]?.[0] ?? 0;
+    const top = dr.rows[r0]?.[0] ?? 0;
+    dr.sel.style.transform = `translate(${left}px, ${top}px)`;
+    dr.sel.style.width = `${(dr.cols[c1]?.[1] ?? 0) - left}px`;
+    dr.sel.style.height = `${(dr.rows[r1]?.[1] ?? 0) - top}px`;
+    dr.sel.dataset.label = `${dr.add ? "Add" : "Remove"} ${fmtM((r1 - r0 + 1) * 30)}${c1 > c0 ? ` × ${c1 - c0 + 1} days` : ""}`;
+  }
+
+  function startDrag(e: PointerEvent, c: HTMLElement): void {
+    const grid = c.closest<HTMLElement>(".paint");
+    if (!grid) return;
+    const [d, r] = keyOf(c);
+    const sel = document.createElement("div");
+    sel.className = `paint-sel ${on.has(c.dataset.k ?? "") ? "rm" : "add"}`;
+    sel.setAttribute("aria-hidden", "true");
+    grid.append(sel);
+    const { cols, rows } = measure(grid);
+    drag = { pointer: e.pointerId, anchor: { d, r }, at: { d, r }, add: !on.has(c.dataset.k ?? ""), grid, sel, cols, rows, scroller: scrollParent(grid), x: e.clientX, y: e.clientY, frame: 0 };
+    cursor = { d, r };
+    try {
+      grid.setPointerCapture(e.pointerId);
+    } catch {
+      // Already released (a very short tap); the drag still ends on pointerup.
+    }
+    placeSel(drag);
+  }
+
+  /** One frame of a drag: auto-scroll near the scroller's edges, then snap the rectangle. */
+  function frame(): void {
+    const dr = drag;
+    if (!dr) return;
+    dr.frame = 0;
+    let scrolling = false;
+    if (dr.scroller) {
+      const b = dr.scroller.getBoundingClientRect();
+      const v = dr.y < b.top + EDGE ? -(b.top + EDGE - dr.y) : dr.y > b.bottom - EDGE ? dr.y - (b.bottom - EDGE) : 0;
+      if (v) {
+        const before = dr.scroller.scrollTop;
+        dr.scroller.scrollTop += Math.sign(v) * Math.min(18, 4 + Math.abs(v) / 2);
+        scrolling = dr.scroller.scrollTop !== before;
+      }
+    }
+    const at = cellAt(dr, dr.x, dr.y);
+    if (at.d !== dr.at.d || at.r !== dr.at.r) {
+      dr.at = at;
+      placeSel(dr);
+    }
+    if (scrolling) dr.frame = requestAnimationFrame(frame);
+  }
+
+  function endDrag(commit: boolean): void {
+    const dr = drag;
+    if (!dr) return;
+    drag = null;
+    cancelAnimationFrame(dr.frame);
+    try {
+      dr.grid.releasePointerCapture(dr.pointer);
+    } catch {
+      // Not captured.
+    }
+    if (!commit) return dr.sel.remove();
+    const changed = rectCells(dr.anchor, dr.at).filter((k) => setCell(k, dr.add));
+    cursor = { ...dr.at };
+    // Keyboard painting carries on from where the pointer stopped.
+    focusCursor(false);
+    settle(changed);
+    if (reduced()) dr.sel.remove();
+    else {
+      dr.sel.classList.add("done");
+      setTimeout(() => dr.sel.remove(), 180);
+    }
+    if (changed.length) save();
+  }
+
+  /** Repaints only the changed cells, with a short settle so the result reads as placed. */
+  function settle(keys: string[]): void {
+    const motion = !reduced();
+    for (const k of keys) {
+      const c = el.querySelector<HTMLElement>(`.paint .cell[data-k="${k}"]`);
+      if (!c) continue;
+      const lit = on.has(k);
+      c.classList.toggle("on", lit);
+      c.setAttribute("aria-selected", lit ? "true" : "false");
+      if (motion) {
+        c.classList.remove("settle");
+        void c.offsetWidth;
+        c.classList.add("settle");
+      }
+    }
+    syncSide();
+  }
+
   function onPointerDown(e: PointerEvent): void {
     const c = (e.target as Element).closest<HTMLElement>(".paint .cell");
     if (!c || e.button !== 0) return;
+    if (e.pointerType === "touch") {
+      // A short press starts painting; moving first is a scroll.
+      if (press) clearTimeout(press.timer);
+      press = { x: e.clientX, y: e.clientY, e, timer: setTimeout(() => {
+        const p = press;
+        press = null;
+        if (p) {
+          startDrag(p.e, c);
+          navigator.vibrate?.(8);
+        }
+      }, PRESS_MS) };
+      return;
+    }
     e.preventDefault();
-    painting = !on.has(c.dataset.k ?? "");
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-    const [d, r] = keyOf(c);
-    cursor = { d, r };
-    if (setCell(c.dataset.k ?? "", painting)) sync();
+    startDrag(e, c);
   }
   function onPointerMove(e: PointerEvent): void {
-    if (painting === null) return;
-    const c = cellAt(e.clientX, e.clientY);
-    if (c && setCell(c.dataset.k ?? "", painting)) sync();
+    if (press && Math.hypot(e.clientX - press.x, e.clientY - press.y) > SLOP) {
+      clearTimeout(press.timer);
+      press = null;
+    }
+    if (!drag || e.pointerId !== drag.pointer) return;
+    drag.x = e.clientX;
+    drag.y = e.clientY;
+    if (!drag.frame) drag.frame = requestAnimationFrame(frame);
   }
-  function onPointerUp(): void {
-    if (painting === null) return;
-    painting = null;
-    save();
+  function onPointerUp(e: PointerEvent): void {
+    if (press) {
+      clearTimeout(press.timer);
+      press = null;
+      // A plain tap toggles one cell.
+      const c = (e.target as Element).closest<HTMLElement>(".paint .cell");
+      if (c && e.type === "pointerup") {
+        setCell(c.dataset.k ?? "", !on.has(c.dataset.k ?? ""));
+        settle([c.dataset.k ?? ""]);
+        save();
+      }
+      return;
+    }
+    if (drag && e.pointerId === drag.pointer) endDrag(e.type === "pointerup");
   }
+  /** Once painting has begun on touch, the page must not scroll under the finger. */
+  const onTouchMove = (e: TouchEvent) => {
+    if (drag && e.cancelable) e.preventDefault();
+  };
 
-  function focusCursor(): void {
+  function focusCursor(scroll = true): void {
     for (const c of el.querySelectorAll<HTMLElement>(".paint .cell[tabindex='0']")) c.tabIndex = -1;
     const c = el.querySelector<HTMLElement>(`.paint .cell[data-k="${cellKey(cursor.d, cursor.r)}"]`);
     if (c) {
       c.tabIndex = 0;
-      c.focus();
+      c.focus({ preventScroll: !scroll });
     }
   }
 
@@ -216,14 +413,19 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
     const mv = moves[e.key];
     if (mv) {
       e.preventDefault();
-      if (e.shiftKey && !anchor) anchor = { d, r };
+      if (e.shiftKey && !anchor) {
+        anchor = { d, r };
+        kbBase = new Set(on);
+        // The first Shift+arrow paints from the cell you're on: add if it's empty, remove if it's lit.
+        setCell(cellKey(d, r), !on.has(cellKey(d, r)));
+      }
       cursor = { d: Math.max(0, Math.min(6, d + mv[0])), r: Math.max(0, Math.min(PAINT_ROWS - 1, r + mv[1])) };
-      if (e.shiftKey && anchor) {
+      if (e.shiftKey && anchor && kbBase) {
         const lit = on.has(cellKey(anchor.d, anchor.r));
-        if (setCell(cellKey(cursor.d, cursor.r), lit)) {
-          sync();
-          save();
-        }
+        const before = new Set(on);
+        on = new Set(kbBase);
+        for (const k of rectCells(anchor, cursor)) setCell(k, lit);
+        settle([...new Set([...before, ...on])].filter((k) => before.has(k) !== on.has(k)));
       }
       focusCursor();
     } else if (e.key === " " || e.key === "Enter") {
@@ -234,7 +436,10 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
     }
   }
   const onKeyUp = (e: KeyboardEvent) => {
-    if (e.key === "Shift") anchor = null;
+    if (e.key !== "Shift" || !anchor) return;
+    anchor = null;
+    kbBase = null;
+    save();
   };
 
   function onClick(e: MouseEvent): void {
@@ -295,13 +500,19 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
   el.addEventListener("keydown", onKey);
   el.addEventListener("keyup", onKeyUp);
   el.addEventListener("click", onClick);
+  el.addEventListener("touchmove", onTouchMove, { passive: false });
 
   return {
     refresh(h) {
       if (h !== undefined) history = h;
-      if (painting !== null) return;
-      on = cellsFromWindows(readPrefs().plan.availability);
+      if (drag) return;
+      const next = cellsFromWindows(readPrefs().plan.availability);
+      // Our own save comes back as a refresh: nothing to redraw, and keep focus where it is.
+      if (h === undefined && next.size === on.size && [...next].every((k) => on.has(k))) return;
+      const focused = el.contains(document.activeElement);
+      on = next;
       draw();
+      if (focused) focusCursor(false);
     },
     destroy() {
       el.removeEventListener("pointerdown", onPointerDown);
@@ -311,6 +522,9 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
       el.removeEventListener("keydown", onKey);
       el.removeEventListener("keyup", onKeyUp);
       el.removeEventListener("click", onClick);
+      el.removeEventListener("touchmove", onTouchMove);
+      if (press) clearTimeout(press.timer);
+      endDrag(false);
     },
   };
 }
