@@ -7,7 +7,7 @@ pub fn resolve_python(cfg: &Config, root: &Path) -> Result<Vec<String>, String> 
     resolve_python_from(cfg, root, &|key| std::env::var(key).ok())
 }
 
-fn resolve_python_from(
+pub fn resolve_python_from(
     cfg: &Config,
     root: &Path,
     env: &dyn Fn(&str) -> Option<String>,

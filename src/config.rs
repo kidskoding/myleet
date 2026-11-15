@@ -37,8 +37,19 @@ struct FileConfig {
     state_dir: String,
 }
 
+/// Looks up an environment variable; threaded through so tests never mutate process env.
+pub type Env<'a> = &'a dyn Fn(&str) -> Option<String>;
+
+pub fn system_env(key: &str) -> Option<String> {
+    std::env::var(key).ok()
+}
+
 pub fn load() -> Result<Config, String> {
-    match std::fs::read_to_string(path()) {
+    load_with(&system_env)
+}
+
+pub fn load_with(env: Env) -> Result<Config, String> {
+    match std::fs::read_to_string(path_with(env)) {
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(Config::default()),
         Err(e) => Err(e.to_string()),
         Ok(text) => parse(&text),
@@ -74,30 +85,42 @@ fn parse(text: &str) -> Result<Config, String> {
 impl Config {
     /// `state_dir` from the config with `~` expanded, else the data dir.
     pub fn state_dir_path(&self) -> PathBuf {
+        self.state_dir_path_with(&system_env)
+    }
+
+    pub fn state_dir_path_with(&self, env: Env) -> PathBuf {
         if self.state_dir.is_empty() {
-            return data_dir();
+            return data_dir_with(env);
         }
-        expand_home(&self.state_dir, home())
+        expand_home(&self.state_dir, home(env))
     }
 }
 
 pub fn path() -> PathBuf {
-    xdg(env("XDG_CONFIG_HOME"), home(), ".config")
+    path_with(&system_env)
+}
+
+pub fn path_with(env: Env) -> PathBuf {
+    xdg(var(env, "XDG_CONFIG_HOME"), home(env), ".config")
         .join("myleet")
         .join("config.toml")
 }
 
 pub fn data_dir() -> PathBuf {
-    xdg(env("XDG_DATA_HOME"), home(), ".local/share").join("myleet")
+    data_dir_with(&system_env)
 }
 
-fn env(key: &str) -> Option<String> {
-    std::env::var(key).ok().filter(|v| !v.is_empty())
+pub fn data_dir_with(env: Env) -> PathBuf {
+    xdg(var(env, "XDG_DATA_HOME"), home(env), ".local/share").join("myleet")
 }
 
-fn home() -> Option<PathBuf> {
-    env("HOME")
-        .or_else(|| env("USERPROFILE"))
+fn var(env: Env, key: &str) -> Option<String> {
+    env(key).filter(|v| !v.is_empty())
+}
+
+fn home(env: Env) -> Option<PathBuf> {
+    var(env, "HOME")
+        .or_else(|| var(env, "USERPROFILE"))
         .map(PathBuf::from)
 }
 

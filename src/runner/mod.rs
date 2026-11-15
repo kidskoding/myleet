@@ -8,7 +8,7 @@ use std::process::{Command, Stdio};
 use std::time::{Duration, Instant};
 
 pub use junit::parse_junit;
-pub use python::{look_path, resolve_python};
+pub use python::{look_path, resolve_python, resolve_python_from};
 
 const POLL: Duration = Duration::from_millis(10);
 
