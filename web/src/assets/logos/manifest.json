@@ -133,8 +133,7 @@
  "ebay": {
   "source": "svgl",
   "file": "ebay.svg",
-  "url": "https://svgl.app/library/ebay.svg",
-  "aspect": 2.5
+  "url": "https://svgl.app/library/ebay.svg"
  },
  "doordash": {
   "source": "simple-icons",
@@ -268,8 +267,7 @@
  "cloudflare": {
   "source": "svgl",
   "file": "cloudflare.svg",
-  "url": "https://svgl.app/library/cloudflare.svg",
-  "aspect": 2.21
+  "url": "https://svgl.app/library/cloudflare.svg"
  },
  "mongodb": {
   "source": "svgl",
@@ -495,8 +493,7 @@
  "fireworks_ai": {
   "source": "gilbarbara/logos",
   "file": "fireworks_ai.svg",
-  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/fireworks-ai.svg",
-  "aspect": 2.02
+  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/fireworks-ai.svg"
  },
  "modal": {
   "source": "simple-icons",
@@ -562,11 +559,7 @@
   "url": "https://www.google.com/s2/favicons?domain=zoox.com&sz=128",
   "file": "zoox.svg"
  },
- "ramp": {
-  "source": "website-icon",
-  "file": "ramp.svg",
-  "url": "https://ramp.com/favicon-32x32.png"
- },
+ "ramp": { "source": "website-icon", "file": "ramp.svg", "url": "https://ramp.com/favicon-32x32.png" },
  "rippling": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/rippling/default.svg",
@@ -688,8 +681,7 @@
   "source": "dashboard-icons",
   "url": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/d767d7327db7f8ebd3715b552523f61889eea41c/svg/wiz.svg",
   "file": "wiz.svg",
-  "treatment": "mono",
-  "aspect": 2.0
+  "treatment": "mono"
  },
  "rubrik": {
   "source": "website-icon",
@@ -733,8 +725,7 @@
   "source": "website-logo",
   "domain": "deshaw.com",
   "url": "https://www.deshaw.com/img/svg/embedded/logo-white-with-trademark.svg",
-  "file": "de_shaw.svg",
-  "aspect": 4.74
+  "file": "de_shaw.svg"
  },
  "sig": {
   "source": "website-icon",
@@ -759,8 +750,7 @@
   "domain": "jumptrading.com",
   "url": "https://www.google.com/s2/favicons?domain=jumptrading.com&sz=128",
   "file": "jump_trading.svg",
-  "treatment": "light-background",
-  "aspect": 2.08
+  "treatment": "light-background"
  },
  "akuna": {
   "source": "website-icon",
@@ -832,8 +822,7 @@
   "source": "website-logo",
   "domain": "unitedhealthgroup.com",
   "url": "https://www.unitedhealthgroup.com/content/dam/uhg/icons/Icons/uhg-logo--stacked-2022.svg",
-  "file": "unitedhealth.svg",
-  "aspect": 4.06
+  "file": "unitedhealth.svg"
  },
  "cvs": {
   "source": "website-logo",
@@ -941,8 +930,7 @@
  "disney": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/disney/default.svg",
-  "file": "disney.svg",
-  "aspect": 2.38
+  "file": "disney.svg"
  },
  "ups": {
   "source": "wikimedia",
@@ -957,8 +945,7 @@
  "lowes": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/lowes/default.svg",
-  "file": "lowes.svg",
-  "aspect": 2.12
+  "file": "lowes.svg"
  },
  "rtx": {
   "source": "website-icon",
@@ -999,8 +986,7 @@
   "source": "svgl",
   "file": "ibm.svg",
   "url": "https://svgl.app/library/ibm.svg",
-  "treatment": "mono",
-  "aspect": 2.5
+  "treatment": "mono"
  },
  "t_mobile": {
   "source": "simple-icons@9.21.0",
@@ -1109,8 +1095,7 @@
   "source": "website-logo",
   "domain": "blackrock.com",
   "url": "https://www.blackrock.com/blk-one01-c-assets/cache-1767633005000/images/media-bin/web/global/wordmark/blackrock-logo-nav.svg",
-  "file": "blackrock.svg",
-  "aspect": 6.91
+  "file": "blackrock.svg"
  },
  "state_street": {
   "source": "website-logo",
@@ -1138,8 +1123,7 @@
  "micron": {
   "source": "gilbarbara/logos",
   "file": "micron.svg",
-  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/micron-icon.svg",
-  "aspect": 1.9
+  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/micron-icon.svg"
  },
  "texas_instruments": {
   "source": "website-icon",
@@ -1209,26 +1193,22 @@
  "honeywell": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/honeywell/default.svg",
-  "file": "honeywell.svg",
-  "aspect": 3.3
+  "file": "honeywell.svg"
  },
  "johnson_and_johnson": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/johnson-and-johnson/default.svg",
-  "file": "johnson_and_johnson.svg",
-  "aspect": 5.51
+  "file": "johnson_and_johnson.svg"
  },
  "metlife": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/metlife/default.svg",
-  "file": "metlife.svg",
-  "aspect": 4.18
+  "file": "metlife.svg"
  },
  "pepsico": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/pepsico/default.svg",
-  "file": "pepsico.svg",
-  "aspect": 4.33
+  "file": "pepsico.svg"
  },
  "pfizer": {
   "source": "thesvg",
@@ -1261,8 +1241,7 @@
   "source": "wikimedia",
   "domain": "deloitte.com",
   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_Deloitte.svg",
-  "file": "deloitte.svg",
-  "aspect": 5.23
+  "file": "deloitte.svg"
  },
  "mckesson": {
   "source": "wikimedia",
@@ -1294,8 +1273,7 @@
   "source": "website-logo",
   "domain": "freddiemac.com",
   "url": "https://www.freddiemac.com/sites/g/files/ynjofi111/themes/site/fm_theme/images/FreddieMacLogo-no-tagline.svg",
-  "file": "freddie_mac.svg",
-  "aspect": 1.94
+  "file": "freddie_mac.svg"
  },
  "mercor": {
   "source": "thesvg",
@@ -1467,8 +1445,7 @@
   "source": "website-logo",
   "domain": "fiserv.com",
   "url": "https://www.fiserv.com/content/dam/fiserv-ent/final-files/digital-graphics/fiserv-com-graphics/fiserv-logo-orange-ff6600.svg",
-  "file": "fiserv.svg",
-  "aspect": 1.99
+  "file": "fiserv.svg"
  },
  "belvedere_trading": {
   "source": "website-icon",
