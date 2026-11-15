@@ -23,21 +23,25 @@ const { playlist: p } = Astro.props;
 const c = buildCatalog();
 const slug = companySlug(p.id);
 const n = p.entries.length;
-// Topics in the order the sourced focus line names them, plus the set's first (most reported) problem.
-const TOPICS: [RegExp, string][] = [
-  [/graph|bfs|dfs|topolog|shortest path/i, "graphs"], [/tree/i, "trees"], [/dynamic programming|\bdp\b/i, "dynamic programming"],
-  [/sliding window/i, "sliding window"], [/stack|queue/i, "stacks"], [/heap|priority/i, "heaps"], [/interval/i, "intervals"],
-  [/binary search/i, "binary search"], [/linked list/i, "linked lists"], [/\btrie/i, "tries"], [/backtrack/i, "backtracking"],
-  [/greedy/i, "greedy problems"], [/\bbit/i, "bit manipulation"], [/two pointer/i, "two pointers"], [/design/i, "data-structure design"],
-  [/simulat/i, "simulation"], [/pars/i, "parsing"], [/hash|array|string/i, "arrays and strings"],
-];
-// Only the live-coding half (before ";") feeds the lead; the online-assessment half is secondary.
-const focus = (p.focus ?? "").split(";")[0] ?? "";
-const topics = TOPICS.map(([re, label]) => ({ label, at: focus.search(re) }))
-  .filter((t) => t.at >= 0)
-  .sort((a, b) => a.at - b.at)
-  .slice(0, 3)
-  .map((t) => t.label);
+// Topics come from the set's own problems, the same data as "Techniques in this set", so the
+// lead always agrees with that panel. Problem-bank entries map onto the curriculum topic they belong to.
+const LABEL: Record<string, string> = {
+  "Arrays And Hashing": "arrays and strings", "Two Pointers": "two pointers", "Stacks And Queues": "stacks",
+  "Sliding Window": "sliding window", "Binary Search": "binary search", "Linked Lists": "linked lists", Trees: "trees",
+  Heaps: "heaps", Backtracking: "backtracking", Graphs: "graphs", "Dynamic Programming": "dynamic programming",
+  "Greedy Algorithms": "greedy problems", Intervals: "intervals", Tries: "tries", "Bit Manipulation": "bit manipulation",
+  "Math And Geometry": "math", Advanced: "advanced data structures",
+};
+const BANK: [RegExp, string][] = [[/graph/i, "graphs"], [/dynamic/i, "dynamic programming"], [/tree|linked/i, "trees"], [/search|sort/i, "binary search"], [/stack|queue|window/i, "stacks"], [/hash|count|array|string/i, "arrays and strings"]];
+const counts = new Map<string, number>();
+for (const e of p.entries) {
+  const q = e.problem === null ? undefined : c.problems[e.problem];
+  const m = q && c.modules[q.module];
+  if (!q || !m) continue;
+  const label = m.bank ? BANK.find(([re]) => re.test(m.techniques[q.technique]?.title ?? ""))?.[1] : LABEL[m.title];
+  if (label) counts.set(label, (counts.get(label) ?? 0) + 1);
+}
+const topics = [...counts].sort((x, y) => y[1] - x[1]).slice(0, 3).map(([t]) => t);
 const list = new Intl.ListFormat("en", { type: "conjunction" }).format(topics).replace(", and ", " and ");
 // The example is the most distinctive of the set's first ten problems: the one the fewest
 // other company sets share, so pages don't all say "Two Sum".
