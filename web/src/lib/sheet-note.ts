@@ -80,10 +80,12 @@ export function resultNote(f: ResultFacts): string | null {
   const left = f.total - f.passed;
   const near = f.passed / f.total >= 0.7;
   const name = f.failing[0] ? caseName(f.failing[0]) : null;
-  const missing = name ? `, missing ${name}${left > 1 ? ` and ${left - 1} more` : ""}` : "";
-  const edge = name && EDGE.test(name) && f.priorEdge ? ` That's the same kind of edge case that tripped you on ${f.priorEdge.title} ${dayAgo(f.priorEdge.date, f.now)}.` : "";
-  const back = `It comes back in ${review}.`;
-  return join([`${near ? "So close. " : ""}You passed ${f.passed} of ${f.total}${missing}.${edge}`.trim(), back]);
+  const missing = name ? (left > 1 ? ` and missed ${name} plus ${left - 1} more` : ` and only missed ${name}`) : "";
+  const edge = name && EDGE.test(name) && f.priorEdge ? ` That's the same kind of edge case that tripped you up on ${f.priorEdge.title} ${dayAgo(f.priorEdge.date, f.now)}.` : "";
+  const when = f.reviewDays === 1 ? "tomorrow" : `in ${review}`;
+  // One "!" per note: the cheer on a near miss, the encouragement otherwise.
+  const back = near ? `Let's revisit it ${when} so this one sticks.` : `Let's come back to it ${when} and work through it again!`;
+  return join([`${near ? "Super close! " : ""}You passed ${f.passed} of ${f.total} test cases${missing}.${edge}`, back]);
 }
 
 export interface NextFacts {

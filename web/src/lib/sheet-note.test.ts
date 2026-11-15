@@ -30,10 +30,10 @@ describe("resultNote", () => {
   });
   it("names the missed case and the earlier edge-case miss on a near miss", () => {
     const n = resultNote(facts({ kind: "miss", passed: 6, total: 7, failing: ["test_empty_array"], reviewDays: 1, priorEdge: { title: "Two Sum", date: "2026-11-08" } }));
-    expect(n).toBe("So close. You passed 6 of 7, missing the empty array case. That's the same kind of edge case that tripped you on Two Sum a week ago. It comes back in 1 day.");
+    expect(n).toBe("Super close! You passed 6 of 7 test cases and only missed the empty array case. That's the same kind of edge case that tripped you up on Two Sum a week ago. Let's revisit it tomorrow so this one sticks.");
   });
   it("is plain on a far miss without a case name", () => {
-    expect(resultNote(facts({ kind: "miss", passed: 2, total: 7, failing: ["test_case_3"], reviewDays: 1 }))).toBe("You passed 2 of 7. It comes back in 1 day.");
+    expect(resultNote(facts({ kind: "miss", passed: 2, total: 7, failing: ["test_case_3"], reviewDays: 1 }))).toBe("You passed 2 of 7 test cases. Let's come back to it tomorrow and work through it again!");
     expect(resultNote(facts({ kind: "miss", passed: 0, total: 0 }))).toBeNull();
   });
   it("says what a hint means for the review", () => {
