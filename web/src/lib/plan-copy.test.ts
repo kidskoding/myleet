@@ -40,11 +40,11 @@ describe("Plan copy", () => {
     const h = headCopy({ plan: plan(), company: "Meta", name: "Anirudh", windows: evenings, weekday: 60, weekend: 90, today: "2026-11-15" });
     expect(h.title).toBe("Your road to Meta, Anirudh");
     expect(h.lede).toBe(
-      "30 days until your Meta interview on Dec 15. You'll practice about an hour on weekday evenings and a bit more on weekends, with mock interviews getting closer together toward the end, and the plan adjusts after every solve.",
+      "30 days until your Meta interview on Dec 15. You'll practice about an hour on weekday evenings and a bit more on weekends, with mock interviews getting closer together toward the end, and the plan adjusts after every solve",
     );
     const none = headCopy({ plan: plan({ interview_date: null }), company: null, name: null, windows: [], today: "2026-11-15" });
     expect(none.title).toBe("Your next four weeks");
-    expect(none.lede).toContain("and the plan adjusts after every solve. Keep building a steady practice routine, with reviews that help what you learn stick.");
+    expect(none.lede).toContain("and the plan adjusts after every solve. Keep building a steady practice routine, with reviews that help what you learn stick");
   });
 
   it("supports working toward a company without an interview date", () => {
@@ -52,6 +52,17 @@ describe("Plan copy", () => {
     expect(h.title).toBe("Your road to Google, Alex");
     expect(h.lede).toContain("Your plan works toward Google through its practice set");
     expect(h.lede).not.toContain("days until");
+  });
+
+  it("names the mix of companies and focus topics", () => {
+    const both = headCopy({ plan: plan({ interview_date: null }), company: "Stripe", companies: ["Stripe", "Ramp"], topics: ["graphs"], name: null, windows: evenings, weekday: 60, today: "2026-11-15" });
+    expect(both.title).toBe("Your road to Stripe and Ramp");
+    expect(both.lede).toMatch(/Your plan works through your Stripe and Ramp sets and puts extra time on graphs$/);
+    const topics = headCopy({ plan: plan({ interview_date: null }), company: null, topics: ["graphs", "trees"], name: null, windows: evenings, weekday: 60, today: "2026-11-15" });
+    expect(topics.title).toBe("Your next four weeks");
+    expect(topics.lede).toMatch(/Your plan puts extra time on graphs and trees, with reviews that keep the rest fresh$/);
+    const dated = headCopy({ plan: plan(), company: "Meta", topics: ["graphs"], name: null, windows: evenings, weekday: 60, today: "2026-11-15" });
+    expect(dated.lede).toMatch(/^30 days until your Meta interview on Dec 15\. .* Extra time goes to graphs$/);
   });
 
   it("groups the forecast into one sentence", () => {

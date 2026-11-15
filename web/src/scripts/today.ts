@@ -38,6 +38,8 @@ import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { LeetcodeImport, Plan, PlanItem, PlanNote, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
 import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
 import { emphasize } from "../lib/ui/emphasis";
+import { goalLine, goalReadiness, goalTitle, topicName, type GoalReady } from "../lib/goals";
+import { lastCleanSet } from "../lib/companies";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
@@ -161,9 +163,16 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   const title = who ? `${who} interview` : "Your interview";
   const today = localDay(c.now);
   if (!p.interviewDate) {
+    const cos = companyNames(c);
+    const topics = topicNames(c);
+    const rows = cos.length || topics.length ? goalRows(c) : [];
     return {
-      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">${who ? `Working toward ${who}` : "Your next 4 weeks"}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
-        <p class="plan-note">${who ? `Build toward ${who} with practice and reviews that fit your week` : "Build a steady practice routine, learn new patterns, and review what needs another pass"}</p>
+      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">${goalTitle(cos, topics)}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
+        <p class="plan-note">${emphasize(goalLine(cos, topics), [...cos, ...topics])}</p>
+        ${rows.length ? html`<ul class="goal-ready" aria-label="Readiness for your goals">${rows.map((r) => {
+          const pct = Math.round((r.ready / Math.max(1, r.tracked)) * 100);
+          return html`<li><span class="gr-name">${r.kind === "company" ? companyLogo(r.id, "ready-logo") : ""}${r.name}</span><span class="gr-n"><b>${r.ready}</b> of ${r.tracked} ready</span><span class="ready-bar" role="meter" aria-label="${r.name}: ${r.ready} of ${r.tracked} problems ready" aria-valuemin="0" aria-valuemax="${r.tracked}" aria-valuenow="${r.ready}"><span style="width:${pct}%"></span></span></li>`;
+        })}</ul>` : ""}
         <a class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)" href="${ROUTES.settings}#plan">Adjust your goals</a></section>`,
       inline: "",
     };
@@ -371,6 +380,24 @@ function companyNames(c: Ctx): string[] {
   return readPrefs().plan.companies.flatMap((slug) => c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title ?? []);
 }
 
+/** Focus topics mid-sentence ("graphs"), in the order picked. */
+function topicNames(c: Ctx): string[] {
+  return readPrefs().plan.focusTopics.flatMap((t) => topicName(c.cat.catalog, t) ?? []);
+}
+
+/** Technique title to its focus topic, for the coaching paragraph. */
+function focusByTechnique(c: Ctx): Record<string, string> {
+  const ids = readPrefs().plan.focusTopics;
+  return Object.fromEntries(c.cat.catalog.modules.filter((m) => ids.includes(m.id)).flatMap((m) => m.techniques.map((t) => [t.title, midSentence(m.title)])));
+}
+
+/** Readiness for each target company and focus topic; up to four rows. */
+function goalRows(c: Ctx): GoalReady[] {
+  const p = readPrefs().plan;
+  const target = (id: string) => c.cat.byId.get(id)?.time_target_secs ?? 1500;
+  return goalReadiness(c.cat.catalog, { companies: p.companies, topics: p.focusTopics }, c.t.states(c.events), lastCleanSet(parseEvents(c.events), target), c.now.getTime()).slice(0, 4);
+}
+
 function targetCompany(c: Ctx): string | null {
   const slug = readPrefs().plan.companies[0];
   return (slug && c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title) || null;
@@ -533,11 +560,13 @@ function paint(c: Ctx): void {
       daysLeft: c.plan?.interview_date ? (c.plan.summary.days_left ?? null) : null,
       now: c.now,
       leetcodeWeak: c.leetcode?.weak,
+      sets: Object.fromEntries((c.plan?.forecast ?? []).map((f) => [f.title, f.companies])),
+      focus: focusByTechnique(c),
     });
     const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now, first.problem);
     const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n, readStreak().rests)].filter(Boolean);
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${emphasize(para, companyNames(c))}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${emphasize(para, [...companyNames(c), ...topicNames(c)])}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${cardsRow(cards)}
       <div data-mock-card></div>
       ${nextUp(c, first)}

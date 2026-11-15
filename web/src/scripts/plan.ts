@@ -9,6 +9,8 @@ import { readLedger, recordPlanned, standing, type DayStatus, type PastDay } fro
 import { companyLogo } from "../lib/company-logos";
 import { addDays } from "../lib/streak";
 import { companyTitle, mountInterviews } from "../lib/ui/interviews";
+import { emphasize } from "../lib/ui/emphasis";
+import { topicName } from "../lib/goals";
 import { cachedMe } from "../lib/account";
 import { closeDialog, openDialog } from "../lib/ui/overlay";
 import { readEvents } from "../lib/progress";
@@ -645,7 +647,9 @@ function head(c: Ctx): SafeHtml {
   const p = readPrefs().plan;
   const date = c.plan.interview_date;
   const later = (c.plan.interviews ?? []).find((i) => date && i.date > date);
-  const copy = headCopy({ plan: c.plan, company: company(c), name: firstName(), windows: p.availability, weekday: p.dailyMinutes ?? undefined, weekend: p.weekendMinutes ?? p.dailyMinutes ?? undefined, today: c.plan.start, nextAfter: later ? { company: later.name ?? null, date: later.date } : null });
+  const companies = p.companies.flatMap((s) => companyTitle(c.cat.catalog.playlists, s) ?? []);
+  const topics = p.focusTopics.flatMap((t) => topicName(c.cat.catalog, t) ?? []);
+  const copy = headCopy({ plan: c.plan, company: company(c), companies, topics, name: firstName(), windows: p.availability, weekday: p.dailyMinutes ?? undefined, weekend: p.weekendMinutes ?? p.dailyMinutes ?? undefined, today: c.plan.start, nextAfter: later ? { company: later.name ?? null, date: later.date } : null });
   // startedAt is per device; the synced ledger's first day keeps "Day N" right on a new one.
   const first = [p.startedAt, Object.keys(readLedger()).sort()[0]].filter((d): d is string => !!d && d <= c.plan.start).sort()[0];
   const prog = date ? progressLine(first ?? c.plan.start, date, c.plan.start) : null;
@@ -653,7 +657,7 @@ function head(c: Ctx): SafeHtml {
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
     <header class="plan-head">
       <div><h1>${copy.title}</h1>
-        <p class="lede">${copy.lede}</p>
+        <p class="lede">${emphasize(copy.lede, companies)}</p>
         ${prog ? html`<div class="plan-progress"><span class="pp-text">${prog.text}</span><span class="pp-bar" role="progressbar" aria-label="Plan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(prog.share * 100)}"><span style="width:${(prog.share * 100).toFixed(1)}%"></span></span></div>` : ""}
         ${track ? html`<p class="on-track">${track}</p>` : ""}</div>
       <div class="head-actions"><button type="button" class="btn btn-secondary" data-act="change">${icon("calendar-days")}Change plan</button><button type="button" class="btn btn-ghost" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Availability ${kbd("a")}</button><button type="button" class="btn btn-secondary when-out" data-act="save">${icon("calendar-check")}Save plan</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>

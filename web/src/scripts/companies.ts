@@ -75,18 +75,17 @@ function renderPinned(c: Ctx): void {
   const empty = $("[data-pin-empty]");
   if (sec) sec.hidden = list.length === 0;
   if (empty) empty.hidden = list.length > 0;
-  const date = readPrefs().plan.interviewDate;
-  const left = date ? daysUntil(date) : null;
+  const interviews = readPrefs().plan.interviews;
   const shown = list.slice(0, 5);
   render(
     $("[data-pin-list]"),
-    html`${shown.map((p, i) => {
+    html`${shown.map((p) => {
       const r = readiness(p, c.cat.catalog, c.states, c.clean, c.now);
       const next = nextEntry(c, p);
-      const end =
-        i === 0 && left !== null && left >= 0
-          ? tag("outline", left === 0 ? "Interview today" : `Interview in ${plural(left, "day")}`, { dot: false })
-          : html`<span class="text-small text-muted">${i === 0 ? "No date set" : ""}</span>`;
+      // Each company shows its own interview's countdown, and nothing without a date.
+      const date = interviews.find((iv) => iv.company === companySlug(p.id) && daysUntil(iv.date) >= 0)?.date;
+      const left = date ? daysUntil(date) : null;
+      const end = left !== null ? tag("outline", left === 0 ? "Interview today" : `Interview in ${plural(left, "day")}`, { dot: false }) : html`<span></span>`;
       return html`<li><a class="pin" href="${ROUTES.companies}/${companySlug(p.id)}">
         <div><div class="name">${companyLogo(companySlug(p.id))}<span>${p.title}</span></div><div class="grp">${p.group}, ${plural(p.entries.length, "problem")}</div></div>
         <div class="ready">${r.ready} of ${r.tracked} ready${readyBar(r, readyLabel(r))}</div>

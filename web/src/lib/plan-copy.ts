@@ -1,6 +1,7 @@
 // The Plan page's sentences, built only from the learner's own data. Kept pure so the
 // wording can be tested without a page.
 import { addDays } from "./streak";
+import { goalLine, names } from "./goals";
 import { daysUntil, paceRows, shortDate } from "./plan";
 import { attempts, parseEvents } from "./attempts";
 import { missedMinutes, recordPlanned, standing, type Standing } from "./plan-progress";
@@ -66,8 +67,19 @@ export interface HeadCopy {
   lede: string;
 }
 
-export function headCopy(o: { plan: Plan; company: string | null; name: string | null; windows: Availability[]; weekday?: number | undefined; weekend?: number | undefined; today: string; nextAfter?: { company: string | null; date: string } | null }): HeadCopy {
+/**
+ * The Plan page's title and lede. `company` is the next interview's company or the first target;
+ * `companies` every target company and `topics` the focus topics (mid-sentence), for the mix.
+ */
+export function headCopy(o: { plan: Plan; company: string | null; companies?: string[]; topics?: string[]; name: string | null; windows: Availability[]; weekday?: number | undefined; weekend?: number | undefined; today: string; nextAfter?: { company: string | null; date: string } | null }): HeadCopy {
+  const h = headText(o);
+  return { title: h.title, lede: h.lede.replace(/\.$/, "") };
+}
+
+function headText(o: Parameters<typeof headCopy>[0]): HeadCopy {
   const { plan, company, name } = o;
+  const cos = o.companies?.length ? o.companies : company ? [company] : [];
+  const topics = o.topics ?? [];
   const date = plan.interview_date;
   const you = name ? `, ${name}` : "";
   const mocks = plan.summary.mocks;
@@ -75,10 +87,13 @@ export function headCopy(o: { plan: Plan; company: string | null; name: string |
   const weekday = o.weekday ?? Math.round(plan.days.filter((d) => !d.off).reduce((m, d) => m + d.minutes, 0) / Math.max(1, plan.days.filter((d) => !d.off).length));
   const planned = `You'll practice ${rhythmPhrase({ weekday, weekend: o.weekend ?? weekday, windows: o.windows })}${mockPart}, and the plan adjusts after every solve.`;
   const after = o.nextAfter ? ` ${o.nextAfter.company ?? "Your next interview"} on ${shortDate(o.nextAfter.date)} comes after that.` : "";
-  if (!date) return { title: company ? `Your road to ${company}${you}` : `Your next four weeks${you}`, lede: `${planned}${company ? ` Your plan works toward ${company} through its practice set and the patterns you need to build.` : " Keep building a steady practice routine, with reviews that help what you learn stick."}` };
+  if (!date) {
+    const goal = cos.length > 1 || topics.length ? ` ${goalLine(cos, topics)}.` : company ? ` Your plan works toward ${company} through its practice set and the patterns you need to build.` : " Keep building a steady practice routine, with reviews that help what you learn stick.";
+    return { title: cos.length ? `Your road to ${names(cos)}${you}` : `Your next four weeks${you}`, lede: `${planned}${goal}` };
+  }
   const left = daysUntil(date, o.today);
   const when = `${plural(left, "day")} until your ${company ? `${company} ` : ""}interview on ${shortDate(date)}.`;
-  return { title: company ? `Your road to ${company}${you}` : `Your road to ${shortDate(date)}${you}`, lede: `${when[0]?.toUpperCase()}${when.slice(1)} ${planned}${after}` };
+  return { title: company ? `Your road to ${company}${you}` : `Your road to ${shortDate(date)}${you}`, lede: `${when[0]?.toUpperCase()}${when.slice(1)} ${planned}${after}${topics.length ? ` Extra time goes to ${names(topics)}.` : ""}` };
 }
 
 /** "Day 4 of 30 · 26 days to Dec 15", and the share done, for the progress line. */

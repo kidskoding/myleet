@@ -18,6 +18,15 @@ describe("todaySummary", () => {
       "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's likely to come up.\n\nWe'll warm up with two quick reviews, then work through three sliding window problems! Solve them cleanly and you'll stop needing hints on sliding window",
     );
   });
+  it("names every target set and a focus topic behind the theme", () => {
+    const items = [item("new", "Graph Traversal"), item("new", "Graph Traversal")];
+    expect(todaySummary({ items, skills: null, daysLeft: null, now, sets: { "Graph Traversal": ["Stripe", "Ramp"] }, focus: { "Graph Traversal": "graphs" } })).toBe(
+      "Today we're spending most of our time on graph traversal. Your Stripe and Ramp sets lean on graph traversal, so it's likely to come up. You picked graphs as a focus topic, so it gets extra time",
+    );
+    expect(todaySummary({ items, skills: null, daysLeft: null, now, focus: { "Graph Traversal": "graphs" } })).toBe(
+      "Today we're spending most of our time on graph traversal. You picked graphs as a focus topic, so it gets extra time",
+    );
+  });
   it("says when LeetCode history is why a topic comes first", () => {
     const skills = [skill({ module: "sliding_window", seen: 0, evidence: { attempts: 0 } as never })];
     const text = todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now, leetcodeWeak: ["sliding_window"] });

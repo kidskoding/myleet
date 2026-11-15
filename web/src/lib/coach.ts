@@ -1,6 +1,7 @@
 // Today's personal copy: the coaching paragraph, the "for you" cards, the on-this-day line,
 // milestones and momentum. Pure, so it is tested; every piece returns null without data.
 import { addDays, localDay } from "./streak";
+import { names } from "./goals";
 import { midSentence } from "./schedule";
 import { RUNG_DAYS } from "./ui/ladder";
 import type { PlanItem, Skill, SkillAttempt, State, TodayEntry } from "./types";
@@ -48,6 +49,10 @@ export interface SummaryInput {
   now: Date;
   /** Module ids the LeetCode import found barely touched; empty or absent when not connected. */
   leetcodeWeak?: string[] | undefined;
+  /** Technique title to the target companies whose sets have it (the plan's forecast). */
+  sets?: Record<string, string[]> | undefined;
+  /** Technique title to its focus topic mid-sentence ("graphs"), for techniques in one. */
+  focus?: Record<string, string> | undefined;
 }
 
 /**
@@ -59,7 +64,7 @@ export function todaySummary(input: SummaryInput): string | null {
   return summaryText(input)?.replace(/\.$/, "") ?? null;
 }
 
-function summaryText({ items, skills, daysLeft, now, leetcodeWeak }: SummaryInput): string | null {
+function summaryText({ items, skills, daysLeft, now, leetcodeWeak, sets, focus }: SummaryInput): string | null {
   const counts = new Map<string, number>();
   for (const i of items) if (i.technique && i.kind !== "review") counts.set(i.technique, (counts.get(i.technique) ?? 0) + 1);
   const [theme, nTheme = 0] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
@@ -92,8 +97,14 @@ function summaryText({ items, skills, daysLeft, now, leetcodeWeak }: SummaryInpu
   const miss = recentMiss(skill, now);
   const did = miss && attemptPhrase(miss);
   if (miss && did) out.push(`${cap(dayAgo(miss.date, now))} on ${miss.title} you ${did}.`);
-  if (company) out.push(`${company}'s set leans on ${tech}${near ? ` and your interview is ${days(near)} away` : ""}, so it's likely to come up.`);
+  const cos = sets?.[theme]?.length ? sets[theme] : company ? [company] : [];
+  const soon = near ? ` and your interview is ${days(near)} away` : "";
+  if (cos.length > 1) out.push(`Your ${names(cos)} sets lean on ${tech}${soon}, so it's likely to come up.`);
+  else if (cos[0]) out.push(`${cos[0]}'s set leans on ${tech}${soon}, so it's likely to come up.`);
   else if (near) out.push(`Your interview is ${days(near)} away${weak ? ", and it's the topic you've struggled with most" : ""}.`);
+
+  const topic = focus?.[theme];
+  if (topic) out.push(`You picked ${topic} as a focus topic, so it gets extra time.`);
 
   const level = skill?.level;
   const outcome = level ? LEVEL_OUTCOME[level]?.(tech) : undefined;
