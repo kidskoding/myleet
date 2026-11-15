@@ -18,7 +18,7 @@
 .learn .start li span { font-size: var(--text-xs); color: var(--ink-3); }
 
 .learn .mods { list-style: none; padding: 0; }
-.learn .mods-head { margin-top: var(--space-10); display: grid; grid-template-columns: 40px minmax(0, 1fr) 380px 150px 34px; gap: var(--space-5); padding: 0 var(--space-4) var(--space-2); font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
+.learn .mods-head { margin-top: var(--space-10); display: grid; grid-template-columns: 40px minmax(0, 1fr) 380px 150px 34px; gap: var(--space-5); padding: 0 var(--space-4) var(--space-2); font-size: var(--text-sm); color: var(--ink-2); font-weight: 650; }
 .learn .mod { border-top: 1px solid var(--line); }
 .learn .mod:last-child { border-bottom: 1px solid var(--line); }
 .learn .mod-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) 380px 150px 34px; gap: var(--space-5); align-items: center; padding: var(--space-4); width: 100%; text-align: left; border-radius: var(--radius-sm); transition: background-color var(--dur-fast) var(--ease-out); }

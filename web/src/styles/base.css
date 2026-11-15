@@ -1,3 +1,5 @@
+@import "./difficulty.css";
+
 /* myleet base: reset, typography, focus, browser surfaces. Import after tokens.css. */
 
 *, *::before, *::after { box-sizing: border-box; }

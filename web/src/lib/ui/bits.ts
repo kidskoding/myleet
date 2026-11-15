@@ -13,7 +13,7 @@ export function tag(kind: TagKind, label: string, opts: { dot?: boolean } = {}):
 
 const DIFF_LABEL: Record<Difficulty, string> = { easy: "Easy", medium: "Medium", hard: "Hard" };
 
-/** Three bars, deliberately not green/yellow/red. `label: false` keeps only the bars (with an SR label). */
+/** Three bars, colored by difficulty with the count as a second cue. `label: false` keeps only the bars (with an SR label). */
 export function diff(level: Difficulty, opts: { label?: boolean } = {}): SafeHtml {
   const text = DIFF_LABEL[level];
   return opts.label === false

@@ -1,0 +1,13 @@
+/* Shared by list rows and the workspace: color and bar count convey difficulty. */
+.diff[data-level="easy"], .difficulty-label[data-level="easy"] {
+  --difficulty-color: light-dark(color-mix(in srgb, var(--ctp-green) 40%, var(--ctp-text)), var(--ctp-green));
+  color: var(--difficulty-color);
+}
+.diff[data-level="medium"], .difficulty-label[data-level="medium"] {
+  --difficulty-color: light-dark(color-mix(in srgb, var(--ctp-yellow) 40%, var(--ctp-text)), var(--ctp-yellow));
+  color: var(--difficulty-color);
+}
+.diff[data-level="hard"], .difficulty-label[data-level="hard"] {
+  --difficulty-color: light-dark(color-mix(in srgb, var(--ctp-red) 75%, var(--ctp-text)), var(--ctp-red));
+  color: var(--difficulty-color);
+}

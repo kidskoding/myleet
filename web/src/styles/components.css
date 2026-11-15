@@ -200,10 +200,7 @@ body[data-shell="focused"] .account { display: none; }
 .diff i { display: inline-flex; gap: 2px; align-items: flex-end; }
 .diff i b { width: 3px; border-radius: 1px; background: var(--line-strong); }
 .diff i b:nth-child(1) { height: 6px; } .diff i b:nth-child(2) { height: 9px; } .diff i b:nth-child(3) { height: 12px; }
-.diff[data-level="easy"] b:nth-child(-n+1), .diff[data-level="medium"] b:nth-child(-n+2), .diff[data-level="hard"] b { background: var(--ink-2); }
-.difficulty-label[data-level="easy"] { color: light-dark(color-mix(in srgb, var(--ctp-green) 40%, var(--ctp-text)), var(--ctp-green)); }
-.difficulty-label[data-level="medium"] { color: light-dark(color-mix(in srgb, var(--ctp-yellow) 40%, var(--ctp-text)), var(--ctp-yellow)); }
-.difficulty-label[data-level="hard"] { color: light-dark(color-mix(in srgb, var(--ctp-red) 75%, var(--ctp-text)), var(--ctp-red)); }
+.diff[data-level="easy"] b:nth-child(-n+1), .diff[data-level="medium"] b:nth-child(-n+2), .diff[data-level="hard"] b { background: var(--difficulty-color); }
 
 /* ===== Ladder (signature): rungs 1 3 7 14 30 rising left to right ===== */
 .ladder { display: inline-block; color: var(--ink); line-height: 0; vertical-align: middle; }
@@ -897,7 +894,7 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
   .brand { min-height: 44px; }
   details > summary { min-height: 44px; display: inline-flex; align-items: center; }
   .calgrid button[data-day] { min-height: 44px; }
-  .queue a:not(.btn), .prose li > a, a.link { display: inline-block; padding-block: 12px; margin-block: -12px; }
+  .queue a:not(.btn):not(.qrow), .prose li > a, a.link { display: inline-block; padding-block: 12px; margin-block: -12px; }
 }
 
 /* LeetCode connect panel (onboarding step and Settings) */
