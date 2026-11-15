@@ -39,3 +39,6 @@ target/
 
 # agent worktrees
 .claude/worktrees/
+
+# spartan planning
+.planning/
