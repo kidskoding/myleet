@@ -128,10 +128,10 @@ answer: [0, 1]</code></pre>
             }
           </ul>
           <div class="result">
-            <span class="lad lad-before" set:html={ladder({ rung: 2, size: "lg" }).value} />
-            <span class="lad lad-after" set:html={ladder({ rung: 3, size: "lg" }).value} />
-            <p class="msg-before">On the 3-day rung. A clean pass under 15 minutes climbs to 7 days</p>
-            <p class="msg-after"><strong>Clean pass in 6:40</strong> Up to the 7-day rung. Next review <span data-next>in 7 days</span></p>
+            <span class="lad lad-before" set:html={ladder({ rung: 2, size: "xl", w: 300, h: 104 }).value} />
+            <span class="lad lad-after" set:html={ladder({ rung: 3, size: "xl", climbed: true, draw: true, next: false, w: 300, h: 104 }).value} />
+            <p class="msg-before">On the 3-day rung. A clean pass under 15 minutes climbs to 7 days.</p>
+            <p class="msg-after"><strong>Clean pass in <span data-took>6:40</span>.</strong> Up to the 7-day rung, next review <span data-next>in 7 days</span>.</p>
           </div>
         </div>
       </article>
@@ -143,6 +143,7 @@ answer: [0, 1]</code></pre>
           d.dataset.state = "idle";
           d.querySelector("[data-sum]").textContent = "6 tests";
           d.querySelector("[data-run-label]").textContent = "Run tests";
+          d.querySelector("[data-clock]").textContent = "4:52";
         })();
       </script>
     </div>
@@ -314,7 +315,14 @@ answer: [0, 1]</code></pre>
   .landing .statement pre { font-size: 0.8125rem; padding: var(--space-3); }
   .landing .editor { background: color-mix(in srgb, var(--ctp-crust) 18%, var(--code-bg)); padding: var(--space-4) 0; font-family: var(--font-code); font-size: 0.8125rem; line-height: 1.75; overflow-x: auto; }
   .landing .editor ol { list-style: none; padding: 0; counter-reset: ln; }
-  .landing .editor li { counter-increment: ln; display: grid; grid-template-columns: 3.2em 1fr; white-space: pre; }
+  .landing .editor li { counter-increment: ln; display: grid; grid-template-columns: 3.2em auto 1fr; white-space: pre; }
+  /* Typing: each code line shows its first --n characters (monospace, so 1ch is one character) */
+  .landing .demo.typing .editor li { white-space: pre; }
+  .landing .demo.typing .editor li > span { display: inline-block; max-width: calc(var(--n, 999) * 1ch); overflow: hidden; vertical-align: top; }
+  .landing .demo.typing .editor li.active { background: none; }
+  .landing .demo.typing .editor li.is-typing { background: var(--code-active-line); }
+  .landing .demo.typing .cursor { display: none; }
+  .landing .demo.typing .editor li.is-typing::after { content: ""; width: 2px; height: 1.2em; align-self: center; background: var(--code-cursor); }
   .landing .editor li::before { content: counter(ln); color: var(--code-gutter); text-align: right; padding-right: 1.2em; user-select: none; }
   .landing .editor li.active { background: var(--code-active-line); }
   .landing .kw { color: var(--syn-keyword); } .landing .df { color: var(--syn-def); font-weight: 600; } .landing .bi { color: var(--syn-builtin); }
@@ -325,7 +333,8 @@ answer: [0, 1]</code></pre>
 
   .landing .testpane { display: flex; flex-direction: column; }
   .landing .testpane .head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-2); }
-  .landing .summary { font-size: var(--text-sm); font-weight: 650; }
+  .landing .summary { font-family: var(--font-label); font-size: var(--text-sm); font-weight: 600; letter-spacing: -0.02em; }
+  .landing [data-run].is-pressed { transform: scale(0.98); background: var(--accent-press); box-shadow: var(--btn-rim); }
   .landing .demo[data-state="ran"] .summary { color: var(--pass); }
   .landing .tests { list-style: none; padding: 0; font-size: var(--text-sm); }
   .landing .trow-line { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: var(--space-3); align-items: center; padding: 7px var(--space-3); }
@@ -345,11 +354,9 @@ answer: [0, 1]</code></pre>
   .landing .result strong { color: var(--ink); }
   .landing .demo[data-state="ran"] :is(.lad-before, .msg-before), .landing .demo:not([data-state="ran"]) :is(.lad-after, .msg-after) { display: none; }
   @media (prefers-reduced-motion: no-preference) {
-    :root:not([data-motion="reduce"]) .landing .demo.climbed .lad-after .node.current { animation: l-ring var(--dur-climb) var(--ease-spring) both; transform-box: fill-box; transform-origin: center; }
-    :root:not([data-motion="reduce"]) .landing .demo.climbed .lad-after .route { stroke-dasharray: 400; animation: l-draw var(--dur-climb) var(--ease-out) both; }
+    :root:not([data-motion="reduce"]) .landing .demo .trow.is-done .st .icon { animation: l-tick 260ms var(--ease-out-expo) both; }
   }
-  @keyframes l-ring { from { transform: scale(0.2); opacity: 0; } }
-  @keyframes l-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+  @keyframes l-tick { from { transform: scale(0.5); opacity: 0; } }
 
   .landing .band { margin-top: var(--space-24); padding: var(--space-24) 0; }
   .landing :is(.band, .notes, .companies, .close) h2 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); max-width: 18ch; }
@@ -427,7 +434,7 @@ answer: [0, 1]</code></pre>
     .landing .intro .actions .btn, .landing .close .actions .btn { flex: 1; }
     .landing .demo { grid-template-columns: minmax(0, 1fr); }
     .landing .demo-bar .tag, .landing .demo-bar .diff { display: none; }
-    .landing .editor li { white-space: pre-wrap; }
+    .landing .demo:not(.typing) .editor li { white-space: pre-wrap; }
     .landing .notes pre, .landing .notes pre code { white-space: pre-wrap; }
     .landing .demo .pane + .pane { border-left: 0; border-top: 1px solid var(--line); }
     .landing .topo-scroll { overflow-x: auto; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
