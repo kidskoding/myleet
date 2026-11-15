@@ -1,185 +1,74 @@
+# Sources (checked 2026-11-15):
+# Estimate from 6 candidate reports, four of them search snippets (low confidence); many technical rounds are Java and project talk
+# - Glassdoor Wells Fargo reviews, Dallas TX, Charlotte NC and non-US offices (search snippets; review pages not identified): https://static.glassdoor.at/Interview/Wells-Fargo-Developer-Interview-Questions-EI_IE8876.0,11_KO12,21_IP3.htm
+# - Sep 2025 India campus (non-US) report: https://leetcode.com/discuss/post/7160447/
+# - Sep 2025 location not shown SDE I report: https://leetcode.com/discuss/post/7145692/
+# - Jun 2026 location not shown senior report: https://leetcode.com/discuss/post/8331139/
 title = "Wells Fargo"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, stacks, linked lists and intervals"
-review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "11_dp", "13_intervals"]
-
-
-[[entries]]
-title = "Rotate String"
-url = "https://leetcode.com/problems/rotate-string/"
+focus = "Live coding focuses on dynamic programming, arrays and strings, graphs and data-structure design"
+review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "17_advanced"]
 
 [[entries]]
-title = "Shortest and Lexicographically Smallest Beautiful String"
-url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
 
 [[entries]]
-title = "Maximum Earnings From Taxi"
-url = "https://leetcode.com/problems/maximum-earnings-from-taxi/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Count Binary Substrings"
-url = "https://leetcode.com/problems/count-binary-substrings/"
+title = "Longest Palindromic Subsequence"
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
 
 [[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Maximum Nesting Depth of Two Valid Parentheses Strings"
-url = "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Find Players With Zero or One Losses"
-url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
-title = "Verbal Arithmetic Puzzle"
-url = "https://leetcode.com/problems/verbal-arithmetic-puzzle/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Find The First Player to win K Games in a Row"
-url = "https://leetcode.com/problems/find-the-first-player-to-win-k-games-in-a-row/"
+title = "Count Palindromic Subsequences"
+url = "https://leetcode.com/problems/count-palindromic-subsequences/"
 
 [[entries]]
-title = "Count Vowel Substrings of a String"
-url = "https://leetcode.com/problems/count-vowel-substrings-of-a-string/"
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Find the Grid of Region Average"
-url = "https://leetcode.com/problems/find-the-grid-of-region-average/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Find the Minimum Area to Cover All Ones I"
-url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "Find the Score of All Prefixes of an Array"
-url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Find the Winner of an Array Game"
-url = "https://leetcode.com/problems/find-the-winner-of-an-array-game/"
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Increment Submatrices by One"
-url = "https://leetcode.com/problems/increment-submatrices-by-one/"
-
-[[entries]]
-title = "Inorder Successor in BST II"
-url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
-
-[[entries]]
-title = "Max Sum of Rectangle No Larger Than K"
-url = "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/"
-
-[[entries]]
-title = "Maximum Erasure Value"
-url = "https://leetcode.com/problems/maximum-erasure-value/"
-
-[[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
-
-[[entries]]
-title = "Largest Magic Square"
-url = "https://leetcode.com/problems/largest-magic-square/"
-
-[[entries]]
-title = "Largest Merge Of Two Strings"
-url = "https://leetcode.com/problems/largest-merge-of-two-strings/"
-
-[[entries]]
-title = "Largest Number"
-url = "https://leetcode.com/problems/largest-number/"
-
-[[entries]]
-title = "Length of the Longest Alphabetical Continuous Substring"
-url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
-
-[[entries]]
-title = "Longest Arithmetic Sequence After Changing At Most One Element"
-url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree II"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree III"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree IV"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
-
-[[entries]]
-title = "Make Costs of Paths Equal in a Binary Tree"
-url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
-
-[[entries]]
-title = "Maximum Points After Collecting Coins From All Nodes"
-url = "https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/"
-
-[[entries]]
-title = "Distribute Elements Into Two Arrays I"
-url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-i/"
-
-[[entries]]
-title = "Masking Personal Information"
-url = "https://leetcode.com/problems/masking-personal-information/"
-
-[[entries]]
-title = "Maximum Profitable Triplets With Increasing Prices I"
-url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i/"
-
-[[entries]]
-title = "Faulty Keyboard"
-url = "https://leetcode.com/problems/faulty-keyboard/"
-
-[[entries]]
-title = "Merge In Between Linked Lists"
-url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
-
-[[entries]]
-title = "Find the Original Typed String I"
-url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
-
-[[entries]]
-title = "Mini Parser"
-url = "https://leetcode.com/problems/mini-parser/"
-
-[[entries]]
-title = "Minimize Result by Adding Parentheses to Expression"
-url = "https://leetcode.com/problems/minimize-result-by-adding-parentheses-to-expression/"
-
-[[entries]]
-title = "Minimum Factorization"
-url = "https://leetcode.com/problems/minimum-factorization/"
-
-[[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
-
-[[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Reverse Vowels of a String"
-url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
-
-[[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
-
-[[entries]]
-title = "Minimum Length of String After Deleting Similar Ends"
-url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"

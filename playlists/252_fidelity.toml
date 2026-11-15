@@ -1,185 +1,69 @@
+# Sources (checked 2026-11-15):
+# Estimate from 5 candidate reports, four of them search snippets (low confidence); loops lean on resume, Java and SQL
+# - Aug 2022 location not shown senior report: https://leetcode.com/discuss/post/2461081/
+# - Glassdoor Fidelity software engineer reviews, Boston MA 2020 and senior two-pointer task (search snippets): https://static.glassdoor.com.mx/Interview/Fidelity-Investments-Software-Engineer-Interview-Questions-EI_IE2786.0,20_KO21,38_IP7.htm
+# - AmbitionBox software developer reviews, India (non-US) (search snippet): https://www.ambitionbox.com/interviews/fidelity-investments-interview-questions/software-developer
 title = "Fidelity Investments"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, trees and graphs"
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "11_dp", "16_math_geometry"]
-
-
-[[entries]]
-title = "Shortest Uncommon Substring in an Array"
-url = "https://leetcode.com/problems/shortest-uncommon-substring-in-an-array/"
+focus = "Live coding focuses on arrays and strings, stacks and two pointers"
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues"]
 
 [[entries]]
-title = "Strings Differ by One Character"
-url = "https://leetcode.com/problems/strings-differ-by-one-character/"
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
-title = "Angle Between Hands of a Clock"
-url = "https://leetcode.com/problems/angle-between-hands-of-a-clock/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Modify the Matrix"
-url = "https://leetcode.com/problems/modify-the-matrix/"
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
 [[entries]]
-title = "Count Primes"
-url = "https://leetcode.com/problems/count-primes/"
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
 [[entries]]
-title = "Minimum Number of Steps to Make Two Strings Anagram"
-url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Largest Magic Square"
-url = "https://leetcode.com/problems/largest-magic-square/"
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
-title = "Building Boxes"
-url = "https://leetcode.com/problems/building-boxes/"
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
-title = "Get Equal Substrings Within Budget"
-url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Length of the Longest Alphabetical Continuous Substring"
-url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
-title = "Longest Arithmetic Sequence After Changing At Most One Element"
-url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
-title = "Masking Personal Information"
-url = "https://leetcode.com/problems/masking-personal-information/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Maximize Distance to Closest Person"
-url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
 [[entries]]
-title = "Maximum Increasing Triplet Value"
-url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
+title = "Move Zeroes"
+url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
-title = "Maximum Profitable Triplets With Increasing Prices I"
-url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i/"
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
-title = "Minimum Factorization"
-url = "https://leetcode.com/problems/minimum-factorization/"
-
-[[entries]]
-title = "Minimum Length of String After Deleting Similar Ends"
-url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
-
-[[entries]]
-title = "Minimum Levels to Gain More Points"
-url = "https://leetcode.com/problems/minimum-levels-to-gain-more-points/"
-
-[[entries]]
-title = "Count Prefix and Suffix Pairs II"
-url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
-
-[[entries]]
-title = "Minimum Penalty for a Shop"
-url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
-
-[[entries]]
-title = "Minimum Time to Complete Trips"
-url = "https://leetcode.com/problems/minimum-time-to-complete-trips/"
-
-[[entries]]
-title = "Minimum Time to Visit All Houses"
-url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
-
-[[entries]]
-title = "Most Popular Video Creator"
-url = "https://leetcode.com/problems/most-popular-video-creator/"
-
-[[entries]]
-title = "Next Greater Element III"
-url = "https://leetcode.com/problems/next-greater-element-iii/"
-
-[[entries]]
-title = "Number of Adjacent Elements With the Same Color"
-url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
-
-[[entries]]
-title = "Number of Distinct Substrings in a String"
-url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
-
-[[entries]]
-title = "Number of Pairs of Strings With Concatenation Equal to Target"
-url = "https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/"
-
-[[entries]]
-title = "One Edit Distance"
-url = "https://leetcode.com/problems/one-edit-distance/"
-
-[[entries]]
-title = "Detect Pattern of Length M Repeated K or More Times"
-url = "https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/"
-
-[[entries]]
-title = "Permutations III"
-url = "https://leetcode.com/problems/permutations-iii/"
-
-[[entries]]
-title = "Count the Number of Houses at a Certain Distance II"
-url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/"
-
-[[entries]]
-title = "Find the Width of Columns of a Grid"
-url = "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/"
-
-[[entries]]
-title = "Pour Water"
-url = "https://leetcode.com/problems/pour-water/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Largest Local Values in a Matrix"
-url = "https://leetcode.com/problems/largest-local-values-in-a-matrix/"
-
-[[entries]]
-title = "Count Complete Tree Nodes"
-url = "https://leetcode.com/problems/count-complete-tree-nodes/"
-
-[[entries]]
-title = "Maximum Distance Between Unequal Words in Array I"
-url = "https://leetcode.com/problems/maximum-distance-between-unequal-words-in-array-i/"
-
-[[entries]]
-title = "Lowest Common Ancestor of Deepest Leaves"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
-
-[[entries]]
-title = "Remove Sub-Folders from the Filesystem"
-url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
-
-[[entries]]
-title = "Merge Strings Alternately"
-url = "https://leetcode.com/problems/merge-strings-alternately/"
-
-[[entries]]
-title = "Rotating the Box"
-url = "https://leetcode.com/problems/rotating-the-box/"
-
-[[entries]]
-title = "Find K-th Smallest Pair Distance"
-url = "https://leetcode.com/problems/find-k-th-smallest-pair-distance/"
-
-[[entries]]
-title = "Minimum Changes To Make Alternating Binary String"
-url = "https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/"
-
-[[entries]]
-title = "Count and Say"
-url = "https://leetcode.com/problems/count-and-say/"
-
-[[entries]]
-title = "Shortest Word Distance III"
-url = "https://leetcode.com/problems/shortest-word-distance-iii/"
+title = "Design Tic-Tac-Toe"
+url = "https://leetcode.com/problems/design-tic-tac-toe/"

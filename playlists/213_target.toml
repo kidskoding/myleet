@@ -1,201 +1,85 @@
+# Sources (checked 2026-11-15):
+# Estimate from 9 candidate reports (low confidence); US reports describe behavioral and project rounds, and every named problem comes from Bengaluru
+# - Apr 2025 Bengaluru (non-US) L4 report: https://leetcode.com/discuss/post/6695556/
+# - May 2025 Bengaluru (non-US) senior report: https://leetcode.com/discuss/post/6707781/
+# - May 2025 Bengaluru (non-US) senior report: https://leetcode.com/discuss/post/6780233/
+# - Jun 2025 Bengaluru (non-US) L4 report: https://leetcode.com/discuss/post/6903398/
+# - Sep 2025 Bengaluru (non-US) senior report: https://leetcode.com/discuss/post/7183491/
+# - Sep 2025 Bengaluru (non-US) L4 report: https://leetcode.com/discuss/post/7274575/
+# - Glassdoor Target reviews, Minneapolis MN 2024-2026 (search snippets; review pages not identified)
 title = "Target"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, sliding window, heaps and trees"
-review_modules = ["02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "10_graphs"]
-
-
-[[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+focus = "Live coding focuses on arrays and strings, stacks, graphs and trees"
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "10_graphs"]
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
-title = "Subtree of Another Tree"
-url = "https://leetcode.com/problems/subtree-of-another-tree/"
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
 
 [[entries]]
-title = "Find K Closest Elements"
-url = "https://leetcode.com/problems/find-k-closest-elements/"
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
 
 [[entries]]
-title = "Find the Grid of Region Average"
-url = "https://leetcode.com/problems/find-the-grid-of-region-average/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Product of the Last K Numbers"
-url = "https://leetcode.com/problems/product-of-the-last-k-numbers/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Maximum Sum of Two Non-Overlapping Subarrays"
-url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Design Linked List"
-url = "https://leetcode.com/problems/design-linked-list/"
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
-title = "Majority Element II"
-url = "https://leetcode.com/problems/majority-element-ii/"
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
-title = "Apply Discount Every n Orders"
-url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Maximum Number of Robots Within Budget"
-url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
-
-[[entries]]
-title = "Same Tree"
-url = "https://leetcode.com/problems/same-tree/"
-
-[[entries]]
-title = "3Sum Closest"
-url = "https://leetcode.com/problems/3sum-closest/"
-
-[[entries]]
-title = "Frequency of the Most Frequent Element"
-url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
-
-[[entries]]
-title = "Design Most Recently Used Queue"
-url = "https://leetcode.com/problems/design-most-recently-used-queue/"
-
-[[entries]]
-title = "Longest Turbulent Subarray"
-url = "https://leetcode.com/problems/longest-turbulent-subarray/"
-
-[[entries]]
-title = "Longest Path With Different Adjacent Characters"
-url = "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/"
-
-[[entries]]
-title = "Read N Characters Given Read4"
-url = "https://leetcode.com/problems/read-n-characters-given-read4/"
-
-[[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
-
-[[entries]]
-title = "Maximum Subarray Sum with One Deletion"
-url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
-
-[[entries]]
-title = "Diameter of Binary Tree"
-url = "https://leetcode.com/problems/diameter-of-binary-tree/"
-
-[[entries]]
-title = "Possible Bipartition"
-url = "https://leetcode.com/problems/possible-bipartition/"
-
-[[entries]]
-title = "Symmetric Tree"
-url = "https://leetcode.com/problems/symmetric-tree/"
-
-[[entries]]
-title = "All Ancestors of a Node in a Directed Acyclic Graph"
-url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
-
-[[entries]]
-title = "All Paths From Source to Target"
-url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
-
-[[entries]]
-title = "Balanced Binary Tree"
-url = "https://leetcode.com/problems/balanced-binary-tree/"
-
-[[entries]]
-title = "Inorder Successor in BST"
-url = "https://leetcode.com/problems/inorder-successor-in-bst/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Trim a Binary Search Tree"
-url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
-
-[[entries]]
-title = "Reshape the Matrix"
-url = "https://leetcode.com/problems/reshape-the-matrix/"
-
-[[entries]]
-title = "Kth Smallest Element in a BST"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
-
-[[entries]]
-title = "Concatenation of Array"
-url = "https://leetcode.com/problems/concatenation-of-array/"
-
-[[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Design an Ordered Stream"
-url = "https://leetcode.com/problems/design-an-ordered-stream/"
-
-[[entries]]
-title = "Design a Food Rating System"
-url = "https://leetcode.com/problems/design-a-food-rating-system/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Shortest Word Distance"
-url = "https://leetcode.com/problems/shortest-word-distance/"
-
-[[entries]]
-title = "Range Sum Query 2D - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
-
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
