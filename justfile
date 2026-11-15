@@ -33,6 +33,10 @@ check:
 export:
     cargo run --release -- export web/public/data
 
+# build the browser bindings into web/src/wasm (needs wasm-pack and the wasm32 target)
+wasm:
+    wasm-pack build crates/wasm --target web --out-dir ../../web/src/wasm
+
 # install then run doctor
 doctor: install
     myleet doctor

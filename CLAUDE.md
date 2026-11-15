@@ -25,14 +25,20 @@ ______________________________________________________________________
 
 ```text
 myleet/
-├── src/                     the `myleet` trainer (Rust crate: library + binary)
-│   ├── main.rs, cli/        entry point and commands (validate, check, doctor, ...)
+├── Cargo.toml               Cargo workspace: the root `myleet` CLI plus crates/ (worker/ is excluded)
+├── src/                     the `myleet` CLI (library + binary): everything that touches fs or processes
+│   ├── main.rs, cli/        entry point and commands (validate, check, doctor, export, ...)
 │   ├── app.rs               the loaded trainer (catalog, history, save file, runner)
-│   ├── catalog/             curriculum, bank and playlist loading; problem-ids.lock
+│   ├── catalog/             loads curriculum, bank and playlists from disk; problem-ids.lock
+│   ├── export.rs            `myleet export <dir>`: catalog.json, problems/, notes/, lib/ for the web app
 │   ├── runner/              stages an attempt or solution and runs pytest
-│   ├── session.rs, schedule.rs   Today's queue and the review ladder
-│   ├── savestate.rs, progress.rs progress.toml (save file) and events.jsonl (history)
-│   └── testdata/            catalog, runner and save-file fixtures
+│   ├── savestate.rs, progress.rs progress.toml and events.jsonl on disk
+│   └── testdata/            catalog (plus good.json, its export), runner and save-file fixtures
+├── crates/
+│   ├── core/                `myleet-core`: catalog model, schedule, session, placement, checkpoint,
+│   │                        interview, stats, event lines, save-file text; no fs, builds for wasm32
+│   └── wasm/                `myleet-wasm`: wasm-bindgen JSON API over core (`just wasm`); see its README
+├── web/                     the web app; web/public/data (`just export`) and web/src/wasm are generated
 ├── guide/                   start-here notes shown at the top of the map
 ├── curriculum/
 │   ├── _lib/                shared Python helpers importable from every test

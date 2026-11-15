@@ -1,5 +1,5 @@
 [workspace]
-members = [".", "crates/core"]
+members = [".", "crates/core", "crates/wasm"]
 # The Cloudflare Worker builds on its own toolchain and target.
 exclude = ["worker"]
 

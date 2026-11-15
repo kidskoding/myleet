@@ -27,8 +27,13 @@ jobs:
       - name: Check Rust code
         run: |
           cargo fmt --check
-          cargo clippy --all-targets -- -D warnings
-          cargo test
+          cargo clippy --workspace --all-targets -- -D warnings
+          cargo test --workspace
+
+      - name: Check the core and bindings build for the browser
+        run: |
+          rustup target add wasm32-unknown-unknown
+          cargo check -p myleet-core -p myleet-wasm --target wasm32-unknown-unknown
 
       - name: Check curriculum
         run: |
