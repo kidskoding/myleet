@@ -5,6 +5,8 @@ export const ROUTES = {
   home: "/",
   today: "/app",
   plan: "/plan",
+  /** Plan with the goals editor open. */
+  goals: "/plan?edit=goals",
   skills: "/progress/skills",
   learn: "/learn",
   companies: "/companies",

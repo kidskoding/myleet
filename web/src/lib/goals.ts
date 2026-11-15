@@ -3,8 +3,21 @@
 import { companySlug } from "./catalog";
 import { readiness, type Readiness } from "./companies";
 import { sentenceCase } from "./display";
+import type { Aim, Plan } from "./prefs";
 import { midSentence } from "./schedule";
 import type { Catalog, Playlist, State } from "./types";
+
+/** The goals in the order every goals editor shows them. */
+export const AIMS: Aim[] = ["interview", "companies", "topics", "sharp"];
+
+/** The goals picked, plus any implied by what's filled in (saves from before goals were picked have data but no aims). */
+export function aimsOf(p: Pick<Plan, "aims" | "interviews" | "companies" | "focusTopics">): Aim[] {
+  const on = new Set(p.aims);
+  if (p.interviews.length) on.add("interview");
+  if (p.companies.length) on.add("companies");
+  if (p.focusTopics.length) on.add("topics");
+  return AIMS.filter((a) => on.has(a));
+}
 
 /** "Stripe", "Stripe and Ramp", "Stripe, Ramp and Meta", "Stripe, Ramp and 2 more". */
 export function names(list: string[]): string {

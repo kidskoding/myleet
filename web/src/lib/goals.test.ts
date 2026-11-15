@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { focusModules, goalLine, goalReadiness, goalTitle, names, topicName } from "./goals";
+import { aimsOf, focusModules, goalLine, goalReadiness, goalTitle, names, topicName } from "./goals";
 import type { Catalog, State } from "./types";
 
 const prob = (id: string, module: number) => ({ id, title: id, module, technique: 0 });
@@ -50,5 +50,15 @@ describe("goal mix", () => {
       ["company", "Stripe", 0, 1],
       ["topic", "Graphs", 1, 2],
     ]);
+  });
+});
+
+describe("aimsOf", () => {
+  it("keeps the order and adds the goals implied by what's filled in", () => {
+    const base = { aims: [], interviews: [], companies: [], focusTopics: [] };
+    expect(aimsOf(base)).toEqual([]);
+    expect(aimsOf({ ...base, aims: ["sharp", "interview"] })).toEqual(["interview", "sharp"]);
+    expect(aimsOf({ ...base, companies: ["stripe"], focusTopics: ["graphs"] })).toEqual(["companies", "topics"]);
+    expect(aimsOf({ ...base, aims: ["interview"], interviews: [{ date: "2099-01-01", company: null }] })).toEqual(["interview"]);
   });
 });

@@ -278,7 +278,7 @@ body[data-shell="focused"] .account { display: none; }
 .seg button { height: 28px; padding: 0 var(--space-3); font-size: var(--text-xs); font-weight: 600; color: var(--ink-2); border-radius: 4px; transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
 .seg button:hover { color: var(--ink); }
 .seg [aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
-.seg.seg-block { display: flex; width: 100%; } .seg.seg-block button { flex: 1; }
+.seg.seg-block { display: flex; flex-wrap: wrap; width: 100%; } .seg.seg-block button { flex: 1 1 auto; padding: 0 var(--space-2); white-space: nowrap; }
 @media (pointer: coarse) { .seg button { height: 40px; } }
 
 .switch { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); cursor: pointer; }
@@ -862,7 +862,39 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .company-picker-foot kbd { margin-inline-end: 3px; }
 .company-picker-empty { padding: var(--space-6); color: var(--ink-2); text-align: center; }
 
-/* Interviews list: a date and a company per row (Settings, onboarding, Change plan) */
+/* "Your goals" editor (lib/ui/goals-editor.ts): the same five sections in onboarding, Settings and Plan */
+.ge { display: grid; }
+.ge-sec { padding: var(--space-4) 0; }
+.ge-sec + .ge-sec { border-top: 1px solid var(--line); }
+.ge-sec:first-child { padding-top: 0; }
+.ge-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); font-size: inherit; }
+.ge-head > span { display: grid; gap: 2px; min-width: 0; }
+.ge-head input { margin-top: 2px; }
+.ge-title { font-weight: 600; font-size: var(--text-sm); color: var(--ink); }
+.ge-desc { font-size: var(--text-sm); color: var(--ink-3); max-width: 60ch; }
+.ge-body { margin-top: var(--space-3); }
+.ge-sec[data-on="false"] .ge-body { display: none; }
+.ge-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.ge-chip { padding-right: 3px; cursor: default; }
+.ge-chip:hover { border-color: var(--line-strong); }
+.ge-chip button { width: 26px; height: 26px; display: grid; place-items: center; color: var(--ink-3); }
+.ge-chip .company-logo, .ge-chip img { width: 16px; height: 16px; }
+.ge-lean { display: grid; gap: 6px; margin-top: var(--space-4); max-width: 420px; font-size: var(--text-xs); color: var(--ink-2); }
+.ge-lean p { color: var(--ink-3); }
+.ge-lean div { display: grid; grid-template-columns: minmax(0, 160px) 1fr 3ch; gap: var(--space-2); align-items: center; }
+.ge-lean .bar span { background: var(--ink-2); }
+.ge-lean b { font-family: var(--font-label); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.ge-time { display: grid; grid-template-columns: auto auto; justify-content: start; align-items: center; gap: var(--space-2) var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
+.ge-time output { font-family: var(--font-label); width: 8ch; white-space: nowrap; font-size: var(--text-sm); font-variant-numeric: tabular-nums; }
+.ge-time .stepper button:disabled { opacity: .35; cursor: default; background: none; }
+.ge-hint { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); }
+.ge-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--line); font-size: var(--text-sm); color: var(--ink-3); }
+/* "Your goals" beside a personal line */
+.goals-link { display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-xs); font-weight: 600; color: var(--ink-2); text-decoration: none; white-space: nowrap; }
+.goals-link:hover { color: var(--accent); }
+.goals-link .icon { width: 14px; height: 14px; }
+
+/* Interviews list: a date and a company per row (goals editor) */
 .iv-list { list-style: none; margin: 0 0 var(--space-2); padding: 0; display: grid; gap: var(--space-2); }
 .iv-row { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
 .iv-row input[type="date"] { width: 170px; }

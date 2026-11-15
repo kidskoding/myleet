@@ -4,6 +4,7 @@ import { companySelection, MAX_MOCK_COMPANIES } from "../mock";
 import { scoreItem } from "../palette-search";
 import type { Playlist } from "../types";
 import { html, raw, render, type SafeHtml } from "./html";
+import { icon } from "./icons";
 import { closeDialog, openDialog } from "./overlay";
 
 type Company = Pick<Playlist, "id" | "title" | "group">;
@@ -20,11 +21,12 @@ function highlight(title: string, ranges: [number, number][]): SafeHtml {
  * The same company search as the mock page, choosing one company or "No specific company".
  * Resolves the playlist slug, null for no company, or undefined when dismissed.
  */
-export function pickCompany(companies: Company[], current: string | null): Promise<string | null | undefined> {
+export function pickCompany(companies: Company[], current: string | null, o: { title?: string; none?: boolean } = {}): Promise<string | null | undefined> {
+  const none = o.none ?? true;
   const dialog = document.createElement("dialog");
   dialog.className = "dlg company-picker-dialog";
   dialog.setAttribute("aria-labelledby", "pick-company-title");
-  render(dialog, html`<div class="dlg-head"><h2 id="pick-company-title">Which company is it with?</h2><button class="icon-btn" type="button" data-close aria-label="Close">×</button></div>
+  render(dialog, html`<div class="dlg-head"><h2 id="pick-company-title">${o.title ?? "Which company is it with?"}</h2><button class="icon-btn" type="button" data-close aria-label="Close">${icon("x")}</button></div>
     <div class="company-search"><input class="input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="pick-company-results" aria-label="Search companies" placeholder="Search companies" autocomplete="off" /></div>
     <div class="company-results" id="pick-company-results" role="listbox" aria-label="Companies"></div>`);
   document.body.append(dialog);
@@ -46,7 +48,7 @@ export function pickCompany(companies: Company[], current: string | null): Promi
       return hit ? [{ company, ranges: hit.ranges, score: hit.score }] : [];
     });
     if (q) hits.sort((a, b) => b.score - a.score);
-    options = [...(q ? [] : [null]), ...hits.map((h) => h.company)];
+    options = [...(q || !none ? [] : [null]), ...hits.map((h) => h.company)];
     active = Math.min(active, Math.max(0, options.length - 1));
     const row = (c: Company | null, i: number, name: SafeHtml) => {
       const on = (c ? companySlug(c.id) : null) === current;
