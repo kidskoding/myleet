@@ -38,7 +38,8 @@ import "../components/flow.css";
   .flow .split-key { list-style: none; padding: 0; margin-top: var(--space-4); display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-8); color: var(--ink-2); font-size: var(--text-sm); }
   .flow .split-key li { display: flex; align-items: baseline; gap: var(--space-2); }
   .flow .split-key .num { font-size: 1.75rem; color: var(--ink); }
-  .flow .save { padding: var(--space-6); display: grid; gap: var(--space-3); }
+  .flow .save { padding: var(--space-6); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+  .flow .save .btn { white-space: normal; height: auto; min-height: var(--h, 44px); padding-block: var(--space-2); line-height: 1.3; text-align: center; }
   .flow .save h2 { font-size: var(--text-md); font-weight: 700; letter-spacing: -0.02em; }
   .flow .save p { color: var(--ink-2); font-size: var(--text-sm); }
   .flow .save .fine { color: var(--ink-3); font-size: var(--text-xs); }
