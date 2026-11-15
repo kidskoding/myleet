@@ -45,6 +45,7 @@ import type { TrainerApi } from "../../lib/trainer";
 import type { Mode, Plan, ProblemFiles, ProblemMeta, State } from "../../lib/types";
 import type { ResultAttempt, ResultExtras } from "../../lib/ui/workspace-personal";
 import { signupHref } from "../../lib/access";
+import { companyPracticeContext, type PracticeContext } from "../../lib/practice-context";
 import { ROUTES } from "../../lib/routes";
 import { icon } from "./icons";
 import { climb, ladderRung, renderLadder } from "./ladder";
@@ -73,6 +74,7 @@ export interface MountOptions {
   onReport?: (r: WorkspaceReport) => void;
   /** Where the back arrow and "Back to Today" go. */
   backHref?: string;
+  practiceContext?: PracticeContext;
   /**
    * Personalization hooks (the shared `lib/ui` reason line and "What this changes" renderers
    * plug in here). Without them the workspace writes a plain reason line and pace line.
@@ -96,15 +98,30 @@ const MODES: Mode[] = ["practice", "drill", "interview", "placement", "checkpoin
 const SAVE_DELAY_MS = 400;
 const CASES_KEY = (id: string) => `myleet-cases:${id}`;
 
-export function mountFromPage(personal: Pick<MountOptions, "renderReason" | "renderChanges" | "snapshot" | "resultExtras"> = {}): void {
+export async function mountFromPage(personal: Pick<MountOptions, "renderReason" | "renderChanges" | "snapshot" | "resultExtras"> = {}): Promise<void> {
   const root = document.getElementById("workspace");
   if (!root) return;
   const q = new URLSearchParams(location.search);
   const m = q.get("mode") as Mode | null;
   const mode = m && MODES.includes(m) ? m : "practice";
-  const backHref = mode === "placement" ? ROUTES.diagnostic : (root.dataset["back"] ?? ROUTES.today);
+  let context: PracticeContext | null = null;
+  if (mode === "practice" && q.get("company")) {
+    try {
+      const { catalog } = await loadCatalog();
+      context = companyPracticeContext(catalog, root.dataset["problem"] ?? "", q.get("company"));
+    } catch {
+      // The ordinary workspace still opens if the catalog is unavailable.
+    }
+  }
+  const backHref = context?.backHref ?? (mode === "placement" ? ROUTES.diagnostic : (root.dataset["back"] ?? ROUTES.today));
   for (const a of root.querySelectorAll<HTMLAnchorElement>("[data-back]")) a.href = backHref;
-  void mountWorkspace(root, { mode, backHref, ...personal });
+  if (context) {
+    for (const a of root.querySelectorAll<HTMLAnchorElement>("[data-back]")) {
+      a.setAttribute("aria-label", `Back to ${context.title} practice set`);
+      a.title = `Back to ${context.title}`;
+    }
+  }
+  void mountWorkspace(root, { mode, backHref, ...personal, ...(context ? { practiceContext: context } : {}) });
 }
 
 export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {}): Promise<void> {
@@ -119,6 +136,17 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   const toastSlot = $(root, "[data-toast]");
   const backHref = opts.backHref ?? root.dataset["back"] ?? "/";
 
+  const context = opts.practiceContext;
+  if (context) {
+    const nav = h("nav", { class: "practice-nav", "aria-label": `${context.title} practice navigation` },
+      h("a", { class: "practice-source", href: context.backHref }, `${context.title} set`),
+      h("span", { class: "practice-position" }, `${context.position} of ${context.total}`),
+      context.previous ? h("a", { class: "btn btn-ghost btn-sm", href: context.previous.href, title: context.previous.title }, "Previous") : h("button", { class: "btn btn-ghost btn-sm", disabled: true }, "Previous"),
+      context.next ? h("a", { class: "btn btn-ghost btn-sm", href: context.next.href, title: context.next.title }, "Next") : h("button", { class: "btn btn-ghost btn-sm", disabled: true }, "Next"),
+      h("a", { class: "btn btn-ghost btn-sm", href: context.exitHref, "aria-label": "Exit practice and view all companies" }, h("span", { class: "practice-exit-label" }, "All companies"), h("span", { class: "practice-exit-short", "aria-hidden": "true" }, "Exit")),
+    );
+    root.querySelector(".wbar")?.append(nav);
+  }
   root.dataset["mode"] = mode;
   if (mode === "placement") {
     $(root, '[data-act="dontKnow"]').hidden = false;
@@ -378,8 +406,10 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
         lastHistoryAt = Date.now();
         await addToHistory(id, code);
       }
+      return true;
     } catch {
       setSaved("error");
+      return false;
     }
   }
 
@@ -701,6 +731,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   }
 
   function nextHref(): string {
+    if (context) return context.next?.href ?? context.backHref;
     if (!trainer) return backHref;
     try {
       const next = trainer.today(events).find((e) => e.problem !== id);
@@ -781,13 +812,13 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const changes = h("div", { class: "changes", "data-changes": "" });
     if (opts.renderChanges && trainer) opts.renderChanges(changes, { problem: id, events, trainer, before, after });
     const lad = h("span", { class: "ladder" });
-    const nx = extras?.next;
-    const end = extras?.end;
+    const nx = context ? (context.next ? { ...context.next, reason: `Next in the ${context.title} set` } : null) : extras?.next;
+    const end = context ? null : extras?.end;
     const next = end
       ? h("a", { class: "btn btn-primary", href: end.tomorrowHref }, "See tomorrow ", h("kbd", {}, "↵"))
       : nx
         ? h("a", { class: "btn btn-primary", href: nx.href }, h("span", { class: "nx-title" }, `Next: ${nx.title}`), " ", h("kbd", {}, "↵"))
-        : h("a", { class: "btn btn-primary", href: nextHref() }, "Next problem ", h("kbd", {}, "↵"));
+        : h("a", { class: "btn btn-primary", href: nextHref() }, context ? `Back to ${context.title}` : "Next problem ", h("kbd", {}, "↵"));
     const sheet = h(
       "div",
       { class: "result", role: "status", "aria-live": "polite" },
@@ -1530,7 +1561,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       { label: settings.vim ? "Turn Vim mode off" : "Turn Vim mode on", hint: "", group: "Editor", run: () => updateSettings({ vim: !settings.vim }) },
       { label: "Editor settings", hint: "", group: "Editor", run: () => openSettings($(root, '[data-act="settings"]')) },
       { label: "Keyboard shortcuts", hint: "?", group: "Help", run: openShortcuts },
-      { label: "Back to Today", hint: "g t", group: "Go to", run: () => (location.href = backHref) },
+      { label: context ? `Back to ${context.title}` : "Back to Today", hint: "g t", group: "Go to", run: () => (location.href = backHref) },
     ];
   }
   function openPalette() {
@@ -1699,6 +1730,17 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     },
     { capture: true },
   );
+
+  if (context) root.addEventListener("click", (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const link = (e.target as Element).closest<HTMLAnchorElement>(".practice-nav a, a[data-back], .result a");
+    if (!link || link.target === "_blank" || new URL(link.href).origin !== location.origin) return;
+    e.preventDefault();
+    void flushDraft().then((saved) => {
+      if (saved) location.href = link.href;
+      else toast(toastSlot, "Couldn’t save your draft. Save or copy your code before leaving");
+    });
+  });
 
   // ---- Leaving ----
   window.addEventListener("pagehide", () => {

@@ -60,7 +60,7 @@ const example = pick !== undefined ? c.problems[pick] : undefined;
         <h1 class="co-title"><Fragment set:html={companyLogo(slug).value} />{p.title}</h1>
         {topics.length > 0 && (
           <p class="lead">
-            {p.title}'s interviews mostly cover {list}
+            Practice {list} for {p.title} interviews
             {example && <>, with problems like <a href={problemHref(example.id)}><strong>{example.title}</strong></a></>}
           </p>
         )}
@@ -80,13 +80,14 @@ const example = pick !== undefined ? c.problems[pick] : undefined;
         <div class="set-tools">
           <h2 id="ps">Practice problems</h2>
           <div class="seg when-in" role="group" aria-label="Show" data-set-seg>
-            <button type="button" aria-pressed="true" data-show="all">All<span class="n">{n}</span></button>
+            <button type="button" aria-pressed="true" data-show="all">All<span class="n" data-n="all">{n}</span></button>
             <button type="button" aria-pressed="false" data-show="notready">Not ready<span class="n" data-n="notready"></span></button>
             <button type="button" aria-pressed="false" data-show="due">Due<span class="n" data-n="due"></span></button>
           </div>
         </div>
+        <p class="active-technique" data-active-technique hidden aria-live="polite"></p>
         <ol class="panel set queue" aria-label={`${p.title} practice set, most asked first`} data-set>
-          <Fragment set:html={p.entries.map((e, i) => setRow(c, e, i + 1).value).join("")} />
+          <Fragment set:html={p.entries.map((e, i) => setRow(c, e, i + 1, undefined, undefined, 0, slug).value).join("")} />
         </ol>
         {n > SET_FOLD && <button type="button" class="btn btn-ghost btn-flush more" data-show-all aria-expanded="false">Show all {n}</button>}
         <p class="set-foot" data-set-foot hidden></p>

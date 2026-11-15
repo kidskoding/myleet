@@ -4,14 +4,15 @@ import { setRow, SET_FOLD } from "../components/companies/rows";
 import { parseEvents } from "../lib/attempts";
 import { companySlug, loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { companyLogo } from "../lib/company-logos";
-import { entryState, lastCleanSet, leans, leanText, perDay, readiness, type Readiness } from "../lib/companies";
+import { entryState, lastCleanSet, leans, perDay, readiness, type Readiness } from "../lib/companies";
 import { sentenceCase } from "../lib/display";
 import { isDue, statusTag } from "../lib/learn";
 import { daysUntil, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { requireAccount } from "../lib/access";
 import { readEvents } from "../lib/progress";
-import { ROUTES } from "../lib/routes";
+import { companyProblemHref } from "../lib/practice-context";
+import { moduleHref, ROUTES } from "../lib/routes";
 import { recordStats } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Playlist, Skill, State } from "../lib/types";
@@ -33,6 +34,7 @@ interface Ctx {
 }
 
 let ctx: Ctx | null = null;
+let technique: string | null = null;
 let show: "all" | "notready" | "due" = "all";
 
 const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) => root.querySelector<T>(sel);
@@ -165,31 +167,35 @@ function renderSet(c: Ctx, p: Playlist): void {
   [...p.entries].sort((a, b) => count(b) - count(a)).forEach((e, i) => {
     const meta = e.problem === null ? undefined : c.cat.catalog.problems[e.problem];
     if (meta) {
+      const module = c.cat.catalog.modules[meta.module];
+      const key = `${module?.id}/${module?.techniques[meta.technique]?.id}`;
+      if (technique && key !== technique) return;
       const ready = entryState(c.states[meta.id], c.clean.has(meta.id)) === "ready";
       if (!ready) notReady += 1;
       if (isDue(c.states[meta.id], c.now)) due += 1;
       const keep = show === "all" || (show === "notready" && !ready) || (show === "due" && isDue(c.states[meta.id], c.now));
       if (!keep) return;
       const [status, st] = setStatus(c, meta.id);
-      rows.push(setRow(c.cat.catalog, e, i + 1, st, status, count(e)).value);
-    } else if (show === "all") rows.push(setRow(c.cat.catalog, e, i + 1).value);
+      rows.push(setRow(c.cat.catalog, e, i + 1, st, status, count(e), companySlug(p.id)).value);
+    } else if (show === "all" && !technique) rows.push(setRow(c.cat.catalog, e, i + 1).value);
   });
   list.innerHTML = rows.join("") || html`<li class="tech-empty" style="padding:var(--space-4);color:var(--ink-3);font-size:var(--text-sm)">${show === "due" ? "Nothing from this set is due" : "Every problem in this set is ready"}</li>`.value;
   // Filters show every match; only the full list folds.
-  list.classList.toggle("show-all", show !== "all" || list.dataset["expanded"] === "1");
+  list.classList.toggle("show-all", technique !== null || show !== "all" || list.dataset["expanded"] === "1");
   const n = (k: string, v: number) => {
     const el = $(`[data-n="${k}"]`);
     if (el) el.textContent = String(v);
   };
+  n("all", technique ? leans(p, c.cat.catalog, c.states, c.clean).find((x) => `${x.module}/${x.technique}` === technique)?.count ?? 0 : p.entries.length);
   n("notready", notReady);
   n("due", due);
   for (const b of $$("[data-set-seg] button")) b.setAttribute("aria-pressed", String(b.dataset["show"] === show));
   const more = $("[data-show-all]");
-  if (more) more.hidden = show !== "all" || list.dataset["expanded"] === "1";
+  if (more) more.hidden = technique !== null || show !== "all" || list.dataset["expanded"] === "1";
   const untracked = p.entries.filter((e) => e.problem === null).length;
   const foot = $("[data-set-foot]");
   if (foot) {
-    foot.hidden = untracked === 0;
+    foot.hidden = untracked === 0 || technique !== null || show !== "all";
     foot.textContent = `${plural(untracked, "problem")} ${untracked === 1 ? "opens" : "open"} on LeetCode and ${untracked === 1 ? "isn't" : "aren't"} tracked or counted in readiness`;
   }
 }
@@ -203,12 +209,13 @@ function renderReadiness(c: Ctx, p: Playlist): void {
   render(
     $("[data-readiness]"),
     html`<h2 id="rd">Readiness</h2>
+      ${nextEntry(c, p) ? html`<a class="btn btn-primary" href="${companyProblemHref(nextEntry(c, p)!, companySlug(p.id))}">${r.unseen === r.tracked ? "Start practicing" : "Continue practicing"}</a>` : ""}
       <div class="big"><b>${r.ready}</b><span class="text-secondary">of ${r.tracked} ready</span></div>
       ${readyBar(r, readyLabel(r))}
       <div class="keys"><span><i style="background:var(--pass-solid)"></i>${r.mastered} mastered</span><span><i style="background:var(--ink)"></i>${r.climbing} climbing</span><span><i style="background:var(--line-strong)"></i>${r.started} started</span><span>${r.unseen} not started</span></div>
       <p class="f">${
         all
-          ? `Every problem in this set is mastered or climbing. Keep it sharp with a ${p.title} mock`
+          ? `Every problem in this set is ready. Keep it sharp with a ${p.title} mock`
           : `Ready means mastered or climbing the ladder with a clean last pass${pace !== null && date && left !== null ? `. ${plural(left, "day")} to ${shortDate(date)}: about ${plural(pace, `${p.title} problem`)} a day gets the whole set ready` : ""}`
       }</p>`,
   );
@@ -216,20 +223,17 @@ function renderReadiness(c: Ctx, p: Playlist): void {
 
 function renderLeans(c: Ctx, p: Playlist): void {
   const l = leans(p, c.cat.catalog, c.states, c.clean, c.skills);
-  const top = l.filter((x) => x.count >= 2).slice(0, 8);
-  const rest = l.length - top.length;
-  const bank = p.entries.filter((e) => e.problem !== null && c.cat.catalog.modules[c.cat.catalog.problems[e.problem]?.module ?? -1]?.bank).length;
-  const cls = (k: string) => (k === "ready" ? "ok" : k === "building" ? "bld" : "low");
-  const extra = [bank ? `${plural(bank, "practice-set-only problem")} that ${bank === 1 ? "isn't" : "aren't"} on the Learn map` : "", rest ? `${plural(rest, "more technique")} with one problem each` : ""].filter(Boolean);
+  const row = (x: (typeof l)[number]) => {
+    const key = `${x.module}/${x.technique}`;
+    const label = `${x.ready} of ${x.count} ready`;
+    return html`<li><button type="button" class="technique-filter" data-technique="${key}" aria-label="${sentenceCase(x.title)}, ${plural(x.count, "problem")}, ${label}. Filter practice problems" aria-pressed="${technique === key}"><span>${sentenceCase(x.title)}</span><span class="st">${label}</span>${bar([{ value: x.ready / x.count, kind: "m" }], `${sentenceCase(x.title)}: ${label}`)}</button></li>`;
+  };
   render(
     $("[data-leans]"),
     html`<h2 id="ln">Techniques in this set</h2>
-      <p class="text-small text-muted" style="margin-top:var(--space-1)">The techniques covered by this set and your progress in each</p>
-      <ol>${top.map((x) => {
-        const m = x.mastery ?? 0;
-        return html`<li><span>${sentenceCase(x.title)}<span class="n">${x.count}</span></span><span class="st ${cls(x.status.kind)}">${leanText(x.status)}</span>${bar([{ value: m, kind: x.status.kind === "ready" ? "m" : "c" }], `${sentenceCase(x.title)}: ${x.ready} of ${x.count} ready here, your mastery ${Math.round(m * 100)}%`)}</li>`;
-      })}</ol>
-      ${extra.length ? html`<p class="text-small text-muted" style="margin-top:var(--space-4)">Plus ${extra.join(", and ")}</p>` : ""}`,
+      <p class="text-small text-muted">Choose a technique to filter the problems.</p>
+      <ol>${l.slice(0, 5).map(row)}</ol>
+      ${l.length > 5 ? html`<details><summary class="link">Show all ${l.length} techniques</summary><ol>${l.slice(5).map(row)}</ol></details>` : ""}`,
   );
 }
 
@@ -387,6 +391,7 @@ async function load(): Promise<void> {
 document.addEventListener("astro:page-load", () => {
   ctx = null;
   show = "all";
+  technique = null;
   // /companies#big-tech opens on that group's tab (the landing's "See all" links)
   const h = decodeURIComponent(location.hash.slice(1));
   group = h && document.querySelector(`[role=tab][data-group="${CSS.escape(h)}"]`) ? h : "all";
@@ -410,6 +415,18 @@ document.addEventListener("click", (e) => {
     if (f) f.value = "";
     query = "";
     applyIndexFilter();
+  } else if (t.closest("[data-technique]") && ctx && p) {
+    technique = t.closest<HTMLElement>("[data-technique]")?.dataset["technique"] || null;
+    renderSet(ctx, p);
+    for (const button of $$("[data-technique]")) button.setAttribute("aria-pressed", String((button.dataset["technique"] || null) === technique));
+    const filter = $("[data-active-technique]");
+    if (filter) {
+      filter.hidden = !technique;
+      const selected = leans(p, ctx.cat.catalog, ctx.states, ctx.clean).find((x) => `${x.module}/${x.technique}` === technique);
+      const module = ctx.cat.catalog.modules.find((m) => m.id === selected?.module);
+      render(filter, html`${leans(p, ctx.cat.catalog, ctx.states, ctx.clean).find((x) => `${x.module}/${x.technique}` === technique)?.title ?? ""}<button type="button" class="link" data-technique="">Clear filter</button>${module && !module.bank && selected ? html`<a class="link" href="${moduleHref(module)}?technique=${encodeURIComponent(selected.technique)}">Learn this technique</a>` : ""}`);
+    }
+    $("#ps")?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   } else if (t.closest("[data-pin]") && p) requireAccount("pin-company") && togglePin(p);
   else if (t.closest("[data-set-seg] button")) {
     show = (t.closest<HTMLElement>("[data-set-seg] button")?.dataset["show"] ?? "all") as typeof show;

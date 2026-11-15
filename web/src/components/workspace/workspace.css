@@ -80,7 +80,7 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .diff i { display: inline-flex; gap: 2px; align-items: flex-end; }
 .diff i b { width: 3px; border-radius: 1px; background: var(--line-strong); }
 .diff i b:nth-child(1) { height: 6px; } .diff i b:nth-child(2) { height: 9px; } .diff i b:nth-child(3) { height: 12px; }
-.diff[data-level="easy"] b:nth-child(-n+1), .diff[data-level="medium"] b:nth-child(-n+2), .diff[data-level="hard"] b { background: var(--ink-2); }
+.diff[data-level="easy"] b:nth-child(-n+1), .diff[data-level="medium"] b:nth-child(-n+2), .diff[data-level="hard"] b { background: var(--difficulty-color); }
 
 .tabs { display: flex; gap: var(--space-1); }
 .tabs button {
@@ -580,3 +580,21 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
   .diff2 { grid-template-columns: 1fr; }
 }
 
+
+/* Contextual wayfinding uses the existing toolbar and leaves the editor panes intact. */
+.wbar:has(.practice-nav) { height: auto; min-height: 56px; padding-block: var(--space-2); row-gap: var(--space-1); }
+.practice-nav { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-2); min-width: 0; font-size: var(--text-xs); }
+.practice-source { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.practice-source:hover { color: var(--ink); }
+.practice-position { color: var(--ink-3); margin-right: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.practice-nav .btn[disabled] { opacity: 0.45; cursor: default; }
+@media (max-width: 760px) {
+  .practice-nav { gap: var(--space-1); flex-wrap: wrap; }
+  .practice-nav .btn { padding-inline: var(--space-2); min-height: 36px; }
+}
+
+.practice-exit-short { display: none; }
+@media (max-width: 760px) {
+  .practice-exit-label { display: none; }
+  .practice-exit-short { display: inline; }
+}

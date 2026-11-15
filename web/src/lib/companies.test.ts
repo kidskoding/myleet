@@ -68,7 +68,17 @@ describe("companies", () => {
     expect(l.map((x) => [x.title, x.count, leanText(x.status)])).toEqual([
       ["Grid BFS", 3, "Ready"],
       ["Topological Sort", 1, "Not started on 1"],
+      ["X", 1, "Not started on 1"],
     ]);
+  });
+
+  it("includes bank problems and keeps technique totals consistent with readiness", () => {
+    const states = { e: st({ status: "mastered", rung: 4 }) };
+    const rows = leans(set, cat, states, new Set());
+    const total = readiness(set, cat, states, new Set(), 10);
+    expect(rows.reduce((n, row) => n + row.count, 0)).toBe(total.tracked);
+    expect(rows.reduce((n, row) => n + row.ready, 0)).toBe(total.ready);
+    expect(rows.find((row) => row.module === "bank")?.ready).toBe(1);
   });
 
   it("paces the rest of the set to the date", () => {

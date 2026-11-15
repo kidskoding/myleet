@@ -76,7 +76,7 @@ export interface Lean {
 }
 
 /**
- * Techniques of the set's curriculum problems, most problems first. Ready when at least 60%
+ * Techniques of all the set's tracked problems, most problems first. Ready when at least 60%
  * of the technique's set problems are ready; "not started on N" when N of them are untouched.
  */
 export function leans(p: Playlist, c: Catalog, states: Record<string, State>, clean: Set<string>, skills: Skill[] = []): Lean[] {
@@ -85,7 +85,7 @@ export function leans(p: Playlist, c: Catalog, states: Record<string, State>, cl
     const meta = e.problem === null ? undefined : c.problems[e.problem];
     const m = meta ? c.modules[meta.module] : undefined;
     const t = m?.techniques[meta?.technique ?? -1];
-    if (!meta || !m || !t || m.bank) continue;
+    if (!meta || !m || !t) continue;
     const key = `${m.id}/${t.id}`;
     const l = by.get(key) ?? { module: m.id, technique: t.id, title: t.title, count: 0, ready: 0, unseen: 0, mastery: null, status: { kind: "building" } };
     l.count += 1;

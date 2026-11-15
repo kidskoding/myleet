@@ -117,3 +117,12 @@
   .cos .set .qrow { grid-template-columns: 24px minmax(0, 1fr) auto; }
   .cos .set .qrow .ladder-cell, .cos .set .qrow .diff { display: none; }
 }
+
+.cos .leans li { display: block; }
+.cos .technique-filter { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2); width: 100%; min-height: 44px; padding: var(--space-1) 0; border: 0; border-radius: var(--radius-sm, 6px); background: transparent; color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
+.cos .technique-filter:hover, .cos .technique-filter[aria-pressed="true"] { background: var(--hover-wash); }
+.cos .technique-filter:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.cos .leans details { margin-top: var(--space-3); }
+.cos .leans summary { cursor: pointer; font-size: var(--text-sm); }
+.cos .active-technique { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-3); font-size: var(--text-sm); }
+.cos .readiness > .btn { margin-block: var(--space-3); }

@@ -140,6 +140,8 @@ function techBlock(c: Ctx, m: Module, t: Technique, open: boolean): SafeHtml {
 
 /** Which techniques start open in a module: stored choice, else the one holding the next problem or a due review. */
 function openTechs(c: Ctx, m: Module): Set<string> {
+  const requested = new URLSearchParams(location.search).get("technique");
+  if (requested && m.techniques.some((t) => t.id === requested)) return new Set([requested]);
   const stored = readJson<Record<string, string[]>>(TECH_KEY, {})[m.id];
   if (stored) return new Set(stored);
   const has = (t: Technique, pred: (id: string) => boolean) => idsOf(c, t).some(pred);
@@ -162,8 +164,12 @@ function toggleTech(modId: string, techId: string): void {
   if (!ctx) return;
   const m = ctx.cat.catalog.modules.find((x) => x.id === modId);
   if (!m) return;
+  const curOpen = openTechs(ctx, m);
+  const url = new URL(location.href);
+  url.searchParams.delete("technique");
+  history.replaceState(history.state, "", url);
   const all = readJson<Record<string, string[]>>(TECH_KEY, {});
-  const cur = all[modId] ? new Set(all[modId]) : openTechs(ctx, m);
+  const cur = curOpen;
   if (cur.has(techId)) cur.delete(techId);
   else cur.add(techId);
   all[modId] = [...cur];
