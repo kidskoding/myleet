@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { listedCompany } from "../lib/catalog";
 import { buildCatalog } from "../lib/build-catalog";
 import type { PaletteItem } from "../lib/palette-search";
 import { companyHref, moduleHref, noteHref, problemHref } from "../lib/routes";
@@ -34,7 +35,7 @@ export const GET: APIRoute = () => {
         href: t.note ? noteHref(t.note) : moduleHref(m),
       });
   }
-  for (const pl of c.playlists)
+  for (const pl of c.playlists.filter(listedCompany))
     items.push({ key: `c:${pl.id}`, kind: "company", title: pl.title, hint: pl.group, href: companyHref(pl.id) });
   return new Response(JSON.stringify(items), { headers: { "content-type": "application/json" } });
 };

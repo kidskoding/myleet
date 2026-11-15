@@ -3,16 +3,17 @@ import { ROUTES } from "../../lib/routes";
 import Icon from "../Icon.astro";
 import BrandMark from "./BrandMark.astro";
 
-export type NavKey = "today" | "learn" | "companies" | "mock" | "progress";
+export type NavKey = "today" | "plan" | "learn" | "companies" | "mock" | "progress";
 interface Props {
   nav?: NavKey | undefined;
 }
 const { nav } = Astro.props;
 const links: { key: NavKey; href: string; label: string }[] = [
   { key: "today", href: ROUTES.today, label: "Today" },
+  { key: "plan", href: ROUTES.plan, label: "Plan" },
   { key: "learn", href: ROUTES.learn, label: "Learn" },
-  { key: "companies", href: ROUTES.companies, label: "Companies" },
   { key: "mock", href: ROUTES.mock, label: "Mock" },
+  { key: "companies", href: ROUTES.companies, label: "Companies" },
 ];
 ---
 
@@ -25,12 +26,11 @@ const links: { key: NavKey; href: string; label: string }[] = [
     <button class="search-trigger" type="button" data-open-palette aria-label="Search and commands" aria-keyshortcuts="Control+K Meta+K">
       <Icon name="search" /><span class="label">Search problems, notes, commands</span><kbd data-mod-k>Ctrl K</kbd>
     </button>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-keyshortcuts="Shift+D"><Icon name="sun-moon" /></button>
     <div class="account">
       <a class="streak" href={ROUTES.progress} data-streak hidden aria-current={nav === "progress" ? "page" : undefined}>
         <Icon name="calendar-check" /><span class="num" data-streak-num>0</span><span class="unit" data-streak-unit>days</span>
       </a>
-      <button class="btn btn-ghost btn-sm when-out" type="button" data-signin>Sign in</button>
+      <button class="btn btn-ghost btn-sm when-out" type="button" data-signin><span>Guest</span><span aria-hidden="true"> · </span>Sign in</button>
       <button class="avatar-btn when-in" type="button" data-account-menu aria-haspopup="menu" aria-expanded="false" aria-controls="account-menu" aria-label="Account and settings">
         <span class="avatar" data-avatar></span>
       </button>

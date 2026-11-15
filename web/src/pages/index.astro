@@ -8,23 +8,24 @@ import Base from "../layouts/Base.astro";
 import LandingFooter from "../components/landing/LandingFooter.astro";
 import { buildCatalog } from "../lib/build-catalog";
 import { sentenceCase } from "../lib/display";
-import { companySlug } from "../lib/catalog";
+import { companySlug, listedCompany } from "../lib/catalog";
 import { companyLogo } from "../lib/company-logos";
 import { companyHref, moduleHref, ROUTES } from "../lib/routes";
 import type { PlaylistGroup } from "../lib/types";
 import { ladder } from "../lib/ui/ladder";
 
-const c = buildCatalog();
+const catalog = buildCatalog();
+const c = { ...catalog, playlists: catalog.playlists.filter(listedCompany) };
 const modules = c.modules.filter((m) => !m.bank);
 const size = (m: (typeof modules)[number]) => m.techniques.reduce((n, t) => n + t.problems.length, 0);
 const featured = [1, 4, 7, 10, 11].flatMap((n) => modules.filter((m) => m.number === n));
 
 const GROUPS: [PlaylistGroup, string][] = [
   ["Big tech", "Big tech"],
-  ["Little tech", "Little tech"],
-  ["AI labs / high growth", "AI labs"],
-  ["Quant", "Quant"],
-  ["Fortune 500", "Fortune 500"],
+  ["Product companies", "Product companies"],
+  ["AI labs & high growth", "AI labs"],
+  ["Trading firms", "Trading firms"],
+  ["Enterprise companies", "Enterprise companies"],
 ];
 const groups = GROUPS.map(([g, label]) => ({ label, sets: c.playlists.filter((p) => p.group === g) }));
 
@@ -46,7 +47,7 @@ const ruleIcon = (s: string, cls: string) =>
 <Base
   title="myleet"
   shell="public"
-  description="Solve LeetCode-style problems in the browser with Python tests, then review each one on a 1, 3, 7, 14, 30-day ladder until you can solve it cold. Free, no account needed."
+  description="Solve LeetCode-style problems in the browser with Python tests, then review each one on a 1, 3, 7, 14, 30-day ladder until you can solve it cold. Free, no account needed"
   ogImage="/og/default.png"
 >
   <script is:inline>
@@ -61,13 +62,13 @@ const ruleIcon = (s: string, cls: string) =>
   <div class="landing" data-landing>
     <div class="lwrap">
       <section class="intro" aria-labelledby="l-h">
-        <h1 id="l-h">Interview practice that schedules your reviews.</h1>
+        <h1 id="l-h">Interview practice that schedules your reviews</h1>
         <div>
-          <p>Solve in the browser with real Python tests. Every problem comes back on a 1, 3, 7, 14, 30-day ladder until you can solve it cold.</p>
+          <p>Solve problems in the browser and check your Python against the tests. Review them after 1, 3, 7, 14 and 30 days to practice solving from memory</p>
           <div class="actions">
             <a class="btn btn-primary btn-lg" href={ROUTES.onboarding}>Start practicing</a>
             <a class="btn btn-secondary btn-lg" href={ROUTES.signin} data-signin>Sign in</a>
-            <small>Free. No account needed: progress stays on this device until you sign in.</small>
+            <small>Practice for free without an account. Your progress stays on this device until you sign in</small>
           </div>
         </div>
       </section>
@@ -85,8 +86,8 @@ const ruleIcon = (s: string, cls: string) =>
         <div class="pane statement-pane">
           <div class="pane-title">Problem</div>
           <div class="prose statement">
-            <p>Given a list of integers <code>nums</code> and an integer <code>target</code>, return the indices of the two numbers that add up to <code>target</code>.</p>
-            <p>Each input has at most one answer, and you may not use the same element twice. Return <code>[]</code> when no pair exists.</p>
+            <p>Given a list of integers <code>nums</code> and an integer <code>target</code>, return the indices of the two numbers that add up to <code>target</code></p>
+            <p>Each input has at most one answer, and you may not use the same element twice. Return <code>[]</code> when no pair exists</p>
             <pre><code>nums = [2, 7, 11, 15], target = 9
 answer: [0, 1]</code></pre>
           </div>
@@ -127,8 +128,8 @@ answer: [0, 1]</code></pre>
           <div class="result">
             <span class="lad lad-before" set:html={ladder({ rung: 2, size: "lg" }).value} />
             <span class="lad lad-after" set:html={ladder({ rung: 3, size: "lg" }).value} />
-            <p class="msg-before">On the 3-day rung. A clean pass under 15 minutes climbs to 7 days.</p>
-            <p class="msg-after"><strong>Clean pass in 6:40.</strong> Up to the 7-day rung. Next review <span data-next>in 7 days</span>.</p>
+            <p class="msg-before">On the 3-day rung. A clean pass under 15 minutes climbs to 7 days</p>
+            <p class="msg-after"><strong>Clean pass in 6:40</strong> Up to the 7-day rung. Next review <span data-next>in 7 days</span></p>
           </div>
         </div>
       </article>
@@ -143,10 +144,10 @@ answer: [0, 1]</code></pre>
       </script>
     </div>
 
-    <section class="band" aria-labelledby="ladder-h">
+    <section class="band on-wall" aria-labelledby="ladder-h">
       <div class="lwrap">
-        <h2 id="ladder-h">A problem comes back until you can solve it cold.</h2>
-        <p class="lede">Solving something once proves little. myleet schedules each problem on a ladder of growing gaps, and only a clean solve moves it up.</p>
+        <h2 id="ladder-h">A problem comes back until you can solve it cold</h2>
+        <p class="lede">myleet brings each problem back for review at longer intervals. Pass the tests without help and within the time target to move up one rung</p>
         <div class="topo">
           <figure>
             <div class="topo-scroll">
@@ -174,10 +175,10 @@ answer: [0, 1]</code></pre>
             <figcaption class="topo-cap">One problem's history, Koko Eating Bananas (example). Each dot is a solve; dashed red is a fall.</figcaption>
           </figure>
           <ul class="rules">
-            <li><Fragment set:html={ruleIcon(ArrowUpRight, "up")} /><div><strong>Climbs one rung</strong><span>Green tests, no hint or peek, under the time target: 15, 25 or 45 minutes by difficulty.</span></div></li>
-            <li><Fragment set:html={ruleIcon(CornerLeftDown, "down")} /><div><strong>Falls to 1 day</strong><span>A hint, a look at the solution, going over time, or giving up. The miss is recorded, not hidden.</span></div></li>
-            <li><Fragment set:html={ruleIcon(Equal, "same")} /><div><strong>Same day doesn't count</strong><span>Passing again the same day keeps the rung. Memory only shows across a gap.</span></div></li>
-            <li><Fragment set:html={ruleIcon(CheckCheck, "done")} /><div><strong>Mastered at 14 days</strong><span>A clean cold redo two weeks out. After that it visits once a month to stay sharp.</span></div></li>
+            <li><Fragment set:html={ruleIcon(ArrowUpRight, "up")} /><div><strong>Climbs one rung</strong><span>Green tests, no hint or peek, under the time target: 15, 25 or 45 minutes by difficulty</span></div></li>
+            <li><Fragment set:html={ruleIcon(CornerLeftDown, "down")} /><div><strong>Falls to 1 day</strong><span>Using a hint, looking at the solution, going over time, or giving up resets the interval. The attempt stays in your history</span></div></li>
+            <li><Fragment set:html={ruleIcon(Equal, "same")} /><div><strong>Same day doesn't count</strong><span>Passing again on the same day keeps the rung. You need to solve it on a later day to move up</span></div></li>
+            <li><Fragment set:html={ruleIcon(CheckCheck, "done")} /><div><strong>Mastered at 14 days</strong><span>Solve it from memory after two weeks without help and within the time target. Monthly reviews follow</span></div></li>
           </ul>
         </div>
       </div>
@@ -186,8 +187,8 @@ answer: [0, 1]</code></pre>
     <div class="lwrap">
       <section class="notes" aria-labelledby="notes-h">
         <div>
-          <h2 id="notes-h">Read the pattern before you drill it.</h2>
-          <p class="lede">{modules.length} modules by interview pattern, written as one book. Each note starts from the brute force, shows why it fails, and traces the fix by hand.</p>
+          <h2 id="notes-h">Learn each pattern, then practice</h2>
+          <p class="lede">{modules.length} modules organized by interview pattern, with notes to read in order. Each note starts with a brute-force approach, explains its limits, and walks through a more efficient solution</p>
           <ul>
             {
               featured.map((m) => (
@@ -220,14 +221,14 @@ answer: [0, 1]</code></pre>
             left <span class="op">+=</span> <span class="nu">1</span>
 
     <span class="kw">return</span> <span class="nu">0</span> <span class="kw">if</span> best <span class="op">==</span> <span class="bi">len</span>(nums) <span class="op">+</span> <span class="nu">1</span> <span class="kw">else</span> best</code></pre>
-            <p>On <code>[2, 3, 1, 2, 4, 3]</code> with target 7, <code>right = 4</code> first gives <code>[3, 1, 2, 4]</code> with length 4. Removing 3 leaves <code>[1, 2, 4]</code>, which is still valid and improves the answer to 3. The loop must continue after the first valid window or it misses the shorter one.</p>
+            <p>On <code>[2, 3, 1, 2, 4, 3]</code> with target 7, <code>right = 4</code> first gives <code>[3, 1, 2, 4]</code> with length 4. Removing 3 leaves <code>[1, 2, 4]</code>, which is still valid and improves the answer to 3. The loop must continue after the first valid window or it misses the shorter one</p>
           </div>
         </article>
       </section>
 
       <section class="companies" aria-labelledby="co-h">
-        <h2 id="co-h">Aim at a company when the core is solid.</h2>
-        <p class="lede">{c.playlists.length} company sets, ordered most-asked first. Problems you've already climbed show their rung; the rest are new.</p>
+        <h2 id="co-h">Practice for a company once you know the basics</h2>
+        <p class="lede">{c.playlists.length} company sets, ordered most-asked first. Problems you have practiced show their review rung; the rest are marked new</p>
         <div class="groups">
           {
             groups.map((g) => (
@@ -251,13 +252,13 @@ answer: [0, 1]</code></pre>
             ))
           }
         </div>
-        <p class="disclaim">Curated practice plans built from each company's common interview patterns, not lists of exact interview questions.</p>
+        <p class="disclaim">Curated practice plans built from each company's common interview patterns, not lists of exact interview questions</p>
       </section>
 
       <section class="close" aria-labelledby="close-h">
         <div>
-          <h2 id="close-h">Start with today's first problem.</h2>
-          <p class="lede">A short warm-up places you on the ladder. Sign in later and your progress comes with you.</p>
+          <h2 id="close-h">Start with today's first problem</h2>
+          <p class="lede">A short warm-up helps choose where to start. Sign in whenever you want to sync your progress</p>
         </div>
         <div class="actions">
           <a class="btn btn-primary btn-lg" href={ROUTES.onboarding}>Start practicing</a>
@@ -332,7 +333,7 @@ answer: [0, 1]</code></pre>
   @keyframes l-ring { from { transform: scale(0.2); opacity: 0; } }
   @keyframes l-draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
 
-  .landing .band { margin-top: var(--space-24); background: var(--wall); color: var(--wall-ink); padding: var(--space-24) 0; }
+  .landing .band { margin-top: var(--space-24); padding: var(--space-24) 0; }
   .landing :is(.band, .notes, .companies, .close) h2 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); max-width: 18ch; }
   .landing .band .lede { margin-top: var(--space-4); color: var(--wall-ink-2); font-size: var(--text-md); max-width: 50ch; line-height: 1.5; }
   .landing .topo { margin-top: var(--space-12); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--space-12); align-items: start; }
@@ -354,7 +355,7 @@ answer: [0, 1]</code></pre>
   .landing .rules strong { display: block; font-size: var(--text-base); color: var(--wall-ink); }
   .landing .rules span { color: var(--wall-ink-2); font-size: var(--text-sm); }
   .landing .rules .icon { width: 22px; height: 22px; margin-top: 1px; }
-  .landing .up { color: var(--accent); } .landing .down { color: var(--fail-solid); } .landing .done { color: var(--pass-solid); } .landing .same { color: var(--wall-ink-2); }
+  .landing .up { color: var(--wall-accent); } .landing .down { color: var(--wall-fail); } .landing .done { color: var(--wall-pass); } .landing .same { color: var(--wall-ink-2); }
   .landing .topo-cap { margin-top: var(--space-4); font-size: var(--text-xs); color: var(--wall-ink-2); }
 
   .landing .notes { padding-top: var(--space-24); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-12); align-items: start; }

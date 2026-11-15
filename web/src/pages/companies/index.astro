@@ -2,19 +2,20 @@
 import "../../components/companies/companies.css";
 import Base from "../../layouts/Base.astro";
 import { buildCatalog } from "../../lib/build-catalog";
-import { companySlug } from "../../lib/catalog";
+import { companySlug, listedCompany } from "../../lib/catalog";
 import { companyLogo } from "../../lib/company-logos";
 import { companyHref } from "../../lib/routes";
 import { icon } from "../../lib/ui/icons";
 import type { PlaylistGroup } from "../../lib/types";
 
-const c = buildCatalog();
+const catalog = buildCatalog();
+const c = { ...catalog, playlists: catalog.playlists.filter(listedCompany) };
 const GROUPS: { name: PlaylistGroup; about: string }[] = [
-  { name: "Big tech", about: "FAANG-style DSA loops." },
-  { name: "Little tech", about: "Product companies that still run LeetCode-style rounds." },
-  { name: "AI labs / high growth", about: "Private, AI-forward and fast-growing companies." },
-  { name: "Quant", about: "Trading-firm interview track." },
-  { name: "Fortune 500", about: "Banks, retail, health and industrial tech teams." },
+  { name: "Big tech", about: "Large technology companies with coding interviews" },
+  { name: "Product companies", about: "Software and product companies with coding interviews" },
+  { name: "AI labs & high growth", about: "AI labs and growing technology companies" },
+  { name: "Trading firms", about: "Trading firms and quantitative finance companies" },
+  { name: "Enterprise companies", about: "Technology roles across finance, semiconductors, retail, healthcare, aerospace, defense, telecom, manufacturing, logistics, and other industries" },
 ];
 const groups = GROUPS.map((g) => ({ ...g, sets: c.playlists.filter((p) => p.group === g.name) }));
 const total = c.playlists.length;
@@ -26,7 +27,7 @@ const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     <div class="head">
       <div>
         <h1>Companies</h1>
-        <p>{total} curated practice sets, one per company, with the most asked problems first. Pin the companies you're interviewing with and your plan mixes their problems in.</p>
+        <p data-company-intro>Choose from {total} company practice sets to build your interview plan</p>
       </div>
       <label class="find"><Fragment set:html={icon("search").value} /><input type="search" aria-label="Find a company" placeholder="Find a company" data-find autocomplete="off" /><kbd>/</kbd></label>
     </div>
@@ -35,7 +36,6 @@ const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       <div class="section-head"><h2 id="pn">Your companies</h2><span class="meta">Pinned to your plan</span></div>
       <ul class="panel pin-list" data-pin-list></ul>
     </section>
-    <p class="pin-empty" data-pin-empty>Pin a company and your plan mixes its problems in. Most people pin one to three.</p>
 
     <section class="groups" aria-label="All companies" data-view="all">
       <div class="tabs" role="tablist" aria-label="Group">

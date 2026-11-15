@@ -305,7 +305,7 @@ export function insights(atts: (Attempt & { clean: boolean })[], now: Date): Ins
     const a = miss(thisW);
     const b = miss(lastW);
     const dir = pct(a, thisW.length) < pct(b, lastW.length) ? "down from" : pct(a, thisW.length) > pct(b, lastW.length) ? "up from" : "same as";
-    out.push({ text: `Not clean: **${a} of ${thisW.length} attempts** this week, ${dir} ${b} of ${lastW.length} last week.` });
+    out.push({ text: `Not clean: **${a} of ${thisW.length} attempts** this week, ${dir} ${b} of ${lastW.length} last week` });
   }
   const month = inWin(4 * week, 0);
   if (month.length >= 5) {
@@ -320,7 +320,7 @@ export function insights(atts: (Attempt & { clean: boolean })[], now: Date): Ins
     const best = [...by.entries()].filter(([, v]) => v.all >= 3).sort((x, y) => y[1].clean - x[1].clean || pct(y[1].clean, y[1].all) - pct(x[1].clean, x[1].all))[0];
     if (best && best[1].clean > 0) {
       const fmt = (h: number) => new Date(2000, 0, 1, h).toLocaleTimeString(undefined, { hour: "numeric" });
-      out.push({ text: `Your cleanest hour is **${fmt(best[0])} to ${fmt((best[0] + 1) % 24)}**: ${best[1].clean} of ${best[1].all} clean passes in the last four weeks.` });
+      out.push({ text: `Your cleanest hour is **${fmt(best[0])} to ${fmt((best[0] + 1) % 24)}**: ${best[1].clean} of ${best[1].all} clean passes in the last four weeks` });
     }
   }
   return out;

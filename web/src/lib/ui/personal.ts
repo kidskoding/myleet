@@ -190,6 +190,6 @@ export function whatThisChanges(fb: AttemptFeedback, opts: { href?: string } = {
 /** "Target 25 min. You usually take 19." for the workspace bar. */
 export function yourPace(targetMin: number, usualMin: number | null): SafeHtml {
   return usualMin
-    ? html`<span class="yourpace">Target <b>${targetMin} min</b>. You usually take <b>${usualMin}</b>.</span>`
-    : html`<span class="yourpace">Target <b>${targetMin} min</b>.</span>`;
+    ? html`<span class="yourpace">Target <b>${targetMin} min</b>. You usually take <b>${usualMin}</b></span>`
+    : html`<span class="yourpace">Target <b>${targetMin} min</b></span>`;
 }

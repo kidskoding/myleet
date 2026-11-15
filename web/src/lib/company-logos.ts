@@ -1,14 +1,17 @@
 // Company logos: one SVG sprite (`/company-logos.svg`, built from Simple Icons) holds a
 // symbol per company, a monochrome brand mark or a monogram tile, so pages only reference it.
 import { esc, raw, type SafeHtml } from "./ui/html";
+import logoManifest from "../assets/logos/manifest.json";
 
-export const LOGO_SPRITE = "/company-logos.svg";
+// A new manifest gets a new URL, including during client-side navigation.
+const revision = [...JSON.stringify(logoManifest)].reduce((hash, c) => (Math.imul(hash, 31) + c.charCodeAt(0)) >>> 0, 0).toString(36);
+export const LOGO_SPRITE = `/company-logos.svg?v=${revision}`;
 
 /** The mark before a company name; decorative, since the name sits beside it. */
 export const companyLogo = (slug: string, cls = ""): SafeHtml =>
-  // Inline size so every page (palette, landing) gets it without extra CSS; about 1.1em on the baseline.
+  // Inline size so every page (palette, landing) gets it without extra CSS; a consistent 24px box on the baseline.
   raw(
-    `<svg class="co-logo${cls ? ` ${esc(cls)}` : ""}" viewBox="0 0 24 24" style="width:1.1em;height:1.1em;flex:none;display:inline-block;vertical-align:-0.2em" aria-hidden="true" focusable="false"><use href="${LOGO_SPRITE}#co-${esc(slug)}"/></svg>`,
+    `<img class="co-logo${cls ? ` ${esc(cls)}` : ""}" src="/company-marks/${esc(slug)}.svg?v=${revision}" width="24" height="24" style="width:24px;height:24px;object-fit:contain;flex:none;display:inline-block;vertical-align:-0.2em" alt="" aria-hidden="true" decoding="async"/>`,
   );
 
 /** "Jane Street" -> "JS", "Ramp" -> "R", "Susquehanna (SIG)" -> "SIG", "IMC Trading" -> "IMC". */

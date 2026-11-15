@@ -1,4 +1,8 @@
-import type { Catalog, ProblemFiles, ProblemMeta } from "./types";
+import type { Catalog, Playlist, ProblemFiles, ProblemMeta } from "./types";
+
+/** Keep existing prep-page URLs while focusing company discovery on the main list. */
+export const listedCompany = (p: Pick<Playlist, "id">): boolean =>
+  !["alibaba", "tencent"].includes(companySlug(p.id));
 
 const DATA = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/data`;
 

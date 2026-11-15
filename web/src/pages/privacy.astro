@@ -5,7 +5,7 @@ import { ROUTES } from "../lib/routes";
 
 <LongForm
   title="Privacy"
-  description="What myleet stores (email, practice history) and what it never does."
+  description="How myleet stores and uses your email, practice history, and settings"
   updated="Nov 14, 2026"
   toc={[
     ["short", "The short version"],
@@ -18,38 +18,38 @@ import { ROUTES } from "../lib/routes";
   ]}
 >
   <h2 id="short">The short version</h2>
-  <p>Your progress lives on your device first. An account is optional and only exists to carry your progress between devices. There are no ads, no trackers and no analytics, and your data is never sold or shared for marketing.</p>
+  <p>Your progress lives on your device first. An account is optional and only exists to carry your progress between devices. There are no ads, no trackers and no analytics, and your data is never sold or shared for marketing</p>
 
   <h2 id="device">Without an account</h2>
-  <p>If you never sign in, nothing about you is stored on our servers. Your practice history, drafts, highlights, notes and settings are kept in your browser's storage (IndexedDB and local storage) on this device. Clearing your browser's site data deletes them, so export a copy from Settings if you want one.</p>
-  <p>To show a problem, the app asks our server for its statement. Those requests carry nothing that identifies you.</p>
+  <p>If you never sign in, nothing about you is stored on our servers. Your practice history, drafts, highlights, notes and settings are kept in your browser's storage (IndexedDB and local storage) on this device. Clearing your browser's site data deletes them, so export a copy from Settings if you want one</p>
+  <p>To show a problem, the app asks our server for its statement. Those requests carry nothing that identifies you</p>
 
   <h2 id="account">With an account</h2>
   <p>When you sign in with GitHub, Google or an email link, our server (a Cloudflare Worker with its database) stores:</p>
   <ul>
-    <li><strong>Profile:</strong> your email address, the id your sign-in provider gives your account, your username, and optionally a display name and avatar.</li>
-    <li><strong>Settings:</strong> theme, editor and practice preferences, interview date, target companies, reminder choices, and whether your public profile is on.</li>
-    <li><strong>Practice history:</strong> the events of your attempts (opened, test runs, hints, passes, give-ups, with times), the same file the command-line app writes. Your code is not uploaded.</li>
-    <li><strong>Your plan:</strong> the day-by-day practice plan built from that history.</li>
-    <li><strong>Sessions:</strong> one entry per signed-in browser with when it started and its browser name, so you can see and revoke them. The session cookie holds a random token; we store only a hash of it.</li>
-    <li><strong>Calendar feed:</strong> if you turn on the calendar link, we store only a hash of its private token.</li>
+    <li><strong>Profile:</strong> your email address, the id your sign-in provider gives your account, your username, and optionally a display name and avatar</li>
+    <li><strong>Settings:</strong> theme, editor and practice preferences, interview date, target companies, reminder choices, and whether your public profile is on</li>
+    <li><strong>Practice history:</strong> the events of your attempts (opened, test runs, hints, passes, give-ups, with times), the same file the command-line app writes. Your code is not uploaded</li>
+    <li><strong>Your plan:</strong> the day-by-day practice plan built from that history</li>
+    <li><strong>Sessions:</strong> one entry per signed-in browser with when it started and its browser name, so you can see and revoke them. The session cookie holds a random token; we store only a hash of it</li>
+    <li><strong>Calendar feed:</strong> if you turn on the calendar link, we store only a hash of its private token</li>
   </ul>
-  <p>Your public profile is off by default. If you turn it on, your username, display name and avatar if set, streak, mastered and solved counts, and activity heatmap are visible at your profile address. Turn it off in Settings at any time.</p>
+  <p>Your public profile is off by default. If you turn it on, your username, display name and avatar if set, streak, mastered and solved counts, and activity heatmap are visible at your profile address. Turn it off in Settings at any time</p>
 
   <h2 id="never">What we never do</h2>
   <ul>
-    <li>No advertising and no ad networks.</li>
-    <li>No third-party trackers, analytics scripts or fingerprinting.</li>
-    <li>No selling, renting or trading your data.</li>
-    <li>No sharing your email or history with companies, including the ones in the company sets.</li>
+    <li>No advertising and no ad networks</li>
+    <li>No third-party trackers, analytics scripts or fingerprinting</li>
+    <li>No selling, renting or trading your data</li>
+    <li>No sharing your email or history with companies, including the ones in the company sets</li>
   </ul>
 
   <h2 id="services">Services we use</h2>
-  <p>The site and its server run on Cloudflare. Sign-in emails are sent through Resend, which receives your email address and the sign-in link only. GitHub and Google handle their own sign-in pages under their own privacy policies; we receive your email and account id from them, nothing else.</p>
+  <p>The site and its server run on Cloudflare. Sign-in emails are sent through Resend, which receives your email address and the sign-in link only. GitHub and Google handle their own sign-in pages under their own privacy policies; we receive your email and account id from them, nothing else</p>
 
   <h2 id="control">Export and delete</h2>
-  <p>In <a href={ROUTES.settings}>Settings</a> you can export everything we hold about you as a file, sign out other sessions, and delete your account. Deleting the account removes your profile, settings, history, plan, sessions and calendar feed from our database. Progress on your own devices stays until you clear it there.</p>
+  <p>In <a href={ROUTES.settings}>Settings</a> you can export everything we hold about you as a file, sign out other sessions, and delete your account. Deleting the account removes your profile, settings, history, plan, sessions and calendar feed from our database. Progress on your own devices stays until you clear it there</p>
 
   <h2 id="changes">Changes and contact</h2>
-  <p>If this page changes in a way that matters, the date above changes. Questions or requests: open an issue at <a href="https://github.com/kidskoding/myleet/issues" rel="noopener">github.com/kidskoding/myleet</a>.</p>
+  <p>If this page changes in a way that matters, the date above changes. Questions or requests: open an issue at <a href="https://github.com/kidskoding/myleet/issues" rel="noopener">github.com/kidskoding/myleet</a></p>
 </LongForm>

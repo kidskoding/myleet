@@ -50,8 +50,8 @@ let openedAt = Date.now();
 /** Where highlights live: the account when this device syncs, else this device. */
 function whereSaved(subject: string): string {
   const me = cachedMe();
-  if (!me) return `${subject} stay on this device until you sign in.`;
-  return isLinked(me.user.id) ? `${subject} sync with your account.` : `${subject} stay on this device.`;
+  if (!me) return `${subject} stay on this device until you sign in`;
+  return isLinked(me.user.id) ? `${subject} sync with your account` : `${subject} stay on this device`;
 }
 
 function textNodes(root: HTMLElement): Text[] {
@@ -153,7 +153,7 @@ function noteCard(a: Annotation): string {
       <div class="acts"><button class="btn btn-ghost btn-sm" type="button" data-cancel>Cancel</button><button class="btn btn-primary btn-sm" type="button" data-save>Save note <kbd>${navigator.platform.includes("Mac") ? "⌘↵" : "Ctrl ↵"}</kbd></button></div></div>`.value;
   return html`<div class="mnote${bad ? " failed" : ""}" id="mn-${a.id}" data-mnote="${a.id}"${bad ? html` role="alert"` : ""}>
     <p>${a.text}</p>
-    <div class="when">${bad ? html`<span>Not saved. This browser's storage is full or blocked.</span><button type="button" data-retry-save>Retry</button>` : html`<span>${shortDate(a.updated)}</span><button type="button" data-edit>Edit</button><button type="button" data-remove>Remove</button>`}</div></div>`.value;
+    <div class="when">${bad ? html`<span>Not saved. This browser's storage is full or blocked</span><button type="button" data-retry-save>Retry</button>` : html`<span>${shortDate(a.updated)}</span><button type="button" data-edit>Edit</button><button type="button" data-remove>Remove</button>`}</div></div>`.value;
 }
 
 function marginVisible(): boolean {
@@ -207,7 +207,7 @@ function renderMine(list = placed()): void {
   const placedOnes = list.filter((x) => x.at);
   const detached = list.filter((x) => !x.at);
   const body = n
-    ? html`${items(placedOnes)}${detached.length ? html`<h3>Detached highlights</h3><p>The note's text changed and these passages are gone.</p>${detached.map(({ a }) => html`<div class="mnote-detached"><q>${a.quote}</q>${a.text ? html`<span>${a.text}</span>` : ""}</div>`)}` : ""}<p>${whereSaved("Highlights and notes")}</p>`
+    ? html`${items(placedOnes)}${detached.length ? html`<h3>Detached highlights</h3><p>The note's text changed and these passages are gone</p>${detached.map(({ a }) => html`<div class="mnote-detached"><q>${a.quote}</q>${a.text ? html`<span>${a.text}</span>` : ""}</div>`)}` : ""}<p>${whereSaved("Highlights and notes")}</p>`
     : html`<p>Select text in the note to highlight it or add a note. ${whereSaved("They")}</p>`;
   render($("[data-mine]"), body);
   render($("[data-mine-mob]"), n ? html`<h3>Your notes</h3>${items(placedOnes)}` : html``);
@@ -282,7 +282,7 @@ function highlight(withNote: boolean): void {
   getSelection()?.removeAllRanges();
   hidePop();
   anns = [...anns, a].sort((x, y) => x.start - y.start);
-  if (!save(a)) toast("Couldn't save the highlight: this browser's storage is full or blocked.");
+  if (!save(a)) toast("Couldn't save the highlight: this browser's storage is full or blocked");
   if (withNote) composing = { id: a.id, draft: "" };
   renderMarks();
 }
@@ -295,8 +295,8 @@ function copyLink(): void {
   const frag = words.length > 8 ? `${encodeURIComponent(words.slice(0, 4).join(" "))},${encodeURIComponent(words.slice(-4).join(" "))}` : encodeURIComponent(q);
   const url = `${location.origin}${location.pathname}#:~:text=${frag}`;
   void navigator.clipboard?.writeText(url).then(
-    () => toast("Link copied. It opens this note at the passage."),
-    () => toast("Couldn't copy the link."),
+    () => toast("Link copied. It opens this note at the passage"),
+    () => toast("Couldn't copy the link"),
   );
   hidePop();
 }
@@ -327,7 +327,7 @@ function remove(id: string): void {
   anns = anns.filter((a) => a.id !== id);
   renderMarks();
   if (gone)
-    toast("Highlight removed.", {
+    toast("Highlight removed", {
       action: {
         label: "Undo",
         run: () => {
@@ -468,16 +468,16 @@ async function runTry(): Promise<void> {
   const code = $<HTMLTextAreaElement>("[data-try-code]")?.value ?? "";
   if (!out || !btn) return;
   btn.setAttribute("aria-busy", "true");
-  render(out, html`<span>Preparing Python. The first run downloads about 10 MB, then it's cached.</span>`);
+  render(out, html`<span>Preparing Python. The first run downloads about 10 MB, then it's cached</span>`);
   try {
     const { getRunner } = await import("../lib/runner");
     const r = await getRunner().run({ test: TRY_TEST, code });
     const t = r.tests[0];
-    if (r.timedOut) render(out, html`<span class="bad">Stopped after 10 seconds.</span> An infinite loop is the usual cause.`);
-    else if (t?.outcome === "passed") render(out, html`<span class="ok">Every assert passed.</span> ${Math.round(r.durationMs)} ms.`);
-    else render(out, html`<span class="bad">${t ? (t.message || "An assert failed.") : (r.error ?? "It didn't run.")}</span><pre>${t?.detail || r.output}</pre>`);
+    if (r.timedOut) render(out, html`<span class="bad">Stopped after 10 seconds</span> An infinite loop is the usual cause`);
+    else if (t?.outcome === "passed") render(out, html`<span class="ok">Every assert passed</span> ${Math.round(r.durationMs)} ms`);
+    else render(out, html`<span class="bad">${t ? (t.message || "An assert failed") : (r.error ?? "It didn't run")}</span><pre>${t?.detail || r.output}</pre>`);
   } catch {
-    render(out, html`<span class="bad">Python didn't load.</span> Check your connection and try again.`);
+    render(out, html`<span class="bad">Python didn't load</span> Check your connection and try again`);
   } finally {
     btn.removeAttribute("aria-busy");
   }
@@ -646,7 +646,7 @@ document.addEventListener("keydown", (e) => {
       const d = $<HTMLDetailsElement>("[data-mob-toc]");
       if (d) d.open = !d.open;
     },
-    p: () => $("#practise")?.scrollIntoView({ block: "start" }),
+    p: () => $("#practice")?.scrollIntoView({ block: "start" }),
   };
   const fn = keys[e.key];
   if (!fn) return;

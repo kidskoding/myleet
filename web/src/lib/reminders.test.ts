@@ -8,7 +8,7 @@ describe("session reminders", () => {
   it("fires lead minutes before the next session ahead", () => {
     const r = nextSessionReminder(new Date(at(20)), [{ start_ms: at(21), title: "3 reviews, 1 new", minutes: 60 }], o);
     expect(r?.delay).toBe(45 * 60_000);
-    expect(r?.body).toMatch(/^Session at 9\s?PM: 3 reviews, 1 new\. About 1 h\.$/i);
+    expect(r?.body).toMatch(/^Session at 9\s?PM: 3 reviews, 1 new\. About 1 h$/i);
   });
   it("skips past, already-sent and quiet-hour sessions", () => {
     const now = new Date(at(20));

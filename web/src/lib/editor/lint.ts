@@ -8,7 +8,7 @@ import type { Diagnostic } from "@astral-sh/ruff-wasm-web";
 import type { RuffApi } from "./ruff-client";
 import { setLintLines, type LintSeverity } from "./markers";
 
-/** Rules worth seeing while practising. Syntax errors have no code. */
+/** Rules worth seeing while practicing. Syntax errors have no code. */
 export function relevant(d: Diagnostic): boolean {
   return d.code === null || d.code.startsWith("F") || d.code.startsWith("E9") || d.code.startsWith("B");
 }

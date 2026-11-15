@@ -33,8 +33,8 @@ export function loadCard(s: LoadState, retry: () => void): HTMLElement {
     return h(
       "div",
       { class: "loadcard err", role: "alert" },
-      h("strong", {}, "Couldn't download Python. Your code is safe."),
-      `The tests need Python, which loads from the internet the first time${s.error ? ` (${s.error})` : ""}. The editor keeps working.`,
+      h("strong", {}, "Couldn't download Python. Your code is safe"),
+      `The tests need Python, which loads from the internet the first time${s.error ? ` (${s.error})` : ""}. The editor keeps working`,
       h("div", {}, h("button", { class: "btn btn-secondary btn-sm", onclick: retry }, "Retry")),
     );
   }
@@ -47,8 +47,8 @@ export function loadCard(s: LoadState, retry: () => void): HTMLElement {
     { class: "loadcard", role: "status", "aria-live": "polite" },
     h("strong", {}, offline ? "Python needs one online visit" : "Getting Python ready for the tests"),
     offline
-      ? "You're offline and Python isn't saved on this device yet. Keep writing; Run works after one visit with a connection."
-      : `First visit only: ${s.mbDone.toFixed(1)} of ${s.mbTotal.toFixed(1)} MB. You can start typing now; Run unlocks when it finishes, and it's cached for next time and offline.`,
+      ? "You're offline and Python isn't saved on this device yet. Keep writing; Run works after one visit with a connection"
+      : `First visit only: ${s.mbDone.toFixed(1)} of ${s.mbTotal.toFixed(1)} MB. You can start typing now; Run unlocks when it finishes, and it's cached for next time and offline`,
     h("div", { class: "bar", role: "progressbar", "aria-valuenow": pct, "aria-valuemin": 0, "aria-valuemax": 100, "aria-label": "Python download" }, h("span", { style: `width:${pct}%` })),
     h(
       "ul",
@@ -111,16 +111,16 @@ export function renderResults(
         "div",
         { class: "tsum bad", role: "alert" },
         h("span", { class: "big" }, `Stopped after ${Math.round(r.durationMs / 1000)} s`),
-        h("span", { class: "muted" }, "The tests never finished. Usually an infinite loop: check what makes your while condition false."),
+        h("span", { class: "muted" }, "The tests never finished. Usually an infinite loop: check what makes your while condition false"),
       ),
-      h("pre", { class: "trace" }, "TimeoutError: the test run went past the time limit, so Python was stopped and restarted."),
+      h("pre", { class: "trace" }, "TimeoutError: the test run went past the time limit, so Python was stopped and restarted"),
     );
   }
   if (r.error || (r.total === 0 && !r.tests.length)) {
     return h(
       "div",
       {},
-      h("div", { class: "tsum bad", role: "alert" }, h("span", { class: "big" }, "Couldn't run the tests"), h("span", { class: "muted" }, r.error ?? "pytest found no tests.")),
+      h("div", { class: "tsum bad", role: "alert" }, h("span", { class: "big" }, "Couldn't run the tests"), h("span", { class: "muted" }, r.error ?? "pytest found no tests")),
       h("pre", { class: "trace" }, r.output.trim()),
     );
   }
@@ -151,7 +151,7 @@ export function renderResults(
         "div",
         { class: "tsum bad", role: "status" },
         h("span", { class: "big" }, r.notStarted ? "Not started yet" : `${r.passed} of ${r.total} passed`),
-        h("span", { class: "muted", "data-ago": o.ranAt }, r.notStarted ? "Every test hit NotImplementedError. Replace the raise with your code." : `${agoText(o.ranAt)}, ${ms}`),
+        h("span", { class: "muted", "data-ago": o.ranAt }, r.notStarted ? "Every test hit NotImplementedError. Replace the raise with your code" : `${agoText(o.ranAt)}, ${ms}`),
         r.notStarted ? null : h("button", { class: "btn btn-ghost btn-sm grow", onclick: o.onNext }, "Next failure ", h("kbd", {}, "F8")),
       );
 

@@ -85,7 +85,7 @@ export function nextSessionReminder(
     if (inQuiet(at, o.quietFrom, o.quietTo)) continue;
     const time = new Date(s.start_ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }).replace(":00", "");
     const len = s.minutes < 60 ? `${s.minutes} min` : s.minutes % 60 ? `${Math.floor(s.minutes / 60)} h ${s.minutes % 60}` : `${s.minutes / 60} h`;
-    return { delay: Math.max(0, at.getTime() - now.getTime()), key: s.start_ms, body: `Session at ${time}: ${s.title}. About ${len}.` };
+    return { delay: Math.max(0, at.getTime() - now.getTime()), key: s.start_ms, body: `Session at ${time}: ${s.title}. About ${len}` };
   }
   return null;
 }

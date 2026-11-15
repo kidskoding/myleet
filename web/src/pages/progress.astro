@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Progress" nav="progress" noindex description="Your streak, mastery, practice history and what's coming due.">
+<Base title="Progress" nav="progress" noindex description="Your streak, mastery, practice history and what's coming due">
   <div class="page progress" data-progress aria-busy="true" aria-label="Loading progress">
     <h1>Progress</h1>
     <div class="skel" style="height:20px;width:min(420px,90%);margin-top:12px"></div>
@@ -148,7 +148,7 @@ import Base from "../layouts/Base.astro";
   .progress .danger p { font-size: var(--text-sm); color: var(--ink-2); margin-top: 2px; max-width: 60ch; }
   .progress .danger-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 
-  .progress .moment { margin-top: var(--space-8); display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-6); align-items: center; padding: var(--space-6) var(--space-8); background: var(--wall); color: var(--wall-ink); border-radius: var(--radius-md); }
+  .progress .moment { margin-top: var(--space-8); display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-6); align-items: center; padding: var(--space-6) var(--space-8); border-radius: var(--radius-md); }
   .progress .moment .num { font-size: 4rem; color: var(--wall-ink); }
   .progress .moment h2 { font-size: var(--text-lg); color: var(--wall-ink); }
   .progress .moment p { color: var(--wall-ink-2); margin-top: var(--space-1); max-width: 54ch; }

@@ -21,12 +21,12 @@ const words = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "E
 const count = words[modules.length] ?? String(modules.length);
 ---
 
-<Base title="Learn" nav="learn" description={`${count} modules of interview DSA by pattern, with notes that teach and ${total} problems that drill.`}>
+<Base title="Learn" nav="learn" description={`Learn data structures and algorithms through ${count} modules of notes and ${total} practice problems.`}>
   <div class="page learn" data-learn="map">
     <div class="head">
       <div>
         <h1>Learn</h1>
-        <p data-lede data-count={count}>{count} modules by interview pattern, {total} problems. Read the five start-here notes, then begin at module 1.</p>
+        <p data-lede data-count={count}>{count} modules by interview pattern, {total} problems. Read the five start-here notes, then begin at module 1</p>
       </div>
       <div class="tools">
         <label class="filter-input"><Fragment set:html={listFilter().value} /><input type="search" placeholder="Filter problems" aria-label="Filter modules and problems" data-filter autocomplete="off" /><kbd>/</kbd></label>
@@ -40,7 +40,7 @@ const count = words[modules.length] ?? String(modules.length);
     </div>
 
     <section class="panel start" aria-labelledby="sh" data-start>
-      <div class="section-head" style="margin:0"><h2 id="sh">Start here</h2><span class="meta" data-start-meta>{guideMinutes} min in all</span></div>
+      <div class="section-head" style="margin:0"><h2 id="sh">Start here</h2><span class="meta" data-start-meta>{guideMinutes} min total</span></div>
       <ol>
         {c.guide.map((g) => <li><a href={noteHref(g.path)} data-note={g.path}><strong>{g.title}</strong><span>{minutes[g.path]} min</span></a></li>)}
       </ol>
@@ -68,12 +68,12 @@ const count = words[modules.length] ?? String(modules.length);
         ))
       }
     </ol>
-    <div class="legend"><span><i style="background:var(--pass-solid)"></i>Mastered</span><span><i style="background:var(--ink)"></i>Climbing the ladder</span><span><i style="background:var(--line-strong)"></i>Started</span><span>Bar length is the module's size.</span></div>
+    <div class="legend"><span><i style="background:var(--pass-solid)"></i>Mastered</span><span><i style="background:var(--ink)"></i>Climbing the ladder</span><span><i style="background:var(--line-strong)"></i>Started</span><span>Bar length is the module's size</span></div>
 
     <section class="panel state-note" data-empty hidden role="status" style="margin-top:var(--space-8)"></section>
     <section class="panel state-note" data-error hidden role="alert" style="margin-top:var(--space-8)">
       <h2>Couldn't load your progress</h2>
-      <p>The curriculum or the trainer didn't load (network error). Your progress is safe on this device. Notes and problems you've opened before still work offline.</p>
+      <p>The curriculum or the trainer didn't load (network error). Your progress is safe on this device. Notes and problems you've opened before still work offline</p>
       <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
     </section>
     <script type="application/json" data-minutes set:html={JSON.stringify(minutes)} />

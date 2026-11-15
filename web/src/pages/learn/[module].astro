@@ -26,8 +26,8 @@ const title = sentenceCase(m.title);
 // module.toml descriptions are "A; B; C" lists; read as one sentence.
 const parts = m.description.split(";").map((s) => s.trim()).filter(Boolean);
 const lede = parts.length
-  ? `${parts.map((s, i) => (i === 0 ? s : s.charAt(0).toLowerCase() + s.slice(1))).join(", ")}.`
-  : `${moduleSubtitle(m)}.`;
+  ? `${parts.map((s, i) => (i === 0 ? s : s.charAt(0).toLowerCase() + s.slice(1))).join(", ")}`
+  : `${moduleSubtitle(m)}`;
 ---
 
 <Base title={title} nav="learn" description={`Module ${m.number}: ${lede} ${size} problems with notes.`}>
@@ -69,14 +69,14 @@ const lede = parts.length
         </section>
         <section class="panel" aria-labelledby="nx" data-next>
           <h2 id="nx">Next in this module</h2>
-          <p class="text-small text-secondary" style="margin-top:var(--space-2)">Start with the first note, then its problems.</p>
+          <p class="text-small text-secondary" style="margin-top:var(--space-2)">Start with the first note, then its problems</p>
           {m.notes[0] && <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href={noteHref(m.notes[0].path)}>Start reading</a>}
         </section>
       </aside>
     </div>
     <section class="panel state-note" data-error hidden role="alert" style="margin-top:var(--space-8)">
       <h2>Couldn't load your progress</h2>
-      <p>The trainer didn't load (network error). Your progress is safe on this device.</p>
+      <p>The trainer didn't load (network error). Your progress is safe on this device</p>
       <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
     </section>
     <script type="application/json" data-minutes set:html={JSON.stringify(minutes)} />

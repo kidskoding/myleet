@@ -2,11 +2,11 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Sign in" shell="focused" description="Sign in to keep your myleet progress on every device. GitHub, Google or an email link; no passwords.">
+<Base title="Sign in" shell="focused" description="Sync your practice progress across devices. Sign in with GitHub, Google, or an email link">
   <div class="signin-page">
     <div class="panel auth-panel" data-signin-page aria-live="polite">
       <h1 id="si-h">Sign in to myleet</h1>
-      <p class="auth-sub">Keep your progress on every device. New here? These buttons create your account.</p>
+      <p class="auth-sub">Keep your progress on every device. New here? These buttons create your account</p>
       <div class="auth-stack">
         <a class="btn btn-secondary provider" href="/api/auth/github">Continue with GitHub</a>
         <a class="btn btn-secondary provider" href="/api/auth/google">Continue with Google</a>
@@ -35,7 +35,7 @@ import Base from "../layouts/Base.astro";
       return;
     }
     const { mountSignInPage } = await import("../scripts/auth-ui");
-    mountSignInPage(el, code === null ? undefined : (AUTH_ERRORS[code] ?? "Sign-in didn't finish. Try again or use another method."));
+    mountSignInPage(el, code === null ? undefined : (AUTH_ERRORS[code] ?? "Sign-in didn't finish. Try again or use another method"));
   }
   document.addEventListener("astro:page-load", () => void init());
 </script>

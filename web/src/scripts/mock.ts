@@ -12,7 +12,8 @@ import {
   clockPhase,
   newRound,
   outcomeLines,
-  pickCompany,
+  pickCompanies,
+  companySelection,
   pickWeak,
   problemResult,
   readHistory,
@@ -34,6 +35,7 @@ import { recordStats } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { InterviewRules } from "../lib/types";
 import { plural } from "../lib/ui/bits";
+import { mountCompanyPicker } from "../lib/ui/company-picker";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
 import { closeDialog, openDialog, toast } from "../lib/ui/overlay";
@@ -47,9 +49,9 @@ interface Ctx {
 
 const PHONE_NOTE_KEY = "myleet:mock-phone-note";
 const CHECKS: [string, string][] = [
-  ["Did you say your approach before coding?", "Out loud or typed: the pattern and why it fits."],
-  ["Did you state time and space complexity?", "Before you were done, not after the tests."],
-  ["Did you test an edge case yourself?", "Empty input, one element, duplicates, the largest values."],
+  ["Did you say your approach before coding?", "Out loud or typed: the pattern and why it fits"],
+  ["Did you state time and space complexity?", "Before you were done, not after the tests"],
+  ["Did you test an edge case yourself?", "Empty input, one element, duplicates, the largest values"],
 ];
 
 let ctx: Ctx | null = null;
@@ -87,11 +89,14 @@ function techniqueOf(id: string): { label: string; note: string | null; noteTitl
 function setupSource(): Source {
   return (document.querySelector<HTMLInputElement>('[data-setup] input[name="src"]:checked')?.value as Source) ?? "mixed";
 }
+function setupCompanies(): string[] {
+  return companySelection($<HTMLInputElement>("[data-company]")?.value ?? "");
+}
 function setupN(): number {
   return Number(document.querySelector<HTMLInputElement>('[data-setup] input[name="n"]:checked')?.value ?? 2);
 }
 
-const SOURCE_NAME: Record<Source, string> = { mixed: "Mixed", company: "A company set", weak: "Weak spots" };
+const SOURCE_NAME: Record<Source, string> = { mixed: "Mixed", company: "Company sets", weak: "Weak spots" };
 
 /** Picks a round, or explains why the choice can't make one. */
 function pick(c: Ctx, n: number, source: Source, seed: number): { ids: string[]; err: string | null } {
@@ -99,13 +104,13 @@ function pick(c: Ctx, n: number, source: Source, seed: number): { ids: string[];
   let ids: string[] = [];
   try {
     if (source === "mixed") ids = c.t.interviewPick(c.events, n, seed);
-    else if (source === "company") ids = pickCompany(c.cat.catalog, $<HTMLSelectElement>("[data-company]")?.value ?? "", states, n, seed);
+    else if (source === "company") ids = pickCompanies(c.cat.catalog, setupCompanies(), states, n, seed);
     else ids = pickWeak(c.cat.catalog, c.t.stats(c.events).weakest, states, n, seed);
   } catch (e) {
-    return { ids: [], err: `Couldn't build a round from ${SOURCE_NAME[source]}: ${e instanceof Error ? e.message : "no problems qualify"}.` };
+    return { ids: [], err: `Couldn't build a round from ${SOURCE_NAME[source]}: ${e instanceof Error ? e.message : "no problems qualify"}` };
   }
   if (ids.length >= n) return { ids: ids.slice(0, n), err: null };
-  const fix = n > 1 && ids.length > 0 ? `Pick ${ids.length === 1 ? "1 problem" : `${ids.length} problems`} or another source.` : "Pick another source.";
+  const fix = n > 1 && ids.length > 0 ? `Pick ${ids.length === 1 ? "1 problem" : `${ids.length} problems`} or another source` : "Pick another source";
   return { ids, err: `Couldn't build a round from ${SOURCE_NAME[source]}: only ${plural(ids.length, "problem")} ${ids.length === 1 ? "qualifies" : "qualify"}. ${fix}` };
 }
 
@@ -121,6 +126,24 @@ function validate(): void {
   if (start) start.disabled = !!err;
 }
 
+function paintMockIntro(): void {
+  const intro = $("[data-mock-intro]");
+  if (!intro || !ctx) return;
+  const source = setupSource();
+  const selected = setupCompanies();
+  const companies = ctx.cat.catalog.playlists.filter((p) => selected.includes(p.id));
+  if (source === "company" && companies.length) {
+    const names = new Intl.ListFormat("en", { style: "long", type: "conjunction" }).formatToParts(companies.map((p) => p.title));
+    render(intro, html`Practice for ${names.map((part) => part.type === "element" ? html`<strong>${part.value}</strong>` : part.value)} with ${setupN()} ${setupN() === 1 ? "problem" : "problems"} from their combined sets · Hints and technique labels stay hidden until you finish`);
+    return;
+  }
+  intro.textContent = source === "weak"
+      ? "Practice the techniques you've struggled with, without hints or technique labels"
+      : ctx.events.trim()
+        ? "Practice techniques you've already worked on, with one timer and no hints or technique labels"
+        : "Try a timed coding interview · Choose your approach without hints or technique labels";
+}
+
 function paintSetup(c: Ctx): void {
   view("setup");
   const std = $("[data-std-mins]");
@@ -129,12 +152,18 @@ function paintSetup(c: Ctx): void {
   const q = new URLSearchParams(location.search).get("company");
   const slug = q ?? readPrefs().plan.companies[0];
   const pl = slug ? c.cat.catalog.playlists.find((p) => companySlug(p.id) === slug) : undefined;
-  const sel = $<HTMLSelectElement>("[data-company]");
-  if (sel && pl) sel.value = pl.id;
+  const sel = $<HTMLInputElement>("[data-company]");
+  if (sel && pl) {
+    const slugs = q ? [q] : readPrefs().plan.companies.slice(0, 3);
+    sel.value = JSON.stringify(slugs.flatMap((slug) => c.cat.catalog.playlists.filter((p) => companySlug(p.id) === slug).map((p) => p.id)));
+  }
   if (q && pl) {
     const r = document.querySelector<HTMLInputElement>('[data-setup] input[value="company"]');
     if (r) r.checked = true;
   }
+
+  mountCompanyPicker(() => { validate(); paintMockIntro(); });
+  paintMockIntro();
 
   const weak = c.t.stats(c.events).weakest;
   const weakInput = $<HTMLInputElement>("[data-weak-input]");
@@ -143,7 +172,7 @@ function paintSetup(c: Ctx): void {
     if (weakInput.disabled && weakInput.checked) document.querySelector<HTMLInputElement>('[data-setup] input[value="mixed"]')!.checked = true;
   }
   const wt = $("[data-weak-text]");
-  if (wt) wt.textContent = weak.length ? `Only techniques where you've missed clean passes: ${weak.slice(0, 2).map((w) => sentenceCase(w.technique_title)).join(", ")}${weak.length > 2 ? " and more" : ""}.` : "No weak spots yet. A technique becomes one after a few attempts that weren't clean.";
+  if (wt) wt.textContent = weak.length ? `Only techniques where you've missed clean passes: ${weak.slice(0, 2).map((w) => sentenceCase(w.technique_title)).join(", ")}${weak.length > 2 ? " and more" : ""}` : "No weak spots yet. A technique becomes one after a few attempts that weren't clean";
 
   paintHistory();
   const cp = c.t.checkpoint(c.events);
@@ -153,16 +182,17 @@ function paintSetup(c: Ctx): void {
     const txt = $("[data-checkin-text]");
     if (txt)
       txt.textContent = cp.suggest_through > 0
-        ? `A check-in on modules 1 to ${cp.suggest_through} is ready: a short mixed set from what you've covered. It runs from Today.`
-        : "Check-ins on the modules you've covered run from Today once you've started enough of them.";
+        ? `A check-in on modules 1 to ${cp.suggest_through} is ready: a short mixed set from what you've covered. It runs from Today`
+        : "Check-ins on the modules you've covered run from Today once you've started enough of them";
   }
   validate();
 }
 
-function sourceLabel(m: Pick<MockResult, "source" | "company">): string {
+function sourceLabel(m: Pick<MockResult, "source" | "company" | "companies">): string {
   if (m.source === "company") {
-    const pl = ctx?.cat.catalog.playlists.find((p) => p.id === m.company);
-    return pl ? `${pl.title} set` : "company set";
+    const ids = m.companies ?? (m.company ? [m.company] : []);
+    const names = ctx?.cat.catalog.playlists.filter((p) => ids.includes(p.id)).map((p) => p.title) ?? [];
+    return names.length ? `${new Intl.ListFormat("en", { type: "conjunction" }).format(names)} ${names.length > 1 ? "sets" : "set"}` : "company sets";
   }
   return m.source === "weak" ? "weak spots" : "mixed";
 }
@@ -182,7 +212,7 @@ function paintHistory(): void {
           const when = new Date(m.start).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
           return html`<li><a href="/mock?r=${m.id}"><span class="when">${when}</span><span class="what">${plural(m.problems.length, "problem")}, ${sourceLabel(m)}, ${mins} min${m.timeUp ? ", time up" : ""}</span><span class="score">${solved}<small> / ${m.problems.length}</small></span></a></li>`;
         })}</ol>`
-      : html`<p class="empty-hist">No mocks yet. Your first one sets a baseline: how many problems you finish cold, on one clock, without knowing the technique. Two problems is a good start.</p>`,
+      : html`<p class="empty-hist">You have not completed a mock interview yet. Start with two problems to practice choosing an approach and managing your time without technique labels</p>`,
   );
 }
 
@@ -196,7 +226,8 @@ function startRound(): void {
     problems: ids,
     secs: roundSecs(n, ctx.rules.round_secs),
     source,
-    company: source === "company" ? ($<HTMLSelectElement>("[data-company]")?.value ?? null) : null,
+    company: source === "company" ? (setupCompanies()[0] ?? null) : null,
+    ...(source === "company" ? { companies: setupCompanies() } : {}),
     now: Date.now(),
   });
   writeRound(round);
@@ -324,7 +355,7 @@ function openTimeUp(timeUp: boolean): void {
   const mins = Math.round(round.secs / 60);
   if (t) t.textContent = timeUp ? "Time's up" : "End the round now?";
   if (body)
-    body.textContent = `${timeUp ? `${mins} minutes are gone. In a real loop the interviewer would stop you here.` : "The clock is still running. Unsubmitted problems count as attempted only if you opened them."} Your code is saved as it is: ${round.problems.map(reportLine).join(", ")}. Submit in each workspace to count a pass.`;
+    body.textContent = `${timeUp ? `The ${mins}-minute time limit has ended` : "The clock is still running. Unsubmitted problems count as attempted only if you opened them"} Your code is saved as it is: ${round.problems.map(reportLine).join(", ")}. Submit in each workspace to count a pass`;
   if (keep) keep.textContent = timeUp ? "Keep coding, mark as over time" : "Keep going";
   d?.setAttribute("role", timeUp ? "alertdialog" : "dialog");
   openDialog(d);
@@ -414,13 +445,13 @@ async function record(): Promise<void> {
         c.events = await appendEvent(c.t.eventLine({ kind: l.kind, problem: p.id, attempt: p.attempt, mode: "interview", ...(l.data ? { data: l.data } : {}) }));
     }
   } catch {
-    toast("Couldn't save this round's results to your progress. Try again from this page.");
+    toast("Couldn't save this round's results to your progress. Try again from this page");
     return;
   }
   const after = c.t.states(c.events);
   for (const p of results) p.rungAfter = after[p.id]?.rung ?? -1;
   const end = r.end ?? Date.now();
-  const result: MockResult = { id: r.id, start: r.start, end, secs: r.secs, source: r.source, company: r.company, timeUp: r.overtime || end > r.start + r.secs * 1000, problems: results };
+  const result: MockResult = { id: r.id, start: r.start, end, secs: r.secs, source: r.source, company: r.company, ...(r.companies ? { companies: r.companies } : {}), timeUp: r.overtime || end > r.start + r.secs * 1000, problems: results };
   saveResult(result);
   writeRound(null);
   round = null;
@@ -433,13 +464,13 @@ async function record(): Promise<void> {
 
 function effectText(p: ProblemResult): string {
   const days = (rung: number) => plural(RUNG_DAYS[Math.max(0, rung)] ?? 1, "day");
-  if (!p.started) return p.rungBefore < 0 ? "Not started. Nothing recorded." : "Not started. Its schedule didn't change.";
-  if (!p.green) return `${p.total ? `${p.passed} of ${p.total} tests` : "No submit"}. Back to 1 day.`;
-  if (p.rungBefore < 0) return allYes(p.checks) && !p.overTime ? "First pass. Review in 1 day." : "Passed with help. Review in 1 day.";
-  if (p.rungAfter > p.rungBefore) return `Clean pass. Up to ${days(p.rungAfter)}.`;
-  if (p.rungAfter === p.rungBefore && p.rungAfter > 0) return `Clean pass, same day as the last one. Stays at ${days(p.rungAfter)}.`;
+  if (!p.started) return p.rungBefore < 0 ? "Not started. Nothing recorded" : "Not started. Its schedule didn't change";
+  if (!p.green) return `${p.total ? `${p.passed} of ${p.total} tests` : "No submit"}. Back to 1 day`;
+  if (p.rungBefore < 0) return allYes(p.checks) && !p.overTime ? "First pass. Review in 1 day" : "Passed with help. Review in 1 day";
+  if (p.rungAfter > p.rungBefore) return `Clean pass. Up to ${days(p.rungAfter)}`;
+  if (p.rungAfter === p.rungBefore && p.rungAfter > 0) return `Clean pass, same day as the last one. Stays at ${days(p.rungAfter)}`;
   const why = !allYes(p.checks) ? "self-check not all yes" : p.overTime ? "after time ran out" : "over its time target";
-  return `Passed, not clean (${why}). Back to 1 day.`;
+  return `Passed, not clean (${why}). Back to 1 day`;
 }
 
 const yesNo = (c: Checks | null) => (c ?? []).map((x) => (x ? "yes" : "no")).join(", ");
@@ -473,7 +504,7 @@ function paintReveal(m: MockResult): void {
     host,
     html`<div class="reveal-head">
         <div><h1 id="rv-title" tabindex="-1">Round results</h1>
-        <p class="lede">${when}. ${solved} of ${m.problems.length} solved, ${clock(used)} used${m.timeUp ? ", time ran out" : ""}. ${sourceLabel(m) === "mixed" ? "Mixed" : sentenceCase(sourceLabel(m))} draw.</p></div>
+        <p class="lede">${when}. ${solved} of ${m.problems.length} solved, ${clock(used)} used${m.timeUp ? ", time ran out" : ""}. ${sourceLabel(m) === "mixed" ? "Mixed" : sourceLabel(m)} draw</p></div>
         <div class="btns"><a class="btn btn-secondary" href="/mock">Back to mocks</a><a class="btn btn-primary" href="/mock" data-again>Another round</a></div>
       </div>
       <div class="summary">
@@ -514,7 +545,7 @@ async function init(): Promise<void> {
     const el = $("[data-setup-err]");
     if (el) {
       el.hidden = false;
-      el.textContent = `Couldn't load the problem list (${e instanceof Error ? e.message : "network error"}). Your progress is safe on this device. Reload to try again.`;
+      el.textContent = `Couldn't load the problem list (${e instanceof Error ? e.message : "network error"}). Your progress is safe on this device. Reload to try again`;
     }
     const start = $<HTMLButtonElement>("[data-start]");
     if (start) start.disabled = true;
@@ -544,7 +575,7 @@ document.addEventListener("submit", (e) => {
 });
 
 document.addEventListener("change", (e) => {
-  if ((e.target as Element).closest?.("[data-setup]")) validate();
+  if ((e.target as Element).closest?.("[data-setup]")) { validate(); paintMockIntro(); }
 });
 
 document.addEventListener("click", (e) => {

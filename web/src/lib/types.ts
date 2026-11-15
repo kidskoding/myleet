@@ -54,7 +54,7 @@ export interface PlaylistEntry {
   problem: number | null;
 }
 
-export type PlaylistGroup = "Big tech" | "Little tech" | "AI labs / high growth" | "Quant" | "Fortune 500";
+export type PlaylistGroup = "Big tech" | "Product companies" | "AI labs & high growth" | "Trading firms" | "Enterprise companies";
 
 export interface Playlist {
   id: string;

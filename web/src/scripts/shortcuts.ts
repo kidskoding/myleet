@@ -21,7 +21,6 @@ const SECTIONS: [string, Row[]][] = [
       ["Go to Mock", [["g"], ["m"]]],
       ["Go to Progress", [["g"], ["p"]]],
       ["Go to Settings", [["g"], [","]]],
-      ["Toggle theme", [["shift", "D"]]],
     ],
   ],
   [

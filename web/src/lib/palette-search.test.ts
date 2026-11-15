@@ -10,7 +10,7 @@ const items: PaletteItem[] = [
   p("Longest Common Subsequence", "Dynamic programming, 2D DP", ["1143"]),
   { key: "n:var", kind: "note", title: "Variable-size sliding window", hint: "Note, Sliding window" },
   { key: "c:google", kind: "company", title: "Google", hint: "Big tech" },
-  { key: "cmd:theme", kind: "command", title: "Switch to dark theme" },
+  { key: "cmd:theme-mocha", kind: "command", title: "Theme: Mocha", hint: "appearance", keywords: "theme flavor catppuccin" },
 ];
 
 const titles = (q: string, only?: PaletteItem["kind"]) => search(items, q, only).flatMap((g) => g.hits.map((h) => h.item.title));
@@ -43,7 +43,8 @@ describe("palette search", () => {
   it("groups by kind in a fixed order and filters by kind", () => {
     expect(search(items, "window").map((g) => g.kind)).toEqual(["problem", "note"]);
     expect(titles("window", "note")).toEqual(["Variable-size sliding window"]);
-    expect(titles("dark")).toEqual(["Switch to dark theme"]);
+    expect(titles("mocha")).toEqual(["Theme: Mocha"]);
+    expect(titles("catppuccin")).toEqual(["Theme: Mocha"]);
   });
 
   it("returns nothing for a miss", () => {

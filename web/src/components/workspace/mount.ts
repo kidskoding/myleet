@@ -114,7 +114,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   const backHref = opts.backHref ?? root.dataset["back"] ?? "/";
 
   root.dataset["mode"] = mode;
-  for (const k of $$(root, "[data-kbd]")) k.textContent = keyLabel(k.dataset["kbd"] ?? "", mac).replace("Ctrl+Enter", "Ctrl ↵").replace("Ctrl+.", "Ctrl .");
+  for (const k of $$(root, "[data-kbd]")) k.textContent = keyLabel(k.dataset["kbd"] ?? "", mac).replace("Ctrl+Enter", "Ctrl ↵").replace("Ctrl+", "Ctrl ");
   if (exam) for (const el of $$(root, "[data-exam-hide]")) el.hidden = true;
   if (interview || !meta.hints.length && !meta.key_idea) for (const el of $$(root, "[data-exam-hide-hints]")) el.hidden = true;
   if (interview) {
@@ -308,7 +308,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const saved = open.banner.savedAt;
     bar.hidden = false;
     bar.append(
-      h("span", {}, `Draft from ${formatDateTime(saved)}.`),
+      h("span", {}, `Draft from ${formatDateTime(saved)}`),
       h(
         "button",
         {
@@ -317,7 +317,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
             const prev = editor.code();
             setCode(data.starter);
             bar.hidden = true;
-            toast(toastSlot, "Started fresh from the starter code.", () => setCode(prev));
+            toast(toastSlot, "Started fresh from the starter code", () => setCode(prev));
           },
         },
         "Start fresh",
@@ -326,7 +326,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   } else if (open.banner?.kind === "review") {
     bar.hidden = false;
     bar.append(
-      h("span", {}, "A review opens fresh, so it's a cold redo. Your last draft is in History."),
+      h("span", {}, "A review opens fresh, so it's a cold redo. Your last draft is in History"),
       h("button", { class: "btn btn-ghost btn-sm", onclick: () => showLeftTab("history") }, "Open History"),
     );
   }
@@ -400,7 +400,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     timerEl.setAttribute("aria-label", timer.startedAt === null ? `Timer starts when you type, ${Math.round(targetMs / 60_000)} minute target` : timerSpoken(e, targetMs));
     if ((phase === "near" || phase === "over") && announcedPhase !== phase && timer.stoppedMs === null) {
       announcedPhase = phase;
-      announce(phase === "near" ? `${labelEl.textContent}.` : `Past the target: ${labelEl.textContent}. Nothing stops you.`);
+      announce(phase === "near" ? `${labelEl.textContent}` : `Past the target: ${labelEl.textContent}. Nothing stops you`);
     }
     for (const a of $$(root, "[data-ago]")) a.textContent = a.textContent?.replace(/^(just now|ran \d+ (s|min) ago)/, agoText(Number(a.dataset["ago"]), now)) ?? "";
   }
@@ -413,7 +413,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const veil = $(root, "[data-veil]");
     if (timer.pausedAt === null) {
       if (timer.startedAt === null) {
-        toast(toastSlot, "The timer starts when you type, so there's nothing to pause yet.");
+        toast(toastSlot, "The timer starts when you type, so there's nothing to pause yet");
         return;
       }
       timer = pauseTimer(timer, now);
@@ -422,14 +422,14 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       $(veil, "[data-veil-title]").textContent = `Paused at ${formatClock(elapsedMs(timer, now))}`;
       editor.setReadOnly(true);
       $<HTMLButtonElement>(veil, "button").focus();
-      announce(`Timer paused at ${formatClock(elapsedMs(timer, now))}.`);
+      announce(`Timer paused at ${formatClock(elapsedMs(timer, now))}`);
     } else {
       timer = resumeTimer(timer, now);
       root.removeAttribute("data-paused");
       veil.hidden = true;
       editor.setReadOnly(false);
       editor.focus();
-      announce("Timer resumed.");
+      announce("Timer resumed");
     }
     $(root, '.wbar [data-act="pause"]').innerHTML = icon(timer.pausedAt === null ? "pause" : "play");
     $(root, '.wbar [data-act="pause"]').setAttribute("aria-label", timer.pausedAt === null ? "Pause timer (Ctrl .)" : "Resume timer (Ctrl .)");
@@ -444,7 +444,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     if (pythonReady && load.smarts !== "now") {
       if (!testsPanel.querySelector(".empty-note")) {
         testsPanel.replaceChildren(
-          h("p", { class: "empty-note" }, "Run the tests with ", h("kbd", {}, keyLabel("⌘↵", mac)), ". Nothing is recorded until you Submit."),
+          h("p", { class: "empty-note" }, "Run the tests with ", h("kbd", {}, keyLabel("⌘↵", mac)), ". Nothing is recorded until you Submit"),
         );
       }
       return;
@@ -494,7 +494,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     load.smarts = "now";
     renderLoad();
     runner
-      .complete({ code: "import collections\ncollections.", line: 2, col: 12 })
+      .complete({ code: "import collections\ncollections", line: 2, col: 12 })
       .then(() => {
         smartsReady = true;
         load.smarts = "ok";
@@ -524,7 +524,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   async function execute(code: string): Promise<RunResult | null> {
     const f = files ?? (await filesP);
     if (!f) {
-      testsPanel.replaceChildren(h("div", { class: "tsum bad", role: "alert" }, h("span", { class: "big" }, "Couldn't load this problem's tests"), h("span", { class: "muted" }, "Check your connection and try again.")));
+      testsPanel.replaceChildren(h("div", { class: "tsum bad", role: "alert" }, h("span", { class: "big" }, "Couldn't load this problem's tests"), h("span", { class: "muted" }, "Check your connection and try again")));
       return null;
     }
     testsPanel.replaceChildren(runningRows(testNames(f.test)));
@@ -556,11 +556,11 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
         onNext: () => cycleProblem(1),
       }),
     );
-    $(root, "[data-console]").textContent = r.output.trim() || "Nothing printed.";
+    $(root, "[data-console]").textContent = r.output.trim() || "Nothing printed";
     renderTestsStatus();
     showTestsTab("tests");
     const failing = r.tests.filter((t) => t.outcome !== "passed").map((t) => t.name);
-    announce(r.timedOut ? "Stopped after the time limit. Python was restarted." : green ? `All ${r.total} passed.` : `${r.passed} of ${r.total} passed. Failing: ${failing.slice(0, 3).join(", ")}`);
+    announce(r.timedOut ? "Stopped after the time limit. Python was restarted" : green ? `All ${r.total} passed` : `${r.passed} of ${r.total} passed. Failing: ${failing.slice(0, 3).join(", ")}`);
   }
 
   async function run(submit: boolean) {
@@ -569,7 +569,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       runner.dispose();
       setRunning(false);
       lastRun = null;
-      testsPanel.replaceChildren(h("p", { class: "empty-note" }, "Run cancelled. Python is restarting."));
+      testsPanel.replaceChildren(h("p", { class: "empty-note" }, "Run cancelled. Python is restarting"));
       startPython();
       return;
     }
@@ -613,7 +613,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   async function finishSubmit(r: RunResult, code: string, green: boolean) {
     if (!trainer) await trainerP;
     if (!trainer) {
-      toast(toastSlot, "Couldn't record this attempt: progress storage didn't load. Your code is saved.");
+      toast(toastSlot, "Couldn't record this attempt: progress storage didn't load. Your code is saved");
       return;
     }
     const before = trainer.states(events)[id];
@@ -626,7 +626,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       const failing = r.timedOut ? "a run that never finished" : `${r.total - r.passed} failing test${r.total - r.passed === 1 ? "" : "s"}`;
       const ok = await confirmPop(root, $(root, '.wbar [data-act="submit"]'), {
         title: `Submit with ${failing}?`,
-        body: "This counts as a miss: the review drops to 1 day. Keep working and you can still pass.",
+        body: "This counts as a miss: the review drops to 1 day. Keep working and you can still pass",
         ok: "Submit as a miss",
         cancel: "Keep working",
         danger: true,
@@ -710,31 +710,31 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const fell = to < from || (to === 1 && from > 1);
     if (!green) {
       title = "Counted as a miss";
-      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}. The reference is unlocked in the Solution tab.`;
+      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}. The reference is unlocked in the Solution tab`;
     } else if (mode === "drill") {
       title = attempt.assisted || over ? "Drill complete" : `Sharp: ${clock}`;
-      body = "Drills keep a problem warm without moving its review.";
+      body = "Drills keep a problem warm without moving its review";
     } else if (attempt.peeks > 0) {
       title = "Passed after a peek";
-      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}.`;
+      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}`;
     } else if (attempt.hints > 0) {
       title = "Passed with a hint";
-      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}.`;
+      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}`;
     } else if (attempt.restarts > 0) {
       title = `Passed after a restart, ${clock}`;
-      body = `A restart counts like a hint: back to the 1-day rung, next review ${dueText ?? "tomorrow"}.`;
+      body = `A restart counts like a hint: back to the 1-day rung, next review ${dueText ?? "tomorrow"}`;
     } else if (over) {
       title = `Passed, ${formatClock(elapsed - targetMs)} over target`;
-      body = `Over the ${Math.round(targetMs / 60_000)}-minute target counts like a hint: back to the 1-day rung, next review ${dueText ?? "tomorrow"}.`;
+      body = `Over the ${Math.round(targetMs / 60_000)}-minute target counts like a hint: back to the 1-day rung, next review ${dueText ?? "tomorrow"}`;
     } else if (from === 0) {
       title = `First pass in ${clock}`;
-      body = `On the 1-day rung; next review ${dueText ? `on ${dueText}` : "tomorrow"}. Clean passes on later days climb it.`;
+      body = `On the 1-day rung; next review ${dueText ? `on ${dueText}` : "tomorrow"}. Clean passes on later days climb it`;
     } else if (to === from) {
       title = `Clean pass in ${clock}`;
-      body = `Same day as your last finish, so the ladder holds at the ${rungName}. Next review on ${dueText ?? "schedule"}.`;
+      body = `Same day as your last finish, so the ladder holds at the ${rungName}. Next review on ${dueText ?? "schedule"}`;
     } else {
       title = `Clean pass in ${clock}`;
-      body = `No hints, under ${Math.round(targetMs / 60_000)} minutes. Up to the ${rungName}; next review on ${dueText ?? "schedule"}.`;
+      body = `No hints, under ${Math.round(targetMs / 60_000)} minutes. Up to the ${rungName}; next review on ${dueText ?? "schedule"}`;
     }
     const mastered = to >= 4 && from < 4 && green;
     // "What this changes" (diagnosis update) mounts here when the shared renderer is present.
@@ -827,7 +827,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const slug = leetcodeSlug(meta.url);
     const lc = h("a", { class: "btn btn-secondary btn-sm", href: meta.url, target: "_blank", rel: "noopener" }, "Open on LeetCode ", h("span", { html: icon("external-link", 14, "icon-sm") }));
     if (!slug) {
-      stmt.replaceChildren(h("div", { class: "stmt-note" }, "This problem's statement lives on LeetCode.", h("div", { class: "row" }, lc)));
+      stmt.replaceChildren(h("div", { class: "stmt-note" }, "This problem's statement lives on LeetCode", h("div", { class: "row" }, lc)));
       return;
     }
     const res = await fetchStatement(slug);
@@ -837,10 +837,10 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     }
     const msg =
       res.kind === "premium"
-        ? "This is a LeetCode Premium problem, so its statement can't be shown here. The tests and the editor work as usual."
+        ? "This is a LeetCode Premium problem, so its statement can't be shown here. The tests and the editor work as usual"
         : res.kind === "none"
-          ? "LeetCode has no statement for this problem. The tests and the editor work as usual."
-          : "Couldn't load the statement (it comes from LeetCode through our server). The editor and tests still work.";
+          ? "LeetCode has no statement for this problem. The tests and the editor work as usual"
+          : "Couldn't load the statement (it comes from LeetCode through our server). The editor and tests still work";
     const retry = h("button", { class: "btn btn-ghost btn-sm", onclick: () => (stmt.replaceChildren(h("div", { class: "stmt-skel", role: "status", "aria-label": "Loading the statement" }, h("span", { class: "skel" }), h("span", { class: "skel" }))), void loadStatement()) }, "Retry");
     stmt.replaceChildren(h("div", { class: "stmt-note" }, msg, h("div", { class: "row" }, lc, res.kind === "premium" || res.kind === "none" ? null : retry)));
   }
@@ -881,13 +881,13 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
             h(
               "div",
               { class: "hint-confirm", role: "alertdialog", "aria-label": "Open a hint?" },
-              h("span", {}, "Open it? This attempt becomes assisted: the review drops to 1 day."),
+              h("span", {}, "Open it? This attempt becomes assisted: the review drops to 1 day"),
               h("div", { class: "acts" }, cancel, h("button", { class: "btn btn-primary btn-sm", "data-hint-ok": "", onclick: () => revealHint(true) }, `Show ${it.label.toLowerCase()}`)),
             ),
           );
         }
       });
-      if (!hintItems.length) nodes.push(h("p", { class: "cost" }, "No hints for this problem."));
+      if (!hintItems.length) nodes.push(h("p", { class: "cost" }, "No hints for this problem"));
       box.replaceChildren(...nodes);
     }
   }
@@ -930,7 +930,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     if (lockIcon) lockIcon.hidden = unlocked;
     if (exam) return;
     if (!meta.has_solution && !files?.solution) {
-      solPanel.replaceChildren(h("div", { class: "locked" }, h("h2", {}, "No reference solution yet"), h("p", {}, "This problem has no reference in the curriculum. Compare with your earlier attempts in History.")));
+      solPanel.replaceChildren(h("div", { class: "locked" }, h("h2", {}, "No reference solution yet"), h("p", {}, "This problem has no reference in the curriculum. Compare with your earlier attempts in History")));
       return;
     }
     if (!unlocked) {
@@ -938,7 +938,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       peek.addEventListener("click", async () => {
         const ok = await confirmPop(root, peek, {
           title: "Peek at the solution?",
-          body: "Peeking drops this review to 1 day. You can still pass the tests afterwards.",
+          body: "Peeking drops this review to 1 day. You can still pass the tests afterwards",
           ok: "Peek",
           cancel: "Keep going",
           danger: true,
@@ -953,7 +953,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
           "div",
           { class: "locked" },
           h("h2", {}, "The solution opens when you're done"),
-          h("p", {}, "It unlocks after you pass with Submit or give up. Peeking before then records this attempt as assisted: the review drops to 1 day."),
+          h("p", {}, "It unlocks after you pass with Submit or give up. Peeking before then records this attempt as assisted: the review drops to 1 day"),
           h("div", { class: "acts" }, peek),
         ),
       );
@@ -1024,7 +1024,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
                 onclick: () => {
                   const prev = editor.code();
                   setCode(d.code);
-                  toast(toastSlot, "Restored your last draft.", () => setCode(prev));
+                  toast(toastSlot, "Restored your last draft", () => setCode(prev));
                 },
               },
               "Restore",
@@ -1052,7 +1052,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
         const snap = await loadSnapshot(id, a.id);
         const prev = prevAttempt ? await loadSnapshot(id, prevAttempt.id) : undefined;
         if (!snap) {
-          toast(toastSlot, "No code was saved with this attempt.");
+          toast(toastSlot, "No code was saved with this attempt");
           return;
         }
         openDiff(snap.code, `Attempt, ${formatDateTime(a.start)}`, prev ? { code: prev.code, label: `Previous attempt, ${formatDay(prevAttempt!.start)}` } : null);
@@ -1073,7 +1073,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       );
     });
     if (!items.length) {
-      histPanel.replaceChildren(h("p", { class: "empty-hist" }, "No attempts yet. Submit records one; Run never does. Each attempt keeps its code here so you can diff it later."));
+      histPanel.replaceChildren(h("p", { class: "empty-hist" }, "No attempts yet. Submit records one; Run never does. Each attempt keeps its code here so you can diff it later"));
       return;
     }
     histPanel.replaceChildren(h("ol", { class: "hist", "aria-label": "Attempts" }, items));
@@ -1093,7 +1093,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       );
       const body =
         against === "ref" && !canRef
-          ? h("p", { class: "empty-hist" }, prev ? "" : "The reference unlocks after you pass or give up. Diff against a previous attempt instead.")
+          ? h("p", { class: "empty-hist" }, prev ? "" : "The reference unlocks after you pass or give up. Diff against a previous attempt instead")
           : diffView(lc, ll, rc, rl);
       histPanel.replaceChildren(
         h("div", { class: "back-row" }, h("button", { class: "btn btn-ghost btn-sm", onclick: () => renderHistory() }, "All attempts"), seg),
@@ -1128,7 +1128,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const { checkInput, parseSignature, placeholderFor, supported } = await customLib();
     const sig = parseSignature(data.starter);
     if (!sig || !supported(sig)) {
-      customPanel.replaceChildren(h("p", { class: "empty-note" }, "Custom input isn't available for this problem's argument types yet. The tests cover it."));
+      customPanel.replaceChildren(h("p", { class: "empty-note" }, "Custom input isn't available for this problem's argument types yet. The tests cover it"));
       return;
     }
     const params = sig.kind === "class" ? [{ name: "calls", type: "" }] : sig.params;
@@ -1175,7 +1175,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
           const c = [...loadCases(), [...(customValues ?? [])]];
           saveCases(c);
           renderCaseList();
-          toast(toastSlot, "Added to your cases. They re-run with every Run and never count toward Submit.");
+          toast(toastSlot, "Added to your cases. They re-run with every Run and never count toward Submit");
         },
       },
       "Add as a case",
@@ -1195,7 +1195,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       );
     };
     renderCaseList();
-    customOut = h("div", { class: "cout", "aria-live": "polite" }, h("p", { class: "empty-note wide" }, "Your return and the reference's return show here, side by side."));
+    customOut = h("div", { class: "cout", "aria-live": "polite" }, h("p", { class: "empty-note wide" }, "Your return and the reference's return show here, side by side"));
     customPanel.replaceChildren(h("div", { class: "custom" }, h("div", { class: "fields" }, fields, h("div", { class: "cin-acts" }, runBtn, add), caseList), customOut));
   }
   async function runCustom() {
@@ -1226,8 +1226,8 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
               { class: `match ${same ? "ok" : "bad"}` },
               h("span", { html: icon(same ? "check" : "x", 15, "icon-sm") }),
               same
-                ? `Same answer${ms ? `, ${ms}` : ""}. Shows the reference's output only, never its code, so it doesn't count as a peek.`
-                : `Different answers${ms ? `, ${ms}` : ""}. Shows the reference's output only, never its code, so it doesn't count as a peek.`,
+                ? `Same answer${ms ? `, ${ms}` : ""}. Shows the reference's output only, never its code, so it doesn't count as a peek`
+                : `Different answers${ms ? `, ${ms}` : ""}. Shows the reference's output only, never its code, so it doesn't count as a peek`,
             )
           : null,
         mine?.printed ? h("div", { class: "wide" }, h("span", { class: "k" }, "Printed"), h("pre", {}, mine.printed)) : null,
@@ -1235,7 +1235,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       );
       if (mine?.line) editor.setFailures([{ line: mine.line, chip: mine.error ?? "error" }]);
     } catch {
-      out.replaceChildren(h("p", { class: "empty-note wide" }, "Couldn't run the input. Python restarted; try again."));
+      out.replaceChildren(h("p", { class: "empty-note wide" }, "Couldn't run the input. Python restarted; try again"));
     } finally {
       setRunning(false);
     }
@@ -1317,7 +1317,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
 
   async function openDrafts(anchor: HTMLElement) {
     const list = await draftHistory(id).catch(() => [] as Draft[]);
-    const preview = h("pre", {}, list.length ? "" : "Drafts appear here as you work: one every two minutes, and one each time you run the tests.");
+    const preview = h("pre", {}, list.length ? "" : "Drafts appear here as you work: one every two minutes, and one each time you run the tests");
     let picked: Draft | null = null;
     const restore = h("button", { class: "btn btn-primary btn-sm", disabled: true }, "Restore");
     const items = list.map((d) => {
@@ -1335,7 +1335,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       const prev = editor.code();
       setCode(picked.code);
       close();
-      toast(toastSlot, "Restored that draft.", () => setCode(prev));
+      toast(toastSlot, "Restored that draft", () => setCode(prev));
     });
     const el = h("div", { class: "drafts-pop", role: "dialog", "aria-label": "Earlier drafts" }, h("h3", {}, "Earlier drafts"), list.length ? h("ul", {}, items) : null, preview, h("div", { class: "acts" }, restore));
     const close = popover(root, anchor, el);
@@ -1346,7 +1346,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const anchor = $(root, '.wbar [data-act="more"]');
     const ok = await confirmPop(root, anchor, {
       title: "Restart this attempt?",
-      body: "The code goes back to the starter and the timer to zero. A restart counts like a hint for the review.",
+      body: "The code goes back to the starter and the timer to zero. A restart counts like a hint for the review",
       ok: "Restart",
       cancel: "Keep going",
     });
@@ -1360,7 +1360,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     announcedPhase = "";
     editor.setFailures([]);
     tick();
-    toast(toastSlot, "Restarted from the starter code.", () => {
+    toast(toastSlot, "Restarted from the starter code", () => {
       setCode(prevCode);
       timer = prevTimer;
       tick();
@@ -1371,7 +1371,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     if (exam || attempt.end) return;
     const ok = await confirmPop(root, anchor, {
       title: "Give up on this attempt?",
-      body: "The review drops to 1 day and the reference solution opens. Your draft is kept in History.",
+      body: "The review drops to 1 day and the reference solution opens. Your draft is kept in History",
       ok: "Give up and see solution",
       cancel: "Keep going",
       danger: true,
@@ -1385,7 +1385,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     await addToHistory(id, code).catch(() => {});
     unlocked = true;
     showSolution(files?.solution ? "diff" : "ref");
-    announce("Gave up. The review drops to 1 day; the reference solution is open.");
+    announce("Gave up. The review drops to 1 day; the reference solution is open");
   }
 
   // ---- Focus mode, fullscreen ----
@@ -1396,7 +1396,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   }
   function toggleFullscreen() {
     if (document.fullscreenElement) void document.exitFullscreen();
-    else void root.requestFullscreen?.().catch(() => toast(toastSlot, "Full screen isn't available in this browser."));
+    else void root.requestFullscreen?.().catch(() => toast(toastSlot, "Full screen isn't available in this browser"));
   }
 
   // ---- Palette and shortcuts (local until the shared overlays land) ----
@@ -1498,7 +1498,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       sel = Math.min(sel, Math.max(0, shown.length - 1));
       listEl.replaceChildren();
       if (!shown.length) {
-        listEl.append(h("li", { class: "palette-empty" }, `No match for '${input.value}'. Try a technique name or a LeetCode number.`));
+        listEl.append(h("li", { class: "palette-empty" }, `No match for '${input.value}'. Try a technique name or a LeetCode number`));
         input.removeAttribute("aria-activedescendant");
         return;
       }
@@ -1535,7 +1535,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   // ---- Problems cycling (F8) ----
   function cycleProblem(dir: 1 | -1) {
     if (!editor.cycleProblem(dir)) {
-      toast(toastSlot, "No lint problems or failing tests.");
+      toast(toastSlot, "No lint problems or failing tests");
       return;
     }
     panes.showMobile("code");

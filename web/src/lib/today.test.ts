@@ -28,9 +28,9 @@ describe("time budget", () => {
 
 describe("copy", () => {
   it("greets by local time", () => {
-    expect(greeting(new Date(2026, 10, 14, 9), "Ani")).toBe("Good morning, Ani.");
-    expect(greeting(new Date(2026, 10, 14, 19))).toBe("Good evening.");
-    expect(greeting(new Date(2026, 10, 14, 23, 30), "Ani")).toBe("Late one, Ani.");
+    expect(greeting(new Date(2026, 10, 14, 9), "Ani")).toBe("Good morning, Ani");
+    expect(greeting(new Date(2026, 10, 14, 19))).toBe("Good evening");
+    expect(greeting(new Date(2026, 10, 14, 23, 30), "Ani")).toBe("Welcome back, Ani");
   });
   it("says why each row is on the list", () => {
     expect(reasonTag({ kind: "review", reason: null, overdue_days: 1 }, true)).toEqual(["due", "Review, due yesterday"]);

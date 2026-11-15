@@ -1,5 +1,6 @@
-// CodeMirror theme built from tokens.css. Every colour is a CSS variable, so light/dark
-// follow `data-theme` and the system setting live, with no re-init.
+// CodeMirror theme built from the flavor tokens (styles/flavors.css; mapping adopted from
+// @catppuccin/codemirror). Every colour is a CSS variable, so flavor and accent switches
+// repaint live with no re-init.
 
 import { EditorView } from "@codemirror/view";
 
@@ -23,15 +24,15 @@ export const editorTheme = EditorView.theme({
   "&.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection":
     { backgroundColor: "var(--code-selection)" },
   ".cm-activeLine": { backgroundColor: "var(--code-active-line)" },
-  ".cm-activeLineGutter": { backgroundColor: "var(--code-active-line)", color: "var(--ink-2)" },
+  ".cm-activeLineGutter": { backgroundColor: "var(--code-active-line)", color: "var(--code-gutter-active)" },
   ".cm-gutters": { backgroundColor: "var(--code-bg)", color: "var(--code-gutter)", border: "none" },
   ".cm-lineNumbers .cm-gutterElement": { minWidth: "40px", padding: "0 6px 0 4px", textAlign: "right" },
   ".cm-foldGutter .cm-gutterElement": { width: "14px", color: "var(--ink-3)", display: "grid", placeItems: "center" },
   ".cm-foldPlaceholder": { background: "var(--surface-sunk)", border: "none", color: "var(--ink-3)", padding: "0 4px" },
-  "&.cm-focused .cm-matchingBracket": { backgroundColor: "var(--code-match)", outline: "1px solid var(--due-solid)" },
+  "&.cm-focused .cm-matchingBracket": { backgroundColor: "var(--code-bracket)", outline: "1px solid var(--control-edge)" },
   ".cm-nonmatchingBracket": { backgroundColor: "var(--fail-soft)" },
-  ".cm-searchMatch": { backgroundColor: "var(--code-match)", outline: "1px solid color-mix(in srgb, var(--due-solid) 50%, transparent)" },
-  ".cm-searchMatch.cm-searchMatch-selected": { backgroundColor: "color-mix(in srgb, var(--due-solid) 35%, var(--code-bg))" },
+  ".cm-searchMatch": { backgroundColor: "var(--code-match)" },
+  ".cm-searchMatch.cm-searchMatch-selected": { backgroundColor: "var(--code-match)", outline: "1px solid var(--code-match-edge)" },
   ".cm-selectionMatch": { backgroundColor: "color-mix(in srgb, var(--code-selection) 55%, transparent)" },
   ".cm-panels": { backgroundColor: "var(--surface)", color: "var(--ink)", fontFamily: "var(--font-ui)" },
   ".cm-panels.cm-panels-top": { borderBottom: "1px solid var(--line)" },

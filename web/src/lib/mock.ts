@@ -28,6 +28,7 @@ export interface Round {
   source: Source;
   /** Company slug when `source` is "company". */
   company: string | null;
+  companies?: string[];
   problems: string[];
   current: number;
   /** Last report per problem, stamped with when it arrived. */
@@ -61,6 +62,7 @@ export interface MockResult {
   secs: number;
   source: Source;
   company: string | null;
+  companies?: string[];
   timeUp: boolean;
   problems: ProblemResult[];
 }
@@ -73,13 +75,14 @@ export function roundSecs(n: number, standardSecs: number): number {
   return n <= 1 ? 25 * 60 : n === 2 ? standardSecs : 60 * 60;
 }
 
-export function newRound(o: { problems: string[]; secs: number; source: Source; company: string | null; now: number }): Round {
+export function newRound(o: { problems: string[]; secs: number; source: Source; company: string | null; companies?: string[]; now: number }): Round {
   return {
     id: o.now.toString(36),
     start: o.now,
     secs: o.secs,
     source: o.source,
     company: o.company,
+    ...(o.companies ? { companies: o.companies } : {}),
     problems: o.problems,
     current: 0,
     reports: {},
@@ -206,6 +209,32 @@ export function pickCompany(c: Catalog, playlistId: string, states: Record<strin
   // Rotate among the most asked half so repeat mocks don't always draw the same problems.
   const head = shuffle(open.slice(0, Math.max(n * 4, Math.ceil(open.length / 2))), seed);
   return spread(head, techKey(c), n);
+}
+
+export const MAX_MOCK_COMPANIES = 3;
+
+export function companySelection(value: string): string[] {
+  if (!value) return [];
+  try {
+    const ids: unknown = JSON.parse(value);
+    return Array.isArray(ids) ? [...new Set(ids.filter((id): id is string => typeof id === "string"))] : [];
+  } catch { return [value]; }
+}
+
+/** Interleave each company's candidates before shuffling; shared questions appear once. */
+export function pickCompanies(c: Catalog, playlistIds: string[], states: Record<string, State>, n: number, seed: number): string[] {
+  const selected = [...new Set(playlistIds)];
+  if (selected.length > MAX_MOCK_COMPANIES) throw new Error("Choose up to 3 companies");
+  const pools = selected.map((id, i) => pickCompany(c, id, states, Math.max(n * 4, 12), seed + i));
+  const candidates: string[] = [];
+  const seen = new Set<string>();
+  for (let rank = 0; rank < Math.max(0, ...pools.map((p) => p.length)); rank++) {
+    for (const pool of pools) {
+      const id = pool[rank];
+      if (id && !seen.has(id)) { seen.add(id); candidates.push(id); }
+    }
+  }
+  return spread(shuffle(candidates, seed), techKey(c), n);
 }
 
 /** Not-mastered problems in the weak techniques (`stats.weakest`), one per technique first. */

@@ -1,5 +1,6 @@
 // The 1200x630 progress card (profile/design.md), drawn on a canvas so the same pixels
 // back the preview, the downloaded PNG and the Web Share file.
+import { DEFAULT_ACCENT, flavorTokens, type Accent, type Flavor } from "./flavors";
 import { RUNG_DAYS } from "./ui/ladder";
 
 export interface CardData {
@@ -13,10 +14,12 @@ export interface CardData {
   rungs: number[] | null;
 }
 
-const THEMES = {
-  light: { ground: "#f2f3ef", ink: "#16191d", ink3: "#5c626b", accent: "#2b3cc4", pass: "#1f8a4f", track: "#80868e", surface: "#f2f3ef" },
-  dark: { ground: "#121417", ink: "#ecede8", ink3: "#959ca5", accent: "#93a0ff", pass: "#4bb97a", track: "#6c737c", surface: "#121417" },
-} as const;
+/** The card's colours: the canvas can't read CSS variables, so they come resolved from flavors.json. */
+function palette(flavor: Flavor, accent: Accent) {
+  const c = flavorTokens(flavor, accent);
+  const v = (k: string) => c[k] ?? "";
+  return { ground: v("ground"), ink: v("ink"), ink3: v("ink-3"), accent: v("accent"), pass: v("pass-solid"), track: v("control-edge"), surface: v("ground") };
+}
 
 export const CARD_W = 1200;
 export const CARD_H = 630;
@@ -42,8 +45,8 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, max: number): string[
   return lines;
 }
 
-export function drawCard(canvas: HTMLCanvasElement, d: CardData, theme: "light" | "dark"): void {
-  const t = THEMES[theme];
+export function drawCard(canvas: HTMLCanvasElement, d: CardData, flavor: Flavor, accent: Accent = DEFAULT_ACCENT): void {
+  const t = palette(flavor, accent);
   canvas.width = CARD_W;
   canvas.height = CARD_H;
   const ctx = canvas.getContext("2d");
@@ -182,5 +185,5 @@ export function cardLabel(d: CardData): string {
   if (d.mastered !== null) parts.push(`${d.mastered} mastered`);
   if (d.strongest?.length) parts.push(`strongest: ${d.strongest.join(", ")}`);
   if (d.rungs) parts.push(`problems on each rung from 1 to 30 days: ${d.rungs.join(", ")}`);
-  return `${parts.join(", ")}.`;
+  return `${parts.join(", ")}`;
 }

@@ -97,8 +97,8 @@ const description = first.replace(/[*_`[\]]/g, "").replace(/\(https?:[^)]*\)/g, 
 
         {
           problems.length > 0 && (
-            <section class="panel practice" aria-labelledby="pt" id="practise">
-              <div class="section-head" style="margin:0"><h2 id="pt">Practise this technique</h2><span class="meta" data-practice-meta>{problems.length} problems</span></div>
+            <section class="panel practice" aria-labelledby="pt" id="practice">
+              <div class="section-head" style="margin:0"><h2 id="pt">Practice this technique</h2><span class="meta" data-practice-meta>{problems.length} problems</span></div>
               <ol class="queue" data-practice></ol>
               <a class="link text-small" href={practice.all} style="display:inline-block;margin-top:var(--space-3)">All {problems.length} {techTitle.toLowerCase()} problems</a>
             </section>
@@ -113,11 +113,11 @@ const description = first.replace(/[*_`[\]]/g, "").replace(/\(https?:[^)]*\)/g, 
 
       <aside class="margin" aria-label="Your margin notes" data-margin></aside>
     </div>
-    <div class="note-pop" role="toolbar" aria-label="Selection" data-pop hidden></div>
+    <div class="note-pop on-wall" role="toolbar" aria-label="Selection" data-pop hidden></div>
     <dialog class="dlg try-dlg" aria-labelledby="try-h" data-try-dlg>
       <div class="dlg-head"><h2 id="try-h">Try it</h2><button class="icon-btn" type="button" data-try-close aria-label="Close" set:html={icon("x").value} /></div>
       <div class="dlg-body">
-        <p>Edit and run the block. It passes when every <code>assert</code> holds.</p>
+        <p>Edit and run the block. It passes when every <code>assert</code> holds</p>
         <label class="visually-hidden" for="try-code">Code</label>
         <textarea id="try-code" class="try-code" spellcheck="false" data-try-code></textarea>
         <div class="try-out" role="status" aria-live="polite" data-try-out></div>

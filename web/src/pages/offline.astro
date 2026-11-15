@@ -4,12 +4,12 @@ import Base from "../layouts/Base.astro";
 import { ROUTES } from "../lib/routes";
 ---
 
-<Base title="Offline" noindex description="This page isn't saved for offline use yet.">
+<Base title="Offline" noindex description="This page isn't saved for offline use yet">
   <div class="page page-narrow">
     <section class="panel state-note" role="status">
       <Icon name="wifi-off" />
       <h1 style="font-size:var(--text-lg)">This page isn't saved for offline yet</h1>
-      <p>You're offline, and this page hasn't been opened on this device before. Today and the problems you've already opened keep working; your progress syncs when you reconnect.</p>
+      <p>You're offline, and this page hasn't been opened on this device before. Today and the problems you've already opened keep working; your progress syncs when you reconnect</p>
       <div class="actions"><a class="btn btn-primary" href={ROUTES.today}>Go to Today</a><button class="btn btn-ghost" type="button" onclick="location.reload()">Try again</button></div>
     </section>
   </div>

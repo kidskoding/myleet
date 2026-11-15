@@ -3,6 +3,8 @@ import { cachedMe, type PublicProfile } from "../lib/account";
 import { loadCatalog } from "../lib/catalog";
 import { readEvents } from "../lib/progress";
 import { profileHref, ROUTES } from "../lib/routes";
+import { FLAVOR_NAMES, type Flavor } from "../lib/flavors";
+import { readAccent, readNight, resolvedFlavor } from "../lib/prefs";
 import { cardLabel, drawCard, type CardData } from "../lib/share-card";
 import { loadTrainer } from "../lib/trainer";
 import { html, render } from "../lib/ui/html";
@@ -49,7 +51,8 @@ export function profileCard(p: PublicProfile): CardData {
 export async function openShare(opts: { profile?: PublicProfile } = {}): Promise<void> {
   const full = opts.profile ? profileCard(opts.profile) : await localCard();
   const show = { streak: true, mastered: true, strongest: true };
-  let theme: "light" | "dark" = "light";
+  const night = readNight();
+  let theme: Flavor = resolvedFlavor() === "latte" ? "latte" : night;
   const username = full.username;
   const url = username ? new URL(profileHref(username), location.origin).href : null;
 
@@ -66,11 +69,11 @@ export async function openShare(opts: { profile?: PublicProfile } = {}): Promise
         <label class="switch"><input type="checkbox" data-show="streak" checked />Streak</label>
         <label class="switch"><input type="checkbox" data-show="mastered" checked />Mastered count</label>
         ${full.strongest ? html`<label class="switch"><input type="checkbox" data-show="strongest" checked />Strongest techniques</label>` : ""}
-        <div class="seg" role="group" aria-label="Card colours"><button type="button" data-theme-card="light" aria-pressed="true">Light</button><button type="button" data-theme-card="dark" aria-pressed="false">Dark</button></div>
+        <div class="seg" role="group" aria-label="Card colours">${(["latte", night] as const).map((f) => html`<button type="button" data-theme-card="${f}" aria-pressed="${f === theme ? "true" : "false"}">${FLAVOR_NAMES[f]}</button>`)}</div>
       </div>
       ${url
         ? html`<div class="share-link"><label class="visually-hidden" for="sh-url">Profile link</label><input class="input" id="sh-url" readonly value="${url}" /><button class="btn btn-secondary" type="button" data-copy>Copy link</button><span class="visually-hidden" role="status" data-copied></span></div>`
-        : html`<p class="fineprint" style="margin-top:var(--space-4)">Sign in and turn on your public profile in <a class="link" href="${ROUTES.settings}#privacy">Settings</a> to share a link. You can still download the image.</p>`}
+        : html`<p class="fineprint" style="margin-top:var(--space-4)">Sign in and turn on your public profile in <a class="link" href="${ROUTES.settings}#privacy">Settings</a> to share a link. You can still download the image</p>`}
     </div>
     <div class="dlg-actions"><button class="btn btn-ghost" type="button" data-download>${icon("download")}Download image</button>${
       "share" in navigator ? html`<button class="btn btn-primary" type="button" data-share>${icon("share")}Share</button>` : ""
@@ -84,7 +87,7 @@ export async function openShare(opts: { profile?: PublicProfile } = {}): Promise
     strongest: show.strongest ? full.strongest : null,
   });
   const paint = () => {
-    drawCard(canvas, data(), theme);
+    drawCard(canvas, data(), theme, readAccent());
     canvas.setAttribute("aria-label", cardLabel(data()));
   };
   await document.fonts.load('700 64px "Archivo Variable"').catch(() => undefined);
@@ -102,7 +105,7 @@ export async function openShare(opts: { profile?: PublicProfile } = {}): Promise
     const th = t.closest<HTMLElement>("[data-theme-card]");
     if (t.closest("[data-close]")) closeDialog(d);
     else if (th) {
-      theme = th.dataset.themeCard as "light" | "dark";
+      theme = th.dataset.themeCard as Flavor;
       d.querySelectorAll("[data-theme-card]").forEach((b) => b.setAttribute("aria-pressed", String(b === th)));
       paint();
     } else if (t.closest("[data-copy]") && url) {

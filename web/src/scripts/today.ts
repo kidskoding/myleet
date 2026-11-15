@@ -107,7 +107,7 @@ function checkinPanel(c: Ctx): SafeHtml {
     const finished = progress.filter((p) => p.finished).length;
     return html`<section class="panel checkin" aria-labelledby="ci-h">
       <div class="section-head"><h2 id="ci-h">Check-in</h2><span class="meta">${finished} of ${active.ids.length} done</span></div>
-      <p>Modules 1 to ${active.through}. Solve them cold, like an interview. Anything you don't finish counts as skipped.</p>
+      <p>Modules 1 to ${active.through}. Solve them cold, like an interview. Anything you don't finish counts as skipped</p>
       <ol class="queue">${progress.map((p) => {
         const m = meta(c.cat, p.problem);
         const f = p.finished;
@@ -121,7 +121,7 @@ function checkinPanel(c: Ctx): SafeHtml {
   if (cp.suggest_through <= 0) return html``;
   return html`<section class="panel checkin" aria-labelledby="ci-h">
     <h2 id="ci-h">Check-in on modules 1 to ${cp.suggest_through}</h2>
-    <p>A short mixed set from what you've covered, about 45 minutes. It shows what's solid and what to revisit; it doesn't move your reviews.</p>
+    <p>Review the topics you have covered in a mixed set that takes about 45 minutes. The results show what needs more practice without changing your review schedule</p>
     <div class="actions"><button class="btn btn-secondary btn-sm" type="button" data-checkin-start="${cp.suggest_through}">Start the check-in</button><button class="btn btn-ghost btn-sm" type="button" data-checkin-snooze="${cp.suggest_through}">Not now</button></div>
   </section>`;
 }
@@ -141,7 +141,7 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   if (!p.interviewDate) {
     return {
       panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">Your next 4 weeks</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
-        <p class="plan-note">Add an interview date and the plan builds toward it: which techniques to start, a forecast for the date, and mocks closer together near the end.</p>
+        <p class="plan-note">Add an interview date and the plan builds toward it: which techniques to start, a forecast for the date, and mocks closer together near the end</p>
         <a class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)" href="${ROUTES.settings}#plan">Set date</a></section>`,
       inline: "",
     };
@@ -150,20 +150,20 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   if (left < 0) {
     return {
       panel: html`<section class="panel" aria-labelledby="cd"><h2 id="cd">${title}</h2>
-        <p class="plan-note">Your ${who ? `${who} ` : ""}interview was ${shortDate(p.interviewDate)}. How did it go? Keep practising, or plan for the next one.</p>
-        <div style="display:flex;gap:var(--space-2);margin-top:var(--space-4);flex-wrap:wrap"><a class="btn btn-secondary btn-sm" href="${ROUTES.settings}#plan">Set a new date</a><button class="btn btn-ghost btn-sm" type="button" data-remove-date>Keep practising without a date</button></div></section>`,
+        <p class="plan-note">Your ${who ? `${who} ` : ""}interview date was ${shortDate(p.interviewDate)}. Keep practicing or set a date for your next interview</p>
+        <div style="display:flex;gap:var(--space-2);margin-top:var(--space-4);flex-wrap:wrap"><a class="btn btn-secondary btn-sm" href="${ROUTES.settings}#plan">Set a new date</a><button class="btn btn-ghost btn-sm" type="button" data-remove-date>Keep practicing without a date</button></div></section>`,
       inline: "",
     };
   }
   const rows = c.plan ? paceRows(c.plan.forecast) : [];
   const behind = rows.find((r) => r.status === "behind") ?? null;
-  const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${behind.title} is behind by ${behind.behind_by}.` : c.plan?.summary.on_track ? " On track." : ""}`;
+  const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${behind.title} is behind by ${behind.behind_by}` : c.plan?.summary.on_track ? " On track" : ""}`;
   return {
     panel: html`<section class="panel" aria-labelledby="cd">
       <div class="section-head"><h2 id="cd">${title}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
       <p class="countdown"><span class="count-num">${left}</span><span class="text-secondary">${left === 1 ? "day" : "days"} left, ${shortDate(p.interviewDate)}</span></p>
       ${rows.length ? html`<div class="fc">${forecastRows(rows, { date: p.interviewDate })}</div>` : ""}
-      <p class="fineprint">${rows.length ? "If you keep to the plan. Behind by N means N problems short on the date." : (c.plan?.summary.headline ?? "")}</p>
+      <p class="fineprint">${rows.length ? "If you keep to the plan. Behind by N means N problems short on the date" : (c.plan?.summary.headline ?? "")}</p>
     </section>`,
     inline,
   };
@@ -187,7 +187,7 @@ function weakPanel(c: Ctx, skip: string | null): SafeHtml {
       const planned = step && inPlanOn(c.plan ?? null, step.problem) === localDay(c.now);
       return html`<li><span class="t"><a href="${skillHref(s.module, s.technique)}">${s.technique_title}</a>${trend(s.trend, s.recent)}</span><p>${line(s)}</p>${
         planned
-          ? html`<span class="text-muted text-small">The next step is in today's plan.</span>`
+          ? html`<span class="text-muted text-small">The next step is in today's plan</span>`
           : step
             ? html`<a class="btn btn-secondary btn-sm" href="${actionHref(s, step)}">${step.title}, ${step.minutes} min</a>`
             : ""
@@ -211,7 +211,7 @@ function budgetPanel(b: Budget): SafeHtml {
     <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${BUDGETS.map(
       (o) => html`<button type="button" data-budget="${o.id}" aria-pressed="${o.id === b ? "true" : "false"}">${o.label}</button>`,
     )}</div></div>
-    <p class="fineprint">Shorter days keep reviews and drop new problems first. Your streak counts any one solve.</p></section>`;
+    <p class="fineprint">Reducing your time removes new problems before reviews. Solving one problem counts toward your streak</p></section>`;
 }
 
 // ---- main column ----
@@ -236,7 +236,7 @@ function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
     </div>
     <div class="rail">${ladder({ rung, size: "lg", due: e.kind === "review" })}<p class="cap">${cap}</p></div>
     <div class="why">
-      <p>${item && item.tag !== "review" ? html`<strong class="why-lead">Why this one:</strong> ${item.reason}. ` : e.why ? html`<strong class="why-lead">${sentence(e.why)}.</strong> ` : ""}${whyLine(e, targetMins(m))}</p>
+      <p>${item && item.tag !== "review" ? html`<strong class="why-lead">Why this one:</strong> ${item.reason}. ` : e.why ? html`<strong class="why-lead">${sentence(e.why)}</strong> ` : ""}${whyLine(e, targetMins(m))}</p>
       <button class="btn btn-ghost" type="button" data-skip="${e.problem}" aria-keyshortcuts="x">Skip for today ${kbd("x")}</button>
       <a class="btn btn-primary btn-lg" href="${problemHref(e.problem, e.kind === "practice" ? "drill" : undefined)}" data-start aria-keyshortcuts="s">Start ${kbd("s")}</a>
     </div>
@@ -284,12 +284,12 @@ function doneRow(c: Ctx, d: DoneItem, states: Record<string, State>): SafeHtml {
 function firstRun(c: Ctx): SafeHtml {
   const items = c.t.placement(c.events).items.map((i) => meta(c.cat, i.problem)?.title ?? i.problem);
   const guide = c.cat.catalog.guide[0];
-  const name = cachedMe()?.user.display_name?.split(" ")[0];
+  const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || (cachedMe() ? null : "Guest");
   return html`<section aria-labelledby="fr-title">
-    <div class="greet"><h1>Welcome to myleet${name ? `, ${name}` : ""}.</h1><p>Your queue builds itself from what you solve. Give it something to start from.</p></div>
+    <div class="greet"><h1>Welcome to myleet${name ? `, ${name}` : ""}</h1><p>Start with a warm-up or a module. Your results help choose what to practice next</p></div>
     <div class="panel firstrun">
       <div><h2 id="fr-title">Find your starting point</h2>
-        <p>${items.length} short problems across the core patterns. They don't touch your review schedule; they tell Today which topics are solid and which to start with. About 40 minutes, and you can stop after any one.</p></div>
+        <p>Try ${items.length} short problems to see which topics you know and which need practice. The warm-up takes about 40 minutes and does not change your review schedule. You can stop after any problem</p></div>
       <div class="choices">
         <a class="choice" href="${ROUTES.onboarding}?step=warm-up">${icon("flag")}<strong>Take the warm-up</strong><span>${items.join(", ")}</span></a>
         <a class="choice" href="${guide ? noteHref(guide.path) : ROUTES.learn}">${icon("book-open")}<strong>I'm new to DSA, start at the beginning</strong><span>Read ${guide?.title ?? "How to prepare"}, then module 1: ${c.cat.catalog.modules[0]?.title ?? "Arrays and hashing"}</span></a>
@@ -346,7 +346,7 @@ function paint(c: Ctx): void {
   if (reviews.length >= BACKLOG_AT) {
     const show = new Set(reviews.slice(0, BACKLOG_SHOW).map((e) => e.problem));
     entries = entries.filter((e) => e.kind !== "review" || show.has(e.problem));
-    backlogNote = `${reviews.length} reviews due. Today shows the ${BACKLOG_SHOW} most overdue; the rest roll to tomorrow.`;
+    backlogNote = `${reviews.length} reviews due. Today shows the ${BACKLOG_SHOW} most overdue; the rest roll to tomorrow`;
   }
   const visible = entries.filter((e) => !skipped.has(e.problem));
   const BUDGET_SECS = BUDGETS.find((b) => b.id === budget)?.secs ?? null;
@@ -363,7 +363,7 @@ function paint(c: Ctx): void {
   }
 
   const placement = c.t.placement(c.events);
-  const name = cachedMe()?.user.display_name?.split(" ")[0] ?? null;
+  const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || (cachedMe() ? null : "Guest");
   const hello = greeting(c.now, name);
   let body: SafeHtml;
   if (placement.needs && Object.keys(states).length === 0) {
@@ -375,12 +375,12 @@ function paint(c: Ctx): void {
     body = html`<section aria-labelledby="ad-h">
       <div class="greet">${
         done.length
-          ? html`<h1 id="ad-h">Today's queue is done.</h1><p>${plural(done.length, "problem")}, ${plural(cleanCount, "clean pass", "clean passes")}${spent >= 1 ? `, ${formatMinutes(spent)}` : ""}. Nothing else is due until tomorrow.</p>`
-          : html`<h1 id="ad-h">${hello}</h1>${noteHtml}<p>Nothing is due today.</p>`
+          ? html`<h1 id="ad-h">You finished today's practice</h1><p>${plural(done.length, "problem")}, ${plural(cleanCount, "clean pass", "clean passes")}${spent >= 1 ? `, ${formatMinutes(spent)}` : ""}. Nothing else is due until tomorrow</p>`
+          : html`<h1 id="ad-h">${hello}</h1>${noteHtml}<p>Nothing is due today</p>`
       }<p class="countdown-inline">${plan.inline}</p></div>
       ${drills.length
-        ? html`<div class="panel state-note" style="margin-top:var(--space-8)"><h2>Keep sharp, if you have more in you</h2>
-          <p>Drills pull cold redos and shaky spots from across everything you've touched. They don't move your review schedule up or down.</p>
+        ? html`<div class="panel state-note" style="margin-top:var(--space-8)"><h2>More practice</h2>
+          <p>These problems revisit topics you have practiced, including ones you found difficult. They do not change your review schedule</p>
           <ol class="queue" style="margin-top:var(--space-4)" aria-label="Keep sharp drills">${drills.map((e) => entryRow(c, e))}</ol></div>`
         : ""}
       ${done.length ? html`<div class="group"><div class="section-head"><h2>Done today</h2><span class="meta">${plural(cleanCount, "clean pass", "clean passes")}</span></div><ol class="panel queue" aria-label="Done today">${done.map((d) => doneRow(c, d, states))}</ol></div>` : ""}
@@ -390,7 +390,7 @@ function paint(c: Ctx): void {
     const parts = [nReview ? plural(nReview, "review") + " due" : "", nNew ? plural(nNew, "new problem") : ""].filter(Boolean).join(" and ");
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}<p>${backlogNote || `${parts}. About ${formatMinutes(mins(work))}.`}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}<p>${backlogNote || `${parts} · About ${formatMinutes(mins(work))}`}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${nextUp(c, first)}
       ${rest.length
         ? html`<div class="group"><div class="section-head"><h2>Also today</h2><span class="meta">${plural(rest.length, "problem")}, about ${formatMinutes(mins(rest))}</span></div>
@@ -420,7 +420,7 @@ function banners(practised: number, days: number): void {
   if (nudge) {
     showBanner("local", {
       icon: "hard-drive",
-      body: html`<strong>Saved on this device.</strong> Sign in to keep your progress on every device.`,
+      body: html`<strong>Saved on this device</strong> Sign in to keep your progress on every device`,
       actions: html`<button class="btn btn-secondary btn-sm" type="button" data-signin>Keep my progress</button>`,
       dismissDays: 7,
     });
@@ -437,8 +437,8 @@ function banners(practised: number, days: number): void {
       const r = await requestReminderPermission();
       if (r === "granted") {
         updatePrefs({ reminders: { on: true, time: "19:00" } });
-        toast("Reminder on: 7 pm on days you haven't practised. Change it in Settings.");
-      } else toast("The browser blocked notifications. You can allow them in its site settings.");
+        toast("Reminder on: 7 pm on days you haven't practised. Change it in Settings");
+      } else toast("The browser blocked notifications. You can allow them in its site settings");
       hideBanner("remind");
       dismiss("remind");
     });
@@ -451,7 +451,7 @@ function banners(practised: number, days: number): void {
   if (!nudge && install && days >= 3 && !bannerDismissed("install")) {
     const el = showBanner("install", {
       icon: "download",
-      body: html`Install myleet for one-click practice and offline use.`,
+      body: html`Install myleet for one-click practice and offline use`,
       actions: html`<button class="btn btn-secondary btn-sm" type="button" data-install>Install</button><button class="btn btn-ghost btn-sm" type="button" data-install-no>Not now</button>`,
     });
     el?.querySelector("[data-install]")?.addEventListener("click", () => (install(), hideBanner("install")));
@@ -473,10 +473,10 @@ function errorState(err: unknown): void {
   const offline = !navigator.onLine;
   render(
     main,
-    html`<div class="greet"><h1>${greeting(new Date(), cachedMe()?.user.display_name?.split(" ")[0])}</h1></div>
+    html`<div class="greet"><h1>${greeting(new Date(), cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || (cachedMe() ? null : "Guest"))}</h1></div>
     <div class="panel state-note" style="margin-top:var(--space-8)" role="alert">
       <h2>Couldn't load the curriculum</h2>
-      <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practised; those work offline.</p>
+      <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practised; those work offline</p>
       <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
     </div>`,
   );
@@ -520,7 +520,7 @@ function skip(id: string): void {
   writeSkipped([...list, id]);
   void refresh();
   const title = ctx ? (meta(ctx.cat, id)?.title ?? id) : id;
-  toast(`Skipped ${title} for today.`, {
+  toast(`Skipped ${title} for today`, {
     ms: 8000,
     action: {
       label: "Undo",
@@ -581,7 +581,7 @@ document.addEventListener("click", async (e) => {
     const clean = results.filter((r) => r.passed && !r.hints).length;
     await refresh();
     const weak = ctx.t.checkpoint(ctx.events).weak_modules.map((id) => ctx?.cat.catalog.modules.find((m) => m.id === id)?.title).filter(Boolean);
-    toast(`Check-in saved: ${clean} of ${results.length} clean.${weak.length ? ` ${weak[0]} comes first in new problems.` : ""}`);
+    toast(`Check-in saved: ${clean} of ${results.length} clean.${weak.length ? ` ${weak[0]} comes first in new problems` : ""}`);
   }
 });
 

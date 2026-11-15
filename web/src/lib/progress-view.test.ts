@@ -138,7 +138,7 @@ describe("insights", () => {
     };
     const atts = [...[1, 1, 2, 3, 4].map((d, i) => mk(d, i > 0)), ...[8, 9, 9, 10, 11].map((d, i) => mk(d, i > 2))];
     const out = insights(atts, now);
-    expect(out[0]?.text).toBe("Not clean: **1 of 5 attempts** this week, down from 3 of 5 last week.");
+    expect(out[0]?.text).toBe("Not clean: **1 of 5 attempts** this week, down from 3 of 5 last week");
     expect(insights(atts.slice(0, 3), now)).toEqual([]);
   });
 });

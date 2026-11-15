@@ -1,5 +1,5 @@
 // The availability editor: one component, three homes (the Plan side panel, onboarding's
-// "When can you practise?" and Settings). It always writes the same settings record
+// "When can you practice?" and Settings). It always writes the same settings record
 // (prefs.plan), so every home stays in sync and the plan re-runs on each change.
 import { readPrefs, updatePrefs } from "../prefs";
 import {
@@ -108,7 +108,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
     const len = readPrefs().plan.sessionMinutes;
     const n = Math.floor(total / (len + 10));
     return html`<ul class="winlist" aria-label="Windows as a list">${DAY_SHORT.map((d, i) => html`<li><b>${d}</b><span>${byDay[i] || "No windows"}</span></li>`)}</ul>
-      <p class="fits" data-fits>${total ? html`${fmtM(total)} a week <span>fits about ${n} ${n === 1 ? "session" : "sessions"} at ${fmtM(len)} each.</span>` : html`No windows yet. <span>Without any, the plan uses the hour you usually practise.</span>`}</p>`;
+      <p class="fits" data-fits>${total ? html`${fmtM(total)} a week <span>fits about ${n} ${n === 1 ? "session" : "sessions"} at ${fmtM(len)} each</span>` : html`No windows yet. <span>Without any, the plan uses the hour you usually practice</span>`}</p>`;
   }
 
   function daysOff(): SafeHtml {
@@ -130,7 +130,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
     render(
       el,
       html`${sections.includes("suggest") && sug
-        ? html`<div class="suggest">${icon("history")}<span>${richText(sug.text)} The dots below show when.</span><button type="button" class="btn btn-secondary btn-sm" data-suggest>Use these times</button></div>`
+        ? html`<div class="suggest">${icon("history")}<span>${richText(sug.text)} The dots below show when</span><button type="button" class="btn btn-secondary btn-sm" data-suggest>Use these times</button></div>`
         : ""}
       ${sections.includes("presets")
         ? html`<div class="av-sec">${head("Quick patterns")}<div class="presets" role="group" aria-label="Quick patterns">${PRESETS.map(
@@ -138,7 +138,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
           )}</div></div>`
         : ""}
       ${sections.includes("paint")
-        ? html`<div class="av-sec">${head("Your week")}<p class="help" id="${id}-paint-help">Drag to paint windows; drag over a window to erase it. With the keyboard: arrows move, Space toggles, Shift with arrows paints a range.</p>
+        ? html`<div class="av-sec">${head("Your week")}<p class="help" id="${id}-paint-help">Drag to paint windows; drag over a window to erase it. With the keyboard: arrows move, Space toggles, Shift with arrows paints a range</p>
           <div data-paint-host>${paintGrid()}</div>
           <div class="paint-key"><span><i></i>Your windows</span>${history?.cells.length ? html`<span><i class="h"></i>You practised here in the last 4 weeks</span>` : ""}</div>
           <div data-list-host>${listAndFits()}</div></div>`
@@ -146,9 +146,9 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
       ${sections.includes("session")
         ? html`<div class="av-sec">${head("Each session")}<div class="seg" role="group" aria-label="Session length">${SESSION_LENGTHS.map(
             (m) => html`<button type="button" data-session="${m}" aria-pressed="${p.sessionMinutes === m ? "true" : "false"}">${fmtM(m)}</button>`,
-          )}</div><p class="help" style="margin-top:var(--space-2)">The longest single sitting. Longer days split into two.</p></div>`
+          )}</div><p class="help" style="margin-top:var(--space-2)">The longest single sitting. Longer days split into two</p></div>`
         : ""}
-      ${sections.includes("daysoff") ? html`<div class="av-sec">${head("Days off")}${opts.headings === false ? "" : html`<p class="help">Nothing is planned on these days, and nothing piles up after them.</p>`}<div data-off-host>${daysOff()}</div></div>` : ""}`,
+      ${sections.includes("daysoff") ? html`<div class="av-sec">${head("Days off")}${opts.headings === false ? "" : html`<p class="help">Nothing is planned on these days, and nothing piles up after them</p>`}<div data-off-host>${daysOff()}</div></div>` : ""}`,
     );
   }
 

@@ -95,7 +95,7 @@ function streakPanel(c: Ctx, best: number): SafeHtml {
       : html`<p class="big"><span class="num">0</span><span>days${best ? `, best ${best}` : ""}</span></p>`}
     <div class="strip" role="img" aria-label="Last 14 days: practised on ${on} of 14">${strip.map((d) => html`<i class="${d.on ? "on" : ""}${d.day === c.today ? " today" : ""}" title="${shortDay(d.day)}${d.on ? ", practised" : ""}"></i>`)}</div>
     <div class="strip-l"><span>${shortDay(strip[0]?.day ?? c.today)}</span><span>Today</span></div>
-    <p class="next">${n === 0 ? "No streak yet. Solve one problem today to start one." : next ? `Next milestone: ${next} days, ${next - n} to go. Any one solve counts.` : "Any one solve counts."}
+    <p class="next">${n === 0 ? "No streak yet. Solve one problem today to start one" : next ? `Next milestone: ${next} days, ${next - n} to go. Any one solve counts` : "Any one solve counts"}
       ${r.on
         ? html`<span>Reminder at ${time} on days you haven't practised. <button class="link" type="button" data-remind-open>Change</button></span>`
         : html`<button class="link" type="button" data-remind-open>Set a reminder</button>`}</p>
@@ -117,7 +117,7 @@ function masteryPanel(c: Ctx): SafeHtml {
       `${k.mastered} mastered, ${k.climbing} climbing, ${k.started} started, ${k.notStarted} not started`,
     )}</div>
     <div class="legend"><span><i class="lg-m"></i>Mastered ${k.mastered}</span><span><i class="lg-c"></i>Climbing ${k.climbing}</span><span><i class="lg-s"></i>Started ${k.started}</span><span><i class="lg-n"></i>Not started ${k.notStarted}</span></div>
-    <p class="next">Mastered means a clean cold redo on the 14-day rung.</p>
+    <p class="next">Mastered means a clean cold redo on the 14-day rung</p>
   </section>`;
 }
 
@@ -125,11 +125,11 @@ function remindPanel(): SafeHtml {
   if (!remindOpen) return html``;
   const time = readPrefs().reminders.time;
   if (remindState === "denied")
-    return html`<section class="panel remind" role="status">${icon("bell")}<p><strong>Notifications are blocked for this site.</strong> Allow them in your browser's site settings, then try again.</p><button class="btn btn-ghost btn-sm" type="button" data-remind-close>Close</button></section>`;
+    return html`<section class="panel remind" role="status">${icon("bell")}<p><strong>Notifications are blocked for this site</strong> Allow them in your browser's site settings, then try again</p><button class="btn btn-ghost btn-sm" type="button" data-remind-close>Close</button></section>`;
   if (remindState === "unsupported")
-    return html`<section class="panel remind" role="status">${icon("bell")}<p><strong>This browser can't show notifications here.</strong> On iPhone and iPad, add myleet to your Home Screen (Share, then Add to Home Screen) and open it from there.</p><button class="btn btn-ghost btn-sm" type="button" data-remind-close>Close</button></section>`;
+    return html`<section class="panel remind" role="status">${icon("bell")}<p><strong>This browser can't show notifications here</strong> On iPhone and iPad, add myleet to your Home Screen (Share, then Add to Home Screen) and open it from there</p><button class="btn btn-ghost btn-sm" type="button" data-remind-close>Close</button></section>`;
   return html`<section class="panel remind" aria-labelledby="rm">${icon("bell")}
-    <p id="rm"><strong>Want a nudge on days you haven't practised?</strong> One browser notification at the time you pick. Nothing on days you've already solved.</p>
+    <p id="rm"><strong>Want a nudge on days you haven't practised?</strong> One browser notification at the time you pick. Nothing on days you've already solved</p>
     <label class="visually-hidden" for="rt">Reminder time</label><input class="input" id="rt" type="time" value="${time}" />
     <button class="btn btn-ghost btn-sm" type="button" data-remind-close>Not now</button>
     <button class="btn btn-primary btn-sm" type="button" data-remind-on>Turn on reminders</button>
@@ -147,13 +147,13 @@ function heatSection(c: Ctx): SafeHtml {
     <div class="panel heatwrap">
       <div class="heatscroll" data-heatscroll>
         <div class="months" aria-hidden="true">${labels.map(([i, m], k) => html`<span style="grid-column:${i + 1} / ${(labels[k + 1]?.[0] ?? WEEKS) + 1}">${m}</span>`)}</div>
-        <div class="heatrow"><div class="days" aria-hidden="true"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>${heatmap(c.stats.heatmap, { weeks: WEEKS, today: c.today, label: `Problems solved per day over ${WEEKS} weeks: ${activeDays} active days. A table follows.` })}</div>
+        <div class="heatrow"><div class="days" aria-hidden="true"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>${heatmap(c.stats.heatmap, { weeks: WEEKS, today: c.today, label: `Problems solved per day over ${WEEKS} weeks: ${activeDays} active days. A table follows` })}</div>
       </div>
       <div class="heatfoot">
         <details class="alt"><summary>Show as a table</summary>
           ${rows.length
             ? html`<table class="otable wk-table"><thead><tr><th scope="col">Week of</th><th scope="col">Solves</th><th scope="col">Days practised</th></tr></thead><tbody>${rows.map((w) => html`<tr><td>${shortDay(w.from)}</td><td>${w.solves}</td><td>${w.days}</td></tr>`)}</tbody></table>`
-            : html`<p>No solves in the last ${WEEKS} weeks.</p>`}
+            : html`<p>No solves in the last ${WEEKS} weeks</p>`}
         </details>
         <span class="scale" aria-hidden="true">Less <i style="background:var(--heat-0)"></i><i style="background:var(--heat-1)"></i><i style="background:var(--heat-2)"></i><i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i> More</span>
       </div>
@@ -165,15 +165,15 @@ function dayList(c: Ctx, by: Map<string, DueItem[]>, day: string): SafeHtml {
   const items = by.get(day) ?? [];
   const mins = Math.round(items.reduce((n, x) => n + targetSecs(c, x.id), 0) / 60);
   const head = html`<h3>${day === c.today ? `Today, ${shortDay(day)}` : longDay(day)}</h3>`;
-  if (day < c.today) return html`${head}<p>Past day. Reviews show from today on.</p>`;
-  if (!items.length) return html`${head}<p>Nothing due. A free day for new problems.</p>`;
+  if (day < c.today) return html`${head}<p>Past day. Reviews show from today on</p>`;
+  if (!items.length) return html`${head}<p>No reviews are due. You can work on new problems today</p>`;
   const more = items.length - DAY_LIST_MAX;
-  return html`${head}<p>${plural(items.length, "review")}, about ${formatMinutes(mins)}. Most overdue first.</p>
+  return html`${head}<p>${plural(items.length, "review")}, about ${formatMinutes(mins)}. Most overdue first</p>
     <ol>${items.slice(0, DAY_LIST_MAX).map((x) => {
       const p = c.cat.byId.get(x.id);
       const late = x.overdue ? `, ${x.overdue === 1 ? "1 day" : `${x.overdue} days`} overdue` : "";
       return html`<li><a href="${problemHref(x.id)}"><span>${p?.title ?? x.id}<small>${where(c, p)}${late}</small></span>${ladder({ rung: displayRung(x.state.rung), due: day === c.today })}</a></li>`;
-    })}</ol>${more > 0 ? html`<p class="more">And ${more} more. <a class="link" href="${ROUTES.today}">Today</a> shows them in order.</p>` : ""}`;
+    })}</ol>${more > 0 ? html`<p class="more">And ${more} more. <a class="link" href="${ROUTES.today}">Today</a> shows them in order</p>` : ""}`;
 }
 
 function calendarSection(c: Ctx): SafeHtml {
@@ -244,10 +244,10 @@ function weakRows(c: Ctx): WeakRow[] {
 function weakSection(c: Ctx): SafeHtml {
   const rows = weakRows(c);
   const body = rows.length
-    ? html`<p class="weak-lede">Where your attempts most often end with a hint, a peek, overtime or a give-up.</p>
+    ? html`<p class="weak-lede">Where your attempts most often end with a hint, a peek, overtime or a give-up</p>
       <ol>${rows.map((r) => html`<li><a href="${r.drill ? problemHref(r.drill, "drill") : ROUTES.learn}"><strong>${r.title}</strong><span>${r.module}, ${plural(r.attempts, "attempt")}</span><span class="rate">${r.missed} of ${r.attempts} missed</span></a></li>`)}</ol>
       ${rows[0]?.drill ? html`<a class="btn btn-secondary" href="${problemHref(rows[0].drill, "drill")}">${rows.length === 1 ? `Drill ${rows[0].title}` : `Drill these ${rows.length}, one problem each`}</a>` : ""}`
-    : html`<p class="weak-lede">Nothing stands out yet. A technique shows here after 3 attempts with hints, peeks, overtime or give-ups.</p>`;
+    : html`<p class="weak-lede">Nothing stands out yet. A technique shows here after 3 attempts with hints, peeks, overtime or give-ups</p>`;
   return html`<section aria-labelledby="wk"><div class="section-head"><h2 id="wk">Weakest techniques</h2></div><div class="panel weak">${body}</div></section>`;
 }
 
@@ -298,17 +298,17 @@ function skillsSection(c: Ctx, skills: Skill[] | null, atts: Attempt[]): SafeHtm
       <div class="panel spot">${spot
         ? html`<div class="spot-head">${tag("weak", "Weak spot")}<span class="text-muted text-small">${sentenceCase(spot.module_title)}</span></div>
           <h3>${sentenceCase(spot.technique_title)}</h3>
-          <p>${ev["attempts"] ?? 0} attempts, ${ev["clean"] ?? 0} clean${spot.cause ? html`. Most misses: <strong>${CAUSE_TEXT[spot.cause]}</strong>` : ""}.</p>
+          <p>${ev["attempts"] ?? 0} attempts, ${ev["clean"] ?? 0} clean${spot.cause ? html`. Most misses: <strong>${CAUSE_TEXT[spot.cause]}</strong>` : ""}</p>
           ${act ? html`<p class="spot-act">${act.reason}</p>` : ""}
           ${actHref ? html`<a class="btn btn-secondary btn-sm" href="${actHref}">${act?.kind === "read_note" ? "Read the note" : "Do the next step"}</a>` : ""}`
-        : html`<h3>No weak spots</h3><p>A technique becomes a weak spot after at least 4 attempts that mostly didn't pass cleanly.</p>`}
+        : html`<h3>No weak spots</h3><p>A technique becomes a weak spot after at least 4 attempts that mostly didn't pass cleanly</p>`}
       </div>
       <div class="panel lvls">
         <h3>${skills.length} techniques by level</h3>
         <ul>${LEVELS.map(([k, label, pips]) => html`<li class="lv-${k}"><span class="pips" aria-hidden="true">${[1, 2, 3, 4].map((i) => html`<b class="${i <= pips ? "on" : ""}"></b>`)}</span>${label}<strong>${counts.get(k) ?? 0}</strong></li>`)}</ul>
       </div>
     </div>
-    ${notes.length ? html`<div class="panel ins"><h3>Noticed this week</h3><ul>${notes.map((n) => html`<li>${bold(n.text)}</li>`)}</ul></div>` : ""}
+    ${notes.length ? html`<div class="panel ins"><h3>Practice insights</h3><ul>${notes.map((n) => html`<li>${bold(n.text)}</li>`)}</ul></div>` : ""}
   </section>`;
 }
 
@@ -432,9 +432,9 @@ function momentBand(c: Ctx): SafeHtml {
   }
   const since = addDays(c.today, -(n - 1));
   const solves = Object.entries(c.stats.heatmap).reduce((s, [d, v]) => (d >= since ? s + v : s), 0);
-  return html`<section class="moment" aria-live="polite">
+  return html`<section class="moment on-wall" aria-live="polite">
     <span class="num">${n}</span>
-    <div><h2>${n} days in a row.</h2><p>You've practised every day since ${shortDay(since)}: ${plural(solves, "solve")} in that time.</p></div>
+    <div><h2>${n} days in a row</h2><p>You've practiced every day since ${shortDay(since)}: ${plural(solves, "solve")} in that time</p></div>
     <button class="btn btn-secondary" type="button" data-share>Share progress card</button>
   </section>`;
 }
@@ -458,9 +458,9 @@ function renderAll(c: Ctx): void {
   if (!started) {
     render(
       root,
-      html`<h1>Progress</h1><p class="lede">Nothing to show yet. This page fills in as you practise.</p>
-      <section class="panel empty"><h2>Your first clean pass starts the record</h2>
-        <p>Streak, mastery, the heatmap and your review calendar all build from what you solve. The warm-up takes about 40 minutes and places you on the ladder.</p>
+      html`<h1>Progress</h1><p class="lede">Your practice history and review schedule will appear here</p>
+      <section class="panel empty"><h2>Start tracking your progress</h2>
+        <p>As you solve problems, this page tracks your streak and mastery, shows your activity on a heatmap, and lists upcoming reviews. Start with a warm-up of about 40 minutes to find the right topics for you</p>
         <a class="btn btn-primary" href="${ROUTES.onboarding}?step=warm-up">Take the warm-up</a></section>`,
     );
     return;
@@ -480,7 +480,7 @@ function renderAll(c: Ctx): void {
   render(
     root,
     html`<h1>Progress</h1>
-    <p class="lede">Since ${since}: ${started} problems started, ${k.mastered} mastered${mockProblems ? `, ${plural(mockProblems, "mock problem")}` : ""}.</p>
+    <p class="lede">Since ${since}: ${started} problems started, ${k.mastered} mastered${mockProblems ? `, ${plural(mockProblems, "mock problem")}` : ""}</p>
     ${momentBand(c)}
     <div class="top">${streakPanel(c, best)}${masteryPanel(c)}</div>
     <div data-remind>${remindPanel()}</div>
@@ -491,7 +491,7 @@ function renderAll(c: Ctx): void {
     ${notesSection(c)}
     ${milestonesSection(c, milestoneFacts(c, atts, best))}
     <section class="danger" aria-labelledby="rs">
-      <div><h2 id="rs">Start over</h2><p>Reset clears your ladder, attempts and streak on this device${document.documentElement.dataset.auth === "in" ? " and your account" : ""}. Notes highlights and settings stay. Export first if you want a copy.</p></div>
+      <div><h2 id="rs">Start over</h2><p>Reset clears your ladder, attempts and streak on this device${document.documentElement.dataset.auth === "in" ? " and your account" : ""}. Notes highlights and settings stay. Export first if you want a copy</p></div>
       <div class="danger-actions"><button class="btn btn-ghost" type="button" data-export>${icon("download")}Export data</button><button class="btn btn-quiet-danger" type="button" data-reset>Reset progress</button></div>
     </section>`,
   );
@@ -533,7 +533,7 @@ async function refresh(): Promise<void> {
   } catch {
     render(
       $("[data-progress]"),
-      html`<h1>Progress</h1><div class="panel state-note" role="alert"><h2>Couldn't read your progress</h2><p>The trainer didn't load (network error). Your progress is safe on this device.</p><div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div></div>`,
+      html`<h1>Progress</h1><div class="panel state-note" role="alert"><h2>Couldn't read your progress</h2><p>The trainer didn't load (network error). Your progress is safe on this device</p><div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div></div>`,
     );
   }
 }
@@ -555,11 +555,11 @@ async function resetAll(): Promise<void> {
   d.setAttribute("aria-labelledby", "rc");
   d.setAttribute("aria-describedby", "rcd");
   const k = ctx ? masteryCounts(ctx.cat.catalog, ctx.states) : null;
-  const what = k && ctx ? `${k.mastered + k.climbing + k.started} started problems, ${k.mastered} mastered and a ${plural(ctx.stats.streak, "day")} streak will be gone.` : "Your attempts and streak will be gone.";
+  const what = k && ctx ? `${k.mastered + k.climbing + k.started} started problems, ${k.mastered} mastered and a ${plural(ctx.stats.streak, "day")} streak will be gone` : "Your attempts and streak will be gone";
   render(
     d,
     html`<div class="dlg-head"><h2 id="rc">Reset all progress?</h2></div>
-    <div class="dlg-body"><p id="rcd">${what} This can't be undone.</p>
+    <div class="dlg-body"><p id="rcd">${what} This can't be undone</p>
       <div class="field" style="margin-top:var(--space-5)"><label for="rc-in">Type <code>reset</code> to confirm</label><input class="input" id="rc-in" autocomplete="off" spellcheck="false" aria-describedby="rcd" /></div></div>
     <div class="dlg-actions"><button class="btn btn-secondary" type="button" value="cancel" autofocus>Cancel</button><button class="btn btn-danger" type="button" value="ok" disabled>Reset progress</button></div>`,
   );
@@ -596,10 +596,10 @@ async function resetAll(): Promise<void> {
       }
       recordStats({ streak: 0, heatmap: {} });
       window.dispatchEvent(new Event("myleet:progress"));
-      toast("Progress reset. Today will start with the warm-up.");
+      toast("Progress reset. Today will start with the warm-up");
       void navigate(ROUTES.today);
     } catch {
-      toast("Couldn't reset your account's progress. Nothing was deleted. Try again when you're online.");
+      toast("Couldn't reset your account's progress. Nothing was deleted. Try again when you're online");
     }
   });
   openDialog(d);
@@ -620,7 +620,7 @@ async function turnOnReminders(): Promise<void> {
   if (r === "granted") {
     updatePrefs({ reminders: { on: true, time } });
     remindOpen = false;
-    toast("Reminders on.");
+    toast("Reminders on");
   } else remindState = r === "unsupported" ? "unsupported" : "denied";
   if (ctx) renderAll(ctx);
 }

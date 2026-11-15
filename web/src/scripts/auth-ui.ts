@@ -36,9 +36,9 @@ function formView(h: Host, v: Extract<View, { kind: "form" }>): SafeHtml {
     }${v.waiting === p ? html`<span class="spinner" aria-hidden="true"></span>` : ""}</button>`;
   return html`${h.inline ? "" : html`<button class="icon-btn auth-close" type="button" data-close aria-label="Close">${icon("x")}</button>`}
     ${h.inline ? html`<h1 id="si-h" tabindex="-1">Sign in to myleet</h1>` : html`<h2 id="si-h" tabindex="-1">Sign in to myleet</h2>`}
-    <p class="auth-sub" id="si-d">Keep your progress on every device. New here? These buttons create your account.</p>
+    <p class="auth-sub" id="si-d">Keep your progress on every device. New here? These buttons create your account</p>
     ${v.error ? html`<p class="auth-alert" role="alert">${icon("circle-alert")}<span>${v.error}</span></p>` : ""}
-    ${offline ? html`<p class="auth-alert" role="status">${icon("wifi-off")}<span>You're offline. Sign in when you reconnect; practice keeps working.</span></p>` : ""}
+    ${offline ? html`<p class="auth-alert" role="status">${icon("wifi-off")}<span>You're offline. Sign in when you reconnect; practice keeps working</span></p>` : ""}
     <div class="auth-stack">
       ${provider("github")}${provider("google")}
       <div class="auth-or">or</div>
@@ -59,16 +59,16 @@ function sentView(h: Host, v: Extract<View, { kind: "sent" }>): SafeHtml {
   return html`${h.inline ? "" : html`<button class="icon-btn auth-close" type="button" data-close aria-label="Close">${icon("x")}</button>`}
     <div class="big-icon">${icon("mail-check")}</div>
     <h2 id="si-h" tabindex="-1">Check your email</h2>
-    <p class="auth-sub">We sent a sign-in link to <strong>${v.email}</strong>. It works once and expires in 15 minutes. You can close this tab; the link signs you in wherever you open it.</p>
+    <p class="auth-sub">We sent a sign-in link to <strong>${v.email}</strong>. It works once and expires in 15 minutes. You can close this tab; the link signs you in wherever you open it</p>
     <div class="auth-row"><button class="btn btn-secondary" type="button" data-resend disabled>Resend in 1:00</button><button class="btn btn-ghost" type="button" data-other-email>Use a different email</button></div>
-    <p class="auth-fine">Nothing after a minute? Check spam or promotions, then resend.</p>`;
+    <p class="auth-fine">Nothing after a minute? Check spam or promotions, then resend</p>`;
 }
 
 function expiredView(h: Host): SafeHtml {
   return html`${h.inline ? "" : html`<button class="icon-btn auth-close" type="button" data-close aria-label="Close">${icon("x")}</button>`}
     <div class="big-icon bad">${icon("link-off")}</div>
     <h2 id="si-h" tabindex="-1">That sign-in link has expired</h2>
-    <p class="auth-sub" id="si-d">Links work once and last 15 minutes. Send a new one, or sign in another way. Your progress on this device is untouched.</p>
+    <p class="auth-sub" id="si-d">Links work once and last 15 minutes. Send a new one, or sign in another way. Your progress on this device is untouched</p>
     <div class="auth-row"><button class="btn btn-primary" type="button" data-new-link>Send a new link</button><button class="btn btn-ghost" type="button" data-other-way>Use GitHub or Google</button></div>`;
 }
 
@@ -120,10 +120,10 @@ function mount(h: Host, view: View): void {
       } catch (e2) {
         const msg =
           e2 instanceof ApiError && e2.status === 429
-            ? "Too many links for this address in the last hour. Try GitHub or Google, or wait a bit."
+            ? "Too many links for this address in the last hour. Try GitHub or Google, or wait a bit"
             : e2 instanceof ApiError && e2.status === 404
-              ? "Sign-in isn't available on this copy of myleet. Practice and progress still work on this device."
-              : "Couldn't send the link. Check your connection and try again.";
+              ? "Sign-in isn't available on this copy of myleet. Practice and progress still work on this device"
+              : "Couldn't send the link. Check your connection and try again";
         mount(h, { kind: "form", email, error: msg });
       }
     });
@@ -143,10 +143,10 @@ function mount(h: Host, view: View): void {
       resend.setAttribute("aria-busy", "true");
       try {
         await sendMagicLink(v.email);
-        toast(`Sent another link to ${v.email}.`);
+        toast(`Sent another link to ${v.email}`);
         mount(h, v);
       } catch {
-        mount(h, { kind: "form", email: v.email, error: "Couldn't send the link. Check your connection and try again." });
+        mount(h, { kind: "form", email: v.email, error: "Couldn't send the link. Check your connection and try again" });
       }
     });
     h.el.querySelector("[data-other-email]")?.addEventListener("click", () => mount(h, { kind: "form" }));
@@ -200,7 +200,7 @@ export async function signOutFlow(): Promise<void> {
   unlinkDevice();
   document.documentElement.dataset.auth = "out";
   window.dispatchEvent(new CustomEvent("myleet:auth", { detail: null }));
-  toast("Signed out. Your progress stays on this device.");
+  toast("Signed out. Your progress stays on this device");
 }
 
 // ---- Keep your progress (merge) ----
@@ -243,9 +243,9 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
   const body = (error?: string) =>
     html`<div class="auth-panel">
       <h2 id="mg-h" tabindex="-1">Keep your progress</h2>
-      <p class="auth-sub" id="mg-d">You practised on this device before signing in, and your account already has progress from another device. Merging keeps both.</p>
+      <p class="auth-sub" id="mg-d">You practised on this device before signing in, and your account already has progress from another device. Merging keeps both</p>
       <div class="sides">${side("dev-h", "laptop", "This device", dev, false)}<div class="plus" aria-hidden="true">${icon("plus")}</div>${side("acc-h", "cloud", me.user.email, acc, true)}</div>
-      <p class="result-line">After merging: <strong>${plural(after.practised, "problem")}, ${after.mastered} mastered.</strong> Where both have the same problem, the higher rung wins and both histories are kept. The streak counts every day you practised on either.</p>
+      <p class="result-line">After merging: <strong>${plural(after.practised, "problem")}, ${after.mastered} mastered</strong> Where both have the same problem, the higher rung wins and both histories are kept. The streak counts every day you practised on either</p>
       ${both.length
         ? html`<details class="overlap"><summary>See the ${plural(both.length, "problem")} on both</summary>
           <table class="otable"><thead><tr><th scope="col">Problem</th><th scope="col">This device</th><th scope="col">Account</th><th scope="col">Kept</th></tr></thead>
@@ -270,14 +270,14 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
         render(
           d,
           html`<div class="auth-panel"><div class="big-icon ok">${icon("check")}</div><h2 id="mg-h" tabindex="-1">Progress merged</h2>
-            <p class="auth-sub">${plural(after.practised, "problem")} and ${after.mastered} mastered are on your account now. This device syncs automatically, and keeps working offline.</p>
+            <p class="auth-sub">${plural(after.practised, "problem")} and ${after.mastered} mastered are on your account now. This device syncs automatically, and keeps working offline</p>
             <div class="auth-row"><button class="btn btn-primary" type="button" data-done>Back to practice</button></div></div>`,
         );
         d.querySelector<HTMLElement>("#mg-h")?.focus();
         d.querySelector("[data-done]")?.addEventListener("click", () => closeDialog(d));
         window.dispatchEvent(new Event("myleet:synced"));
       } catch {
-        render(d, body("Couldn't reach the server. Nothing was changed; try again."));
+        render(d, body("Couldn't reach the server. Nothing was changed; try again"));
         wire();
       }
     });
@@ -288,7 +288,7 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
     d.querySelector("[data-discard]")?.addEventListener("click", async () => {
       const ok = await confirmDialog({
         title: `Discard ${plural(dev.practised, "problem")} on this device?`,
-        body: "This device will show only your account's progress and highlights. This can't be undone.",
+        body: "This device will show only your account's progress and highlights. This can't be undone",
         confirm: "Use account only, discard this device",
         danger: true,
       });
@@ -296,10 +296,10 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
       try {
         await discardDeviceAndPull(transport, me.user.id);
         closeDialog(d);
-        toast("This device now shows your account's progress.");
+        toast("This device now shows your account's progress");
         window.dispatchEvent(new Event("myleet:synced"));
       } catch {
-        render(d, body("Couldn't reach the server. Nothing was changed; try again."));
+        render(d, body("Couldn't reach the server. Nothing was changed; try again"));
         wire();
       }
     });

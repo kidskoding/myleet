@@ -22,7 +22,7 @@ const { playlist: p } = Astro.props;
 const c = buildCatalog();
 const slug = companySlug(p.id);
 const n = p.entries.length;
-const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}.` : "";
+const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}` : "";
 ---
 
 <Base title={`${p.title} prep`} nav="companies" description={`A curated ${p.title} practice set of ${n} problems, most asked first, with the techniques it leans on. Not a list of actual interview questions.`}>
@@ -32,7 +32,7 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}.` : "";
       <div>
         <h1 class="co-title"><Fragment set:html={companyLogo(slug).value} />{p.title}</h1>
         {lead && <p class="lead">{lead}</p>}
-        <p class="disclaim">A curated practice set of {n} problems, most asked first. It is not a list of actual interview questions.</p>
+        <p class="disclaim">A curated practice set of {n} problems, most asked first. It is not a list of actual interview questions</p>
       </div>
       <div>
         <div class="actions">
@@ -46,7 +46,7 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}.` : "";
     <div class="prep-grid">
       <section aria-labelledby="ps">
         <div class="set-tools">
-          <h2 id="ps">The set</h2>
+          <h2 id="ps">Practice problems</h2>
           <div class="seg" role="group" aria-label="Show" data-set-seg>
             <button type="button" aria-pressed="true" data-show="all">All<span class="n">{n}</span></button>
             <button type="button" aria-pressed="false" data-show="notready">Not ready<span class="n" data-n="notready"></span></button>
@@ -66,8 +66,8 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}.` : "";
           <div class="skel" style="height:8px;margin-top:12px"></div>
         </section>
         <section class="panel leans" aria-labelledby="ln" data-leans>
-          <h2 id="ln">Techniques this set leans on</h2>
-          <p class="text-small text-muted" style="margin-top:var(--space-1)">Counted from the set's problems, with your mastery of each.</p>
+          <h2 id="ln">Techniques in this set</h2>
+          <p class="text-small text-muted" style="margin-top:var(--space-1)">The techniques covered by this set and your progress in each</p>
           <div class="skel" style="height:80px;margin-top:12px"></div>
         </section>
         <section class="panel inplan" aria-labelledby="ip" data-inplan hidden></section>

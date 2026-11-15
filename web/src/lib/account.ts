@@ -1,12 +1,17 @@
 // The Worker's account API (worker/README.md). Every call is same-origin with the
 // session cookie. Without a Worker (astro preview, offline) the app is simply signed out.
+import type { Accent, Flavor, NightFlavor } from "./flavors";
 import { DEFAULT_PREFS, readPrefs, validWindows, type Prefs } from "./prefs";
 import type { Availability } from "./types";
 
 export type Provider = "github" | "google" | "email";
 
 export interface ServerSettings {
-  theme: "system" | "light" | "dark";
+  /** `light`/`dark` from a Worker that predates the Catppuccin flavors. */
+  theme: "system" | Flavor | "light" | "dark";
+  /** Absent on a Worker that predates them; then only a light/dark theme can be sent. */
+  night_flavor?: NightFlavor;
+  accent?: Accent;
   editor_keymap: "standard" | "vim";
   editor_font_size: number;
   new_per_day: number;
@@ -205,11 +210,11 @@ export const fetchProfile = (username: string): Promise<PublicProfile> =>
 
 /** Sign-in failure reasons the Worker puts in `?auth_error=`. */
 export const AUTH_ERRORS: Record<string, string> = {
-  denied: "Sign-in was cancelled at the provider. Try again or use another method.",
-  state: "That sign-in took too long or was opened twice. Start it again.",
-  email: "That account has no verified email address. Verify one with the provider, or use another method.",
-  link: "That sign-in link has expired or was already used. Links work once, for 15 minutes.",
-  upstream: "The provider didn't answer. Try again in a minute, or use another method.",
+  denied: "Sign-in was cancelled at the provider. Try again or use another method",
+  state: "That sign-in took too long or was opened twice. Start it again",
+  email: "That account has no verified email address. Verify one with the provider, or use another method",
+  link: "That sign-in link has expired or was already used. Links work once, for 15 minutes",
+  upstream: "The provider didn't answer. Try again in a minute, or use another method",
 };
 
 // ---- settings mapping (theme stays device-local) ----

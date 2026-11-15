@@ -9,6 +9,8 @@ export interface PaletteItem {
   title: string;
   /** Secondary text, searched at lower weight (technique, module, group). */
   hint?: string;
+  /** Extra words searched like the hint but never shown ("flavor", "colour"). */
+  keywords?: string;
   /** Exact-match aliases such as a LeetCode number. */
   aliases?: string[];
   href?: string;
@@ -76,7 +78,8 @@ export function scoreItem(query: string, item: PaletteItem): Hit | null {
   const ranges: [number, number][] = [];
   for (const token of q.split(/\s+/)) {
     const t = matchToken(token, item.title);
-    const h = item.hint ? matchToken(token, item.hint) : null;
+    const extra = item.keywords ? `${item.hint ?? ""} ${item.keywords}` : item.hint;
+    const h = extra ? matchToken(token, extra) : null;
     if (t && (!h || t.score >= h.score * 0.6)) {
       score += t.score;
       ranges.push(...t.ranges);

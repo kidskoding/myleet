@@ -42,7 +42,7 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
     color var(--dur-fast) var(--ease-out), transform var(--dur-press) var(--ease-out);
 }
 .btn:active { transform: scale(0.97); }
-.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary { background: var(--accent-fill); color: var(--on-accent); }
 .btn-primary:hover { background: var(--accent-hover); }
 .btn-primary:active { background: var(--accent-press); }
 .btn-secondary { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
@@ -94,7 +94,7 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 
 .switch { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); cursor: pointer; white-space: nowrap; }
 .switch input { appearance: none; width: 34px; height: 20px; border-radius: var(--radius-pill); background: var(--control-edge); position: relative; transition: background-color var(--dur-fast) var(--ease-out); cursor: pointer; flex: none; }
-.switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: var(--shadow-sm); transition: transform var(--dur-base) var(--ease-spring); }
+.switch input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--thumb); box-shadow: var(--shadow-sm); transition: transform var(--dur-base) var(--ease-spring); }
 .switch input:checked { background: var(--accent); }
 .switch input:checked::after { transform: translateX(14px); }
 
@@ -243,7 +243,7 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .diff2 .add { background: var(--diff-add); } .diff2 .del { background: var(--diff-del); } .diff2 .gap { background: repeating-linear-gradient(0deg, transparent 0 20px, var(--line) 20px 21px); opacity: 0.5; }
 .diff1 { font-family: var(--font-code); font-size: 13px; line-height: 21px; }
 .diff1 .l { padding: 0 var(--space-4) 0 var(--space-6); white-space: pre-wrap; position: relative; }
-.diff1 .l::before { position: absolute; left: var(--space-2); color: var(--ink-3); }
+.diff1 .l::before { position: absolute; left: var(--space-2); color: var(--ink-2); }
 .diff1 .add { background: var(--diff-add); } .diff1 .add::before { content: "+"; }
 .diff1 .del { background: var(--diff-del); } .diff1 .del::before { content: "−"; }
 
@@ -461,9 +461,9 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .shortcuts dl { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px var(--space-6); font-size: var(--text-sm); }
 .shortcuts dt { color: var(--ink-2); } .shortcuts dd { margin: 0; text-align: right; }
 
-.toast { position: fixed; left: 50%; bottom: calc(var(--space-6) + 26px); transform: translateX(-50%); z-index: var(--z-toast); display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); background: var(--wall); color: var(--wall-ink); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); font-size: var(--text-sm); }
+.toast { position: fixed; left: 50%; bottom: calc(var(--space-6) + 26px); transform: translateX(-50%); z-index: var(--z-toast); display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); font-size: var(--text-sm); }
 .toast .btn-ghost { color: var(--wall-ink-2); }
-.toast .btn-ghost:hover { background: rgb(255 255 255 / 0.08); color: var(--wall-ink); }
+.toast .btn-ghost:hover { background: color-mix(in srgb, var(--wall-ink) 8%, transparent); color: var(--wall-ink); }
 @media (prefers-reduced-motion: no-preference) { .toast { animation: wsx-rise var(--dur-base) var(--ease-out); } }
 
 /* ===== Status bar ===== */
@@ -478,18 +478,18 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 
 /* ===== Focus mode: chrome recedes, the timer sits on a quiet wall strip ===== */
 .wsx[data-focus] .wbar .crumbs .s, .wsx[data-focus] .status .opt { visibility: hidden; }
-.wsx[data-focus] .wbar { background: var(--wall); color: var(--wall-ink); border-color: transparent; }
+.wsx[data-focus] .wbar { border-color: transparent; } /* wall colours: .on-wall scope in base.css */
 .wsx[data-focus] .wbar .icon-btn { color: var(--wall-ink-2); }
-.wsx[data-focus] .wbar .icon-btn:hover { background: rgb(255 255 255 / 0.08); color: var(--wall-ink); }
-.wsx[data-focus] .wbar .icon-btn[aria-pressed="true"] { color: var(--wall-ink); background: rgb(255 255 255 / 0.1); }
-.wsx[data-focus] .wbar .btn-secondary { background: transparent; color: var(--wall-ink); border-color: rgb(255 255 255 / 0.22); }
+.wsx[data-focus] .wbar .icon-btn:hover { background: color-mix(in srgb, var(--wall-ink) 8%, transparent); color: var(--wall-ink); }
+.wsx[data-focus] .wbar .icon-btn[aria-pressed="true"] { color: var(--wall-ink); background: color-mix(in srgb, var(--wall-ink) 10%, transparent); }
+.wsx[data-focus] .wbar .btn-secondary { background: transparent; color: var(--wall-ink); border-color: color-mix(in srgb, var(--wall-ink) 22%, transparent); }
 .wsx[data-focus] .wbar .timer .clock { color: var(--wall-ink); }
 .wsx[data-focus] .wbar .timer .target { color: var(--wall-ink-2); }
-.wsx[data-focus] .wbar .timer .track { background: rgb(255 255 255 / 0.12); }
+.wsx[data-focus] .wbar .timer .track { background: color-mix(in srgb, var(--wall-ink) 12%, transparent); }
 .wsx[data-focus] .wbar .timer .track span { background: var(--wall-ink); }
-.wsx[data-focus] .wbar .timer[data-state="near"] .clock, .wsx[data-focus] .wbar .timer[data-state="near"] .target { color: var(--due-solid); }
-.wsx[data-focus] .wbar .timer[data-state="over"] .clock, .wsx[data-focus] .wbar .timer[data-state="over"] .target { color: #ff8075; }
-.wsx[data-focus] .wbar .sep { background: rgb(255 255 255 / 0.16); }
+.wsx[data-focus] .wbar .timer[data-state="near"] .clock, .wsx[data-focus] .wbar .timer[data-state="near"] .target { color: var(--wall-due); }
+.wsx[data-focus] .wbar .timer[data-state="over"] .clock, .wsx[data-focus] .wbar .timer[data-state="over"] .target { color: var(--wall-fail); }
+.wsx[data-focus] .wbar .sep { background: color-mix(in srgb, var(--wall-ink) 16%, transparent); }
 .wsx[data-focus] .wbar [data-act="palette"] { display: none; }
 .wsx[data-focus] { --left: 30%; }
 

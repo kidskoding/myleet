@@ -2,7 +2,8 @@
 import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
 import { highlight, KIND_ORDER, search, type Hit, type PaletteItem, type PaletteKind } from "../lib/palette-search";
-import { resolvedTheme, setTheme } from "../lib/prefs";
+import { ACCENT_NAMES, ACCENTS } from "../lib/flavors";
+import { setAccent } from "../lib/prefs";
 import { companyLogo } from "../lib/company-logos";
 import { ROUTES } from "../lib/routes";
 import { kbd } from "../lib/ui/bits";
@@ -23,12 +24,32 @@ const KIND_ICON: Record<PaletteKind, IconName> = { problem: "square-code", note:
 
 interface Command extends PaletteItem {
   icon: IconName;
+  /** A colour dot in place of the icon (accent commands), as a CSS colour. */
+  swatch?: string;
   keys?: string[];
   run?: () => void | Promise<unknown>;
 }
 
+const APPEARANCE = "theme flavor catppuccin accent colour color";
+
+function appearanceCommands(): Command[] {
+  return [
+    ...ACCENTS.map(
+      (a): Command => ({
+        key: `cmd:accent-${a}`,
+        kind: "command",
+        title: `Accent: ${ACCENT_NAMES[a]}`,
+        hint: "appearance",
+        keywords: APPEARANCE,
+        icon: "sun-moon",
+        swatch: `var(--ctp-${a})`,
+        run: () => setAccent(a),
+      }),
+    ),
+  ];
+}
+
 function commands(): Command[] {
-  const dark = resolvedTheme() === "dark";
   const me = cachedMe();
   const cmds: Command[] = [
     { key: "cmd:today", kind: "command", title: "Go to Today", icon: "sunrise", href: ROUTES.today, keys: ["g", "t"] },
@@ -38,16 +59,7 @@ function commands(): Command[] {
     { key: "cmd:progress", kind: "command", title: "Go to Progress", icon: "calendar-check", href: ROUTES.progress, keys: ["g", "p"] },
     { key: "cmd:review", kind: "command", title: "Review calendar", icon: "calendar-check", href: ROUTES.calendar },
     { key: "cmd:settings", kind: "command", title: "Settings", icon: "settings", href: ROUTES.settings, keys: ["g", ","] },
-    {
-      key: "cmd:theme",
-      kind: "command",
-      title: dark ? "Switch to light theme" : "Switch to dark theme",
-      hint: "appearance",
-      icon: dark ? "sun" : "moon",
-      keys: ["shift", "D"],
-      run: () => setTheme(dark ? "light" : "dark"),
-    },
-    { key: "cmd:system-theme", kind: "command", title: "Use the system theme", hint: "appearance", icon: "monitor", run: () => setTheme("system") },
+    ...appearanceCommands(),
     { key: "cmd:shortcuts", kind: "command", title: "Keyboard shortcuts", icon: "keyboard", keys: ["?"], run: () => import("./shortcuts").then((m) => m.openShortcuts()) },
     { key: "cmd:plan", kind: "command", title: "Edit my plan", hint: "interview date, companies, daily time", icon: "flag", href: ROUTES.onboarding },
     { key: "cmd:warmup", kind: "command", title: "Take the placement warm-up", icon: "flag", href: `${ROUTES.onboarding}?step=warm-up` },
@@ -128,7 +140,12 @@ function row(h: Hit, i: number): SafeHtml {
   const ic = it.kind === "command" ? (it as Command).icon : KIND_ICON[it.kind];
   const parts = highlight(it.title, h.ranges).map((p) => (p.mark ? html`<mark>${p.text}</mark>` : html`${p.text}`));
   const hint = it.kind === "command" ? "" : it.hint;
-  const mark = it.kind === "company" && it.href ? companyLogo(it.href.split("/").pop() ?? "", "ic") : icon(ic, { cls: "ic" });
+  const sw = it.kind === "command" ? (it as Command).swatch : undefined;
+  const mark = sw
+    ? html`<span class="ic swatch" style="--sw: ${sw}" aria-hidden="true"></span>`
+    : it.kind === "company" && it.href
+      ? companyLogo(it.href.split("/").pop() ?? "", "ic")
+      : icon(ic, { cls: "ic" });
   return html`<li class="palette-item" role="option" id="pi-${i}" data-i="${i}" aria-selected="${i === active ? "true" : "false"}">${mark}<span>${parts}${hint ? html`<span class="hint">&nbsp; ${hint}</span>` : ""}</span>${itemRight(it)}</li>`;
 }
 
@@ -158,9 +175,9 @@ function paint(): void {
   active = Math.min(active, Math.max(0, flat.length - 1));
   let i = 0;
   if (!loaded && q.trim()) {
-    render(list, html`<li class="palette-empty" role="presentation">${loadError ? "Couldn't load the search index. Commands still work; check your connection." : "Loading the index"}</li>`);
+    render(list, html`<li class="palette-empty" role="presentation">${loadError ? "Couldn't load the search index. Commands still work; check your connection" : "Loading the index"}</li>`);
   } else if (!flat.length) {
-    render(list, html`<li class="palette-empty" role="presentation">No match for '${q}'. Try a technique name or a LeetCode number.</li>`);
+    render(list, html`<li class="palette-empty" role="presentation">No match for '${q}'. Try a technique name or a LeetCode number</li>`);
   } else {
     render(
       list,

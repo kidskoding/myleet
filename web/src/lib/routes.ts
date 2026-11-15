@@ -15,6 +15,7 @@ export const ROUTES = {
   settings: "/settings",
   signin: "/signin",
   onboarding: "/onboarding",
+  howItWorks: "/how-it-works",
   about: "/about",
   privacy: "/privacy",
   terms: "/terms",

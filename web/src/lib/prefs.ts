@@ -1,9 +1,10 @@
 // Device preferences and the learner's plan. Local-first (localStorage); the account
 // copy is pushed by lib/account.ts when signed in. Theme lives under its own key so the
 // blocking head script can read it before first paint.
+import { DEFAULT_ACCENT, flavorTokens, isAccent, type Accent, type Flavor, type NightFlavor } from "./flavors";
 import type { Availability, Difficulty, PlanMove, PlanSettings } from "./types";
 
-export type ThemePref = "system" | "light" | "dark";
+export type ThemePref = "system" | Flavor;
 export type Goal = "internship" | "coop" | "newgrad";
 
 export interface EditorPrefs {
@@ -32,7 +33,7 @@ export interface Plan {
   moves: PlanMove[];
   /** Longest single sitting the planner schedules. */
   sessionMinutes: number;
-  /** Weekly windows to plan sessions in; empty = around the hour you usually practise. */
+  /** Weekly windows to plan sessions in; empty = around the hour you usually practice. */
   availability: Availability[];
   /** `YYYY-MM-DD` dates with nothing planned. */
   daysOff: string[];
@@ -60,6 +61,8 @@ export interface Prefs {
 }
 
 export const THEME_KEY = "myleet-theme";
+export const NIGHT_KEY = "myleet-night";
+export const ACCENT_KEY = "myleet-accent";
 const PREFS_KEY = "myleet-prefs";
 
 export const DEFAULT_PREFS: Prefs = {
@@ -160,50 +163,82 @@ export function planSettings(p: Prefs = readPrefs()): PlanSettings {
   };
 }
 
-// ---- theme ----
+// ---- theme: a Catppuccin flavor (or the system), the night flavor System uses after dark, an accent ----
 
-export function readTheme(): ThemePref {
-  const v = storage()?.getItem(THEME_KEY);
-  return v === "light" || v === "dark" ? v : "system";
+function write(key: string, value: string | null): void {
+  const s = storage();
+  try {
+    if (value === null) s?.removeItem(key);
+    else s?.setItem(key, value);
+  } catch {
+    // Not persisted; still applied.
+  }
 }
 
+export function readTheme(): ThemePref { return "mocha"; }
+
+export function readNight(): NightFlavor { return "mocha"; }
+
+export function readAccent(): Accent {
+  const v = storage()?.getItem(ACCENT_KEY);
+  return isAccent(v) ? v : DEFAULT_ACCENT;
+}
+
+export function resolvedFlavor(_pref: ThemePref = readTheme(), _night: NightFlavor = readNight()): Flavor {
+  return "mocha";
+}
+
+/** Only the scheme, for callers that don't care which dark flavor. */
 export function resolvedTheme(pref: ThemePref = readTheme()): "light" | "dark" {
-  if (pref !== "system") return pref;
-  return typeof matchMedia !== "undefined" && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return resolvedFlavor(pref) === "latte" ? "light" : "dark";
+}
+
+function changed(): void {
+  applyTheme(readTheme(), true);
+  if (typeof window !== "undefined") window.dispatchEvent(new CustomEvent("myleet:theme", { detail: readTheme() }));
 }
 
 /** Writes the choice and applies it with the 240 ms theme ease. */
-export function setTheme(pref: ThemePref): void {
-  const s = storage();
-  try {
-    if (pref === "system") s?.removeItem(THEME_KEY);
-    else s?.setItem(THEME_KEY, pref);
-  } catch {
-    // Not persisted; still applied below.
-  }
-  applyTheme(pref, true);
-  if (typeof window !== "undefined") window.dispatchEvent(new CustomEvent("myleet:theme", { detail: pref }));
+export function setTheme(_pref: ThemePref): void {
+  write(THEME_KEY, "mocha");
+  changed();
+}
+
+export function setNight(_night: NightFlavor): void {
+  write(NIGHT_KEY, "mocha");
+  changed();
+}
+
+export function setAccent(accent: Accent): void {
+  write(ACCENT_KEY, accent === DEFAULT_ACCENT ? null : accent);
+  changed();
+}
+
+/** Theme, night flavor and accent at once (the account's copy), without the sync event. */
+export function adoptAppearance(a: { theme?: unknown; night?: unknown; accent?: unknown }): void {
+  write(THEME_KEY, "mocha");
+  write(NIGHT_KEY, "mocha");
+  if (isAccent(a.accent)) write(ACCENT_KEY, a.accent === DEFAULT_ACCENT ? null : a.accent);
+  applyTheme(readTheme(), true);
 }
 
 export function applyTheme(pref: ThemePref = readTheme(), ease = false): void {
   if (typeof document === "undefined") return;
   const root = document.documentElement;
   if (ease) root.classList.add("theme-transition");
-  if (pref === "system") delete root.dataset.theme;
-  else root.dataset.theme = pref;
-  // An explicit choice paints the browser chrome to match; "system" restores the media pair.
-  for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) {
-    const own = meta.media.includes("dark") ? "#121417" : "#f2f3ef";
-    meta.content = pref === "system" ? own : pref === "dark" ? "#121417" : "#f2f3ef";
-  }
+  const f = resolvedFlavor(pref);
+  root.dataset.flavor = f;
+  root.dataset.accent = readAccent();
+  root.dataset.theme = f === "latte" ? "light" : "dark";
+  const ground = flavorTokens(f).ground ?? "";
+  for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) meta.content = ground;
   if (ease) setTimeout(() => root.classList.remove("theme-transition"), 300);
 }
 
-/** The top-bar toggle and Shift+D flip between light and dark from what is showing. */
-export function toggleTheme(): ThemePref {
-  const next = resolvedTheme() === "dark" ? "light" : "dark";
-  setTheme(next);
-  return next;
+/** The top-bar toggle and Shift+D flip between Latte and the night flavor from what is showing. */
+export function toggleTheme(): Flavor {
+  setTheme("mocha");
+  return "mocha";
 }
 
 export function applyMotionPref(p: Prefs = readPrefs()): void {

@@ -52,7 +52,7 @@ function whenPlanned(c: Ctx, a: SkillAction): string | null {
   if (!d) return null;
   const diff = Math.round((dateOf(d).getTime() - dateOf(c.today).getTime()) / 86_400_000);
   const when = diff === 0 ? "for tonight" : diff === 1 ? "for tomorrow" : `for ${DAY_LONG[weekdayIndex(d)]}`;
-  return diff === 0 ? `Planned ${when}. Starting it here is the same session.` : `Planned ${when}. Starting it now moves it up.`;
+  return diff === 0 ? `Planned ${when}. Starting it here is the same session` : `Planned ${when}. Starting it now moves it up`;
 }
 
 function attemptStrip(s: Skill): SafeHtml {
@@ -81,10 +81,10 @@ function spotCard(c: Ctx, s: Skill, i: number, compact: boolean): SafeHtml {
     </div>
     <div class="act"><h4>Next step</h4>
       ${step
-        ? html`<div class="step"><a class="btn ${i === 0 ? "btn-primary" : "btn-secondary"}" href="${actionHref(s, step)}" data-step-link>${icon(ACTION_ICON[step.kind])}<span>${step.title}<small>${step.minutes} min. ${step.reason}.</small></span></a>${
+        ? html`<div class="step"><a class="btn ${i === 0 ? "btn-primary" : "btn-secondary"}" href="${actionHref(s, step)}" data-step-link>${icon(ACTION_ICON[step.kind])}<span>${step.title}<small>${step.minutes} min. ${step.reason}</small></span></a>${
             whenPlanned(c, step) ? html`<p>${whenPlanned(c, step)}</p>` : ""
           }</div>`
-        : html`<p class="fineprint">Keep going: the next attempt sharpens this read.</p>`}
+        : html`<p class="fineprint">Keep going: the next attempt sharpens this read</p>`}
       ${alts.length ? html`<ul class="alts" aria-label="Other options">${alts.slice(0, 2).map((a) => html`<li>${icon(ACTION_ICON[a.kind])}<a href="${actionHref(s, a)}">${a.title}<small>${a.reason}</small></a><span class="m">${a.minutes}m</span></li>`)}</ul>` : ""}
     </div>
   </article></li>`;
@@ -129,10 +129,10 @@ function detail(c: Ctx, s: Skill): SafeHtml {
     d.setDate(start.getDate() + i * 7);
     return i === 0 || d.getDate() <= 7 ? d.toLocaleDateString(undefined, { month: "short", day: "numeric" }) : String(d.getDate());
   };
-  return html`<div class="dr-head"><div><h2 id="dt-h">${s.technique_title}</h2><p>${s.module_title}, technique ${s.technique_number} of ${s.techniques_in_module}. ${s.total} problems, ${s.seen} started.</p></div><button type="button" class="icon-btn" data-close aria-label="Close (Esc)">${icon("x")}</button></div>
+  return html`<div class="dr-head"><div><h2 id="dt-h">${s.technique_title}</h2><p>${s.module_title}, technique ${s.technique_number} of ${s.techniques_in_module}. ${s.total} problems, ${s.seen} started</p></div><button type="button" class="icon-btn" data-close aria-label="Close (Esc)">${icon("x")}</button></div>
     <div class="lvlrow" aria-label="Level: ${LEVEL_WORD[s.level]}">${LEVELS.map((l, i) => html`<span class="${i === li ? "on" : ""}" style="--lvl:var(--lvl-${i})">${LEVEL_WORD[l]}</span>`)}</div>
     <div class="dmeta">${trend(s.trend, s.recent)}${confidence(s)}</div>
-    ${s.diagnosis ? html`<div class="dsec"><h3>Diagnosis</h3><p class="diag">${s.diagnosis}</p></div>` : html`<div class="dsec"><p class="fineprint">No attempts yet. The first few give a first read.</p></div>`}
+    ${s.diagnosis ? html`<div class="dsec"><h3>Diagnosis</h3><p class="diag">${s.diagnosis}</p></div>` : html`<div class="dsec"><p class="fineprint">Complete a few attempts to see which parts need practice</p></div>`}
     <div class="dsec"><h3>Where attempts went wrong</h3><div class="causes">${causeCounts(s).map(
       ([k, n]) => html`<div><span>${CAUSE_WORD[k]}</span>${bar([{ value: n / max, kind: "c" }])}<b>${n}</b></div>`,
     )}</div></div>
@@ -145,7 +145,7 @@ function detail(c: Ctx, s: Skill): SafeHtml {
         )}</tbody></table></div>`
       : ""}
     ${s.actions.length
-      ? html`<div class="dsec"><h3>What helps, in order</h3><ul class="alts">${s.actions.map(
+      ? html`<div class="dsec"><h3>Recommended practice</h3><ul class="alts">${s.actions.map(
           (a) => html`<li>${icon(ACTION_ICON[a.kind])}<a href="${actionHref(s, a)}">${a.title}<small>${a.reason}.${whenPlanned(c, a) ? ` ${whenPlanned(c, a)}` : ""}</small></a><span class="m">${a.minutes}m</span></li>`,
         )}</ul></div>`
       : ""}`;
@@ -163,8 +163,8 @@ function paint(): void {
     render(
       el,
       html`${back}<header class="head"><div><h1>Skills</h1></div></header>
-      <div class="panel empty"><div><h2>Weak spots show up after about 10 attempts</h2><p>You've made ${total} so far. Each attempt records how it went: clean, a hint, over time, or a miss, and where it went wrong. Once a technique has a few, this page says what's holding it back and what to do about it.</p><div style="margin-top:var(--space-5)"><a class="btn btn-primary" href="${ROUTES.today}">Practise on Today</a></div></div>
-        <div><h3>What it looks for</h3><ol><li><b>Can't start.</b> No test passed before you stopped.</li><li><b>Wrong approach.</b> You needed a hint or a restart to find the idea.</li><li><b>Edge cases.</b> Most tests passed; an empty input or a boundary failed.</li><li><b>Too slow.</b> Clean, but past the time target.</li><li><b>Forgetting.</b> Clean once, then missed on a later review.</li></ol></div></div>
+      <div class="panel empty"><div><h2>Weak spots show up after about 10 attempts</h2><p>You've made ${total} so far. Each attempt records how it went: clean, a hint, over time, or a miss, and where it went wrong. Once a technique has a few, this page says what's holding it back and what to do about it</p><div style="margin-top:var(--space-5)"><a class="btn btn-primary" href="${ROUTES.today}">Practice on Today</a></div></div>
+        <div><h3>What it looks for</h3><ol><li><b>Can't start.</b> No test passed before you stopped</li><li><b>Wrong approach.</b> You needed a hint or a restart to find the idea</li><li><b>Edge cases.</b> Most tests passed; an empty input or a boundary failed</li><li><b>Too slow.</b> Clean, but past the time target</li><li><b>Forgetting.</b> Clean once, then missed on a later review</li></ol></div></div>
       ${skillMap(c, true)}`,
     );
     return;
@@ -179,23 +179,23 @@ function paint(): void {
   const planned = spots.filter((s) => s.actions[0] && inPlanOn(c.plan, s.actions[0].problem)).length;
   const meta = low
     ? `Nothing confirmed yet, ${watching} to watch`
-    : `${confirmed} ${confirmed === 1 ? "weak spot" : "weak spots"}${watching ? ` and ${watching} to watch` : ""}.${planned ? ` Your plan already has the first step for ${planned}.` : ""}`;
+    : `${confirmed} ${confirmed === 1 ? "weak spot" : "weak spots"}${watching ? ` and ${watching} to watch` : ""}.${planned ? ` Your plan already has the first step for ${planned}` : ""}`;
   render(
     el,
     html`${back}
     <header class="head"><div><h1>Skills</h1><p class="lede">${
       low
-        ? `A first read from your ${recent} recent attempts. No technique has the 4 attempts it takes to call a weak spot yet, so everything shows faint.`
-        : `What to work on next and why, read from your ${recent} attempts over the last 6 weeks. It changes after every attempt.`
+        ? `Based on your ${recent} recent attempts. Each technique needs at least 4 attempts before it can be identified as a weak spot. Those with fewer attempts appear faded`
+        : `Recommended practice based on your ${recent} attempts over the last 6 weeks. These recommendations update after each attempt`
     }</p></div>
       <div class="seg" role="group" aria-label="Show"><button type="button" data-mode="weak" aria-pressed="${m === "weak"}">Weak spots first</button><button type="button" data-mode="module" aria-pressed="${m === "module"}">By module</button></div></header>
     ${state === "none-weak"
-      ? html`<div class="panel calm">${icon("circle-check")}<div><h2>Nothing is weak right now</h2><p>Every technique you've started has a clean last pass. The plan keeps new topics coming and mixes in Keep sharp drills so nothing fades.</p></div><a class="btn btn-secondary" href="${ROUTES.plan}">See the plan</a></div>`
+      ? html`<div class="panel calm">${icon("circle-check")}<div><h2>No weak spots found</h2><p>Your latest attempt was a clean pass for every technique you have started. Your plan will continue with new topics and review drills</p></div><a class="btn btn-secondary" href="${ROUTES.plan}">See the plan</a></div>`
       : html`<section class="sec" aria-labelledby="ws-h"><div class="section-head"><h2 id="ws-h">Your weak spots</h2><span class="meta">${meta}</span></div>
         <ol class="spots">${ordered.map((s, i) => spotCard(c, s, i, m === "module"))}</ol>
         ${spots.length > CARDS_SHOWN && !showAll ? html`<button type="button" class="btn btn-ghost spots-more" data-more>Show ${spots.length - CARDS_SHOWN} more</button>` : ""}</section>`}
-    <section class="sec" aria-labelledby="map-h"><div class="section-head"><h2 id="map-h">Skill map</h2><span class="meta">${new Set(c.skills.map((s) => s.module)).size} modules, ${c.skills.length} techniques. Choose one for its evidence.</span></div>
-      <div class="map-legend" aria-label="How to read the map"><span><i style="background:var(--lvl-0)"></i>New</span><span><i style="background:var(--lvl-1)"></i>Shaky</span><span><i style="background:var(--lvl-2)"></i>Building</span><span><i style="background:var(--lvl-3)"></i>Solid</span><span><i style="background:var(--lvl-4)"></i>Strong</span><span><i class="faint"></i>Fewer than 4 attempts: a first read</span><span class="weakw"><i class="wk"></i>Weak spot</span><span>${icon("trending-up")}Improving</span><span>${icon("trending-down")}Slipping</span></div>
+    <section class="sec" aria-labelledby="map-h"><div class="section-head"><h2 id="map-h">Skill map</h2><span class="meta">${new Set(c.skills.map((s) => s.module)).size} modules, ${c.skills.length} techniques. Select a technique to see its attempt history</span></div>
+      <div class="map-legend" aria-label="How to read the map"><span><i style="background:var(--lvl-0)"></i>New</span><span><i style="background:var(--lvl-1)"></i>Shaky</span><span><i style="background:var(--lvl-2)"></i>Building</span><span><i style="background:var(--lvl-3)"></i>Solid</span><span><i style="background:var(--lvl-4)"></i>Strong</span><span><i class="faint"></i>Fewer than 4 attempts: limited history</span><span class="weakw"><i class="wk"></i>Weak spot</span><span>${icon("trending-up")}Improving</span><span>${icon("trending-down")}Slipping</span></div>
       ${skillMap(c, low)}</section>`,
   );
   // Roving tabindex: the map is one tab stop.
@@ -315,7 +315,7 @@ async function init(): Promise<void> {
     render(
       root(),
       html`<a class="back" href="${ROUTES.progress}">${icon("arrow-left")}Progress</a><header class="head"><div><h1>Skills</h1></div></header>
-      <div class="panel empty" role="alert" style="grid-template-columns:1fr"><div><h2>Couldn't read your attempts</h2><p>Your progress is safe. Try again in a moment.</p><div style="margin-top:var(--space-5)"><button type="button" class="btn btn-primary" data-retry>Try again</button></div></div></div>`,
+      <div class="panel empty" role="alert" style="grid-template-columns:1fr"><div><h2>Couldn't read your attempts</h2><p>Your progress is safe. Try again in a moment</p><div style="margin-top:var(--space-5)"><button type="button" class="btn btn-primary" data-retry>Try again</button></div></div></div>`,
     );
     root()?.querySelector("[data-retry]")?.addEventListener("click", () => void init());
   }

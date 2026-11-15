@@ -64,14 +64,14 @@
 .notes-page textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .notes-page .acts { margin-top: var(--space-2); display: flex; gap: var(--space-2); justify-content: flex-end; }
 
-.note-pop { position: absolute; z-index: var(--z-overlay); display: flex; gap: 2px; padding: 4px; background: var(--wall); color: var(--wall-ink); border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); font-family: var(--font-ui); transform: translateX(-50%); }
+.note-pop { position: absolute; z-index: var(--z-overlay); display: flex; gap: 2px; padding: 4px; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); font-family: var(--font-ui); transform: translateX(-50%); }
 .note-pop:not([hidden]) { animation: pop-in var(--dur-fast) var(--ease-out); }
 @keyframes pop-in { from { opacity: 0; transform: translate(-50%, 4px); } }
 .note-pop button { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 var(--space-3); font-size: var(--text-xs); font-weight: 600; border-radius: 4px; color: var(--wall-ink); white-space: nowrap; }
 .note-pop button:hover, .note-pop button:focus-visible { background: color-mix(in srgb, var(--wall-ink) 12%, transparent); }
 .note-pop kbd { background: none; color: inherit; border-color: color-mix(in srgb, var(--wall-ink) 30%, transparent); }
 .note-pop .icon { width: 14px; height: 14px; }
-.note-pop::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px; background: var(--wall); transform: translateX(-50%) rotate(45deg); }
+.note-pop::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px; background: inherit; transform: translateX(-50%) rotate(45deg); }
 @media (prefers-reduced-motion: reduce) { .note-pop:not([hidden]) { animation: none; } }
 
 .notes-page .practice { margin-top: var(--space-12); padding: var(--space-5) var(--space-6); }

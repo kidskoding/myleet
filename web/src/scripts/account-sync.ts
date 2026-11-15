@@ -1,7 +1,8 @@
 // Signed-in housekeeping: link this device's progress on first sign-in (merge if both
 // sides have history), keep progress and settings synced, report sync trouble.
-import { fetchMe, fromServer, isDefaultServer, patchMe, putPlan, toServer, type Me } from "../lib/account";
-import { onPrefsChange, planSettings, readPrefs, readTheme, updatePrefs } from "../lib/prefs";
+import { fetchMe, fromServer, isDefaultServer, patchMe, putPlan, toServer, type Me, type ServerSettings } from "../lib/account";
+import { DEFAULT_ACCENT, DEFAULT_NIGHT } from "../lib/flavors";
+import { adoptAppearance, onPrefsChange, planSettings, readAccent, readNight, readPrefs, readTheme, updatePrefs } from "../lib/prefs";
 import { apiTransport, readEvents, type SyncTransport } from "../lib/progress";
 import { publicSummary } from "../lib/summary";
 import { createSyncer, firstSync, isLinked } from "../lib/sync";
@@ -11,6 +12,19 @@ import { hideBanner, showBanner, toast } from "../lib/ui/overlay";
 import { plural } from "../lib/ui/bits";
 
 let started = false;
+/** The Worker stores night flavor and accent too (older Workers reject unknown fields). */
+let appearanceSynced = false;
+
+function appearance(): Partial<ServerSettings> {
+  const theme = readTheme();
+  if (appearanceSynced) return { theme, night_flavor: readNight(), accent: readAccent() };
+  return { theme: theme === "system" ? "system" : theme === "latte" ? "light" : "dark" };
+}
+
+/** An account whose appearance was never chosen (the Worker's defaults) takes this device's. */
+function defaultAppearance(s: ServerSettings): boolean {
+  return s.theme === "system" && (s.night_flavor ?? DEFAULT_NIGHT) === DEFAULT_NIGHT && (s.accent ?? DEFAULT_ACCENT) === DEFAULT_ACCENT;
+}
 let trainer: TrainerApi | undefined;
 
 function transport(): SyncTransport {
@@ -21,7 +35,7 @@ function syncFailed(retry: () => void): void {
   const b = showBanner("sync", {
     icon: "triangle-alert",
     tone: "error",
-    body: html`<strong>Couldn't sync your progress.</strong> It's safe on this device and will sync when the server answers.`,
+    body: html`<strong>Couldn't sync your progress</strong> It's safe on this device and will sync when the server answers`,
     actions: html`<button class="btn btn-secondary btn-sm" type="button" data-retry>Retry</button>`,
   });
   b?.querySelector("[data-retry]")?.addEventListener("click", retry);
@@ -56,9 +70,13 @@ export async function startAccountSync(me: Me): Promise<void> {
   const t = transport();
   const user = me.user.id;
 
-  // Settings: a fresh account takes this device's plan; otherwise the account wins (theme stays local).
-  if (isDefaultServer(me.settings)) void patchMe({ settings: { ...toServer(readPrefs()), theme: readTheme() } }).catch(() => undefined);
+  // Settings: a fresh account takes this device's plan; otherwise the account wins. Appearance
+  // follows the account once it has one; until then this device's choice is sent up.
+  appearanceSynced = "accent" in me.settings;
+  if (isDefaultServer(me.settings)) void patchMe({ settings: { ...toServer(readPrefs()), ...appearance() } }).catch(() => undefined);
   else updatePrefs(fromServer(me.settings), { silent: true });
+  if (appearanceSynced && !defaultAppearance(me.settings)) adoptAppearance({ theme: me.settings.theme, night: me.settings.night_flavor, accent: me.settings.accent });
+  else if (appearanceSynced && !isDefaultServer(me.settings)) void patchMe({ settings: appearance() }).catch(() => undefined);
 
   const syncer = createSyncer(
     async () => {
@@ -76,7 +94,7 @@ export async function startAccountSync(me: Me): Promise<void> {
 
   try {
     const r = await firstSync(t, user);
-    if (r.kind === "uploaded") toast(`Your ${plural(Object.keys(trainer?.states(await readEvents()) ?? {}).length, "problem")} are on your account now.`);
+    if (r.kind === "uploaded") toast(`Your ${plural(Object.keys(trainer?.states(await readEvents()) ?? {}).length, "problem")} are on your account now`);
     else if (r.kind === "merge") await import("./auth-ui").then((m) => m.openMerge(me, r.remote, t));
     else if (r.kind === "synced") window.dispatchEvent(new Event("myleet:synced"));
     if (r.kind !== "deferred") void uploadPlan().catch(() => undefined);
@@ -98,7 +116,7 @@ export async function startAccountSync(me: Me): Promise<void> {
     clearTimeout(timer);
     timer = setTimeout(async () => {
       try {
-        await patchMe({ settings: theme ? { ...toServer(readPrefs()), theme: readTheme() } : toServer(readPrefs()) });
+        await patchMe({ settings: theme ? { ...toServer(readPrefs()), ...appearance() } : toServer(readPrefs()) });
         tries = 0;
         window.dispatchEvent(new CustomEvent("myleet:prefs-saved", { detail: { ok: true } }));
         void uploadPlan().catch(() => undefined);

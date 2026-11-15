@@ -277,7 +277,7 @@ export const weeklyMinutes = (ws: Availability[]): number => ws.reduce((n, w) =>
 
 /** "Weeknights 9 to 10:30 pm, Sat 10 am to 12 pm": a one-line summary for Settings. */
 export function windowsSummary(ws: Availability[]): string {
-  if (!ws.length) return "None yet. The plan uses the hour you usually practise.";
+  if (!ws.length) return "None yet. The plan uses the hour you usually practice";
   const daysText = (days: Weekday[]) => {
     const key = days.join(",");
     if (key === "mon,tue,wed,thu,fri") return "Weeknights";

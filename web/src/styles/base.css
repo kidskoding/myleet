@@ -160,13 +160,25 @@ input, textarea { caret-color: var(--accent); }
   top: var(--space-2);
   z-index: var(--z-toast);
   padding: var(--space-2) var(--space-4);
-  background: var(--accent);
+  background: var(--accent-fill);
   color: var(--on-accent);
   border-radius: var(--radius-sm);
   font-weight: 600;
   transform: translateY(-200%);
 }
 .skip-link:focus-visible { transform: none; }
+
+/* ---- Wall scope: anything drawn on --wall (always a dark Catppuccin Crust) takes the wall's own
+   hue tokens. Custom properties resolve where declared, so the rung aliases are re-declared here.
+   :is() lifts every member to the focus-bar selector's weight so page rules can't repaint the wall.
+   A test (styles/theme.test.ts) fails on the wall colour used anywhere else. ---- */
+:is(.on-wall, .wsx[data-focus] .wbar) {
+  background: var(--wall);
+  color: var(--wall-ink);
+  --accent: var(--wall-accent); --pass-solid: var(--wall-pass); --fail-solid: var(--wall-fail); --due-solid: var(--wall-due);
+  --rung-current: var(--wall-accent); --rung-mastered: var(--wall-pass); --rung-fall: var(--wall-fail);
+  --rung-done: var(--wall-ink); --rung-empty: var(--wall-ink-2); --focus: var(--wall-accent);
+}
 
 /* ---- Theme changes ease instead of flashing ---- */
 @media (prefers-reduced-motion: no-preference) {

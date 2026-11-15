@@ -139,7 +139,7 @@ export async function showDocsAtCursor(view: EditorView, smarts: Smarts): Promis
       text = "";
     }
   }
-  const msg = smarts.ready() ? text.trim() || "No docs for this name." : "Docs arrive once Python finishes loading.";
+  const msg = smarts.ready() ? text.trim() || "No docs for this name" : "Docs arrive once Python finishes loading";
   view.dispatch({ effects: setDocs.of({ pos, above: true, create: () => ({ dom: docDom(msg) }) }) });
 }
 

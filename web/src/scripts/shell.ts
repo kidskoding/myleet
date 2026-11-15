@@ -2,7 +2,7 @@
 // reminders. Runs once per full load; `astro:page-load` refreshes per-page state.
 import { navigate } from "astro:transitions/client";
 import { AUTH_ERRORS, cachedMe, fetchMe, initials, takeReturn, type Me } from "../lib/account";
-import { applyMotionPref, applyTheme, readPrefs, resolvedTheme, toggleTheme } from "../lib/prefs";
+import { applyMotionPref, applyTheme, readPrefs, readTheme } from "../lib/prefs";
 import { lastReminder, nextSessionReminder, reminderDelay, reminderSupport, sendReminder, type PlannedSession } from "../lib/reminders";
 import { ROUTES } from "../lib/routes";
 import { localDay, readStreak, STREAK_MILESTONES, streakNow } from "../lib/streak";
@@ -53,9 +53,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "?") {
     e.preventDefault();
     void openShortcuts();
-  } else if (e.key === "D" && e.shiftKey) {
-    e.preventDefault();
-    themeToggled(toggleTheme());
+
   } else if (e.key === "g" && !e.shiftKey) {
     gAt = Date.now();
   } else if (gAt && Date.now() - gAt < 1200 && G_ROUTES[e.key]) {
@@ -73,22 +71,11 @@ document.addEventListener("click", (e) => {
   const t = e.target as Element;
   if (t.closest("[data-open-palette]")) void openPalette();
   else if (t.closest("[data-open-shortcuts]")) void openShortcuts();
-  else if (t.closest("[data-theme-toggle]")) themeToggled(toggleTheme());
   else if (t.closest("[data-signin]")) {
     e.preventDefault();
     void openSignIn();
   } else if (t.closest("[data-account-menu]")) toggleAccountMenu(t.closest<HTMLElement>("[data-account-menu]"));
 });
-
-function themeToggled(next: "light" | "dark" | "system"): void {
-  updateThemeButton();
-  toast(next === "dark" ? "Dark theme on" : "Light theme on", { ms: 2500 });
-}
-
-function updateThemeButton(): void {
-  const b = $("[data-theme-toggle]");
-  b?.setAttribute("aria-label", resolvedTheme() === "dark" ? "Switch to light theme" : "Switch to dark theme");
-}
 
 // ---- account menu ----
 
@@ -168,7 +155,7 @@ function paintStreak(): void {
       num.classList.remove("roll");
       void num.offsetWidth;
       num.classList.add("roll");
-      if (STREAK_MILESTONES.includes(s.n)) toast(`${s.n}-day streak.`);
+      if (STREAK_MILESTONES.includes(s.n)) toast(`${s.n}-day streak`);
     }
   }
   shownStreak = s.n;
@@ -200,7 +187,7 @@ function paintOnline(): void {
   else
     showBanner("offline", {
       icon: "wifi-off",
-      body: html`<strong>You're offline.</strong> Practice keeps working: problems you've opened and Python are cached. Progress syncs when you reconnect.`,
+      body: html`<strong>You're offline</strong> Practice keeps working: problems you've opened and Python are cached. Progress syncs when you reconnect`,
       live: true,
     });
 }
@@ -212,7 +199,7 @@ function paintUpdate(): void {
   if (!waitingWorker) return;
   showBanner("update", {
     icon: "refresh",
-    body: html`<strong>A new version is ready.</strong>`,
+    body: html`<strong>A new version is ready</strong>`,
     actions: html`<button class="btn btn-secondary btn-sm" type="button" data-sw-reload>Reload</button>`,
     dismissDays: 0,
   })
@@ -307,11 +294,11 @@ function scheduleReminder(): void {
 function todayLine(): string {
   try {
     const t = JSON.parse(localStorage.getItem("myleet:today") ?? "null") as { day: string; due: number; mins: number } | null;
-    if (t && t.day === localDay() && t.due > 0) return `${t.due} ${t.due === 1 ? "review is" : "reviews are"} due today. About ${t.mins} min.`;
+    if (t && t.day === localDay() && t.due > 0) return `${t.due} ${t.due === 1 ? "review is" : "reviews are"} due today. About ${t.mins} min`;
   } catch {
     // Fall back to the plain line.
   }
-  return "One problem keeps your streak going today.";
+  return "One problem keeps your streak going today";
 }
 
 // ---- account bootstrap ----
@@ -325,7 +312,7 @@ async function bootAccount(): Promise<void> {
   } else if (err !== null) {
     params.delete("auth_error");
     history.replaceState(history.state, "", location.pathname + (params.size ? `?${params}` : "") + location.hash);
-    void openSignIn(AUTH_ERRORS[err] ?? "Sign-in didn't finish. Try again or use another method.");
+    void openSignIn(AUTH_ERRORS[err] ?? "Sign-in didn't finish. Try again or use another method");
   } else if (params.get("auth") === "signin") {
     void openSignIn();
   }
@@ -344,7 +331,6 @@ function onPage(): void {
   paintStreak();
   paintOnline();
   paintUpdate();
-  updateThemeButton();
   closeMenu();
   const bar = $(".topbar");
   if (bar) bar.classList.toggle("is-scrolled", scrollY > 4);
@@ -366,7 +352,10 @@ addEventListener("myleet:progress", () => {
     async ([t, p, s]) => s.recordStats((await t.loadTrainer()).stats(await p.readEvents())),
   );
 });
-matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateThemeButton);
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+  if (readTheme() === "system") applyTheme("system", true);
+});
+
 void bootAccount();
 // The palette loads on idle so the first Cmd/Ctrl+K opens at once and catches what you type.
 (window.requestIdleCallback ?? ((fn: () => void) => setTimeout(fn, 2000)))(() => void import("./palette"));

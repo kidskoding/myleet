@@ -120,7 +120,7 @@ export function toast(slot: HTMLElement, text: string, undo?: () => void): void 
   slot.replaceChildren();
   const el = h(
     "div",
-    { class: "toast", role: "status" },
+    { class: "toast on-wall", role: "status" },
     h("span", {}, text),
     undo
       ? h(

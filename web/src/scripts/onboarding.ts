@@ -2,7 +2,7 @@
 // warm-up. Each step is a URL so Back works. Answers save as you go (lib/prefs).
 import { navigate } from "astro:transitions/client";
 import { parseEvents, placementResults, runProgress } from "../lib/attempts";
-import { companySlug, loadCatalog, type LoadedCatalog } from "../lib/catalog";
+import { companySlug, listedCompany, loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { daysUntil, planWeeks, shortDate, TIME_OPTIONS, timeOption } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs, type Goal } from "../lib/prefs";
 import { DEFAULT_WINDOWS } from "../lib/schedule";
@@ -23,10 +23,10 @@ const SINCE_KEY = "myleet:placement-since";
 
 const GOALS: { id: Goal; label: string; detail: string }[] = [
   { id: "internship", label: "Internship", detail: "Mostly easy and medium problems, arrays to trees first" },
-  { id: "coop", label: "Co-op", detail: "Same core as internships, often with a longer loop" },
-  { id: "newgrad", label: "New grad", detail: "Mediums and some hards, graphs and dynamic programming weigh more" },
+  { id: "coop", label: "Co-op", detail: "The same core topics as internships, often with more interview rounds" },
+  { id: "newgrad", label: "New grad", detail: "Medium and some hard problems, with more graphs and dynamic programming" },
 ];
-const GROUPS: PlaylistGroup[] = ["Big tech", "AI labs / high growth", "Quant", "Little tech", "Fortune 500"];
+const GROUPS: PlaylistGroup[] = ["Big tech", "AI labs & high growth", "Trading firms", "Product companies", "Enterprise companies"];
 const GROUP_SHOWN = 10;
 
 let cat: LoadedCatalog | undefined;
@@ -70,7 +70,7 @@ function goalStep(): SafeHtml {
   const g = readPrefs().plan.goal;
   return html`${head("goal")}<section class="q" aria-labelledby="q1">
     <h1 id="q1">What are you preparing for?</h1>
-    <p class="sub">This sets the time targets and which patterns come first. You can change it later in settings.</p>
+    <p class="sub">Your goal helps set time targets and the order of topics. You can change it in Settings</p>
     ${radios("goal", "q1", GOALS, g)}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("3")} to pick, ${kbd("enter")} to continue</span></div>
   </section>`;
@@ -89,16 +89,16 @@ function companiesBody(): SafeHtml {
   const q = query.trim().toLowerCase();
   let groups: SafeHtml;
   if (q) {
-    const hits = c.playlists.filter((p) => p.title.toLowerCase().includes(q) && !picked.includes(companySlug(p.id))).slice(0, 24);
+    const hits = c.playlists.filter(listedCompany).filter((p) => p.title.toLowerCase().includes(q) && !picked.includes(companySlug(p.id))).slice(0, 24);
     groups = hits.length
       ? html`<div class="groups"><div><h2>Matches</h2><div class="row" data-results>${hits.map((p) => companyChip(p, false))}</div></div></div>`
-      : html`<p class="empty-note" role="status">No company called "${query.trim()}". Try the group lists below, or skip.</p>`;
+      : html`<p class="empty-note" role="status">No company called "${query.trim()}". Try the group lists below, or skip</p>`;
   } else {
     groups = html`<div class="groups">${GROUPS.map((g) => {
-      const all = c.playlists.filter((p) => p.group === g && !picked.includes(companySlug(p.id)));
+      const all = c.playlists.filter(listedCompany).filter((p) => p.group === g && !picked.includes(companySlug(p.id)));
       if (!all.length) return "";
       const shown = expanded.has(g) ? all : all.slice(0, GROUP_SHOWN);
-      return html`<div><h2>${g === "AI labs / high growth" ? "AI labs and high growth" : g}</h2><div class="row">${shown.map((p) => companyChip(p, false))}${
+      return html`<div><h2>${g === "AI labs & high growth" ? "AI labs and high growth" : g}</h2><div class="row">${shown.map((p) => companyChip(p, false))}${
         all.length > shown.length ? html`<button class="chip more" type="button" data-more="${g}">${all.length - shown.length} more</button>` : ""
       }</div></div>`;
     })}</div>`;
@@ -109,9 +109,9 @@ function companiesBody(): SafeHtml {
 function companiesStep(): SafeHtml {
   const n = readPrefs().plan.companies.length;
   return html`${head("companies")}<section class="q" aria-labelledby="q2">
-    <h1 id="q2">Any companies in mind?</h1>
-    <p class="sub">Optional. Their sets get mixed into Today once the core patterns are moving, and their pages show how ready you are.</p>
-    <div class="search">${icon("search")}<input type="search" placeholder="Search ${cat?.catalog.playlists.length ?? ""} companies" aria-label="Search companies" value="${query}" data-company-search autocomplete="off" /></div>
+    <h1 id="q2">Which companies are you preparing for?</h1>
+    <p class="sub">This is optional. Your plan will include their practice sets after you have started the core topics. Each company page shows your progress</p>
+    <div class="search">${icon("search")}<input type="search" placeholder="Search ${cat?.catalog.playlists.filter(listedCompany).length ?? ""} companies" aria-label="Search companies" value="${query}" data-company-search autocomplete="off" /></div>
     <div data-company-body>${companiesBody()}</div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>${n ? `Continue with ${n}` : "Continue"}</button>${n ? "" : html`<button class="btn btn-ghost" type="button" data-continue>No company yet</button>`}</div>
   </section>`;
@@ -123,7 +123,7 @@ function dateStep(error?: string): SafeHtml {
   const left = d ? daysUntil(d, today) : null;
   return html`${head("date")}<section class="q" aria-labelledby="q3">
     <h1 id="q3">When is your first interview?</h1>
-    <p class="sub">With a date, myleet paces the patterns to it and tells you when you're behind. Without one, it paces at your daily time.</p>
+    <p class="sub">An interview date gives your plan a deadline and helps identify topics that need more time. If you do not have a date, the plan uses your daily practice time</p>
     <div class="date-row">
       <div class="field"><label for="iv-date">Interview date</label><input class="input" id="iv-date" type="date" min="${addDays(today, 1)}" value="${d ?? ""}" aria-describedby="iv-err" ${error ? html`aria-invalid="true"` : ""} data-date /></div>
       <div class="quick" role="group" aria-label="Quick picks">${[
@@ -133,7 +133,7 @@ function dateStep(error?: string): SafeHtml {
       ].map(([n, l]) => html`<button class="chip" type="button" data-quick="${n}" aria-pressed="${d === addDays(today, n as number) ? "true" : "false"}">${l}</button>`)}</div>
     </div>
     <p class="err field" id="iv-err" ${error ? "" : "hidden"} style="margin-top:var(--space-2)">${error ?? ""}</p>
-    ${d && left !== null && left > 0 ? html`<p class="date-note">${shortDate(d)} is ${plural(left, "day")} away.${left < 7 ? " That's close: the plan becomes a short cram plan of reviews and the most common patterns." : " You can change it any time from Today."}</p>` : ""}
+    ${d && left !== null && left > 0 ? html`<p class="date-note">${shortDate(d)} is ${plural(left, "day")} away.${left < 7 ? " That's close: the plan becomes a short cram plan of reviews and the most common patterns" : " You can change it any time from Today"}</p>` : ""}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Continue</button><button class="btn btn-ghost" type="button" data-no-date>No date yet</button></div>
   </section>`;
 }
@@ -142,7 +142,7 @@ function timeStep(): SafeHtml {
   const m = readPrefs().plan.dailyMinutes;
   return html`${head("time")}<section class="q" aria-labelledby="q4">
     <h1 id="q4">How much time do you have on most days?</h1>
-    <p class="sub">Reviews always come first. The rest of the time goes to new problems. Today lets you shrink a single day without changing this.</p>
+    <p class="sub">Your plan schedules reviews first, then new problems. You can reduce the time for a single day on Today</p>
     ${radios("time", "q4", TIME_OPTIONS.map((o) => ({ id: String(o.minutes), label: o.label, detail: o.detail })), m === null ? null : String(m))}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${m ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("4")} to pick, ${kbd("esc")} to go back</span></div>
   </section>`;
@@ -155,10 +155,10 @@ function whenStep(): SafeHtml {
   // First run starts from two common patterns, already pressed; painting adjusts them.
   if (!readPrefs().plan.availability.length) updatePrefs({ plan: { availability: DEFAULT_WINDOWS } }, { silent: true });
   return html`${head("when")}<section class="q ob-when" aria-labelledby="q5w">
-    <h1 id="q5w">When can you practise?</h1>
-    <p class="sub">Pick a pattern, then drag on the week to adjust it. Sessions only go inside these windows. You can change them any time.</p>
+    <h1 id="q5w">When can you practice?</h1>
+    <p class="sub">Choose a schedule, then drag to adjust your available hours. Practice sessions stay within those hours. You can change them later</p>
     <div data-when-editor></div>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Build my plan ${kbd("enter")}</button><span class="hint">Days off and holidays can wait for Settings.</span></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Build my plan ${kbd("enter")}</button><span class="hint">You can add days off in Settings</span></div>
   </section>`;
 }
 
@@ -173,7 +173,7 @@ function planStep(): SafeHtml {
   const later = plan.summary.behind.slice(0, 6);
   return html`${head("plan", { skip: false })}<section class="q" aria-labelledby="q5">
     <h1 id="q5">${title}</h1>
-    <p class="sub"><strong>${plan.summary.headline}</strong> Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}, around your daily time.</p>
+    <p class="sub"><strong>${plan.summary.headline}</strong> Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}, around your daily time</p>
     <ol class="weeks" aria-label="Week by week">${weeks.map(
       (w) =>
         html`<li class="week"><div class="when">${w.label}<small>${shortDate(w.from)}${w.from !== w.to ? ` to ${shortDate(w.to)}` : ""}</small></div><div class="tech">${
@@ -182,10 +182,10 @@ function planStep(): SafeHtml {
             : html`${w.techniques.slice(0, 5).map((x) => tag("new", x))}${w.techniques.length > 5 ? html`<span class="text-muted text-small">and ${w.techniques.length - 5} more</span>` : ""}${w.techniques.length === 0 ? html`<span class="text-muted text-small">Reviews and the techniques above</span>` : ""}`
         }</div><span class="n">${plural(w.problems, "problem")}</span></li>`,
     )}</ol>
-    ${later.length ? html`<p class="later-list">Short of the plan's goal at this pace: ${later.join(", ")}${plan.summary.behind.length > later.length ? ", and more" : ""}. More daily time, or an earlier start on them, closes the gap.</p>` : ""}
+    ${later.length ? html`<p class="later-list">Short of the plan's goal at this pace: ${later.join(", ")}${plan.summary.behind.length > later.length ? ", and more" : ""}. More daily time, or an earlier start on them, closes the gap</p>` : ""}
     <div class="how">
-      <p><strong>On track</strong> means a technique is projected to reach the plan's goal by the date.</p>
-      <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up.</p>
+      <p><strong>On track</strong> means a technique is projected to reach the plan's goal by the date</p>
+      <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up</p>
     </div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Start the warm-up</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
   </section>`;
@@ -212,8 +212,8 @@ async function warmStep(): Promise<SafeHtml> {
     const rec = pl.recommend ? c.catalog.modules.find((m) => m.id === pl.recommend)?.title : null;
     const weak = pl.weak_modules.map((id) => c.catalog.modules.find((m) => m.id === id)?.title).filter(Boolean);
     return html`<section class="q" aria-labelledby="q7" style="margin-top:var(--space-4)">
-      <h1 id="q7" tabindex="-1">Here's where you start.</h1>
-      <p class="sub">${plural(strong, "topic")} solid, ${plural(items.length - strong, "to work on", "to work on")}. Today's new problems are picked from these. The warm-up didn't touch your review schedule.</p>
+      <h1 id="q7" tabindex="-1">Your starting topics</h1>
+      <p class="sub">${plural(strong, "topic")} solid, ${plural(items.length - strong, "to work on", "to work on")}. Today's new problems are picked from these. The warm-up didn't touch your review schedule</p>
       <ol class="warm">${items.map(
         (it, i) =>
           html`<li class="wrow done"><span class="num">${i + 1}</span><div><div class="title">${titleOf(it.problem)}</div><div class="sub">${it.outcome === "skipped" ? tag("outline", "Skipped") : LEVEL_TAG[it.level]}<span>${it.topic[0]?.toUpperCase()}${it.topic.slice(1)}</span></div></div><span class="text-small text-muted">${
@@ -221,9 +221,9 @@ async function warmStep(): Promise<SafeHtml> {
           }</span></li>`,
       )}</ol>
       <ul class="placed-note">
-        ${rec ? html`<li>${rec} comes first in your new problems${weak.includes(rec) ? ", marked weak spot" : ""}.</li>` : ""}
-        ${weak.filter((w) => w !== rec).length ? html`<li>Also marked to start early: ${weak.filter((w) => w !== rec).join(", ")}.</li>` : ""}
-        <li>Topics marked strong wait until the core patterns are moving.</li>
+        ${rec ? html`<li>${rec} comes first in your new problems${weak.includes(rec) ? ", marked weak spot" : ""}</li>` : ""}
+        ${weak.filter((w) => w !== rec).length ? html`<li>Also marked to start early: ${weak.filter((w) => w !== rec).join(", ")}</li>` : ""}
+        <li>Topics marked strong come later, after you have started the core topics</li>
       </ul>
       <div class="next"><a class="btn btn-primary btn-lg" href="${ROUTES.today}">Go to Today</a></div>
     </section>`;
@@ -239,7 +239,7 @@ async function warmStep(): Promise<SafeHtml> {
     <div class="track" aria-hidden="true" style="--n:${ids.length}">${progress.map((p) => html`<i class="${p.finished ? "on" : ""}"></i>`)}</div>
     <section class="q" aria-labelledby="q6">
       <h1 id="q6">Find your starting point</h1>
-      <p class="sub">${plural(ids.length, "short problem")} across the core patterns. Solve them as you would in an interview: timer on, no notes. They don't touch your review schedule; they tell Today which topics are solid. Stop after any one.</p>
+      <p class="sub">${plural(ids.length, "short problem")} across the core patterns. Solve them as you would in an interview: timer on, no notes. They don't touch your review schedule; they tell Today which topics are solid. Stop after any one</p>
       <ol class="warm">${pl.items.map((it, i) => {
         const p = progress[i];
         const m = c.byId.get(it.problem);
@@ -463,7 +463,7 @@ async function init(): Promise<void> {
   if (!cat) {
     render(
       root(),
-      html`<div class="panel state-note" role="alert"><h2>Couldn't load the curriculum</h2><p>Setup needs the problem list once. Your answers so far are saved on this device. Check your connection and try again.</p><div class="actions"><button class="btn btn-primary" type="button" onclick="location.reload()">Try again</button></div></div>`,
+      html`<div class="panel state-note" role="alert"><h2>Couldn't load the curriculum</h2><p>Setup needs the problem list once. Your answers so far are saved on this device. Check your connection and try again</p><div class="actions"><button class="btn btn-primary" type="button" onclick="location.reload()">Try again</button></div></div>`,
     );
     return;
   }

@@ -4,6 +4,9 @@ import archivoLatin from "@fontsource-variable/archivo/files/archivo-latin-wdth-
 import { ClientRouter } from "astro:transitions";
 import TabBar from "../components/shell/TabBar.astro";
 import TopBar, { type NavKey } from "../components/shell/TopBar.astro";
+import { flavorTokens, THEME_BOOT } from "../lib/flavors";
+import "@catppuccin/palette/css/catppuccin.css";
+import "../styles/flavors.css";
 import "../styles/tokens.css";
 import "../styles/base.css";
 import "../styles/components.css";
@@ -27,7 +30,7 @@ interface Props {
 
 const {
   title,
-  description = "Interview DSA practice that schedules your reviews. Tests run in your browser.",
+  description = "Practice data structures and algorithms for coding interviews. Run tests in your browser and review problems on a schedule",
   shell = "app",
   nav,
   noindex = false,
@@ -39,11 +42,12 @@ const site = Astro.site ?? new URL("https://myleet.dev");
 const fullTitle = title === "myleet" ? title : `${title} · myleet`;
 const canonical = new URL(Astro.url.pathname, site).href;
 const image = new URL(ogImage, site).href;
+const night = flavorTokens("mocha").ground;
 const chrome = shell === "app" || shell === "public" || shell === "focused";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-flavor="mocha" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -63,38 +67,15 @@ const chrome = shell === "app" || shell === "public" || shell === "focused";
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f3ef" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121417" />
+    <meta name="theme-color" content={night} />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preload" href={archivoLatin} as="font" type="font/woff2" crossorigin />
-    <script is:inline>
-      // Before first paint: theme, in-app reduced motion and the signed-in flag, so nothing flashes.
-      (function () {
-        var r = document.documentElement;
-        function apply() {
-          try {
-            var t = localStorage.getItem("myleet-theme");
-            if (t === "light" || t === "dark") {
-              r.dataset.theme = t;
-              document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
-                m.content = t === "dark" ? "#121417" : "#f2f3ef";
-              });
-            }
-            var p = JSON.parse(localStorage.getItem("myleet-prefs") || "{}");
-            if (p.reduceMotion) r.dataset.motion = "reduce";
-            r.dataset.auth = localStorage.getItem("myleet:me") ? "in" : "out";
-          } catch (e) {
-            r.dataset.auth = "out";
-          }
-        }
-        apply();
-        document.addEventListener("astro:after-swap", apply);
-      })();
-    </script>
+    <!-- Before first paint: flavor, accent, in-app reduced motion and the signed-in flag, so nothing flashes. -->
+    <script is:inline set:html={THEME_BOOT} />
     <ClientRouter fallback="swap" />
   </head>
   <body data-shell={shell} data-nav={nav} class={shell === "app" ? "has-tabbar" : undefined}>

@@ -1,0 +1,1178 @@
+{
+ "google": {
+  "source": "svgl",
+  "file": "google.svg",
+  "url": "https://svgl.app/library/google.svg"
+ },
+ "meta": {
+  "source": "svgl",
+  "file": "meta.svg",
+  "url": "https://svgl.app/library/meta.svg"
+ },
+ "amazon": {
+  "source": "simple-icons@9.21.0",
+  "file": "amazon.svg"
+ },
+ "apple": {
+  "source": "svgl",
+  "file": "apple.svg",
+  "url": "https://svgl.app/library/apple.svg"
+ },
+ "microsoft": {
+  "source": "svgl",
+  "file": "microsoft.svg",
+  "url": "https://svgl.app/library/microsoft.svg"
+ },
+ "nvidia": {
+  "source": "simple-icons",
+  "icon": "nvidia"
+ },
+ "netflix": {
+  "source": "svgl",
+  "file": "netflix.svg",
+  "url": "https://svgl.app/library/netflix-icon.svg"
+ },
+ "oracle": {
+  "source": "website-icon",
+  "domain": "oracle.com",
+  "url": "https://www.google.com/s2/favicons?domain=oracle.com&sz=128",
+  "file": "oracle.svg"
+ },
+ "salesforce_slack": {
+  "source": "svgl",
+  "file": "salesforce_slack.svg",
+  "url": "https://svgl.app/library/salesforce.svg"
+ },
+ "adobe": {
+  "source": "svgl",
+  "file": "adobe.svg",
+  "url": "https://svgl.app/library/adobe.svg"
+ },
+ "linkedin": {
+  "source": "svgl",
+  "file": "linkedin.svg",
+  "url": "https://svgl.app/library/linkedin.svg"
+ },
+ "tiktok_bytedance": {
+  "source": "svgl",
+  "file": "tiktok_bytedance.svg",
+  "url": "https://svgl.app/library/tiktok-icon-light.svg"
+ },
+ "uber": {
+  "source": "website-icon",
+  "domain": "uber.com",
+  "url": "https://www.google.com/s2/favicons?domain=uber.com&sz=128",
+  "file": "uber.svg"
+ },
+ "airbnb": {
+  "source": "svgl",
+  "file": "airbnb.svg",
+  "url": "https://svgl.app/library/airbnb.svg"
+ },
+ "palantir": {
+  "source": "simple-icons",
+  "icon": "palantir"
+ },
+ "bloomberg": {
+  "source": "website-icon",
+  "domain": "bloomberg.com",
+  "url": "https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128",
+  "file": "bloomberg.svg",
+  "treatment": "dark-background"
+ },
+ "alibaba": {
+  "source": "simple-icons",
+  "icon": "alibabadotcom"
+ },
+ "tencent": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/tencent/color.svg",
+  "file": "tencent.svg"
+ },
+ "x": {
+  "source": "simple-icons",
+  "icon": "x"
+ },
+ "spotify": {
+  "source": "svgl",
+  "file": "spotify.svg",
+  "url": "https://svgl.app/library/spotify.svg"
+ },
+ "snap": {
+  "source": "simple-icons",
+  "icon": "snapchat"
+ },
+ "paypal": {
+  "source": "svgl",
+  "file": "paypal.svg",
+  "url": "https://svgl.app/library/paypal.svg"
+ },
+ "intuit": {
+  "source": "simple-icons",
+  "icon": "intuit"
+ },
+ "servicenow": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/servicenow/default.svg",
+  "file": "servicenow.svg"
+ },
+ "workday": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/workday/default.svg",
+  "file": "workday.svg"
+ },
+ "shopify": {
+  "source": "svgl",
+  "file": "shopify.svg",
+  "url": "https://svgl.app/library/shopify.svg"
+ },
+ "booking": {
+  "source": "simple-icons",
+  "icon": "bookingdotcom"
+ },
+ "ebay": {
+  "source": "svgl",
+  "file": "ebay.svg",
+  "url": "https://svgl.app/library/ebay.svg"
+ },
+ "doordash": {
+  "source": "simple-icons",
+  "icon": "doordash"
+ },
+ "atlassian": {
+  "source": "svgl",
+  "file": "atlassian.svg",
+  "url": "https://svgl.app/library/atlassian.svg"
+ },
+ "palo_alto_networks": {
+  "source": "simple-icons",
+  "icon": "paloaltonetworks"
+ },
+ "crowdstrike": {
+  "source": "website-icon",
+  "domain": "crowdstrike.com",
+  "url": "https://www.google.com/s2/favicons?domain=crowdstrike.com&sz=128",
+  "file": "crowdstrike.svg"
+ },
+ "yahoo": {
+  "source": "website-icon",
+  "domain": "yahoo.com",
+  "url": "https://www.google.com/s2/favicons?domain=yahoo.com&sz=128",
+  "file": "yahoo.svg"
+ },
+ "autodesk": {
+  "source": "simple-icons",
+  "icon": "autodesk"
+ },
+ "arista": {
+  "source": "website-icon",
+  "domain": "arista.com",
+  "url": "https://www.google.com/s2/favicons?domain=arista.com&sz=128",
+  "file": "arista.svg",
+  "treatment": "mono"
+ },
+ "nutanix": {
+  "source": "simple-icons",
+  "icon": "nutanix"
+ },
+ "okta": {
+  "source": "simple-icons",
+  "icon": "okta"
+ },
+ "hubspot": {
+  "source": "simple-icons",
+  "icon": "hubspot"
+ },
+ "grammarly": {
+  "source": "simple-icons",
+  "icon": "grammarly"
+ },
+ "pinterest": {
+  "source": "svgl",
+  "file": "pinterest.svg",
+  "url": "https://svgl.app/library/pinterest.svg"
+ },
+ "coinbase": {
+  "source": "svgl",
+  "file": "coinbase.svg",
+  "url": "https://svgl.app/library/coinbase.svg"
+ },
+ "robinhood": {
+  "source": "simple-icons",
+  "icon": "robinhood"
+ },
+ "block": {
+  "source": "simple-icons",
+  "icon": "square"
+ },
+ "lyft": {
+  "source": "simple-icons",
+  "icon": "lyft"
+ },
+ "reddit": {
+  "source": "svgl",
+  "file": "reddit.svg",
+  "url": "https://svgl.app/library/reddit.svg"
+ },
+ "expedia": {
+  "source": "simple-icons",
+  "icon": "expedia"
+ },
+ "instacart": {
+  "source": "website-icon",
+  "domain": "instacart.com",
+  "url": "https://www.google.com/s2/favicons?domain=instacart.com&sz=128",
+  "file": "instacart.svg"
+ },
+ "zillow": {
+  "source": "simple-icons",
+  "icon": "zillow"
+ },
+ "wayfair": {
+  "source": "website-icon",
+  "domain": "wayfair.com",
+  "url": "https://www.google.com/s2/favicons?domain=wayfair.com&sz=128",
+  "file": "wayfair.svg"
+ },
+ "roblox": {
+  "source": "website-icon",
+  "domain": "roblox.com",
+  "url": "https://www.google.com/s2/favicons?domain=roblox.com&sz=128",
+  "file": "roblox.svg"
+ },
+ "epic_games": {
+  "source": "svgl",
+  "file": "epic_games.svg",
+  "url": "https://svgl.app/library/epicgames-icon-light.svg"
+ },
+ "twitch": {
+  "source": "svgl",
+  "file": "twitch.svg",
+  "url": "https://svgl.app/library/twitch.svg"
+ },
+ "discord": {
+  "source": "svgl",
+  "file": "discord.svg",
+  "url": "https://svgl.app/library/discord.svg"
+ },
+ "dropbox": {
+  "source": "svgl",
+  "file": "dropbox.svg",
+  "url": "https://svgl.app/library/dropbox.svg"
+ },
+ "datadog": {
+  "source": "svgl",
+  "file": "datadog.svg",
+  "url": "https://svgl.app/library/datadog.svg"
+ },
+ "cloudflare": {
+  "source": "svgl",
+  "file": "cloudflare.svg",
+  "url": "https://svgl.app/library/cloudflare.svg"
+ },
+ "mongodb": {
+  "source": "svgl",
+  "file": "mongodb.svg",
+  "url": "https://svgl.app/library/mongodb-icon-light.svg"
+ },
+ "twilio": {
+  "source": "svgl",
+  "file": "twilio.svg",
+  "url": "https://svgl.app/library/twilio.svg"
+ },
+ "docusign": {
+  "source": "website-icon",
+  "domain": "docusign.com",
+  "url": "https://www.google.com/s2/favicons?domain=docusign.com&sz=128",
+  "file": "docusign.svg"
+ },
+ "asana": {
+  "source": "svgl",
+  "file": "asana.svg",
+  "url": "https://svgl.app/library/asana-logo.svg"
+ },
+ "zoom": {
+  "source": "svgl",
+  "file": "zoom.svg",
+  "url": "https://svgl.app/library/zoom.svg"
+ },
+ "affirm": {
+  "source": "website-icon",
+  "domain": "affirm.com",
+  "url": "https://www.google.com/s2/favicons?domain=affirm.com&sz=128",
+  "file": "affirm.svg"
+ },
+ "brex": {
+  "source": "simple-icons",
+  "icon": "brex"
+ },
+ "duolingo": {
+  "source": "simple-icons",
+  "icon": "duolingo"
+ },
+ "yelp": {
+  "source": "simple-icons",
+  "icon": "yelp"
+ },
+ "rivian": {
+  "source": "website-icon",
+  "domain": "rivian.com",
+  "url": "https://www.google.com/s2/favicons?domain=rivian.com&sz=128",
+  "file": "rivian.svg"
+ },
+ "github": {
+  "source": "svgl",
+  "file": "github.svg",
+  "url": "https://svgl.app/library/github_light.svg"
+ },
+ "hashicorp": {
+  "source": "simple-icons",
+  "icon": "hashicorp"
+ },
+ "gitlab": {
+  "source": "svgl",
+  "file": "gitlab.svg",
+  "url": "https://svgl.app/library/gitlab.svg"
+ },
+ "unity": {
+  "source": "svgl",
+  "file": "unity.svg",
+  "url": "https://svgl.app/library/unity.svg"
+ },
+ "riot_games": {
+  "source": "simple-icons",
+  "icon": "riotgames"
+ },
+ "electronic_arts": {
+  "source": "website-icon",
+  "domain": "ea.com",
+  "url": "https://www.google.com/s2/favicons?domain=ea.com&sz=128",
+  "file": "electronic_arts.svg"
+ },
+ "indeed": {
+  "source": "simple-icons",
+  "icon": "indeed"
+ },
+ "openai": {
+  "source": "svgl",
+  "file": "openai.svg",
+  "url": "https://svgl.app/library/openai.svg"
+ },
+ "anthropic": {
+  "source": "svgl",
+  "file": "anthropic.svg",
+  "url": "https://svgl.app/library/anthropic_black.svg"
+ },
+ "xai": {
+  "source": "svgl",
+  "file": "xai.svg",
+  "url": "https://svgl.app/library/xai_light.svg"
+ },
+ "spacex": {
+  "source": "simple-icons",
+  "icon": "spacex"
+ },
+ "anysphere": {
+  "source": "svgl",
+  "file": "anysphere.svg",
+  "url": "https://svgl.app/library/cursor_light.svg"
+ },
+ "databricks": {
+  "source": "simple-icons",
+  "icon": "databricks"
+ },
+ "scale_ai": {
+  "source": "gilbarbara/logos",
+  "file": "scale_ai.svg",
+  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/scale-ai-icon.svg"
+ },
+ "stripe": {
+  "source": "svgl",
+  "file": "stripe.svg",
+  "url": "https://svgl.app/library/stripe.svg"
+ },
+ "tesla": {
+  "source": "simple-icons",
+  "icon": "tesla"
+ },
+ "snowflake": {
+  "source": "simple-icons",
+  "icon": "snowflake"
+ },
+ "waymo": {
+  "source": "website-icon",
+  "domain": "waymo.com",
+  "url": "https://www.google.com/s2/favicons?domain=waymo.com&sz=128",
+  "file": "waymo.svg"
+ },
+ "perplexity": {
+  "source": "simple-icons",
+  "icon": "perplexity"
+ },
+ "cognition": {
+  "source": "website-icon",
+  "domain": "cognition.ai",
+  "url": "https://www.google.com/s2/favicons?domain=cognition.ai&sz=128",
+  "file": "cognition.svg",
+  "treatment": "mono"
+ },
+ "glean": {
+  "source": "website-icon",
+  "domain": "glean.com",
+  "url": "https://www.google.com/s2/favicons?domain=glean.com&sz=128",
+  "file": "glean.svg"
+ },
+ "harvey": {
+  "source": "website-icon",
+  "domain": "harvey.ai",
+  "url": "https://www.google.com/s2/favicons?domain=harvey.ai&sz=128",
+  "file": "harvey.svg",
+  "treatment": "dark-background"
+ },
+ "sierra": {
+  "source": "website-icon",
+  "domain": "sierra.ai",
+  "url": "https://www.google.com/s2/favicons?domain=sierra.ai&sz=128",
+  "file": "sierra.svg",
+  "treatment": "light-background"
+ },
+ "character_ai": {
+  "source": "website-icon",
+  "domain": "character.ai",
+  "url": "https://www.google.com/s2/favicons?domain=character.ai&sz=128",
+  "file": "character_ai.svg"
+ },
+ "elevenlabs": {
+  "source": "simple-icons",
+  "icon": "elevenlabs"
+ },
+ "mistral": {
+  "source": "svgl",
+  "file": "mistral.svg",
+  "url": "https://svgl.app/library/mistral-ai_logo.svg"
+ },
+ "cohere": {
+  "source": "svgl",
+  "file": "cohere.svg",
+  "url": "https://svgl.app/library/cohere.svg"
+ },
+ "hugging_face": {
+  "source": "svgl",
+  "file": "hugging_face.svg",
+  "url": "https://svgl.app/library/hugging_face.svg"
+ },
+ "thinking_machines": {
+  "source": "website-icon",
+  "domain": "thinkingmachines.ai",
+  "url": "https://www.google.com/s2/favicons?domain=thinkingmachines.ai&sz=128",
+  "file": "thinking_machines.svg"
+ },
+ "reflection_ai": {
+  "source": "website-icon",
+  "domain": "reflection.ai",
+  "url": "https://www.google.com/s2/favicons?domain=reflection.ai&sz=128",
+  "file": "reflection_ai.svg",
+  "treatment": "light-background"
+ },
+ "poolside": {
+  "source": "lobe",
+  "url": "https://raw.githubusercontent.com/lobehub/lobe-icons/55746b0b082258211121c70bd26e6878fd3bd292/packages/static-svg/icons/poolside-color.svg",
+  "file": "poolside.svg"
+ },
+ "magic": {
+  "source": "website-icon",
+  "domain": "magic.dev",
+  "url": "https://www.google.com/s2/favicons?domain=magic.dev&sz=128",
+  "file": "magic.svg"
+ },
+ "together_ai": {
+  "source": "website-icon",
+  "domain": "together.ai",
+  "url": "https://www.google.com/s2/favicons?domain=together.ai&sz=128",
+  "file": "together_ai.svg"
+ },
+ "fireworks_ai": {
+  "source": "gilbarbara/logos",
+  "file": "fireworks_ai.svg",
+  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/fireworks-ai.svg"
+ },
+ "modal": {
+  "source": "simple-icons",
+  "icon": "modal"
+ },
+ "anyscale": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/anyscale/color.svg",
+  "file": "anyscale.svg"
+ },
+ "groq": {
+  "source": "svgl",
+  "file": "groq.svg",
+  "url": "https://svgl.app/library/groq.svg"
+ },
+ "cerebras": {
+  "source": "svgl",
+  "file": "cerebras.svg",
+  "url": "https://svgl.app/library/cerebras-dark.svg"
+ },
+ "baseten": {
+  "source": "gilbarbara/logos",
+  "file": "baseten.svg",
+  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/baseten-icon.svg"
+ },
+ "coreweave": {
+  "source": "gilbarbara/logos",
+  "file": "coreweave.svg",
+  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/coreweave-icon.svg",
+  "treatment": "mono"
+ },
+ "figure": {
+  "source": "website-icon",
+  "domain": "figure.ai",
+  "url": "https://www.google.com/s2/favicons?domain=figure.ai&sz=128",
+  "file": "figure.svg",
+  "treatment": "dark-background"
+ },
+ "physical_intelligence": {
+  "source": "website-icon",
+  "domain": "physicalintelligence.company",
+  "url": "https://www.google.com/s2/favicons?domain=physicalintelligence.company&sz=128",
+  "file": "physical_intelligence.svg",
+  "treatment": "mono"
+ },
+ "anduril": {
+  "source": "website-icon",
+  "domain": "anduril.com",
+  "url": "https://www.google.com/s2/favicons?domain=anduril.com&sz=128",
+  "file": "anduril.svg",
+  "treatment": "light-background"
+ },
+ "applied_intuition": {
+  "source": "website-icon",
+  "domain": "appliedintuition.com",
+  "url": "https://www.google.com/s2/favicons?domain=appliedintuition.com&sz=128",
+  "file": "applied_intuition.svg",
+  "treatment": "light-background"
+ },
+ "zoox": {
+  "source": "website-icon",
+  "domain": "zoox.com",
+  "url": "https://www.google.com/s2/favicons?domain=zoox.com&sz=128",
+  "file": "zoox.svg"
+ },
+ "ramp": {
+  "source": "dashboard-icons",
+  "url": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/d767d7327db7f8ebd3715b552523f61889eea41c/svg/ramp.svg",
+  "file": "ramp.svg"
+ },
+ "rippling": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/rippling/default.svg",
+  "file": "rippling.svg"
+ },
+ "figma": {
+  "source": "svgl",
+  "file": "figma.svg",
+  "url": "https://svgl.app/library/figma.svg"
+ },
+ "notion": {
+  "source": "svgl",
+  "file": "notion.svg",
+  "url": "https://svgl.app/library/notion.svg"
+ },
+ "airtable": {
+  "source": "simple-icons",
+  "icon": "airtable"
+ },
+ "replit": {
+  "source": "svgl",
+  "file": "replit.svg",
+  "url": "https://svgl.app/library/replit.svg"
+ },
+ "plaid": {
+  "source": "website-icon",
+  "domain": "plaid.com",
+  "url": "https://www.google.com/s2/favicons?domain=plaid.com&sz=128",
+  "file": "plaid.svg"
+ },
+ "skydio": {
+  "source": "website-icon",
+  "domain": "skydio.com",
+  "url": "https://www.google.com/s2/favicons?domain=skydio.com&sz=128",
+  "file": "skydio.svg",
+  "treatment": "dark-background"
+ },
+ "whatnot": {
+  "source": "dashboard-icons",
+  "url": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/d767d7327db7f8ebd3715b552523f61889eea41c/svg/whatnot.svg",
+  "file": "whatnot.svg"
+ },
+ "verkada": {
+  "source": "website-icon",
+  "domain": "verkada.com",
+  "url": "https://www.google.com/s2/favicons?domain=verkada.com&sz=128",
+  "file": "verkada.svg",
+  "treatment": "light-background"
+ },
+ "flexport": {
+  "source": "website-icon",
+  "domain": "flexport.com",
+  "url": "https://www.google.com/s2/favicons?domain=flexport.com&sz=128",
+  "file": "flexport.svg",
+  "treatment": "light-background"
+ },
+ "chime": {
+  "source": "website-icon",
+  "domain": "chime.com",
+  "url": "https://www.google.com/s2/favicons?domain=chime.com&sz=128",
+  "file": "chime.svg"
+ },
+ "gusto": {
+  "source": "simple-icons",
+  "icon": "gusto"
+ },
+ "deel": {
+  "source": "website-icon",
+  "domain": "deel.com",
+  "url": "https://www.google.com/s2/favicons?domain=deel.com&sz=128",
+  "file": "deel.svg",
+  "treatment": "light-background"
+ },
+ "navan": {
+  "source": "website-icon",
+  "domain": "navan.com",
+  "url": "https://www.google.com/s2/favicons?domain=navan.com&sz=128",
+  "file": "navan.svg",
+  "treatment": "light-background"
+ },
+ "samsara": {
+  "source": "website-icon",
+  "domain": "samsara.com",
+  "url": "https://www.google.com/s2/favicons?domain=samsara.com&sz=128",
+  "file": "samsara.svg",
+  "treatment": "mono"
+ },
+ "toast": {
+  "source": "website-icon",
+  "domain": "toasttab.com",
+  "url": "https://www.google.com/s2/favicons?domain=toasttab.com&sz=128",
+  "file": "toast.svg"
+ },
+ "canva": {
+  "source": "svgl",
+  "file": "canva.svg",
+  "url": "https://svgl.app/library/canva.svg"
+ },
+ "retool": {
+  "source": "simple-icons",
+  "icon": "retool"
+ },
+ "vercel": {
+  "source": "svgl",
+  "file": "vercel.svg",
+  "url": "https://svgl.app/library/vercel.svg"
+ },
+ "linear": {
+  "source": "svgl",
+  "file": "linear.svg",
+  "url": "https://svgl.app/library/linear.svg"
+ },
+ "mercury": {
+  "source": "website-icon",
+  "domain": "mercury.com",
+  "url": "https://www.google.com/s2/favicons?domain=mercury.com&sz=128",
+  "file": "mercury.svg",
+  "treatment": "light-background"
+ },
+ "wiz": {
+  "source": "dashboard-icons",
+  "url": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/d767d7327db7f8ebd3715b552523f61889eea41c/svg/wiz.svg",
+  "file": "wiz.svg",
+  "treatment": "mono"
+ },
+ "rubrik": {
+  "source": "website-icon",
+  "domain": "rubrik.com",
+  "url": "https://www.google.com/s2/favicons?domain=rubrik.com&sz=128",
+  "file": "rubrik.svg"
+ },
+ "zipline": {
+  "source": "website-icon",
+  "domain": "zipline.com",
+  "url": "https://www.zipline.com/android-chrome-192x192.png",
+  "file": "zipline.svg"
+ },
+ "citadel": {
+  "source": "website-icon",
+  "domain": "citadel.com",
+  "url": "https://www.google.com/s2/favicons?domain=citadel.com&sz=128",
+  "file": "citadel.svg",
+  "treatment": "mono",
+  "brandColor": "#003C71"
+ },
+ "jane_street": {
+  "source": "website-icon",
+  "domain": "janestreet.com",
+  "url": "https://www.google.com/s2/favicons?domain=janestreet.com&sz=128",
+  "file": "jane_street.svg"
+ },
+ "hudson_river_trading": {
+  "source": "website-icon",
+  "domain": "hudsonrivertrading.com",
+  "url": "https://www.google.com/s2/favicons?domain=hudsonrivertrading.com&sz=128",
+  "file": "hudson_river_trading.svg"
+ },
+ "two_sigma": {
+  "source": "website-icon",
+  "domain": "twosigma.com",
+  "url": "https://www.google.com/s2/favicons?domain=twosigma.com&sz=128",
+  "file": "two_sigma.svg"
+ },
+ "de_shaw": {
+  "source": "website-icon",
+  "domain": "deshaw.com",
+  "url": "https://www.google.com/s2/favicons?domain=deshaw.com&sz=128",
+  "file": "de_shaw.svg"
+ },
+ "sig": {
+  "source": "website-icon",
+  "domain": "sig.com",
+  "url": "https://www.google.com/s2/favicons?domain=sig.com&sz=128",
+  "file": "sig.svg"
+ },
+ "optiver": {
+  "source": "website-icon",
+  "domain": "optiver.com",
+  "url": "https://www.google.com/s2/favicons?domain=optiver.com&sz=128",
+  "file": "optiver.svg"
+ },
+ "imc": {
+  "source": "website-icon",
+  "domain": "imc.com",
+  "url": "https://www.google.com/s2/favicons?domain=imc.com&sz=128",
+  "file": "imc.svg"
+ },
+ "jump_trading": {
+  "source": "website-icon",
+  "domain": "jumptrading.com",
+  "url": "https://www.google.com/s2/favicons?domain=jumptrading.com&sz=128",
+  "file": "jump_trading.svg",
+  "treatment": "light-background"
+ },
+ "akuna": {
+  "source": "website-icon",
+  "domain": "akunacapital.com",
+  "url": "https://www.google.com/s2/favicons?domain=akunacapital.com&sz=128",
+  "file": "akuna.svg"
+ },
+ "drw": {
+  "source": "website-icon",
+  "domain": "drw.com",
+  "url": "https://www.google.com/s2/favicons?domain=drw.com&sz=128",
+  "file": "drw.svg",
+  "treatment": "light-background"
+ },
+ "five_rings": {
+  "source": "website-icon",
+  "domain": "fiverings.com",
+  "url": "https://www.google.com/s2/favicons?domain=fiverings.com&sz=128",
+  "file": "five_rings.svg"
+ },
+ "tower_research": {
+  "source": "website-icon",
+  "domain": "tower-research.com",
+  "url": "https://www.google.com/s2/favicons?domain=tower-research.com&sz=128",
+  "file": "tower_research.svg",
+  "treatment": "light-background"
+ },
+ "virtu": {
+  "source": "website-icon",
+  "domain": "virtu.com",
+  "url": "https://www.google.com/s2/favicons?domain=virtu.com&sz=128",
+  "file": "virtu.svg",
+  "treatment": "mono"
+ },
+ "squarepoint": {
+  "source": "website-icon",
+  "domain": "squarepoint-capital.com",
+  "url": "https://www.google.com/s2/favicons?domain=squarepoint-capital.com&sz=128",
+  "file": "squarepoint.svg",
+  "treatment": "mono"
+ },
+ "millennium": {
+  "source": "website-icon",
+  "domain": "mlp.com",
+  "url": "https://www.google.com/s2/favicons?domain=mlp.com&sz=128",
+  "file": "millennium.svg",
+  "treatment": "mono"
+ },
+ "point72": {
+  "source": "website-icon",
+  "domain": "point72.com",
+  "url": "https://www.google.com/s2/favicons?domain=point72.com&sz=128",
+  "file": "point72.svg",
+  "treatment": "mono"
+ },
+ "bridgewater": {
+  "source": "website-icon",
+  "domain": "bridgewater.com",
+  "url": "https://www.google.com/s2/favicons?domain=bridgewater.com&sz=128",
+  "file": "bridgewater.svg",
+  "treatment": "light-background"
+ },
+ "walmart": {
+  "source": "simple-icons@9.21.0",
+  "file": "walmart.svg"
+ },
+ "unitedhealth": {
+  "source": "website-icon",
+  "domain": "unitedhealthgroup.com",
+  "url": "https://www.google.com/s2/favicons?domain=unitedhealthgroup.com&sz=128",
+  "file": "unitedhealth.svg"
+ },
+ "cvs": {
+  "source": "website-icon",
+  "domain": "cvshealth.com",
+  "url": "https://www.google.com/s2/favicons?domain=cvshealth.com&sz=128",
+  "file": "cvs.svg"
+ },
+ "jpmorganchase": {
+  "source": "website-icon",
+  "domain": "jpmorganchase.com",
+  "url": "https://www.google.com/s2/favicons?domain=jpmorganchase.com&sz=128",
+  "file": "jpmorganchase.svg"
+ },
+ "costco": {
+  "source": "website-icon",
+  "domain": "costco.com",
+  "url": "https://www.google.com/s2/favicons?domain=costco.com&sz=128",
+  "file": "costco.svg"
+ },
+ "bank_of_america": {
+  "source": "simple-icons",
+  "icon": "bankofamerica"
+ },
+ "gm": {
+  "source": "simple-icons",
+  "icon": "generalmotors"
+ },
+ "ford": {
+  "source": "simple-icons",
+  "icon": "ford"
+ },
+ "elevance": {
+  "source": "website-icon",
+  "domain": "elevancehealth.com",
+  "url": "https://www.google.com/s2/favicons?domain=elevancehealth.com&sz=128",
+  "file": "elevance.svg"
+ },
+ "citigroup": {
+  "source": "website-icon",
+  "domain": "citigroup.com",
+  "url": "https://www.google.com/s2/favicons?domain=citigroup.com&sz=128",
+  "file": "citigroup.svg"
+ },
+ "home_depot": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/home-depot/default.svg",
+  "file": "home_depot.svg"
+ },
+ "kroger": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/kroger/default.svg",
+  "file": "kroger.svg"
+ },
+ "verizon": {
+  "source": "simple-icons",
+  "icon": "verizon"
+ },
+ "goldman_sachs": {
+  "source": "simple-icons",
+  "icon": "goldmansachs"
+ },
+ "wells_fargo": {
+  "source": "simple-icons",
+  "icon": "wellsfargo"
+ },
+ "comcast": {
+  "source": "website-icon",
+  "domain": "comcastcorporation.com",
+  "url": "https://www.google.com/s2/favicons?domain=comcastcorporation.com&sz=128",
+  "file": "comcast.svg"
+ },
+ "state_farm": {
+  "source": "website-icon",
+  "domain": "statefarm.com",
+  "url": "https://www.google.com/s2/favicons?domain=statefarm.com&sz=128",
+  "file": "state_farm.svg"
+ },
+ "att": {
+  "source": "simple-icons",
+  "icon": "atandt"
+ },
+ "humana": {
+  "source": "website-icon",
+  "domain": "humana.com",
+  "url": "https://www.google.com/s2/favicons?domain=humana.com&sz=128",
+  "file": "humana.svg"
+ },
+ "morgan_stanley": {
+  "source": "website-icon",
+  "domain": "morganstanley.com",
+  "url": "https://www.google.com/s2/favicons?domain=morganstanley.com&sz=128",
+  "file": "morgan_stanley.svg"
+ },
+ "target": {
+  "source": "simple-icons",
+  "icon": "target"
+ },
+ "dell": {
+  "source": "simple-icons",
+  "icon": "dell"
+ },
+ "disney": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/disney/default.svg",
+  "file": "disney.svg"
+ },
+ "ups": {
+  "source": "website-icon",
+  "domain": "ups.com",
+  "url": "https://www.google.com/s2/favicons?domain=ups.com&sz=128",
+  "file": "ups.svg"
+ },
+ "fedex": {
+  "source": "simple-icons",
+  "icon": "fedex"
+ },
+ "lowes": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/lowes/default.svg",
+  "file": "lowes.svg"
+ },
+ "rtx": {
+  "source": "website-icon",
+  "domain": "rtx.com",
+  "url": "https://www.google.com/s2/favicons?domain=rtx.com&sz=128",
+  "file": "rtx.svg",
+  "treatment": "mono"
+ },
+ "progressive": {
+  "source": "website-icon",
+  "domain": "progressive.com",
+  "url": "https://www.google.com/s2/favicons?domain=progressive.com&sz=128",
+  "file": "progressive.svg",
+  "treatment": "light-background",
+  "brandColor": "#0077B3"
+ },
+ "american_express": {
+  "source": "simple-icons",
+  "icon": "americanexpress"
+ },
+ "lockheed_martin": {
+  "source": "website-icon",
+  "domain": "lockheedmartin.com",
+  "url": "https://www.google.com/s2/favicons?domain=lockheedmartin.com&sz=128",
+  "file": "lockheed_martin.svg",
+  "treatment": "mono",
+  "brandColor": "#003B71"
+ },
+ "boeing": {
+  "source": "simple-icons",
+  "icon": "boeing"
+ },
+ "allstate": {
+  "source": "website-icon",
+  "domain": "allstate.com",
+  "url": "https://www.allstate.com/favicon.ico",
+  "file": "allstate.svg",
+  "treatment": "light-background",
+  "brandColor": "#0033A0"
+ },
+ "ibm": {
+  "source": "svgl",
+  "file": "ibm.svg",
+  "url": "https://svgl.app/library/ibm.svg",
+  "treatment": "mono"
+ },
+ "t_mobile": {
+  "source": "simple-icons@9.21.0",
+  "file": "t_mobile.svg"
+ },
+ "capital_one": {
+  "source": "website-icon",
+  "domain": "capitalone.com",
+  "url": "https://www.google.com/s2/favicons?domain=capitalone.com&sz=128",
+  "file": "capital_one.svg"
+ },
+ "cisco": {
+  "source": "svgl",
+  "file": "cisco.svg",
+  "url": "https://svgl.app/library/cisco_light.svg"
+ },
+ "hp": {
+  "source": "simple-icons",
+  "icon": "hp"
+ },
+ "intel": {
+  "source": "simple-icons",
+  "icon": "intel"
+ },
+ "broadcom": {
+  "source": "simple-icons",
+  "icon": "broadcom"
+ },
+ "nike": {
+  "source": "simple-icons",
+  "icon": "nike"
+ },
+ "liberty_mutual": {
+  "source": "website-icon",
+  "domain": "libertymutual.com",
+  "url": "https://www.google.com/s2/favicons?domain=libertymutual.com&sz=128",
+  "file": "liberty_mutual.svg"
+ },
+ "general_dynamics": {
+  "source": "website-icon",
+  "domain": "gd.com",
+  "url": "https://www.google.com/s2/favicons?domain=gd.com&sz=128",
+  "file": "general_dynamics.svg",
+  "treatment": "mono",
+  "brandColor": "#003087"
+ },
+ "best_buy": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/best-buy/default.svg",
+  "file": "best_buy.svg"
+ },
+ "northrop_grumman": {
+  "source": "website-icon",
+  "domain": "northropgrumman.com",
+  "url": "https://www.google.com/s2/favicons?domain=northropgrumman.com&sz=128",
+  "file": "northrop_grumman.svg",
+  "treatment": "dark-background"
+ },
+ "us_bank": {
+  "source": "website-icon",
+  "domain": "usbank.com",
+  "url": "https://www.google.com/s2/favicons?domain=usbank.com&sz=128",
+  "file": "us_bank.svg"
+ },
+ "ge_aerospace": {
+  "source": "website-icon",
+  "domain": "geaerospace.com",
+  "url": "https://www.google.com/s2/favicons?domain=geaerospace.com&sz=128",
+  "file": "ge_aerospace.svg",
+  "treatment": "mono",
+  "brandColor": "#00003C"
+ },
+ "bny": {
+  "source": "website-icon",
+  "domain": "bny.com",
+  "url": "https://www.bny.com/favicon.ico",
+  "file": "bny.svg",
+  "treatment": "mono",
+  "brandColor": "#2E9BAD"
+ },
+ "qualcomm": {
+  "source": "simple-icons",
+  "icon": "qualcomm"
+ },
+ "visa": {
+  "source": "simple-icons",
+  "icon": "visa"
+ },
+ "pnc": {
+  "source": "website-icon",
+  "domain": "pnc.com",
+  "url": "https://www.google.com/s2/favicons?domain=pnc.com&sz=128",
+  "file": "pnc.svg"
+ },
+ "mastercard": {
+  "source": "simple-icons",
+  "icon": "mastercard"
+ },
+ "hpe": {
+  "source": "website-icon",
+  "domain": "hpe.com",
+  "url": "https://www.google.com/s2/favicons?domain=hpe.com&sz=128",
+  "file": "hpe.svg"
+ },
+ "charles_schwab": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/charles-schwab/default.svg",
+  "file": "charles_schwab.svg"
+ },
+ "blackrock": {
+  "source": "website-icon",
+  "domain": "blackrock.com",
+  "url": "https://www.google.com/s2/favicons?domain=blackrock.com&sz=128",
+  "file": "blackrock.svg",
+  "treatment": "dark-background"
+ },
+ "state_street": {
+  "source": "website-icon",
+  "domain": "statestreet.com",
+  "url": "https://www.google.com/s2/favicons?domain=statestreet.com&sz=128",
+  "file": "state_street.svg"
+ },
+ "fidelity": {
+  "source": "dashboard-icons",
+  "url": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/d767d7327db7f8ebd3715b552523f61889eea41c/svg/fidelity.svg",
+  "file": "fidelity.svg"
+ },
+ "applied_materials": {
+  "source": "website-icon",
+  "domain": "appliedmaterials.com",
+  "url": "https://www.google.com/s2/favicons?domain=appliedmaterials.com&sz=128",
+  "file": "applied_materials.svg",
+  "treatment": "light-background",
+  "brandColor": "#327CA1"
+ },
+ "amd": {
+  "source": "simple-icons",
+  "icon": "amd"
+ },
+ "micron": {
+  "source": "gilbarbara/logos",
+  "file": "micron.svg",
+  "url": "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/micron-icon.svg"
+ },
+ "texas_instruments": {
+  "source": "website-icon",
+  "domain": "ti.com",
+  "url": "https://www.google.com/s2/favicons?domain=ti.com&sz=128",
+  "file": "texas_instruments.svg"
+ },
+ "discover": {
+  "source": "simple-icons",
+  "icon": "discover"
+ },
+ "samsung": {
+  "source": "simple-icons",
+  "icon": "samsung"
+ },
+ "sap": {
+  "source": "simple-icons",
+  "icon": "sap"
+ },
+ "vmware": {
+  "source": "simple-icons",
+  "icon": "vmware"
+ },
+ "splunk": {
+  "source": "simple-icons",
+  "icon": "splunk"
+ },
+ "bytedance": {
+  "source": "thesvg",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/bytedance/color.svg",
+  "file": "bytedance.svg"
+ },
+ "neuralink": {
+  "source": "website-icon",
+  "domain": "neuralink.com",
+  "url": "https://www.google.com/s2/favicons?domain=neuralink.com&sz=128",
+  "file": "neuralink.svg"
+ }
+}

@@ -13,7 +13,8 @@ import {
   type Provider,
   type SessionInfo,
 } from "../lib/account";
-import { readPrefs, readTheme, setTheme, updatePrefs, type Prefs } from "../lib/prefs";
+import { ACCENT_MEANING, ACCENT_NAMES, ACCENTS, flavorTokens, isAccent, isNight, type Accent } from "../lib/flavors";
+import { readAccent, readNight, readPrefs, readTheme, resolvedFlavor, setAccent, setNight, setTheme, updatePrefs, type Prefs, type ThemePref } from "../lib/prefs";
 import { exportEvents, importEvents, mergeEvents, readEvents } from "../lib/progress";
 import { profileHref, ROUTES } from "../lib/routes";
 import { unlinkDevice } from "../lib/sync";
@@ -45,7 +46,7 @@ function showSaved(state: "ok" | "err" | "idle"): void {
   el.classList.toggle("ok", state === "ok");
   el.classList.toggle("err", state === "err");
   if (state === "ok") render(el, html`${icon("check")}Saved`);
-  else if (state === "err") render(el, html`${icon("triangle-alert")}Couldn't save to your account. Kept on this device; retrying.`);
+  else if (state === "err") render(el, html`${icon("triangle-alert")}Couldn't save to your account. Kept on this device; retrying`);
   else render(el, html`<span class="when-in">Changes save as you go</span><span class="when-out">Saved on this device</span>`);
   if (state === "ok") savedTimer = setTimeout(() => showSaved("idle"), 2000);
 }
@@ -65,8 +66,7 @@ function paintPrefs(): void {
     else el.value = String(get(p, path) ?? "");
   }
   for (const out of root()?.querySelectorAll<HTMLOutputElement>("[data-out]") ?? []) out.value = String(get(p, out.dataset.out ?? ""));
-  const theme = readTheme();
-  for (const r of root()?.querySelectorAll<HTMLInputElement>('input[name="theme"]') ?? []) r.checked = r.value === theme;
+  paintAppearance();
   $("[data-codeprev]")?.classList.toggle("no-lig", !p.editor.ligatures);
   const codeprev = $<HTMLElement>("[data-codeprev]");
   if (codeprev) codeprev.style.fontSize = `${p.editor.fontSize}px`;
@@ -74,6 +74,41 @@ function paintPrefs(): void {
   if (pub) pub.disabled = !me;
   const mod = $("[data-mod]");
   if (mod) mod.textContent = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent) ? "⌘" : "Ctrl";
+}
+
+// ---- appearance ----
+
+function accentNote(accent: Accent, latte: boolean): string {
+  const meaning = ACCENT_MEANING[accent];
+  if (meaning)
+    return `${ACCENT_NAMES[accent]} is also the colour of “${meaning}”, so your current rung, links and heatmap will look like it. Tags and the ladder keep their words and shapes. Mauve, Blue, Lavender or Sapphire keep them apart`;
+  return latte ? "Pale accents are drawn deeper in Latte so text on them stays readable" : "Every accent is readable as text in this flavor";
+}
+
+function paintAppearance(): void {
+  const theme = readTheme();
+  const night = readNight();
+  const accent = readAccent();
+  const flavor = resolvedFlavor(theme, night);
+  const check = (name: string, value: string) => {
+    for (const r of root()?.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`) ?? []) r.checked = r.value === value;
+  };
+  check("theme", theme);
+  check("night", night);
+  check("accent", accent);
+  const row = $("[data-night-row]");
+  if (row) row.hidden = theme !== "system";
+  // Each dot's centre is the fill this flavor applies to that accent (deeper than the palette in Latte).
+  for (const a of ACCENTS) {
+    const dot = $<HTMLElement>(`[data-accent-dot="${a}"] .dot`);
+    const t = flavorTokens(flavor, a);
+    dot?.style.setProperty("--f", t["accent-fill"] ?? "");
+    dot?.style.setProperty("--o", t["on-accent"] ?? "");
+  }
+  const name = $("[data-accent-name]");
+  if (name) name.textContent = ACCENT_NAMES[accent];
+  const note = $("[data-accent-note]");
+  if (note) note.textContent = accentNote(accent, flavor === "latte");
 }
 
 // ---- account rows ----
@@ -97,8 +132,8 @@ function paintMethods(): void {
           ? `${me?.user.email}, one-time sign-in links`
           : `Connected, ${me?.user.email}`
         : p.id === "email"
-          ? "Sign in with a one-time link to your email; no password."
-          : `Uses ${me?.user.email}. Accounts link by verified email.`;
+          ? "Sign in with a one-time link to your email; no password"
+          : `Uses ${me?.user.email}. Accounts link by verified email`;
       const action = on
         ? have.size === 1
           ? html`<span class="text-small text-muted">Only method</span>`
@@ -108,7 +143,7 @@ function paintMethods(): void {
           : html`<button class="btn btn-secondary btn-sm" type="button" data-connect="${p.id}">${p.add}</button>`;
       return html`<div class="meth"><span class="ic">${icon(p.icon)}</span><div><strong>${p.label}</strong><span class="d">${detail}</span></div>${action}</div>`;
     })}
-    <div class="row"><div class="note" style="grid-column:1/-1">${icon("lock")}<span>Sign-in methods link to the same account when they share a verified email. To stop using one, sign out of its sessions below.</span></div></div>`,
+    <div class="row"><div class="note" style="grid-column:1/-1">${icon("lock")}<span>Sign-in methods link to the same account when they share a verified email. To stop using one, sign out of its sessions below</span></div></div>`,
   );
 }
 
@@ -122,7 +157,7 @@ async function paintSessions(): Promise<void> {
   const el = $("[data-sessions]");
   if (!el || !me) return;
   if (!navigator.onLine) {
-    render(el, html`<div class="sess"><span>Available when you're online.</span></div>`);
+    render(el, html`<div class="sess"><span>Available when you're online</span></div>`);
     return;
   }
   let list: SessionInfo[];
@@ -176,17 +211,17 @@ function userMsg(kind: "ok" | "bad" | "", text: string): void {
 function onUsername(v: string): void {
   clearTimeout(userTimer);
   if (!me || v === me.user.username) return userMsg("", "");
-  if (!USERNAME_RE.test(v)) return userMsg("bad", "Lowercase letters, numbers and dashes only, 3 to 30 characters.");
+  if (!USERNAME_RE.test(v)) return userMsg("bad", "Lowercase letters, numbers and dashes only, 3 to 30 characters");
   userMsg("", "Checking");
   userTimer = setTimeout(async () => {
     try {
       me = await patchMe({ username: v });
-      userMsg("ok", `Saved. Your profile is at ${profileHref(v)}.`);
+      userMsg("ok", `Saved. Your profile is at ${profileHref(v)}`);
       paintProfile();
     } catch (e) {
-      if (e instanceof ApiError && e.status === 409) userMsg("bad", "Taken. Try another.");
-      else if (e instanceof ApiError && e.status === 400) userMsg("bad", e.message || "That username isn't allowed.");
-      else userMsg("bad", "Couldn't save. Check your connection and try again.");
+      if (e instanceof ApiError && e.status === 409) userMsg("bad", "Taken. Try another");
+      else if (e instanceof ApiError && e.status === 400) userMsg("bad", e.message || "That username isn't allowed");
+      else userMsg("bad", "Couldn't save. Check your connection and try again");
     }
   }, 300);
 }
@@ -230,7 +265,7 @@ function extractEvents(text: string): string | null {
 async function importFile(file: File): Promise<void> {
   const events = extractEvents(await file.text());
   if (events === null) {
-    toast("That file isn't an events.jsonl or a myleet export.");
+    toast("That file isn't an events.jsonl or a myleet export");
     return;
   }
   const before = await readEvents();
@@ -250,17 +285,17 @@ async function importFile(file: File): Promise<void> {
       .filter(Boolean),
   );
   if (added <= 0) {
-    toast("Nothing new in that file; your progress already has all of it.");
+    toast("Nothing new in that file; your progress already has all of it");
     return;
   }
   const ok = await confirmDialog({
     title: "Import this progress?",
-    body: `Adds ${added} events across ${problems.size} problems. Nothing already here is removed or changed.`,
+    body: `Adds ${added} events across ${problems.size} problems. Nothing already here is removed or changed`,
     confirm: "Import",
   });
   if (!ok) return;
   await importEvents(events);
-  toast(`Imported ${added} events.`);
+  toast(`Imported ${added} events`);
 }
 
 function deleteFlow(): void {
@@ -277,7 +312,7 @@ function deleteFlow(): void {
     html`<div class="dlg-head"><h2 id="dc">Delete your account?</h2></div>
     <div class="dlg-body"><p id="dcd">This removes from our servers:</p>
       <ul><li>Your synced progress and every attempt in it</li><li>Your public profile at ${profileHref(username)}</li><li>Sign-in methods, sessions and settings</li></ul>
-      <p style="margin-top:var(--space-3)">It can't be undone. Download your data first if you want a copy. Progress in this browser stays.</p>
+      <p style="margin-top:var(--space-3)">It can't be undone. Download your data first if you want a copy. Progress in this browser stays</p>
       <label for="dc-in">Type <code>${username}</code> to confirm</label>
       <input class="input" id="dc-in" autocomplete="off" spellcheck="false" autocapitalize="off" style="margin-top:var(--space-2)" />
       <p class="err" data-del-err hidden style="margin-top:var(--space-2);font-size:var(--text-xs);color:var(--fail);font-weight:600"></p>
@@ -297,14 +332,14 @@ function deleteFlow(): void {
       unlinkDevice();
       closeDialog(d);
       document.documentElement.dataset.auth = "out";
-      toast("Account deleted. Progress on this device is still here.");
+      toast("Account deleted. Progress on this device is still here");
       await navigate(ROUTES.home);
     } catch {
       confirm.removeAttribute("aria-busy");
       const err = d.querySelector<HTMLElement>("[data-del-err]");
       if (err) {
         err.hidden = false;
-        err.textContent = "Couldn't reach the server. Nothing was deleted; try again.";
+        err.textContent = "Couldn't reach the server. Nothing was deleted; try again";
       }
     }
   });
@@ -318,8 +353,10 @@ function deleteFlow(): void {
 function onChange(e: Event): void {
   if (!root()) return;
   const el = e.target as HTMLInputElement | HTMLSelectElement;
-  if (el.name === "theme") {
-    setTheme(el.value as "system" | "light" | "dark");
+  if (el.name === "theme" || el.name === "night" || el.name === "accent") {
+    if (el.name === "theme") setTheme(el.value as ThemePref);
+    else if (el.name === "night" && isNight(el.value)) setNight(el.value);
+    else if (isAccent(el.value)) setAccent(el.value);
     showSaved("ok");
     return;
   }
@@ -353,13 +390,13 @@ function onClick(e: MouseEvent): void {
   } else if (revoke?.dataset.revoke) {
     revoke.setAttribute("aria-busy", "true");
     void revokeSession(revoke.dataset.revoke)
-      .then(() => (toast("Signed out on that device."), paintSessions()))
-      .catch(() => toast("Couldn't sign that device out. Try again."));
+      .then(() => (toast("Signed out on that device"), paintSessions()))
+      .catch(() => toast("Couldn't sign that device out. Try again"));
   } else if (t.closest("[data-revoke-others]")) {
     void listSessions()
       .then(({ sessions }) => Promise.all(sessions.filter((s) => !s.current).map((s) => revokeSession(s.id))))
-      .then(() => (toast("Signed out everywhere else."), paintSessions()))
-      .catch(() => toast("Couldn't sign out every device. Try again."));
+      .then(() => (toast("Signed out everywhere else"), paintSessions()))
+      .catch(() => toast("Couldn't sign out every device. Try again"));
   } else if (t.closest("[data-reload-sessions]")) void paintSessions();
   else if (connect?.dataset.connect) startOAuth(connect.dataset.connect as "github" | "google", `${ROUTES.settings}#signin`);
   else if (t.closest("[data-export-local]")) void exportLocal();

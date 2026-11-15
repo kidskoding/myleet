@@ -133,7 +133,7 @@ function techBlock(c: Ctx, m: Module, t: Technique, open: boolean): SafeHtml {
       <div class="tbar">${railBar(tl, railLabel(tl))}<div class="mini">${tl.mastered} mastered, ${tl.climbing} climbing of ${tl.total}</div></div>
       <button class="btn btn-ghost btn-sm" type="button" data-tech="${t.id}" data-tech-mod="${m.id}" aria-expanded="true">Collapse</button>
     </div>
-    ${ids.length ? html`<ol class="queue">${ids.map((id) => problemRow(c, id))}</ol>` : html`<p class="tech-empty">No problems here match the filter.</p>`}
+    ${ids.length ? html`<ol class="queue">${ids.map((id) => problemRow(c, id))}</ol>` : html`<p class="tech-empty">No problems here match the filter</p>`}
   </section>`;
 }
 
@@ -199,7 +199,7 @@ function renderMap(c: Ctx): void {
   const all = tally(allIds, c.states, c.now);
   const lede = $("[data-lede]");
   if (lede && touched(all) > 0)
-    lede.textContent = `${lede.dataset["count"]} modules by interview pattern. ${touched(all)} of ${all.total} problems started, ${all.mastered} mastered.`;
+    lede.textContent = `${lede.dataset["count"]} modules by interview pattern. ${touched(all)} of ${all.total} problems started, ${all.mastered} mastered`;
 
   // Start here
   const guide = c.cat.catalog.guide;
@@ -254,11 +254,11 @@ function renderMap(c: Ctx): void {
 }
 
 function emptyCopy(due: number): SafeHtml {
-  if (query.trim()) return html`<h2>No problem matches “${query.trim()}”</h2><p>Filters match problem titles. Try part of the name, or clear the filter.</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear>Clear filter</button></div>`;
+  if (query.trim()) return html`<h2>No problem matches “${query.trim()}”</h2><p>Filters match problem titles. Try part of the name, or clear the filter</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear>Clear filter</button></div>`;
   if (mode === "weak")
-    return html`<h2>No weak spots right now</h2><p>A technique becomes a weak spot when you've started its problems but mostly not passed them cleanly. Everything you've started is on track.${due ? ` The Due filter has ${due} ${due === 1 ? "review" : "reviews"} waiting.` : ""}</p>${due ? html`<div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="due">Show due reviews</button></div>` : ""}`;
-  if (mode === "due") return html`<h2>Nothing due</h2><p>Every review is on schedule. Reviews come back on a 1, 3, 7, 14, 30-day ladder after a clean pass.</p><div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="all">Show all modules</button></div>`;
-  return html`<h2>Every problem is started</h2><p>Nothing left untouched in the curriculum.</p>`;
+    return html`<h2>No weak spots right now</h2><p>A technique becomes a weak spot when you've started its problems but mostly not passed them cleanly. Everything you've started is on track.${due ? ` The Due filter has ${due} ${due === 1 ? "review" : "reviews"} waiting` : ""}</p>${due ? html`<div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="due">Show due reviews</button></div>` : ""}`;
+  if (mode === "due") return html`<h2>Nothing due</h2><p>Every review is on schedule. Reviews come back on a 1, 3, 7, 14, 30-day ladder after a clean pass</p><div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="all">Show all modules</button></div>`;
+  return html`<h2>You have started every problem</h2><p>Use the Due filter to find your next reviews</p>`;
 }
 
 function toggleModule(id: string, force?: boolean): void {
@@ -308,21 +308,21 @@ function nextPanel(c: Ctx, m: Module): SafeHtml {
   const tech = (unread && m.techniques.find((t) => t.note === unread.path)) ?? m.techniques.find((t) => idsOf(c, t).some((id) => pstatus(c.states[id]) === "unseen"));
   const due = moduleIds(c, m).find((id) => statusTag(c.states[id], c.now)?.[0] === "due");
   const fresh = (tech ? idsOf(c, tech) : moduleIds(c, m)).filter((id) => pstatus(c.states[id]) === "unseen");
-  const practise = due ?? fresh[0] ?? null;
-  const pTitle = practise ? c.cat.byId.get(practise)?.title : null;
+  const practice = due ?? fresh[0] ?? null;
+  const pTitle = practice ? c.cat.byId.get(practice)?.title : null;
   const head = html`<h2 id="nx">Next in this module</h2>`;
   if (unread) {
     const r = c.reads[unread.path];
     const started = !!r && r.pct > 0.02;
-    const line = `${started ? "Finish" : "Read"} “${unread.title}”${fresh.length ? `, then the ${fresh.length === 1 ? "problem" : `${Math.min(fresh.length, 3)} ${tech ? sentenceCase(tech.title).toLowerCase() : ""} problems`} you haven't started.` : "."}`;
+    const line = `${started ? "Finish" : "Read"} “${unread.title}”${fresh.length ? `, then the ${fresh.length === 1 ? "problem" : `${Math.min(fresh.length, 3)} ${tech ? sentenceCase(tech.title).toLowerCase() : ""} problems`} you haven't started` : "."}`;
     return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">${line}</p>
       <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href="${noteHref(unread.path)}">${started ? "Continue reading" : "Start reading"}</a>
-      ${practise ? html`<a class="btn btn-ghost btn-block" style="margin-top:var(--space-2)" href="${problemHref(practise)}">Practice ${pTitle ?? practise}</a>` : ""}`;
+      ${practice ? html`<a class="btn btn-ghost btn-block" style="margin-top:var(--space-2)" href="${problemHref(practice)}">Practice ${pTitle ?? practice}</a>` : ""}`;
   }
-  if (practise)
-    return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">${due ? "A review here is due." : "Every note in this module is read. Keep going with the problems."}</p>
-      <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href="${problemHref(practise)}">Practice ${pTitle ?? practise}</a>`;
-  return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">Every note read and every problem started. Reviews bring them back on schedule.</p>`;
+  if (practice)
+    return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">${due ? "A review here is due" : "Every note in this module is read. Keep going with the problems"}</p>
+      <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href="${problemHref(practice)}">Practice ${pTitle ?? practice}</a>`;
+  return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">You have read every note and started every problem. Upcoming reviews will appear on Today</p>`;
 }
 
 // ---- load ----

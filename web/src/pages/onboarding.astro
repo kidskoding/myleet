@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Set up your plan" shell="focused" noindex description="Goal, companies, interview date and daily time, then a short placement warm-up.">
+<Base title="Set up your plan" shell="focused" noindex description="Set your goal and practice schedule, choose companies, and take a warm-up to find your starting topics">
   <div class="flow" data-onboarding>
     <div class="steps"><span class="count skel" style="width:90px;height:18px"></span></div>
     <div class="track" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
@@ -82,7 +82,7 @@ import Base from "../layouts/Base.astro";
   .flow .wrow .num { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: var(--text-xs); font-weight: 700; background: var(--surface-sunk); color: var(--ink-2); font-variation-settings: "wdth" var(--wdth-tag); }
   .flow .wrow.done .num { background: var(--ink); color: var(--surface); }
   .flow .wrow.now { background: var(--surface); border-color: transparent; box-shadow: 0 0 0 1px var(--line); }
-  .flow .wrow.now .num { background: var(--accent); color: var(--on-accent); }
+  .flow .wrow.now .num { background: var(--accent-fill); color: var(--on-accent); }
   .flow .wrow .title { font-weight: 600; }
   .flow .wrow .sub { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; margin-top: 2px; font-size: var(--text-sm); color: var(--ink-3); }
   .flow .wrow.later .title { color: var(--ink-2); }

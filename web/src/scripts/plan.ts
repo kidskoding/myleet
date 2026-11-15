@@ -76,7 +76,7 @@ const root = () => $("[data-plan]");
 /** Days per page: 7, or 4 on tablets; phones show a 7-day agenda. */
 const cols = () => (matchMedia("(max-width: 1100px) and (min-width: 761px)").matches ? 4 : 7);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce";
-const hourPx = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hour")) || 64;
+const hourPx = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hour")) || 112;
 const say = (m: string) => {
   const sr = $("#plan-sr");
   if (sr) sr.textContent = m;
@@ -121,14 +121,14 @@ function currentNote(c: Ctx): PlanNote | null {
   const p = c.plan;
   const pool: PlanNote[] = [];
   if (!navigator.onLine)
-    pool.push({ kind: "offline" as PlanNote["kind"], title: "You're offline.", body: "The plan is built on this device, so everything here still works. Your calendar link picks up changes once you're back online.", actions: [] });
+    pool.push({ kind: "offline" as PlanNote["kind"], title: "You're offline", body: "The plan is built on this device, so everything here still works. Your calendar link picks up changes once you're back online", actions: [] });
   pool.push(...(p.notes ?? []));
   if (c.fixes?.note) pool.push(c.fixes.note);
   if (!p.interview_date && !(p.notes ?? []).some((n) => n.kind === "date_passed"))
     pool.push({
       kind: "no_date" as PlanNote["kind"],
-      title: "No interview date yet.",
-      body: "This plan covers the next 4 weeks and rolls forward each day. Add a date and it builds toward it, with mocks closer together near the end.",
+      title: "No interview date yet",
+      body: "This plan covers the next 4 weeks and rolls forward each day. Add a date and it builds toward it, with mocks closer together near the end",
       actions: [{ kind: "set_date", label: "Add a date" }],
     });
   return pool.find((n) => !noteDismissed(n)) ?? null;
@@ -190,9 +190,9 @@ function sessionBlock(c: Ctx, d: PlanDay, s: PlanSession, g: Grid, first: boolea
   const mock = isMock(s);
   const over = d.minutes - d.cap > 10 && s === d.sessions.at(-1) ? d.minutes - d.cap : 0;
   const isShort = h < 54 && !isToday;
-  const cls = ["ses", isToday ? "today" : "", mock ? "mockses" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
+  const cls = ["ses", isToday ? "today" : "", mock ? "mockses on-wall" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
   const label = `${dayName(d.date)} ${span(a, a + len)}, ${fmtM(s.minutes)}: ${s.title}${s.moved_from ? `, moved from ${dayName(s.moved_from)}` : ""}. Open details`;
-  return html`<li><div role="button" tabindex="0" aria-describedby="ses-hint" class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px" data-ses="${s.id}" data-date="${d.date}" aria-label="${label}">
+  return html`<li><div role="button" tabindex="0" aria-describedby="ses-hint" class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px" data-ses="${s.id}" data-date="${d.date}" aria-label="${label}" title="${s.title}, ${fmtM(s.minutes)}">
     <span class="t">${span(a, a + len)}${over ? html`, <span class="over">${over} min over</span>` : ""}</span>
     <span class="h">${s.title}</span><span class="mm">${fmtM(s.minutes)}</span>${mixBar(s.items)}
     ${isToday ? html`<a class="btn btn-primary btn-sm start" href="${startHref(s, d.date)}" data-start aria-label="Start session (s)">${h >= 84 ? html`Start session ${kbd("s")}` : "Start"}</a>` : ""}
@@ -247,7 +247,7 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
         ? html`<div class="now" style="top:${yOf(nowMin, g.bs, g.hour, FOLD)}px" aria-hidden="true"></div>`
         : "";
     return html`<section class="col${isToday ? " today" : ""}${d.off ? " off" : ""}" data-day="${i}" data-date="${d.date}" aria-label="${longDay(d.date)}${d.off ? ", day off" : ""}">${winEls}${
-      d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows.</span>` : ""
+      d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows</span>` : ""
     }<ol aria-label="Sessions on ${dayName(d.date)}">${done}${d.sessions.map((s, j) => sessionBlock(c, d, s, g, j === 0))}</ol>${now}</section>`;
   });
   return html`<div class="panel week-cal" style="--cols:${n}">
@@ -299,7 +299,7 @@ function monthGrid(c: Ctx): SafeHtml {
     const what = dayHeadline(d);
     cells.push(html`<button type="button" class="mc${day === c.plan.start ? " today" : ""}" data-goto="${idx}" aria-label="${longDay(day)}: ${d.off ? "day off" : d.minutes ? `${fmtM(d.minutes)}, ${what}` : "nothing planned"}">
       <span class="num"><span>${dt.getDate()}</span>${d.minutes ? html`<small>${d.minutes}m</small>` : ""}</span>
-      ${d.off ? html`<span class="chip off">Day off</span>` : html`${what ? html`<span class="what">${what}</span>` : ""}${mock ? html`<span class="chip mock">Mock</span>` : ""}${check ? html`<span class="chip check">Check-in</span>` : ""}`}
+      ${d.off ? html`<span class="chip off">Day off</span>` : html`${what ? html`<span class="what">${what}</span>` : ""}${mock ? html`<span class="chip mock on-wall">Mock</span>` : ""}${check ? html`<span class="chip check">Check-in</span>` : ""}`}
     </button>`);
   }
   return html`<div class="panel month">${DAY_SHORT.map((d) => html`<div class="mh">${d}</div>`)}${cells}</div>`;
@@ -313,16 +313,16 @@ function agenda(c: Ctx): SafeHtml {
     const dt = dateOf(d.date);
     const head = `${isToday ? "Today, " : ""}${DAY_SHORT[weekdayIndex(d.date)]} ${dt.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
     const body = d.off
-      ? html`<div class="ag-off">Day off. Its work moved to the next free windows.</div>`
+      ? html`<div class="ag-off">Day off. Its work moved to the next free windows</div>`
       : html`${isToday ? done.map((s) => html`<div class="ag-ses done"><span class="t">${clock(s.start)}</span><div><div class="h">Done: ${s.clean ? plural(s.clean, "clean pass", "clean passes") : `${s.solved} solved`}</div></div></div>`) : ""}${
           d.sessions.length
             ? d.sessions.map(
-                (s, j) => html`<button type="button" class="ag-ses${isToday && j === 0 ? " today" : ""}${isMock(s) ? " mockses" : ""}" data-ses="${s.id}" data-date="${d.date}">
+                (s, j) => html`<button type="button" class="ag-ses${isToday && j === 0 ? " today" : ""}${isMock(s) ? " mockses on-wall" : ""}" data-ses="${s.id}" data-date="${d.date}">
                   <span class="t">${clock(minuteOf(s.start_ms))}<br>${fmtM(s.minutes)}</span>
                   <div><div class="h">${s.title}</div>${mixBar(s.items)}<div class="r">${s.items[0]?.reason ?? ""}</div>${isToday && j === 0 ? html`<span class="btn btn-primary" data-start-href="${startHref(s, d.date)}">Start session</span>` : ""}</div>
                 </button>`,
               )
-            : html`<div class="ag-empty">${d.windows.length ? "Nothing planned in your windows." : "No window this day."}</div>`
+            : html`<div class="ag-empty">${d.windows.length ? "Nothing planned in your windows" : "No window this day"}</div>`
         }`;
     return html`<li class="ag-day${isToday ? " today" : ""}" data-agenda-day="${i}"><h3>${head}<small>${d.off ? "Day off" : fmtM(d.minutes)}</small></h3>${body}</li>`;
   })}</ol>`;
@@ -376,9 +376,9 @@ function forecast(c: Ctx): SafeHtml {
   const hidden = all.length - rows.length;
   const closeAll = c.fixes?.all && behind.length > 1 ? html`<p class="fc-all"><button type="button" class="fix" data-fix="${c.fixes.all}">Weekdays at ${fmtM(c.fixes.all)} closes every gap</button></p>` : "";
   return html`<section class="panel fc-panel" aria-labelledby="fc-h">
-    <div class="section-head" style="margin:0"><h2 id="fc-h">${date ? `Forecast for ${short(date)}` : "Where 4 weeks gets you"}</h2><span class="meta">If you keep to the plan</span></div>
-    ${rows.length ? html`<div class="fc">${forecastRows(rows, { date, fixes: c.fixes, fix: true })}</div>` : html`<p class="fineprint">Pick target companies in Settings and the forecast shows the techniques their sets lean on.</p>`}
-    ${hidden > 0 ? html`<p class="fc-more">${plural(hidden, "more technique")}${behind.length > rows.length ? "" : ", all on track"}.</p>` : ""}
+    <div class="section-head" style="margin:0"><h2 id="fc-h">${date ? `Forecast for ${short(date)}` : "Four-week forecast"}</h2><span class="meta">If you keep to the plan</span></div>
+    ${rows.length ? html`<div class="fc">${forecastRows(rows, { date, fixes: c.fixes, fix: true })}</div>` : html`<p class="fineprint">Pick target companies in Settings and the forecast shows the techniques their sets lean on</p>`}
+    ${hidden > 0 ? html`<p class="fc-more">${plural(hidden, "more technique")}${behind.length > rows.length ? "" : ", all on track"}</p>` : ""}
     ${closeAll}${rows.length ? forecastKey() : ""}
   </section>`;
 }
@@ -393,11 +393,11 @@ function you(c: Ctx): SafeHtml {
     <section class="panel" aria-labelledby="pc-h">
       <div class="section-head" style="margin:0"><h2 id="pc-h">Your pace</h2><span class="meta">${own ? `Last ${sample} solves` : "Targets for now"}</span></div>
       <div class="pace-tbl">${cell(p.review_minutes ?? Math.round((p.new_minutes.medium ?? 25) * 0.6), "Reviews")}${cell(p.new_minutes.easy, "Easy")}${cell(p.new_minutes.medium, "Medium")}${cell(p.new_minutes.hard, "Hard")}</div>
-      <p class="fineprint">${own ? `Sessions are sized from these times, not the targets, and they update after every solve. ${p.habit ?? ""}` : "We'll use your own times after 5 solves; until then sessions are sized from the targets."}</p>
+      <p class="fineprint">${own ? `Sessions are sized from these times, not the targets, and they update after every solve. ${p.habit ?? ""}` : "We'll use your own times after 5 solves; until then sessions are sized from the targets"}</p>
     </section>
     <section class="panel" aria-labelledby="in-h">
-      <div class="section-head" style="margin:0"><h2 id="in-h">Noticed this week</h2><a class="link text-small" href="${ROUTES.progress}#insights">All insights</a></div>
-      ${ins.length ? insightList(ins) : html`<p class="fineprint">Nothing stands out yet. Insights show up after a week or two of practice, each with the two facts behind it.</p>`}
+      <div class="section-head" style="margin:0"><h2 id="in-h">Practice insights</h2><a class="link text-small" href="${ROUTES.progress}#insights">All insights</a></div>
+      ${ins.length ? insightList(ins) : html`<p class="fineprint">Practice insights appear after a week or two. Each includes the observations it is based on</p>`}
     </section>
   </div>`;
 }
@@ -411,7 +411,7 @@ function head(c: Ctx): SafeHtml {
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
     <header class="plan-head">
       <div><h1>${date ? `Plan to ${short(date)}` : "Your next 4 weeks"}</h1>
-        <p class="lede">${date ? html`<b>${who ? `${who} interview` : "Interview"} in ${plural(left ?? 0, "day")}.</b> Sized from your own pace, inside your windows.` : "Sessions sit inside your practice windows and are sized from your own pace."} It re-plans after every solve.</p></div>
+        <p class="lede">${date ? html`<b>${who ? `${who} interview` : "Interview"} in ${plural(left ?? 0, "day")}.</b> Sessions use your available hours and usual solving time` : "Sessions use your available hours and usual solving time"}. The plan updates after each solve.</p></div>
       <div class="head-actions"><button type="button" class="btn btn-ghost" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Availability ${kbd("a")}</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
     </header>`;
 }
@@ -451,13 +451,13 @@ function emptyState(c: Ctx): SafeHtml {
   const sug = c.habits?.history.suggestion;
   return html`${head(c)}
     <div class="panel state-panel">
-      <div><h2>When do you usually practise?</h2>
-        <p>${sug ? html`${raw(sug.text.replace(/\*\*(.+?)\*\*/g, (_m, x: string) => `<b>${x.replace(/[<>&]/g, "")}</b>`))}` : "Tell myleet when you can practise and it lays out every session from now to your interview. Most people start with weeknights 7 to 8:30 pm and weekend mornings."}</p>
+      <div><h2>When do you usually practice?</h2>
+        <p>${sug ? html`${raw(sug.text.replace(/\*\*(.+?)\*\*/g, (_m, x: string) => `<b>${x.replace(/[<>&]/g, "")}</b>`))}` : "Tell myleet when you can practice and it lays out every session from now to your interview. For example, choose weekday evenings or weekend mornings"}</p>
         <div class="btns"><button type="button" class="btn btn-primary" data-use-suggest>Use these times</button><button type="button" class="btn btn-secondary" data-act="avail">Choose my own</button></div></div>
-      <div><h3>What the plan does with them</h3><ol>
-        <li>Puts each day's reviews and new problems into sessions inside your windows.</li>
-        <li>Sizes sessions from how long you actually take, then adds weekly mocks, closer together near the date.</li>
-        <li>Moves anything you miss into the next free windows, without stacking it up.</li></ol></div>
+      <div><h3>How sessions are scheduled</h3><ol>
+        <li>Puts each day's reviews and new problems into sessions inside your windows</li>
+        <li>Sizes sessions from how long you actually take, then adds weekly mocks, closer together near the date</li>
+        <li>Moves anything you miss into the next free windows, without stacking it up</li></ol></div>
     </div>`;
 }
 
@@ -477,7 +477,7 @@ function paint(): void {
     html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
         ${view === "week" ? weekGrid(c, g) : monthGrid(c)}${agenda(c)}
-        <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off.</span></div>
+        <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
       <div class="route">${profile(c)}${forecast(c)}</div>
       ${you(c)}
@@ -605,8 +605,8 @@ function forecastLine(prev: Plan, next: Plan): string {
     const name = i === 0 ? f.title : midSentence(f.title);
     return f.behind_by ? `${name} is behind by ${f.behind_by}` : `${name} is on track`;
   });
-  if (!parts.length) return next.forecast.length ? "Every target is on track." : "";
-  return `${parts.join("; ")}.`;
+  if (!parts.length) return next.forecast.length ? "Every target is on track" : "";
+  return `${parts.join("; ")}`;
 }
 
 function replan(): void {
@@ -620,7 +620,7 @@ function replan(): void {
     return errorState(e);
   }
   ctx.fixes = null;
-  if (pendingChange?.kind === "budget") liveText = `<strong>Updated.</strong> ${pendingChange.label}. ${forecastLine(prev, ctx.plan)}`;
+  if (pendingChange?.kind === "budget") liveText = `<strong>Updated</strong> ${pendingChange.label}. ${forecastLine(prev, ctx.plan)}`;
   pendingChange = null;
   offset = Math.min(offset, Math.max(0, ctx.plan.days.length - 1));
   rememberSessions(ctx.plan);
@@ -690,9 +690,9 @@ function openPop(id: string, opts: { move?: boolean } = {}): void {
       <ol class="items" aria-label="Why each problem is here">${s.items.map(
         (i) => html`<li class="item"><a class="ti" href="${itemHref(i)}">${i.title}</a><span class="m">${i.minutes}m</span>${reasonLine(i)}</li>`,
       )}</ol>
-      <p class="pop-sum">Order: reviews first, then the weakest technique, then new topics. Minutes are your pace, not the targets.</p>
+      <p class="pop-sum">Reviews come first, followed by your weakest technique and new topics. Time estimates use your usual solving time</p>
       ${opts.move
-        ? html`<div class="moveto"><h4>Move to</h4>${targets.length ? html`<ul>${targets.map((t) => html`<li><button type="button" class="btn btn-ghost btn-sm" data-move-to="${t.day.date}|${t.start}">${DAY_SHORT[weekdayIndex(t.day.date)]} ${short(t.day.date)}, ${span(t.start, t.start + len)}</button></li>`)}</ul>` : html`<p class="fineprint">No other window in the next week has room. Add one in Availability.</p>`}</div>`
+        ? html`<div class="moveto"><h4>Move to</h4>${targets.length ? html`<ul>${targets.map((t) => html`<li><button type="button" class="btn btn-ghost btn-sm" data-move-to="${t.day.date}|${t.start}">${DAY_SHORT[weekdayIndex(t.day.date)]} ${short(t.day.date)}, ${span(t.start, t.start + len)}</button></li>`)}</ul>` : html`<p class="fineprint">No other window in the next week has room. Add one in Availability</p>`}</div>`
         : html`<div class="pop-foot"><button type="button" class="btn btn-secondary btn-sm" data-pop-move>${icon("move")}Move</button><button type="button" class="btn btn-ghost btn-sm" data-pop-skip>Skip this session</button>${
             isToday ? html`<a class="btn btn-primary btn-sm" href="${startHref(s, d.date)}" data-start>Start session ${kbd("s")}</a>` : ""
           }</div>`}`,
@@ -770,8 +770,8 @@ function toggleOff(day: string): void {
   const turningOff = next.includes(day);
   withUndo(
     turningOff
-      ? `${dayName(day)} is off.${count ? ` Its ${plural(count, "item")} moved to the next free windows.` : ""} Nothing is late.`
-      : `${dayName(day)} is back in the plan.`,
+      ? `${dayName(day)} is off.${count ? ` Its ${plural(count, "item")} moved to the next free windows` : ""} Nothing is late`
+      : `${dayName(day)} is back in the plan`,
     { plan: { daysOff: next } },
     { plan: { daysOff: prev } },
   );
@@ -782,7 +782,7 @@ function toggleShorter(day: string): void {
   const has = prev.some((x) => x.date === day);
   const today = ctx?.plan.start ?? isoDay(new Date());
   const next = has ? prev.filter((x) => x.date !== day) : [...prev.filter((x) => x.date >= today), { date: day, minutes: 30 }];
-  withUndo(has ? `${dayName(day)} is back to its usual time.` : `${dayName(day)} is 30 min. The rest moves to the next free windows.`, { plan: { dayMinutes: next } }, { plan: { dayMinutes: prev } });
+  withUndo(has ? `${dayName(day)} is back to its usual time` : `${dayName(day)} is 30 min. The rest moves to the next free windows`, { plan: { dayMinutes: next } }, { plan: { dayMinutes: prev } });
 }
 
 function skipSession(id: string): void {
@@ -793,7 +793,7 @@ function skipSession(id: string): void {
   const cur = prev.find((x) => x.date === d.date)?.minutes ?? d.cap;
   const next = [...prev.filter((x) => x.date !== d.date && x.date >= ctx!.plan.start), { date: d.date, minutes: Math.max(0, cur - s.minutes) }];
   closePop();
-  withUndo(`Skipped. Its ${plural(s.items.length, "item")} moved to the next free windows.`, { plan: { dayMinutes: next } }, { plan: { dayMinutes: prev } });
+  withUndo(`Skipped. Its ${plural(s.items.length, "item")} moved to the next free windows`, { plan: { dayMinutes: next } }, { plan: { dayMinutes: prev } });
 }
 
 /** Applies a drop; returns the toast text from the re-planned result. */
@@ -808,7 +808,7 @@ function applyMove(id: string, to: string, start: number): void {
   updatePrefs({ plan: { moves: next } });
   replan();
   const after = ctx?.plan.days.find((x) => x.date === to)?.sessions.flatMap((x) => x.items).filter((i) => i.kind === "review").length ?? 0;
-  const fit = after >= reviewsBefore ? "Reviews due that day still fit." : `${plural(reviewsBefore - after, "review")} moved to the next day.`;
+  const fit = after >= reviewsBefore ? "Reviews due that day still fit" : `${plural(reviewsBefore - after, "review")} moved to the next day`;
   const msg = `Moved to ${dayName(to)}, ${clock(start)}. ${fit}`;
   say(msg);
   toast(msg, { ms: 8000, action: { label: "Undo", run: () => updatePrefs({ plan: { moves: prev } }) } });
@@ -869,7 +869,7 @@ function onPointerMove(e: PointerEvent): void {
     drag.ghost.style.cssText = `top:${drag.top0}px;height:${drag.el.offsetHeight}px`;
     drag.el.closest(".col")?.append(drag.ghost);
     drag.tip = document.createElement("div");
-    drag.tip.className = "dragtip";
+    drag.tip.className = "dragtip on-wall";
     $(".wk-body")?.append(drag.tip);
   }
   drag.el.style.transition = "none";
@@ -968,7 +968,7 @@ function kbShow(): void {
   $(`.wk-body .col[data-date="${t.day.date}"] .win[data-start="${win?.start}"]`)?.classList.add("target");
   const s = findSession(kb.id)?.[1];
   const len = s ? Math.round((s.end_ms - s.start_ms) / 60000) : 0;
-  say(`${dayName(t.day.date)} ${span(t.start, t.start + len)}. Space or Enter to move here, Escape to cancel.`);
+  say(`${dayName(t.day.date)} ${span(t.start, t.start + len)}. Space or Enter to move here, Escape to cancel`);
 }
 
 function kbLift(el: HTMLElement): void {
@@ -984,7 +984,7 @@ function kbLift(el: HTMLElement): void {
   const wi = Math.max(0, (wins[di] ?? []).findIndex((w) => a >= w.start && a < w.end));
   kb = { id: hit[1].id, at: { day: di, win: wi }, wins, days };
   el.classList.add("kb-lifted");
-  say(`Picked up ${span(a, a + len)} on ${dayName(hit[0].date)}. Arrows choose a window: left and right change day, up and down step through its windows. Space drops, Escape cancels.`);
+  say(`Picked up ${span(a, a + len)} on ${dayName(hit[0].date)}. Arrows choose a window: left and right change day, up and down step through its windows. Space drops, Escape cancels`);
 }
 
 function kbEnd(drop: boolean): void {
@@ -994,9 +994,9 @@ function kbEnd(drop: boolean): void {
   kb = null;
   document.querySelectorAll(".win.target").forEach((w) => w.classList.remove("target"));
   $(`[data-ses="${id}"]`)?.classList.remove("kb-lifted");
-  if (!t) return say("Move cancelled.");
+  if (!t) return say("Move cancelled");
   const s = findSession(id);
-  if (s && s[0].date === t.day.date && minuteOf(s[1].start_ms) === t.start) return say("Left where it was.");
+  if (s && s[0].date === t.day.date && minuteOf(s[1].start_ms) === t.start) return say("Left where it was");
   applyMove(id, t.day.date, t.start);
   const moved = [...document.querySelectorAll<HTMLElement>(`.wk-body .ses[data-date="${t.day.date}"]`)].find((el) => {
     const x = findSession(el.dataset.ses ?? "");
@@ -1013,7 +1013,7 @@ function openDrawer(): void {
   if (!d.hidden) return void d.querySelector<HTMLElement>("button")?.focus();
   render(
     d,
-    html`<div class="dr-head"><div><h2 id="dr-h">When you practise</h2><p>The plan behind this panel updates as you paint.</p></div><button type="button" class="icon-btn" data-drawer-close aria-label="Close (Esc)">${icon("x")}</button></div>
+    html`<div class="dr-head"><div><h2 id="dr-h">When you practice</h2><p>Your plan updates as you change your available hours</p></div><button type="button" class="icon-btn" data-drawer-close aria-label="Close (Esc)">${icon("x")}</button></div>
       <div data-av-host></div>
       <div class="dr-foot"><span>Saved as you go</span><button type="button" class="btn btn-secondary" data-drawer-close>Done</button></div>`,
   );
@@ -1203,7 +1203,7 @@ function errorState(err: unknown): void {
     el,
     html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a><header class="plan-head"><div><h1>Plan</h1></div></header>
     <div class="panel state-panel" role="alert" style="grid-template-columns:1fr"><div><h2>Couldn't build the plan</h2>
-      <p>${navigator.onLine ? `The planner stopped before it finished (${err instanceof Error ? err.message : "unknown error"}).` : "You're offline and the curriculum isn't cached on this device yet."} Your progress and your settings are safe, and Today's queue works as usual.</p>
+      <p>${navigator.onLine ? `The planner stopped before it finished (${err instanceof Error ? err.message : "unknown error"}).` : "You're offline and the curriculum isn't cached on this device yet"} Your progress and your settings are safe, and Today's queue works as usual</p>
       <div class="btns"><button type="button" class="btn btn-primary" data-retry>Try again</button><a class="btn btn-secondary" href="${ROUTES.today}">Go to Today</a></div></div></div>`,
   );
   el.querySelector("[data-retry]")?.addEventListener("click", () => void init());

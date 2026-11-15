@@ -2,7 +2,9 @@
 import "@fontsource-variable/jetbrains-mono/index.css";
 import Icon from "../components/Icon.astro";
 import Base from "../layouts/Base.astro";
+import { ACCENT_NAMES, ACCENTS } from "../lib/flavors";
 import { ROUTES } from "../lib/routes";
+
 
 const targets = Array.from({ length: 11 }, (_, i) => 10 + i * 5);
 const sections = [
@@ -20,7 +22,7 @@ const account = [
 ] as const;
 ---
 
-<Base title="Settings" noindex description="Profile, appearance, editor, practice, reminders, sign-in methods, sessions and your data.">
+<Base title="Settings" noindex description="Profile, appearance, editor, practice, reminders, sign-in methods, sessions and your data">
   <div class="page settings" data-settings>
     <div class="set-head">
       <h1>Settings</h1>
@@ -37,20 +39,20 @@ const account = [
         <section class="grp" aria-labelledby="profile">
           <h2 id="profile">Profile</h2>
           <div class="panel signedout when-out">
-            <p>You're practising without an account. Progress and settings live in this browser. Sign in to keep them on every device; nothing here is lost.</p>
+            <p>Your progress and settings are saved in this browser. Sign in to sync them across devices and keep your existing progress</p>
             <button class="btn btn-primary" type="button" data-signin>Keep my progress</button>
           </div>
           <div class="panel when-in">
             <div class="row">
-              <div><div class="lbl">Photo</div><div class="desc">From GitHub or Google, or your initials.</div></div>
+              <div><div class="lbl">Photo</div><div class="desc">From GitHub or Google, or your initials</div></div>
               <div class="ctl"><span class="avatar avatar-lg" data-set-avatar></span></div>
             </div>
             <div class="row">
-              <div><label class="lbl" for="set-name">Display name</label><div class="desc">Shown on your public profile, if it's on.</div></div>
+              <div><label class="lbl" for="set-name">Display name</label><div class="desc">Shown on your public profile, if it's on</div></div>
               <div class="ctl wide"><input id="set-name" class="input" autocomplete="name" maxlength="60" data-set-name /></div>
             </div>
             <div class="row">
-              <div><label class="lbl" for="set-user">Username</label><div class="desc">Lowercase letters, numbers and dashes. Your profile link.</div></div>
+              <div><label class="lbl" for="set-user">Username</label><div class="desc">Lowercase letters, numbers and dashes. Your profile link</div></div>
               <div class="ctl wide">
                 <div style="width:100%">
                   <div class="prefix"><span>/u/</span><input id="set-user" class="input" spellcheck="false" autocapitalize="off" maxlength="30" aria-describedby="set-user-msg" data-set-user /></div>
@@ -64,20 +66,27 @@ const account = [
         <section class="grp" aria-labelledby="appearance">
           <h2 id="appearance">Appearance</h2>
           <div class="panel">
-            <div class="row">
-              <div><div class="lbl" id="th-l">Theme</div><div class="desc">System follows your device. Also <kbd>shift</kbd> <kbd>D</kbd> anywhere.</div></div>
-              <div class="ctl wide">
-                <div class="theme-pick" role="radiogroup" aria-labelledby="th-l">
-                  <label><input type="radio" name="theme" value="system" /><i class="sw-s"></i>System</label>
-                  <label><input type="radio" name="theme" value="light" /><i class="sw-l"></i>Light</label>
-                  <label><input type="radio" name="theme" value="dark" /><i class="sw-d"></i>Dark</label>
+            <div class="row"><div><div class="lbl">Catppuccin Mocha</div><div class="desc">Dark theme with your choice of accent color</div></div></div>
+            <div class="row stack">
+              <div><div class="lbl" id="ac-l">Accent <b data-accent-name>Mauve</b></div><div class="desc">Buttons, links, focus, your current rung and the heatmap. Tags keep their own colors</div></div>
+              <div>
+                <div class="accents" role="radiogroup" aria-labelledby="ac-l">
+                  {ACCENTS.map((a) => (
+                    <label title={ACCENT_NAMES[a]} data-accent-dot={a}>
+                      <input type="radio" name="accent" value={a} aria-label={ACCENT_NAMES[a]} />
+                      <span class="dot" style={`--r: var(--ctp-${a})`}><Icon name="check" /></span>
+                    </label>
+                  ))}
                 </div>
+                <p class="ac-note" data-accent-note>Choose the accent color for buttons, links, and your practice progress</p>
+                <div class="ac-preview" aria-hidden="true"><span class="btn btn-primary btn-sm">Start</span><span class="ac-link">Edit plan</span><span class="tag tag-new">New topic</span></div>
               </div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system. On also stops the rung climb and pass wash here.</div></div>
+              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system. On also stops the rung climb and pass wash here</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="reduceMotion" aria-labelledby="rm-l" /></label></div>
             </div>
+            <p class="credit">Colors are <a href="https://catppuccin.com" rel="noopener">Catppuccin</a>, MIT licensed</p>
           </div>
         </section>
 
@@ -85,11 +94,11 @@ const account = [
           <h2 id="editor">Editor</h2>
           <div class="panel">
             <div class="row">
-              <div><div class="lbl" id="vim-l">Vim keybindings</div><div class="desc">Normal, insert and visual modes. <kbd>esc</kbd> leaves insert mode; nothing in myleet is bound to a bare <kbd>esc</kbd> while you type.</div></div>
+              <div><div class="lbl" id="vim-l">Vim keybindings</div><div class="desc">Normal, insert and visual modes. <kbd>esc</kbd> leaves insert mode; nothing in myleet is bound to a bare <kbd>esc</kbd> while you type</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.vim" aria-labelledby="vim-l" /></label></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="fs-l">Font size</div><div class="desc">Code only. Statements follow your browser's text size.</div></div>
+              <div><div class="lbl" id="fs-l">Font size</div><div class="desc">Code only. Statements follow your browser's text size</div></div>
               <div class="ctl">
                 <div class="stepper" role="group" aria-labelledby="fs-l">
                   <button type="button" data-step="editor.fontSize" data-by="-1" aria-label="Smaller"><Icon name="minus" /></button><output data-out="editor.fontSize">14</output><button type="button" data-step="editor.fontSize" data-by="1" aria-label="Larger"><Icon name="plus" /></button>
@@ -98,13 +107,13 @@ const account = [
             </div>
             <div class="row">
               <div>
-                <div class="lbl" id="lig-l">Ligatures</div><div class="desc">Join <code>-&gt;</code>, <code>&lt;=</code>, <code>!=</code> into single glyphs.</div>
+                <div class="lbl" id="lig-l">Ligatures</div><div class="desc">Join <code>-&gt;</code>, <code>&lt;=</code>, <code>!=</code> into single glyphs</div>
                 <div class="codeprev" data-codeprev aria-hidden="true"><span class="k">def</span> <span class="d">valid</span>(n: <span class="b">int</span>) -&gt; <span class="b">bool</span>:  <span class="k">return</span> n &lt;= <span class="n">9</span> <span class="k">and</span> n != <span class="n">0</span></div>
               </div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.ligatures" aria-labelledby="lig-l" /></label></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="mm-l">Minimap</div><div class="desc">A scaled outline of your file on the right edge.</div></div>
+              <div><div class="lbl" id="mm-l">Minimap</div><div class="desc">A scaled outline of your file on the right edge</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.minimap" aria-labelledby="mm-l" /></label></div>
             </div>
             <div class="row">
@@ -112,11 +121,11 @@ const account = [
               <div class="ctl"><select id="set-indent" class="input" style="width:160px" data-pref="editor.indent"><option value="4">4 spaces</option><option value="2">2 spaces</option></select></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="fos-l">Format on save</div><div class="desc">Runs ruff format on <kbd data-mod>Ctrl</kbd><kbd>S</kbd>.</div></div>
+              <div><div class="lbl" id="fos-l">Format on save</div><div class="desc">Runs ruff format on <kbd data-mod>Ctrl</kbd><kbd>S</kbd></div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.formatOnSave" aria-labelledby="fos-l" /></label></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="ros-l">Run tests on save</div><div class="desc">Off by default: in a timed solve you choose when to run. Never runs during a mock.</div></div>
+              <div><div class="lbl" id="ros-l">Run tests on save</div><div class="desc">Off by default so you can choose when to run tests. Disabled during mock interviews</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.runOnSave" aria-labelledby="ros-l" /></label></div>
             </div>
           </div>
@@ -126,7 +135,7 @@ const account = [
           <h2 id="practice">Practice</h2>
           <div class="panel">
             <div class="row">
-              <div><div class="lbl" id="npd-l">New problems per day</div><div class="desc">Reviews always come first. Today's "Time today" can trim this for one day.</div></div>
+              <div><div class="lbl" id="npd-l">New problems per day</div><div class="desc">Reviews come first. Use "Time today" on Today to reduce new problems for a single day</div></div>
               <div class="ctl">
                 <div class="stepper" role="group" aria-labelledby="npd-l">
                   <button type="button" data-step="newPerDay" data-by="-1" aria-label="Fewer"><Icon name="minus" /></button><output data-out="newPerDay">3</output><button type="button" data-step="newPerDay" data-by="1" aria-label="More"><Icon name="plus" /></button>
@@ -134,7 +143,7 @@ const account = [
               </div>
             </div>
             <div class="row">
-              <div><div class="lbl">Time targets</div><div class="desc">Used for clean passes. Raising them makes clean passes easier, not mastery faster.</div></div>
+              <div><div class="lbl">Time targets</div><div class="desc">The time limit for a clean pass. Increasing it gives you more time to solve, but review intervals stay the same</div></div>
               <div class="ctl">
                 {
                   (["easy", "medium", "hard"] as const).map((d) => (
@@ -168,8 +177,8 @@ const account = [
             <div class="row">
               <div>
                 <div class="lbl" id="pub-l">Make my profile public</div>
-                <div class="desc">Shows your name, streak, mastered and practised counts and the practice heatmap at <code data-profile-path>/u/you</code>. Never your code, attempts, notes, hints, weak spots or interview date.</div>
-                <p class="desc when-out" style="margin-top:var(--space-2)">Sign in to turn this on.</p>
+                <div class="desc">Shows your name, streak, mastered and practiced counts and the practice heatmap at <code data-profile-path>/u/you</code>. Never your code, attempts, notes, hints, weak spots or interview date</div>
+                <p class="desc when-out" style="margin-top:var(--space-2)">Sign in to turn this on</p>
               </div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="publicProfile" aria-labelledby="pub-l" /></label></div>
             </div>
@@ -190,22 +199,22 @@ const account = [
           <h2 id="data">Your data</h2>
           <div class="panel">
             <div class="row when-in">
-              <div><div class="lbl">Export your account</div><div class="desc">Profile, sign-in methods, settings, sessions and synced progress, as one JSON file.</div></div>
+              <div><div class="lbl">Export your account</div><div class="desc">Profile, sign-in methods, settings, sessions and synced progress, as one JSON file</div></div>
               <div class="ctl"><a class="btn btn-secondary btn-sm" href="/api/me/export" download><Icon name="download" />Download JSON</a></div>
             </div>
             <div class="row">
-              <div><div class="lbl">Export progress</div><div class="desc">This browser's practice history as <code>events.jsonl</code>, the same file the myleet CLI keeps.</div></div>
+              <div><div class="lbl">Export progress</div><div class="desc">This browser's practice history as <code>events.jsonl</code>, the same file the myleet CLI keeps</div></div>
               <div class="ctl"><button class="btn btn-secondary btn-sm" type="button" data-export-local><Icon name="download" />Download events.jsonl</button></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="imp-l">Import</div><div class="desc">Merge an <code>events.jsonl</code> from the CLI or another browser, or an account export. Nothing is overwritten; histories are joined.</div></div>
+              <div><div class="lbl" id="imp-l">Import</div><div class="desc">Merge an <code>events.jsonl</code> from the CLI or another browser, or an account export. Nothing is overwritten; histories are joined</div></div>
               <div class="ctl"><label class="btn btn-ghost btn-sm file-btn"><Icon name="upload" />Choose file<input type="file" accept=".jsonl,.json,.ndjson,application/json" data-import aria-labelledby="imp-l" /></label></div>
             </div>
           </div>
         </section>
 
         <section class="danger when-in" aria-labelledby="del">
-          <div><h2 id="del">Delete account</h2><p>Deletes your account, sign-in methods, sessions and synced progress from our servers. This browser keeps a local copy unless you also clear it.</p></div>
+          <div><h2 id="del">Delete account</h2><p>Deletes your account, sign-in methods, sessions and synced progress from our servers. This browser keeps a local copy unless you also clear it</p></div>
           <button class="btn btn-quiet-danger" type="button" data-delete>Delete account</button>
         </section>
       </div>
@@ -247,16 +256,50 @@ const account = [
   .settings .field-msg.bad { color: var(--fail); }
   .settings .field-msg .icon { width: 14px; height: 14px; }
   .settings .avatar-lg { width: 44px; height: 44px; font-size: var(--text-sm); background: var(--accent-soft); color: var(--accent); }
-  .settings .theme-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); width: 100%; }
-  .settings .theme-pick label { position: relative; display: grid; gap: 6px; justify-items: center; padding: var(--space-2); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); font-size: var(--text-xs); font-weight: 600; cursor: pointer; transition: border-color var(--dur-fast) var(--ease-out); }
-  .settings .theme-pick label:hover { border-color: var(--ink-3); }
-  .settings .theme-pick label:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
-  .settings .theme-pick label:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
-  .settings .theme-pick input { position: absolute; opacity: 0; pointer-events: none; }
-  .settings .theme-pick i { width: 100%; height: 34px; border-radius: 4px; display: block; }
-  .settings .sw-l { background: linear-gradient(90deg, #f2f3ef 60%, #fff 60%); box-shadow: inset 0 0 0 1px #d8dbd4; }
-  .settings .sw-d { background: linear-gradient(90deg, #121417 60%, #1a1d21 60%); box-shadow: inset 0 0 0 1px #2a2e34; }
-  .settings .sw-s { background: linear-gradient(135deg, #f2f3ef 50%, #121417 50%); box-shadow: inset 0 0 0 1px #d8dbd4; }
+  .settings .row.stack { grid-template-columns: 1fr; }
+  .settings .row .lbl b { font-weight: 600; color: var(--ink-2); }
+  /* Flavor cards: each swatch is drawn from that flavor's own palette, whatever flavor is showing. */
+  .settings .flavors { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2); }
+  .settings .flavors label { position: relative; display: grid; gap: 6px; padding: 6px 6px var(--space-2); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); font-size: var(--text-xs); font-weight: 600; cursor: pointer; text-align: center; transition: border-color var(--dur-fast) var(--ease-out); }
+  .settings .flavors label:hover { border-color: var(--ink-3); }
+  .settings .flavors label:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .settings .flavors label:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .settings .flavors input, .settings .accents input, .settings .seg-radio input { position: absolute; opacity: 0; pointer-events: none; }
+  .settings .flavors small { display: block; font-weight: 500; color: var(--ink-3); font-size: var(--text-2xs); }
+  .settings .sw { height: 52px; border-radius: 4px; display: grid; grid-template-columns: 34% 1fr; overflow: hidden; outline: 1px solid var(--line-strong); outline-offset: -1px; }
+  .settings .sw > span:first-child { background: var(--m); }
+  .settings .sw > span:last-child { background: var(--b); display: grid; align-content: center; gap: 5px; padding: 0 8px; }
+  .settings .sw i { display: block; height: 4px; border-radius: 2px; background: var(--t); width: 80%; }
+  .settings .sw i:nth-child(2) { width: 55%; background: var(--a); }
+  .settings .sw i:nth-child(3) { width: 65%; opacity: 0.5; }
+  .settings .sw.sys { grid-template-columns: 1fr 1fr; }
+  .settings .sw.sys > span:first-child { background: var(--ctp-latte-base); }
+  .settings .sw.sys > span:last-child { background: var(--ctp-mocha-base); }
+  .settings .seg-radio label { position: relative; display: grid; place-items: center; height: 28px; padding: 0 var(--space-3); font-size: var(--text-xs); font-weight: 600; color: var(--ink-2); border-radius: 4px; cursor: pointer; transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+  .settings .seg-radio label:hover { color: var(--ink); }
+  .settings .seg-radio label:has(input:checked) { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+  .settings .seg-radio label:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 1px; }
+  @media (pointer: coarse) { .settings .seg-radio label { height: 40px; } }
+  /* Accent dots: the outer ring is the palette colour (the name people know), the centre is the fill this
+     flavor actually applies, so in Latte a pale accent shows its deeper button colour before you pick it. */
+  .settings .accents { display: grid; grid-template-columns: repeat(7, 36px); gap: var(--space-2) var(--space-3); }
+  .settings .accents label { position: relative; width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; border-radius: 50%; }
+  .settings .accents .dot { width: 28px; height: 28px; border-radius: 50%; background: var(--f, var(--r)); box-shadow: inset 0 0 0 6px var(--r), inset 0 0 0 7px color-mix(in srgb, var(--ink) 14%, transparent); display: grid; place-items: center; color: var(--o, var(--on-accent)); transition: transform var(--dur-press) var(--ease-out); }
+  .settings .accents label:active .dot { transform: scale(0.94); }
+  .settings .accents label:has(input:checked) { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--f, var(--r)); }
+  .settings .accents label:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 4px; }
+  .settings .accents .icon { width: 16px; height: 16px; opacity: 0; }
+  .settings .accents label:has(input:checked) .icon { opacity: 1; }
+  .settings .ac-note { font-size: var(--text-xs); color: var(--ink-3); margin-top: var(--space-3); max-width: 60ch; }
+  .settings .ac-preview { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; margin-top: var(--space-4); }
+  .settings .ac-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-size: var(--text-sm); }
+  .settings .credit { padding: var(--space-3) 0 var(--space-4); border-top: 1px solid var(--line); font-size: var(--text-xs); color: var(--ink-3); }
+  .settings .credit a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  @media (max-width: 760px) {
+    .settings .flavors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .settings .accents { grid-template-columns: repeat(7, minmax(0, 44px)); gap: var(--space-1) 0; justify-content: space-between; }
+    .settings .accents label { width: 100%; height: 44px; }
+  }
   .settings .codeprev { margin-top: var(--space-2); font-family: var(--font-code); line-height: 1.6; background: var(--code-bg); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); white-space: pre; overflow-x: auto; font-size: 14px; }
   .settings .codeprev.no-lig { font-variant-ligatures: none; }
   .settings .codeprev .k { color: var(--syn-keyword); } .settings .codeprev .d { color: var(--syn-def); font-weight: 600; } .settings .codeprev .b { color: var(--syn-builtin); } .settings .codeprev .n { color: var(--syn-number); }

@@ -17,7 +17,7 @@ export function toast(message: string, opts: { action?: ToastAction; ms?: number
   clearTimeout(toastTimer);
   render(
     region,
-    html`<div class="toast"><span>${message}</span>${opts.action ? html`<button class="btn btn-ghost btn-sm" data-act>${opts.action.label}</button>` : ""}<button class="icon-btn" data-close aria-label="Dismiss">${icon("x")}</button></div>`,
+    html`<div class="toast on-wall"><span>${message}</span>${opts.action ? html`<button class="btn btn-ghost btn-sm" data-act>${opts.action.label}</button>` : ""}<button class="icon-btn" data-close aria-label="Dismiss">${icon("x")}</button></div>`,
   );
   const el = region.firstElementChild as HTMLElement;
   const close = () => {

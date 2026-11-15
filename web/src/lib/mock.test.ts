@@ -9,6 +9,8 @@ import {
   newRound,
   outcomeLines,
   pickCompany,
+  pickCompanies,
+  companySelection,
   pickWeak,
   problemResult,
   readHistory,
@@ -123,5 +125,34 @@ describe("storage", () => {
     saveResult(res);
     saveResult({ ...res, id: "2" });
     expect(readHistory().map((m) => m.id)).toEqual(["2", "1"]);
+  });
+});
+
+
+describe("multi-company mocks", () => {
+  const sets = cat.playlists.slice(0, 3);
+  it("mixes only selected sets without repeated or mastered questions", () => {
+    const selected = sets.map((p) => p.id);
+    const union = new Set(sets.flatMap((p) => p.entries.flatMap((e) => e.problem === null ? [] : [cat.problems[e.problem]?.id])));
+    const first = sets[0]?.entries[0]?.problem;
+    const mastered = first === null || first === undefined ? "" : cat.problems[first]?.id ?? "";
+    const states = { [mastered]: { status: "mastered" } as State };
+    const ids = pickCompanies(cat, selected, states, 3, 42);
+    expect(ids).toHaveLength(3);
+    expect(new Set(ids).size).toBe(3);
+    expect(ids).not.toContain(mastered);
+    expect(ids.every((id) => union.has(id))).toBe(true);
+    expect(pickCompanies(cat, selected, states, 3, 42)).toEqual(ids);
+  });
+  it("enforces the three-company limit", () => {
+    expect(() => pickCompanies(cat, cat.playlists.slice(0, 4).map((p) => p.id), {}, 3, 1)).toThrow("Choose up to 3 companies");
+  });
+  it("reads legacy selections and retains all selected companies when resuming", () => {
+    expect(companySelection("001_google")).toEqual(["001_google"]);
+    expect(companySelection('["001_google","001_google","003_amazon"]')).toEqual(["001_google", "003_amazon"]);
+    const companies = sets.map((p) => p.id);
+    const r = newRound({ problems: ["a"], secs: 60, source: "company", company: companies[0] ?? null, companies, now: 9 });
+    writeRound(r);
+    expect(readRound()?.companies).toEqual(companies);
   });
 });

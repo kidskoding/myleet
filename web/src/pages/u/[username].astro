@@ -7,7 +7,7 @@ export function getStaticPaths() {
 }
 ---
 
-<Base title="Profile" shell="public" description="Practice streak, mastery and heatmap on myleet." ogType="profile" ogImage="/og/profile.png">
+<Base title="Profile" shell="public" description="Practice streak, mastery and heatmap on myleet" ogType="profile" ogImage="/og/profile.png">
   <div class="page profile" data-profile>
     <div class="head">
       <span class="pic skel" style="border-radius:50%"></span>
@@ -75,7 +75,7 @@ export function getStaticPaths() {
     const since = days === 0 ? "Practising since today" : `${plural(s.solved, "problem")} practised on myleet`;
     return html`<div class="head">
         <span class="pic">${p.avatar_url ? html`<img src="${p.avatar_url}" alt="" referrerpolicy="no-referrer" />` : initials({ display_name: p.display_name, username: p.username, email: p.username })}</span>
-        <div><h1>${name}</h1><p>@${p.username}. ${since}.</p></div>
+        <div><h1>${name}</h1><p>@${p.username}. ${since}</p></div>
         <div><button class="btn btn-secondary" type="button" data-share-profile>${icon("share")}Share</button></div>
       </div>
       <div class="stats">
@@ -85,8 +85,8 @@ export function getStaticPaths() {
         <div><div class="v">${days}</div><div class="l">Days practised</div></div>
       </div>
       <section class="sec" aria-labelledby="heat-h"><div class="section-head"><h2 id="heat-h">Practice, last 48 weeks</h2></div>
-        <div class="panel heatwrap" data-heatwrap>${heatmap(s.heatmap, { label: `${name} practised on ${plural(days, "day")} in the last 48 weeks.` })}</div></section>
-      <footer class="foot"><span>Mastered on myleet means a clean, cold redo on the 14-day review rung.</span><a class="btn btn-primary btn-sm" href="${ROUTES.home}">Practise with myleet</a></footer>`;
+        <div class="panel heatwrap" data-heatwrap>${heatmap(s.heatmap, { label: `${name} practised on ${plural(days, "day")} in the last 48 weeks` })}</div></section>
+      <footer class="foot"><span>Mastered on myleet means a clean, cold redo on the 14-day review rung</span><a class="btn btn-primary btn-sm" href="${ROUTES.home}">Practice with myleet</a></footer>`;
   }
 
   async function init(): Promise<void> {
@@ -108,12 +108,12 @@ export function getStaticPaths() {
         el,
         mine && missing
           ? html`<section class="panel private"><h1>Your profile is private</h1><p>Turn it on to share a link. This becomes public:</p>
-              <ul><li>Your name, streak and mastered and practised counts</li><li>The practice heatmap</li></ul>
-              <p>Never your code, attempts, notes, hints, weak spots or interview date.</p>
+              <ul><li>Your name, streak and mastered and practiced counts</li><li>The practice heatmap</li></ul>
+              <p>Never your code, attempts, notes, hints, weak spots or interview date</p>
               <a class="btn btn-primary" href="${ROUTES.settings}#privacy">Make my profile public</a></section>`
           : missing
-            ? html`<section class="panel private"><h1>No public profile here</h1><p>Either no one uses the name "${name}", or they haven't made their progress public. Usernames are lowercase.</p><a class="btn btn-secondary" href="${ROUTES.home}">What is myleet?</a></section>`
-            : html`<section class="panel private" role="alert"><h1>Couldn't load this profile</h1><p>${navigator.onLine ? "The server didn't answer." : "You're offline."} Try again in a moment.</p><button class="btn btn-secondary" type="button" onclick="location.reload()">Try again</button></section>`,
+            ? html`<section class="panel private"><h1>No public profile here</h1><p>Either no one uses the name "${name}", or they haven't made their progress public. Usernames are lowercase</p><a class="btn btn-secondary" href="${ROUTES.home}">What is myleet?</a></section>`
+            : html`<section class="panel private" role="alert"><h1>Couldn't load this profile</h1><p>${navigator.onLine ? "The server didn't answer" : "You're offline"} Try again in a moment</p><button class="btn btn-secondary" type="button" onclick="location.reload()">Try again</button></section>`,
       );
     }
   }

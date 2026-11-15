@@ -7,10 +7,10 @@ import type { State, TodayEntry } from "./types";
 export function greeting(now: Date, name?: string | null): string {
   const h = now.getHours();
   const who = name ? `, ${name}` : "";
-  if (h >= 23 || h < 4) return `Late one${who}.`;
-  if (h < 12) return `Good morning${who}.`;
-  if (h < 17) return `Good afternoon${who}.`;
-  return `Good evening${who}.`;
+  if (h >= 23 || h < 4) return `Welcome back${who}`;
+  if (h < 12) return `Good morning${who}`;
+  if (h < 17) return `Good afternoon${who}`;
+  return `Good evening${who}`;
 }
 
 export function dueLabel(overdueDays: number): string {
@@ -38,12 +38,12 @@ export function reasonTag(e: Pick<TodayEntry, "kind" | "reason" | "overdue_days"
 export function whyLine(e: TodayEntry, targetMins: number): string {
   const rule = `A clean pass, with no hints and under ${targetMins} minutes,`;
   const r = e.state.rung;
-  if (e.kind === "practice") return `A drill to keep it sharp. It doesn't move your review schedule up or down.`;
-  if (r < 0) return `${rule} starts its review ladder at 1 day.`;
+  if (e.kind === "practice") return `Extra practice that does not change your review schedule`;
+  if (r < 0) return `${rule} starts its review ladder at 1 day`;
   const here = RUNG_DAYS[r] ?? 1;
   const next = RUNG_DAYS[Math.min(r + 1, RUNG_DAYS.length - 1)] ?? 30;
-  if (r >= RUNG_DAYS.length - 1) return `You're on the top rung. ${rule} keeps it there for another 30 days.`;
-  return `You're on the ${here}-day rung. ${rule} moves it to ${next} days.`;
+  if (r >= RUNG_DAYS.length - 1) return `You're on the top rung. ${rule} keeps it there for another 30 days`;
+  return `You're on the ${here}-day rung. ${rule} moves it to ${next} days`;
 }
 
 export type Budget = "30" | "60" | "all" | "120";

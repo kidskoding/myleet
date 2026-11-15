@@ -72,6 +72,15 @@ function renderPinned(c: Ctx): void {
   if (empty) empty.hidden = list.length > 0;
   const date = readPrefs().plan.interviewDate;
   const left = date ? daysUntil(date) : null;
+  const intro = $("[data-company-intro]");
+  if (intro) {
+    const names = list.slice(0, 2).map((p) => p.title).join(" and ");
+    const more = list.length > 2 ? ` and ${list.length - 2} more` : "";
+    const deadline = left !== null && left >= 0 ? (left === 0 ? "Interview today" : `${plural(left, "day")} until your interview`) : "";
+    intro.textContent = names
+      ? `Your ${names}${more} practice${deadline ? ` · ${deadline}` : ""}`
+      : deadline ? `${deadline} · Choose your target companies` : "Find practice sets for the companies you're applying to";
+  }
   const shown = list.slice(0, 5);
   render(
     $("[data-pin-list]"),
@@ -139,7 +148,7 @@ function applyIndexFilter(): void {
     if (!any)
       render(
         empty,
-        html`<h2>No set for “${query.trim()}”</h2><p>There isn't a practice set with that name yet. Most loops lean on the same core techniques, so a set from a similar company works, or keep building the core in Learn.</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear-find>Clear search</button></div>`,
+        html`<h2>No set for “${query.trim()}”</h2><p>There is no practice set with that name yet. Try a similar company or continue with the core topics in Learn</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear-find>Clear search</button></div>`,
       );
   }
 }
@@ -169,7 +178,7 @@ function renderSet(c: Ctx, p: Playlist): void {
       rows.push(setRow(c.cat.catalog, e, i + 1, st, status).value);
     } else if (show === "all") rows.push(setRow(c.cat.catalog, e, i + 1).value);
   });
-  list.innerHTML = rows.join("") || html`<li class="tech-empty" style="padding:var(--space-4);color:var(--ink-3);font-size:var(--text-sm)">${show === "due" ? "Nothing from this set is due." : "Every problem in this set is ready."}</li>`.value;
+  list.innerHTML = rows.join("") || html`<li class="tech-empty" style="padding:var(--space-4);color:var(--ink-3);font-size:var(--text-sm)">${show === "due" ? "Nothing from this set is due" : "Every problem in this set is ready"}</li>`.value;
   // Filters show every match; only the full list folds.
   list.classList.toggle("show-all", show !== "all" || list.dataset["expanded"] === "1");
   const n = (k: string, v: number) => {
@@ -185,7 +194,7 @@ function renderSet(c: Ctx, p: Playlist): void {
   const foot = $("[data-set-foot]");
   if (foot) {
     foot.hidden = untracked === 0;
-    foot.textContent = `${plural(untracked, "problem")} ${untracked === 1 ? "opens" : "open"} on LeetCode and ${untracked === 1 ? "isn't" : "aren't"} tracked or counted in readiness.`;
+    foot.textContent = `${plural(untracked, "problem")} ${untracked === 1 ? "opens" : "open"} on LeetCode and ${untracked === 1 ? "isn't" : "aren't"} tracked or counted in readiness`;
   }
 }
 
@@ -203,8 +212,8 @@ function renderReadiness(c: Ctx, p: Playlist): void {
       <div class="keys"><span><i style="background:var(--pass-solid)"></i>${r.mastered} mastered</span><span><i style="background:var(--ink)"></i>${r.climbing} climbing</span><span><i style="background:var(--line-strong)"></i>${r.started} started</span><span>${r.unseen} not started</span></div>
       <p class="f">${
         all
-          ? `Every problem in this set is mastered or climbing. Keep it sharp with a ${p.title} mock.`
-          : `Ready means mastered or climbing the ladder with a clean last pass.${pace !== null && date && left !== null ? ` ${plural(left, "day")} to ${shortDate(date)}: about ${plural(pace, `${p.title} problem`)} a day gets the whole set ready.` : ""}`
+          ? `Every problem in this set is mastered or climbing. Keep it sharp with a ${p.title} mock`
+          : `Ready means mastered or climbing the ladder with a clean last pass.${pace !== null && date && left !== null ? ` ${plural(left, "day")} to ${shortDate(date)}: about ${plural(pace, `${p.title} problem`)} a day gets the whole set ready` : ""}`
       }</p>`,
   );
 }
@@ -218,13 +227,13 @@ function renderLeans(c: Ctx, p: Playlist): void {
   const extra = [bank ? `${plural(bank, "practice-set-only problem")} that ${bank === 1 ? "isn't" : "aren't"} on the Learn map` : "", rest ? `${plural(rest, "more technique")} with one problem each` : ""].filter(Boolean);
   render(
     $("[data-leans]"),
-    html`<h2 id="ln">Techniques this set leans on</h2>
-      <p class="text-small text-muted" style="margin-top:var(--space-1)">Counted from the set's problems, with your mastery of each.</p>
+    html`<h2 id="ln">Techniques in this set</h2>
+      <p class="text-small text-muted" style="margin-top:var(--space-1)">The techniques covered by this set and your progress in each</p>
       <ol>${top.map((x) => {
         const m = x.mastery ?? 0;
         return html`<li><span>${sentenceCase(x.title)}<span class="n">${x.count}</span></span><span class="st ${cls(x.status.kind)}">${leanText(x.status)}</span>${bar([{ value: m, kind: x.status.kind === "ready" ? "m" : "c" }], `${sentenceCase(x.title)}: ${x.ready} of ${x.count} ready here, your mastery ${Math.round(m * 100)}%`)}</li>`;
       })}</ol>
-      ${extra.length ? html`<p class="text-small text-muted" style="margin-top:var(--space-4)">Plus ${extra.join(", and ")}.</p>` : ""}`,
+      ${extra.length ? html`<p class="text-small text-muted" style="margin-top:var(--space-4)">Plus ${extra.join(", and ")}</p>` : ""}`,
   );
 }
 
@@ -238,14 +247,14 @@ function renderInPlan(c: Ctx, p: Playlist): void {
   const pinned = pins().includes(companySlug(p.id));
   el.hidden = false;
   if (!pinned || !c.t) {
-    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">Pin ${p.title} and your plan schedules its problems into your sessions, with a forecast for the techniques it leans on.</p>`);
+    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">Pin ${p.title} and your plan schedules its problems into your sessions, with a forecast for the techniques it leans on</p>`);
     return;
   }
   let plan;
   try {
     plan = c.t.plan(c.events, planSettings());
   } catch {
-    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">The plan couldn't be built right now.</p><div class="foot"><a class="link" href="/plan">Open plan</a></div>`);
+    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">The plan couldn't be built right now</p><div class="foot"><a class="link" href="/plan">Open plan</a></div>`);
     return;
   }
   const ids = new Set(p.entries.map((e) => (e.problem === null ? "" : (c.cat.catalog.problems[e.problem]?.id ?? ""))));
@@ -264,7 +273,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
               ({ s, picks }) =>
                 html`<li><span class="d">${sessionDay(s.start_ms)} ${sessionTime(s.start_ms)}</span><span>${picks.map((x) => x.title).join(", ")}<span class="why">${picks[0]?.reason ?? ""}</span></span></li>`,
             )}</ol>`
-          : html`<p class="text-small text-secondary" style="margin-top:var(--space-2)">No ${p.title} problems in the next sessions: reviews and other techniques come first right now.</p>`
+          : html`<p class="text-small text-secondary" style="margin-top:var(--space-2)">No ${p.title} problems in the next sessions: reviews and other techniques come first right now</p>`
       }
       ${
         fc.length
@@ -296,7 +305,7 @@ function renderPin(p: Playlist): void {
   if (note) {
     const date = readPrefs().plan.interviewDate;
     note.hidden = !pinned;
-    note.textContent = `Pinned. Your plan leans toward ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}.`;
+    note.textContent = `Pinned. Your plan leans toward ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
   }
 }
 
@@ -306,7 +315,7 @@ function togglePin(p: Playlist): void {
   const pinned = before.includes(slug);
   updatePrefs({ plan: { companies: pinned ? before.filter((s) => s !== slug) : [...before, slug] } });
   rerender();
-  toast(pinned ? `${p.title} unpinned.` : `${p.title} pinned to your plan.`, {
+  toast(pinned ? `${p.title} unpinned` : `${p.title} pinned to your plan`, {
     action: {
       label: "Undo",
       run: () => {
