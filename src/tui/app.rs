@@ -211,6 +211,9 @@ pub trait Screen {
     fn close(&mut self, _sh: &mut Shared) {}
 }
 
+/// Opens a URL; returns a message for the toast on failure.
+pub type Opener = Box<dyn Fn(&str) -> Result<(), String>>;
+
 /// State every screen can reach.
 pub struct Shared {
     pub theme: Theme,
@@ -218,6 +221,8 @@ pub struct Shared {
     pub app: crate::app::App,
     /// An error that stays on screen until restart (e.g. a failed save).
     pub status: String,
+    /// Opens a URL in the browser; tests swap in a fake.
+    pub open: Opener,
     toast: String,
     toast_id: u64,
     timers: Vec<(Instant, Msg)>,
@@ -233,12 +238,14 @@ pub(crate) fn test_shared() -> Shared {
     let workspace = crate::workspace::Workspace {
         dir: dir.join("work"),
     };
-    Shared::new(crate::app::App::new(
+    let mut sh = Shared::new(crate::app::App::new(
         crate::testutil::good_catalog(),
         log,
         events,
         workspace,
-    ))
+    ));
+    sh.open = Box::new(|_| Ok(()));
+    sh
 }
 
 impl Shared {
@@ -248,6 +255,7 @@ impl Shared {
             theme: Theme::new(),
             app,
             status: String::new(),
+            open: Box::new(open_url),
             toast: String::new(),
             toast_id: 0,
             timers: Vec::new(),
@@ -275,6 +283,30 @@ impl Shared {
     pub fn sender(&self) -> Sender<Msg> {
         self.tx.clone()
     }
+}
+
+/// The OS's browser launcher, detached so the TUI keeps the terminal.
+pub fn open_url(url: &str) -> Result<(), String> {
+    use std::process::{Command, Stdio};
+    let mut cmd = if cfg!(target_os = "macos") {
+        Command::new("open")
+    } else if cfg!(windows) {
+        let mut c = Command::new("rundll32");
+        c.arg("url.dll,FileProtocolHandler");
+        c
+    } else {
+        Command::new("xdg-open")
+    };
+    let mut child = cmd
+        .arg(url)
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .spawn()
+        .map_err(|e| format!("could not open {url}: {e}"))?;
+    // Reap the launcher so it does not linger as a zombie.
+    std::thread::spawn(move || child.wait());
+    Ok(())
 }
 
 pub struct App {
