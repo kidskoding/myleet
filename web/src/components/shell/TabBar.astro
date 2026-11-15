@@ -1,0 +1,17 @@
+---
+import { ROUTES } from "../../lib/routes";
+import Icon from "../Icon.astro";
+import type { NavKey } from "./TopBar.astro";
+
+interface Props {
+  nav?: NavKey | undefined;
+}
+const { nav } = Astro.props;
+---
+
+<nav class="tabbar" aria-label="Primary" transition:persist="tabbar" transition:animate="none">
+  <a href={ROUTES.today} data-nav="today" aria-current={nav === "today" ? "page" : undefined}><Icon name="sunrise" />Today</a>
+  <a href={ROUTES.learn} data-nav="learn" aria-current={nav === "learn" ? "page" : undefined}><Icon name="map" />Learn</a>
+  <a href={ROUTES.companies} data-nav="companies" aria-current={nav === "companies" ? "page" : undefined}><Icon name="building-2" />Companies</a>
+  <a href={ROUTES.mock} data-nav="mock" aria-current={nav === "mock" ? "page" : undefined}><Icon name="timer" />Mock</a>
+</nav>

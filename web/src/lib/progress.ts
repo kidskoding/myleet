@@ -99,6 +99,11 @@ export function resetProgressStore(): void {
 
 // ---- events ----
 
+/** Tells the page (and lib/sync.ts) that local progress changed. */
+function changed(): void {
+  if (typeof window !== "undefined") window.dispatchEvent(new Event("myleet:progress"));
+}
+
 function eventTime(line: string): number {
   try {
     const t = Date.parse((JSON.parse(line) as { t?: string }).t ?? "");
@@ -139,6 +144,7 @@ export async function appendEvent(line: string): Promise<string> {
   const store = await kv();
   const text = await store.update<string>(EVENTS, (old) => `${old ?? ""}${l}\n`);
   await setMeta({ dirty: true });
+  changed();
   return text;
 }
 
@@ -160,7 +166,14 @@ export async function importEvents(text: string): Promise<string> {
   const store = await kv();
   const merged = await store.update<string>(EVENTS, (old) => mergeEvents(old ?? "", text));
   await setMeta({ dirty: true });
+  changed();
   return merged;
+}
+
+/** Forgets which server version local progress is based on, so the next sync merges as new. */
+export async function resetSyncMeta(): Promise<void> {
+  const events = await readEvents();
+  await (await kv()).set(META, { version: 0, dirty: events.trim() !== "" } satisfies SyncMeta);
 }
 
 /** Deletes local events and sync state (drafts stay). */

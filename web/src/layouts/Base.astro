@@ -1,47 +1,114 @@
 ---
+import "@fontsource-variable/archivo/wdth.css";
+import archivoLatin from "@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url";
 import { ClientRouter } from "astro:transitions";
+import TabBar from "../components/shell/TabBar.astro";
+import TopBar, { type NavKey } from "../components/shell/TopBar.astro";
 import "../styles/tokens.css";
 import "../styles/base.css";
+import "../styles/components.css";
 
 interface Props {
   title: string;
   description?: string;
+  /**
+   * app: top bar + phone tab bar. focused: brand and theme only (onboarding, sign-in).
+   * public: top bar without the tab bar (landing, legal, public profile).
+   * bare: no chrome (the workspace draws its own bar); overlays and keys still work.
+   */
+  shell?: "app" | "focused" | "public" | "bare";
+  nav?: NavKey;
+  /** Signed-in and personal pages stay out of search results. */
+  noindex?: boolean;
+  /** Absolute or root-relative 1200x630 image. */
+  ogImage?: string;
+  ogType?: string;
 }
 
-const { title, description = "Interview DSA practice with tests that run in your browser." } = Astro.props;
+const {
+  title,
+  description = "Interview DSA practice that schedules your reviews. Tests run in your browser.",
+  shell = "app",
+  nav,
+  noindex = false,
+  ogImage = "/og/default.png",
+  ogType = "website",
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://myleet.dev");
+const fullTitle = title === "myleet" ? title : `${title} · myleet`;
+const canonical = new URL(Astro.url.pathname, site).href;
+const image = new URL(ogImage, site).href;
+const chrome = shell === "app" || shell === "public" || shell === "focused";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <title>{title === "myleet" ? title : `${title} · myleet`}</title>
-    <ClientRouter />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:site_name" content="myleet" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f3ef" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121417" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" href={archivoLatin} as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      // Before first paint: theme, in-app reduced motion and the signed-in flag, so nothing flashes.
+      (function () {
+        var r = document.documentElement;
+        function apply() {
+          try {
+            var t = localStorage.getItem("myleet-theme");
+            if (t === "light" || t === "dark") {
+              r.dataset.theme = t;
+              document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+                m.content = t === "dark" ? "#121417" : "#f2f3ef";
+              });
+            }
+            var p = JSON.parse(localStorage.getItem("myleet-prefs") || "{}");
+            if (p.reduceMotion) r.dataset.motion = "reduce";
+            r.dataset.auth = localStorage.getItem("myleet:me") ? "in" : "out";
+          } catch (e) {
+            r.dataset.auth = "out";
+          }
+        }
+        apply();
+        document.addEventListener("astro:after-swap", apply);
+      })();
+    </script>
+    <ClientRouter fallback="swap" />
   </head>
-  <body>
-    <header>
-      <nav aria-label="Main">
-        <a href="/">myleet</a>
-        <a href="/app">Today</a>
-        <a href="/map">Map</a>
-        <a href="/playlists">Playlists</a>
-        <a href="/mock">Mock</a>
-        <a href="/review">Review</a>
-        <a href="/progress">Progress</a>
-        <a href="/settings">Settings</a>
-      </nav>
-    </header>
-    <main>
+  <body data-shell={shell} data-nav={nav} class={shell === "app" ? "has-tabbar" : undefined}>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {chrome && <TopBar nav={nav} />}
+    <div id="banners" class="banners" aria-label="Notices"></div>
+    <main id="main" tabindex="-1">
       <slot />
     </main>
-    <footer>
-      <nav aria-label="Footer">
-        <a href="/about">About</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </nav>
-    </footer>
+    <slot name="footer" />
+    {shell === "app" && <TabBar nav={nav} />}
+    <div id="toasts" class="toast-region" role="status" aria-live="polite"></div>
+    <script>
+      import "../scripts/shell";
+    </script>
   </body>
 </html>

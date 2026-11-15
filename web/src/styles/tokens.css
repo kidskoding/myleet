@@ -208,6 +208,16 @@
   }
 }
 
+/* The OS setting, or the in-app "Reduce motion" setting (<html data-motion="reduce">). */
+:root[data-motion="reduce"] {
+  --dur-press: 0ms;
+  --dur-fast: 0ms;
+  --dur-base: 120ms;
+  --dur-slow: 120ms;
+  --dur-climb: 0ms;
+  --ease-spring: linear;
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-press: 0ms;

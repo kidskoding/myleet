@@ -1,0 +1,16 @@
+---
+import { icon, type IconName } from "../lib/ui/icons";
+
+interface Props {
+  name: IconName;
+  /** Accessible name; omit for decorative icons. */
+  label?: string;
+  class?: string;
+}
+const { name, label, class: cls } = Astro.props;
+const opts: { label?: string; cls?: string } = {};
+if (label) opts.label = label;
+if (cls) opts.cls = cls;
+---
+
+<Fragment set:html={icon(name, opts).value} />
