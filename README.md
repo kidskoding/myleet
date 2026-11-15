@@ -2,9 +2,8 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/kidskoding/myleet/ci.yml?branch=master&style=flat-square&label=CI)](https://github.com/kidskoding/myleet/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/kidskoding/myleet?style=flat-square&sort=semver)](https://github.com/kidskoding/myleet/releases)
-[![Go](https://img.shields.io/github/go-mod/go-version/kidskoding/myleet?style=flat-square)](go.mod)
+[![Rust](https://img.shields.io/badge/rust-1.85%2B-orange?style=flat-square)](Cargo.toml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-[![Go Report Card](https://goreportcard.com/badge/github.com/kidskoding/myleet?style=flat-square)](https://goreportcard.com/report/github.com/kidskoding/myleet)
 [![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20windows-lightgrey?style=flat-square)](https://github.com/kidskoding/myleet/releases)
 
 **Adaptive LeetCode practice in your terminal.**
@@ -33,12 +32,12 @@ myleet
 Installs into `~/.local/bin`. Add that directory to your `PATH` if the shell cannot
 find `myleet`.
 
-| Channel | Command |
-| ------- | ------- |
-| Install script | `curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh \| sh` |
-| Nix | `nix run github:kidskoding/myleet` or `nix profile install github:kidskoding/myleet` |
-| GitHub Releases | [download a binary](https://github.com/kidskoding/myleet/releases) |
-| Go (developers) | `go install github.com/kidskoding/myleet/cmd/myleet@latest` then put `$(go env GOPATH)/bin` on `PATH` |
+| Channel            | Command                                                                                               |
+| ------------------ | ----------------------------------------------------------------------------------------------------- |
+| Install script     | `curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh \| sh`      |
+| Nix                | `nix run github:kidskoding/myleet` or `nix profile install github:kidskoding/myleet`                  |
+| GitHub Releases    | [download a binary](https://github.com/kidskoding/myleet/releases)                                    |
+| Cargo (developers) | `cargo install --git https://github.com/kidskoding/myleet --locked` then put `~/.cargo/bin` on `PATH` |
 
 **From a clone** (contributors):
 
@@ -48,20 +47,20 @@ uv sync --group dev
 just install && myleet
 ```
 
-| Tip         |                                                                                        |
-| ----------- | -------------------------------------------------------------------------------------- |
-| Updates     | `myleet update` pulls the installed curriculum and refreshes the python env            |
-| Doctor      | `myleet doctor` checks python, pytest, editor, data dir                                |
-| Version     | `myleet version`                                                                       |
-| Custom root | `export MYLEET_ROOT=/path/to/checkout`                                                 |
+| Tip         |                                                                             |
+| ----------- | --------------------------------------------------------------------------- |
+| Updates     | `myleet update` pulls the installed curriculum and refreshes the python env |
+| Doctor      | `myleet doctor` checks python, pytest, editor, data dir                     |
+| Version     | `myleet version`                                                            |
+| Custom root | `export MYLEET_ROOT=/path/to/checkout`                                      |
 
 ## Why myleet
 
-| Fixed lists                            | myleet                                                                |
-| -------------------------------------- | --------------------------------------------------------------------- |
+| Fixed lists                            | myleet                                                                         |
+| -------------------------------------- | ------------------------------------------------------------------------------ |
 | Same problems, same order for everyone | Recommends reviews and new work from your fails, hints, peeks, and slow solves |
-| “Done” when you AC once                | Mastery means cold redo on a review ladder (1 → 3 → 7 → 14 → 30 days) |
-| Browser + scattered notes              | Terminal trainer + notes book + 200+ company playlists                |
+| “Done” when you AC once                | Mastery means cold redo on a review ladder (1 → 3 → 7 → 14 → 30 days)          |
+| Browser + scattered notes              | Terminal trainer + notes book + 200+ company playlists                         |
 
 A problem is mastered only when you can explain the pattern, pick the right shape, code
 it cleanly, pass the tests, and state time/space under interview pressure.
@@ -72,13 +71,13 @@ Start with [How to prep](guide/01_how_to_prep.md) if you are new to live coding 
 
 Press `1`-`5` or `tab`. Bottom bar shows keys for the current screen; `?` lists them all.
 
-|     | Screen        |                                                                                                           |
-| --- | ------------- | --------------------------------------------------------------------------------------------------------- |
+|     | Screen        |                                                                                                                                                               |
+| --- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `1` | **Today**     | Personalized queue: due reviews, weak spots, then keep-sharp drills when you are caught up. Placement for first-timers; check-ins with `c` / snooze with `n`. |
-| `2` | **Map**       | Guide notes → modules → techniques → problems. `n` opens notes.                                           |
-| `3` | **Timed**     | Mock interview (technique hidden).                                                                        |
-| `4` | **Playlists** | Company sets by recruiting track, with progress.                                                          |
-| `5` | **Stats**     | Streak, mastery, heatmap, weakest techniques; reset at the bottom.                                        |
+| `2` | **Map**       | Guide notes → modules → techniques → problems. `n` opens notes.                                                                                               |
+| `3` | **Timed**     | Mock interview (technique hidden).                                                                                                                            |
+| `4` | **Playlists** | Company sets by recruiting track, with progress.                                                                                                              |
+| `5` | **Stats**     | Streak, mastery, heatmap, weakest techniques; reset at the bottom.                                                                                            |
 
 **Focus** (`enter` on a problem): statement + timer + named tests + say-aloud checklist.
 Edit in your editor (`e`); tests rerun on save or `space`.
@@ -182,8 +181,7 @@ Eighteen modules by interview pattern (not CS textbook order):
 
 ```text
 myleet/
-├── cmd/myleet/          trainer binary
-├── internal/            engine + TUI (Go)
+├── src/                 trainer binary: engine + TUI (Rust)
 ├── guide/               start-here notes
 ├── curriculum/          taught modules (notes, starters, tests)
 ├── bank/                playlist-only problems
@@ -194,7 +192,7 @@ myleet/
 ## Develop
 
 ```bash
-just vet test validate   # what CI runs for Go + curriculum load
+just test validate       # what CI runs for Rust + curriculum load
 just check               # all reference solutions (slow)
 uv run ruff check . && uv run ruff format --check .
 uv run ty check && uv run pytest

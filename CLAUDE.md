@@ -25,8 +25,15 @@ ______________________________________________________________________
 
 ```text
 myleet/
-├── cmd/myleet/                 the `myleet` trainer binary (Go)
-├── internal/                engine (catalog, runner, scheduler, ...) and TUI
+├── src/                     the `myleet` trainer (Rust crate: library + binary)
+│   ├── main.rs, cli/        entry point and the non-TUI commands (validate, check, doctor, ...)
+│   ├── app.rs               the loaded trainer shared by the CLI and the TUI
+│   ├── catalog/             curriculum, bank and playlist loading; problem-ids.lock
+│   ├── runner/              stages an attempt or solution and runs pytest
+│   ├── session.rs, schedule.rs   Today's queue and the review ladder
+│   ├── savestate.rs, progress.rs progress.toml (save file) and events.jsonl (history)
+│   ├── tui/                 ratatui screens (today, map, timed, playlists, stats, focus)
+│   └── testdata/            catalog and runner fixtures, screen goldens
 ├── guide/                   start-here notes shown at the top of the map
 ├── curriculum/
 │   ├── _lib/                shared Python helpers importable from every test
