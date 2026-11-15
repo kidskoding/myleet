@@ -467,7 +467,7 @@ mod tests {
             assert_eq!(p.order, i, "{}", p.id);
         }
         let one = c.problem("p-one").unwrap();
-        assert_eq!(one.time_target, Duration::from_secs(15 * 60));
+        assert_eq!(one.time_target, Duration::from_secs(25 * 60));
         assert_eq!(one.difficulty, Difficulty::Easy);
         assert!(one.has_solution);
         assert_eq!(
@@ -480,7 +480,7 @@ mod tests {
         assert!(!two.has_solution);
         assert_eq!(two.say_aloud[0], "invariant");
         let three = c.problem("p-three").unwrap();
-        assert_eq!(three.time_target, Duration::from_secs(45 * 60));
+        assert_eq!(three.time_target, Duration::from_secs(25 * 60));
         let (tech, module) = (c.technique_of(one), c.module_of(one));
         assert_eq!(
             (

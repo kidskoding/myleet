@@ -39,7 +39,7 @@ function setupDemo(demo: HTMLElement): void {
   };
   const setClock = () => {
     if (clock) clock.textContent = clockText(secs);
-    if (track) track.style.width = `${Math.min(100, (secs / 900) * 100)}%`;
+    if (track) track.style.width = `${Math.min(100, (secs / 1500) * 100)}%`;
   };
   const showAll = () => {
     demo.classList.remove("typing");

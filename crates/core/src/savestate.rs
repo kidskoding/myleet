@@ -302,9 +302,20 @@ mod tests {
     fn go_history_computes_the_go_save_file() {
         let c = good_catalog();
         let (events, _) = crate::progress::parse_lines(COMPAT_EVENTS, "events.jsonl");
+        // The Go fixture was recorded with the old per-difficulty targets (15, 25 and 45 min).
         let target = |id: &str| {
             c.problem(id).map_or(SignedDuration::ZERO, |p| {
-                SignedDuration::try_from(p.time_target).unwrap()
+                let mins =
+                    if p.time_target == crate::catalog::Difficulty::Medium.default_time_target() {
+                        match p.difficulty {
+                            crate::catalog::Difficulty::Easy => 15,
+                            crate::catalog::Difficulty::Medium => 25,
+                            crate::catalog::Difficulty::Hard => 45,
+                        }
+                    } else {
+                        i64::try_from(p.time_target.as_secs() / 60).unwrap()
+                    };
+                SignedDuration::from_mins(mins)
             })
         };
         let mut states = crate::schedule::compute(&events, target, &chicago());

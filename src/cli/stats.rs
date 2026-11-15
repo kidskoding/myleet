@@ -98,6 +98,6 @@ mod tests {
         log.append(&done).unwrap();
         let (code, out) = call(&e, &["stats"]);
         assert_eq!(code, 0, "{out}");
-        assert!(out.contains("median easy   4m12s (target 15m0s)"), "{out}");
+        assert!(out.contains("median easy   4m12s (target 25m0s)"), "{out}");
     }
 }

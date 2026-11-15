@@ -43,12 +43,10 @@ impl Difficulty {
         }
     }
 
+    /// Every problem gets 25 minutes, about what one problem gets in a live interview.
     pub fn default_time_target(self) -> Duration {
-        Duration::from_secs(match self {
-            Difficulty::Easy => 15 * 60,
-            Difficulty::Medium => 25 * 60,
-            Difficulty::Hard => 45 * 60,
-        })
+        let _ = self;
+        Duration::from_secs(25 * 60)
     }
 }
 
