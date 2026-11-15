@@ -1,6 +1,3 @@
-//! Ports of interview_test.go and the interview cases of fixes_test.go,
-//! sweep_test.go, timer_test.go and focus_layout_test.go.
-
 use std::fs;
 use std::sync::Arc;
 use std::time::Instant;
@@ -75,7 +72,6 @@ fn runner(sh: &mut Shared, results: Vec<RunResult>) {
     });
 }
 
-/// Drives one Interview the way the app would, without the frame.
 struct H {
     sh: Shared,
     iv: Interview,
@@ -95,14 +91,12 @@ impl H {
         }
     }
 
-    /// A one-problem round on p-one, like Go's interviewModel.
     fn round(results: Vec<RunResult>) -> H {
         let mut h = H::setup(results, one);
         h.keys(&["enter"]);
         h
     }
 
-    /// p-one then p-two, like Go's twoProblemRound.
     fn two(results: Vec<RunResult>) -> H {
         let mut h = H::setup(results, two);
         h.keys(&["l", "enter"]);
@@ -178,8 +172,6 @@ impl H {
     }
 }
 
-// ---- frame helpers ----
-
 fn frame(results: Vec<RunResult>, pick: Option<Pick>) -> Frame {
     PICK.with(|p| p.set(pick));
     let mut sh = shared_with(Vec::new());
@@ -231,8 +223,6 @@ fn assert_golden(name: &str, got: &[String]) {
         want.join("\n")
     );
 }
-
-// ---- interview_test.go ----
 
 #[test]
 fn hides_technique() {
@@ -472,8 +462,6 @@ fn home_check_in_stays_on_today() {
     assert!(f.wants_mouse(), "the check-in round is running");
 }
 
-// ---- fixes_test.go ----
-
 #[test]
 fn per_problem_clock() {
     let mut h = H::two(vec![green()]);
@@ -534,8 +522,6 @@ fn round_key_bar_starts_with_edit() {
     );
 }
 
-// ---- timer_test.go / focus_layout_test.go ----
-
 #[test]
 fn exam_modes_cannot_pause_or_restart() {
     let mut h = H::round(vec![red()]);
@@ -564,8 +550,6 @@ fn round_mouse_reaches_problem() {
     assert_eq!(h.iv.foci[0].win, Window::Tests);
     assert!(h.iv.wants_mouse(), "rounds turn on mouse reporting");
 }
-
-// ---- the rest of interview.go ----
 
 #[test]
 fn round_swallows_leave_keys() {
@@ -605,8 +589,6 @@ fn empty_pick_stays_on_setup() {
     h.keys(&["esc"]);
     assert!(h.popped);
 }
-
-// ---- sweep_test.go ----
 
 #[test]
 fn fits_all_sizes() {

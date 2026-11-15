@@ -4,9 +4,7 @@ use std::process::{Command, Stdio};
 
 use crate::runner::look_path;
 
-/// Cloned when myleet is installed without a local checkout.
 pub const DEFAULT_REPO: &str = "https://github.com/kidskoding/myleet.git";
-/// The curriculum checkout under the XDG data directory.
 pub const CONTENT_DIR_NAME: &str = "content";
 
 fn is_root(dir: &Path) -> bool {
@@ -17,7 +15,6 @@ fn env_root() -> Option<String> {
     std::env::var("MYLEET_ROOT").ok().filter(|v| !v.is_empty())
 }
 
-/// Where an installed binary keeps its curriculum clone.
 pub fn content_dir(data_dir: &Path) -> PathBuf {
     data_dir.join(CONTENT_DIR_NAME)
 }
@@ -80,7 +77,6 @@ pub fn ensure_root_with(
     Ok(content)
 }
 
-/// Runs uv sync when the installed tree has no .venv yet.
 fn ensure_venv(root: &Path, warn: &mut dyn Write) -> Result<(), String> {
     if root.join(".venv/bin/python").exists() || !root.join("pyproject.toml").exists() {
         return Ok(()); // already set up, or an incomplete tree (tests)
@@ -106,7 +102,6 @@ fn run_to_stderr(cmd: &mut Command) -> Result<(), String> {
     }
 }
 
-/// Installs project deps (pytest) into `root/.venv` via uv.
 pub fn sync_deps(root: &Path, warn: &mut dyn Write) -> Result<(), String> {
     let uv = look_path("uv", &path_var()).ok_or("uv is required for problem tests")?;
     let _ = writeln!(warn, "myleet: setting up python env...");
@@ -142,7 +137,6 @@ pub fn bootstrap_content(dest: &Path, repo_url: &str) -> Result<(), String> {
     cloned
 }
 
-/// Runs `git pull --ff-only` in an existing content checkout.
 pub fn update_content(content: &Path) -> Result<(), String> {
     if !is_root(content) {
         return Err(format!(
@@ -158,7 +152,6 @@ pub fn update_content(content: &Path) -> Result<(), String> {
     )
 }
 
-/// How the curriculum was resolved (for doctor).
 pub fn root_kind(root: &Path, data_dir: &Path) -> &'static str {
     root_kind_with(root, data_dir, env_root())
 }

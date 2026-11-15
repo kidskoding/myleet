@@ -1,6 +1,3 @@
-//! The loaded trainer: curriculum, config, history and the save file, shared by
-//! the CLI commands and the TUI.
-
 use std::collections::{HashMap, HashSet};
 use std::io::Write;
 use std::path::{Path, PathBuf};
@@ -39,7 +36,7 @@ impl Env<'static> {
 }
 
 impl Env<'_> {
-    /// Like Go's `os.Getenv(k) != ""`.
+    /// An empty value counts as unset.
     pub fn get(&self, key: &str) -> Option<String> {
         (self.var)(key).filter(|v| !v.is_empty())
     }
@@ -71,12 +68,10 @@ pub struct App {
     pub tz: TimeZone,
 
     states: HashMap<String, State>,
-    /// Attempt ids already applied to the save state.
     applied: HashSet<String>,
 }
 
 impl App {
-    /// An in-memory app (no save file) whose states are rebuilt from `events`.
     pub fn new(catalog: Catalog, log: Log, events: Vec<Event>, workspace: Workspace) -> App {
         let mut a = App {
             root: catalog.root.clone(),
@@ -260,7 +255,6 @@ impl App {
     }
 }
 
-/// Migrates progress from `<repo>/.myleet`, where it briefly lived.
 fn move_out_of_repo(repo_state: &Path, state_dir: &Path) -> std::io::Result<()> {
     let legacy_log = repo_state.join(HISTORY_FILE);
     let Ok(data) = std::fs::read(&legacy_log) else {
@@ -296,8 +290,6 @@ pub(crate) mod testenv {
         }
     }
 
-    /// Mirrors the Go tests' MYLEET_ROOT + XDG_* setup: a temp copy of a fixture
-    /// root, a temp data home and a temp config home.
     pub struct TestEnv {
         pub root: tempfile::TempDir,
         pub data_home: tempfile::TempDir,

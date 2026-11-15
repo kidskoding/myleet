@@ -1,6 +1,3 @@
-//! The playlists tab: company playlists under their group headers with progress;
-//! tracked entries open the problem, the rest open in the browser.
-
 use std::cell::Cell;
 use std::collections::HashMap;
 
@@ -20,7 +17,6 @@ use crate::schedule::{State, Status};
 pub struct Playlists {
     /// The playlist whose entries are shown, an index into `catalog.playlists`.
     open: Option<usize>,
-    /// The open playlist's title, for the window title.
     open_title: String,
     cursor: usize,
     entry: usize,
@@ -28,7 +24,6 @@ pub struct Playlists {
     filter: ListFilter,
 }
 
-/// One drawn line: a row index, or a group header (or the blank above one).
 enum ListLine {
     Row(usize),
     Header(Line<'static>),

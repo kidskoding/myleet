@@ -4,7 +4,6 @@ fn first_line(s: &str) -> String {
     s.trim().split('\n').next().unwrap_or_default().to_string()
 }
 
-/// Direct character data only, like Go's `xml:",chardata"`.
 fn chardata(node: roxmltree::Node) -> String {
     node.children()
         .filter(|c| c.is_text())
@@ -21,7 +20,6 @@ pub fn parse_junit(data: &str) -> Result<Vec<TestResult>, String> {
 
 fn walk(suite: roxmltree::Node, out: &mut Vec<TestResult>) {
     for case in suite.children().filter(|c| c.has_tag_name("testcase")) {
-        // Go keeps the last element when one repeats.
         let child = |tag: &str| case.children().rfind(|c| c.has_tag_name(tag));
         let mut tr = TestResult {
             name: case.attribute("name").unwrap_or_default().to_string(),

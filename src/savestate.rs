@@ -35,7 +35,6 @@ struct Entry {
 
 #[derive(Debug)]
 pub enum ReadError {
-    /// No save file yet.
     Missing,
     Io(std::io::Error),
     /// The file is broken; the message names the path and what to fix.
@@ -61,7 +60,6 @@ fn rung_index(label: &str) -> Option<i32> {
         .map(|i| i as i32)
 }
 
-/// Local midnight of the date written in the file, like Go's `day(t, loc)`.
 fn day(dt: Option<toml::value::Datetime>, tz: &TimeZone) -> Option<Timestamp> {
     let d = dt?.date?;
     let date = jiff::civil::Date::new(d.year as i16, d.month as i8, d.day as i8).ok()?;
@@ -339,7 +337,7 @@ mod tests {
             .join(name)
     }
 
-    // Fixtures written by the Go build: the Rust build must read and write them byte for byte.
+    // Existing learners' files: these must read and write back byte for byte.
     #[test]
     fn go_events_round_trip_byte_for_byte() {
         let (_, events, warns) = crate::progress::Log::open(&compat("events.jsonl"));
@@ -390,7 +388,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let path = dir.path().join("progress.toml");
         write(&path, &c, &states, &chicago()).unwrap();
-        // Like Go's Read, a block without `first` takes it from `last`, so it is written back.
+        // A block without `first` takes it from `last`, so it is written back.
         let want = std::fs::read_to_string(compat("progress.toml"))
             .unwrap()
             .replace(

@@ -96,7 +96,7 @@ impl Runner {
             return RunResult::error(format!("read tests: {e}"));
         }
         let report = dir.path().join("r.xml");
-        // One file for stdout and stderr keeps them interleaved like Go's CombinedOutput.
+        // One file for stdout and stderr keeps them interleaved.
         let log_path = dir.path().join("out.log");
         let log = match fs::File::create(&log_path) {
             Ok(f) => f,
@@ -194,7 +194,7 @@ mod tests {
         Path::new(env!("CARGO_MANIFEST_DIR")).join("src/testdata/runner")
     }
 
-    /// `None` means no python here; the test is skipped like Go's t.Skipf.
+    /// `None` means no python here, so the test is skipped.
     fn test_runner(timeout: Duration) -> Option<(Runner, tempfile::TempDir)> {
         let root = Path::new(env!("CARGO_MANIFEST_DIR"));
         let python = match resolve_python(&Config::default(), root) {

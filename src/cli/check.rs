@@ -11,8 +11,7 @@ use crate::runner::{Outcome, RunResult};
 const CHECK_WORKERS: usize = 8;
 const FLAG_USAGE: &str = "Usage of check:\n  -solutions\n    \trun reference solution.py files";
 
-/// Go's flag package: `-solutions`, `--solutions`, `-solutions=bool`, stops at the
-/// first positional argument or `--`.
+/// Accepts `-solutions`, `--solutions` and `-solutions=bool`; stops at the first positional or `--`.
 fn parse(args: &[String]) -> Result<(bool, Vec<String>), String> {
     let mut solutions = false;
     let mut i = 0;

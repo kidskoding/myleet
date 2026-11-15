@@ -13,7 +13,6 @@ use crate::{checkpoint, placement};
 pub enum Kind {
     Review,
     New,
-    /// Keep-sharp drills when the normal queue is empty.
     Practice,
 }
 
@@ -27,7 +26,6 @@ impl Kind {
     }
 }
 
-/// Why a new or practice problem was picked, so the plan reads as personal.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Reason {
     Weak,
@@ -140,7 +138,6 @@ pub fn today<'a>(
     pick_keep_sharp(c, states, today, tz, slots as usize)
 }
 
-/// Placement and checkpoint gaps, unioned.
 fn weak_modules(events: &[Event]) -> HashSet<String> {
     let mut out = HashSet::new();
     if let Some(r) = placement::load(events).filter(|r| !r.skipped) {
@@ -245,12 +242,9 @@ struct SharpCand<'a> {
     st: State,
     score: f64,
     reason: Reason,
-    /// Finished earlier today.
     today: bool,
 }
 
-/// An interview-ready drill queue for when reviews and new work are empty.
-/// Curriculum only; prefers cold / shaky problems and spreads techniques.
 fn pick_keep_sharp<'a>(
     c: &'a Catalog,
     states: &HashMap<String, State>,
@@ -323,13 +317,11 @@ fn pick_keep_sharp<'a>(
             });
         }
     };
-    // Pass 1: one problem per technique (interview-mix shape).
     for cand in &primary {
         if used_tech.insert((cand.p.module, cand.p.technique)) {
             add(cand);
         }
     }
-    // Pass 2: fill remaining slots by score.
     for cand in &primary {
         add(cand);
     }
@@ -435,7 +427,6 @@ mod tests {
             last_finished: Some(day(last)),
             ..st(status, rung, mid(due))
         };
-        // Everything seen, nothing due, no new slots left: interview drills across techniques.
         let states = map(vec![
             ("p-one", drill(Status::Mastered, 3, 4, 4, 0, 5, 25)),
             ("p-two", drill(Status::Mastered, 3, 5, 2, 2, 12, 25)),

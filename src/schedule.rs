@@ -281,7 +281,6 @@ mod tests {
         SignedDuration::from_mins(30)
     }
 
-    /// Chicago local time on 2026-10-<day> at hh:mm.
     fn at(day: i8, hh: i8, mm: i8) -> Timestamp {
         jiff::civil::date(2026, 10, day)
             .at(hh, mm, 0, 0)

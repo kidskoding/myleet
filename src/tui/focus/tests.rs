@@ -1,6 +1,3 @@
-//! Ports of focus_test.go, focus_layout_test.go, timer_test.go and the Focus
-//! cases of fixes_test.go and sweep_test.go.
-
 use std::sync::{Arc, Mutex};
 use std::time::Instant;
 
@@ -13,7 +10,6 @@ use crate::runner::TestResult;
 use crate::tui::app::{App, FakePrompts, FakeRunner, KeyPress, test_shared};
 use crate::tui::theme::assert_palette;
 
-/// Mon oct 19 2026, 10:00 Chicago, like Go's testNow.
 fn test_now() -> Timestamp {
     jiff::civil::date(2026, 10, 19)
         .at(10, 0, 0, 0)
@@ -67,7 +63,6 @@ fn long_failure() -> RunResult {
 
 type Clock = Arc<Mutex<Timestamp>>;
 
-/// Shared with a fake runner, fake prompts and a clock the test can move.
 fn shared(results: Vec<RunResult>, prompts: FakePrompts) -> (Shared, Arc<FakeRunner>, Clock) {
     let mut sh = test_shared();
     let runner = Arc::new(FakeRunner {
@@ -104,7 +99,6 @@ fn passed_events(id: &str, day: i64) -> Vec<Event> {
     ]
 }
 
-/// Drives one Focus the way the app would, without the frame.
 struct H {
     sh: Shared,
     f: Focus,
@@ -253,7 +247,6 @@ fn assert_fits(lines: &Lines, w: usize, h: usize) {
     }
 }
 
-/// The app frame with a problem open, like Go's `New(s, id)`.
 fn app_with(id: &str, results: Vec<RunResult>, prompts: FakePrompts) -> App {
     let (sh, _, _) = shared(results, prompts);
     let mut a = App::new(sh);
@@ -299,7 +292,7 @@ fn golden(name: &str) -> Vec<String> {
         .collect()
 }
 
-/// Go's goldens trim nothing but pad some rows; the terminal pads every row.
+/// Rows are compared with trailing spaces trimmed, since the terminal pads every row.
 fn assert_golden(name: &str, got: &[String]) {
     let want = golden(name);
     let got: Vec<String> = got.iter().map(|l| l.trim_end().to_string()).collect();
@@ -326,8 +319,6 @@ fn row_of(view: &str, want: &str) -> usize {
         .position(|l| l.contains(want))
         .unwrap_or_else(|| panic!("no row contains {want:?}:\n{view}"))
 }
-
-// ---- focus_test.go ----
 
 #[test]
 fn open_records_opened_and_runs_silently() {
@@ -623,8 +614,6 @@ fn offline_fallback_hides_key_idea() {
     h.keys(&["t", "t"]);
     assert!(h.narrow().contains("key idea: add them"), "{}", h.narrow());
 }
-
-// ---- focus_layout_test.go ----
 
 #[test]
 fn test_labels() {
@@ -937,9 +926,6 @@ fn link_line_does_not_split_the_key() {
     );
 }
 
-// ---- timer_test.go ----
-
-/// p-one with a fetched statement and the attempt clock started now.
 fn clocked(results: Vec<RunResult>) -> H {
     let mut h = H::with("p-one", results, fetched("Add two numbers."));
     h.f.start = test_now();
@@ -1083,8 +1069,6 @@ fn paused_clock_does_not_time_out() {
     h.send(Msg::Tick);
     assert!(!h.f.time_up);
 }
-
-// ---- fixes_test.go ----
 
 #[test]
 fn shows_syntax_error() {
@@ -1269,8 +1253,6 @@ fn drill_pass_keeps_schedule() {
     assert!(h.narrow().contains("keep sharp · one"), "{}", h.narrow());
 }
 
-// ---- sweep_test.go ----
-
 #[test]
 fn fits_all_sizes() {
     let mut h = H::open("p-one", vec![red()]);
@@ -1287,8 +1269,6 @@ fn fits_all_sizes() {
         assert_eq!(rows(&mut a, w, hgt).len(), hgt as usize);
     }
 }
-
-// ---- placement contract ----
 
 #[test]
 fn exam_modes_report_status_and_record_no_outcome() {

@@ -1,5 +1,3 @@
-//! The interactive trainer, drawn with ratatui on crossterm.
-
 pub mod app;
 #[cfg(test)]
 mod browse_testing;
@@ -119,7 +117,6 @@ fn event_loop(terminal: &mut DefaultTerminal, mut app: App) -> io::Result<()> {
     Ok(())
 }
 
-/// Go's exec error text: `exit status 1`, or the spawn error.
 fn run_suspended(cmd: &mut std::process::Command) -> Result<(), String> {
     let status = cmd.status().map_err(|e| e.to_string())?;
     match status.code() {

@@ -166,7 +166,6 @@ impl ListFilter {
     }
 }
 
-/// Keeps cur on a visible row, falling back to the first match.
 pub fn settle(vis: &[usize], cur: usize) -> usize {
     if vis.is_empty() || vis.contains(&cur) {
         return cur;
@@ -174,7 +173,6 @@ pub fn settle(vis: &[usize], cur: usize) -> usize {
     vis[0]
 }
 
-/// Moves cur by d through the visible rows.
 pub fn step(vis: &[usize], cur: usize, d: isize) -> usize {
     if vis.is_empty() {
         return cur;

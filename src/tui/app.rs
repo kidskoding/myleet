@@ -1,6 +1,3 @@
-//! The app frame: a stack of screens under a tab bar, with a key bar, toast,
-//! status line and help modal.
-
 use std::any::Any;
 use std::path::Path;
 use std::process::Command;
@@ -25,8 +22,7 @@ pub const TAB_NAMES: [&str; 5] = ["today", "map", "timed", "playlists", "stats"]
 
 const TOAST_LIFE: Duration = Duration::from_secs(2);
 
-/// A key press with its Bubble Tea style name (`enter`, `ctrl+k`, `shift+tab`,
-/// `space`, `a`), so ported screens can match the same strings as Go.
+/// A key press with its name (`enter`, `ctrl+k`, `shift+tab`, `space`, `a`), which screens match on.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct KeyPress {
     pub name: String,
@@ -41,7 +37,6 @@ impl KeyPress {
         }
     }
 
-    /// Builds the press a name stands for; screens' tests drive keys this way.
     pub fn named(name: &str) -> KeyPress {
         let mut mods = KeyModifiers::NONE;
         let mut rest = name;
@@ -84,7 +79,6 @@ impl KeyPress {
         KeyPress::new(KeyEvent::new(code, mods))
     }
 
-    /// The typed character, for text inputs.
     pub fn text(&self) -> Option<char> {
         match self.event.code {
             KeyCode::Char(c)
@@ -111,7 +105,7 @@ fn key_name(ev: &KeyEvent) -> String {
     }
     let base = match ev.code {
         KeyCode::Char(' ') => "space".to_string(),
-        // Shift is already in the character ('A', '?'), as Bubble Tea reports it.
+        // Shift is already in the character ('A', '?').
         KeyCode::Char(c) => return format!("{prefix}{c}"),
         KeyCode::BackTab => return format!("{prefix}shift+tab"),
         KeyCode::Enter => "enter".into(),
@@ -151,10 +145,8 @@ pub enum Msg {
     Custom(Box<dyn Any + Send>),
 }
 
-/// Builds the message delivered when an `Exec` command exits.
 pub type ExecDone = Box<dyn FnOnce(Result<(), String>) -> Msg + Send>;
 
-/// What a screen asks the app to do after handling a message.
 #[derive(Default)]
 pub enum Cmd {
     #[default]
@@ -172,8 +164,6 @@ pub enum Cmd {
     Copy(String),
 }
 
-/// Lets the app treat a few screens specially, like the Go type switches on
-/// `*Home`, `*Focus` and `*Search`.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Kind {
     Home,
@@ -246,15 +236,12 @@ impl PromptSource for crate::prompt::Source {
     }
 }
 
-/// Opens a URL in the browser.
 pub type OpenFn = Box<dyn Fn(&str) -> Result<(), String>>;
 
 pub type WatchFn = fn(&Path, Duration) -> notify::Result<crate::watch::FileWatch>;
 
-/// State every screen can reach.
 pub struct Shared {
     pub theme: Theme,
-    /// The learner's catalog, history, save file, runner and prompt source.
     pub app: crate::app::App,
     /// An error that stays on screen until restart (e.g. a failed save).
     pub status: String,
@@ -272,7 +259,6 @@ pub struct Shared {
     rx: Receiver<Msg>,
 }
 
-/// A Shared over the good fixture catalog with an in-memory app and a throwaway workspace.
 #[cfg(test)]
 pub(crate) fn test_shared() -> Shared {
     let dir = tempfile::tempdir().expect("temp dir").keep();
@@ -286,7 +272,7 @@ pub(crate) fn test_shared() -> Shared {
         events,
         workspace,
     ));
-    // Like Go's newTestShared: no network, no python, no watcher, no browser.
+    // No network, no python, no watcher, no browser.
     sh.runner = Arc::new(FakeRunner::default());
     sh.prompts = Arc::new(FakePrompts::default());
     sh.watch = None;
@@ -393,7 +379,6 @@ impl Shared {
         });
     }
 
-    /// Messages queued by background jobs, for tests that drive a screen directly.
     #[cfg(test)]
     pub(crate) fn queued(&self) -> Vec<Msg> {
         self.rx.try_iter().collect()
@@ -460,7 +445,7 @@ impl App {
         app
     }
 
-    /// Opens a problem over Today, like Go's `tui.New(s, openID)`; unknown ids are ignored.
+    /// Opens a problem over Today; unknown ids are ignored.
     pub fn open_problem(&mut self, id: &str) {
         if self.sh.app.catalog.problem(id).is_some() {
             let f = screens::new_focus(&mut self.sh, id, crate::progress::mode::PRACTICE);
@@ -468,7 +453,6 @@ impl App {
         }
     }
 
-    /// The command a screen asked to run with the terminal suspended.
     pub fn take_exec(&mut self) -> Option<(Command, ExecDone)> {
         self.exec.take()
     }
@@ -516,7 +500,6 @@ impl App {
         }
     }
 
-    /// Delivers timers that are due and messages from background threads.
     pub fn deliver(&mut self, now: Instant) {
         let (due, later) = std::mem::take(&mut self.sh.timers)
             .into_iter()
@@ -731,7 +714,6 @@ impl App {
     }
 }
 
-/// Cuts lines to width (with `…`) and to height.
 pub fn fit(mut lines: Lines, width: usize, height: usize) -> Lines {
     lines.truncate(height);
     lines.into_iter().map(|l| ui::truncate(l, width)).collect()
@@ -760,7 +742,6 @@ mod tests {
     use ratatui::backend::TestBackend;
     use ratatui::style::Modifier;
 
-    /// A pushed screen that owns some keys, like Focus owning its checklist digits.
     struct Probe {
         owns: &'static [&'static str],
         kind: Kind,
@@ -800,7 +781,7 @@ mod tests {
     }
 
     fn app() -> App {
-        // Past the placement gate, which hides search, like Go's homeModel.
+        // Past the placement gate, which hides search.
         App::new(crate::tui::home::fixtures::home_shared(Vec::new()))
     }
 
@@ -810,7 +791,6 @@ mod tests {
         }
     }
 
-    /// Renders through ratatui's TestBackend and returns one string per row.
     fn rows(app: &mut App, w: u16, h: u16) -> Vec<String> {
         app.resize(w.into(), h.into());
         let mut term = Terminal::new(TestBackend::new(w, h)).unwrap();

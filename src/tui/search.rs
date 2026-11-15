@@ -1,6 +1,3 @@
-//! Search over problems, companies, topics and notes, pushed by `/` and
-//! `ctrl+k`.
-
 use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
@@ -164,7 +161,6 @@ impl Search {
         hits
     }
 
-    /// Today's queue, then recently practiced problems.
     fn suggestions(&self, sh: &Shared) -> Vec<Hit> {
         let a = &sh.app;
         let c = &a.catalog;
@@ -410,7 +406,6 @@ fn compact(hay: &str, idx: &[usize], n: usize) -> bool {
     true
 }
 
-/// The label with the letters at byte offsets idx in hl and the rest in base.
 fn highlight(label: &str, idx: &[usize], base: Style, hl: Style) -> Line<'static> {
     let mut spans: Vec<Span<'static>> = Vec::new();
     let mut run = String::new();

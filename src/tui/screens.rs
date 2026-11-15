@@ -1,5 +1,3 @@
-//! The tab registry and the constructors screens use to open each other.
-
 use ratatui::text::{Line, Span};
 
 use super::app::{Cmd, Kind, Msg, Screen, Shared};
@@ -18,7 +16,6 @@ pub fn new_tab(sh: &mut Shared, i: usize) -> Box<dyn Screen> {
     }
 }
 
-/// The screen `/` and `ctrl+k` push.
 pub fn new_search(sh: &mut Shared) -> Box<dyn Screen> {
     Box::new(super::search::Search::new(&sh.app.catalog))
 }
@@ -33,7 +30,6 @@ pub fn new_focus(sh: &mut Shared, problem_id: &str, mode: &str) -> Box<dyn Scree
     Box::new(super::focus::Focus::new(sh, p, mode_const(mode)))
 }
 
-/// Modes are compared as constants throughout Focus.
 fn mode_const(mode: &str) -> &'static str {
     use crate::progress::mode::*;
     [INTERVIEW, PLACEMENT, CHECKPOINT, DRILL]
@@ -42,7 +38,6 @@ fn mode_const(mode: &str) -> &'static str {
         .unwrap_or(PRACTICE)
 }
 
-/// The recommended check-in Today's `c` opens (Go `NewInterviewCheckpoint`).
 pub fn new_checkpoint(sh: &mut Shared) -> Box<dyn Screen> {
     Box::new(super::interview::Interview::checkpoint(sh))
 }

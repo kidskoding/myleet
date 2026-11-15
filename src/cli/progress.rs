@@ -78,7 +78,6 @@ mod tests {
     use crate::app::testenv::TestEnv;
     use crate::cli::call;
 
-    /// A fake $EDITOR that overwrites the file it is given with `content`.
     fn fake_editor(e: &mut TestEnv, dir: &tempfile::TempDir, content: &str) {
         let script = dir.path().join("ed.sh");
         let body = format!("#!/bin/sh\ncat > \"$1\" <<'EOT'\n{content}EOT\n");

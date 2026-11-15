@@ -136,7 +136,6 @@ pub struct Playlist {
     pub entries: Vec<PlaylistEntry>,
 }
 
-/// A start-here note that belongs to no module.
 #[derive(Debug)]
 pub struct GuideNote {
     pub title: String,
@@ -170,7 +169,6 @@ impl Catalog {
         &self.modules[p.module].techniques[p.technique]
     }
 
-    /// Every problem outside the bank.
     pub fn curriculum(&self) -> impl Iterator<Item = &Problem> {
         self.problems
             .iter()

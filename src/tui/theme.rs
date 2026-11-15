@@ -64,7 +64,6 @@ pub(crate) fn is_ansi16(c: Color) -> bool {
     !matches!(c, Color::Indexed(_) | Color::Rgb(..))
 }
 
-/// Fails if any styled span leaves the 16-color palette or sets a background.
 #[cfg(test)]
 pub(crate) fn assert_palette(lines: &[ratatui::text::Line<'_>]) {
     for (i, line) in lines.iter().enumerate() {

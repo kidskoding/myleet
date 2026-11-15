@@ -74,7 +74,6 @@ impl Workspace {
         copy_starter(p, &self.attempt_path(&p.id))
     }
 
-    /// Removes all attempt files and snapshots (keeps prompts cache elsewhere).
     pub fn clear_attempts(&self) -> io::Result<()> {
         for name in ["workspace", "snapshots"] {
             match fs::remove_dir_all(self.dir.join(name)) {

@@ -43,7 +43,7 @@ pub fn parse(s: &str) -> Result<Duration, String> {
     Ok(Duration::from_secs_f64(total))
 }
 
-/// Go's `d.Round(time.Second).String()`: `45s`, `4m12s`, `1h0m0s`.
+/// Rounded to whole seconds: `45s`, `4m12s`, `1h0m0s`.
 pub fn format_secs(d: jiff::SignedDuration) -> String {
     let ms = d.as_millis();
     let secs = (ms.abs() + 500) / 1000;

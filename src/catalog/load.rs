@@ -81,7 +81,7 @@ struct NumberedDir {
     path: PathBuf,
 }
 
-/// `NN_name` split into its number and name, like the Go `^(\d+)_(.+)$`.
+/// Splits `NN_name` (`^(\d+)_(.+)$`) into its number and name.
 fn split_numbered(name: &str) -> Option<(u64, &str)> {
     let (digits, rest) = name.split_once('_')?;
     if digits.is_empty() || rest.is_empty() || !digits.bytes().all(|b| b.is_ascii_digit()) {
@@ -353,7 +353,6 @@ fn load_guide(dir: &Path) -> Vec<GuideNote> {
         .collect()
 }
 
-/// The note's first `# ` heading, else its file name in title case.
 pub fn note_title(path: &Path) -> String {
     if let Ok(text) = fs::read_to_string(path) {
         if let Some(title) = text.lines().find_map(|l| l.strip_prefix("# ")) {

@@ -1,6 +1,3 @@
-//! The Today tab: the personalized queue, progress, check-ins, and the
-//! first-run placement gate.
-
 use std::cell::Cell;
 use std::collections::HashMap;
 
@@ -58,7 +55,6 @@ pub(crate) fn now(sh: &Shared) -> Timestamp {
     (sh.app.now)()
 }
 
-/// An event with no problem or attempt, like Go's placement/checkpoint markers.
 pub(crate) fn marker(sh: &Shared, kind: &str, mode: &str, data: Vec<(&str, String)>) -> Event {
     Event {
         time: now(sh),
@@ -803,7 +799,6 @@ pub(crate) mod fixtures {
     use crate::testutil::chicago;
     use crate::tui::app::{App as Frame, KeyPress, Msg, Shared, test_shared};
 
-    /// Mon Oct 19 2026, 10:00 Chicago, like Go's testNow.
     pub fn test_now() -> Timestamp {
         jiff::civil::date(2026, 10, 19)
             .at(10, 0, 0, 0)
@@ -812,7 +807,6 @@ pub(crate) mod fixtures {
             .timestamp()
     }
 
-    /// test_now shifted by whole local days.
     pub fn days(n: i64) -> Timestamp {
         test_now()
             .to_zoned(chicago())
@@ -836,7 +830,6 @@ pub(crate) mod fixtures {
         }
     }
 
-    /// A five-minute practice pass on 2026-10-<day>.
     pub fn passed_events(id: &str, day: i64) -> Vec<Event> {
         let start = days(day - 19);
         let att = new_attempt_id();
@@ -872,7 +865,6 @@ pub(crate) mod fixtures {
         e
     }
 
-    /// A fresh learner at test_now in Chicago, with events recorded in order.
     pub fn shared_with(events: Vec<Event>) -> Shared {
         let mut sh = test_shared();
         set_now(&mut sh, test_now());
@@ -883,7 +875,7 @@ pub(crate) mod fixtures {
         sh
     }
 
-    /// Past the placement gate and check-in card, like Go's homeModel.
+    /// Past the placement gate and check-in card.
     pub fn home_shared(events: Vec<Event>) -> Shared {
         let mut all = vec![placement_skipped(), checkpoint_snoozed(test_now())];
         all.extend(events);
@@ -896,7 +888,6 @@ pub(crate) mod fixtures {
         }
     }
 
-    /// The frame through ratatui's TestBackend, one string per row.
     pub fn rows(f: &mut Frame, w: u16, h: u16) -> Vec<String> {
         f.resize(w.into(), h.into());
         let mut term = Terminal::new(TestBackend::new(w, h)).unwrap();

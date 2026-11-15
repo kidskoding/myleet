@@ -90,7 +90,6 @@ pub fn run<O: Write>(a: &App, out: &mut Term<O>, env: &Env) -> u8 {
     u8::from(failed > 0)
 }
 
-/// Go's exec.Command resolves a bare name through PATH, and doctor prints that path.
 fn resolve(program: &str, env: &Env) -> String {
     if program.contains(std::path::MAIN_SEPARATOR) {
         return program.to_string();

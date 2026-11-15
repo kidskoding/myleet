@@ -1,7 +1,3 @@
-//! Test setup for the browse screens (map, playlists, search, stats), mirroring
-//! helpers_test.go: a fixed clock at Mon Oct 19 2026 10:00 Chicago, events
-//! recorded through the app, and frames rendered through ratatui's TestBackend.
-
 use std::collections::BTreeMap;
 use std::path::Path;
 
@@ -32,7 +28,6 @@ fn ev(time: Timestamp, k: &str, problem: &str, attempt: &str, m: &str) -> Event 
     }
 }
 
-/// A five-minute practice pass of id on Oct <day> at 10:00.
 pub fn passed_events(id: &str, day: i64) -> Vec<Event> {
     let start = test_now() + SignedDuration::from_hours(24 * (day - 19));
     let att = new_attempt_id();
@@ -60,7 +55,6 @@ pub fn checkpoint_snoozed() -> Event {
     e
 }
 
-/// A Shared on the good fixture at the test clock, with events recorded in order.
 pub fn shared(events: Vec<Event>) -> Shared {
     let mut sh = test_shared();
     sh.app.tz = chicago();
@@ -112,7 +106,6 @@ pub fn render(a: &mut App, w: u16, h: u16) -> String {
         .join("\n")
 }
 
-/// The last two rows: the key bar (and toast).
 pub fn key_bar(view: &str) -> String {
     let ls: Vec<&str> = view.lines().collect();
     ls[ls.len().saturating_sub(2)..].join("\n")
@@ -140,7 +133,6 @@ pub fn golden(name: &str) -> std::path::PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("src/testdata/golden/{name}.golden"))
 }
 
-/// Every line fits w columns and the view has at most h lines.
 pub fn assert_fits(view: &str, w: usize, h: usize) {
     let lines: Vec<&str> = view.lines().collect();
     assert!(lines.len() <= h, "{} lines, want <= {h}", lines.len());

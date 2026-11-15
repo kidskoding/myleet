@@ -1,5 +1,3 @@
-//! Shared test fixtures.
-
 use std::collections::BTreeMap;
 use std::io::{BufRead, BufReader, Read, Write};
 use std::net::TcpListener;
@@ -29,7 +27,6 @@ fn chicago_at(day: i8, hour: i8) -> Timestamp {
         .timestamp()
 }
 
-/// Local Chicago noon on 2026-10-<day>.
 pub fn day(day: i8) -> Timestamp {
     chicago_at(day, 12)
 }
@@ -38,7 +35,6 @@ pub fn midnight(day: i8) -> Timestamp {
     chicago_at(day, 0)
 }
 
-/// An attempt with only the problem and outcome set, like a Go struct literal.
 pub fn attempt(problem: &str, outcome: Outcome) -> Attempt {
     Attempt {
         id: String::new(),

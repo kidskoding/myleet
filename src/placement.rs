@@ -1,5 +1,3 @@
-//! The live diagnostic that tells a new learner where to start.
-
 use std::collections::{BTreeMap, HashSet};
 
 use crate::catalog::{Catalog, Module, Problem};
@@ -24,7 +22,7 @@ impl Outcome {
         }
     }
 
-    /// Go keeps unknown outcome strings, which grade as start here; `Failed` grades the same.
+    /// Unknown outcome strings grade as start here, the same as `Failed`.
     fn parse(s: &str) -> Outcome {
         match s {
             "clean" => Outcome::Clean,
@@ -142,7 +140,6 @@ pub fn level_of(o: Outcome) -> Level {
     }
 }
 
-/// Picks one existing curriculum problem per slot.
 pub fn resolve<'a>(c: &'a Catalog, slots: &[Slot]) -> Vec<Item<'a>> {
     slots
         .iter()
@@ -174,7 +171,6 @@ pub fn done(events: &[Event]) -> bool {
     events.iter().any(|e| e.kind == kind::PLACEMENT_DONE)
 }
 
-/// Reconstructs the last placement result from events.
 pub fn load(events: &[Event]) -> Option<Result> {
     let e = events
         .iter()
@@ -192,17 +188,14 @@ pub fn load(events: &[Event]) -> Option<Result> {
     })
 }
 
-/// Packs results for a `placement_done` event.
 pub fn encode(items: &[ItemResult]) -> BTreeMap<String, String> {
     BTreeMap::from([("results".to_string(), encode_items(items))])
 }
 
-/// Module ids the learner should drill first after placement.
 pub fn weak_modules(r: &Result) -> HashSet<String> {
     weak_modules_of(&r.items)
 }
 
-/// The first start-here module, else the first shaky one.
 pub fn recommend<'a>(c: &'a Catalog, r: &Result) -> Option<&'a Module> {
     recommend_of(c, &r.items)
 }

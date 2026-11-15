@@ -42,7 +42,6 @@ pub fn resolve_python_from(
     )
 }
 
-/// Finds an executable named `name` in a PATH-style list, like Go's exec.LookPath.
 pub fn look_path(name: &str, path_var: &str) -> Option<PathBuf> {
     std::env::split_paths(path_var)
         .filter(|dir| !dir.as_os_str().is_empty())

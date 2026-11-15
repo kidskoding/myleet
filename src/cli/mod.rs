@@ -174,7 +174,7 @@ pub(crate) fn call(e: &crate::app::testenv::TestEnv, args: &[&str]) -> (u8, Stri
     call_with(e, false, args)
 }
 
-/// Mirrors Go's repoPython: points MYLEET_PYTHON at the repo .venv, or `None` to skip.
+/// Points MYLEET_PYTHON at the repo .venv, or `None` to skip.
 #[cfg(test)]
 pub(crate) fn repo_python(e: &mut crate::app::testenv::TestEnv) -> Option<()> {
     let py = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(".venv/bin/python");

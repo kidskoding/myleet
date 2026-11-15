@@ -1,6 +1,3 @@
-//! The map tab (guide notes, then modules, techniques and problems in drill-down
-//! columns) and the notes reader it opens.
-
 use std::cell::{Cell, RefCell};
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
@@ -126,7 +123,6 @@ impl MapScreen {
         }
     }
 
-    /// The names in a column, in the order its rows are drawn.
     fn labels(&self, c: &Catalog, level: usize) -> Vec<String> {
         match level {
             0 => (!c.guide.is_empty())
@@ -256,7 +252,6 @@ impl MapScreen {
             .collect()
     }
 
-    /// The opening paragraph of the selected guide note.
     fn guide_preview(&self, sh: &Shared, width: usize) -> Lines {
         let th = &sh.theme;
         let Some(path) = self.note(&sh.app.catalog) else {
@@ -331,9 +326,7 @@ impl MapScreen {
         ui::card(th, title, body, width, level == self.level)
     }
 
-    /// Column widths for the wide layout: the modules column gets the width its
-    /// longest row needs (Go cut names like "Arrays And Has…" while the techniques
-    /// column sat half empty), techniques a fixed share, problems the rest.
+    /// The modules column gets its longest row's width so names never truncate; techniques get a fixed share, problems the rest.
     fn widths(&self, c: &Catalog, w: usize) -> [usize; 3] {
         let avail = w.saturating_sub(4 + 2 * COLUMN_GAP);
         let longest = modules(c)
@@ -351,7 +344,6 @@ impl MapScreen {
     }
 }
 
-/// A row of exactly width columns: left padded (or cut) so right ends flush.
 fn meta_row(left: Line<'static>, right: Line<'static>, width: usize) -> Line<'static> {
     let left = ui::pad(left, width.saturating_sub(right.width()).max(4));
     let mut spans = left.spans;
@@ -563,7 +555,6 @@ impl Screen for MapScreen {
     }
 }
 
-/// A scrolling reader for one note.
 pub struct Notes {
     path: PathBuf,
     title: String,

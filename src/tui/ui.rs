@@ -1,6 +1,4 @@
-//! The widget kit. Every widget returns styled lines (or a span) instead of
-//! drawing into a buffer, so screens compose them the way the Go screens join
-//! lipgloss strings; the frame draws the final lines once.
+//! Widgets return styled lines instead of drawing into a buffer, so screens compose them and the frame draws once.
 
 use ratatui::style::{Modifier, Style};
 use ratatui::text::{Line, Span, Text};
@@ -29,7 +27,6 @@ pub enum BadgeKind {
     Info,
 }
 
-/// One key-bar hint, e.g. `enter start`.
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Key {
     pub key: String,
@@ -220,7 +217,6 @@ pub fn card(
     }
 }
 
-/// A card whose border and title take tone, e.g. a green success card.
 pub fn card_tone(
     th: &Theme,
     title: &str,
@@ -292,7 +288,6 @@ pub fn chip(th: &Theme, text: &str, tone: Tone) -> Span<'static> {
     Span::styled(format!(" {text} "), solid(tone_style(th, tone)))
 }
 
-/// A solid reverse-video bar of exactly width columns with text centered.
 pub fn block(th: &Theme, text: &str, width: usize, tone: Tone) -> Span<'static> {
     if width == 0 {
         return Span::raw("");
@@ -435,7 +430,6 @@ pub fn modal(
     modal_tone(th, title, body, width, height, Tone::Muted)
 }
 
-/// Modal with a tinted border/title (e.g. `Tone::Fail` for destructive confirms).
 pub fn modal_tone(
     th: &Theme,
     title: &str,
@@ -468,7 +462,6 @@ pub fn modal_tone(
     place(boxed, width.max(1), height.max(1))
 }
 
-/// Centers a block of lines in a width x height area, like lipgloss.Place.
 pub fn place(block: Lines, width: usize, height: usize) -> Lines {
     let block_w = block.iter().map(Line::width).max().unwrap_or(0);
     let left = " ".repeat(width.saturating_sub(block_w).div_ceil(2));
@@ -483,7 +476,6 @@ pub fn place(block: Lines, width: usize, height: usize) -> Lines {
     out.into_iter().map(|l| pad(l, width)).collect()
 }
 
-/// Places blocks side by side, each padded to its widest line.
 pub fn columns(gap: usize, cols: Vec<Lines>) -> Lines {
     let widths: Vec<usize> = cols
         .iter()
@@ -505,7 +497,6 @@ pub fn columns(gap: usize, cols: Vec<Lines>) -> Lines {
         .collect()
 }
 
-/// The terminal width at which two-panel Today layouts sit side by side.
 pub const WIDE_MIN: usize = 100;
 
 /// Returns left/right column widths for a two-panel row inside total_width,
@@ -544,7 +535,6 @@ pub fn spinner_frame(i: i64) -> &'static str {
     SPINNER[i.rem_euclid(SPINNER.len() as i64) as usize]
 }
 
-/// Plain text of a line, for tests and width-free comparisons.
 pub fn plain(line: &Line<'_>) -> String {
     line.spans.iter().map(|s| s.content.as_ref()).collect()
 }

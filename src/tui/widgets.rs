@@ -1,5 +1,3 @@
-//! Small helpers shared by the screens.
-
 use std::collections::HashMap;
 
 use jiff::SignedDuration;
@@ -11,7 +9,6 @@ use super::ui::{self, BadgeKind, Lines};
 use crate::catalog::Difficulty;
 use crate::schedule::{State, Status};
 
-/// Puts left and right at the two ends of a w-wide line.
 pub fn spread(left: Line<'static>, right: Line<'static>, w: usize) -> Line<'static> {
     let gap = w as isize - left.width() as isize - right.width() as isize;
     let mut spans = left.spans;
@@ -33,7 +30,7 @@ pub fn status_of(states: &HashMap<String, State>, id: &str) -> State {
     states.get(id).cloned().unwrap_or_default()
 }
 
-/// `mon jan 2`, the way the Go screens label days.
+/// Formats a day as `mon jan 2`.
 pub fn date_label(d: Date) -> String {
     d.strftime("%a %b %-d").to_string().to_lowercase()
 }
@@ -43,10 +40,8 @@ pub fn mmss(d: SignedDuration) -> String {
     format!("{:02}:{:02}", secs / 60, secs % 60)
 }
 
-/// Height of the tab bar above every screen body.
 pub const TAB_BAR_HEIGHT: usize = 2;
 
-/// Keeps cursor inside a window of rows starting at offset.
 pub fn scroll_window(cursor: usize, offset: usize, rows: usize) -> usize {
     if rows == 0 || cursor < offset {
         return cursor;

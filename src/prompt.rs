@@ -69,7 +69,6 @@ impl PromptResult {
 
 #[derive(Debug, Clone, Default)]
 pub struct Source {
-    /// `<data>/prompts`
     pub dir: PathBuf,
     /// Empty means [`DEFAULT_ENDPOINT`].
     pub endpoint: String,
@@ -259,7 +258,6 @@ fn replace_sup(html: &str) -> String {
     out
 }
 
-/// Three or more newlines become one blank line.
 fn collapse_blank_runs(s: &str) -> String {
     let mut out = String::with_capacity(s.len());
     let mut newlines = 0;

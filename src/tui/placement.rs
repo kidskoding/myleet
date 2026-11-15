@@ -1,10 +1,4 @@
-//! The placement warm-up: one easy problem per core topic, timed, then a
-//! reveal of where to start.
-//!
-//! Go embeds every problem's `*Focus` and reads its fields. Here the round
-//! opens one problem at a time through `screens::new_focus` (the round is
-//! sequential, so each problem's own clock starts when it is reached) and
-//! learns how it is going from the [`FocusStatus`] messages Focus sends.
+//! The round opens one problem at a time through `screens::new_focus` (it is sequential, so each problem's clock starts when reached) and learns progress from [`FocusStatus`] messages.
 
 use jiff::{SignedDuration, Timestamp};
 use ratatui::text::{Line, Span};
@@ -27,7 +21,6 @@ use crate::progress::{Event, kind, mode};
 pub struct FocusStatus {
     pub problem_id: String,
     pub attempt: String,
-    /// The last test run passed.
     pub green: bool,
     pub hints: u32,
 }
@@ -221,7 +214,6 @@ impl Placement {
         }
     }
 
-    /// Submits (or skips) the current problem and opens the next, or reveals.
     fn advance(&mut self, sh: &mut Shared, skipped: bool) -> Cmd {
         self.submit(sh, self.cur, skipped);
         let n = self.items.len();
@@ -515,7 +507,6 @@ mod tests {
         pl.update(sh, &Msg::Custom(Box::new(st)));
     }
 
-    /// A round over p-one then two-sum, entered from the intro card.
     fn round() -> (Placement, Shared) {
         let mut sh = shared_with(Vec::new());
         let mut pl = Placement::with_slots(SLOTS.to_vec());

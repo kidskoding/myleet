@@ -23,7 +23,7 @@ pub(super) fn kill_group(child: &mut Child) {
 #[cfg(not(unix))]
 pub(super) fn own_group(_cmd: &mut Command) {}
 
-/// Windows kills only pytest itself, like Go's default CommandContext cancel.
+/// Windows kills only pytest itself.
 #[cfg(not(unix))]
 pub(super) fn kill_group(child: &mut Child) {
     let _ = child.kill();

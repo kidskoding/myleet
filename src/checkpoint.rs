@@ -1,5 +1,3 @@
-//! The curriculum-slice exam that realigns Today afterward.
-
 use std::collections::{BTreeMap, HashSet};
 
 use jiff::Timestamp;
@@ -17,7 +15,6 @@ const CHECK_IN_EVERY: usize = 3;
 
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct Result {
-    /// Module number ceiling.
     pub through: u64,
     pub items: Vec<ItemResult>,
 }
@@ -26,7 +23,6 @@ pub fn score(passed: bool, hints: u32, skipped: bool) -> Outcome {
     crate::placement::score(passed, hints, skipped, false)
 }
 
-/// Non-bank curriculum modules that can be a checkpoint "through" point.
 pub fn ceiling_modules(c: &Catalog) -> Vec<&Module> {
     c.modules
         .iter()
@@ -34,7 +30,6 @@ pub fn ceiling_modules(c: &Catalog) -> Vec<&Module> {
         .collect()
 }
 
-/// The furthest module with a practice pass, else the first ceiling module's number.
 pub fn default_through(c: &Catalog, attempts: &[Attempt]) -> u64 {
     let ceilings = ceiling_modules(c);
     let Some(first) = ceilings.first() else {
@@ -57,7 +52,6 @@ pub fn default_through(c: &Catalog, attempts: &[Attempt]) -> u64 {
         .fold(first.number, u64::max)
 }
 
-/// Reconstructs the latest checkpoint result from events.
 pub fn load(events: &[Event]) -> Option<Result> {
     let e = events
         .iter()
@@ -70,7 +64,6 @@ pub fn load(events: &[Event]) -> Option<Result> {
     })
 }
 
-/// Packs results for a `checkpoint_done` event.
 pub fn encode(through: u64, items: &[ItemResult]) -> BTreeMap<String, String> {
     BTreeMap::from([
         ("through".to_string(), through.to_string()),
@@ -78,12 +71,10 @@ pub fn encode(through: u64, items: &[ItemResult]) -> BTreeMap<String, String> {
     ])
 }
 
-/// Module ids the learner should drill first after a checkpoint.
 pub fn weak_modules(r: &Result) -> HashSet<String> {
     weak_modules_of(&r.items)
 }
 
-/// The first start-here module, else the first shaky one.
 pub fn recommend<'a>(c: &'a Catalog, r: &Result) -> Option<&'a Module> {
     recommend_of(c, &r.items)
 }
@@ -114,7 +105,6 @@ fn passes_since(attempts: &[Attempt], since: Option<Timestamp>) -> usize {
         .count()
 }
 
-/// Packs a "not now" so Today stops recommending this ceiling for a while.
 pub fn snooze(through: u64) -> BTreeMap<String, String> {
     BTreeMap::from([
         ("through".to_string(), through.to_string()),
@@ -122,7 +112,6 @@ pub fn snooze(through: u64) -> BTreeMap<String, String> {
     ])
 }
 
-/// The title of the ceiling module with the given number.
 pub fn module_title(c: &Catalog, through: u64) -> Option<&str> {
     ceiling_modules(c)
         .into_iter()

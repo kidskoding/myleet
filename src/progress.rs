@@ -23,7 +23,6 @@ pub mod kind {
     pub const TIMER_RESTARTED: &str = "timer_restarted";
     /// The new-user diagnostic finished or was skipped.
     pub const PLACEMENT_DONE: &str = "placement_done";
-    /// A curriculum-slice checkpoint exam finished.
     pub const CHECKPOINT_DONE: &str = "checkpoint_done";
 }
 
@@ -59,7 +58,7 @@ pub struct Event {
     pub data: BTreeMap<String, String>,
 }
 
-/// Go's `time.RFC3339Nano` in UTC: fraction trimmed of trailing zeros, dropped when zero.
+/// UTC RFC 3339, fraction trimmed of trailing zeros and dropped when zero, matching existing logs.
 pub fn format_time(t: Timestamp) -> String {
     t.strftime("%Y-%m-%dT%H:%M:%S%.fZ").to_string()
 }
@@ -73,7 +72,7 @@ fn de_time<'de, D: Deserializer<'de>>(d: D) -> Result<Timestamp, D::Error> {
     text.parse().map_err(serde::de::Error::custom)
 }
 
-/// One JSON line the way Go's `encoding/json` writes it, HTML escaping included.
+/// One JSON line with HTML escaping, matching the lines existing logs already hold.
 pub fn to_line(e: &Event) -> String {
     let json = serde_json::to_string(e).expect("events always serialize");
     json.replace('<', "\\u003c")

@@ -1,5 +1,3 @@
-//! The problem screen: statement, timer, tests, hints and the attempt's events.
-
 use std::cell::{Cell, RefCell};
 use std::collections::BTreeMap;
 use std::fs;
@@ -111,7 +109,6 @@ pub(crate) struct Focus {
     statement: String,
     /// None until the statement fetch reports back.
     stmt_state: Option<prompt::Status>,
-    /// Attempt content when the attempt started.
     baseline: Vec<u8>,
     /// Interview rounds time each problem themselves and set this before drawing.
     pub(crate) clock: Option<SignedDuration>,
@@ -177,7 +174,6 @@ impl Focus {
         )
     }
 
-    /// Open practice or a keep-sharp drill (hints, solution, give-up).
     fn practice_like(&self) -> bool {
         matches!(self.mode, mode::PRACTICE | mode::DRILL)
     }
@@ -383,7 +379,7 @@ impl Focus {
     }
 
     fn due_label(&self, sh: &Shared, st: &State) -> String {
-        // Go's zero time is Monday, January 1.
+        // A missing due date shows the zero date's label.
         st.due.map_or_else(
             || "mon jan 1".into(),
             |d| date_label(local_day(d, &sh.app.tz)),
@@ -688,8 +684,6 @@ impl Focus {
             .rev()
             .find(|s| fs::read(s).is_ok_and(|data| current.as_ref().is_none_or(|c| *c != data)))
     }
-
-    // ---- view ----
 
     fn header(&self, sh: &Shared, w: usize) -> Line<'static> {
         let th = &sh.theme;

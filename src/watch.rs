@@ -26,7 +26,7 @@ pub fn file(path: &Path, debounce: Duration) -> notify::Result<FileWatch> {
         let _ = raw_tx.send(ev);
     })?;
     watcher.watch(dir, RecursiveMode::NonRecursive)?;
-    // Capacity 1 with try_send: at most one signal waits, like Go's buffered channel.
+    // Capacity 1 with try_send: at most one signal waits.
     let (tx, rx) = mpsc::sync_channel(1);
     std::thread::spawn(move || {
         let mut fire_at: Option<Instant> = None;

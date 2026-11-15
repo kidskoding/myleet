@@ -10,8 +10,7 @@ pub const HINT_PENALTY: SignedDuration = SignedDuration::from_secs(3 * 60);
 const FAIL_WINDOW: SignedDuration = SignedDuration::from_hours(14 * 24);
 const MIXED_MODULE: &str = "mixed_interview_practice";
 
-/// Seeded splitmix64, so picks are reproducible for one seed. Not Go's
-/// `math/rand` sequence: nothing stored depends on which problems a seed picks.
+/// Seeded splitmix64 so one seed reproduces its picks; nothing stored depends on the sequence.
 #[derive(Debug, Clone)]
 pub struct Rng(u64);
 
@@ -193,7 +192,6 @@ pub fn pick_checkpoint<'a>(
     out
 }
 
-/// The default problem count for a slice: one per module, capped at 5.
 pub fn checkpoint_size(c: &Catalog, through: u64) -> usize {
     c.modules
         .iter()

@@ -1,6 +1,3 @@
-//! The timed tab's mock interview and Today's module check-in: a setup card,
-//! a round over several embedded Focus screens, then a self-check and reveal.
-//!
 //! Unlike placement, the round keeps every problem open at once (the learner
 //! switches between them), so it owns concrete `Focus` values and reads their
 //! hints, penalties and last run directly instead of `FocusStatus` messages.
@@ -37,7 +34,7 @@ enum Phase {
     Reveal,
 }
 
-/// Picks n problem ids for a mock round; tests swap it like Go's `pick`.
+/// Picks n problem ids for a mock round; tests swap it.
 type Pick = fn(&Shared, usize, &mut Rng) -> Vec<String>;
 
 fn pick_mock(sh: &Shared, n: usize, rng: &mut Rng) -> Vec<String> {
@@ -66,7 +63,6 @@ pub struct Interview {
     phase: Phase,
     checkpoint: bool,
     n: usize,
-    /// The check-in's ceiling module number.
     through: u64,
     ceil_idx: usize,
     pick: Pick,
@@ -74,7 +70,6 @@ pub struct Interview {
     foci: Vec<Focus>,
     cur: usize,
     start: Timestamp,
-    /// When the current problem was last switched to.
     since: Timestamp,
     done: Vec<bool>,
     passed: Vec<bool>,
@@ -115,7 +110,6 @@ impl Interview {
         }
     }
 
-    /// The check-in Today's `c` opens (Go `NewInterviewCheckpoint`).
     pub fn checkpoint(sh: &Shared) -> Interview {
         Interview {
             checkpoint: true,
