@@ -50,11 +50,14 @@ fn cap(s: &str) -> String {
         .map_or(String::new(), |c| c.to_uppercase().chain(cs).collect())
 }
 
-fn next_level(l: Level) -> Option<&'static str> {
+/// What the next level means to the learner, as a clause about `tech`.
+fn outcome(l: Level, tech: &str) -> Option<String> {
     match l {
-        Level::Shaky => Some("building"),
-        Level::Building => Some("solid"),
-        Level::Solid => Some("strong"),
+        Level::Shaky => Some(format!("you'll stop needing hints on {tech}")),
+        Level::Building => Some(format!("{tech} will start to feel solid")),
+        Level::Solid => Some(format!(
+            "you'll handle {tech} under interview time pressure"
+        )),
         Level::New | Level::Strong => None,
     }
 }
@@ -100,13 +103,12 @@ pub fn build(f: &Facts) -> String {
             f.tech
         )
     } else if let (true, Some(l)) = (f.weakest, f.level)
-        && let Some(next) = next_level(l)
+        && let Some(next) = outcome(l, &f.tech)
         && l <= Level::Building
     {
         format!(
-            "{} is your weakest technique, still at {}, so every clean solve here pushes it toward {next}",
-            f.tech,
-            l.word().to_lowercase()
+            "{} is your weakest technique right now. Solve this one cleanly and {next}",
+            f.tech
         )
     } else if f.first_in_tech {
         let gentle = if f.warmup {
@@ -116,11 +118,13 @@ pub fn build(f: &Facts) -> String {
         };
         format!("this is your first {} problem{gentle}", f.tech)
     } else if let Some(l) = f.level.filter(|l| *l != Level::New) {
-        format!(
-            "your {} is at {} so far, and this is the next problem in it",
-            f.tech,
-            l.word().to_lowercase()
-        )
+        let how = match l {
+            Level::Shaky => "still feels shaky",
+            Level::Building => "is coming along",
+            Level::Solid => "is in good shape",
+            _ => "is strong",
+        };
+        format!("your {} {how}, and this is the next problem in it", f.tech)
     } else {
         format!("this is next up in {}", f.tech)
     };
@@ -229,7 +233,7 @@ mod tests {
         };
         assert_eq!(
             build(&f),
-            "Sliding window is your weakest technique, still at shaky, so every clean solve here pushes it toward building."
+            "Sliding window is your weakest technique right now. Solve this one cleanly and you'll stop needing hints on sliding window."
         );
     }
 
@@ -244,7 +248,7 @@ mod tests {
         };
         assert_eq!(
             build(&f),
-            "Your hashing is at building so far, and this is the next problem in it. Your interview is 12 days away and hashing shows up in 3 of Meta's problems. Mediums usually take you about 22 minutes."
+            "Your hashing is coming along, and this is the next problem in it. Your interview is 12 days away and hashing shows up in 3 of Meta's problems. Mediums usually take you about 22 minutes."
         );
     }
 

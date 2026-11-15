@@ -5,7 +5,12 @@ import { midSentence } from "./schedule";
 import { RUNG_DAYS } from "./ui/ladder";
 import type { PlanItem, Skill, SkillAttempt, State, TodayEntry } from "./types";
 
-const LEVEL_NEXT: Record<string, string> = { shaky: "building", building: "solid", solid: "strong" };
+/** What a level change means to the learner, as a clause about `tech`. */
+const LEVEL_OUTCOME: Record<string, (tech: string) => string> = {
+  shaky: (t) => `you'll stop needing hints on ${t}`,
+  building: (t) => `${t} will start to feel solid`,
+  solid: (t) => `you'll be able to do ${t} under interview time pressure`,
+};
 const NUM = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 const num = (n: number) => NUM[n] ?? String(n);
 const days = (n: number) => (n === 1 ? "1 day" : `${n} days`);
@@ -71,18 +76,18 @@ export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): st
   const miss = recentMiss(skill, now);
   const did = miss && attemptPhrase(miss);
   if (miss && did) out.push(`${cap(dayAgo(miss.date, now))} on ${miss.title} you ${did}.`);
-  const stakes = company ? `${company}'s set leans on ${tech}${near ? ` and your interview is ${days(near)} away` : ""}` : near ? `Your interview is ${days(near)} away` : "";
-  if (stakes) out.push(`${stakes}, so it's worth getting solid.`);
+  if (company) out.push(`${company}'s set leans on ${tech}, so it's likely to come up.${near ? ` Your interview is ${days(near)} away.` : ""}`);
+  else if (near) out.push(`Your interview is ${days(near)} away${weak ? ", and it's the topic you've struggled with most" : ""}.`);
 
   const level = skill?.level;
-  const next = level ? LEVEL_NEXT[level] : undefined;
+  const outcome = level ? LEVEL_OUTCOME[level]?.(tech) : undefined;
   const work = nTheme === 1 ? `one ${tech} problem` : `${num(nTheme)} ${tech} problems`;
   const extra = nNew > nTheme ? ` and ${nNew - nTheme === 1 ? "one more" : `${num(nNew - nTheme)} more`} after` : "";
   const lead = reviews ? `After ${reviews === 1 ? "a quick review" : `${num(reviews)} quick reviews`} to keep your older problems on schedule, you'll work through` : "You'll work through";
-  const move = level && next ? `, and if you solve ${nTheme === 1 ? "it" : "them"} cleanly, ${tech} moves up from ${level} toward ${next}` : "";
+  const move = outcome ? ` Solve ${nTheme === 1 ? "it" : "them"} cleanly and ${outcome}.` : "";
   // The why and the day's run read as two paragraphs, joined by a blank line for the renderer to split.
   const why = out.join(" ");
-  return reviews || move || extra ? `${why}\n\n${lead} ${work}${extra}${move}.` : why;
+  return reviews || move || extra ? `${why}\n\n${lead} ${work}${extra}.${move}` : why;
 }
 
 export interface Card {
@@ -125,12 +130,12 @@ export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title
   const weak = (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0 && (s.level === "shaky" || s.level === "building")).sort((a, b) => b.need - a.need)[0];
   if (weak && (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0).length >= 2) {
     const tech = midSentence(weak.technique_title);
-    const next = LEVEL_NEXT[weak.level];
+    const outcome = LEVEL_OUTCOME[weak.level]?.("it");
     cards.push({
       kind: "weak",
       label: "Your weak spot",
       title: weak.technique_title,
-      body: `${cap(tech)} is still at ${weak.level}${next ? `, and a few clean solves move it toward ${next}` : ""}.`,
+      body: `${cap(tech)} is still ${weak.level}${outcome ? `. A few clean solves and ${outcome}` : ""}.`,
       problem: null,
     });
   }

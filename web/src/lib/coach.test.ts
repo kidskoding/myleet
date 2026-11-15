@@ -15,13 +15,13 @@ describe("todaySummary", () => {
     const items = [item("review", "Hashing"), item("review", "Trees"), ...[1, 2, 3].map(() => item("new", "Sliding Window", "weak", [{ icon: "b", text: "Meta leans on sliding window" }]))];
     const skills = [skill({ weak_spot: true, history: [attempt({ cause: "edge_cases" })] })];
     expect(todaySummary({ items, skills, daysLeft: 12, now })).toBe(
-      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's worth getting solid.\n\nAfter two quick reviews to keep your older problems on schedule, you'll work through three sliding window problems, and if you solve them cleanly, sliding window moves up from shaky toward building.",
+      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window, so it's likely to come up. Your interview is 12 days away.\n\nAfter two quick reviews to keep your older problems on schedule, you'll work through three sliding window problems. Solve them cleanly and you'll stop needing hints on sliding window.",
     );
   });
   it("names a hint without a company", () => {
     const skills = [skill({ level: "building", history: [attempt({ mark: "hint", detail: "used a hint", date: "2026-11-12" })] })];
     expect(todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now })).toBe(
-      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nYou'll work through one sliding window problem, and if you solve it cleanly, sliding window moves up from building toward solid.",
+      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nYou'll work through one sliding window problem. Solve it cleanly and sliding window will start to feel solid.",
     );
   });
   it("stays short with no history and leaves clauses out without data", () => {
@@ -39,7 +39,7 @@ describe("personal cards", () => {
     expect(personalCards(q, skills, title, now)).toEqual([
       { kind: "resume", label: "Jump back in", title: "A", body: "Last time you passed 5 of 7 tests, 2 days ago.", problem: "a" },
       { kind: "due", label: "Due before it slips", title: "R", body: "It came due 3 days ago, so a clean pass today keeps it on schedule.", problem: "r" },
-      { kind: "weak", label: "Your weak spot", title: "Sliding Window", body: "Sliding window is still at shaky, and a few clean solves move it toward building.", problem: null },
+      { kind: "weak", label: "Your weak spot", title: "Sliding Window", body: "Sliding window is still shaky. A few clean solves and you'll stop needing hints on it.", problem: null },
     ]);
   });
   it("renders nothing without data", () => {
