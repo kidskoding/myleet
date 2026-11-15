@@ -43,9 +43,22 @@ pub fn parse(s: &str) -> Result<Duration, String> {
     Ok(Duration::from_secs_f64(total))
 }
 
+/// Go's `d.Round(time.Second).String()`: `45s`, `4m12s`, `1h0m0s`.
+pub fn format_secs(d: jiff::SignedDuration) -> String {
+    let ms = d.as_millis();
+    let secs = (ms.abs() + 500) / 1000;
+    let sign = if ms < 0 && secs > 0 { "-" } else { "" };
+    let (h, m, s) = (secs / 3600, secs / 60 % 60, secs % 60);
+    match (h, m) {
+        (0, 0) => format!("{sign}{s}s"),
+        (0, _) => format!("{sign}{m}m{s}s"),
+        _ => format!("{sign}{h}h{m}m{s}s"),
+    }
+}
+
 #[cfg(test)]
 mod tests {
-    use super::parse;
+    use super::{format_secs, parse};
     use std::time::Duration;
 
     #[test]
@@ -62,6 +75,24 @@ mod tests {
         ];
         for (s, secs) in cases {
             assert_eq!(parse(s), Ok(Duration::from_secs_f64(secs)), "{s}");
+        }
+    }
+
+    #[test]
+    fn formats_like_go() {
+        use jiff::SignedDuration as D;
+        let cases = [
+            (D::ZERO, "0s"),
+            (D::from_secs(45), "45s"),
+            (D::from_secs(252), "4m12s"),
+            (D::from_secs(60), "1m0s"),
+            (D::from_secs(3600), "1h0m0s"),
+            (D::from_millis(1500), "2s"),
+            (D::from_millis(1499), "1s"),
+            (D::from_secs(-90), "-1m30s"),
+        ];
+        for (d, want) in cases {
+            assert_eq!(format_secs(d), want, "{d:?}");
         }
     }
 

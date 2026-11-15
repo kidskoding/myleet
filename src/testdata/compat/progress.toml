@@ -1,0 +1,48 @@
+# myleet save file. You can edit this file by hand:
+#   - delete a [problem] block to reset that problem
+#   - change due = YYYY-MM-DD to move its next review
+#   - set rung to 1d, 3d, 7d, 14d or 30d (14d and 30d count as mastered)
+# myleet checks this file on start and will not overwrite it while it is broken.
+
+[p-one]
+rung = "3d"
+due = 2026-10-05
+last = 2026-10-06
+first = 2026-10-01
+attempts = 3
+clean_passes = 3
+best = "3m0s"
+
+[p-two]
+rung = "1d"
+due = 2026-10-05
+last = 2026-10-04
+first = 2026-10-04
+attempts = 1
+clean_passes = 0
+best = "20m0s"
+
+[p-three]
+rung = "1d"
+due = 2026-11-01
+last = 2026-10-31
+first = 2026-10-31
+attempts = 1
+clean_passes = 1
+best = "40m0s"
+
+[two-sum]
+rung = "1d"
+due = 2026-10-06
+last = 2026-10-05
+first = 2026-10-05
+attempts = 1
+clean_passes = 0
+
+[removed-problem]
+rung = "7d"
+due = 2026-10-20
+last = 2026-10-13
+attempts = 0
+clean_passes = 0
+best = "1h2m3s"

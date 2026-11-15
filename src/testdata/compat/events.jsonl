@@ -1,0 +1,18 @@
+{"t":"2026-10-01T15:00:00.123456789Z","kind":"opened","problem":"p-one","attempt":"a1","mode":"practice"}
+{"t":"2026-10-01T15:04:00Z","kind":"test_run","problem":"p-one","attempt":"a1","mode":"practice","data":{"passed":"2","total":"2"}}
+{"t":"2026-10-01T15:05:00.5Z","kind":"passed","problem":"p-one","attempt":"a1","mode":"practice","data":{"elapsed_ms":"305500"}}
+{"t":"2026-10-02T14:00:00Z","kind":"opened","problem":"p-one","attempt":"a2","mode":"practice"}
+{"t":"2026-10-02T14:06:00Z","kind":"passed","problem":"p-one","attempt":"a2","mode":"practice","data":{"elapsed_ms":"360000"}}
+{"t":"2026-10-04T04:50:00Z","kind":"opened","problem":"p-two","attempt":"b1","mode":"practice"}
+{"t":"2026-10-04T04:51:00Z","kind":"say_aloud_checked","problem":"p-two","attempt":"b1","mode":"practice","data":{"item":"brute force \u003cO(n^2)\u003e \u0026 why"}}
+{"t":"2026-10-04T04:52:00Z","kind":"hint_revealed","problem":"p-two","attempt":"b1","mode":"practice"}
+{"t":"2026-10-04T05:10:00Z","kind":"passed","problem":"p-two","attempt":"b1","mode":"practice","data":{"elapsed_ms":"1200000"}}
+{"t":"2026-10-05T13:00:00Z","kind":"opened","problem":"two-sum","attempt":"c1","mode":"practice"}
+{"t":"2026-10-05T13:01:00Z","kind":"test_run","problem":"two-sum","attempt":"c1","mode":"practice","data":{"passed":"0","total":"3"}}
+{"t":"2026-10-05T13:30:00Z","kind":"left","problem":"two-sum","attempt":"c1","mode":"practice"}
+{"t":"2026-10-06T17:00:00Z","kind":"opened","problem":"p-one","attempt":"d1","mode":"drill"}
+{"t":"2026-10-06T17:03:00Z","kind":"passed","problem":"p-one","attempt":"d1","mode":"drill","data":{"elapsed_ms":"180000"}}
+{"t":"2026-10-07T17:00:00Z","kind":"placement_done","problem":"","attempt":"","mode":"placement","data":{"skipped":"1"}}
+{"t":"2026-10-08T17:00:00Z","kind":"future_kind","problem":"p-three","attempt":"e1","mode":"future_mode"}
+{"t":"2026-11-01T03:00:00Z","kind":"opened","problem":"p-three","attempt":"f1","mode":"practice"}
+{"t":"2026-11-01T03:40:00Z","kind":"passed","problem":"p-three","attempt":"f1","mode":"practice","data":{"elapsed_ms":"2400000"}}

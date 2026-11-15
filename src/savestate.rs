@@ -1,0 +1,402 @@
+//! Reads and writes `progress.toml`, the learner's save file. It is the scheduling
+//! source of truth and is meant to be edited by hand.
+
+use std::collections::{HashMap, HashSet};
+use std::fmt::{self, Write as _};
+use std::io::Write as _;
+use std::path::Path;
+
+use jiff::tz::TimeZone;
+use jiff::{SignedDuration, Timestamp};
+use serde::Deserialize;
+
+use crate::catalog::Catalog;
+use crate::godur;
+use crate::schedule::{RUNGS, State, status_for};
+
+const HEADER: &str = "# myleet save file. You can edit this file by hand:
+#   - delete a [problem] block to reset that problem
+#   - change due = YYYY-MM-DD to move its next review
+#   - set rung to 1d, 3d, 7d, 14d or 30d (14d and 30d count as mastered)
+# myleet checks this file on start and will not overwrite it while it is broken.
+";
+
+#[derive(Deserialize, Default)]
+#[serde(default)]
+struct Entry {
+    rung: String,
+    due: Option<toml::value::Datetime>,
+    last: Option<toml::value::Datetime>,
+    first: Option<toml::value::Datetime>,
+    attempts: u32,
+    clean_passes: u32,
+    best: String,
+}
+
+#[derive(Debug)]
+pub enum ReadError {
+    /// No save file yet.
+    Missing,
+    Io(std::io::Error),
+    /// The file is broken; the message names the path and what to fix.
+    Invalid(String),
+}
+
+impl fmt::Display for ReadError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            ReadError::Missing => f.write_str("no save file"),
+            ReadError::Io(e) => write!(f, "{e}"),
+            ReadError::Invalid(msg) => f.write_str(msg),
+        }
+    }
+}
+
+impl std::error::Error for ReadError {}
+
+fn rung_index(label: &str) -> Option<i32> {
+    RUNGS
+        .iter()
+        .position(|days| label == format!("{days}d"))
+        .map(|i| i as i32)
+}
+
+/// Local midnight of the date written in the file, like Go's `day(t, loc)`.
+fn day(dt: Option<toml::value::Datetime>, tz: &TimeZone) -> Option<Timestamp> {
+    let d = dt?.date?;
+    let date = jiff::civil::Date::new(d.year as i16, d.month as i8, d.day as i8).ok()?;
+    Some(date.to_zoned(tz.clone()).ok()?.timestamp())
+}
+
+pub fn read(path: &Path, tz: &TimeZone) -> Result<HashMap<String, State>, ReadError> {
+    let text = std::fs::read_to_string(path).map_err(|e| match e.kind() {
+        std::io::ErrorKind::NotFound => ReadError::Missing,
+        _ => ReadError::Io(e),
+    })?;
+    let p = path.display();
+    let raw: HashMap<String, Entry> = toml::from_str(&text).map_err(|e| match e.span() {
+        Some(span) => {
+            let line = text[..span.start].matches('\n').count() + 1;
+            ReadError::Invalid(format!("{p} line {line}: {}", e.message()))
+        }
+        None => ReadError::Invalid(format!("{p}: {}", e.message())),
+    })?;
+    let invalid = |msg: String| ReadError::Invalid(msg);
+    let mut states = HashMap::with_capacity(raw.len());
+    for (id, e) in raw {
+        let rung = rung_index(&e.rung).ok_or_else(|| {
+            invalid(format!(
+                "{p}: [{id}] rung {:?} must be one of 1d, 3d, 7d, 14d, 30d",
+                e.rung
+            ))
+        })?;
+        let last = day(e.last, tz)
+            .ok_or_else(|| invalid(format!("{p}: [{id}] needs last = YYYY-MM-DD")))?;
+        let mut st = State {
+            status: status_for(rung),
+            rung,
+            last_finished: Some(last),
+            first_finished: day(e.first, tz).or(Some(last)),
+            due: day(e.due, tz),
+            attempts: e.attempts,
+            clean_passes: e.clean_passes,
+            ..State::default()
+        };
+        if st.due.is_none() {
+            let days = jiff::ToSpan::days(RUNGS[rung as usize]);
+            let due = last.to_zoned(tz.clone()).date().checked_add(days).ok();
+            st.due = due
+                .and_then(|d| d.to_zoned(tz.clone()).ok())
+                .map(|z| z.timestamp());
+        }
+        if !e.best.is_empty() {
+            let best = godur::parse(&e.best).map_err(|_| {
+                invalid(format!(
+                    "{p}: [{id}] best {:?} is not a duration like 4m12s",
+                    e.best
+                ))
+            })?;
+            st.best_elapsed = SignedDuration::try_from(best).unwrap_or(SignedDuration::ZERO);
+        }
+        states.insert(id, st);
+    }
+    Ok(states)
+}
+
+fn date(t: Option<Timestamp>, tz: &TimeZone) -> String {
+    t.map_or_else(
+        || "0001-01-01".to_string(),
+        |t| t.to_zoned(tz.clone()).date().to_string(),
+    )
+}
+
+/// Keeps ids missing from the catalog (written last) so hand edits are never lost.
+pub fn write(
+    path: &Path,
+    c: &Catalog,
+    states: &HashMap<String, State>,
+    tz: &TimeZone,
+) -> std::io::Result<()> {
+    let known: HashSet<&str> = c.problems().iter().map(|p| p.id.as_str()).collect();
+    let mut unknown: Vec<&str> = states
+        .keys()
+        .map(String::as_str)
+        .filter(|id| !known.contains(id))
+        .collect();
+    unknown.sort_unstable();
+    let ids = c.problems().iter().map(|p| p.id.as_str()).chain(unknown);
+    let mut b = String::from(HEADER);
+    for id in ids {
+        let Some(st) = states.get(id).filter(|st| st.rung >= 0) else {
+            continue;
+        };
+        let _ = write!(b, "\n[{id}]\n");
+        let _ = writeln!(b, "rung = \"{}d\"", RUNGS[st.rung as usize]);
+        let _ = writeln!(b, "due = {}", date(st.due, tz));
+        let _ = writeln!(b, "last = {}", date(st.last_finished, tz));
+        if st.first_finished.is_some() {
+            let _ = writeln!(b, "first = {}", date(st.first_finished, tz));
+        }
+        let _ = writeln!(b, "attempts = {}", st.attempts);
+        let _ = writeln!(b, "clean_passes = {}", st.clean_passes);
+        if st.best_elapsed.is_positive() {
+            let _ = writeln!(b, "best = \"{}\"", godur::format_secs(st.best_elapsed));
+        }
+    }
+    write_atomic(path, &b)
+}
+
+fn write_atomic(path: &Path, content: &str) -> std::io::Result<()> {
+    let dir = path.parent().unwrap_or(Path::new("."));
+    std::fs::create_dir_all(dir)?;
+    let mut tmp = tempfile::Builder::new()
+        .prefix(".progress-")
+        .tempfile_in(dir)?;
+    tmp.write_all(content.as_bytes())?;
+    tmp.persist(path).map_err(|e| e.error)?;
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::catalog::{load, testdata};
+    use crate::schedule::Status;
+
+    fn chicago() -> TimeZone {
+        TimeZone::get("America/Chicago").unwrap()
+    }
+
+    fn midnight(day: i8) -> Option<Timestamp> {
+        Some(
+            jiff::civil::date(2026, 10, day)
+                .to_zoned(chicago())
+                .unwrap()
+                .timestamp(),
+        )
+    }
+
+    fn sample() -> HashMap<String, State> {
+        HashMap::from([
+            (
+                "p-two".to_string(),
+                State {
+                    status: Status::Learning,
+                    rung: 1,
+                    due: midnight(23),
+                    last_finished: midnight(20),
+                    first_finished: midnight(19),
+                    attempts: 2,
+                    clean_passes: 1,
+                    best_elapsed: SignedDuration::from_secs(252),
+                    ..State::default()
+                },
+            ),
+            (
+                "two-sum".to_string(),
+                State {
+                    status: Status::Mastered,
+                    rung: 3,
+                    due: midnight(30),
+                    last_finished: midnight(16),
+                    first_finished: midnight(1),
+                    attempts: 4,
+                    clean_passes: 4,
+                    best_elapsed: SignedDuration::from_mins(1),
+                    ..State::default()
+                },
+            ),
+            ("p-one".to_string(), State::default()),
+        ])
+    }
+
+    fn saved(states: &HashMap<String, State>) -> (tempfile::TempDir, std::path::PathBuf) {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("progress.toml");
+        write(&path, &load(&testdata("good")).unwrap(), states, &chicago()).unwrap();
+        (dir, path)
+    }
+
+    #[test]
+    fn write_is_editable_and_ordered() {
+        let (_dir, path) = saved(&sample());
+        let text = std::fs::read_to_string(&path).unwrap();
+        assert!(text.contains("You can edit this file") && !text.contains("DO NOT EDIT"));
+        assert!(!text.contains("[p-one]"), "unseen problems are left out");
+        assert!(
+            text.find("[p-two]") < text.find("[two-sum]"),
+            "curriculum order:\n{text}"
+        );
+        assert!(text.contains("rung = \"3d\"\ndue = 2026-10-23\n"), "{text}");
+        assert!(text.contains("best = \"4m12s\"\n"), "{text}");
+    }
+
+    #[test]
+    fn round_trip() {
+        let want = sample();
+        let (_dir, path) = saved(&want);
+        let got = read(&path, &chicago()).unwrap();
+        assert_eq!(got.len(), 2);
+        for (id, w) in want.iter().filter(|(_, w)| w.rung >= 0) {
+            assert_eq!(&got[id], w, "{id}");
+        }
+    }
+
+    #[test]
+    fn missing_file_is_distinct() {
+        let dir = tempfile::tempdir().unwrap();
+        assert!(matches!(
+            read(&dir.path().join("nope.toml"), &chicago()),
+            Err(ReadError::Missing)
+        ));
+    }
+
+    fn read_text(text: &str) -> Result<HashMap<String, State>, ReadError> {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("progress.toml");
+        std::fs::write(&path, text).unwrap();
+        read(&path, &chicago())
+    }
+
+    #[test]
+    fn rejects_bad_rung_last_and_best() {
+        let err = read_text("[two-sum]\nrung = \"5d\"\ndue = 2026-10-23\nlast = 2026-10-20\n")
+            .unwrap_err()
+            .to_string();
+        assert!(err.contains("two-sum") && err.contains("5d"), "{err}");
+        let err = read_text("[two-sum]\nrung = \"1d\"\n")
+            .unwrap_err()
+            .to_string();
+        assert!(err.contains("needs last"), "{err}");
+        let err = read_text("[two-sum]\nrung = \"1d\"\nlast = 2026-10-20\nbest = \"soon\"\n")
+            .unwrap_err()
+            .to_string();
+        assert!(err.contains("4m12s"), "{err}");
+    }
+
+    #[test]
+    fn syntax_error_names_the_line() {
+        let err = read_text("[two-sum]\nrung = \"1d\"\ndue = oops\n")
+            .unwrap_err()
+            .to_string();
+        assert!(err.contains("line 3"), "{err}");
+    }
+
+    #[test]
+    fn missing_due_and_first_are_derived() {
+        let got = read_text("[two-sum]\nrung = \"3d\"\nlast = 2026-10-20\n").unwrap();
+        let st = &got["two-sum"];
+        assert_eq!(
+            (st.due, st.first_finished, st.status),
+            (midnight(23), midnight(20), Status::Learning)
+        );
+    }
+
+    #[test]
+    fn write_keeps_unknown_ids() {
+        let mut states = sample();
+        states.insert(
+            "removed-problem".into(),
+            State {
+                status: Status::Learning,
+                rung: 0,
+                due: midnight(21),
+                last_finished: midnight(20),
+                ..State::default()
+            },
+        );
+        let (_dir, path) = saved(&states);
+        assert!(
+            read(&path, &chicago())
+                .unwrap()
+                .contains_key("removed-problem")
+        );
+    }
+
+    fn compat(name: &str) -> std::path::PathBuf {
+        Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("src/testdata/compat")
+            .join(name)
+    }
+
+    // Fixtures written by the Go build: the Rust build must read and write them byte for byte.
+    #[test]
+    fn go_events_round_trip_byte_for_byte() {
+        let (_, events, warns) = crate::progress::Log::open(&compat("events.jsonl"));
+        assert!(warns.is_empty(), "{warns:?}");
+        let text: String = events
+            .iter()
+            .map(|e| crate::progress::to_line(e) + "\n")
+            .collect();
+        assert_eq!(
+            text,
+            std::fs::read_to_string(compat("events.jsonl")).unwrap()
+        );
+    }
+
+    #[test]
+    fn go_history_computes_the_go_save_file() {
+        let c = load(&testdata("good")).unwrap();
+        let (_, events, _) = crate::progress::Log::open(&compat("events.jsonl"));
+        let target = |id: &str| {
+            c.problem(id).map_or(SignedDuration::ZERO, |p| {
+                SignedDuration::try_from(p.time_target).unwrap()
+            })
+        };
+        let mut states = crate::schedule::compute(&events, target, &chicago());
+        states.insert(
+            "removed-problem".into(),
+            State {
+                rung: 2,
+                due: midnight(20),
+                last_finished: midnight(13),
+                best_elapsed: SignedDuration::from_secs(3723),
+                ..State::default()
+            },
+        );
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("progress.toml");
+        write(&path, &c, &states, &chicago()).unwrap();
+        assert_eq!(
+            std::fs::read_to_string(&path).unwrap(),
+            std::fs::read_to_string(compat("progress.toml")).unwrap()
+        );
+    }
+
+    #[test]
+    fn go_save_file_round_trips_byte_for_byte() {
+        let c = load(&testdata("good")).unwrap();
+        let states = read(&compat("progress.toml"), &chicago()).unwrap();
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("progress.toml");
+        write(&path, &c, &states, &chicago()).unwrap();
+        // Like Go's Read, a block without `first` takes it from `last`, so it is written back.
+        let want = std::fs::read_to_string(compat("progress.toml"))
+            .unwrap()
+            .replace(
+                "last = 2026-10-13\n",
+                "last = 2026-10-13\nfirst = 2026-10-13\n",
+            );
+        assert_eq!(std::fs::read_to_string(&path).unwrap(), want);
+    }
+}

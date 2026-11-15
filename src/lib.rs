@@ -2,4 +2,7 @@ pub mod catalog;
 pub mod cli;
 pub mod config;
 pub mod godur;
+pub mod progress;
+pub mod savestate;
+pub mod schedule;
 pub mod version;
