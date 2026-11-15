@@ -1,5 +1,5 @@
 {
-  description = "myleet: adaptive LeetCode practice in your terminal";
+  description = "an interactive and personalized leetcode experience";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -58,6 +58,7 @@
           rustc
           rustfmt
           clippy
+          just
           git
           uv
           self.packages.${system}.default

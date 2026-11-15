@@ -45,7 +45,7 @@ find `myleet`.
 ```bash
 git clone https://github.com/kidskoding/myleet.git && cd myleet
 uv sync --group dev
-make install && myleet
+just install && myleet
 ```
 
 | Tip         |                                                                                        |
@@ -194,8 +194,8 @@ myleet/
 ## Develop
 
 ```bash
-make vet test validate   # what CI runs for Go + curriculum load
-make check               # all reference solutions (slow)
+just vet test validate   # what CI runs for Go + curriculum load
+just check               # all reference solutions (slow)
 uv run ruff check . && uv run ruff format --check .
 uv run ty check && uv run pytest
 ```
