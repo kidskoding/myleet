@@ -23,12 +23,19 @@ import Base from "../layouts/Base.astro";
 </Base>
 
 <style is:global>
+  html:has(.gate-split), html:has(.gate-split) body { overflow-x: clip; }
   /* Guest Today: the invitation beside a framed preview of the personal Today it unlocks */
   .gate-split { display: grid; gap: var(--space-10); align-items: center; }
   .gate-split .gate { max-width: none; margin-top: var(--space-6); }
   .gate-split .gate-steps { grid-template-columns: 1fr; gap: var(--space-4); }
   .gate-split .gate-steps li { border: 0; background: none; padding: 0; }
-  @media (min-width: 1000px) { .gate-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); } }
+  @media (min-width: 1000px) {
+    /* Stripe/Linear-style hero sized by width: text beside a larger product preview that always stays whole,
+       with a full-bleed glow behind it */
+    .gate-split { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(var(--space-8), 4vw, var(--space-16)); padding-top: var(--space-6); position: relative; }
+    .gate-split::before { content: ""; position: absolute; z-index: -1; inset: -20% -50vw; background: radial-gradient(48% 55% at 72% 50%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 70%); pointer-events: none; }
+    .gate-split .gate h1 { font-size: clamp(2.75rem, 1.6rem + 2.4vw, 4rem); }
+  }
   .gate-eg-today { margin: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 24px 60px -24px color-mix(in srgb, var(--ground) 80%, transparent), var(--shadow-md); overflow: hidden; }
   .gate-eg-today .eg-window { display: flex; align-items: center; gap: 6px; padding: var(--space-2) var(--space-4); border-bottom: 1px solid var(--line); background: var(--surface-sunk); }
   .gate-eg-today .eg-window i { width: 10px; height: 10px; border-radius: 50%; }
