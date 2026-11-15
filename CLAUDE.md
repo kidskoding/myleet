@@ -58,6 +58,7 @@ myleet/
 ├── playlists/               company sets as TOML; the NNN_ prefix is display order, the slug after it is permanent
 ├── mock-interviews/
 ├── tools/evidence/          collects candidate-reported problems from public posts (see its README)
+├── tools/playlists/         audit.py lists sets whose focus names topics they lack; rebuild.py <slug> refits a set to its focus
 └── tools/migrate/           one-time migration from the old multi-problem files
 ```
 
