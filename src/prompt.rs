@@ -16,7 +16,7 @@ const QUERY: &str =
     "query q($titleSlug: String!) { question(titleSlug: $titleSlug) { isPaidOnly content } }";
 const SLUG_PREFIX: &str = "leetcode.com/problems/";
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Status {
     /// Prompt written in problem.toml.
     Authored,
@@ -275,7 +275,7 @@ fn collapse_blank_runs(s: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::io::{BufRead, BufReader, Read};
+    use crate::testutil::serve;
     use std::net::TcpListener;
     use std::sync::Arc;
     use std::sync::atomic::{AtomicUsize, Ordering};
@@ -287,40 +287,6 @@ mod tests {
 </pre>
 <ul><li><code>1 &lt;= piles.length &lt;= 10<sup>4</sup></code></li></ul>"#;
     const KOKO_URL: &str = "https://leetcode.com/problems/koko-eating-bananas/";
-
-    /// A one-request-per-connection HTTP server; `reply` maps a request body to a
-    /// response body. Returns its URL.
-    fn serve(calls: Arc<AtomicUsize>, reply: fn(&str) -> String) -> String {
-        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
-        let url = format!("http://{}/graphql", listener.local_addr().unwrap());
-        std::thread::spawn(move || {
-            for stream in listener.incoming() {
-                let Ok(mut stream) = stream else { continue };
-                calls.fetch_add(1, Ordering::SeqCst);
-                let mut reader = BufReader::new(&stream);
-                let mut length = 0;
-                loop {
-                    let mut line = String::new();
-                    if reader.read_line(&mut line).unwrap_or(0) == 0 || line == "\r\n" {
-                        break;
-                    }
-                    let lower = line.to_ascii_lowercase();
-                    if let Some(v) = lower.strip_prefix("content-length:") {
-                        length = v.trim().parse().unwrap_or(0);
-                    }
-                }
-                let mut body = vec![0; length];
-                let _ = reader.read_exact(&mut body);
-                let out = reply(&String::from_utf8_lossy(&body));
-                let _ = write!(
-                    stream,
-                    "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{out}",
-                    out.len()
-                );
-            }
-        });
-        url
-    }
 
     fn leetcode(body: &str) -> String {
         let req: serde_json::Value = serde_json::from_str(body).unwrap_or_default();

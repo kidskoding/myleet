@@ -8,7 +8,7 @@ pub fn command(cfg: &Config, path: &Path) -> Result<Command, String> {
     command_from(cfg, path, &|key| std::env::var(key).ok())
 }
 
-fn command_from(
+pub fn command_from(
     cfg: &Config,
     path: &Path,
     env: &dyn Fn(&str) -> Option<String>,
