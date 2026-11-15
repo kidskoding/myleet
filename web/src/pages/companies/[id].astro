@@ -1,0 +1,23 @@
+---
+import Base from "../../layouts/Base.astro";
+import { buildCatalog } from "../../lib/build-catalog";
+import { companySlug } from "../../lib/catalog";
+import type { Playlist } from "../../lib/types";
+
+export function getStaticPaths() {
+  return buildCatalog().playlists.map((playlist) => ({ params: { id: companySlug(playlist.id) }, props: { playlist } }));
+}
+
+interface Props {
+  playlist: Playlist;
+}
+
+const { playlist } = Astro.props;
+---
+
+<Base title={`${playlist.title} prep`}>
+  <h1>{playlist.title} prep</h1>
+  <p>{playlist.focus}</p>
+  <p><a href={`/playlists/${playlist.id}`}>Open the {playlist.title} playlist</a></p>
+  <p>Placeholder: the techniques this company leans on and your readiness land here.</p>
+</Base>

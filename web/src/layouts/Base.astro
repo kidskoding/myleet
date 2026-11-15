@@ -1,0 +1,47 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/tokens.css";
+import "../styles/base.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Interview DSA practice with tests that run in your browser." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title === "myleet" ? title : `${title} · myleet`}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main">
+        <a href="/">myleet</a>
+        <a href="/app">Today</a>
+        <a href="/map">Map</a>
+        <a href="/playlists">Playlists</a>
+        <a href="/mock">Mock</a>
+        <a href="/review">Review</a>
+        <a href="/progress">Progress</a>
+        <a href="/settings">Settings</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <nav aria-label="Footer">
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </footer>
+  </body>
+</html>

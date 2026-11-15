@@ -1,0 +1,23 @@
+---
+import Base from "../../layouts/Base.astro";
+import { buildCatalog } from "../../lib/build-catalog";
+import type { ProblemMeta } from "../../lib/types";
+
+export function getStaticPaths() {
+  return buildCatalog().problems.map((problem) => ({ params: { id: problem.id }, props: { problem } }));
+}
+
+interface Props {
+  problem: ProblemMeta;
+}
+
+const { problem } = Astro.props;
+---
+
+<Base title={problem.title}>
+  <article data-problem-id={problem.id}>
+    <h1>{problem.title}</h1>
+    <p>{problem.difficulty} · <a href={problem.url} rel="noopener" target="_blank">LeetCode {problem.leetcode}</a></p>
+    <p>Placeholder: statement, editor and tests land here (client-rendered from data/problems/{problem.id}.json).</p>
+  </article>
+</Base>

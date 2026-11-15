@@ -1,0 +1,23 @@
+---
+import Base from "../../layouts/Base.astro";
+
+// One client-rendered shell; the Worker serves it for every /u/<name> (see the report).
+export function getStaticPaths() {
+  return [{ params: { username: "_" } }];
+}
+---
+
+<Base title="Profile">
+  <h1 data-username>Profile</h1>
+  <p>Placeholder: the public profile loads from /api/u/&lt;username&gt;.</p>
+</Base>
+
+<script>
+  const show = () => {
+    const name = decodeURIComponent(location.pathname.split("/")[2] ?? "");
+    const h = document.querySelector("[data-username]");
+    if (h && name && name !== "_") h.textContent = `@${name}`;
+  };
+  show();
+  document.addEventListener("astro:page-load", show);
+</script>

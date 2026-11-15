@@ -1,0 +1,26 @@
+---
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+import Base from "../../layouts/Base.astro";
+import { buildCatalog } from "../../lib/build-catalog";
+import type { NoteRef } from "../../lib/types";
+
+export function getStaticPaths() {
+  const c = buildCatalog();
+  const notes = [...c.guide, ...c.modules.flatMap((m) => m.notes)];
+  return notes.map((note) => ({ params: { path: note.path.replace(/\.md$/, "") }, props: { note } }));
+}
+
+interface Props {
+  note: NoteRef;
+}
+
+const { note } = Astro.props;
+const md = await createMarkdownProcessor();
+const { code } = await md.render(readFileSync(join(process.cwd(), "public/data/notes", note.path), "utf8"));
+---
+
+<Base title={note.title}>
+  <article set:html={code} />
+</Base>
