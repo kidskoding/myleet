@@ -3,6 +3,7 @@ pub mod catalog;
 pub mod cli;
 pub mod config;
 pub mod editor;
+pub mod export;
 pub mod progress;
 pub mod prompt;
 pub mod runner;

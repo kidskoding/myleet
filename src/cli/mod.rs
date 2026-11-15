@@ -1,5 +1,6 @@
 mod check;
 mod doctor;
+mod export;
 mod progress;
 mod prompts;
 mod stats;
@@ -17,6 +18,7 @@ const USAGE: &str = "usage: myleet [command]
   myleet validate                   check the curriculum loads
   myleet validate --lock            record problem ids so a rename cannot orphan saved progress
   myleet doctor                     check python, pytest, editor, data dir
+  myleet export <dir>               write the catalog JSON the web app loads
   myleet stats                      print progress stats
   myleet prompts                    download problem statements for offline use
   myleet progress                   edit your save file (progress.toml) in $EDITOR
@@ -98,6 +100,7 @@ pub fn run_with<O: Write, E: Write>(
             return 0;
         }
         "validate" => return validate::run(rest, out, err, env),
+        "export" => return export::run(rest, out, err, env),
         "progress" => return progress::run(out, err, env),
         "update" => return update::run(out, err, env),
         "check" | "doctor" | "stats" | "prompts" => {}

@@ -29,6 +29,10 @@ validate:
 check:
     cargo run --release -- check --solutions
 
+# write the catalog JSON the web app loads into web/public/data
+export:
+    cargo run --release -- export web/public/data
+
 # install then run doctor
 doctor: install
     myleet doctor
