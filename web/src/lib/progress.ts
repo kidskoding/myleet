@@ -1,5 +1,7 @@
 // Local progress: the learner's events.jsonl text plus per-problem drafts, kept in
 // IndexedDB (localStorage when IndexedDB is unavailable, e.g. some private windows).
+// Sync also carries the Notes reader's highlights (lib/annotations.ts) on the same row.
+import { markNotesDirty, markNotesSynced, mergeRemoteNotes, notesBlob, notesDirty } from "./annotations";
 
 const DB_NAME = "myleet";
 const STORE = "kv";
@@ -174,6 +176,7 @@ export async function importEvents(text: string): Promise<string> {
 export async function resetSyncMeta(): Promise<void> {
   const events = await readEvents();
   await (await kv()).set(META, { version: 0, dirty: events.trim() !== "" } satisfies SyncMeta);
+  markNotesDirty();
 }
 
 /** Deletes local events and sync state (drafts stay). */
@@ -188,14 +191,19 @@ export async function clearEvents(): Promise<void> {
 export interface RemoteProgress {
   events_jsonl: string;
   version: number;
+  /** The reader's highlights (lib/annotations.ts); null until a device sends them. */
+  notes_json?: string | null;
 }
 
 export type PutOutcome = { ok: true; version: number } | { ok: false; current: RemoteProgress };
 
 export interface SyncTransport {
   get(): Promise<RemoteProgress>;
-  /** 200 gives `{ok: true}`; 409 gives `{ok: false, current}`. Other failures throw. */
-  put(baseVersion: number, eventsJsonl: string): Promise<PutOutcome>;
+  /**
+   * 200 gives `{ok: true}`; 409 gives `{ok: false, current}`. Other failures throw.
+   * `notesJson` null leaves the account's notes as they are.
+   */
+  put(baseVersion: number, eventsJsonl: string, notesJson?: string | null): Promise<PutOutcome>;
 }
 
 /** Shown on the opt-in public profile; computed client-side since the client owns the scheduler. */
@@ -219,11 +227,12 @@ export function apiTransport(opts: { base?: string; summary?: (events: string) =
       if (!res.ok) throw await fail(res);
       return (await res.json()) as RemoteProgress;
     },
-    async put(baseVersion, eventsJsonl) {
-      const body: { base_version: number; events_jsonl: string; summary?: PublicSummary } = {
+    async put(baseVersion, eventsJsonl, notesJson) {
+      const body: { base_version: number; events_jsonl: string; summary?: PublicSummary; notes_json?: string } = {
         base_version: baseVersion,
         events_jsonl: eventsJsonl,
       };
+      if (notesJson) body.notes_json = notesJson;
       if (opts.summary) body.summary = opts.summary(eventsJsonl);
       const res = await fetch(url, {
         method: "PUT",
@@ -240,35 +249,44 @@ export function apiTransport(opts: { base?: string; summary?: (events: string) =
 
 const MAX_SYNC_TRIES = 5;
 
+/** The notes to upload with the next PUT, or null when the account already has them. */
+const notesOut = (): string | null => (notesDirty() ? notesBlob() : null);
+
 /**
- * Pushes local lines when dirty, merging on every 409 until the server accepts;
- * otherwise pulls and merges anything newer. Returns the synced events text.
+ * Pushes local lines (and reader notes) when dirty, merging on every 409 until the
+ * server accepts; otherwise pulls and merges anything newer. Returns the synced events text.
  */
 export async function syncProgress(remote: SyncTransport): Promise<string> {
   const store = await kv();
   let meta = await readMeta();
   let local = await readEvents();
-  if (!meta.dirty) {
+  let notes = notesOut();
+  if (!meta.dirty && notes === null) {
     const cur = await remote.get();
     if (cur.version === meta.version) return local;
     local = mergeEvents(local, cur.events_jsonl);
     meta = { version: cur.version, dirty: local !== mergeEvents(cur.events_jsonl, "") };
     await store.set(EVENTS, local);
     await store.set(META, meta);
-    if (!meta.dirty) return local;
+    mergeRemoteNotes(cur.notes_json);
+    notes = notesOut();
+    if (!meta.dirty && notes === null) return local;
   }
   let base = meta.version;
   for (let i = 0; i < MAX_SYNC_TRIES; i++) {
-    const res = await remote.put(base, local);
+    const res = await remote.put(base, local, notes);
     if (res.ok) {
       // Lines appended while the PUT was in flight stay dirty for the next sync.
       const now = await readEvents();
       const merged = mergeEvents(now, local);
       await store.set(EVENTS, merged);
       await store.set(META, { version: res.version, dirty: merged !== mergeEvents(local, "") });
+      if (notes !== null) markNotesSynced(notes);
       return merged;
     }
     local = mergeEvents(local, res.current.events_jsonl);
+    mergeRemoteNotes(res.current.notes_json);
+    notes = notesOut();
     base = res.current.version;
   }
   throw new Error("progress sync kept conflicting; try again");

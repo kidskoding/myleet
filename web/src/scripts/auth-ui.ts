@@ -288,7 +288,7 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
     d.querySelector("[data-discard]")?.addEventListener("click", async () => {
       const ok = await confirmDialog({
         title: `Discard ${plural(dev.practised, "problem")} on this device?`,
-        body: "This device will show only your account's progress. This can't be undone.",
+        body: "This device will show only your account's progress and highlights. This can't be undone.",
         confirm: "Use account only, discard this device",
         danger: true,
       });

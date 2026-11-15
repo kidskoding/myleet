@@ -1,5 +1,20 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { annotationsFor, locate, makeAnnotation, markProgress, minutesLeft, putAnnotation, readState, removeAnnotation } from "./annotations";
+import {
+  annotationsFor,
+  locate,
+  makeAnnotation,
+  markNotesSynced,
+  markProgress,
+  MAX_NOTES_BYTES,
+  mergeNotes,
+  mergeRemoteNotes,
+  minutesLeft,
+  notesBlob,
+  notesDirty,
+  putAnnotation,
+  readState,
+  removeAnnotation,
+} from "./annotations";
 import { memoryStorage } from "./memory-storage";
 
 beforeEach(() => {
@@ -48,5 +63,67 @@ describe("store", () => {
   it("estimates minutes left at 220 wpm, code at half speed", () => {
     expect(minutesLeft(2200, 0, 0)).toBe(10);
     expect(minutesLeft(2200, 220, 0.5)).toBe(6);
+  });
+});
+
+describe("account sync", () => {
+  const base = () => makeAnnotation("n.md", TEXT, 4, 10, 1_000);
+
+  it("merges by id, the newer edit winning", () => {
+    const a = base();
+    const older = { ...a, text: "old", updated: 2_000 };
+    const newer = { ...a, text: "new", updated: 3_000 };
+    const other = makeAnnotation("n.md", TEXT, 30, 40, 1_500);
+    const m = mergeNotes({ annotations: [newer], reads: {} }, { annotations: [older, other], reads: {} });
+    expect(m.annotations.map((x) => [x.id, x.text]).sort()).toEqual([[a.id, "new"], [other.id, ""]].sort());
+    expect(mergeNotes({ annotations: [older], reads: {} }, { annotations: [newer], reads: {} }).annotations[0]?.text).toBe("new");
+  });
+
+  it("keeps a removal through a merge and lets an undo win it back", () => {
+    const a = base();
+    putAnnotation(a, 2_000);
+    const remoteCopy = notesBlob();
+    removeAnnotation(a.id, 3_000);
+    expect(annotationsFor("n.md")).toHaveLength(0);
+    // The account still has the highlight from before the removal: it stays removed.
+    mergeRemoteNotes(remoteCopy);
+    expect(annotationsFor("n.md")).toHaveLength(0);
+    expect(notesDirty()).toBe(true);
+    // Undo re-saves it as the newest version, which beats the tombstone elsewhere.
+    putAnnotation(a, 4_000);
+    const tomb = { ...a, quote: "", deleted: true as const, updated: 3_000 };
+    expect(mergeNotes({ annotations: [tomb], reads: {} }, JSON.parse(notesBlob()!)).annotations[0]?.deleted).toBeUndefined();
+  });
+
+  it("merges reads: furthest scroll, newer read flag", () => {
+    const m = mergeNotes({ annotations: [], reads: { "n.md": { pct: 0.8, read: true, at: 1 } } }, { annotations: [], reads: { "n.md": { pct: 0.3, read: false, at: 2 }, "m.md": { pct: 1, read: true, at: 2 } } });
+    expect(m.reads["n.md"]).toEqual({ pct: 0.8, read: false, at: 2 });
+    expect(m.reads["m.md"]?.read).toBe(true);
+  });
+
+  it("tracks what the account lacks", () => {
+    expect(notesDirty()).toBe(false);
+    putAnnotation(base());
+    expect(notesDirty()).toBe(true);
+    const sent = notesBlob()!;
+    markNotesSynced(sent);
+    expect(notesDirty()).toBe(false);
+    // Pulling the same copy back is a no-op; a remote-only highlight merges in clean.
+    mergeRemoteNotes(sent);
+    expect(notesDirty()).toBe(false);
+    const theirs = makeAnnotation("n.md", TEXT, 30, 40, 5_000);
+    const remote = JSON.stringify({ v: 1, annotations: [...JSON.parse(sent).annotations, theirs], reads: {} });
+    mergeRemoteNotes(remote);
+    expect(annotationsFor("n.md")).toHaveLength(2);
+    expect(notesDirty()).toBe(false);
+    // A store from before sync (no flag) with highlights counts as unsynced.
+    localStorage.setItem("myleet:notes", JSON.stringify({ annotations: [theirs], reads: {} }));
+    expect(notesDirty()).toBe(true);
+  });
+
+  it("keeps an oversized store on this device", () => {
+    const big = makeAnnotation("n.md", TEXT, 4, 10);
+    putAnnotation({ ...big, text: "x".repeat(MAX_NOTES_BYTES) });
+    expect(notesBlob()).toBeNull();
   });
 });

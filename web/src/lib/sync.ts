@@ -1,5 +1,6 @@
 // Linking local progress to an account and keeping it synced. Local always wins first:
 // writes land in IndexedDB, then a debounced sync pushes them (lib/progress.ts).
+import { clearNotes } from "./annotations";
 import { clearEvents, readEvents, readMeta, resetSyncMeta, syncProgress, type RemoteProgress, type SyncTransport } from "./progress";
 
 const LINKED = "myleet:linked";
@@ -74,9 +75,10 @@ export function decideLater(userId: string): void {
   set(LINKED, userId);
 }
 
-/** "Use account only, discard this device": drop local events, then pull the account's. */
+/** "Use account only, discard this device": drop local events and notes, then pull the account's. */
 export async function discardDeviceAndPull(t: SyncTransport, userId: string): Promise<string> {
   await clearEvents();
+  clearNotes();
   const text = await syncProgress(t);
   set(LINKED, userId);
   set(LATER, null);

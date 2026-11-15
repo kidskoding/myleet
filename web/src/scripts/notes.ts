@@ -11,9 +11,11 @@ import {
   removeAnnotation,
   type Annotation,
 } from "../lib/annotations";
+import { cachedMe } from "../lib/account";
 import { loadCatalog } from "../lib/catalog";
 import { isDue, pstatus, statusTag, tally } from "../lib/learn";
 import { readEvents } from "../lib/progress";
+import { isLinked } from "../lib/sync";
 import { problemHref } from "../lib/routes";
 import { loadTrainer } from "../lib/trainer";
 import type { State } from "../lib/types";
@@ -44,6 +46,13 @@ let pending: { start: number; end: number } | null = null;
 let openedAt = Date.now();
 
 // ---- text offsets over the prose (UI chips and code toolbars excluded) ----
+
+/** Where highlights live: the account when this device syncs, else this device. */
+function whereSaved(subject: string): string {
+  const me = cachedMe();
+  if (!me) return `${subject} stay on this device until you sign in.`;
+  return isLinked(me.user.id) ? `${subject} sync with your account.` : `${subject} stay on this device.`;
+}
 
 function textNodes(root: HTMLElement): Text[] {
   const out: Text[] = [];
@@ -198,8 +207,8 @@ function renderMine(list = placed()): void {
   const placedOnes = list.filter((x) => x.at);
   const detached = list.filter((x) => !x.at);
   const body = n
-    ? html`${items(placedOnes)}${detached.length ? html`<h3>Detached highlights</h3><p>The note's text changed and these passages are gone.</p>${detached.map(({ a }) => html`<div class="mnote-detached"><q>${a.quote}</q>${a.text ? html`<span>${a.text}</span>` : ""}</div>`)}` : ""}<p>Highlights and notes stay on this device.</p>`
-    : html`<p>Select text in the note to highlight it or add a note. They stay on this device.</p>`;
+    ? html`${items(placedOnes)}${detached.length ? html`<h3>Detached highlights</h3><p>The note's text changed and these passages are gone.</p>${detached.map(({ a }) => html`<div class="mnote-detached"><q>${a.quote}</q>${a.text ? html`<span>${a.text}</span>` : ""}</div>`)}` : ""}<p>${whereSaved("Highlights and notes")}</p>`
+    : html`<p>Select text in the note to highlight it or add a note. ${whereSaved("They")}</p>`;
   render($("[data-mine]"), body);
   render($("[data-mine-mob]"), n ? html`<h3>Your notes</h3>${items(placedOnes)}` : html``);
 }
