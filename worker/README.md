@@ -180,6 +180,7 @@ and premium, 7 days for `none`), so LeetCode sees at most one request per proble
 
 | Endpoint                            | What it does                                                      |
 | ----------------------------------- | ----------------------------------------------------------------- |
+| `GET /api/auth/providers`           | `{"github", "google", "email"}`: which sign-in methods are set up |
 | `GET /api/auth/github`              | Redirects to GitHub (scope `user:email`)                          |
 | `GET /api/auth/github/callback`     | OAuth callback                                                    |
 | `GET /api/auth/google`              | Redirects to Google (scopes `openid email profile`)               |

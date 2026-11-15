@@ -99,6 +99,7 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
     }
     match (method, path.as_str()) {
         (Method::Get, "/api/statement") => get_statement(req, app).await,
+        (Method::Get, "/api/auth/providers") => auth_providers(app),
         (Method::Get, "/api/auth/github") => auth_start(app, Provider::Github),
         (Method::Get, "/api/auth/google") => auth_start(app, Provider::Google),
         (Method::Get, "/api/auth/github/callback") => {
@@ -311,6 +312,20 @@ fn client_id(app: &App, provider: Provider) -> Result<String> {
         Provider::Github => "GITHUB_CLIENT_ID",
         Provider::Google => "GOOGLE_CLIENT_ID",
     })
+}
+
+fn auth_providers(app: &App) -> Result<Response> {
+    let var = |n: &str| app.env.var(n).ok().map(|v| v.to_string());
+    let secret = app.env.secret("RESEND_API_KEY").ok().map(|v| v.to_string());
+    json(
+        &oauth::providers(
+            var("GITHUB_CLIENT_ID").as_deref(),
+            var("GOOGLE_CLIENT_ID").as_deref(),
+            secret.as_deref(),
+            var("EMAIL_FROM").as_deref(),
+        ),
+        200,
+    )
 }
 
 fn auth_start(app: &App, provider: Provider) -> Result<Response> {

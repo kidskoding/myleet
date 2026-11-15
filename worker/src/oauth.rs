@@ -259,9 +259,70 @@ pub fn encode(s: &str) -> String {
     out
 }
 
+/// Which sign-in methods `/api/auth/providers` offers. The page hides the rest.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Serialize)]
+pub struct Providers {
+    pub github: bool,
+    pub google: bool,
+    pub email: bool,
+}
+
+/// A config value counts once it is set and is not a `replace-...` or example.com
+/// placeholder from `wrangler.toml`.
+pub fn configured(value: Option<&str>) -> bool {
+    value
+        .map(str::trim)
+        .is_some_and(|v| !v.is_empty() && !v.contains("replace-") && !v.contains("example.com"))
+}
+
+/// Email needs both the Resend key and a real sender address.
+pub fn providers(
+    github_id: Option<&str>,
+    google_id: Option<&str>,
+    resend_key: Option<&str>,
+    email_from: Option<&str>,
+) -> Providers {
+    Providers {
+        github: configured(github_id),
+        google: configured(google_id),
+        email: configured(resend_key) && configured(email_from),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn providers_skip_placeholders() {
+        let p = providers(
+            Some("Ov23lifOFJZIw2RR9RMi"),
+            Some("replace-with-google-oauth-client-id.apps.googleusercontent.com"),
+            None,
+            Some("myleet <login@myleet.example.com>"),
+        );
+        assert_eq!(
+            p,
+            Providers {
+                github: true,
+                google: false,
+                email: false
+            }
+        );
+        let all = providers(
+            Some("gh"),
+            Some("123.apps.googleusercontent.com"),
+            Some("re_abc"),
+            Some("myleet <login@myleet.dev>"),
+        );
+        assert!(all.github && all.google && all.email);
+        assert!(!providers(Some("gh"), None, Some("re_abc"), None).email);
+        assert!(!providers(Some("  "), None, Some(""), Some("a@b.dev")).github);
+        assert_eq!(
+            serde_json::to_string(&all).unwrap(),
+            r#"{"github":true,"google":true,"email":true}"#
+        );
+    }
 
     #[test]
     fn authorize_urls() {
