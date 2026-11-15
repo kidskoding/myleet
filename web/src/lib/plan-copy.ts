@@ -110,12 +110,12 @@ export function paceLine(pace: Plan["pace"], targets: Record<"easy" | "medium" |
   const sample = pace.sample ?? 0;
   if (sample < 5) return `After ${sample ? "a few more" : "a few"} solves we'll size sessions to your own speed. Until then they use the ${targets.medium}-minute target for mediums.`;
   const level = (["medium", "easy", "hard"] as const).find((d) => pace.median_secs[d]);
-  if (!level) return "Sessions are sized from your own times and update after every solve.";
+  if (!level) return "Sessions are sized from your own times and update after every solve";
   const mins = Math.round((pace.median_secs[level] ?? 0) / 60);
   const target = targets[level];
   const gap = mins - target;
   const vs = Math.abs(gap) <= 1 ? `right on the ${target}-minute target` : gap < -5 ? `well under the ${target}-minute target` : gap < 0 ? `a bit faster than the ${target}-minute target` : gap <= 5 ? `a little over the ${target}-minute target` : `over the ${target}-minute target, so sessions leave room for that`;
-  return `You solve ${level}s in about ${mins} minutes, ${vs}.`;
+  return `You solve ${level}s in about ${mins} minutes, ${vs}`;
 }
 
 export const INSIGHTS_EMPTY =

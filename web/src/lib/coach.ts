@@ -117,7 +117,7 @@ export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title
       kind: "resume",
       label: "Jump back in",
       title: title(started.problem),
-      body: got ? `Last time you ${got}, ${dayAgo(last.date, now)}.` : `You've started it ${started.state.attempts === 1 ? "once" : `${started.state.attempts} times`} and haven't passed it yet.`,
+      body: got ? `Last time you ${got}, ${dayAgo(last.date, now)}` : `You've started it ${started.state.attempts === 1 ? "once" : `${started.state.attempts} times`} and haven't passed it yet`,
       problem: started.problem,
     });
   }
@@ -127,7 +127,7 @@ export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title
       kind: "due",
       label: "Due before it slips",
       title: title(due.problem),
-      body: `It came due ${due.overdue_days === 1 ? "yesterday" : `${due.overdue_days} days ago`}, so a clean pass today keeps it on schedule.`,
+      body: `It came due ${due.overdue_days === 1 ? "yesterday" : `${due.overdue_days} days ago`}, so a clean pass today keeps it on schedule`,
       problem: due.problem,
     });
   }
@@ -167,7 +167,7 @@ export function milestone(states: Record<string, State>, seen: number): number |
 }
 
 const ORD = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th"}`;
-export const milestoneLine = (n: number) => `That's your ${ORD(n)} clean pass.`;
+export const milestoneLine = (n: number) => `That's your ${ORD(n)} clean pass`;
 
 /** "3 days in a row" from 2 days on; silent otherwise, never a warning. */
 export const momentum = (streak: number): string | null => (streak >= 2 ? `${streak} days in a row` : null);
@@ -199,5 +199,5 @@ export function reviewWhy(e: Pick<TodayEntry, "problem" | "overdue_days" | "stat
   const lead = last && did
     ? `${cap(dayAgo(last.date, now))} you ${did}, so ${last.mark === "clean" ? "another" : "a"} clean pass now`
     : `${e.overdue_days <= 0 ? "It's due today" : e.overdue_days === 1 ? "It came due yesterday" : `It came due ${e.overdue_days} days ago`}, and a clean pass`;
-  return `${lead} puts the next review ${days(next)} out.`;
+  return `${lead} puts the next review ${days(next)} out`;
 }

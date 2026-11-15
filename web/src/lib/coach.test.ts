@@ -46,8 +46,8 @@ describe("personal cards", () => {
     const q = [entry("a", "new", { rung: -1, attempts: 2 }), entry("r", "review", {}, 3)];
     const skills = [skill({ history: [attempt({ problem: "a", date: "2026-11-13" })] }), skill({ technique_title: "Hashing", level: "solid", need: 0.1 })];
     expect(personalCards(q, skills, title, now)).toEqual([
-      { kind: "resume", label: "Jump back in", title: "A", body: "Last time you passed 5 of 7 tests, 2 days ago.", problem: "a" },
-      { kind: "due", label: "Due before it slips", title: "R", body: "It came due 3 days ago, so a clean pass today keeps it on schedule.", problem: "r" },
+      { kind: "resume", label: "Jump back in", title: "A", body: "Last time you passed 5 of 7 tests, 2 days ago", problem: "a" },
+      { kind: "due", label: "Due before it slips", title: "R", body: "It came due 3 days ago, so a clean pass today keeps it on schedule", problem: "r" },
       { kind: "weak", label: "Your weak spot", title: "Sliding Window", body: "Sliding window is still shaky. A few clean solves and you'll stop needing hints on it.", problem: null },
     ]);
   });
@@ -66,8 +66,8 @@ describe("on this day, milestones and momentum", () => {
     const s = { a: state({ clean_passes: 6 }), b: state({ clean_passes: 4 }) };
     expect(milestone(s, 0)).toBe(10);
     expect(milestone(s, 10)).toBeNull();
-    expect(milestoneLine(10)).toBe("That's your 10th clean pass.");
-    expect(milestoneLine(1000)).toBe("That's your 1000th clean pass.");
+    expect(milestoneLine(10)).toBe("That's your 10th clean pass");
+    expect(milestoneLine(1000)).toBe("That's your 1000th clean pass");
   });
   it("only shows momentum when true", () => {
     expect(momentum(3)).toBe("3 days in a row");
@@ -92,7 +92,7 @@ describe("empty Today", () => {
 describe("reviewWhy", () => {
   it("uses the last attempt, else the due date", () => {
     const skills = [skill({ history: [attempt({ problem: "r", mark: "hint", detail: "used a hint", date: "2026-11-09" })] })];
-    expect(reviewWhy(entry("r", "review", { rung: 1 }), skills, now)).toBe("6 days ago you needed a hint, so a clean pass now puts the next review 7 days out.");
-    expect(reviewWhy(entry("x", "review", { rung: 0 }, 2), null, now)).toBe("It came due 2 days ago, and a clean pass puts the next review 3 days out.");
+    expect(reviewWhy(entry("r", "review", { rung: 1 }), skills, now)).toBe("6 days ago you needed a hint, so a clean pass now puts the next review 7 days out");
+    expect(reviewWhy(entry("x", "review", { rung: 0 }, 2), null, now)).toBe("It came due 2 days ago, and a clean pass puts the next review 3 days out");
   });
 });

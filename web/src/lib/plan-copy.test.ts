@@ -62,7 +62,7 @@ describe("Plan copy", () => {
     const p = plan().pace;
     const targets = { easy: 15, medium: 25, hard: 40 };
     expect(paceLine({ ...p, sample: 2 }, targets)).toMatch(/^After a few more solves we'll size sessions to your own speed/);
-    expect(paceLine({ ...p, sample: 8, median_secs: { medium: 22 * 60 } }, targets)).toBe("You solve mediums in about 22 minutes, a bit faster than the 25-minute target.");
+    expect(paceLine({ ...p, sample: 8, median_secs: { medium: 22 * 60 } }, targets)).toBe("You solve mediums in about 22 minutes, a bit faster than the 25-minute target");
   });
 
   it("names the evenings you usually practice", () => {
