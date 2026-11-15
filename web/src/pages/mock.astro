@@ -1,8 +1,252 @@
 ---
+import { Ellipsis, EyeOff, GitCommitHorizontal, Timer } from "lucide-static";
 import Base from "../layouts/Base.astro";
+import { buildCatalog } from "../lib/build-catalog";
+import type { PlaylistGroup } from "../lib/types";
+
+const GROUPS: PlaylistGroup[] = ["Big tech", "Little tech", "AI labs / high growth", "Quant", "Fortune 500"];
+const playlists = buildCatalog().playlists;
+const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width="${size}" height="${size}" aria-hidden="true"`);
 ---
 
-<Base title="Mock interview">
-  <h1>Mock interview</h1>
-  <p>Placeholder: the screen design lands here.</p>
+<Base title="Mock interview" nav="mock" noindex description="A timed mock round: technique hidden, one clock, results count like reviews.">
+  <div class="page mock" data-mock>
+    <!-- Setup and past mocks -->
+    <div class="mock-layout" data-view="setup">
+      <section aria-labelledby="mk-title">
+        <h1 id="mk-title">Mock interview</h1>
+        <p class="lede">Solve like it's the real loop: one timer, no hints, and the technique hidden until the end. You'll find out whether you'd have picked the right pattern.</p>
+
+        <form class="panel setup" data-setup novalidate>
+          <fieldset>
+            <legend>Problems</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="n" value="1" /><span class="big">1</span><span>About 25 min. A quick rep.</span></label>
+              <label class="opt"><input type="radio" name="n" value="2" checked /><span class="big">2</span><span><span data-std-mins>45</span> min. A standard phone screen.</span></label>
+              <label class="opt"><input type="radio" name="n" value="3" /><span class="big">3</span><span>60 min. An onsite round, tight.</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Draw from</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="src" value="mixed" checked /><strong>Mixed</strong><span>Techniques you've started, weighted to what's due soonest.</span></label>
+              <label class="opt"
+                ><input type="radio" name="src" value="company" /><strong>A company set</strong><span>Problems from one company's practice set.</span>
+                <select class="input" name="company" aria-label="Company set" data-company>
+                  {
+                    GROUPS.map((g) => (
+                      <optgroup label={g}>
+                        {playlists
+                          .filter((p) => p.group === g)
+                          .map((p) => (
+                            <option value={p.id}>{p.title}</option>
+                          ))}
+                      </optgroup>
+                    ))
+                  }
+                </select>
+              </label>
+              <label class="opt"><input type="radio" name="src" value="weak" data-weak-input /><strong>Weak spots</strong><span data-weak-text>Only techniques where you've missed clean passes.</span></label>
+            </div>
+          </fieldset>
+          <ul class="rules">
+            <li><Fragment set:html={svg(EyeOff)} /><span>Titles show; technique and module labels don't. No hints and no reference solution in a mock.</span></li>
+            <li><Fragment set:html={svg(Timer)} /><span>One clock for the whole round. You can move between problems; time keeps running.</span></li>
+            <li><Fragment set:html={svg(GitCommitHorizontal)} /><span>Results count like reviews: a clean pass climbs a rung, a miss drops that problem to 1 day. A pass counts as clean only if your self-check is all yes.</span></li>
+          </ul>
+          <p class="mk-err" data-setup-err role="alert" hidden></p>
+          <div class="go">
+            <button class="btn btn-primary btn-lg" type="submit" data-start>Start the round <kbd>enter</kbd></button>
+            <p>Focus mode turns on and the top bar hides. End the round any time from the ⋯ menu.</p>
+          </div>
+        </form>
+      </section>
+
+      <aside aria-label="Past mocks">
+        <section class="panel" aria-labelledby="ph">
+          <div class="section-head" style="margin:0"><h2 id="ph">Past mocks</h2><span class="meta" data-hist-count></span></div>
+          <div data-hist aria-busy="true">
+            <div class="skel" style="height:40px;margin-top:16px"></div>
+            <div class="skel" style="height:40px;margin-top:16px"></div>
+            <div class="skel" style="height:40px;margin-top:16px"></div>
+          </div>
+        </section>
+        <section class="panel" aria-labelledby="ci" data-checkin hidden>
+          <h2 id="ci">Module check-in</h2>
+          <p class="aside-p" data-checkin-text></p>
+          <a class="link text-small" href="/app">Open it on Today</a>
+        </section>
+      </aside>
+    </div>
+
+    <!-- The round: charcoal bar over the workspace (focus mode) -->
+    <div class="mk-round" data-view="round" hidden>
+      <header class="roundbar" aria-label="Mock round">
+        <div class="steps"><span class="pips" data-pips aria-hidden="true"></span><span class="lbl" data-step-label></span></div>
+        <div class="rtimer" data-clock-wrap data-state="calm" role="timer" aria-live="off">
+          <span class="clock" data-clock>0:00</span>
+          <span class="tcol"><span class="target" data-clock-note></span><span class="track"><span data-clock-track></span></span></span>
+        </div>
+        <div class="end">
+          <button class="btn btn-ghost btn-sm" type="button" data-prev>Previous</button>
+          <button class="btn btn-secondary btn-sm" type="button" data-next>Next problem</button>
+          <button class="icon-btn" type="button" data-more aria-label="Round menu" aria-haspopup="menu" aria-expanded="false" aria-controls="mk-menu"><Fragment set:html={svg(Ellipsis, 18)} /></button>
+        </div>
+      </header>
+      <div class="menu" id="mk-menu" role="menu" hidden>
+        <button type="button" role="menuitem" data-end>End round</button>
+      </div>
+      <p class="phone-note" data-phone-note hidden>Mocks work best on a laptop keyboard. <button type="button" class="link" data-phone-ok>Got it</button></p>
+      <div class="frames" data-frames></div>
+      <div class="visually-hidden" aria-live="polite" data-announce></div>
+    </div>
+
+    <!-- Results -->
+    <section data-view="reveal" aria-labelledby="rv-title" hidden></section>
+
+    <dialog class="dlg mk-dlg" id="mk-timeup" role="alertdialog" aria-labelledby="tu-title" aria-describedby="tu-body">
+      <div class="dlg-head"><h2 id="tu-title" data-tu-title>Time's up</h2></div>
+      <div class="dlg-body"><p id="tu-body" data-tu-body></p></div>
+      <div class="dlg-actions">
+        <button class="btn btn-ghost" type="button" data-keep>Keep coding, mark as over time</button>
+        <button class="btn btn-primary" type="button" data-finish autofocus>Finish and self-check</button>
+      </div>
+    </dialog>
+
+    <dialog class="dlg mk-dlg" id="mk-check" aria-labelledby="sc-title">
+      <form method="dialog" data-check-form>
+        <div class="dlg-head"><h2 id="sc-title" data-sc-title></h2></div>
+        <div class="dlg-body">
+          <p>Tests can't tell whether you'd have talked an interviewer through it. Your answers stay private and only shape what Today suggests.</p>
+          <div class="checks" data-checks></div>
+        </div>
+        <div class="dlg-actions"><button class="btn btn-primary" type="submit" data-check-next disabled>See the reveal <kbd>enter</kbd></button></div>
+      </form>
+    </dialog>
+  </div>
 </Base>
+
+<style is:global>
+  .mock .mock-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: var(--space-10); align-items: start; }
+  .mock .lede { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-md); font-variation-settings: "wdth" 95; max-width: 56ch; }
+
+  .mock .setup { margin-top: var(--space-8); padding: var(--space-6) var(--space-8); display: grid; gap: var(--space-6); }
+  .mock fieldset { border: 0; padding: 0; min-width: 0; display: grid; gap: var(--space-3); }
+  .mock legend { font-weight: 650; font-size: var(--text-base); margin-bottom: var(--space-3); padding: 0; }
+  .mock .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+  .mock .opt { position: relative; display: grid; gap: 2px; align-content: start; padding: var(--space-4); border: 1px solid var(--line-strong); border-radius: var(--radius-md); cursor: pointer; transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out); }
+  .mock .opt:hover { border-color: var(--ink-3); }
+  .mock .opt input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+  .mock .opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+  .mock .opt:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .mock .opt:has(input:disabled) { opacity: 0.55; cursor: not-allowed; }
+  .mock .opt strong { font-size: var(--text-base); }
+  .mock .opt .big { font-size: var(--text-xl); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); line-height: 1; }
+  .mock .opt > span { font-size: var(--text-sm); color: var(--ink-2); }
+  .mock .opt select { margin-top: var(--space-2); height: 34px; font-size: var(--text-sm); }
+  .mock .rules { display: grid; gap: var(--space-2); padding: var(--space-4) var(--space-5); background: var(--surface-sunk); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--ink-2); list-style: none; }
+  .mock .rules li { display: grid; grid-template-columns: 18px 1fr; gap: var(--space-3); align-items: start; }
+  .mock .rules .icon { width: 16px; height: 16px; margin-top: 2px; color: var(--ink-3); }
+  .mock .mk-err { font-size: var(--text-sm); color: var(--fail); font-weight: 600; }
+  .mock .go { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+  .mock .go p { font-size: var(--text-sm); color: var(--ink-3); flex: 1 1 240px; }
+
+  .mock aside { display: grid; gap: var(--space-5); }
+  .mock aside .panel { padding: var(--space-5); }
+  .mock aside h2 { font-size: var(--text-base); }
+  .mock .aside-p { margin: var(--space-2) 0 var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
+  .mock .hist { list-style: none; padding: 0; margin-top: var(--space-3); }
+  .mock .hist li a { display: grid; grid-template-columns: 1fr auto; gap: 2px var(--space-3); padding: var(--space-3) 0; text-decoration: none; border-radius: var(--radius-xs); }
+  .mock .hist li + li a { border-top: 1px solid var(--line); }
+  .mock .hist li a:hover .when { text-decoration: underline; }
+  .mock .hist .when { font-weight: 600; font-size: var(--text-sm); }
+  .mock .hist .what { grid-column: 1; font-size: var(--text-xs); color: var(--ink-3); }
+  .mock .hist .score { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-variation-settings: "wdth" var(--wdth-tag); font-weight: 700; font-size: var(--text-md); }
+  .mock .hist .score small { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
+  .mock .empty-hist { margin-top: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
+
+  /* Round: focus mode hides the app shell; the round bar sits over the workspace iframe. */
+  body.mock-focus .topbar, body.mock-focus .tabbar, body.mock-focus .banners { display: none; }
+  body.mock-focus main { padding: 0 !important; }
+  .mock .mk-round { position: fixed; inset: 0; z-index: var(--z-sticky); display: grid; grid-template-rows: 56px auto minmax(0, 1fr); background: var(--ground); }
+  .mock .mk-round[hidden] { display: none; }
+  .mock .roundbar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--space-4); padding: 0 var(--space-4); background: var(--wall); color: var(--wall-ink); }
+  .mock .roundbar .steps { display: flex; gap: var(--space-3); align-items: center; font-size: var(--text-sm); font-weight: 600; min-width: 0; }
+  .mock .roundbar .pips { display: flex; gap: var(--space-2); }
+  .mock .roundbar .pip { width: 26px; height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--wall-ink) 22%, transparent); }
+  .mock .roundbar .pip.done { background: var(--wall-ink); }
+  .mock .roundbar .pip.on { background: var(--accent); }
+  .mock .rtimer { display: inline-flex; align-items: center; gap: var(--space-3); }
+  .mock .rtimer .clock { font-size: var(--text-timer); font-weight: 680; font-variation-settings: "wdth" 75; letter-spacing: -0.01em; line-height: 1; color: var(--wall-ink); transition: color var(--dur-base) var(--ease-out); }
+  .mock .rtimer .tcol { display: grid; }
+  .mock .rtimer .target { font-size: var(--text-xs); font-weight: 600; color: var(--wall-ink-2); line-height: 1.2; transition: color var(--dur-base) var(--ease-out); }
+  .mock .rtimer .track { width: 64px; height: 4px; margin-top: 4px; border-radius: 2px; overflow: hidden; background: color-mix(in srgb, var(--wall-ink) 18%, transparent); }
+  .mock .rtimer .track span { display: block; height: 100%; background: var(--wall-ink-2); }
+  /* The wall is dark in both themes, so near and over use the dark-theme hold colours. */
+  .mock .rtimer[data-state="near"] :is(.clock, .target) { color: #f0b24a; }
+  .mock .rtimer[data-state="near"] .track span { background: #f0b24a; }
+  .mock .rtimer[data-state="over"] :is(.clock, .target) { color: #ff8075; }
+  .mock .rtimer[data-state="over"] .track span { background: #ff8075; }
+  .mock .roundbar .end { justify-self: end; display: flex; gap: var(--space-2); align-items: center; }
+  .mock .roundbar .btn-ghost, .mock .roundbar .icon-btn { color: var(--wall-ink-2); }
+  .mock .roundbar .btn-ghost:hover, .mock .roundbar .icon-btn:hover { background: color-mix(in srgb, var(--wall-ink) 10%, transparent); color: var(--wall-ink); }
+  .mock .roundbar .btn-secondary { background: transparent; color: var(--wall-ink); border-color: color-mix(in srgb, var(--wall-ink) 35%, transparent); }
+  .mock .roundbar .btn-secondary:hover { border-color: var(--wall-ink); }
+  .mock #mk-menu { top: 52px; right: var(--space-4); }
+  .mock .phone-note { display: flex; gap: var(--space-3); align-items: center; justify-content: space-between; padding: var(--space-2) var(--space-4); font-size: var(--text-sm); color: var(--ink-2); background: var(--surface-sunk); }
+  .mock .phone-note[hidden] { display: none; }
+  .mock .frames { grid-row: 3; position: relative; min-height: 0; }
+  .mock .frames iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; background: var(--ground); }
+  .mock .frames iframe[hidden] { display: none; }
+
+  .mock .mk-dlg { --dlg-w: 560px; }
+  .mock .checks { margin-top: var(--space-5); display: grid; }
+  .mock .check { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; padding: var(--space-3) var(--space-2); border-top: 1px solid var(--line); border-radius: var(--radius-sm); }
+  .mock .check.is-kbd { background: var(--surface-sunk); }
+  .mock .check strong { font-size: var(--text-base); font-weight: 600; }
+  .mock .check p { font-size: var(--text-sm); color: var(--ink-3); margin-top: 2px; }
+
+  /* Reveal */
+  .mock .reveal-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+  .mock .reveal-head .btns { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+  .mock .summary { margin-top: var(--space-8); display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+  .mock .summary > div { padding: var(--space-5) var(--space-6); }
+  .mock .summary > div + div { border-left: 1px solid var(--line); }
+  .mock .summary .v { font-size: var(--text-2xl); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); line-height: 1; letter-spacing: -0.02em; }
+  .mock .summary .l { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); }
+  .mock .rv { margin-top: var(--space-8); list-style: none; padding: 0; display: grid; gap: var(--space-4); }
+  .mock .rv > li { padding: var(--space-5) var(--space-6); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4) var(--space-8); align-items: center; }
+  .mock .rv h3 { font-size: var(--text-md); }
+  .mock .rv .tech { margin-top: var(--space-2); display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; font-size: var(--text-sm); color: var(--ink-2); }
+  .mock .rv .unveil { font-weight: 650; color: var(--ink); background: var(--accent-soft); padding: 1px 8px; border-radius: var(--radius-xs); }
+  .mock .rv .facts { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); font-size: var(--text-sm); color: var(--ink-2); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+  .mock .rv .facts b { color: var(--ink); font-weight: 650; }
+  .mock .rv .effect { text-align: right; }
+  .mock .rv .effect .ladder { display: inline-block; }
+  .mock .rv .effect p { margin-top: var(--space-1); font-size: var(--text-xs); color: var(--ink-3); }
+  @media (prefers-reduced-motion: no-preference) {
+    :root:not([data-motion="reduce"]) .mock .rv .unveil { animation: mk-unveil var(--dur-slow) var(--ease-out) both; animation-delay: calc(var(--i, 0) * 120ms); }
+  }
+  @keyframes mk-unveil { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+  @media (max-width: 1100px) { .mock .mock-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) {
+    .mock.page { padding-top: var(--space-6); }
+    .mock .lede { font-size: var(--text-base); }
+    .mock .setup { padding: var(--space-5); }
+    .mock .opts { grid-template-columns: 1fr; }
+    .mock .go .btn-primary { width: 100%; }
+    .mock .roundbar { grid-template-columns: auto 1fr auto; gap: var(--space-3); padding: 0 var(--space-2) 0 var(--space-3); }
+    .mock .roundbar .lbl, .mock .roundbar [data-prev], .mock .rtimer .target { display: none; }
+    .mock .rtimer { justify-self: center; }
+    .mock .summary { grid-template-columns: 1fr; }
+    .mock .summary > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    .mock .rv > li { grid-template-columns: 1fr; padding: var(--space-5); }
+    .mock .rv .effect { text-align: left; }
+    .mock .reveal-head .btns { width: 100%; } .mock .reveal-head .btns .btn { flex: 1; }
+  }
+</style>
+
+<script>
+  import "../scripts/mock";
+</script>
