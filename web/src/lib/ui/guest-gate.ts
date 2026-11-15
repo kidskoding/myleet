@@ -25,7 +25,7 @@ export function resultsLine(items: { topic: string; level: Level }[], name: (top
   const a = strong.length ? `You're solid on ${list(strong)}` : "Nothing is locked in yet, which is a fine place to start";
   if (!first) return `${a}, so your plan starts with the patterns asked most often in interviews.`;
   const b = strong.length ? `, and ${first} is where you'll grow fastest.` : `, and ${first} is where we'll begin.`;
-  return `${a}${b}${second ? ` ${second.charAt(0).toUpperCase() + second.slice(1)} is next.` : ""}`;
+  return `${a}${b}${second ? ` ${second.charAt(0).toUpperCase() + second.slice(1)} is next` : ""}`;
 }
 
 export const signupToToday = (): string => `${signinHref(ROUTES.today)}&mode=signup`;
@@ -52,7 +52,7 @@ export function todayInvite(greet: string, company: string | null = null): SafeH
 
 export function todayResults(greet: string, line: string): SafeHtml {
   return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${line}</p>
-    <p>A free account turns this into a plan: what to practice each day, when to review, and a schedule that fits your week.</p>
+    <p>A free account turns this into a plan: what to practice each day, when to review, and a schedule that fits your week</p>
     <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${signupToToday()}">Create your free account to start your plan</a><a class="link" href="${ROUTES.diagnostic}">See your full results</a></div></section>`;
 }
 

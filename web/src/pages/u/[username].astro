@@ -112,7 +112,7 @@ export function getStaticPaths() {
               <p>Never your code, attempts, notes, hints, weak spots or interview date</p>
               <a class="btn btn-primary" href="${ROUTES.settings}#privacy">Make my profile public</a></section>`
           : missing
-            ? html`<section class="panel private"><h1>No public profile here</h1><p>Either no one uses the name "${name}", or they haven't made their progress public. Usernames are lowercase.</p><a class="btn btn-secondary" href="${ROUTES.home}">What is myleet?</a></section>`
+            ? html`<section class="panel private"><h1>No public profile here</h1><p>Either no one uses the name "${name}", or they haven't made their progress public. Usernames are lowercase</p><a class="btn btn-secondary" href="${ROUTES.home}">What is myleet?</a></section>`
             : html`<section class="panel private" role="alert"><h1>Couldn't load this profile</h1><p>${navigator.onLine ? "The server didn't answer" : "You're offline"} Try again in a moment</p><button class="btn btn-secondary" type="button" onclick="location.reload()">Try again</button></section>`,
       );
     }

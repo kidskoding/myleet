@@ -18,23 +18,23 @@ import { ROUTES } from "../lib/routes";
   ]}
 >
   <h2 id="short">The short version</h2>
-  <p>Practicing on myleet needs a free account, which holds your progress so it follows you between devices. Your browser keeps a working copy too. There are no ads, no trackers and no analytics, and your data is never sold or shared for marketing.</p>
+  <p>Practicing on myleet needs a free account, which holds your progress so it follows you between devices. Your browser keeps a working copy too. There are no ads, no trackers and no analytics, and your data is never sold or shared for marketing</p>
 
   <h2 id="device">Before you sign up</h2>
-  <p>You can read the notes, browse the company sets and take the diagnostic without an account. While you do, nothing about you is stored on our servers. Your diagnostic answers and the code you write for it stay in your browser's storage (IndexedDB and local storage) on this device. When you create an account they move to it. Clearing your browser's site data before then deletes them.</p>
-  <p>To show a problem, the app asks our server for its statement. Those requests carry nothing that identifies you.</p>
+  <p>You can read the notes, browse the company sets and take the diagnostic without an account. While you do, nothing about you is stored on our servers. Your diagnostic answers and the code you write for it stay in your browser's storage (IndexedDB and local storage) on this device. When you create an account they move to it. Clearing your browser's site data before then deletes them</p>
+  <p>To show a problem, the app asks our server for its statement. Those requests carry nothing that identifies you</p>
 
   <h2 id="account">With an account</h2>
   <p>When you sign in with GitHub, Google or an email link, our server (a Cloudflare Worker with its database) stores:</p>
   <ul>
     <li><strong>Profile:</strong> your email address, the id your sign-in provider gives your account, your username, and optionally a display name and avatar</li>
     <li><strong>Settings:</strong> theme, editor and practice preferences, interview date, target companies, reminder choices, and whether your public profile is on</li>
-    <li><strong>Practice history:</strong> the events of your attempts (opened, test runs, hints, passes, give-ups, with times), the same file the command-line app writes. Your code is not uploaded.</li>
+    <li><strong>Practice history:</strong> the events of your attempts (opened, test runs, hints, passes, give-ups, with times), the same file the command-line app writes. Your code is not uploaded</li>
     <li><strong>Your plan:</strong> the day-by-day practice plan built from that history</li>
-    <li><strong>Sessions:</strong> one entry per signed-in browser with when it started and its browser name, so you can see and revoke them. The session cookie holds a random token; we store only a hash of it.</li>
+    <li><strong>Sessions:</strong> one entry per signed-in browser with when it started and its browser name, so you can see and revoke them. The session cookie holds a random token; we store only a hash of it</li>
     <li><strong>Calendar feed:</strong> if you turn on the calendar link, we store only a hash of its private token</li>
   </ul>
-  <p>Your public profile is off by default. If you turn it on, your username, display name and avatar if set, streak, mastered and solved counts, and activity heatmap are visible at your profile address. Turn it off in Settings at any time.</p>
+  <p>Your public profile is off by default. If you turn it on, your username, display name and avatar if set, streak, mastered and solved counts, and activity heatmap are visible at your profile address. Turn it off in Settings at any time</p>
 
   <h2 id="never">What we never do</h2>
   <ul>
@@ -45,10 +45,10 @@ import { ROUTES } from "../lib/routes";
   </ul>
 
   <h2 id="services">Services we use</h2>
-  <p>The site and its server run on Cloudflare. Sign-in emails are sent through Resend, which receives your email address and the sign-in link only. GitHub and Google handle their own sign-in pages under their own privacy policies; we receive your email and account id from them, nothing else.</p>
+  <p>The site and its server run on Cloudflare. Sign-in emails are sent through Resend, which receives your email address and the sign-in link only. GitHub and Google handle their own sign-in pages under their own privacy policies; we receive your email and account id from them, nothing else</p>
 
   <h2 id="control">Export and delete</h2>
-  <p>In <a href={ROUTES.settings}>Settings</a> you can export everything we hold about you as a file, sign out other sessions, and delete your account. Deleting the account removes your profile, settings, history, plan, sessions and calendar feed from our database. Progress on your own devices stays until you clear it there.</p>
+  <p>In <a href={ROUTES.settings}>Settings</a> you can export everything we hold about you as a file, sign out other sessions, and delete your account. Deleting the account removes your profile, settings, history, plan, sessions and calendar feed from our database. Progress on your own devices stays until you clear it there</p>
 
   <h2 id="changes">Changes and contact</h2>
   <p>If this page changes in a way that matters, the date above changes. Questions or requests: open an issue at <a href="https://github.com/kidskoding/myleet/issues" rel="noopener">github.com/kidskoding/myleet</a></p>

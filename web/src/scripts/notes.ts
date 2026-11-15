@@ -153,7 +153,7 @@ function noteCard(a: Annotation): string {
       <div class="acts"><button class="btn btn-ghost btn-sm" type="button" data-cancel>Cancel</button><button class="btn btn-primary btn-sm" type="button" data-save>Save note <kbd>${navigator.platform.includes("Mac") ? "⌘↵" : "Ctrl ↵"}</kbd></button></div></div>`.value;
   return html`<div class="mnote${bad ? " failed" : ""}" id="mn-${a.id}" data-mnote="${a.id}"${bad ? html` role="alert"` : ""}>
     <p>${a.text}</p>
-    <div class="when">${bad ? html`<span>Not saved. This browser's storage is full or blocked.</span><button type="button" data-retry-save>Retry</button>` : html`<span>${shortDate(a.updated)}</span><button type="button" data-edit>Edit</button><button type="button" data-remove>Remove</button>`}</div></div>`.value;
+    <div class="when">${bad ? html`<span>Not saved. This browser's storage is full or blocked</span><button type="button" data-retry-save>Retry</button>` : html`<span>${shortDate(a.updated)}</span><button type="button" data-edit>Edit</button><button type="button" data-remove>Remove</button>`}</div></div>`.value;
 }
 
 function marginVisible(): boolean {
@@ -472,7 +472,7 @@ async function runTry(): Promise<void> {
   const code = $<HTMLTextAreaElement>("[data-try-code]")?.value ?? "";
   if (!out || !btn) return;
   btn.setAttribute("aria-busy", "true");
-  render(out, html`<span>Preparing Python. The first run downloads about 10 MB, then it's cached.</span>`);
+  render(out, html`<span>Preparing Python. The first run downloads about 10 MB, then it's cached</span>`);
   try {
     const { getRunner } = await import("../lib/runner");
     const r = await getRunner().run({ test: TRY_TEST, code });

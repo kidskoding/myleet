@@ -90,7 +90,7 @@ function formView(h: Host, v: Extract<View, { kind: "form" }>): SafeHtml {
     ${h.inline ? html`<h1 id="si-h" tabindex="-1">${c.title}</h1>` : html`<h2 id="si-h" tabindex="-1">${c.title}</h2>`}
     <p class="auth-sub" id="si-d">${c.sub}</p>
     ${v.error ? html`<p class="auth-alert" role="alert">${icon("circle-alert")}<span>${v.error}</span></p>` : ""}
-    ${offline ? html`<p class="auth-alert" role="status">${icon("wifi-off")}<span>You're offline. Sign in when you reconnect.</span></p>` : ""}
+    ${offline ? html`<p class="auth-alert" role="status">${icon("wifi-off")}<span>You're offline. Sign in when you reconnect</span></p>` : ""}
     ${none ? html`<p class="auth-alert" role="status">${icon("circle-alert")}<span>Sign-in isn't set up on this copy of myleet yet</span></p>` : ""}
     <div class="auth-stack">
       ${m.oauth.map(provider)}
@@ -105,7 +105,7 @@ function sentView(h: Host, v: Extract<View, { kind: "sent" }>): SafeHtml {
   return html`${h.inline ? "" : html`<button class="icon-btn auth-close" type="button" data-close aria-label="Close">${icon("x")}</button>`}
     <div class="big-icon">${icon("mail-check")}</div>
     <h2 id="si-h" tabindex="-1">Check your email</h2>
-    <p class="auth-sub">We sent a sign-in link to <strong>${v.email}</strong>. It works once and expires in 15 minutes. You can close this tab; the link signs you in wherever you open it.</p>
+    <p class="auth-sub">We sent a sign-in link to <strong>${v.email}</strong>. It works once and expires in 15 minutes. You can close this tab; the link signs you in wherever you open it</p>
     <div class="auth-row"><button class="btn btn-secondary" type="button" data-resend disabled>Resend in 1:00</button><button class="btn btn-ghost" type="button" data-other-email>Use a different email</button></div>
     <p class="auth-fine">Nothing after a minute? Check spam or promotions, then resend</p>`;
 }
@@ -114,7 +114,7 @@ function expiredView(h: Host): SafeHtml {
   return html`${h.inline ? "" : html`<button class="icon-btn auth-close" type="button" data-close aria-label="Close">${icon("x")}</button>`}
     <div class="big-icon bad">${icon("link-off")}</div>
     <h2 id="si-h" tabindex="-1">That sign-in link has expired</h2>
-    <p class="auth-sub" id="si-d">Links work once and last 15 minutes. Send a new one, or sign in another way.</p>
+    <p class="auth-sub" id="si-d">Links work once and last 15 minutes. Send a new one, or sign in another way</p>
     <div class="auth-row"><button class="btn btn-primary" type="button" data-new-link>Send a new link</button>${
       signInMethods(h.providers).oauth.length ? html`<button class="btn btn-ghost" type="button" data-other-way>Sign in another way</button>` : ""
     }</div>`;
@@ -304,9 +304,9 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
   const body = (error?: string) =>
     html`<div class="auth-panel">
       <h2 id="mg-h" tabindex="-1">Keep your progress</h2>
-      <p class="auth-sub" id="mg-d">You practiced on this device before signing in, and your account already has progress from another device. Merging keeps both.</p>
+      <p class="auth-sub" id="mg-d">You practiced on this device before signing in, and your account already has progress from another device. Merging keeps both</p>
       <div class="sides">${side("dev-h", "laptop", "This device", dev, false)}<div class="plus" aria-hidden="true">${icon("plus")}</div>${side("acc-h", "cloud", me.user.email, acc, true)}</div>
-      <p class="result-line">After merging: <strong>${plural(after.practised, "problem")}, ${after.mastered} mastered</strong> Where both have the same problem, the higher rung wins and both histories are kept. The streak counts every day you practiced on either.</p>
+      <p class="result-line">After merging: <strong>${plural(after.practised, "problem")}, ${after.mastered} mastered</strong> Where both have the same problem, the higher rung wins and both histories are kept. The streak counts every day you practiced on either</p>
       ${both.length
         ? html`<details class="overlap"><summary>See the ${plural(both.length, "problem")} on both</summary>
           <table class="otable"><thead><tr><th scope="col">Problem</th><th scope="col">This device</th><th scope="col">Account</th><th scope="col">Kept</th></tr></thead>
@@ -331,7 +331,7 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
         render(
           d,
           html`<div class="auth-panel"><div class="big-icon ok">${icon("check")}</div><h2 id="mg-h" tabindex="-1">Progress merged</h2>
-            <p class="auth-sub">${plural(after.practised, "problem")} and ${after.mastered} mastered are on your account now. This device syncs automatically, and keeps working offline.</p>
+            <p class="auth-sub">${plural(after.practised, "problem")} and ${after.mastered} mastered are on your account now. This device syncs automatically, and keeps working offline</p>
             <div class="auth-row"><button class="btn btn-primary" type="button" data-done>Back to practice</button></div></div>`,
         );
         d.querySelector<HTMLElement>("#mg-h")?.focus();

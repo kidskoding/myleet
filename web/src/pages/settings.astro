@@ -39,7 +39,7 @@ const account = [
         <section class="grp" aria-labelledby="profile">
           <h2 id="profile">Profile</h2>
           <div class="panel signedout when-out">
-            <p>Your progress and settings are saved in this browser. Sign in to sync them across devices and keep your existing progress.</p>
+            <p>Your progress and settings are saved in this browser. Sign in to sync them across devices and keep your existing progress</p>
             <button class="btn btn-primary" type="button" data-signin>Keep my progress</button>
           </div>
           <div class="panel when-in">
@@ -52,7 +52,7 @@ const account = [
               <div class="ctl wide"><input id="set-name" class="input" autocomplete="name" maxlength="60" data-set-name /></div>
             </div>
             <div class="row">
-              <div><label class="lbl" for="set-user">Username</label><div class="desc">Lowercase letters, numbers and dashes. Your profile link.</div></div>
+              <div><label class="lbl" for="set-user">Username</label><div class="desc">Lowercase letters, numbers and dashes. Your profile link</div></div>
               <div class="ctl wide">
                 <div style="width:100%">
                   <div class="prefix"><span>/u/</span><input id="set-user" class="input" spellcheck="false" autocapitalize="off" maxlength="30" aria-describedby="set-user-msg" data-set-user /></div>
@@ -68,7 +68,7 @@ const account = [
           <div class="panel">
             <div class="row"><div><div class="lbl">Catppuccin Mocha</div><div class="desc">Dark theme with your choice of accent color</div></div></div>
             <div class="row stack">
-              <div><div class="lbl" id="ac-l">Accent <b data-accent-name>Mauve</b></div><div class="desc">Buttons, links, focus, your current rung and the heatmap. Tags keep their own colors.</div></div>
+              <div><div class="lbl" id="ac-l">Accent <b data-accent-name>Mauve</b></div><div class="desc">Buttons, links, focus, your current rung and the heatmap. Tags keep their own colors</div></div>
               <div>
                 <div class="accents" role="radiogroup" aria-labelledby="ac-l">
                   {ACCENTS.map((a) => (
@@ -91,7 +91,7 @@ const account = [
               <div class="ctl"><select id="set-read-font" class="input" style="width:180px" data-pref="readFont"><option value="literata">Literata</option><option value="mono">JetBrains Mono</option></select></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system. On also stops the rung climb and pass wash here.</div></div>
+              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system. On also stops the rung climb and pass wash here</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="reduceMotion" aria-labelledby="rm-l" /></label></div>
             </div>
             <p class="credit">Colors are <a href="https://catppuccin.com" rel="noopener">Catppuccin</a>, MIT licensed</p>
@@ -106,7 +106,7 @@ const account = [
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.vim" aria-labelledby="vim-l" /></label></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="fs-l">Font size</div><div class="desc">Code only. Statements follow your browser's text size.</div></div>
+              <div><div class="lbl" id="fs-l">Font size</div><div class="desc">Code only. Statements follow your browser's text size</div></div>
               <div class="ctl">
                 <div class="stepper" role="group" aria-labelledby="fs-l">
                   <button type="button" data-step="editor.fontSize" data-by="-1" aria-label="Smaller"><Icon name="minus" /></button><output data-out="editor.fontSize">14</output><button type="button" data-step="editor.fontSize" data-by="1" aria-label="Larger"><Icon name="plus" /></button>
@@ -133,7 +133,7 @@ const account = [
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.formatOnSave" aria-labelledby="fos-l" /></label></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="ros-l">Run tests on save</div><div class="desc">Off by default so you can choose when to run tests. Disabled during mock interviews.</div></div>
+              <div><div class="lbl" id="ros-l">Run tests on save</div><div class="desc">Off by default so you can choose when to run tests. Disabled during mock interviews</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="editor.runOnSave" aria-labelledby="ros-l" /></label></div>
             </div>
           </div>
@@ -143,7 +143,7 @@ const account = [
           <h2 id="practice">Practice</h2>
           <div class="panel">
             <div class="row">
-              <div><div class="lbl" id="npd-l">New problems per day</div><div class="desc">Reviews come first. Use "Time today" on Today to reduce new problems for a single day.</div></div>
+              <div><div class="lbl" id="npd-l">New problems per day</div><div class="desc">Reviews come first. Use "Time today" on Today to reduce new problems for a single day</div></div>
               <div class="ctl">
                 <div class="stepper" role="group" aria-labelledby="npd-l">
                   <button type="button" data-step="newPerDay" data-by="-1" aria-label="Fewer"><Icon name="minus" /></button><output data-out="newPerDay">3</output><button type="button" data-step="newPerDay" data-by="1" aria-label="More"><Icon name="plus" /></button>
@@ -151,7 +151,7 @@ const account = [
               </div>
             </div>
             <div class="row">
-              <div><div class="lbl">Time targets</div><div class="desc">The time limit for a clean pass. Increasing it gives you more time to solve, but review intervals stay the same.</div></div>
+              <div><div class="lbl">Time targets</div><div class="desc">The time limit for a clean pass. Increasing it gives you more time to solve, but review intervals stay the same</div></div>
               <div class="ctl">
                 {
                   (["easy", "medium", "hard"] as const).map((d) => (
@@ -215,14 +215,14 @@ const account = [
               <div class="ctl"><button class="btn btn-secondary btn-sm" type="button" data-export-local><Icon name="download" />Download events.jsonl</button></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="imp-l">Import</div><div class="desc">Merge an <code>events.jsonl</code> from the CLI or another browser, or an account export. Nothing is overwritten; histories are joined.</div></div>
+              <div><div class="lbl" id="imp-l">Import</div><div class="desc">Merge an <code>events.jsonl</code> from the CLI or another browser, or an account export. Nothing is overwritten; histories are joined</div></div>
               <div class="ctl"><label class="btn btn-ghost btn-sm file-btn"><Icon name="upload" />Choose file<input type="file" accept=".jsonl,.json,.ndjson,application/json" data-import aria-labelledby="imp-l" /></label></div>
             </div>
           </div>
         </section>
 
         <section class="danger when-in" aria-labelledby="del">
-          <div><h2 id="del">Delete account</h2><p>Deletes your account, sign-in methods, sessions and synced progress from our servers. This browser keeps a local copy unless you also clear it.</p></div>
+          <div><h2 id="del">Delete account</h2><p>Deletes your account, sign-in methods, sessions and synced progress from our servers. This browser keeps a local copy unless you also clear it</p></div>
           <button class="btn btn-quiet-danger" type="button" data-delete>Delete account</button>
         </section>
       </div>

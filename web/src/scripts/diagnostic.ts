@@ -205,7 +205,7 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
       <div class="mesh" aria-hidden="true" style="--mesh-1: var(--pass-solid); --mesh-2: var(--due-solid); --mesh-3: var(--ctp-accent); --mesh-a: ${pool(strong)}; --mesh-b: ${pool(shaky)}; --mesh-c: ${pool(start)}"></div>
       <div class="dres-sum">
         <h1 id="dr-h" tabindex="-1">Your starting point</h1>
-        <p class="sub">${plural(strong, "pattern")} strong, ${shaky} shaky and ${start} to start on. None of this goes on your review schedule. It only sets what you study first.</p>
+        <p class="sub">${plural(strong, "pattern")} strong, ${shaky} shaky and ${start} to start on. None of this goes on your review schedule. It only sets what you study first</p>
         <div class="split" role="img" aria-label="${strong} strong, ${shaky} shaky, ${start} to start on">${split.map(([k, n]) => html`<span class="${k}" style="flex:${n}"></span>`)}</div>
         <ul class="split-key">${split.map(([k, n, name]) => html`<li class="${k}"><span class="num">${n}</span>${name}</li>`)}</ul>
       </div>

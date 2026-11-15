@@ -436,7 +436,7 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
         ? html`<div class="now" data-m0="${nowMin}" style="top:${yOf(nowMin, g.bs, g.hour, FOLD)}px" aria-hidden="true"></div>`
         : "";
     return html`<section class="col${isToday ? " today" : ""}${d.off ? " off" : ""}${d.date < c.plan.start ? " past" : ""}" data-day="${i}" data-date="${d.date}" aria-label="${longDay(d.date)}${d.off ? ", day off" : ""}">${winEls}${
-      d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows.</span>` : ""
+      d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows</span>` : ""
     }<ol aria-label="Sessions on ${dayName(d.date)}">${done}${d.sessions.map((s, j) => sessionBlock(c, d, s, g, j === 0))}</ol>${now}</section>`;
   });
   const empty = !g.done.length && g.days.every((d) => !d.sessions.length);
@@ -523,7 +523,7 @@ function agenda(c: Ctx): SafeHtml {
     const body = d.date < c.plan.start
       ? html`<div class="ag-empty">${was ? STATUS_TEXT[was.status] : "Nothing recorded"}</div>`
       : d.off
-      ? html`<div class="ag-off">Day off. Its work moved to the next free windows.</div>`
+      ? html`<div class="ag-off">Day off. Its work moved to the next free windows</div>`
       : html`${isToday ? done.map((s) => html`<div class="ag-ses done"><span class="t">${clock(s.start)}</span><div><div class="h">Done: ${s.clean ? plural(s.clean, "clean pass", "clean passes") : `${s.solved} solved`}</div></div></div>`) : ""}${
           d.sessions.length
             ? d.sessions.map(
@@ -721,7 +721,7 @@ function paint(): void {
     html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
-        <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off.</span></div>
+        <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
       <div class="route">${profile(c)}${forecast(c)}</div>
       ${you(c)}
@@ -981,9 +981,9 @@ function openPop(id: string, opts: { move?: boolean; focus?: boolean } = {}): vo
       <ol class="items" aria-label="Why each problem is here">${s.items.map(
         (i) => html`<li class="item"><a class="ti" href="${itemHref(i)}">${i.title}</a><span class="m">${i.minutes}m</span>${reasonLine(i)}</li>`,
       )}</ol>
-      <p class="pop-sum">Reviews come first, followed by your weakest technique and new topics. Time estimates use your usual solving time.</p>
+      <p class="pop-sum">Reviews come first, followed by your weakest technique and new topics. Time estimates use your usual solving time</p>
       ${opts.move
-        ? html`<div class="moveto"><h4>Move to</h4>${targets.length ? html`<ul>${targets.map((t) => html`<li><button type="button" class="btn btn-ghost btn-sm" data-move-to="${t.day.date}|${t.start}">${DAY_SHORT[weekdayIndex(t.day.date)]} ${short(t.day.date)}, ${span(t.start, t.start + len)}</button></li>`)}</ul>` : html`<p class="fineprint">No other window in the next week has room. Add one in Availability.</p>`}</div>`
+        ? html`<div class="moveto"><h4>Move to</h4>${targets.length ? html`<ul>${targets.map((t) => html`<li><button type="button" class="btn btn-ghost btn-sm" data-move-to="${t.day.date}|${t.start}">${DAY_SHORT[weekdayIndex(t.day.date)]} ${short(t.day.date)}, ${span(t.start, t.start + len)}</button></li>`)}</ul>` : html`<p class="fineprint">No other window in the next week has room. Add one in Availability</p>`}</div>`
         : html`<div class="pop-foot"><button type="button" class="btn btn-secondary btn-sm" data-pop-move>${icon("move")}Move</button><button type="button" class="btn btn-ghost btn-sm" data-pop-skip>Skip this session</button>${
             done
               ? html`<a class="btn btn-secondary btn-sm" href="${ROUTES.mock}?r=${done.id}">${icon("check")}See results</a>`

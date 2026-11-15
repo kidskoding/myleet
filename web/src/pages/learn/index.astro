@@ -27,7 +27,7 @@ const count = words[modules.length] ?? String(modules.length);
     <div class="head">
       <div>
         <h1>Learn</h1>
-        <p data-lede data-count={count}>{count} modules by interview pattern, {total} problems. Read the five start-here notes, then begin at module 1.</p>
+        <p data-lede data-count={count}>{count} modules by interview pattern, {total} problems. Read the five start-here notes, then begin at module 1</p>
         <TrackCta detail="Your account shows what you've started, what's due for review and which notes you've read" />
       </div>
       <div class="tools">
@@ -75,7 +75,7 @@ const count = words[modules.length] ?? String(modules.length);
     <section class="panel state-note" data-empty hidden role="status" style="margin-top:var(--space-8)"></section>
     <section class="panel state-note" data-error hidden role="alert" style="margin-top:var(--space-8)">
       <h2>Couldn't load your progress</h2>
-      <p>The curriculum or the trainer didn't load (network error). Your progress is safe on this device. Notes and problems you've opened before still work offline.</p>
+      <p>The curriculum or the trainer didn't load (network error). Your progress is safe on this device. Notes and problems you've opened before still work offline</p>
       <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
     </section>
     <script type="application/json" data-minutes set:html={JSON.stringify(minutes)} />

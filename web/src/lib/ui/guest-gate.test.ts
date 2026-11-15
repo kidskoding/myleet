@@ -19,7 +19,7 @@ describe("guest Today branch", () => {
 describe("resultsLine", () => {
   it("names the strongest, the fastest gain and what is next", () => {
     const items = [{ topic: "a", level: "strong" as const }, { topic: "w", level: "shaky" as const }, { topic: "p", level: "start here" as const }];
-    expect(resultsLine(items, name)).toBe("You're solid on arrays and hashing, and sliding window is where you'll grow fastest. Two pointers is next.");
+    expect(resultsLine(items, name)).toBe("You're solid on arrays and hashing, and sliding window is where you'll grow fastest. Two pointers is next");
   });
   it("copes with no strong or no weak topics", () => {
     expect(resultsLine([{ topic: "w", level: "start here" }], name)).toContain("sliding window is where we'll begin");
