@@ -1,7 +1,7 @@
 // The Worker's account API (worker/README.md). Every call is same-origin with the
 // session cookie. Without a Worker (astro preview, offline) the app is simply signed out.
 import type { Accent, Flavor, NightFlavor } from "./flavors";
-import { DEFAULT_PREFS, mergeHistory, readPrefs, validWindows, type Prefs } from "./prefs";
+import { DEFAULT_PREFS, mergeHistory, readPrefs, validWindows, type Aim, type Prefs } from "./prefs";
 import { mergeLedger, readLedger, writeLedger, type Ledger } from "./plan-progress";
 import type { Availability, Interview } from "./types";
 
@@ -27,6 +27,8 @@ export interface ServerSettings {
   target_companies: string[];
   /** Absent on a Worker that predates focus topics. */
   focus_topics?: string[];
+  /** Absent on a Worker that predates synced goals. */
+  aims?: Aim[];
   reminders: boolean;
   public_profile: boolean;
   daily_minutes: number;
@@ -271,6 +273,7 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     leetcode_username: p.leetcodeUsername,
     target_companies: p.plan.companies,
     focus_topics: p.plan.focusTopics,
+    aims: p.plan.aims,
     reminders: p.reminders.on,
     public_profile: p.publicProfile,
     daily_minutes: p.plan.dailyMinutes ?? 60,
@@ -298,6 +301,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
       interviews: s.interviews ?? (s.interview_date ? [{ date: s.interview_date, company: null }] : []),
       companies: s.target_companies,
       focusTopics: s.focus_topics ?? base.plan.focusTopics,
+      aims: s.aims ?? base.plan.aims,
       dailyMinutes: s.daily_minutes ?? base.plan.dailyMinutes,
       sessionMinutes: s.session_minutes ?? base.plan.sessionMinutes,
       availability: s.availability ?? base.plan.availability,
@@ -316,6 +320,7 @@ export function isDefaultServer(s: ServerSettings): boolean {
     s.interview_date === null &&
     s.target_companies.length === 0 &&
     (s.focus_topics?.length ?? 0) === 0 &&
+    (s.aims?.length ?? 0) === 0 &&
     !s.public_profile &&
     !s.reminders &&
     (s.availability?.length ?? 0) === 0 &&

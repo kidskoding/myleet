@@ -26,14 +26,14 @@ export interface Plan {
   companies: string[];
   /** Curriculum module ids to lean toward, e.g. `graphs`. */
   focusTopics: string[];
-  /** Picked in onboarding. Device-local: the goals themselves sync. */
+  /** The goals picked, in onboarding or "Your goals". Synced, so a new device personalizes the same way. */
   aims: Aim[];
   /** The interview the plan paces toward, `YYYY-MM-DD` in the learner's zone. Kept in step with `interviews`. */
   interviewDate: string | null;
   /** Every interview, soonest first. */
   interviews: Interview[];
-  /** Goal changes made through "Change plan", newest last. Device-local. */
-  history: { date: string; kind: "date" | "company" | "time" | "preset"; text: string }[];
+  /** Goal changes made through "Edit goals" on Plan, newest last. */
+  history: { date: string; kind: "date" | "company" | "topic" | "time" | "preset"; text: string }[];
   /** Minutes on weekdays (null until onboarding asks; the planner defaults to 60). */
   dailyMinutes: number | null;
   /** Saturday and Sunday budget; null = same as weekdays. Device-local for now. */

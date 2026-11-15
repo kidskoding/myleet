@@ -193,6 +193,16 @@ pub enum Goal {
     Newgrad,
 }
 
+/// What the learner is working toward; any mix, picked in onboarding or "Your goals".
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum Aim {
+    Interview,
+    Companies,
+    Topics,
+    Sharp,
+}
+
 /// One line of "Change plan" history; devices union these by `date|kind|text`.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -247,7 +257,7 @@ const MAX_MOVES: usize = 100;
 const TIME_TARGET_MINUTES: std::ops::RangeInclusive<u32> = 1..=240;
 const MAX_PLAN_HISTORY: usize = 200;
 const MAX_PLAN_LEDGER: usize = 150;
-const HISTORY_KINDS: [&str; 4] = ["date", "company", "time", "preset"];
+const HISTORY_KINDS: [&str; 5] = ["date", "company", "topic", "time", "preset"];
 const MAX_HISTORY_TEXT: usize = 200;
 /// The `extra` column; the caps above keep it far below this.
 pub const MAX_EXTRA_BYTES: usize = 32 * 1024;
@@ -319,6 +329,9 @@ pub struct Extra {
     /// Curriculum module ids the plan leans toward, e.g. `graphs`.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub focus_topics: Option<Vec<String>>,
+    /// The goals picked, so a new device gets the same personalization.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub aims: Option<Vec<Aim>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -419,6 +432,7 @@ pub struct SettingsPatch {
     pub plan_history: Option<Vec<HistoryEntry>>,
     pub plan_ledger: Option<BTreeMap<String, DayRecord>>,
     pub focus_topics: Option<Vec<String>>,
+    pub aims: Option<Vec<Aim>>,
 }
 
 impl Settings {
@@ -635,6 +649,12 @@ impl Extra {
                 return Err("focus_topics must be module ids".to_string());
             }
             x.focus_topics = Some(v);
+        }
+        if let Some(v) = p.aims.clone() {
+            if v.iter().enumerate().any(|(i, a)| v[..i].contains(a)) {
+                return Err("aims must not repeat".to_string());
+            }
+            x.aims = Some(v);
         }
         if let Some(v) = p.interviews.clone() {
             if v.len() > MAX_INTERVIEWS {
@@ -948,7 +968,7 @@ mod tests {
                 r#"{"daily_minutes":90,"session_minutes":30,"reminder_minutes":null,
                     "availability":[{"days":["mon","tue"],"start":"19:00","end":"20:30"}],
                     "days_off":["2027-01-01"],"target_companies":["salesforce_slack"],
-                    "focus_topics":["graphs","dp"]}"#,
+                    "focus_topics":["graphs","dp"],"aims":["companies","sharp"]}"#,
             ))
             .unwrap();
         assert_eq!(
@@ -965,6 +985,12 @@ mod tests {
             (90, 30, 5)
         );
         assert_eq!(p.focus_topics, ["graphs", "dp"]);
+        assert_eq!(planned.extra.aims, Some(vec![Aim::Companies, Aim::Sharp]));
+        let stored = serde_json::to_string(&planned.extra).unwrap();
+        assert_eq!(
+            serde_json::from_str::<Extra>(&stored).unwrap().aims,
+            planned.extra.aims
+        );
     }
 
     #[test]
@@ -976,6 +1002,7 @@ mod tests {
             r#"{"interview_date":"2027-02-30"}"#,
             r#"{"target_companies":["Google"]}"#,
             r#"{"focus_topics":["Graphs!"]}"#,
+            r#"{"aims":["sharp","sharp"]}"#,
             r#"{"daily_minutes":5}"#,
             r#"{"session_minutes":500}"#,
             r#"{"reminder_minutes":2000}"#,
@@ -986,6 +1013,7 @@ mod tests {
             assert!(base.apply(patch(bad)).is_err(), "{bad}");
         }
         assert!(serde_json::from_str::<SettingsPatch>(r#"{"theme":"neon"}"#).is_err());
+        assert!(serde_json::from_str::<SettingsPatch>(r#"{"aims":["dream"]}"#).is_err());
         assert!(serde_json::from_str::<SettingsPatch>(r#"{"unknown":1}"#).is_err());
     }
 

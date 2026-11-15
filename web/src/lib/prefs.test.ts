@@ -69,6 +69,7 @@ describe("prefs", () => {
       plan: {
         interviewDate: "2026-12-07",
         dailyMinutes: 90,
+        aims: ["companies", "sharp"],
         availability: [
           { days: ["mon"], start: "19:00", end: "20:00" },
           { days: [], start: "08:00", end: "09:00" },
@@ -83,6 +84,8 @@ describe("prefs", () => {
     updatePrefs(fromServer(server));
     expect(readPrefs().plan.interviewDate).toBe("2026-12-07");
     expect(readPrefs().newPerDay).toBe(4);
+    // The goals picked follow the account to a new device.
+    expect(readPrefs().plan.aims).toEqual(["companies", "sharp"]);
     expect(isDefaultServer(server)).toBe(false);
     expect(isDefaultServer({ ...toServer(DEFAULT_PREFS), theme: "system" } as ServerSettings)).toBe(true);
   });
