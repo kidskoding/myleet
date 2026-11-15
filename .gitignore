@@ -36,3 +36,6 @@ target/
 
 # session handoff notes
 .handoff/
+
+# agent worktrees
+.claude/worktrees/
