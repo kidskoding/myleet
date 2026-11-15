@@ -5,4 +5,5 @@ pub mod godur;
 pub mod progress;
 pub mod savestate;
 pub mod schedule;
+pub mod tui;
 pub mod version;
