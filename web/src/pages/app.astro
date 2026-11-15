@@ -29,7 +29,7 @@ import Base from "../layouts/Base.astro";
   .gate-split .gate-steps { grid-template-columns: 1fr; gap: var(--space-4); }
   .gate-split .gate-steps li { border: 0; background: none; padding: 0; }
   @media (min-width: 1000px) { .gate-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); } }
-  .gate-eg-today { margin: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.5), var(--shadow-md); overflow: hidden; }
+  .gate-eg-today { margin: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 24px 60px -24px color-mix(in srgb, var(--ground) 80%, transparent), var(--shadow-md); overflow: hidden; }
   .gate-eg-today .eg-window { display: flex; align-items: center; gap: 6px; padding: var(--space-2) var(--space-4); border-bottom: 1px solid var(--line); background: var(--surface-sunk); }
   .gate-eg-today .eg-window i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
   .gate-eg-today .eg-window span { margin-left: var(--space-2); font: 500 var(--label-size) var(--font-label); letter-spacing: var(--label-track); color: var(--ink-3); }
