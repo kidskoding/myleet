@@ -30,7 +30,7 @@
 .learn .rail .bar, .learn .tbar .bar { height: 8px; border-radius: 2px; }
 .learn .mod-count { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.3; }
 .learn .mod-count b { font-weight: 700; color: var(--ink); font-variation-settings: "wdth" var(--wdth-tag); font-size: var(--text-base); }
-.learn .mod-count .l2 { display: block; }
+.learn .mod-count .line2 { display: block; }
 .learn .chev { color: var(--ink-3); transition: transform var(--dur-base) var(--ease-out); justify-self: center; }
 .learn .mod-row[aria-expanded="true"] .chev { transform: rotate(90deg); }
 .learn .legend { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); font-size: var(--text-xs); color: var(--ink-3); margin-top: var(--space-3); }
@@ -84,7 +84,7 @@
   .learn .mods { margin-top: var(--space-8); }
   .learn .mod-row { grid-template-columns: 32px minmax(0, 1fr) 34px; grid-template-areas: "n t c" ". r r" ". k k"; row-gap: var(--space-2); }
   .learn .mod-num { grid-area: n; } .learn .mod-row > .mod-main { grid-area: t; } .learn .rail { grid-area: r; } .learn .mod-count { grid-area: k; } .learn .chev { grid-area: c; }
-  .learn .mod-count .l2 { display: inline; } .learn .mod-count .l2::before { content: ", "; }
+  .learn .mod-count .line2 { display: inline; } .learn .mod-count .line2::before { content: ", "; }
   .learn .mod-body { padding-left: var(--space-4); }
   .learn .start ol { grid-template-columns: repeat(3, 1fr); }
   .learn .detail-head, .learn .detail-grid { grid-template-columns: 1fr; }

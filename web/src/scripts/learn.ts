@@ -237,7 +237,7 @@ function renderMap(c: Ctx): void {
     }
     const count = $("[data-count]", li);
     if (count)
-      render(count, touched(tl) ? html`<b>${tl.mastered}</b> mastered<span class="l2">${touched(tl)} of ${tl.total} started</span>` : html`${tl.total} problems<span class="l2">Not started</span>`);
+      render(count, touched(tl) ? html`<b>${tl.mastered}</b> mastered<span class="line2">${touched(tl)} of ${tl.total} started</span>` : html`${tl.total} problems<span class="line2">Not started</span>`);
     const weak = m.techniques.some((t) => c.weak.has(weakKey(m, t)));
     render($("[data-mod-tags]", li), html`${tl.due ? tag("due", `${tl.due} due`) : ""}${weak ? tag("weak", "Weak spot") : ""}`);
     renderBody(c, m);

@@ -42,7 +42,7 @@ export const kbd = (...keys: string[]): SafeHtml => html`${keys.map((k) => html`
 /** The module chip: its number in its hue (01-14 have one each; 15 and up share a neutral). Index is 0-based. */
 export const modChip = (index: number): SafeHtml => {
   const n = String(index + 1).padStart(2, "0");
-  return html`<span class="mod" data-hue="${n}" aria-hidden="true">${n}</span>`;
+  return html`<span class="mod-chip" data-hue="${n}" aria-hidden="true">${n}</span>`;
 };
 
 export interface QueueRowOpts {

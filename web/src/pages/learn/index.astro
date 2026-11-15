@@ -62,7 +62,7 @@ const count = words[modules.length] ?? String(modules.length);
               <span class="rail" data-rail style={`--w:${((size(m) / largest) * 100).toFixed(1)}%`}>
                 <Fragment set:html={bar([], `${size(m)} problems, not started`).value.replace('class="bar"', 'class="bar" style="width:var(--w)"')} />
               </span>
-              <span class="mod-count" data-count>{size(m)} problems<span class="l2">Not started</span></span>
+              <span class="mod-count" data-count>{size(m)} problems<span class="line2">Not started</span></span>
               <Fragment set:html={chevronRight("chev").value} />
             </button>
             <div class="mod-body" id={`mb-${m.id}`} hidden></div>
