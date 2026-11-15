@@ -405,20 +405,28 @@ impl Shared {
     }
 }
 
-fn open_url(url: &str) -> Result<(), String> {
-    let program = if cfg!(target_os = "macos") {
-        "open"
+/// The OS's browser launcher, detached so the TUI keeps the terminal.
+pub fn open_url(url: &str) -> Result<(), String> {
+    use std::process::{Command, Stdio};
+    let mut cmd = if cfg!(target_os = "macos") {
+        Command::new("open")
+    } else if cfg!(windows) {
+        let mut c = Command::new("rundll32");
+        c.arg("url.dll,FileProtocolHandler");
+        c
     } else {
-        "xdg-open"
+        Command::new("xdg-open")
     };
-    Command::new(program)
+    let mut child = cmd
         .arg(url)
-        .stdin(std::process::Stdio::null())
-        .stdout(std::process::Stdio::null())
-        .stderr(std::process::Stdio::null())
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
         .spawn()
-        .map(|_| ())
-        .map_err(|e| e.to_string())
+        .map_err(|e| format!("could not open {url}: {e}"))?;
+    // Reap the launcher so it does not linger as a zombie.
+    std::thread::spawn(move || child.wait());
+    Ok(())
 }
 
 pub struct App {

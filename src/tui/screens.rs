@@ -12,6 +12,9 @@ pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
     let i = if i < TAB_NAMES.len() { i } else { 0 };
     match i {
         0 => Box::new(super::home::Home::new()),
+        1 => Box::new(super::mapscreen::MapScreen::new()),
+        3 => Box::new(super::playlists::Playlists::new()),
+        4 => Box::new(super::settings::Settings::new()),
         _ => Box::new(Placeholder {
             title: TAB_NAMES[i].into(),
             tab: Some(i),
@@ -21,12 +24,8 @@ pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
 }
 
 /// The screen `/` and `ctrl+k` push.
-pub fn new_search(_sh: &mut Shared) -> Box<dyn Screen> {
-    Box::new(Placeholder {
-        title: "search".into(),
-        tab: None,
-        kind: Kind::Search,
-    })
+pub fn new_search(sh: &mut Shared) -> Box<dyn Screen> {
+    Box::new(super::search::Search::new(&sh.app.catalog))
 }
 
 /// The problem screen every other screen opens; `mode` is a `progress::mode` value.
