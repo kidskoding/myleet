@@ -165,6 +165,18 @@ pub fn build(f: &Facts) -> String {
     out
 }
 
+/// The clause for a problem the learner solved on LeetCode before ever opening it here.
+pub fn leetcode_clause(days_ago: i64) -> String {
+    let when = match days_ago {
+        ..=0 => "today".to_string(),
+        1 => "yesterday".to_string(),
+        2..=13 => format!("{days_ago} days ago"),
+        14..=59 => format!("{} weeks ago", days_ago / 7),
+        _ => format!("{} months ago", days_ago / 30),
+    };
+    format!("you solved this on LeetCode {when}, so let's see if it stuck")
+}
+
 /// An interview this close is worth naming even without a company.
 const NEAR_DAYS: i64 = 14;
 
@@ -177,6 +189,15 @@ mod tests {
             tech: "hashing".into(),
             ..Facts::default()
         }
+    }
+
+    #[test]
+    fn leetcode_clause_reads_in_weeks() {
+        assert_eq!(
+            leetcode_clause(21),
+            "you solved this on LeetCode 3 weeks ago, so let's see if it stuck"
+        );
+        assert!(leetcode_clause(1).contains("yesterday"));
     }
 
     #[test]

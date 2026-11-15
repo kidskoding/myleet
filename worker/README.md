@@ -119,6 +119,7 @@ logged in (`bunx wrangler login`).
 | ---------------------- | ---------- | ---------------------------------------- |
 | `SITE_ORIGIN`          | var        | Site origin: redirects, CORS, CSRF check |
 | `GITHUB_CLIENT_ID`     | var        | GitHub OAuth app client id               |
+| `LEETCODE_API_BASE`    | var        | alfa-leetcode-api base URL, tried first  |
 | `GOOGLE_CLIENT_ID`     | var        | Google OAuth client id                   |
 | `EMAIL_FROM`           | var        | Sender for magic-link email              |
 | `GITHUB_CLIENT_SECRET` | secret     | GitHub OAuth app secret                  |

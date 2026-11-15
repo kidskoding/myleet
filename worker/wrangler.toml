@@ -29,6 +29,8 @@ id = "39c7aef4210a474fa881da6d0cd499f3"
 #   GITHUB_CLIENT_SECRET, GOOGLE_CLIENT_SECRET, RESEND_API_KEY
 # Local dev reads both from .dev.vars (gitignored; see .dev.vars.example).
 [vars]
+# Public REST wrapper tried first for LeetCode profiles; GraphQL is the fallback.
+LEETCODE_API_BASE = "https://alfa-leetcode-api.onrender.com"
 SITE_ORIGIN = "https://myleet.anirudhkonidala.workers.dev"
 GITHUB_CLIENT_ID = "Ov23lifOFJZIw2RR9RMi"
 GOOGLE_CLIENT_ID = "replace-with-google-oauth-client-id.apps.googleusercontent.com"

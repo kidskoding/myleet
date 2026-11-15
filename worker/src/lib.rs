@@ -4,6 +4,7 @@
 
 pub mod account;
 pub mod calendar;
+pub mod leetcode;
 pub mod magic;
 pub mod oauth;
 pub mod reports;

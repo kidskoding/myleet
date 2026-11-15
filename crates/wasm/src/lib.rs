@@ -12,7 +12,8 @@ use myleet_core::placement::{self, ItemResult};
 use myleet_core::progress::{self, Event, kind, mode};
 use myleet_core::schedule::{self, Attempt, State, Status};
 use myleet_core::{
-    checkpoint, godur, habits, ical, interview, planner, savestate, session, skills, stats,
+    checkpoint, godur, habits, ical, interview, leetcode, planner, savestate, session, skills,
+    stats,
 };
 use serde::Deserialize;
 use serde_json::{Value, json};
@@ -393,6 +394,69 @@ impl Trainer {
         .to_string())
     }
 
+    fn leetcode_import_json(
+        &self,
+        jsonl: &str,
+        profile_json: &str,
+        now_ms: f64,
+        tz: &str,
+        reconnect: bool,
+    ) -> Res {
+        let profile: leetcode::Profile =
+            serde_json::from_str(profile_json).map_err(|e| format!("profile: {e}"))?;
+        let now = instant(now_ms)?;
+        // A reconnect starts from a clean slate; a refresh keeps the markers already placed.
+        let mut all = events(jsonl);
+        let from = all.len();
+        if reconnect {
+            all.push(leetcode::disconnect_event(now));
+        }
+        let states = self.compute(&all, &zone(tz)?);
+        let new = leetcode::import_events(&self.catalog, &states, &profile, now);
+        let marked = new
+            .iter()
+            .filter(|e| e.kind == kind::LEETCODE_SOLVED)
+            .count();
+        all.extend(new);
+        let import = leetcode::load(&all).ok_or("import event missing")?;
+        let lines: Vec<String> = all[from..].iter().map(progress::to_line).collect();
+        Ok(json!({
+            "lines": lines,
+            "summary": leetcode::summary(&self.catalog, &import, marked),
+            "marked": marked,
+        })
+        .to_string())
+    }
+
+    fn leetcode_json(&self, jsonl: &str) -> Res {
+        let evs = events(jsonl);
+        let Some(i) = leetcode::load(&evs) else {
+            return Ok("null".to_string());
+        };
+        let modules: Vec<Value> = self
+            .catalog
+            .modules
+            .iter()
+            .filter(|m| !m.bank)
+            .map(|m| {
+                json!({
+                    "id": m.id,
+                    "title": m.title,
+                    "solved": i.modules.get(&m.id).copied().unwrap_or(0),
+                })
+            })
+            .collect();
+        let marked = leetcode::solved_attempts(&evs).len();
+        Ok(json!({
+            "username": i.username,
+            "total": i.total,
+            "modules": modules,
+            "weak": sorted(i.weak_modules()),
+            "marked": marked,
+        })
+        .to_string())
+    }
+
     fn placement_json(&self, jsonl: &str) -> Res {
         let (evs, atts) = self.history(jsonl);
         let items: Vec<Value> = placement::resolve(&self.catalog, placement::DEFAULT_SLOTS)
@@ -599,6 +663,23 @@ impl Trainer {
         js(self.stats_json(events_jsonl, now_ms, tz))
     }
 
+    /// The lines to append after connecting LeetCode, plus the one-time summary.
+    pub fn leetcode_import(
+        &self,
+        events_jsonl: &str,
+        profile_json: &str,
+        now_ms: f64,
+        tz: &str,
+        reconnect: bool,
+    ) -> Result<String, JsError> {
+        js(self.leetcode_import_json(events_jsonl, profile_json, now_ms, tz, reconnect))
+    }
+
+    /// The current import (`null` when not connected): totals per module and weak modules.
+    pub fn leetcode(&self, events_jsonl: &str) -> Result<String, JsError> {
+        js(self.leetcode_json(events_jsonl))
+    }
+
     pub fn placement(&self, events_jsonl: &str) -> Result<String, JsError> {
         js(self.placement_json(events_jsonl))
     }
@@ -702,6 +783,12 @@ pub fn event_line(
     js(event_line_of(
         kind, problem, attempt, mode, data_json, now_ms,
     ))
+}
+
+/// The event line that clears the LeetCode import.
+#[wasm_bindgen]
+pub fn leetcode_disconnect(now_ms: f64) -> Result<String, JsError> {
+    js(instant(now_ms).map(|t| progress::to_line(&leetcode::disconnect_event(t))))
 }
 
 #[wasm_bindgen]

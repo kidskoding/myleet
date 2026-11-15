@@ -595,6 +595,8 @@ struct Ctx<'a> {
     states: &'a HashMap<String, State>,
     today: Date,
     interview: Option<Date>,
+    /// Days since each LeetCode-imported problem was solved there.
+    lc_days: &'a HashMap<String, i64>,
 }
 
 /// Up to three chips, no repeats.
@@ -678,6 +680,10 @@ impl Ctx<'_> {
             1 => format!("{gap}-day review, due yesterday"),
             n => format!("{gap}-day review, due {n} days ago"),
         };
+        let reason = match self.lc_days.get(&p.id) {
+            Some(n) => format!("{reason}, {}", reason::leetcode_clause(*n)),
+            None => reason,
+        };
         let mut it = self.item(
             ItemKind::Review,
             Tag::Review,
@@ -755,10 +761,10 @@ impl Ctx<'_> {
             .filter(|_| skill.is_none_or(|s| s.evidence.attempts == 0))
         {
             let m = &self.c.module_of(p).title;
-            let by = if *by == "diagnostic" {
-                "Diagnostic"
-            } else {
-                "Check-in"
+            let by = match *by {
+                "diagnostic" => "Diagnostic",
+                "check-in" => "Check-in",
+                other => other,
             };
             push_chip(
                 &mut chips,
@@ -990,7 +996,9 @@ fn build(
     let rel = relevance(c, &settings.target_companies);
     let today = local_day(now, tz);
     let interview = interview.filter(|d| *d > today);
+    let lc_days = crate::leetcode::solved_days(events, &states, today, tz);
     let ctx = Ctx {
+        lc_days: &lc_days,
         c,
         report: &report,
         pace: &pace,
@@ -1052,6 +1060,7 @@ fn build(
     }
 
     let weak_mods = session::weak_modules(events);
+    let lc = crate::leetcode::load(events);
     let targets_all = rel.is_empty();
     let n_tech = report.techniques.len().max(1) as f64;
     let max_rel = rel
@@ -1082,6 +1091,14 @@ fn build(
         if s.evidence.attempts == 0 && weak_mods.contains_key(&c.modules[s.module].id) {
             skill_need.mastery = 0.0;
             skill_need.confidence = 1.0;
+        } else if s.evidence.attempts == 0
+            && lc
+                .as_ref()
+                .is_some_and(|i| i.strong(&c.modules[s.module].id))
+        {
+            // Plenty of LeetCode solves here: start from the middle, not from zero.
+            skill_need.mastery = 0.5;
+            skill_need.confidence = 0.5;
         }
         let goal = if targets_all {
             DEFAULT_GOAL

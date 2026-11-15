@@ -107,6 +107,7 @@ pub fn attempts(events: &[Event], target: impl Fn(&str) -> SignedDuration) -> Ve
             || e.mode == mode::CHECKPOINT
             || e.kind == kind::PLACEMENT_DONE
             || e.kind == kind::CHECKPOINT_DONE
+            || e.mode == mode::LEETCODE
         {
             continue;
         }
@@ -203,11 +204,16 @@ pub fn compute(
     for a in &all {
         states.entry(a.problem.clone()).or_default();
     }
+    let imported = crate::leetcode::solved_attempts(events);
     let mut finished: Vec<&Attempt> = all.iter().filter(|a| a.outcome != Outcome::None).collect();
+    finished.extend(imported.iter());
     finished.sort_by_key(|a| a.end);
     for a in finished {
         let st = states.remove(&a.problem).unwrap_or_default();
-        let next = if a.mode == mode::DRILL {
+        let next = if a.mode == mode::LEETCODE {
+            // Only a first touch: practice already on the ladder is never reset by an import.
+            if st.rung < 0 { apply(st, a, tz) } else { st }
+        } else if a.mode == mode::DRILL {
             soft_touch(st, a)
         } else {
             apply(st, a, tz)

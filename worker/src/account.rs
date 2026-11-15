@@ -306,6 +306,9 @@ pub struct Extra {
     /// Every interview, each with a date and an optional company slug.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub interviews: Option<Vec<Interview>>,
+    /// The connected LeetCode username; `null` once disconnected.
+    #[serde(deserialize_with = "present", skip_serializing_if = "Option::is_none")]
+    pub leetcode_username: Option<Option<String>>,
     /// "Change plan" lines, oldest first.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_history: Option<Vec<HistoryEntry>>,
@@ -407,6 +410,8 @@ pub struct SettingsPatch {
     pub plan_started_at: Option<Option<String>>,
     pub onboarded: Option<bool>,
     pub interviews: Option<Vec<Interview>>,
+    #[serde(default, deserialize_with = "present")]
+    pub leetcode_username: Option<Option<String>>,
     pub plan_history: Option<Vec<HistoryEntry>>,
     pub plan_ledger: Option<BTreeMap<String, DayRecord>>,
 }
@@ -608,6 +613,14 @@ impl Extra {
         }
         if let Some(v) = p.goal {
             x.goal = Some(v);
+        }
+        if let Some(v) = p.leetcode_username.clone() {
+            if v.as_deref()
+                .is_some_and(|u| !crate::leetcode::valid_username(u))
+            {
+                return Err("leetcode_username is not a LeetCode username".to_string());
+            }
+            x.leetcode_username = Some(v);
         }
         if let Some(v) = p.interviews.clone() {
             if v.len() > MAX_INTERVIEWS {
@@ -1042,6 +1055,13 @@ mod tests {
             ))
             .unwrap();
         assert_eq!(s.extra.weekend_minutes, Some(Some(120)));
+        let lc = s
+            .apply(patch(r#"{"leetcode_username":"neetcode"}"#))
+            .unwrap();
+        assert_eq!(lc.extra.leetcode_username, Some(Some("neetcode".into())));
+        let gone = lc.apply(patch(r#"{"leetcode_username":null}"#)).unwrap();
+        assert_eq!(gone.extra.leetcode_username, Some(None));
+        assert!(s.apply(patch(r#"{"leetcode_username":"a b"}"#)).is_err());
         assert_eq!(s.extra.goal, Some(Some(Goal::Coop)));
         let cleared = s
             .apply(patch(r#"{"weekend_minutes":null,"goal":null}"#))

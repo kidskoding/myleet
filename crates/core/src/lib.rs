@@ -7,6 +7,7 @@ pub mod godur;
 pub mod habits;
 pub mod ical;
 pub mod interview;
+pub mod leetcode;
 pub mod placement;
 pub mod planner;
 pub mod progress;

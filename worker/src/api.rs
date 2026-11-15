@@ -11,6 +11,7 @@ use worker::{
 
 use crate::account::{self, MePatch, PublicSummary, Resolution, Settings, SettingsRow};
 use crate::calendar;
+use crate::leetcode::{self, Outcome};
 use crate::magic;
 use crate::oauth::{self, Failure, Profile, Provider};
 use crate::reports::{self, CompanyCount, ProblemCount};
@@ -100,6 +101,7 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
     }
     match (method, path.as_str()) {
         (Method::Get, "/api/statement") => get_statement(req, app).await,
+        (Method::Get, "/api/leetcode/profile") => get_leetcode_profile(req, app).await,
         (Method::Get, "/api/auth/providers") => auth_providers(app),
         (Method::Get, "/api/auth/github") => auth_start(app, Provider::Github),
         (Method::Get, "/api/auth/google") => auth_start(app, Provider::Google),
@@ -300,6 +302,120 @@ async fn get_statement(req: &Request, app: &App) -> Result<Response> {
         console_warn!("statement {slug}: cache write failed: {e}");
     }
     statement_reply(cached.status(false), &cached.markdown)
+}
+
+// ---- LeetCode profile ----
+
+/// One GET with an overall deadline: a sleeping Render instance is aborted, not waited on.
+async fn get_with_deadline(urls: &[String], secs: u64) -> Result<Vec<String>> {
+    let ctl = worker::AbortController::default();
+    let signal = ctl.signal();
+    worker::wasm_bindgen_futures::spawn_local(async move {
+        worker::Delay::from(std::time::Duration::from_secs(secs)).await;
+        ctl.abort();
+    });
+    let mut out = Vec::with_capacity(urls.len());
+    for url in urls {
+        let headers = Headers::new();
+        headers.set("User-Agent", USER_AGENT)?;
+        let mut init = RequestInit::new();
+        init.with_method(Method::Get).with_headers(headers);
+        let mut res = Fetch::Request(Request::new_with_init(url, &init)?)
+            .send_with_signal(&signal)
+            .await?;
+        if !(200..300).contains(&res.status_code()) {
+            return Err(worker::Error::RustError(format!(
+                "{url} returned {}",
+                res.status_code()
+            )));
+        }
+        out.push(res.text().await?);
+    }
+    Ok(out)
+}
+
+async fn alfa_profile(app: &App, user: &str) -> Result<Outcome> {
+    let base = app.var("LEETCODE_API_BASE")?;
+    let base = base.trim_end_matches('/');
+    let urls = [
+        format!("{base}/{user}/solved"),
+        format!("{base}/{user}/skill"),
+        format!(
+            "{base}/{user}/acSubmission?limit={}",
+            leetcode::RECENT_LIMIT
+        ),
+    ];
+    let bodies = get_with_deadline(&urls, leetcode::ALFA_TIMEOUT_SECS).await?;
+    leetcode::parse_alfa(user, &bodies[0], &bodies[1], &bodies[2]).map_err(worker::Error::RustError)
+}
+
+async fn graphql_profile(user: &str) -> Result<Outcome> {
+    let headers = Headers::new();
+    headers.set("Content-Type", "application/json")?;
+    headers.set("Referer", "https://leetcode.com")?;
+    headers.set("User-Agent", USER_AGENT)?;
+    let text = send(
+        leetcode::GRAPHQL,
+        Method::Post,
+        headers,
+        Some(leetcode::graphql_body(user)),
+    )
+    .await?;
+    leetcode::parse_graphql(user, &text).map_err(worker::Error::RustError)
+}
+
+async fn get_leetcode_profile(req: &Request, app: &App) -> Result<Response> {
+    let Some(user) = query_param(req, "username")?.filter(|u| leetcode::valid_username(u)) else {
+        return json_error("username must be a LeetCode username", 400);
+    };
+    let kv = app.env.kv("STATEMENTS")?;
+    let key = leetcode::cache_key(&user);
+    if let Some(hit) = kv.get(&key).text().await? {
+        let mut res = Response::ok(hit)?;
+        res.headers_mut().set("Content-Type", "application/json")?;
+        return Ok(res);
+    }
+    let ip = req
+        .headers()
+        .get("CF-Connecting-IP")?
+        .unwrap_or_else(|| "unknown".to_string());
+    let limit = [(
+        magic::rate_key("leetcode", &ip, now_ms() / 1000),
+        leetcode::PER_IP_LIMIT,
+    )];
+    if !rate_limit(app, &limit).await? {
+        return json_error("too many lookups; try again later", 429);
+    }
+    let primary = alfa_profile(app, &user).await.map_err(|e| e.to_string());
+    let outcome = if leetcode::needs_fallback(&primary) {
+        if let Err(e) = &primary {
+            console_warn!("leetcode {user}: alfa failed, using graphql: {e}");
+        }
+        match graphql_profile(&user).await {
+            Ok(o) => o,
+            Err(e) => {
+                console_warn!("leetcode {user}: graphql failed: {e}");
+                return json_error("LeetCode is not answering right now; try again soon", 502);
+            }
+        }
+    } else {
+        primary.unwrap_or(Outcome::NotFound)
+    };
+    let Outcome::Found(profile) = outcome else {
+        return json_error("We couldn't find that LeetCode profile", 404);
+    };
+    let body = serde_json::to_string(&profile)?;
+    if let Err(e) = kv
+        .put(&key, body.clone())?
+        .expiration_ttl(leetcode::TTL_SECS)
+        .execute()
+        .await
+    {
+        console_warn!("leetcode {user}: cache write failed: {e}");
+    }
+    let mut res = Response::ok(body)?;
+    res.headers_mut().set("Content-Type", "application/json")?;
+    Ok(res)
 }
 
 // ---- sign-in ----

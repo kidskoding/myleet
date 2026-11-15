@@ -142,8 +142,9 @@ pub fn today<'a>(
         };
         out = pick_keep_sharp(c, states, today, tz, slots as usize);
     }
+    let lc = crate::leetcode::solved_days(events, states, today, tz);
     for it in &mut out {
-        it.why = why(c, it, &report, &weak, today, tz);
+        it.why = why(c, it, &report, &weak, &lc, today, tz);
     }
     out
 }
@@ -154,6 +155,7 @@ pub fn why(
     it: &Item,
     report: &Report,
     weak: &HashMap<String, &'static str>,
+    lc: &HashMap<String, i64>,
     today: Date,
     tz: &TimeZone,
 ) -> String {
@@ -161,10 +163,14 @@ pub fn why(
     let skill = report.of(it.problem);
     if it.kind == Kind::Review {
         let gap = RUNGS[it.state.rung.clamp(0, RUNGS.len() as i32 - 1) as usize];
-        return if it.overdue_days > 0 {
+        let base = if it.overdue_days > 0 {
             format!("overdue {}d: {gap}-day review", it.overdue_days)
         } else {
             format!("due: {gap}-day review")
+        };
+        return match lc.get(&it.problem.id) {
+            Some(n) => format!("{base}, {}", crate::reason::leetcode_clause(*n)),
+            None => base,
         };
     }
     if let Some(a) = skill.and_then(|s| {
@@ -206,6 +212,13 @@ pub fn why(
 /// ("diagnostic" or "check-in"); a check-in overrides the diagnostic.
 pub(crate) fn weak_modules(events: &[Event]) -> HashMap<String, &'static str> {
     let mut out = HashMap::new();
+    if let Some(i) = crate::leetcode::load(events) {
+        out.extend(
+            i.weak_modules()
+                .into_iter()
+                .map(|m| (m, crate::leetcode::SOURCE)),
+        );
+    }
     if let Some(r) = placement::load(events).filter(|r| !r.skipped) {
         out.extend(
             placement::weak_modules(&r)

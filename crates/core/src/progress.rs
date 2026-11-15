@@ -21,6 +21,12 @@ pub mod kind {
     /// The new-user diagnostic finished or was skipped.
     pub const PLACEMENT_DONE: &str = "placement_done";
     pub const CHECKPOINT_DONE: &str = "checkpoint_done";
+    /// The learner connected LeetCode: username, total solves and solves per module.
+    pub const LEETCODE_IMPORTED: &str = "leetcode_imported";
+    /// A recent accepted LeetCode problem we also teach: a started, not clean, first attempt.
+    pub const LEETCODE_SOLVED: &str = "leetcode_solved";
+    /// The learner disconnected LeetCode; earlier import events no longer count.
+    pub const LEETCODE_DISCONNECTED: &str = "leetcode_disconnected";
 }
 
 pub mod mode {
@@ -28,6 +34,7 @@ pub mod mode {
     pub const INTERVIEW: &str = "interview";
     pub const PLACEMENT: &str = "placement";
     pub const CHECKPOINT: &str = "checkpoint";
+    pub const LEETCODE: &str = "leetcode";
     /// A keep-sharp attempt: counts for streak/stats freshness but does not climb or
     /// drop the spaced-repetition ladder.
     pub const DRILL: &str = "drill";
