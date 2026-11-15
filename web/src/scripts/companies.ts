@@ -80,7 +80,7 @@ function renderPinned(c: Ctx): void {
     const deadline = left !== null && left >= 0 ? (left === 0 ? "Interview today" : `${plural(left, "day")} until your interview`) : "";
     intro.textContent = names
       ? `Your ${names}${more} practice${deadline ? ` · ${deadline}` : ""}`
-      : deadline ? `${deadline} · Choose your target companies` : "Find practice sets for the companies you're applying to";
+      : deadline ? `${deadline} · Choose your target companies` : "Find practice sets for your dream companies and upcoming interviews";
   }
   const shown = list.slice(0, 5);
   render(
