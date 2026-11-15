@@ -1775,7 +1775,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     try {
       const usual = trainer.stats(events).median_secs[meta.difficulty];
       const target = Math.round(targetMs / 60_000);
-      pace.replaceChildren("Target ", h("b", {}, `${target} min`), ".", ...(usual ? [" You usually take ", h("b", {}, String(Math.max(1, Math.round(usual / 60)))), "."] : []));
+      pace.replaceChildren("Target ", h("b", {}, `${target} min`), ...(usual ? [". You usually take ", h("b", {}, String(Math.max(1, Math.round(usual / 60))))] : []));
       pace.hidden = false;
     } catch {
       pace.hidden = true;

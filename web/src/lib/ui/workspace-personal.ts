@@ -13,7 +13,7 @@ import { EXTRA_NEW_FOR_LONG_DAY, readBudget, readSkipped } from "../today";
 import type { TrainerApi } from "../trainer";
 import type { Plan, TodayEntry } from "../types";
 import { html, render } from "./html";
-import { reasonLine, whatThisChanges } from "./personal";
+import { whatThisChanges } from "./personal";
 
 interface Ctx {
   problem: string;
@@ -21,13 +21,13 @@ interface Ctx {
   trainer: TrainerApi;
 }
 
-/** The plan's reason for this problem (tag + sentence), or Today's reason line. */
+/** The plan's reason for this problem, or Today's reason line. The bar's own tag already says Review, New or Practice. */
 export function renderReason(el: HTMLElement, c: Ctx): void {
   try {
     const plan = c.trainer.plan(c.events, planSettings());
     const item = plan.days.flatMap((d) => d.sessions).flatMap((s) => s.items).find((i) => i.problem === c.problem);
     if (item) {
-      render(el, reasonLine(item));
+      render(el, html`${item.reason}`);
       el.title = item.reason;
       return;
     }
