@@ -51,3 +51,6 @@ web/src/wasm/
 .devenv/
 .devenv.flake.nix
 devenv.local.nix
+
+# per-user Claude Code settings
+.claude/settings.local.json
