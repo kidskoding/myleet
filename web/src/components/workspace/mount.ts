@@ -668,7 +668,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     }
     if (!green) {
       const failing = r.timedOut ? "a run that never finished" : `${r.total - r.passed} failing test${r.total - r.passed === 1 ? "" : "s"}`;
-      const ok = await confirmPop(root, $(root, '.wbar [data-act="submit"]'), {
+      const ok = await confirmPop(root, $$<HTMLElement>(root, '[data-act="submit"]').find((b) => b.offsetParent) ?? $(root, '.wbar [data-act="submit"]'), {
         title: `Submit with ${failing}?`,
         body: "This counts as a miss: the review drops to 1 day. Keep working and you can still pass",
         ok: "Submit as a miss",

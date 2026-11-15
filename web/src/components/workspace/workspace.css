@@ -568,7 +568,7 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
   .editor { --code-size: 13px; }
   .status { display: none; }
   .wsx { grid-template-rows: auto auto minmax(0, 1fr) auto auto; }
-  .mbar { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)) auto; gap: 4px; align-items: center; padding: var(--space-2); border-top: 1px solid var(--line); background: var(--surface); padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom)); }
+  .mbar { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)) auto auto; gap: 4px; align-items: center; padding: var(--space-2); border-top: 1px solid var(--line); background: var(--surface); padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom)); }
   .mbar .key { height: 40px; border-radius: var(--radius-sm); background: var(--surface-sunk); font-family: var(--font-code); font-size: 15px; color: var(--ink); }
   .mbar .key:active { background: var(--line); }
   .mbar .btn { height: 40px; min-width: 60px; }
