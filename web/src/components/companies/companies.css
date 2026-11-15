@@ -12,7 +12,7 @@
 .cos .pin:hover, .cos .pin.is-kbd { background: var(--surface-sunk); }
 .cos li + li .pin { box-shadow: 0 -1px 0 var(--line); }
 .cos li:has(.pin:hover) + li .pin { box-shadow: none; }
-.cos .pin .name { font-weight: 650; font-size: var(--text-md); font-variation-settings: "wdth" 88; letter-spacing: var(--track-head); }
+.cos .pin .name { display: flex; align-items: center; gap: var(--space-2); font-weight: 650; font-size: var(--text-md); font-variation-settings: "wdth" 88; letter-spacing: var(--track-head); }
 .cos .pin .grp { font-size: var(--text-sm); color: var(--ink-3); }
 .cos .pin .ready { font-size: var(--text-sm); color: var(--ink-2); }
 .cos .pin .ready .bar { margin-top: 6px; }
@@ -30,6 +30,7 @@
 .cos .co-grid { margin-top: var(--space-3); list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: var(--space-8); }
 .cos .co { display: grid; grid-template-columns: minmax(0, 1fr) 72px auto; gap: var(--space-3); align-items: center; padding: var(--space-3) var(--space-2); border-bottom: 1px solid var(--line); text-decoration: none; border-radius: var(--radius-xs); }
 .cos .co:hover, .cos .co.is-kbd { background: var(--surface-sunk); }
+.cos .co .cname-wrap { display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
 .cos .co .cname { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cos .co .cnt { font-size: var(--text-xs); color: var(--ink-3); font-variation-settings: "wdth" var(--wdth-tag); font-weight: 600; text-align: right; min-width: 4ch; }
 .cos .co .bar { height: 4px; }
@@ -44,7 +45,8 @@
 .cos .crumbs a:hover { text-decoration: underline; }
 .cos .crumbs .icon { width: 14px; height: 14px; }
 .cos .prep-head { margin-top: var(--space-4); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-6) var(--space-10); align-items: start; }
-.cos .prep-head h1 { font-size: var(--text-2xl); letter-spacing: var(--track-display); }
+.cos .prep-head h1 { font-size: var(--text-2xl); letter-spacing: var(--track-display); display: flex; align-items: center; gap: 0.3em; }
+.cos .prep-head h1 .co-logo { width: 0.85em !important; height: 0.85em !important; }
 .cos .prep-head .lead { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-md); max-width: 60ch; font-variation-settings: "wdth" 95; }
 .cos .prep-head .disclaim { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-3); max-width: 64ch; }
 .cos .actions { display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: flex-end; }

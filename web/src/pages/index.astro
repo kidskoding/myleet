@@ -8,6 +8,8 @@ import Base from "../layouts/Base.astro";
 import LandingFooter from "../components/landing/LandingFooter.astro";
 import { buildCatalog } from "../lib/build-catalog";
 import { sentenceCase } from "../lib/display";
+import { companySlug } from "../lib/catalog";
+import { companyLogo } from "../lib/company-logos";
 import { companyHref, moduleHref, ROUTES } from "../lib/routes";
 import type { PlaylistGroup } from "../lib/types";
 import { ladder } from "../lib/ui/ladder";
@@ -236,7 +238,7 @@ answer: [0, 1]</code></pre>
                 <ul>
                   {g.sets.slice(0, 6).map((p) => (
                     <li>
-                      <a href={companyHref(p.id)}>{p.title}</a>
+                      <a href={companyHref(p.id)}><Fragment set:html={companyLogo(companySlug(p.id)).value} /> {p.title}</a>
                     </li>
                   ))}
                   {g.sets.length > 6 && (

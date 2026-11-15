@@ -3,6 +3,7 @@ import "../../components/companies/companies.css";
 import Base from "../../layouts/Base.astro";
 import { buildCatalog } from "../../lib/build-catalog";
 import { companySlug } from "../../lib/catalog";
+import { companyLogo } from "../../lib/company-logos";
 import { companyHref } from "../../lib/routes";
 import { icon } from "../../lib/ui/icons";
 import type { PlaylistGroup } from "../../lib/types";
@@ -50,7 +51,7 @@ const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
               {g.sets.map((p) => (
                 <li data-name={p.title.toLowerCase()}>
                   <a class="co" href={companyHref(p.id)} data-co={companySlug(p.id)}>
-                    <span class="cname">{p.title}</span>
+                    <span class="cname-wrap"><Fragment set:html={companyLogo(companySlug(p.id)).value} /><span class="cname">{p.title}</span></span>
                     <div class="bar" aria-hidden="true" data-co-bar></div>
                     <span class="cnt">{p.entries.length}</span>
                   </a>

@@ -3,6 +3,7 @@ import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
 import { highlight, KIND_ORDER, search, type Hit, type PaletteItem, type PaletteKind } from "../lib/palette-search";
 import { resolvedTheme, setTheme } from "../lib/prefs";
+import { companyLogo } from "../lib/company-logos";
 import { ROUTES } from "../lib/routes";
 import { kbd } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
@@ -127,7 +128,8 @@ function row(h: Hit, i: number): SafeHtml {
   const ic = it.kind === "command" ? (it as Command).icon : KIND_ICON[it.kind];
   const parts = highlight(it.title, h.ranges).map((p) => (p.mark ? html`<mark>${p.text}</mark>` : html`${p.text}`));
   const hint = it.kind === "command" ? "" : it.hint;
-  return html`<li class="palette-item" role="option" id="pi-${i}" data-i="${i}" aria-selected="${i === active ? "true" : "false"}">${icon(ic, { cls: "ic" })}<span>${parts}${hint ? html`<span class="hint">&nbsp; ${hint}</span>` : ""}</span>${itemRight(it)}</li>`;
+  const mark = it.kind === "company" && it.href ? companyLogo(it.href.split("/").pop() ?? "", "ic") : icon(ic, { cls: "ic" });
+  return html`<li class="palette-item" role="option" id="pi-${i}" data-i="${i}" aria-selected="${i === active ? "true" : "false"}">${mark}<span>${parts}${hint ? html`<span class="hint">&nbsp; ${hint}</span>` : ""}</span>${itemRight(it)}</li>`;
 }
 
 function paint(): void {

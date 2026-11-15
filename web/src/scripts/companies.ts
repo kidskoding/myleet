@@ -3,6 +3,7 @@
 import { setRow, SET_FOLD } from "../components/companies/rows";
 import { parseEvents } from "../lib/attempts";
 import { companySlug, loadCatalog, type LoadedCatalog } from "../lib/catalog";
+import { companyLogo } from "../lib/company-logos";
 import { entryState, lastCleanSet, leans, leanText, perDay, readiness, type Readiness } from "../lib/companies";
 import { sentenceCase } from "../lib/display";
 import { isDue, statusTag } from "../lib/learn";
@@ -82,7 +83,7 @@ function renderPinned(c: Ctx): void {
           ? tag("outline", left === 0 ? "Interview today" : `Interview in ${plural(left, "day")}`, { dot: false })
           : html`<span class="text-small text-muted">${i === 0 ? "No date set" : ""}</span>`;
       return html`<li><a class="pin" href="${ROUTES.companies}/${companySlug(p.id)}">
-        <div><div class="name">${p.title}</div><div class="grp">${p.group}, ${plural(p.entries.length, "problem")}</div></div>
+        <div><div class="name">${companyLogo(companySlug(p.id))}<span>${p.title}</span></div><div class="grp">${p.group}, ${plural(p.entries.length, "problem")}</div></div>
         <div class="ready">${r.ready} of ${r.tracked} ready${readyBar(r, readyLabel(r))}</div>
         <div class="next">${next ? html`Next from this set<strong>${c.cat.byId.get(next)?.title ?? next}</strong>` : "Every problem is ready"}</div>
         ${end}</a></li>`;
