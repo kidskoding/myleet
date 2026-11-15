@@ -16,6 +16,7 @@ import type { Playlist, PlaylistGroup } from "../lib/types";
 import { kbd, plural, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
+import { mountInterviews } from "../lib/ui/interviews";
 
 const STEPS = ["goal", "companies", "date", "time", "when", "plan"] as const;
 type Step = (typeof STEPS)[number];
@@ -121,17 +122,17 @@ function dateStep(error?: string): SafeHtml {
   const today = localDay();
   const left = d ? daysUntil(d, today) : null;
   return html`${head("date")}<section class="q" aria-labelledby="q3">
-    <h1 id="q3">When is your first interview?</h1>
-    <p class="sub">An interview date gives your plan a deadline and helps identify topics that need more time. If you do not have a date, the plan uses your daily practice time</p>
+    <h1 id="q3">When are your interviews?</h1>
+    <p class="sub">Add each one you have lined up, with the company if you know it. The plan paces toward the nearest and leans on that company's problems before it. No date yet is fine too: the plan then covers the next four weeks.</p>
     <div class="date-row">
-      <div class="field"><label for="iv-date">Interview date</label><input class="input" id="iv-date" type="date" min="${addDays(today, 1)}" value="${d ?? ""}" aria-describedby="iv-err" ${error ? html`aria-invalid="true"` : ""} data-date /></div>
+      <div class="field" data-iv-host aria-describedby="iv-err"></div>
       <div class="quick" role="group" aria-label="Quick picks">${[
         [14, "In 2 weeks"],
         [30, "In a month"],
         [90, "In 3 months"],
       ].map(([n, l]) => html`<button class="chip" type="button" data-quick="${n}" aria-pressed="${d === addDays(today, n as number) ? "true" : "false"}">${l}</button>`)}</div>
     </div>
-    <p class="err field" id="iv-err" ${error ? "" : "hidden"} style="margin-top:var(--space-2)">${error ?? ""}</p>
+    <p class="err field" id="iv-err" role="alert" ${error ? "" : "hidden"} style="margin-top:var(--space-2)">${error ?? ""}</p>
     ${d && left !== null && left > 0 ? html`<p class="date-note">${shortDate(d)} is ${plural(left, "day")} away.${left < 7 ? " That's close: the plan becomes a short cram plan of reviews and the most common patterns" : " You can change it any time from Today"}</p>` : ""}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Continue</button><button class="btn btn-ghost" type="button" data-no-date>No date yet</button></div>
   </section>`;
@@ -159,6 +160,29 @@ function whenStep(): SafeHtml {
     <div data-when-editor></div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Build my plan ${kbd("enter")}</button><span class="hint">You can add days off in Settings</span></div>
   </section>`;
+}
+
+function mountDateEditor(): void {
+  const host = root()?.querySelector<HTMLElement>("[data-iv-host]");
+  if (host) mountInterviews(host, cat?.catalog.playlists ?? [], { id: "ob-iv", get: () => readPrefs().plan.interviews, set: (interviews) => (updatePrefs({ plan: { interviews } }), refreshDateNote()) });
+}
+
+function renderDate(error?: string): void {
+  render(root(), dateStep(error));
+  mountDateEditor();
+}
+
+/** The quick picks and the "N days away" line follow the editor without re-rendering it. */
+function refreshDateNote(): void {
+  const fresh = document.createElement("div");
+  render(fresh, dateStep());
+  for (const sel of [".quick", ".date-note"]) {
+    const cur = root()?.querySelector(sel);
+    const next = fresh.querySelector(sel);
+    if (cur && next) cur.replaceWith(next);
+    else if (next) root()?.querySelector(".date-row")?.after(next);
+    else cur?.remove();
+  }
 }
 
 function planStep(): SafeHtml {
@@ -212,10 +236,11 @@ async function paint(): Promise<void> {
   whenEditor?.destroy();
   whenEditor = null;
   render(el, body);
+  mountDateEditor();
   const host = el.querySelector<HTMLElement>("[data-when-editor]");
   if (host) whenEditor = mountAvailability(host, { sections: ["presets", "paint", "session"], headings: false, id: "ob-av" });
   document.title = "Set up your plan · myleet";
-  const focus = el.querySelector<HTMLElement>("input:checked, [data-company-search], [data-date]") ?? el.querySelector<HTMLElement>("h1");
+  const focus = el.querySelector<HTMLElement>("input:checked, [data-company-search], [data-iv-date]") ?? el.querySelector<HTMLElement>("h1");
   if (focus?.tagName === "H1") focus.setAttribute("tabindex", "-1");
   focus?.focus({ preventScroll: true });
 }
@@ -240,15 +265,10 @@ function toggleCompany(slug: string): void {
 
 function advance(): void {
   const step = currentStep();
-  if (step === "date") {
-    const input = root()?.querySelector<HTMLInputElement>("[data-date]");
-    const v = input?.value ?? "";
-    if (v && v <= localDay()) {
-      render(root(), dateStep("Pick a date after today"));
-      root()?.querySelector<HTMLElement>("[data-date]")?.focus();
-      return;
-    }
-    updatePrefs({ plan: { interviewDate: v || null } });
+  if (step === "date" && readPrefs().plan.interviews.some((i) => i.date <= localDay())) {
+    renderDate("Each interview needs a date after today");
+    root()?.querySelector<HTMLElement>("[data-iv-date]")?.focus();
+    return;
   }
   const i = STEPS.indexOf(step);
   const next = STEPS[i + 1];
@@ -280,7 +300,7 @@ function onClick(e: MouseEvent): void {
     refreshCompanies();
   } else if (quick) {
     updatePrefs({ plan: { interviewDate: addDays(localDay(), Number(quick.dataset.quick)) } });
-    render(root(), dateStep());
+    renderDate();
   } else if (t.closest("[data-no-date]")) {
     updatePrefs({ plan: { interviewDate: null } });
     go("time");
@@ -296,10 +316,7 @@ function onChange(e: Event): void {
   const input = e.target as HTMLInputElement;
   if (input.name === "goal") updatePrefs({ plan: { goal: input.value as Goal } });
   else if (input.name === "time") updatePrefs({ plan: { dailyMinutes: Number(input.value) }, newPerDay: timeOption(Number(input.value)).newPerDay });
-  else if (input.matches("[data-date]")) {
-    if (input.value && input.value > localDay()) updatePrefs({ plan: { interviewDate: input.value } });
-    return;
-  } else return;
+  else return;
   const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
   if (btn) btn.disabled = false;
 }

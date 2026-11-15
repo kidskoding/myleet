@@ -100,6 +100,30 @@ pub fn render(plan: &Plan, o: &IcsOptions) -> String {
     line("REFRESH-INTERVAL;VALUE=DURATION:PT1H".into());
     line("X-PUBLISHED-TTL:PT1H".into());
     let stamp = utc(plan.generated_ms);
+    for iv in &plan.interviews {
+        let Ok(day) = iv.date.parse::<jiff::civil::Date>() else {
+            continue;
+        };
+        let next = day.tomorrow().unwrap_or(day);
+        let ymd = |d: jiff::civil::Date| format!("{:04}{:02}{:02}", d.year(), d.month(), d.day());
+        line("BEGIN:VEVENT".into());
+        line(format!(
+            "UID:interview-{}-{}{}@myleet",
+            iv.date,
+            iv.company.as_deref().unwrap_or("any"),
+            o.uid_suffix
+        ));
+        line(format!("DTSTAMP:{stamp}"));
+        line(format!("DTSTART;VALUE=DATE:{}", ymd(day)));
+        line(format!("DTEND;VALUE=DATE:{}", ymd(next)));
+        let who = iv
+            .name
+            .as_deref()
+            .map_or("Interview".to_string(), |n| format!("{n} interview"));
+        line(format!("SUMMARY:{}", escape(&who)));
+        line("TRANSP:TRANSPARENT".into());
+        line("END:VEVENT".into());
+    }
     for s in plan.days.iter().flat_map(|d| &d.sessions) {
         let mut desc = Vec::new();
         for it in &s.items {
@@ -201,13 +225,17 @@ pub(crate) mod tests {
                     }
                 }
                 "DTSTART" | "DTEND" | "DTSTAMP" => {
-                    let ok = value.len() == 16
-                        && value.ends_with('Z')
-                        && value.as_bytes()[8] == b'T'
-                        && value
-                            .bytes()
-                            .enumerate()
-                            .all(|(i, b)| i == 8 || i == 15 || b.is_ascii_digit());
+                    let all_day = l.contains(";VALUE=DATE:")
+                        && value.len() == 8
+                        && value.bytes().all(|b| b.is_ascii_digit());
+                    let ok = all_day
+                        || value.len() == 16
+                            && value.ends_with('Z')
+                            && value.as_bytes()[8] == b'T'
+                            && value
+                                .bytes()
+                                .enumerate()
+                                .all(|(i, b)| i == 8 || i == 15 || b.is_ascii_digit());
                     if !ok {
                         return Err(format!("bad UTC time {value}"));
                     }
@@ -251,7 +279,7 @@ pub(crate) mod tests {
     #[test]
     fn plan_renders_a_valid_feed() {
         let s: Settings = serde_json::from_str(
-            r#"{"interview_date":"2026-11-28","availability":[{"days":["mon","wed","sat"],"start":"19:00","end":"20:30"}]}"#,
+            r#"{"interviews":[{"date":"2026-11-28","company":"meta"},{"date":"2026-12-05","company":"stripe"}],"availability":[{"days":["mon","wed","sat"],"start":"19:00","end":"20:30"}]}"#,
         )
         .unwrap();
         let now = jiff::civil::date(2026, 11, 14)
@@ -271,7 +299,14 @@ pub(crate) mod tests {
         let events = lines.iter().filter(|l| *l == "BEGIN:VEVENT").count();
         let sessions: usize = plan.days.iter().map(|d| d.sessions.len()).sum();
         assert!(sessions > 0);
-        assert_eq!(events, sessions);
+        assert_eq!(events, sessions + 2);
+        assert!(
+            lines.contains(&"DTSTART;VALUE=DATE:20261128".to_string()),
+            "{ics}"
+        );
+        assert!(lines.contains(&"DTEND;VALUE=DATE:20261129".to_string()));
+        assert!(lines.contains(&"SUMMARY:Meta interview".to_string()));
+        assert!(lines.contains(&"SUMMARY:Stripe interview".to_string()));
         assert!(lines.contains(&"X-WR-CALNAME:myleet plan".to_string()));
         assert!(lines.contains(&"X-WR-TIMEZONE:America/Chicago".to_string()));
         // Saturday Nov 14 19:00 Chicago (CST, UTC-6) is 01:00Z on the 15th.

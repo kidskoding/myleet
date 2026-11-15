@@ -87,3 +87,23 @@ describe("prefs", () => {
     expect(isDefaultServer({ ...toServer(DEFAULT_PREFS), theme: "system" } as ServerSettings)).toBe(true);
   });
 });
+
+describe("interviews", () => {
+  it("migrates a single saved date to one interview with no company", () => {
+    localStorage.setItem("myleet-prefs", JSON.stringify({ plan: { interviewDate: "2099-02-13" } }));
+    expect(readPrefs().plan.interviews).toEqual([{ date: "2099-02-13", company: null }]);
+  });
+
+  it("keeps the next date and the list in step", () => {
+    updatePrefs({ plan: { interviews: [{ date: "2099-03-02", company: "stripe" }, { date: "2099-02-13", company: "meta" }] } });
+    expect(readPrefs().plan.interviewDate).toBe("2099-02-13");
+    expect(planSettings().interviews?.map((i) => i.company)).toEqual(["meta", "stripe"]);
+    // A preset moves the next interview and keeps its company.
+    updatePrefs({ plan: { interviewDate: "2099-02-20" } });
+    expect(readPrefs().plan.interviews[0]).toEqual({ date: "2099-02-20", company: "meta" });
+    // "No date" drops only the next one.
+    updatePrefs({ plan: { interviewDate: null } });
+    expect(readPrefs().plan.interviews).toEqual([{ date: "2099-03-02", company: "stripe" }]);
+    expect(readPrefs().plan.interviewDate).toBe("2099-03-02");
+  });
+});

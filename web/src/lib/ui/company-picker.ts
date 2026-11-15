@@ -3,10 +3,86 @@ import { companyLogo } from "../company-logos";
 import { companySelection, MAX_MOCK_COMPANIES } from "../mock";
 import { scoreItem } from "../palette-search";
 import type { Playlist } from "../types";
-import { html, raw, render } from "./html";
+import { html, raw, render, type SafeHtml } from "./html";
 import { closeDialog, openDialog } from "./overlay";
 
 type Company = Pick<Playlist, "id" | "title" | "group">;
+
+function highlight(title: string, ranges: [number, number][]): SafeHtml {
+  // Escape each character before adding match markup; overlapping query tokens are safe.
+  return raw([...title].map((char, i) => {
+    const escaped = html`${char}`.value;
+    return ranges.some(([start, end]) => i >= start && i < end) ? `<mark>${escaped}</mark>` : escaped;
+  }).join(""));
+}
+
+/**
+ * The same company search as the mock page, choosing one company or "No specific company".
+ * Resolves the playlist slug, null for no company, or undefined when dismissed.
+ */
+export function pickCompany(companies: Company[], current: string | null): Promise<string | null | undefined> {
+  const dialog = document.createElement("dialog");
+  dialog.className = "dlg company-picker-dialog";
+  dialog.setAttribute("aria-labelledby", "pick-company-title");
+  render(dialog, html`<div class="dlg-head"><h2 id="pick-company-title">Which company is it with?</h2><button class="icon-btn" type="button" data-close aria-label="Close">×</button></div>
+    <div class="company-search"><input class="input" type="search" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="pick-company-results" aria-label="Search companies" placeholder="Search companies" autocomplete="off" /></div>
+    <div class="company-results" id="pick-company-results" role="listbox" aria-label="Companies"></div>`);
+  document.body.append(dialog);
+  const search = dialog.querySelector("input") as HTMLInputElement;
+  const results = dialog.querySelector(".company-results") as HTMLElement;
+  let options: (Company | null)[] = [];
+  let active = 0;
+  let picked: string | null | undefined;
+
+  const focusOption = (): void => {
+    results.querySelectorAll<HTMLElement>("[data-option]").forEach((el, i) => { el.dataset.active = String(i === active); });
+    const el = results.querySelector<HTMLElement>(`[data-option="${active}"]`);
+    if (el) { search.setAttribute("aria-activedescendant", el.id); el.scrollIntoView({ block: "nearest" }); }
+  };
+  const paint = (): void => {
+    const q = search.value.trim();
+    const hits = companies.flatMap((company) => {
+      const hit = scoreItem(q, { key: company.id, kind: "company", title: company.title, hint: company.group });
+      return hit ? [{ company, ranges: hit.ranges, score: hit.score }] : [];
+    });
+    if (q) hits.sort((a, b) => b.score - a.score);
+    options = [...(q ? [] : [null]), ...hits.map((h) => h.company)];
+    active = Math.min(active, Math.max(0, options.length - 1));
+    const row = (c: Company | null, i: number, name: SafeHtml) => {
+      const on = (c ? companySlug(c.id) : null) === current;
+      return html`<button type="button" class="company-result" role="option" id="pick-company-${i}" data-option="${i}" aria-selected="${String(on)}" tabindex="-1">${c ? companyLogo(companySlug(c.id)) : ""}<span class="company-name"><span>${name}</span></span>${on ? html`<span aria-label="Selected">✓</span>` : ""}</button>`;
+    };
+    render(results, options.length ? html`${options.map((c, i) => (c ? row(c, i, highlight(c.title, hits.find((h) => h.company === c)?.ranges ?? [])) : row(null, i, html`No specific company`)))}` : html`<p class="company-picker-empty">No companies match "${q}"</p>`);
+    focusOption();
+  };
+  const choose = (i: number): void => {
+    if (i >= options.length) return;
+    const c = options[i];
+    picked = c ? companySlug(c.id) : null;
+    closeDialog(dialog);
+  };
+  search.addEventListener("input", () => { active = 0; paint(); });
+  results.addEventListener("click", (e) => {
+    const el = (e.target as Element).closest<HTMLElement>("[data-option]");
+    if (el) choose(Number(el.dataset.option));
+  });
+  dialog.querySelector("[data-close]")?.addEventListener("click", () => closeDialog(dialog));
+  dialog.addEventListener("keydown", (e) => {
+    e.stopPropagation();
+    if (e.key === "Escape") { e.preventDefault(); return closeDialog(dialog); }
+    if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) e.preventDefault();
+    if (e.key === "ArrowDown" && options.length) active = (active + 1) % options.length;
+    if (e.key === "ArrowUp" && options.length) active = (active - 1 + options.length) % options.length;
+    if (e.key === "Enter") return choose(active);
+    focusOption();
+  });
+  return new Promise((resolve) => {
+    dialog.addEventListener("close", () => { dialog.remove(); resolve(picked); }, { once: true });
+    openDialog(dialog);
+    paint();
+    search.focus();
+  });
+}
 
 export function mountCompanyPicker(onChange: () => void): void {
   const host = document.querySelector<HTMLElement>("[data-company-picker]");
@@ -27,14 +103,6 @@ export function mountCompanyPicker(onChange: () => void): void {
     const ids = companySelection(value!.value);
     const picked = companies.filter((c) => ids.includes(c.id));
     render(selected!, picked.length ? html`${picked.map((company) => html`<span class="company-picked">${companyLogo(companySlug(company.id))}${company.title}</span>`)}` : html`Choose companies`);
-  }
-
-  function highlight(title: string, ranges: [number, number][]) {
-    // Escape each character before adding match markup; overlapping query tokens are safe.
-    return raw([...title].map((char, i) => {
-      const escaped = html`${char}`.value;
-      return ranges.some(([start, end]) => i >= start && i < end) ? `<mark>${escaped}</mark>` : escaped;
-    }).join(""));
   }
 
   function focusOption(): void {

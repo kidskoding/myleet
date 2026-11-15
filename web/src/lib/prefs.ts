@@ -2,7 +2,8 @@
 // copy is pushed by lib/account.ts when signed in. Theme lives under its own key so the
 // blocking head script can read it before first paint.
 import { DEFAULT_ACCENT, flavorTokens, isAccent, type Accent, type Flavor, type NightFlavor } from "./flavors";
-import type { Availability, Difficulty, PlanMove, PlanSettings } from "./types";
+import { localDay } from "./streak";
+import type { Availability, Difficulty, Interview, PlanMove, PlanSettings } from "./types";
 
 export type ThemePref = "system" | Flavor;
 export type Goal = "internship" | "coop" | "newgrad";
@@ -21,8 +22,12 @@ export interface Plan {
   goal: Goal | null;
   /** Playlist slugs (`companySlug`). */
   companies: string[];
-  /** `YYYY-MM-DD` in the learner's zone. */
+  /** The interview the plan paces toward, `YYYY-MM-DD` in the learner's zone. Kept in step with `interviews`. */
   interviewDate: string | null;
+  /** Every interview, soonest first. */
+  interviews: Interview[];
+  /** Goal changes made through "Change plan", newest last. Device-local. */
+  history: { date: string; kind: "date" | "company" | "time" | "preset"; text: string }[];
   /** Minutes on weekdays (null until onboarding asks; the planner defaults to 60). */
   dailyMinutes: number | null;
   /** Saturday and Sunday budget; null = same as weekdays. Device-local for now. */
@@ -82,6 +87,8 @@ export const DEFAULT_PREFS: Prefs = {
     goal: null,
     companies: [],
     interviewDate: null,
+    interviews: [],
+    history: [],
     dailyMinutes: null,
     weekendMinutes: null,
     dayMinutes: [],
@@ -123,10 +130,36 @@ function storage(): Storage | undefined {
 export function readPrefs(): Prefs {
   try {
     const raw = storage()?.getItem(PREFS_KEY);
-    return merge(DEFAULT_PREFS, raw ? (JSON.parse(raw) as Patch<Prefs>) : undefined);
+    const p = merge(DEFAULT_PREFS, raw ? (JSON.parse(raw) as Patch<Prefs>) : undefined);
+    // Before interviews were a list, a single date stood for one interview with no company.
+    if (!p.plan.interviews.length && p.plan.interviewDate) p.plan = { ...p.plan, interviews: [{ date: p.plan.interviewDate, company: null }] };
+    return p;
   } catch {
     return DEFAULT_PREFS;
   }
+}
+
+/** The interview a plan paces toward: the soonest one after today, else the latest. */
+export function nextInterview(list: Interview[], today: string = localDay()): Interview | null {
+  const sorted = [...list].sort((a, b) => a.date.localeCompare(b.date));
+  return sorted.find((i) => i.date > today) ?? sorted.at(-1) ?? null;
+}
+
+/**
+ * Keeps `interviewDate` and `interviews` in step. Setting `interviews` moves the date to the next one;
+ * setting only `interviewDate` (presets, "No date") moves or drops the next interview and keeps its company.
+ */
+function syncInterviews(base: Prefs, patch: Patch<Prefs>): Patch<Prefs> {
+  const pp = patch.plan;
+  if (!pp || (pp.interviews === undefined && pp.interviewDate === undefined)) return patch;
+  let list = pp.interviews ?? base.plan.interviews;
+  if (pp.interviews === undefined) {
+    const cur = nextInterview(list);
+    const rest = list.filter((i) => i !== cur);
+    list = pp.interviewDate ? [...rest, { date: pp.interviewDate, company: cur?.company ?? null }] : rest;
+  }
+  list = [...list].map(({ date, company }) => ({ date, company })).sort((a, b) => a.date.localeCompare(b.date));
+  return { ...patch, plan: { ...pp, interviews: list, interviewDate: nextInterview(list)?.date ?? null } };
 }
 
 type Listener = (p: Prefs, patch: Patch<Prefs>) => void;
@@ -139,7 +172,9 @@ export function onPrefsChange(fn: Listener): () => void {
 }
 
 export function updatePrefs(patch: Patch<Prefs>, opts: { silent?: boolean } = {}): Prefs {
-  const next = merge(readPrefs(), patch);
+  const base = readPrefs();
+  patch = syncInterviews(base, patch);
+  const next = merge(base, patch);
   try {
     storage()?.setItem(PREFS_KEY, JSON.stringify(next));
   } catch {
@@ -157,6 +192,7 @@ export const validWindows = (w: Availability[]): Availability[] => w.filter((x) 
 export function planSettings(p: Prefs = readPrefs()): PlanSettings {
   return {
     interview_date: p.plan.interviewDate,
+    interviews: p.plan.interviews,
     target_companies: p.plan.companies,
     new_per_day: p.newPerDay,
     daily_minutes: p.plan.dailyMinutes ?? 60,

@@ -21,6 +21,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::catalog::{Catalog, Difficulty, Problem};
 use crate::progress::{Event, kind, mode};
+use crate::reason::{self, Facts};
 use crate::schedule::{self, Attempt, Outcome, RUNGS, State, Status, local_day};
 use crate::skills::{self, ActionKind, Cause, Report, Skill};
 use crate::{checkpoint, interview, placement};
@@ -48,6 +49,10 @@ const BREAK_MINUTES: u32 = 10;
 /// Problems started before mock interviews are worth it.
 const MOCK_MIN_SEEN: usize = 8;
 const MOCK_EVERY_DAYS: i64 = 7;
+/// A mock for an interview with a named company lands this many days before it.
+const COMPANY_MOCK_DAYS: i64 = 3;
+/// How much more the next interview's company set counts than other targets.
+const NEXT_COMPANY_WEIGHT: usize = 2;
 const MOCK_EVERY_DAYS_NEAR: i64 = 3;
 const NEAR_DAYS: i64 = 14;
 /// Days ahead at which the interview starts weighting company relevance up.
@@ -61,6 +66,18 @@ const DEFAULT_HOUR: u32 = 19;
 const SLACK_MINUTES: u32 = 30;
 const DAY_MINUTES: u32 = 24 * 60;
 
+/// One interview: a date and, optionally, a company (a playlist slug).
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Interview {
+    /// YYYY-MM-DD.
+    pub date: String,
+    #[serde(default)]
+    pub company: Option<String>,
+    /// The company's display name; filled in on the plan, ignored in settings.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+}
+
 /// Settings the planner reads. Field names match the Worker's `/api/me` settings, so
 /// the client can pass those through unchanged; unknown fields are ignored.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -68,6 +85,8 @@ const DAY_MINUTES: u32 = 24 * 60;
 pub struct Settings {
     /// YYYY-MM-DD.
     pub interview_date: Option<String>,
+    /// Every interview. When empty, `interview_date` stands in as one with no company.
+    pub interviews: Vec<Interview>,
     /// Company slugs: a playlist id without its `NNN_` prefix, e.g. `google`.
     pub target_companies: Vec<String>,
     pub new_per_day: u32,
@@ -88,6 +107,7 @@ impl Default for Settings {
     fn default() -> Settings {
         Settings {
             interview_date: None,
+            interviews: Vec::new(),
             target_companies: Vec::new(),
             new_per_day: 3,
             daily_minutes: 60,
@@ -102,6 +122,40 @@ impl Default for Settings {
 }
 
 impl Settings {
+    /// Folds `interview_date` into `interviews`, points `interview_date` at the nearest
+    /// upcoming interview (the latest one once all have passed), and adds each upcoming
+    /// interview's company to the targets. Safe to apply twice.
+    pub fn resolved(&self, today: Date) -> Settings {
+        let mut s = self.clone();
+        if s.interviews.is_empty()
+            && let Some(d) = &s.interview_date
+        {
+            s.interviews.push(Interview {
+                date: d.clone(),
+                company: None,
+                name: None,
+            });
+        }
+        s.interviews.sort_by(|a, b| a.date.cmp(&b.date));
+        let today_s = today.to_string();
+        let next = s.interviews.iter().find(|i| i.date > today_s);
+        if let Some(n) = next.or(s.interviews.last()) {
+            s.interview_date = Some(n.date.clone());
+        }
+        let wanted: Vec<String> = s
+            .interviews
+            .iter()
+            .filter(|i| i.date > today_s)
+            .filter_map(|i| i.company.clone())
+            .collect();
+        for c in wanted {
+            if !s.target_companies.contains(&c) {
+                s.target_companies.push(c);
+            }
+        }
+        s
+    }
+
     /// The budget for a date before one-day overrides.
     pub fn budget_on(&self, day: Date) -> u32 {
         let weekend = day.weekday().to_monday_zero_offset() >= 5;
@@ -333,6 +387,9 @@ pub struct Plan {
     /// Last planned day, inclusive.
     pub end: String,
     pub interview_date: Option<String>,
+    /// Today's and later interviews, soonest first, for flags on the chart and calendar.
+    #[serde(default)]
+    pub interviews: Vec<Interview>,
     pub pace: Pace,
     pub days: Vec<Day>,
     pub forecast: Vec<Coverage>,
@@ -536,6 +593,8 @@ struct Ctx<'a> {
     pace: &'a Pace,
     rel: &'a HashMap<(usize, usize), Vec<(String, usize)>>,
     states: &'a HashMap<String, State>,
+    today: Date,
+    interview: Option<Date>,
 }
 
 /// Up to three chips, no repeats.
@@ -604,14 +663,6 @@ impl Ctx<'_> {
             .map(|(c, n)| (c.as_str(), *n))
     }
 
-    fn company_line(&self, p: &Problem) -> Option<String> {
-        let (company, n) = self.company(p)?;
-        Some(format!(
-            "{company} leans on {}: {n} in its set",
-            self.tech(p)
-        ))
-    }
-
     fn company_chip(&self, p: &Problem) -> Option<Chip> {
         let (company, _) = self.company(p)?;
         Some(chip(
@@ -638,35 +689,67 @@ impl Ctx<'_> {
         it
     }
 
+    /// What the learner's own data says about this problem, for the "Why this one" line.
+    fn facts(&self, p: &Problem, warmup: bool) -> Facts {
+        let skill = self.report.of(p);
+        let st = self.states.get(&p.id);
+        let last = skill.and_then(|s| {
+            s.history
+                .iter()
+                .rev()
+                .find(|m| self.c.problems()[m.problem].id == p.id)
+                .map(|m| (m.mark, m.cause, days_between(m.day, self.today)))
+        });
+        let rung = st.map_or(-1, |s| s.rung);
+        let weakest = skill.is_some_and(|s| {
+            s.evidence.attempts > 0
+                && self
+                    .report
+                    .techniques
+                    .iter()
+                    .filter(|t| t.evidence.attempts > 0)
+                    .all(|t| t.need() <= s.need())
+        });
+        Facts {
+            tech: self.tech(p),
+            last,
+            clean_days: RUNGS.get((rung + 1) as usize).copied(),
+            on_ladder: rung >= 0,
+            level: skill.map(Skill::level),
+            weakest,
+            warmup,
+            first_in_tech: skill.is_none_or(|s| s.evidence.attempts == 0),
+            company: self.company(p).map(|(c, n)| (c.to_string(), n)),
+            days_left: self.interview.map(|d| days_between(self.today, d)),
+            pace: self
+                .pace
+                .median_secs
+                .get(p.difficulty.as_str())
+                .map(|s| (p.difficulty.as_str().to_string(), (*s as u32).div_ceil(60))),
+        }
+    }
+
     fn new_item(&self, p: &Problem, weak_mods: &HashSet<String>) -> PlanItem {
-        let tech_title = &self.c.technique_of(p).title;
         let tech = self.tech(p);
         let skill = self.report.of(p);
         let started = self.states.get(&p.id).is_some_and(|st| st.attempts > 0);
         let flagged = skill.is_some_and(Skill::flagged);
         let mut chips = Vec::new();
-        let (tag, reason) = if flagged {
-            let s = skill.expect("flagged");
+        let tag = if flagged {
             push_chip(
                 &mut chips,
                 Some(chip("crosshair", format!("Weak spot: {tech}"))),
             );
-            (Tag::Weak, format!("{tech_title}: {}", s.evidence_line()))
+            Tag::Weak
         } else if skill.is_some_and(Skill::warming_up) {
             push_chip(&mut chips, Some(chip("footprints", "Warm-up".into())));
-            (
-                Tag::New,
-                format!("Warm-up: the easiest {tech} problem first"),
-            )
+            Tag::New
         } else if started {
             push_chip(
                 &mut chips,
                 Some(chip("history", "Started, not passed yet".into())),
             );
-            (
-                Tag::Progress,
-                "You started it before; finish it cold".into(),
-            )
+            Tag::Progress
         } else if skill.is_none_or(|s| s.evidence.attempts == 0)
             && weak_mods.contains(&self.c.module_of(p).id)
         {
@@ -678,25 +761,18 @@ impl Ctx<'_> {
                     format!("Check-in flagged {}", skills::mid_sentence(m)),
                 )),
             );
-            (
-                Tag::New,
-                format!("Your check-in flagged {}", skills::mid_sentence(m)),
-            )
-        } else if let Some(line) = self.company_line(p) {
-            (Tag::New, line)
-        } else if let Some(s) = skill.filter(|s| s.seen > 0) {
-            (
-                Tag::New,
-                format!("{tech_title}: {} of {} started", s.seen, s.total),
-            )
+            Tag::New
+        } else if self.company(p).is_some() || skill.is_some_and(|s| s.seen > 0) {
+            Tag::New
         } else {
             push_chip(
                 &mut chips,
                 Some(chip("book-open", "Next in the curriculum".into())),
             );
-            (Tag::New, format!("Next in the curriculum: {tech}"))
+            Tag::New
         };
         push_chip(&mut chips, self.company_chip(p));
+        let reason = reason::build(&self.facts(p, skill.is_some_and(Skill::warming_up)));
         let mut it = self.item(ItemKind::New, tag, p, self.new_minutes(p), reason);
         it.chips = chips;
         it
@@ -793,6 +869,7 @@ pub fn plan(
     tz: &TimeZone,
     tz_name: &str,
 ) -> Result<Plan, String> {
+    let settings = &settings.resolved(local_day(now, tz));
     let mut p = build(c, events, settings, now, tz, tz_name)?;
     p.notes = notes(c, events, settings, now, tz, &p);
     Ok(p)
@@ -876,6 +953,11 @@ fn build(
     tz_name: &str,
 ) -> Result<Plan, String> {
     validate_windows(&settings.availability)?;
+    for i in &settings.interviews {
+        i.date
+            .parse::<Date>()
+            .map_err(|e| format!("interviews {:?}: {e}", i.date))?;
+    }
     let interview = match &settings.interview_date {
         Some(s) => Some(
             s.parse::<Date>()
@@ -900,16 +982,17 @@ fn build(
     let mut pace = pace_of(c, &attempts, tz);
     pace.review_minutes = crate::habits::review_minutes(c, events);
     let rel = relevance(c, &settings.target_companies);
+    let today = local_day(now, tz);
+    let interview = interview.filter(|d| *d > today);
     let ctx = Ctx {
         c,
         report: &report,
         pace: &pace,
         rel: &rel,
         states: &states,
+        today,
+        interview,
     };
-
-    let today = local_day(now, tz);
-    let interview = interview.filter(|d| *d > today);
     let end = interview
         .unwrap_or(add_days(today, DEFAULT_DAYS))
         .min(add_days(today, MAX_DAYS));
@@ -980,12 +1063,24 @@ fn build(
         .max()
         .unwrap_or(1)
         .max(1) as f64;
+    // The company you meet next counts double until that interview.
+    let focus = next_company(settings).and_then(|slug| company_name(c, slug));
     let mut techs: Vec<TechQ> = Vec::new();
     for (i, s) in report.techniques.iter().enumerate() {
-        let tracked = rel
-            .get(&(s.module, s.technique))
-            .map_or(0, |v| v.iter().map(|x| x.1).sum::<usize>());
-        let r = tracked as f64 / max_rel;
+        let sets = rel.get(&(s.module, s.technique));
+        let tracked = sets.map_or(0, |v| v.iter().map(|x| x.1).sum::<usize>());
+        let weighted = sets.map_or(0, |v| {
+            v.iter()
+                .map(|(t, n)| {
+                    if Some(t) == focus.as_ref() {
+                        n * NEXT_COMPANY_WEIGHT
+                    } else {
+                        *n
+                    }
+                })
+                .sum::<usize>()
+        });
+        let r = weighted as f64 / max_rel;
         let mut skill_need = s.clone();
         if s.evidence.attempts == 0 && weak_mods.contains(&c.modules[s.module].id) {
             skill_need.mastery = 0.0;
@@ -1141,14 +1236,21 @@ fn build(
             MOCK_EVERY_DAYS
         };
         let since = last_mock.map(|l| days_between(l, day));
+        let company_mock = company_mock_on(c, settings, day);
         let final_day = days_left == Some(1);
         let mock_minutes = ceil_minutes(interview::ROUND_LENGTH);
         if sim.len() >= MOCK_MIN_SEEN
-            && (since.is_none_or(|s| s >= every) || (final_day && since != Some(0)))
+            && (since.is_none_or(|s| s >= every)
+                || ((final_day || company_mock.is_some()) && since != Some(0)))
             && fits(used, mock_minutes)
         {
             used += mock_minutes;
             let reason = match days_left {
+                _ if company_mock.is_some() => format!(
+                    "Your {} interview is in {COMPANY_MOCK_DAYS} days. A timed mock, so pick {} on the mock page",
+                    company_mock.as_deref().unwrap_or_default(),
+                    company_mock.as_deref().unwrap_or_default()
+                ),
                 Some(1) => "The last mock before your interview".to_string(),
                 Some(n) if near => format!("Interview in {n} days: a mock every {every} days"),
                 _ => format!("Weekly mock: timed, technique hidden, {mock_minutes} min"),
@@ -1158,7 +1260,9 @@ fn build(
                     kind: ItemKind::Mock,
                     tag: Tag::Mock,
                     problem: None,
-                    title: "Mock interview".into(),
+                    title: company_mock
+                        .as_ref()
+                        .map_or("Mock interview".into(), |n| format!("{n} mock interview")),
                     technique: None,
                     minutes: mock_minutes,
                     reason,
@@ -1514,6 +1618,15 @@ fn build(
         start: today.to_string(),
         end: days.last().map_or(today.to_string(), |d| d.date.clone()),
         interview_date: interview.map(|d| d.to_string()),
+        interviews: settings
+            .interviews
+            .iter()
+            .filter(|i| i.date >= today.to_string())
+            .map(|i| Interview {
+                name: i.company.as_deref().and_then(|s| company_name(c, s)),
+                ..i.clone()
+            })
+            .collect(),
         pace,
         days,
         forecast,
@@ -1606,10 +1719,35 @@ fn review_days(plan: &Plan, problems: &HashSet<&str>) -> Vec<Date> {
 
 /// The interview's company, for copy: the first target company's playlist title.
 fn company_title(c: &Catalog, settings: &Settings) -> Option<String> {
-    let slug = settings.target_companies.first()?;
+    company_name(
+        c,
+        next_company(settings).or(settings.target_companies.first())?,
+    )
+}
+
+/// The company whose interview is `COMPANY_MOCK_DAYS` after `day`: that day gets its mock.
+fn company_mock_on(c: &Catalog, settings: &Settings, day: Date) -> Option<String> {
+    settings
+        .interviews
+        .iter()
+        .filter_map(|iv| Some((iv.company.as_deref()?, iv.date.parse::<Date>().ok()?)))
+        .find(|(_, d)| days_between(day, *d) == COMPANY_MOCK_DAYS)
+        .and_then(|(slug, _)| company_name(c, slug))
+}
+
+/// The company of the interview the plan paces toward, if it names one.
+fn next_company(settings: &Settings) -> Option<&String> {
+    settings
+        .interviews
+        .iter()
+        .find(|i| Some(&i.date) == settings.interview_date.as_ref())
+        .and_then(|i| i.company.as_ref())
+}
+
+fn company_name(c: &Catalog, slug: &str) -> Option<String> {
     c.playlists
         .iter()
-        .find(|pl| company_slug(&pl.id) == slug || pl.id == *slug)
+        .find(|pl| company_slug(&pl.id) == slug || pl.id == slug)
         .map(|pl| pl.title.clone())
 }
 
@@ -1876,6 +2014,7 @@ pub fn fixes(
     now: Timestamp,
     tz: &TimeZone,
 ) -> Result<Fixes, String> {
+    let settings = &settings.resolved(local_day(now, tz));
     let base = build(c, events, settings, now, tz, "")?;
     let behind: Vec<&Coverage> = base.forecast.iter().filter(|f| f.behind_by > 0).collect();
     if behind.is_empty() {
@@ -2278,7 +2417,7 @@ mod tests {
         );
         // Two attempts are a first read: a warm-up, never a "weak spot" tag yet.
         assert!(
-            first_new.1.reason.starts_with("Warm-up"),
+            first_new.1.reason.contains("easiest"),
             "{}",
             first_new.1.reason
         );
@@ -2301,13 +2440,68 @@ mod tests {
             .unwrap();
         assert_eq!(first_new.1.problem.as_deref(), Some("two-sum"));
         assert!(
-            first_new.1.reason.contains("Meta leans on three"),
+            first_new
+                .1
+                .reason
+                .contains("shows up in one of Meta's problems"),
             "{}",
             first_new.1.reason
         );
         assert_eq!(p.forecast.len(), 1, "only Meta's techniques have goals");
         assert_eq!(p.forecast[0].status, "on_track");
         assert_eq!(p.forecast[0].companies, vec!["Meta".to_string()]);
+    }
+
+    #[test]
+    fn two_interviews_pace_to_the_nearest_and_add_both_companies() {
+        let s = settings(
+            r#"{"interviews":[{"date":"2026-12-20","company":"stripe"},{"date":"2026-11-21","company":"meta"}],
+                "target_companies":["stripe"],"new_per_day":2}"#,
+        );
+        let p = run(&[], &s, at(11, 14, 8));
+        assert_eq!(p.interview_date.as_deref(), Some("2026-11-21"));
+        assert_eq!(p.summary.days_left, Some(7));
+        let flags: Vec<_> = p
+            .interviews
+            .iter()
+            .map(|i| (i.date.as_str(), i.company.as_deref()))
+            .collect();
+        assert_eq!(
+            flags,
+            [("2026-11-21", Some("meta")), ("2026-12-20", Some("stripe"))]
+        );
+        // Meta was not a target: its set now shapes the plan.
+        let first_new = all_items(&p)
+            .into_iter()
+            .find(|(_, i)| i.kind == ItemKind::New)
+            .unwrap();
+        assert!(
+            first_new.1.reason.contains("Meta"),
+            "{}",
+            first_new.1.reason
+        );
+        assert!(p.notes.iter().all(|n| n.kind != "date_passed"));
+
+        let c = good_catalog();
+        let s2 = s.resolved(Date::constant(2026, 11, 14));
+        let mock = |m, d| company_mock_on(&c, &s2, Date::constant(2026, m, d));
+        assert_eq!(mock(11, 18).as_deref(), Some("Meta"));
+        assert_eq!(mock(12, 17).as_deref(), Some("Stripe"));
+        assert_eq!(mock(11, 19), None);
+
+        // After Meta passes, pace moves on to Stripe and the Meta flag drops.
+        let later = run(&[], &s, at(11, 22, 8));
+        assert_eq!(later.interview_date.as_deref(), Some("2026-12-20"));
+        assert_eq!(later.interviews.len(), 1);
+    }
+
+    #[test]
+    fn a_single_date_still_works_as_one_interview() {
+        let r =
+            settings(r#"{"interview_date":"2026-11-21"}"#).resolved(Date::constant(2026, 11, 14));
+        assert_eq!(r.interviews.len(), 1);
+        assert_eq!(r.interviews[0].company, None);
+        assert_eq!(r, r.resolved(Date::constant(2026, 11, 14)), "idempotent");
     }
 
     #[test]

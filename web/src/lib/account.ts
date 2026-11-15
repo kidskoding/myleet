@@ -2,7 +2,7 @@
 // session cookie. Without a Worker (astro preview, offline) the app is simply signed out.
 import type { Accent, Flavor, NightFlavor } from "./flavors";
 import { DEFAULT_PREFS, readPrefs, validWindows, type Prefs } from "./prefs";
-import type { Availability } from "./types";
+import type { Availability, Interview } from "./types";
 
 export type Provider = "github" | "google" | "email";
 
@@ -16,6 +16,8 @@ export interface ServerSettings {
   editor_font_size: number;
   new_per_day: number;
   interview_date: string | null;
+  /** Absent on a Worker that predates interview lists. */
+  interviews?: Interview[];
   target_companies: string[];
   reminders: boolean;
   public_profile: boolean;
@@ -248,6 +250,7 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     editor_font_size: p.editor.fontSize,
     new_per_day: p.newPerDay,
     interview_date: p.plan.interviewDate,
+    interviews: p.plan.interviews.map(({ date, company }) => ({ date, company })),
     target_companies: p.plan.companies,
     reminders: p.reminders.on,
     public_profile: p.publicProfile,
@@ -269,6 +272,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
     plan: {
       ...base.plan,
       interviewDate: s.interview_date,
+      interviews: s.interviews ?? (s.interview_date ? [{ date: s.interview_date, company: null }] : []),
       companies: s.target_companies,
       dailyMinutes: s.daily_minutes ?? base.plan.dailyMinutes,
       sessionMinutes: s.session_minutes ?? base.plan.sessionMinutes,

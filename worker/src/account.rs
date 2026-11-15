@@ -3,7 +3,7 @@
 
 use std::collections::BTreeMap;
 
-use myleet_core::planner::{self, Move, Window};
+use myleet_core::planner::{self, Interview, Move, Window};
 use serde::{Deserialize, Deserializer, Serialize};
 
 pub const USERNAME_MIN: usize = 3;
@@ -213,6 +213,7 @@ const FONT_SIZES: std::ops::RangeInclusive<u32> = 10..=28;
 const NEW_PER_DAY: std::ops::RangeInclusive<u32> = 0..=20;
 const MAX_TARGET_COMPANIES: usize = 40;
 const MAX_COMPANY_SLUG: usize = 40;
+const MAX_INTERVIEWS: usize = 20;
 const DAILY_MINUTES: std::ops::RangeInclusive<u32> = 15..=600;
 const SESSION_MINUTES: std::ops::RangeInclusive<u32> = 15..=240;
 const REMINDER_MINUTES: std::ops::RangeInclusive<u32> = 0..=1440;
@@ -278,6 +279,9 @@ pub struct Extra {
     /// Finished or skipped onboarding.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub onboarded: Option<bool>,
+    /// Every interview, each with a date and an optional company slug.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub interviews: Option<Vec<Interview>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -372,6 +376,7 @@ pub struct SettingsPatch {
     #[serde(default, deserialize_with = "present")]
     pub plan_started_at: Option<Option<String>>,
     pub onboarded: Option<bool>,
+    pub interviews: Option<Vec<Interview>>,
 }
 
 impl Settings {
@@ -571,6 +576,27 @@ impl Extra {
         }
         if let Some(v) = p.goal {
             x.goal = Some(v);
+        }
+        if let Some(v) = p.interviews.clone() {
+            if v.len() > MAX_INTERVIEWS {
+                return Err(format!("at most {MAX_INTERVIEWS} interviews"));
+            }
+            if !v.iter().all(|i| {
+                valid_date(&i.date)
+                    && i.company
+                        .as_deref()
+                        .is_none_or(|c| valid_slug(c, MAX_COMPANY_SLUG))
+            }) {
+                return Err(
+                    "interviews need a YYYY-MM-DD date and an optional playlist slug".to_string(),
+                );
+            }
+            // The plan fills in display names; settings keep only the slug.
+            x.interviews = Some(
+                v.into_iter()
+                    .map(|i| Interview { name: None, ..i })
+                    .collect(),
+            );
         }
         if serde_json::to_string(&x).map_or(usize::MAX, |j| j.len()) > MAX_EXTRA_BYTES {
             return Err(format!("settings are over {MAX_EXTRA_BYTES} bytes"));
@@ -951,7 +977,8 @@ mod tests {
                     "time_targets":{"easy":15,"medium":25,"hard":40},"reduce_motion":true,
                     "editor_ligatures":false,"editor_minimap":true,"editor_indent":2,
                     "editor_format_on_save":false,"editor_run_on_save":true,
-                    "goal":"coop","plan_started_at":"2026-11-01","onboarded":true}"#,
+                    "goal":"coop","plan_started_at":"2026-11-01","onboarded":true,
+                    "interviews":[{"date":"2026-12-15","company":"meta"},{"date":"2027-01-10","company":null}]}"#,
             ))
             .unwrap();
         assert_eq!(s.extra.weekend_minutes, Some(Some(120)));
@@ -973,6 +1000,8 @@ mod tests {
         assert_eq!(p.weekend_minutes, Some(120));
         assert_eq!(p.day_minutes.get("2026-11-16"), Some(&30));
         assert_eq!(p.moves.len(), 1);
+        assert_eq!(p.interviews.len(), 2);
+        assert_eq!(p.interviews[0].company.as_deref(), Some("meta"));
     }
 
     #[test]
@@ -1004,6 +1033,8 @@ mod tests {
             r#"{"time_targets":{"easy":0,"medium":25,"hard":40}}"#.to_string(),
             r#"{"editor_indent":3}"#.to_string(),
             r#"{"plan_started_at":"soon"}"#.to_string(),
+            r#"{"interviews":[{"date":"2026-13-01"}]}"#.to_string(),
+            r#"{"interviews":[{"date":"2026-12-01","company":"Meta Inc"}]}"#.to_string(),
         ] {
             assert!(base.apply(patch(&bad)).is_err(), "{bad}");
         }

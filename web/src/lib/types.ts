@@ -205,8 +205,17 @@ export interface Availability {
 }
 
 /** The account `settings` subset the planner reads; missing fields take defaults. */
+/** One interview: a date and, optionally, a company (a playlist slug). */
+export interface Interview {
+  date: string;
+  company: string | null;
+  /** The company's display name, on a plan only. */
+  name?: string | null;
+}
+
 export interface PlanSettings {
   interview_date?: string | null;
+  interviews?: Interview[];
   target_companies?: string[];
   new_per_day?: number;
   daily_minutes?: number;
@@ -272,7 +281,7 @@ export interface PlanDay {
 }
 
 export interface NoteAction {
-  kind: "weekday_minutes" | "availability" | "set_date" | "clear_date" | "open_plan" | "roadmap";
+  kind: "weekday_minutes" | "availability" | "set_date" | "clear_date" | "open_plan" | "roadmap" | "change_plan" | "keep_pace" | "add_time" | "spread";
   label: string;
   value?: number;
 }
@@ -349,6 +358,8 @@ export interface Plan {
   start: string;
   end: string;
   interview_date: string | null;
+  /** Today's and later interviews, soonest first. */
+  interviews?: Interview[];
   pace: {
     median_secs: Partial<Record<Difficulty, number>>;
     speed: Record<Difficulty, number>;
