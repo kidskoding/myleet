@@ -2,7 +2,40 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Sign in">
-  <h1>Sign in</h1>
-  <p>Placeholder: the screen design lands here.</p>
+<Base title="Sign in" shell="focused" description="Sign in to keep your myleet progress on every device. GitHub, Google or an email link; no passwords.">
+  <div class="signin-page">
+    <div class="panel auth-panel" data-signin-page aria-live="polite">
+      <h1 id="si-h">Sign in to myleet</h1>
+      <p class="auth-sub">Keep your progress on every device. New here? These buttons create your account.</p>
+      <div class="auth-stack">
+        <a class="btn btn-secondary provider" href="/api/auth/github">Continue with GitHub</a>
+        <a class="btn btn-secondary provider" href="/api/auth/google">Continue with Google</a>
+      </div>
+    </div>
+  </div>
 </Base>
+
+<style>
+  .signin-page { max-width: 480px; margin: 0 auto; padding: var(--space-12) var(--gutter) var(--space-16); }
+  @media (max-width: 760px) { .signin-page { padding-top: var(--space-6); } }
+</style>
+
+<script>
+  import { AUTH_ERRORS, fetchMe } from "../lib/account";
+  import { ROUTES } from "../lib/routes";
+
+  async function init(): Promise<void> {
+    const el = document.querySelector<HTMLElement>("[data-signin-page]");
+    if (!el) return;
+    const params = new URLSearchParams(location.search);
+    const code = params.get("auth_error");
+    const me = await fetchMe();
+    if (me && !code) {
+      location.replace(params.get("next") ?? ROUTES.today);
+      return;
+    }
+    const { mountSignInPage } = await import("../scripts/auth-ui");
+    mountSignInPage(el, code === null ? undefined : (AUTH_ERRORS[code] ?? "Sign-in didn't finish. Try again or use another method."));
+  }
+  document.addEventListener("astro:page-load", () => void init());
+</script>
