@@ -61,24 +61,24 @@ logged in (`bunx wrangler login`).
    bunx wrangler d1 create myleet
    ```
 
-2. **Create the KV namespace** and put its id in `wrangler.toml` (`kv_namespaces.id`):
+1. **Create the KV namespace** and put its id in `wrangler.toml` (`kv_namespaces.id`):
 
    ```sh
    bunx wrangler kv namespace create STATEMENTS
    ```
 
-3. **Apply the schema:**
+1. **Apply the schema:**
 
    ```sh
    bun run migrate          # remote
    bun run migrate:local    # local dev database
    ```
 
-4. **Set `SITE_ORIGIN`** in `wrangler.toml` to the site's origin, for example
+1. **Set `SITE_ORIGIN`** in `wrangler.toml` to the site's origin, for example
    `https://myleet.dev` (scheme and host, no trailing slash). OAuth callbacks, magic
    links, CORS and the CSRF check all use it.
 
-5. **Register a GitHub OAuth app** at GitHub, Settings, Developer settings, OAuth Apps,
+1. **Register a GitHub OAuth app** at GitHub, Settings, Developer settings, OAuth Apps,
    New OAuth App:
 
    - Homepage URL: `SITE_ORIGIN`
@@ -86,7 +86,7 @@ logged in (`bunx wrangler login`).
 
    Put the client id in `GITHUB_CLIENT_ID` and generate a client secret.
 
-6. **Create a Google OAuth client** in Google Cloud Console, APIs & Services:
+1. **Create a Google OAuth client** in Google Cloud Console, APIs & Services:
    configure the OAuth consent screen (scopes `openid`, `email`, `profile`), then
    Credentials, Create credentials, OAuth client ID, type Web application:
 
@@ -95,12 +95,12 @@ logged in (`bunx wrangler login`).
 
    Put the client id in `GOOGLE_CLIENT_ID`.
 
-7. **Set up Resend** for magic-link email: add and verify your sending domain at
+1. **Set up Resend** for magic-link email: add and verify your sending domain at
    [resend.com](https://resend.com), create an API key with sending access, and set
    `EMAIL_FROM` in `wrangler.toml` to an address on that domain, for example
    `myleet <login@myleet.dev>`.
 
-8. **Set the secrets.** Each command prompts for the value; secrets never go in the
+1. **Set the secrets.** Each command prompts for the value; secrets never go in the
    repo:
 
    ```sh
@@ -246,8 +246,7 @@ body as `GET /api/me`. Validation:
 - `theme`: `system`, `latte`, `frappe`, `macchiato` or `mocha` (Catppuccin; legacy
   `light` and `dark` are accepted and read as `latte` and `mocha`). `night_flavor`, the
   dark flavor `system` uses: `frappe`, `macchiato` or `mocha` (default). `accent`: one
-  of `rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue
-  lavender` (default `mauve`). `editor_keymap`: `standard` or `vim`.
+  of `rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue lavender` (default `mauve`). `editor_keymap`: `standard` or `vim`.
   `editor_font_size`: 10-28. `new_per_day`: 0-20. `interview_date`: `YYYY-MM-DD`.
   `target_companies`: up to 40 company slugs (a playlist id without its `NNN_` prefix,
   so `a-z 0-9 - _`).
@@ -311,8 +310,7 @@ Before the first sync it returns `version: 0`, empty events and `updated_at: nul
 - `events_jsonl` replaces the stored events; each non-blank line must be a JSON
   object. At most 1,750,000 bytes (D1 caps a row at 2 MB); larger is `413`.
 - `notes_json` is optional: the Notes reader's highlights, margin notes and reading
-  progress as one JSON object, `{"v": 1, "annotations": [{"id", "note", "updated",
-  ...}], "reads": {"<note path>": {...}}}`. It shares the row and its version, so a
+  progress as one JSON object, `{"v": 1, "annotations": [{"id", "note", "updated", ...}], "reads": {"<note path>": {...}}}`. It shares the row and its version, so a
   sync that carries it is still one row write. The Worker checks the shape (at most
   2,000 annotations with 1-64 character ids and note paths up to 300 characters,
   2,000 reads) and stores it unchanged; at most 150,000 bytes, larger is `413`.

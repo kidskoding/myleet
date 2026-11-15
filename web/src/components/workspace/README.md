@@ -9,15 +9,15 @@ timer and attempt recorder. Editor libs live in `src/lib/editor/`.
 `?mode=` picks the mode: `practice` (default), `drill`, `interview`, `placement`, `checkpoint`.
 Parent flows can also call `mountWorkspace(root, { mode, targetSecs, backHref, onReport })`.
 
-| | practice / drill | interview | placement / checkpoint |
-| --- | --- | --- | --- |
-| Records | `opened`, `hint_revealed`, `solution_peeked`, `say_aloud_checked`, `timer_restarted`, on Submit `test_run` then `passed` (`elapsed_ms`) or, after a confirm, `gave_up` (`reason: failed_submit`); Give up `gave_up`; leaving an opened unfinished attempt `left` | `opened`, `test_run` on Submit | `opened`, `hint_revealed`, `test_run` on Submit |
-| Never records | | `passed`, `gave_up`, `left` | `passed`, `gave_up`, `left` |
-| Hints / key idea | yes / yes | hidden | yes / no |
-| Solution, Custom input, pause, restart, give up | yes | no | no |
-| Focus mode, autocomplete | off / on | on / off ("Interview mode") | off / on |
-| Timer target | problem target | `targetSecs`, else `interview_rules().round_secs` | problem target |
-| Back arrow | `/app` | `/app` | placement `/onboarding?step=warm-up`, checkpoint `/app` |
+|                                                 | practice / drill                                                                                                                                                                                                                                                 | interview                                         | placement / checkpoint                                  |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------- |
+| Records                                         | `opened`, `hint_revealed`, `solution_peeked`, `say_aloud_checked`, `timer_restarted`, on Submit `test_run` then `passed` (`elapsed_ms`) or, after a confirm, `gave_up` (`reason: failed_submit`); Give up `gave_up`; leaving an opened unfinished attempt `left` | `opened`, `test_run` on Submit                    | `opened`, `hint_revealed`, `test_run` on Submit         |
+| Never records                                   |                                                                                                                                                                                                                                                                  | `passed`, `gave_up`, `left`                       | `passed`, `gave_up`, `left`                             |
+| Hints / key idea                                | yes / yes                                                                                                                                                                                                                                                        | hidden                                            | yes / no                                                |
+| Solution, Custom input, pause, restart, give up | yes                                                                                                                                                                                                                                                              | no                                                | no                                                      |
+| Focus mode, autocomplete                        | off / on                                                                                                                                                                                                                                                         | on / off ("Interview mode")                       | off / on                                                |
+| Timer target                                    | problem target                                                                                                                                                                                                                                                   | `targetSecs`, else `interview_rules().round_secs` | problem target                                          |
+| Back arrow                                      | `/app`                                                                                                                                                                                                                                                           | `/app`                                            | placement `/onboarding?step=warm-up`, checkpoint `/app` |
 
 Run never records anything in any mode.
 
@@ -53,8 +53,7 @@ document.addEventListener("myleet:workspace-report", (e) => {
 
 In exam modes the parent owns the outcome: use the last `submit` report to build
 `placementDone` / `checkpointDone` results (`{problem, passed: r.green, hints: r.hints}`), or append
-its own `passed` line (`trainer.eventLine({kind: "passed", attempt: r.attempt, mode, data:
-{elapsed_ms}})`) for an interview round. Practice and drill also emit reports, after the workspace has
+its own `passed` line (`trainer.eventLine({kind: "passed", attempt: r.attempt, mode, data: {elapsed_ms}})`) for an interview round. Practice and drill also emit reports, after the workspace has
 recorded the attempt itself.
 
 ## Personalization mount points

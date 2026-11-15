@@ -65,14 +65,14 @@ Three device-local fields extend it (the Worker does not store them yet):
 leaves `from` at `from_start` and opens a window on `to` at `to_start`; both days are
 refilled, so the moved block holds what is due on its new day).
 
-| Call                                                | Returns                                                                                       |
-| --------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `trainer.plan(events, settings_json, now_ms, tz)`   | `Plan` (below)                                                                                |
-| `trainer.skills(events, now_ms, tz, settings_json)` | `{techniques: [Skill], modules: [{module, title, mastery, confidence}]}`                      |
-| `plan_ics(plan_json, options_json)`                 | iCalendar text; options `{site?, alarm_minutes?: number \| null, uid_suffix?, name?}` or `""` |
-| `trainer.plan_fixes(events, settings_json, now_ms, tz)` | `{techniques: [{module, technique, weekday_minutes \| null}], all: minutes \| null, note: Note \| null}`: the smallest weekday budget (30 to 120 in 15-minute steps) that closes each gap, one that closes every gap, and the over-budget note |
-| `trainer.habits(events, now_ms, tz, limit)` | `{history: {sessions, cells: [[weekday 0-6, half-hour 0-47]], suggestion: {windows, sessions, text} \| null}, insights: [{kind, icon, text}]}`; `text` marks the two facts with `**bold**`; a suggestion needs 8 sittings in 4 weeks |
-| `trainer.attempt_feedback(events, attempt_id, now_ms, tz)` | `{module, technique, technique_title, before, after, trend, text, cleared, weak_spot}` (levels `new`, `shaky`, `building`, `solid`, `strong`) or `null` |
+| Call                                                       | Returns                                                                                                                                                                                                                                        |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `trainer.plan(events, settings_json, now_ms, tz)`          | `Plan` (below)                                                                                                                                                                                                                                 |
+| `trainer.skills(events, now_ms, tz, settings_json)`        | `{techniques: [Skill], modules: [{module, title, mastery, confidence}]}`                                                                                                                                                                       |
+| `plan_ics(plan_json, options_json)`                        | iCalendar text; options `{site?, alarm_minutes?: number \| null, uid_suffix?, name?}` or `""`                                                                                                                                                  |
+| `trainer.plan_fixes(events, settings_json, now_ms, tz)`    | `{techniques: [{module, technique, weekday_minutes \| null}], all: minutes \| null, note: Note \| null}`: the smallest weekday budget (30 to 120 in 15-minute steps) that closes each gap, one that closes every gap, and the over-budget note |
+| `trainer.habits(events, now_ms, tz, limit)`                | `{history: {sessions, cells: [[weekday 0-6, half-hour 0-47]], suggestion: {windows, sessions, text} \| null}, insights: [{kind, icon, text}]}`; `text` marks the two facts with `**bold**`; a suggestion needs 8 sittings in 4 weeks           |
+| `trainer.attempt_feedback(events, attempt_id, now_ms, tz)` | `{module, technique, technique_title, before, after, trend, text, cleared, weak_spot}` (levels `new`, `shaky`, `building`, `solid`, `strong`) or `null`                                                                                        |
 
 `Plan`:
 
@@ -94,16 +94,21 @@ refilled, so the moved block holds what is due on its new day).
 - `tag` is the item's reason tag (`review`, `weak`, `new`, `progress`, `sharp`, `mock`,
   `check`); `weak` needs 4+ attempts in the last 6 weeks. `reason` never repeats the tag
   word; `chips` are up to three short "why this one" phrases with a Lucide icon name.
+
 - `windows` are the whole day's practice windows with moves applied (today's are not
   trimmed to now); `cap` is the day's budget, 0 on a day off.
+
 - `notes` kinds: `date_passed`, `cram`, `away`, `missed`, `great_day`, `backlog`, newest
   first; action kinds `weekday_minutes` (`value`), `availability`, `set_date`,
   `clear_date`. The over-budget note comes from `plan_fixes`.
 
 - `kind` is `review`, `new`, `drill`, `note` (re-read `note`, a content path), `mock`
   or `checkpoint`. Every item has a `reason`.
+
 - `status` is `on_track` or `behind`; `cause` is a skill cause or `null`.
+
 - Session `id` is `YYYY-MM-DD-N`, stable for a day and slot.
+
 - The plan runs from today to the day before `interview_date`, or 28 days without
   one (at most 182). Recompute it on load and after each attempt: missed work rolls
   forward, never past `daily_minutes`.
@@ -126,14 +131,17 @@ refilled, so the moved block holds what is due on its new day).
   `strong`. `sureness` reads `recent` (attempts in the last 6 weeks): `none`,
   `first_read` (1-3), `fairly_sure` (4-5), `sure` (6+). `weak_spot` is `weak` with 4+
   recent attempts; `watch` is a first read with a cause (shown as Watching, never weak).
+
 - `diagnosis` is the plain-words reading: counts, then the cause, then what was right.
   `history` is the last 6 attempts, oldest first; `mark` is `clean`, `missed`, `hint` or
   `over`. `clean_per_week` ends with the current 7 days.
 
 - `mastery` and `confidence` are 0 to 1. Mastery weights recent attempts more
   (21-day half-life) and blends in the review ladder; confidence grows with attempts.
+
 - `cause` is `cant_start`, `wrong_approach`, `edge_cases`, `too_slow`, `forgetting`
   or `null` (needs 2+ attempts and mastery under 0.7).
+
 - Action `kind` is `read_note`, `warmup`, `edge_case_redo`, `timed_rep`,
   `spaced_redo` or `next`. `priority` ranks new work: need, company relevance
   (weighted up as the interview nears), a weak-spot bonus and reading order.
