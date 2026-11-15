@@ -1,21 +1,98 @@
 ---
-import { ROUTES } from "../../lib/routes";
+import { buildCatalog } from "../../lib/build-catalog";
+import { noteHref, ROUTES } from "../../lib/routes";
+import BrandMark from "../shell/BrandMark.astro";
+
+const GITHUB = "https://github.com/kidskoding/myleet";
+const guide = buildCatalog().guide[0];
+const columns: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
+  {
+    title: "Practice",
+    links: [
+      { href: ROUTES.today, label: "Today" },
+      { href: ROUTES.plan, label: "Plan" },
+      { href: ROUTES.learn, label: "Learn" },
+      { href: ROUTES.companies, label: "Companies" },
+      { href: ROUTES.mock, label: "Mock" },
+    ],
+  },
+  {
+    title: "Learn more",
+    links: [
+      { href: ROUTES.howItWorks, label: "How it works" },
+      { href: guide ? noteHref(guide.path) : ROUTES.learn, label: "Start-here guide" },
+      { href: GITHUB, label: "GitHub", external: true },
+    ],
+  },
+  {
+    title: "About",
+    links: [
+      { href: ROUTES.about, label: "About" },
+      { href: ROUTES.privacy, label: "Privacy" },
+      { href: ROUTES.terms, label: "Terms" },
+    ],
+  },
+];
 ---
 
 <footer class="site-foot">
   <div class="site-foot-in">
-    <span>myleet is free and open source, MIT licensed. Colors by <a href="https://catppuccin.com" rel="noopener">Catppuccin</a></span>
-    <nav aria-label="Footer">
-      <a href={ROUTES.howItWorks}>How it works</a><a href={ROUTES.about}>About</a><a href={ROUTES.privacy}>Privacy</a><a href={ROUTES.terms}>Terms</a><a href="https://github.com/kidskoding/myleet" rel="noopener">GitHub</a>
-    </nav>
+    <div class="site-foot-brand">
+      <a class="brand" href={ROUTES.home} aria-label="myleet, home"><BrandMark /><span class="brand-word">myleet</span></a>
+      <p class="site-foot-tag">Personalized technical interview prep</p>
+      <p>Real problems in the browser, brought back on a review ladder until you can solve them cold</p>
+    </div>
+    {
+      columns.map((c) => (
+        <nav class="site-foot-col" aria-label={c.title}>
+          <h2>{c.title}</h2>
+          <ul>
+            {c.links.map((l) => (
+              <li>
+                <a href={l.href} rel={l.external ? "noopener" : undefined}>
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))
+    }
+    <div class="site-foot-base">
+      <span>Free and open source under MIT</span>
+      <span>Colors by <a href="https://catppuccin.com" rel="noopener">Catppuccin</a></span>
+      <a class="site-foot-gh" href={GITHUB} rel="noopener">GitHub</a>
+    </div>
   </div>
 </footer>
 
 <style is:global>
-  .site-foot { border-top: 1px solid var(--line); padding: var(--space-8) 0 var(--space-12); font-size: var(--text-sm); color: var(--ink-3); }
-  .site-foot-in { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--gutter); display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); align-items: center; }
-  .site-foot nav { display: flex; gap: var(--space-5); margin-left: auto; }
-  .site-foot a { color: var(--ink-2); text-decoration: none; }
-  .site-foot a:hover { color: var(--ink); text-decoration: underline; }
-  @media (max-width: 760px) { .site-foot nav { margin-left: 0; } }
+  .site-foot { border-top: 1px solid var(--line); padding: var(--space-16) 0 var(--space-10); font-size: var(--text-sm); color: var(--ink-3); }
+  .site-foot-in {
+    max-width: var(--content-max); margin: 0 auto; padding: 0 var(--gutter);
+    display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: var(--space-10) var(--space-8);
+  }
+  .site-foot-brand { display: grid; gap: var(--space-2); align-content: start; max-width: 34ch; }
+  .site-foot-brand .brand { justify-self: start; color: var(--ink); }
+  .site-foot-tag { margin-top: var(--space-2); color: var(--ink); font-weight: 600; }
+  .site-foot-brand p:not(.site-foot-tag) { color: var(--ink-3); line-height: 1.5; }
+  .site-foot-col h2 { font: 600 var(--label-size) var(--font-label); letter-spacing: var(--label-track); color: var(--ink-2); }
+  .site-foot-col ul { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: grid; gap: var(--space-3); }
+  .site-foot a { color: var(--ink-3); text-decoration: none; border-radius: var(--radius-xs); transition: color var(--dur-fast) var(--ease-out); }
+  .site-foot a:hover { color: var(--ink); }
+  .site-foot-base {
+    grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-6);
+    padding-top: var(--space-6); border-top: 1px solid var(--line); font-size: var(--text-xs);
+  }
+  .site-foot-base a { color: var(--ink-2); }
+  .site-foot-base .site-foot-gh { margin-left: auto; }
+  @media (max-width: 900px) {
+    .site-foot-in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .site-foot-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 520px) {
+    .site-foot { padding-top: var(--space-12); }
+    .site-foot-in { grid-template-columns: 1fr; gap: var(--space-8); }
+    .site-foot-base .site-foot-gh { margin-left: 0; }
+  }
 </style>
