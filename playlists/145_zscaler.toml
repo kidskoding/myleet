@@ -1,0 +1,148 @@
+title = "Zscaler"
+group = "Consumer and Business Tech"
+focus = "Stack and string parsing, trie lookups, graph traversal and binary search for network-security style problems."
+review_modules = ["03_stacks_and_queues", "01_arrays_and_hashing", "10_graphs", "07_trees", "14_tries", "05_binary_search"]
+
+[[entries]]
+title = "Shuffle the Array"
+url = "https://leetcode.com/problems/shuffle-the-array/"
+
+[[entries]]
+title = "Widest Vertical Area Between Two Points Containing No Points"
+url = "https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/"
+
+[[entries]]
+title = "Reverse Prefix of Word"
+url = "https://leetcode.com/problems/reverse-prefix-of-word/"
+
+[[entries]]
+title = "Time Needed to Buy Tickets"
+url = "https://leetcode.com/problems/time-needed-to-buy-tickets/"
+
+[[entries]]
+title = "Kth Missing Positive Number"
+url = "https://leetcode.com/problems/kth-missing-positive-number/"
+
+[[entries]]
+title = "Find the Minimum Area to Cover All Ones I"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
+
+[[entries]]
+title = "Minimum Factorization"
+url = "https://leetcode.com/problems/minimum-factorization/"
+
+[[entries]]
+title = "Increment Submatrices by One"
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
+
+[[entries]]
+title = "Number of Perfect Pairs"
+url = "https://leetcode.com/problems/number-of-perfect-pairs/"
+
+[[entries]]
+title = "Sort the Matrix Diagonally"
+url = "https://leetcode.com/problems/sort-the-matrix-diagonally/"
+
+[[entries]]
+title = "Binary Searchable Numbers in an Unsorted Array"
+url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
+
+[[entries]]
+title = "Count Complete Subarrays in an Array"
+url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
+
+[[entries]]
+title = "Score of Parentheses"
+url = "https://leetcode.com/problems/score-of-parentheses/"
+
+[[entries]]
+title = "Minimize Connected Groups by Inserting Interval"
+url = "https://leetcode.com/problems/minimize-connected-groups-by-inserting-interval/"
+
+[[entries]]
+title = "Construct Binary Tree from String"
+url = "https://leetcode.com/problems/construct-binary-tree-from-string/"
+
+[[entries]]
+title = "Count Pairs of Connectable Servers in a Weighted Tree Network"
+url = "https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/"
+
+[[entries]]
+title = "Convert Binary Search Tree to Sorted Doubly Linked List"
+url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
+
+[[entries]]
+title = "Longest Non-Decreasing Subarray After Replacing at Most One Element"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-after-replacing-at-most-one-element/"
+
+[[entries]]
+title = "Minimum Moves to Spread Stones Over Grid"
+url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
+
+[[entries]]
+title = "Equalize Strings by Adding or Removing Characters at Ends"
+url = "https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends/"
+
+[[entries]]
+title = "Minimum Deletions to Make Array Divisible"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/"
+
+[[entries]]
+title = "Longest Substring of One Repeating Character"
+url = "https://leetcode.com/problems/longest-substring-of-one-repeating-character/"
+
+[[entries]]
+title = "Divide an Array Into Subarrays With Minimum Cost II"
+url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-ii/"
+
+[[entries]]
+title = "Random Pick with Blacklist"
+url = "https://leetcode.com/problems/random-pick-with-blacklist/"
+
+[[entries]]
+title = "Count Different Palindromic Subsequences"
+url = "https://leetcode.com/problems/count-different-palindromic-subsequences/"
+
+[[entries]]
+title = "Number of Ways to Separate Numbers"
+url = "https://leetcode.com/problems/number-of-ways-to-separate-numbers/"
+
+[[entries]]
+title = "Perfect Number"
+url = "https://leetcode.com/problems/perfect-number/"
+
+[[entries]]
+title = "Random Pick Index"
+url = "https://leetcode.com/problems/random-pick-index/"
+
+[[entries]]
+title = "Four Divisors"
+url = "https://leetcode.com/problems/four-divisors/"
+
+[[entries]]
+title = "Incremental Memory Leak"
+url = "https://leetcode.com/problems/incremental-memory-leak/"
+
+[[entries]]
+title = "Count Number of Maximum Bitwise-OR Subsets"
+url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
+
+[[entries]]
+title = "Index Pairs of a String"
+url = "https://leetcode.com/problems/index-pairs-of-a-string/"
+
+[[entries]]
+title = "Number of Matching Subsequences"
+url = "https://leetcode.com/problems/number-of-matching-subsequences/"
+
+[[entries]]
+title = "Sum of Prefix Scores of Strings"
+url = "https://leetcode.com/problems/sum-of-prefix-scores-of-strings/"
+
+[[entries]]
+title = "K-th Smallest in Lexicographical Order"
+url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
+
+[[entries]]
+title = "Longest Common Suffix Queries"
+url = "https://leetcode.com/problems/longest-common-suffix-queries/"

@@ -1,0 +1,132 @@
+title = "Nationwide"
+group = "Fortune 500"
+focus = "Array and hash map fundamentals, stacks, sliding window, introductory dynamic programming and trees."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "07_trees", "06_linked_lists"]
+
+[[entries]]
+title = "Check if One String Swap Can Make Strings Equal"
+url = "https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/"
+
+[[entries]]
+title = "Shortest Distance to a Character"
+url = "https://leetcode.com/problems/shortest-distance-to-a-character/"
+
+[[entries]]
+title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
+url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
+
+[[entries]]
+title = "Maximum Product of Two Elements in an Array"
+url = "https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/"
+
+[[entries]]
+title = "Increment Submatrices by One"
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
+
+[[entries]]
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
+
+[[entries]]
+title = "Longest Arithmetic Sequence After Changing At Most One Element"
+url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
+
+[[entries]]
+title = "Maximize Win From Two Segments"
+url = "https://leetcode.com/problems/maximize-win-from-two-segments/"
+
+[[entries]]
+title = "Maximum Number of Upgradable Servers"
+url = "https://leetcode.com/problems/maximum-number-of-upgradable-servers/"
+
+[[entries]]
+title = "Sort the Students by Their Kth Score"
+url = "https://leetcode.com/problems/sort-the-students-by-their-kth-score/"
+
+[[entries]]
+title = "Filter Restaurants by Vegan-Friendly, Price and Distance"
+url = "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/"
+
+[[entries]]
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+
+[[entries]]
+title = "Number of Subarrays With LCM Equal to K"
+url = "https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/"
+
+[[entries]]
+title = "Alternating Groups II"
+url = "https://leetcode.com/problems/alternating-groups-ii/"
+
+[[entries]]
+title = "Longest Absolute File Path"
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
+
+[[entries]]
+title = "Taking Maximum Energy From the Mystic Dungeon"
+url = "https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon/"
+
+[[entries]]
+title = "Smallest Subsequence of Distinct Characters"
+url = "https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/"
+
+[[entries]]
+title = "Tag Validator"
+url = "https://leetcode.com/problems/tag-validator/"
+
+[[entries]]
+title = "Scramble String"
+url = "https://leetcode.com/problems/scramble-string/"
+
+[[entries]]
+title = "Count the Number of Inversions"
+url = "https://leetcode.com/problems/count-the-number-of-inversions/"
+
+[[entries]]
+title = "Divide Intervals Into Minimum Number of Groups"
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+
+[[entries]]
+title = "Corporate Flight Bookings"
+url = "https://leetcode.com/problems/corporate-flight-bookings/"
+
+[[entries]]
+title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
+url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
+
+[[entries]]
+title = "Minimum Cost of a Path With Special Roads"
+url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
+
+[[entries]]
+title = "Reverse Linked List II"
+url = "https://leetcode.com/problems/reverse-linked-list-ii/"
+
+[[entries]]
+title = "Minimum Falling Path Sum"
+url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+
+[[entries]]
+title = "Count Square Submatrices with All Ones"
+url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
+
+[[entries]]
+title = "Longest Palindromic Subsequence"
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+
+[[entries]]
+title = "Set Intersection Size At Least Two"
+url = "https://leetcode.com/problems/set-intersection-size-at-least-two/"
+
+[[entries]]
+title = "Lexicographically Smallest Generated String"
+url = "https://leetcode.com/problems/lexicographically-smallest-generated-string/"
+
+[[entries]]
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
+
+[[entries]]
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"
