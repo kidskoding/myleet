@@ -11,10 +11,10 @@ import type { PlaylistGroup } from "../../lib/types";
 const catalog = buildCatalog();
 const c = { ...catalog, playlists: catalog.playlists.filter(listedCompany) };
 const GROUPS: { name: PlaylistGroup; about: string }[] = [
-  { name: "Big tech", about: "The leaders and giants of technology and software" },
-  { name: "Product companies", about: "Tech companies that people and businesses rely on every day" },
-  { name: "AI labs & high growth", about: "AI labs and fast-growing startups" },
-  { name: "Trading firms", about: "Quant and trading firms" },
+  { name: "Big Tech", about: "The leaders and giants of technology and software" },
+  { name: "AI & Startups", about: "AI labs and fast-growing startups" },
+  { name: "Consumer and Business Tech", about: "Tech companies that people and businesses rely on every day" },
+  { name: "Trading Firms", about: "Quant and trading firms" },
   { name: "Fortune 500", about: "Tech roles at the biggest companies outside tech" },
 ];
 const groups = GROUPS.map((g) => ({ ...g, sets: c.playlists.filter((p) => p.group === g.name) }));

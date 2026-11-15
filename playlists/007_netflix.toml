@@ -1,5 +1,5 @@
 title = "Netflix"
-group = "Big tech"
+group = "Big Tech"
 focus = "Hash maps, sliding windows, heaps, and small caching and streaming designs, plus shortest-path graph problems."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 

@@ -21,10 +21,10 @@ const size = (m: (typeof modules)[number]) => m.techniques.reduce((n, t) => n + 
 const featured = [1, 4, 7, 10, 11].flatMap((n) => modules.filter((m) => m.number === n));
 
 const GROUPS: [PlaylistGroup, string][] = [
-  ["Big tech", "Big tech"],
-  ["Product companies", "Product companies"],
-  ["AI labs & high growth", "AI labs"],
-  ["Trading firms", "Trading firms"],
+  ["Big Tech", "Big Tech"],
+  ["AI & Startups", "AI & Startups"],
+  ["Consumer and Business Tech", "Consumer and Business Tech"],
+  ["Trading Firms", "Trading Firms"],
   ["Fortune 500", "Fortune 500"],
 ];
 const groups = GROUPS.map(([g, label]) => ({ label, sets: c.playlists.filter((p) => p.group === g) }));

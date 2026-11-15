@@ -1,0 +1,172 @@
+title = "Salesforce"
+group = "Consumer and Business Tech"
+focus = "Tree traversals, prefix and suffix string lookups, subarray counting, and heap-based greedy problems."
+review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "11_dp"]
+
+[[entries]]
+title = "N-ary Tree Preorder Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-preorder-traversal/"
+
+[[entries]]
+title = "N-ary Tree Postorder Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-postorder-traversal/"
+
+[[entries]]
+title = "Maximum Depth of N-ary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
+
+[[entries]]
+title = "Average of Levels in Binary Tree"
+url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
+
+[[entries]]
+title = "Find Bottom Left Tree Value"
+url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
+
+[[entries]]
+title = "Construct String from Binary Tree"
+url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Postorder Traversal"
+url = "https://leetcode.com/problems/binary-tree-postorder-traversal/"
+
+[[entries]]
+title = "Path Sum"
+url = "https://leetcode.com/problems/path-sum/"
+
+[[entries]]
+title = "Convert BST to Greater Tree"
+url = "https://leetcode.com/problems/convert-bst-to-greater-tree/"
+
+[[entries]]
+title = "Construct Binary Search Tree from Preorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
+
+[[entries]]
+title = "Find All Duplicates in an Array"
+url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
+
+[[entries]]
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
+
+[[entries]]
+title = "Rearrange Array Elements by Sign"
+url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
+
+[[entries]]
+title = "Wiggle Sort II"
+url = "https://leetcode.com/problems/wiggle-sort-ii/"
+
+[[entries]]
+title = "Pancake Sorting"
+url = "https://leetcode.com/problems/pancake-sorting/"
+
+[[entries]]
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
+
+[[entries]]
+title = "Repeated DNA Sequences"
+url = "https://leetcode.com/problems/repeated-dna-sequences/"
+
+[[entries]]
+title = "Longest Happy Prefix"
+url = "https://leetcode.com/problems/longest-happy-prefix/"
+
+[[entries]]
+title = "Count Prefix and Suffix Pairs I"
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
+
+[[entries]]
+title = "Replace Words"
+url = "https://leetcode.com/problems/replace-words/"
+
+[[entries]]
+title = "Prefix and Suffix Search"
+url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+
+[[entries]]
+title = "Short Encoding of Words"
+url = "https://leetcode.com/problems/short-encoding-of-words/"
+
+[[entries]]
+title = "Counting Words With a Given Prefix"
+url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
+
+[[entries]]
+title = "Index Pairs of a String"
+url = "https://leetcode.com/problems/index-pairs-of-a-string/"
+
+[[entries]]
+title = "Implement Magic Dictionary"
+url = "https://leetcode.com/problems/implement-magic-dictionary/"
+
+[[entries]]
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
+
+[[entries]]
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
+
+[[entries]]
+title = "K Radius Subarray Averages"
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+
+[[entries]]
+title = "Longest Subarray of 1's After Deleting One Element"
+url = "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
+
+[[entries]]
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+
+[[entries]]
+title = "Constrained Subsequence Sum"
+url = "https://leetcode.com/problems/constrained-subsequence-sum/"
+
+[[entries]]
+title = "Shortest Subarray with Sum at Least K"
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+
+[[entries]]
+title = "Sliding Subarray Beauty"
+url = "https://leetcode.com/problems/sliding-subarray-beauty/"
+
+[[entries]]
+title = "Number of Subarrays with Bounded Maximum"
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
+
+[[entries]]
+title = "Count Subarrays With Fixed Bounds"
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
+
+[[entries]]
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
+
+[[entries]]
+title = "Least Number of Unique Integers after K Removals"
+url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
+
+[[entries]]
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+
+[[entries]]
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+
+[[entries]]
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"

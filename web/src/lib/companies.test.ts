@@ -23,7 +23,7 @@ const cat = {
 const set: Playlist = {
   id: "001_google",
   title: "Google",
-  group: "Big tech",
+  group: "Big Tech",
   focus: "",
   entries: [
     { title: "a", url: "", problem: 0 },

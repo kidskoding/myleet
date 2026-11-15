@@ -9,7 +9,7 @@ const items: PaletteItem[] = [
   p("Two Sum", "Arrays and hashing, Hashing", ["1"]),
   p("Longest Common Subsequence", "Dynamic programming, 2D DP", ["1143"]),
   { key: "n:var", kind: "note", title: "Variable-size sliding window", hint: "Note, Sliding window" },
-  { key: "c:google", kind: "company", title: "Google", hint: "Big tech" },
+  { key: "c:google", kind: "company", title: "Google", hint: "Big Tech" },
   { key: "cmd:theme-mocha", kind: "command", title: "Theme: Mocha", hint: "appearance", keywords: "theme flavor catppuccin" },
 ];
 

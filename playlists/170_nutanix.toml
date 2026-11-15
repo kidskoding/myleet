@@ -1,0 +1,204 @@
+title = "Nutanix"
+group = "Consumer and Business Tech"
+focus = "graphs and shortest paths, stacks and monotonic stacks, sliding windows, intervals and heaps, design caches, trees, and dp"
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "10_graphs"]
+
+[[entries]]
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
+
+[[entries]]
+title = "Magnetic Force Between Two Balls"
+url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Car Pooling"
+url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
+
+[[entries]]
+title = "Check If Word Is Valid After Substitutions"
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
+
+[[entries]]
+title = "Online Majority Element In Subarray"
+url = "https://leetcode.com/problems/online-majority-element-in-subarray/"
+
+[[entries]]
+title = "Maximum Sum of an Hourglass"
+url = "https://leetcode.com/problems/maximum-sum-of-an-hourglass/"
+
+[[entries]]
+title = "Delivering Boxes from Storage to Ports"
+url = "https://leetcode.com/problems/delivering-boxes-from-storage-to-ports/"
+
+[[entries]]
+title = "Minimum Operations to Halve Array Sum"
+url = "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/"
+
+[[entries]]
+title = "Swap For Longest Repeated Character Substring"
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
+
+[[entries]]
+title = "Minimum Processing Time"
+url = "https://leetcode.com/problems/minimum-processing-time/"
+
+[[entries]]
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
+
+[[entries]]
+title = "Broken Calculator"
+url = "https://leetcode.com/problems/broken-calculator/"
+
+[[entries]]
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
+
+[[entries]]
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
+
+[[entries]]
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
+
+[[entries]]
+title = "Minimum Cost to Make All Characters Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/"
+
+[[entries]]
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+
+[[entries]]
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"
+
+[[entries]]
+title = "Best Sightseeing Pair"
+url = "https://leetcode.com/problems/best-sightseeing-pair/"
+
+[[entries]]
+title = "Max Stack"
+url = "https://leetcode.com/problems/max-stack/"
+
+[[entries]]
+title = "Maximum Employees to Be Invited to a Meeting"
+url = "https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting/"
+
+[[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "Binary Tree Cameras"
+url = "https://leetcode.com/problems/binary-tree-cameras/"
+
+[[entries]]
+title = "Reverse Nodes in Even Length Groups"
+url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
+
+[[entries]]
+title = "Reverse Linked List II"
+url = "https://leetcode.com/problems/reverse-linked-list-ii/"
+
+[[entries]]
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
+
+[[entries]]
+title = "Path With Minimum Effort"
+url = "https://leetcode.com/problems/path-with-minimum-effort/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+
+[[entries]]
+title = "Boundary of Binary Tree"
+url = "https://leetcode.com/problems/boundary-of-binary-tree/"
+
+[[entries]]
+title = "Min Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+
+[[entries]]
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
+
+[[entries]]
+title = "Pacific Atlantic Water Flow"
+url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+
+[[entries]]
+title = "Surrounded Regions"
+url = "https://leetcode.com/problems/surrounded-regions/"
+
+[[entries]]
+title = "Longest Palindromic Subsequence"
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Find the Winner of the Circular Game"
+url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
+
+[[entries]]
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Max Consecutive Ones III"
+url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
+
+[[entries]]
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"

@@ -25,7 +25,7 @@ const GOALS: { id: Goal; label: string; detail: string }[] = [
   { id: "coop", label: "Co-op", detail: "The same core topics as internships, often with more interview rounds" },
   { id: "newgrad", label: "New grad", detail: "Medium and some hard problems, with more graphs and dynamic programming" },
 ];
-const GROUPS: PlaylistGroup[] = ["Big tech", "AI labs & high growth", "Trading firms", "Product companies", "Fortune 500"];
+const GROUPS: PlaylistGroup[] = ["Big Tech", "AI & Startups", "Trading Firms", "Consumer and Business Tech", "Fortune 500"];
 const GROUP_SHOWN = 10;
 
 let cat: LoadedCatalog | undefined;
@@ -97,7 +97,7 @@ function companiesBody(): SafeHtml {
       const all = c.playlists.filter(listedCompany).filter((p) => p.group === g && !picked.includes(companySlug(p.id)));
       if (!all.length) return "";
       const shown = expanded.has(g) ? all : all.slice(0, GROUP_SHOWN);
-      return html`<div><h2>${g === "AI labs & high growth" ? "AI labs and high growth" : g}</h2><div class="row">${shown.map((p) => companyChip(p, false))}${
+      return html`<div><h2>${g === "AI & Startups" ? "AI labs and high growth" : g}</h2><div class="row">${shown.map((p) => companyChip(p, false))}${
         all.length > shown.length ? html`<button class="chip more" type="button" data-more="${g}">${all.length - shown.length} more</button>` : ""
       }</div></div>`;
     })}</div>`;
