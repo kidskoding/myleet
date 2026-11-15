@@ -16,7 +16,7 @@ import "../../styles/base.css";
 import Workspace from "../../components/workspace/Workspace.astro";
 import { renderMarkdown } from "../../components/workspace/markdown";
 import { buildCatalog } from "../../lib/build-catalog";
-import { flavorTokens, THEME_BOOT } from "../../lib/flavors";
+import { flavorTokens, SITE_FLAVOR, THEME_BOOT } from "../../lib/flavors";
 import { ROUTES } from "../../lib/routes";
 import type { ProblemFiles, ProblemMeta } from "../../lib/types";
 
@@ -44,7 +44,7 @@ const canonical = new URL(Astro.url.pathname, site).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-flavor={SITE_FLAVOR} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
@@ -58,8 +58,7 @@ const canonical = new URL(Astro.url.pathname, site).href;
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL("/og/default.png", site).href} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content={flavorTokens("latte").ground} />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content={flavorTokens("mocha").ground} />
+    <meta name="theme-color" content={flavorTokens(SITE_FLAVOR).ground} />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/manifest.webmanifest" />

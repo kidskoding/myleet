@@ -2,12 +2,13 @@
 // (decided by scripts/vendor-logos.ts, recorded in src/assets/logos/manifest.json): SVGL
 // full-colour marks, Simple Icons in its brand hex, gilbarbara/logos, an older Simple Icons
 // release; otherwise a monogram tile. Colours stay the brand's, except that a single-colour
-// mark under 3:1 on a theme's surface (Apple black on Mocha) takes the theme's text colour
+// mark under 3:1 on a theme's surface (Apple black on a dark surface) takes the theme's text colour
 // there, through `light-dark()`, which follows the page's `color-scheme`.
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import * as icons from "simple-icons";
 import { companySlug } from "./catalog";
+import { flavorTokens, SITE_FLAVOR } from "./flavors";
 import { monogram } from "./company-logos";
 import type { Playlist } from "./types";
 
@@ -21,11 +22,11 @@ interface ManifestEntry {
   brandColor?: string;
 }
 
-/** Catppuccin Latte base and mantle, Mocha base and mantle: the surfaces logos sit on. */
+/** Light and current site surfaces used to keep company marks legible. */
 const LIGHT = ["#eff1f5", "#e6e9ef"];
-const DARK = ["#1e1e2e", "#181825"];
+const DARK = [flavorTokens(SITE_FLAVOR).surface!, flavorTokens(SITE_FLAVOR).ground!];
 const INK_LIGHT = "var(--ink, #4c4f69)";
-const INK_DARK = "var(--ink, #cdd6f4)";
+const INK_DARK = `var(--ink, ${flavorTokens(SITE_FLAVOR).ink})`;
 const MIN_CONTRAST = 3;
 
 const LOGO_DIR = join(process.cwd(), "src/assets/logos");

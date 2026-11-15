@@ -1,5 +1,6 @@
 ---
 import LongForm from "../components/LongForm.astro";
+import { FLAVOR_NAMES, SITE_FLAVOR } from "../lib/flavors";
 import { ROUTES } from "../lib/routes";
 ---
 
@@ -37,6 +38,6 @@ import { ROUTES } from "../lib/routes";
 
   <h2 id="free">Free and open source</h2>
   <p>myleet is free, has no ads and is open source under the MIT license. The code, the curriculum and the trainer live at <a href="https://github.com/kidskoding/myleet" rel="noopener">github.com/kidskoding/myleet</a>. The same trainer runs as a command-line app and in the browser, so your history file works in both</p>
-  <p>Colors are <a href="https://catppuccin.com" rel="noopener">Catppuccin Mocha</a>, MIT licensed. The notices for the open-source work myleet ships are in <a href="/licenses.txt">licenses.txt</a></p>
+  <p>Colors are <a href="https://catppuccin.com" rel="noopener">Catppuccin {FLAVOR_NAMES[SITE_FLAVOR]}</a>, MIT licensed. The notices for the open-source work myleet ships are in <a href="/licenses.txt">licenses.txt</a></p>
   <p>Read the <a href={ROUTES.privacy}>privacy page</a> to see what is stored, and the <a href={ROUTES.terms}>terms</a> for the rules of use</p>
 </LongForm>

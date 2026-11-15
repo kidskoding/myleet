@@ -1,7 +1,7 @@
 // Device preferences and the learner's plan. Local-first (localStorage); the account
 // copy is pushed by lib/account.ts when signed in. Theme lives under its own key so the
 // blocking head script can read it before first paint.
-import { DEFAULT_ACCENT, flavorTokens, isAccent, type Accent, type Flavor, type NightFlavor } from "./flavors";
+import { DEFAULT_ACCENT, SITE_FLAVOR, flavorTokens, isAccent, type Accent, type Flavor, type NightFlavor } from "./flavors";
 import { localDay } from "./streak";
 import type { Availability, Difficulty, Interview, PlanMove, PlanSettings } from "./types";
 
@@ -229,9 +229,9 @@ function write(key: string, value: string | null): void {
   }
 }
 
-export function readTheme(): ThemePref { return "mocha"; }
+export function readTheme(): ThemePref { return SITE_FLAVOR; }
 
-export function readNight(): NightFlavor { return "mocha"; }
+export function readNight(): NightFlavor { return SITE_FLAVOR; }
 
 export function readAccent(): Accent {
   const v = storage()?.getItem(ACCENT_KEY);
@@ -239,7 +239,7 @@ export function readAccent(): Accent {
 }
 
 export function resolvedFlavor(_pref: ThemePref = readTheme(), _night: NightFlavor = readNight()): Flavor {
-  return "mocha";
+  return SITE_FLAVOR;
 }
 
 /** Only the scheme, for callers that don't care which dark flavor. */
@@ -254,12 +254,12 @@ function changed(): void {
 
 /** Writes the choice and applies it with the 240 ms theme ease. */
 export function setTheme(_pref: ThemePref): void {
-  write(THEME_KEY, "mocha");
+  write(THEME_KEY, SITE_FLAVOR);
   changed();
 }
 
 export function setNight(_night: NightFlavor): void {
-  write(NIGHT_KEY, "mocha");
+  write(NIGHT_KEY, SITE_FLAVOR);
   changed();
 }
 
@@ -270,8 +270,8 @@ export function setAccent(accent: Accent): void {
 
 /** Theme, night flavor and accent at once (the account's copy), without the sync event. */
 export function adoptAppearance(a: { theme?: unknown; night?: unknown; accent?: unknown }): void {
-  write(THEME_KEY, "mocha");
-  write(NIGHT_KEY, "mocha");
+  write(THEME_KEY, SITE_FLAVOR);
+  write(NIGHT_KEY, SITE_FLAVOR);
   if (isAccent(a.accent)) write(ACCENT_KEY, a.accent === DEFAULT_ACCENT ? null : a.accent);
   applyTheme(readTheme(), true);
 }
@@ -289,10 +289,10 @@ export function applyTheme(pref: ThemePref = readTheme(), ease = false): void {
   if (ease) setTimeout(() => root.classList.remove("theme-transition"), 300);
 }
 
-/** The top-bar toggle and Shift+D flip between Latte and the night flavor from what is showing. */
+/** Legacy theme shortcuts keep the site palette consistent. */
 export function toggleTheme(): Flavor {
-  setTheme("mocha");
-  return "mocha";
+  setTheme(SITE_FLAVOR);
+  return SITE_FLAVOR;
 }
 
 /** Sets data-font and data-read-font; the head script in lib/flavors.ts does the same before first paint. */

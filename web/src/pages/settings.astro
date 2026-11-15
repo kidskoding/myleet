@@ -2,7 +2,7 @@
 import "@fontsource-variable/jetbrains-mono/index.css";
 import Icon from "../components/Icon.astro";
 import Base from "../layouts/Base.astro";
-import { ACCENT_NAMES, ACCENTS } from "../lib/flavors";
+import { ACCENT_NAMES, ACCENTS, FLAVOR_NAMES, SITE_FLAVOR } from "../lib/flavors";
 import { ROUTES } from "../lib/routes";
 
 
@@ -67,7 +67,7 @@ const account = [
         <section class="grp" aria-labelledby="appearance">
           <h2 id="appearance">Appearance</h2>
           <div class="panel">
-            <div class="row"><div><div class="lbl">Catppuccin Mocha</div><div class="desc">Dark theme with your choice of accent color</div></div></div>
+            <div class="row"><div><div class="lbl">Catppuccin {FLAVOR_NAMES[SITE_FLAVOR]}</div><div class="desc">Dark theme with your choice of accent color</div></div></div>
             <div class="row stack">
               <div><div class="lbl" id="ac-l">Accent <b data-accent-name>Mauve</b></div><div class="desc">Buttons, links, focus, your current rung and the heatmap. Tags keep their own colors</div></div>
               <div>
@@ -289,7 +289,7 @@ const account = [
   .settings .sw i:nth-child(3) { width: 65%; opacity: 0.5; }
   .settings .sw.sys { grid-template-columns: 1fr 1fr; }
   .settings .sw.sys > span:first-child { background: var(--ctp-latte-base); }
-  .settings .sw.sys > span:last-child { background: var(--ctp-mocha-base); }
+  .settings .sw.sys > span:last-child { background: var(--ctp-base); }
   .settings .seg-radio label { position: relative; display: grid; place-items: center; height: 28px; padding: 0 var(--space-3); font-size: var(--text-xs); font-weight: 600; color: var(--ink-2); border-radius: 4px; cursor: pointer; transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
   .settings .seg-radio label:hover { color: var(--ink); }
   .settings .seg-radio label:has(input:checked) { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }

@@ -22,29 +22,29 @@ beforeEach(() => {
   globalThis.localStorage = memoryStorage();
 });
 
-describe("Mocha appearance", () => {
-  it("always resolves to Mocha, including legacy and system preferences", () => {
+describe("Macchiato appearance", () => {
+  it("always resolves to Macchiato, including legacy and system preferences", () => {
     for (const pref of ["latte", "frappe", "macchiato", "mocha", "system"] as const) {
       localStorage.setItem(THEME_KEY, pref);
-      expect(readTheme()).toBe("mocha");
-      expect(resolvedFlavor(pref)).toBe("mocha");
+      expect(readTheme()).toBe("macchiato");
+      expect(resolvedFlavor(pref)).toBe("macchiato");
       setTheme(pref);
-      expect(localStorage.getItem(THEME_KEY)).toBe("mocha");
+      expect(localStorage.getItem(THEME_KEY)).toBe("macchiato");
     }
   });
   it("does not restore a saved alternate night flavor", () => {
     setNight("frappe");
-    expect(readNight()).toBe("mocha");
-    expect(localStorage.getItem(NIGHT_KEY)).toBe("mocha");
+    expect(readNight()).toBe("macchiato");
+    expect(localStorage.getItem(NIGHT_KEY)).toBe("macchiato");
   });
-  it("keeps personal accent choices within Mocha", () => {
+  it("keeps personal accent choices within Macchiato", () => {
     expect(readAccent()).toBe("mauve");
     setAccent("teal");
     expect(readAccent()).toBe("teal");
     adoptAppearance({ theme: "latte", night: "frappe", accent: "peach" });
-    expect([readTheme(), readNight(), readAccent()]).toEqual(["mocha", "mocha", "peach"]);
+    expect([readTheme(), readNight(), readAccent()]).toEqual(["macchiato", "macchiato", "peach"]);
     adoptAppearance({ theme: "neon", accent: 3 });
-    expect([readTheme(), readAccent()]).toEqual(["mocha", "peach"]);
+    expect([readTheme(), readAccent()]).toEqual(["macchiato", "peach"]);
   });
 });
 

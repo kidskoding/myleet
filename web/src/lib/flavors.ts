@@ -13,7 +13,8 @@ export const ACCENTS = [
 ] as const;
 export type Accent = (typeof ACCENTS)[number];
 
-export const DEFAULT_NIGHT: NightFlavor = "mocha";
+export const SITE_FLAVOR: NightFlavor = "macchiato";
+export const DEFAULT_NIGHT: NightFlavor = SITE_FLAVOR;
 export const DEFAULT_ACCENT: Accent = "mauve";
 
 export const FLAVOR_NAMES: Record<Flavor, string> = { latte: "Latte", frappe: "Frappé", macchiato: "Macchiato", mocha: "Mocha" };
@@ -51,7 +52,7 @@ export function flavorTokens(flavor: Flavor, accent: Accent = DEFAULT_ACCENT): T
 export const THEME_BOOT = `(function () {
   function apply() {
     var r = document.documentElement;
-    r.dataset.flavor = "mocha";
+    r.dataset.flavor = "${SITE_FLAVOR}";
     r.dataset.theme = "dark";
     r.dataset.accent = "${DEFAULT_ACCENT}";
     try {
@@ -63,7 +64,7 @@ export const THEME_BOOT = `(function () {
       if (p.readFont === "mono") r.dataset.readFont = "mono";
       r.dataset.auth = localStorage.getItem("myleet:me") ? "in" : "out";
     } catch (e) { r.dataset.auth = "out"; }
-    document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.content = ${JSON.stringify(DATA.mocha.ground)}; });
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.content = ${JSON.stringify(DATA[SITE_FLAVOR].ground)}; });
   }
   apply();
   document.addEventListener("astro:after-swap", apply);
