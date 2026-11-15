@@ -1,0 +1,189 @@
+/* myleet base: reset, typography, focus, browser surfaces. Import after tokens.css. */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--ground);
+  scrollbar-color: var(--line-strong) transparent;
+  scroll-padding-top: calc(var(--topbar-h) + var(--space-4));
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-variation-settings: "wdth" var(--wdth-ui);
+  line-height: var(--leading-ui);
+  font-kerning: normal;
+  font-variant-numeric: tabular-nums; /* timers, counts and tables never jitter */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, svg, video, canvas { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; letter-spacing: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+:disabled { cursor: not-allowed; }
+table { border-collapse: collapse; }
+[hidden] { display: none !important; }
+
+/* ---- Headings: tighter tracking and leading as size grows ---- */
+h1, h2, h3, h4 {
+  font-family: var(--font-ui);
+  font-variation-settings: "wdth" var(--wdth-head);
+  font-weight: 650;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--track-head);
+  text-wrap: balance;
+}
+h1 { font-size: var(--text-xl); line-height: var(--leading-tight); }
+h2 { font-size: var(--text-lg); }
+h3 { font-size: var(--text-md); }
+h4 { font-size: var(--text-base); letter-spacing: 0; }
+
+p, li { text-wrap: pretty; }
+
+small, .text-small { font-size: var(--text-sm); }
+.text-muted { color: var(--ink-3); }
+.text-secondary { color: var(--ink-2); }
+
+/* ---- Prose: statements, notes, hints. Literata, comfortable measure ---- */
+.prose {
+  font-family: var(--font-read);
+  font-size: var(--text-read);
+  line-height: var(--leading-read);
+  font-variant-numeric: proportional-nums oldstyle-nums;
+  max-width: var(--measure);
+  font-optical-sizing: auto;
+}
+.prose > * + * { margin-top: 0.85em; }
+.prose h2, .prose h3 {
+  font-family: var(--font-ui);
+  margin-top: 1.8em;
+}
+.prose h2 + *, .prose h3 + * { margin-top: 0.5em; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose li + li { margin-top: 0.3em; }
+.prose strong { font-weight: 650; }
+.prose code {
+  font-family: var(--font-code);
+  font-size: 0.86em;
+  font-variant-numeric: normal;
+  background: var(--surface-sunk);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-xs);
+}
+.prose pre {
+  font-family: var(--font-code);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  overflow-x: auto;
+}
+.prose pre code { background: none; padding: 0; font-size: inherit; }
+
+code, kbd, samp, pre { font-family: var(--font-code); font-variant-numeric: normal; }
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  min-width: 1.6em;
+  height: 1.6em;
+  padding: 0 0.4em;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-variation-settings: "wdth" var(--wdth-tag);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ---- Links ---- */
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.prose a, a.link {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: text-decoration-color var(--dur-fast) var(--ease-out);
+}
+.prose a:hover, a.link:hover { text-decoration-color: currentColor; }
+
+/* ---- Focus: always visible for keyboards, never for mouse clicks ---- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+@media (forced-colors: active) {
+  :focus-visible { outline-color: Highlight; }
+}
+
+/* ---- Browser surfaces ---- */
+::selection { background: var(--code-selection); color: var(--ink); }
+input, textarea { caret-color: var(--accent); }
+::placeholder { color: var(--ink-3); opacity: 1; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---- Utilities the components rely on ---- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: var(--space-2);
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; }
+
+/* ---- Theme changes ease instead of flashing ---- */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-transition, html.theme-transition * {
+    transition: background-color var(--dur-base) var(--ease-out),
+      color var(--dur-base) var(--ease-out),
+      border-color var(--dur-base) var(--ease-out) !important;
+  }
+}
+
+/* ---- Astro View Transitions: cross-fade + 8px lift; nothing under reduced motion ---- */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: vt-out var(--dur-fast) var(--ease-out) both; }
+  ::view-transition-new(root) { animation: vt-in var(--dur-base) var(--ease-out) both; }
+  @keyframes vt-out { to { opacity: 0; } }
+  @keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

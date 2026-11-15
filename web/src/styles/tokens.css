@@ -1,0 +1,220 @@
+/*
+ * myleet design tokens. Source of truth: .planning/design/system/tokens.md
+ * World: chalk and holds. A chalk-dusted ground, charcoal ink, hold colours
+ * that each carry one meaning. Light is default; dark is the night session.
+ * Theme: system preference, overridden by <html data-theme="light|dark">.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* ---- Surfaces (chalk) ---- */
+  --ground: #f2f3ef;          /* page */
+  --surface: #ffffff;         /* panels you work in */
+  --surface-sunk: #e8eae4;    /* wells: test output, inactive tabs, skeletons */
+  --surface-raised: #ffffff;  /* floating layers (palette, popover, toast) */
+  --wall: #1e2227;            /* charcoal band (landing, focus-mode timer bar) */
+  --wall-ink: #ecede8;
+  --wall-ink-2: #a9afb7;
+  --scrim: rgb(22 25 29 / 0.44);
+
+  /* ---- Ink ---- */
+  --ink: #16191d;
+  --ink-2: #474d55;           /* secondary text, 7.6:1 on ground */
+  --ink-3: #5c626b;           /* muted text, 5.5:1 on ground */
+  --line: #d8dbd4;            /* hairlines, panel borders */
+  --line-strong: #b4b9b1;     /* decorative dividers, empty bar tracks */
+  --control-edge: #80868e;    /* input borders, switch-off track, empty rungs: 3.3:1 on ground (WCAG 1.4.11) */
+
+  /* ---- Accent: start-tape ultramarine. Primary action, selection, focus, "new" ---- */
+  --accent: #2b3cc4;
+  --accent-hover: #2232a8;
+  --accent-press: #1b2a8f;
+  --accent-soft: #e4e7fa;
+  --on-accent: #ffffff;
+  --focus: #2b3cc4;
+
+  /* ---- Semantic hold colours. Text-safe on ground, surface and their own soft ---- */
+  --pass: #17703f;      --pass-soft: #dcefe2;    --pass-solid: #1f8a4f;
+  --fail: #b42d26;      --fail-soft: #f9e2df;    --fail-solid: #c9352d;
+  --due: #8f5300;       --due-soft: #fbeed3;     --due-solid: #b97500;   /* review due, timer near target; 3.4:1 non-text */
+  --new: var(--accent); --new-soft: var(--accent-soft);
+  --weak: #9e1f52;      --weak-soft: #f7e0e8;    /* reason: weak spot */
+  --sharp: #0b6662;     --sharp-soft: #daeeec;   /* reason: keep sharp */
+  --progress: var(--ink-2); --progress-soft: var(--surface-sunk); /* reason: in progress */
+
+  /* ---- Ladder (signature): rungs 1 3 7 14 30 days ---- */
+  --rung-empty: var(--control-edge);
+  --rung-done: var(--ink);
+  --rung-current: var(--accent);
+  --rung-mastered: var(--pass-solid);
+  --rung-fall: var(--fail-solid);
+
+  /* ---- Heatmap (48 weeks), 0 = no activity ---- */
+  --heat-0: #e3e5df;
+  --heat-1: #c3c9f2;
+  --heat-2: #8d99e6;
+  --heat-3: #5465d6;
+  --heat-4: #2b3cc4;
+
+  /* ---- Code editor + syntax (CodeMirror theme reads these) ---- */
+  --code-bg: #ffffff;
+  --code-gutter: #8a9098;      /* line numbers: decorative, 3.2:1 is acceptable for non-text UI */
+  --code-active-line: #f4f5f1;
+  --code-selection: #d6dbf7;
+  --code-cursor: #2b3cc4;
+  --code-match: #fbeed3;
+  --mark-bg: #e4e7fa;          /* note highlights: accent tint + accent underline; amber stays 'due' */
+  --mark-line: #8d99e6;
+  --syn-keyword: #2b3cc4;      /* syntax hues are their own tokens; they only resemble the semantic set */
+  --syn-def: #16191d;          /* def / class names, weight 600 */
+  --syn-builtin: #8c2a5e;      /* len, range, dict, heapq */
+  --syn-string: #22675a;
+  --syn-number: #7a5512;
+  --syn-comment: #5c626b;      /* italic */
+  --syn-operator: #474d55;
+  --syn-punct: #5c626b;
+  --diff-add: #dcefe2;
+  --diff-del: #f9e2df;
+
+  /* ---- Type ---- */
+  --font-ui: "Archivo", "Archivo Variable", ui-sans-serif, sans-serif;
+  --font-read: "Literata", "Literata Variable", Georgia, serif;
+  --font-code: "JetBrains Mono", "JetBrains Mono Variable", ui-monospace, monospace;
+  /* Archivo width axis: tags, numerals and the timer are set condensed */
+  --wdth-ui: 100;
+  --wdth-head: 88;
+  --wdth-tag: 75;
+
+  --text-2xs: 0.6875rem;  /* 11  heatmap legend only */
+  --text-xs: 0.75rem;     /* 12  captions, tag text */
+  --text-sm: 0.875rem;    /* 14  dense UI, test rows */
+  --text-base: 1rem;      /* 16  UI body */
+  --text-read: 1.0625rem; /* 17  prose in Literata */
+  --text-md: 1.25rem;     /* 20  card titles */
+  --text-lg: 1.5rem;      /* 24  section heads */
+  --text-xl: 2rem;        /* 32  page titles */
+  --text-2xl: 2.75rem;    /* 44  next-problem title, landing heads */
+  --text-display: clamp(2.75rem, 1.6rem + 4.2vw, 4.75rem); /* landing only */
+  --text-timer: 1.75rem;  /* 28  workspace timer */
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.25;
+  --leading-ui: 1.45;
+  --leading-read: 1.65;
+
+  --track-display: -0.03em;
+  --track-head: -0.015em;
+  --track-ui: 0;
+  --track-small: 0.01em;
+
+  --measure: 68ch;
+
+  /* ---- Space (4px base) ---- */
+  --space-0: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --gutter: clamp(16px, 4vw, 40px);
+
+  /* ---- Radius: squarer for tape and controls, softer for panels ---- */
+  --radius-xs: 3px;   /* tags, chips, heatmap cells */
+  --radius-sm: 6px;   /* buttons, inputs, test rows */
+  --radius-md: 10px;  /* panels, cards */
+  --radius-lg: 14px;  /* dialogs, palette, sheets */
+  --radius-pill: 999px; /* switches, the ladder track only */
+
+  /* ---- Elevation. Declared once per element: in-flow panels use --line, floating layers use shadow ---- */
+  --shadow-sm: 0 1px 2px rgb(22 25 29 / 0.06), 0 1px 1px rgb(22 25 29 / 0.04);
+  --shadow-md: 0 6px 16px -4px rgb(22 25 29 / 0.12), 0 2px 4px rgb(22 25 29 / 0.06);
+  --shadow-lg: 0 28px 56px -16px rgb(22 25 29 / 0.28), 0 10px 20px -10px rgb(22 25 29 / 0.14);
+
+  /* ---- Motion. Springs are critically damped; bounce only after a flick ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: linear(0, 0.1 4.6%, 0.4 11.6%, 0.68 20%, 0.86 29.4%, 0.95 39.8%, 0.99 52%, 1);
+  --dur-press: 90ms;
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+  --dur-slow: 420ms;
+  --dur-climb: 640ms;  /* the rung-climb moment */
+
+  /* ---- Layout ---- */
+  --topbar-h: 52px;
+  --tabbar-h: 60px;
+  --content-max: 1200px;
+  --z-sticky: 10;
+  --z-overlay: 40;
+  --z-toast: 50;
+}
+
+/* Night session. Same roles, re-lit for a dark room. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #121417; --surface: #1a1d21; --surface-sunk: #0d0f11; --surface-raised: #23272c;
+    --wall: #0b0c0e; --wall-ink: #ecede8; --wall-ink-2: #a2a8b0; --scrim: rgb(0 0 0 / 0.6);
+    --ink: #ecede8; --ink-2: #b5bac1; --ink-3: #959ca5; --line: #2a2e34; --line-strong: #3c424a; --control-edge: #6c737c;
+    --accent: #93a0ff; --accent-hover: #a9b3ff; --accent-press: #7f8df5; --accent-soft: #232846; --on-accent: #0d0f11; --focus: #93a0ff;
+    --pass: #5cc98b; --pass-soft: #16291f; --pass-solid: #4bb97a;
+    --fail: #ff8075; --fail-soft: #33191a; --fail-solid: #f06a5e;
+    --due: #f0b24a; --due-soft: #30250f; --due-solid: #e7a332;
+    --weak: #f284ac; --weak-soft: #331822;
+    --sharp: #52c6bc; --sharp-soft: #13292a;
+    --rung-empty: #6c737c; --rung-done: #ecede8;
+    --heat-0: #1f2226; --heat-1: #2a3263; --heat-2: #3e4ba3; --heat-3: #6672e0; --heat-4: #a1acff;
+    --code-bg: #15181b; --code-gutter: #6c737c; --code-active-line: #1c2024; --code-selection: #2c3466; --code-cursor: #93a0ff; --code-match: #3a2e14; --mark-bg: #232846; --mark-line: #6672e0;
+    --syn-keyword: #93a0ff; --syn-def: #ecede8; --syn-builtin: #f284ac; --syn-string: #52c6bc; --syn-number: #f0b24a; --syn-comment: #8a919a; --syn-operator: #b5bac1; --syn-punct: #959ca5;
+    --diff-add: #16291f; --diff-del: #33191a;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 8px 20px -6px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.04);
+    --shadow-lg: 0 28px 60px -16px rgb(0 0 0 / 0.7), 0 0 0 1px rgb(255 255 255 / 0.06);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #121417; --surface: #1a1d21; --surface-sunk: #0d0f11; --surface-raised: #23272c;
+  --wall: #0b0c0e; --wall-ink: #ecede8; --wall-ink-2: #a2a8b0; --scrim: rgb(0 0 0 / 0.6);
+  --ink: #ecede8; --ink-2: #b5bac1; --ink-3: #959ca5; --line: #2a2e34; --line-strong: #3c424a; --control-edge: #6c737c;
+  --accent: #93a0ff; --accent-hover: #a9b3ff; --accent-press: #7f8df5; --accent-soft: #232846; --on-accent: #0d0f11; --focus: #93a0ff;
+  --pass: #5cc98b; --pass-soft: #16291f; --pass-solid: #4bb97a;
+  --fail: #ff8075; --fail-soft: #33191a; --fail-solid: #f06a5e;
+  --due: #f0b24a; --due-soft: #30250f; --due-solid: #e7a332;
+  --weak: #f284ac; --weak-soft: #331822;
+  --sharp: #52c6bc; --sharp-soft: #13292a;
+  --rung-empty: #6c737c; --rung-done: #ecede8;
+  --heat-0: #1f2226; --heat-1: #2a3263; --heat-2: #3e4ba3; --heat-3: #6672e0; --heat-4: #a1acff;
+  --code-bg: #15181b; --code-gutter: #6c737c; --code-active-line: #1c2024; --code-selection: #2c3466; --code-cursor: #93a0ff; --code-match: #3a2e14; --mark-bg: #232846; --mark-line: #6672e0;
+  --syn-keyword: #93a0ff; --syn-def: #ecede8; --syn-builtin: #f284ac; --syn-string: #52c6bc; --syn-number: #f0b24a; --syn-comment: #8a919a; --syn-operator: #b5bac1; --syn-punct: #959ca5;
+  --diff-add: #16291f; --diff-del: #33191a;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 8px 20px -6px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.04);
+  --shadow-lg: 0 28px 60px -16px rgb(0 0 0 / 0.7), 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --line: var(--line-strong);
+    --ink-3: var(--ink-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-press: 0ms;
+    --dur-fast: 0ms;
+    --dur-base: 120ms; /* kept for opacity cross-fades only */
+    --dur-slow: 120ms;
+    --dur-climb: 0ms;
+    --ease-spring: linear;
+  }
+}
