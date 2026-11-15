@@ -129,6 +129,12 @@ Playlist `group` is one of Big tech, Little tech, AI labs / high growth, Quant, 
 
 ______________________________________________________________________
 
+## Writing for people
+
+Run the `humanizer` skill on every piece of prose a person will read: web pages (How it works, About, Privacy, Terms, landing), UI copy and descriptions, notes, READMEs, commit messages and PR descriptions. Docs pages should be thorough and long enough to answer the reader's real questions, with concrete numbers and examples taken from the code (for example the ladder rungs, time targets and skill thresholds in `crates/core`), never invented. Use full sentences with periods, sentence-case headings, and no em dashes.
+
+______________________________________________________________________
+
 ## Python Standards
 
 - Python 3.11+
