@@ -8,6 +8,9 @@ import type {
   Mode,
   Placement,
   PlacementResult,
+  Plan,
+  PlanSettings,
+  Skills,
   State,
   Stats,
   TodayEntry,
@@ -42,6 +45,11 @@ export interface TrainerApi {
   checkpointSnooze(through: number, now?: number): string;
   formatSecs(secs: number): string;
   interviewRules(): InterviewRules;
+  /** Day-by-day plan to the interview (28 days without one). */
+  plan(events: string, settings?: PlanSettings, opts?: When): Plan;
+  skills(events: string, settings?: PlanSettings, opts?: When): Skills;
+  /** iCalendar text for a plan. */
+  planIcs(plan: Plan, options?: { site?: string; alarm_minutes?: number | null; uid_suffix?: string; name?: string }): string;
 }
 
 type WasmInput = Parameters<typeof wasm.initSync>[0];
@@ -70,6 +78,9 @@ export function createTrainer(catalogText: string, module?: WasmInput): TrainerA
     checkpointSnooze: (through, n) => wasm.checkpoint_snooze(through, now(n)),
     formatSecs: (secs) => wasm.format_secs(secs),
     interviewRules: () => parse(wasm.interview_rules()),
+    plan: (ev, settings, o = {}) => parse(t.plan(ev, settings ? JSON.stringify(settings) : "", now(o.now), o.tz ?? "")),
+    skills: (ev, settings, o = {}) => parse(t.skills(ev, now(o.now), o.tz ?? "", settings ? JSON.stringify(settings) : "")),
+    planIcs: (plan, options) => wasm.plan_ics(JSON.stringify(plan), options ? JSON.stringify(options) : ""),
   };
 }
 

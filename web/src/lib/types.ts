@@ -113,6 +113,8 @@ export interface TodayEntry {
   index: number;
   kind: "review" | "new" | "practice";
   reason: string | null;
+  /** The skill model's reason line, e.g. `overdue 2d: 1-day review`. */
+  why?: string;
   overdue_days: number;
   state: State;
 }
@@ -190,3 +192,133 @@ export type EventKind =
   | "placement_done"
   | "checkpoint_done";
 export type Mode = "practice" | "drill" | "interview" | "placement" | "checkpoint";
+
+// ---- planner and skills (crates/wasm README "Planner and skills") ----
+
+export type Weekday = "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun";
+
+export interface Availability {
+  days: Weekday[];
+  /** `HH:MM`; `end` may be `24:00`. */
+  start: string;
+  end: string;
+}
+
+/** The account `settings` subset the planner reads; missing fields take defaults. */
+export interface PlanSettings {
+  interview_date?: string | null;
+  target_companies?: string[];
+  new_per_day?: number;
+  daily_minutes?: number;
+  session_minutes?: number;
+  availability?: Availability[];
+  days_off?: string[];
+}
+
+export type PlanItemKind = "review" | "new" | "drill" | "note" | "mock" | "checkpoint";
+
+export interface PlanItem {
+  kind: PlanItemKind;
+  problem: string;
+  title: string;
+  technique: string;
+  minutes: number;
+  reason: string;
+  note?: string;
+}
+
+export interface PlanSession {
+  id: string;
+  start_ms: number;
+  end_ms: number;
+  minutes: number;
+  title: string;
+  items: PlanItem[];
+}
+
+export interface PlanDay {
+  date: string;
+  weekday: Weekday;
+  rest: boolean;
+  minutes: number;
+  sessions: PlanSession[];
+}
+
+export type SkillCause = "cant_start" | "wrong_approach" | "edge_cases" | "too_slow" | "forgetting";
+
+export interface Forecast {
+  module: string;
+  technique: string;
+  title: string;
+  module_title: string;
+  companies: string[];
+  goal: number;
+  started_now: number;
+  projected: number;
+  status: "on_track" | "behind";
+  behind_by: number;
+  mastery: number;
+  confidence: number;
+  cause: SkillCause | null;
+}
+
+export interface Plan {
+  version: number;
+  generated_ms: number;
+  tz: string;
+  start: string;
+  end: string;
+  interview_date: string | null;
+  pace: {
+    median_secs: Partial<Record<Difficulty, number>>;
+    speed: Record<Difficulty, number>;
+    new_minutes: Record<Difficulty, number>;
+    best_hour: number;
+  };
+  days: PlanDay[];
+  forecast: Forecast[];
+  summary: {
+    days_left: number;
+    sessions: number;
+    minutes: number;
+    reviews: number;
+    new: number;
+    drills: number;
+    mocks: number;
+    checkpoints: number;
+    on_track: boolean;
+    behind: string[];
+    headline: string;
+  };
+}
+
+export interface SkillAction {
+  kind: "read_note" | "warmup" | "edge_case_redo" | "timed_rep" | "spaced_redo" | "next";
+  problem: string | null;
+  note: string | null;
+  reason: string;
+}
+
+export interface Skill {
+  module: string;
+  module_title: string;
+  technique: string;
+  technique_title: string;
+  mastery: number;
+  confidence: number;
+  trend: "improving" | "flat" | "slipping" | null;
+  cause: SkillCause | null;
+  weak: boolean;
+  need: number;
+  priority: number;
+  companies: { company: string; problems: number }[];
+  seen: number;
+  total: number;
+  evidence: Record<string, number>;
+  actions: SkillAction[];
+}
+
+export interface Skills {
+  techniques: Skill[];
+  modules: { module: string; title: string; mastery: number; confidence: number }[];
+}

@@ -2,7 +2,109 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Today">
-  <h1>Today</h1>
-  <p>Placeholder: the screen design lands here.</p>
+<Base title="Today" nav="today" noindex description="Your next problem, why it's on your list, and today's plan.">
+  <div class="page today" data-today>
+    <div class="today-layout">
+      <div data-today-main aria-busy="true" aria-label="Loading today">
+        <div class="skel" style="height:34px;width:min(320px,80%)"></div>
+        <div class="skel" style="height:22px;width:min(440px,90%);margin-top:12px"></div>
+        <div class="panel nextup-skel">
+          <div class="skel" style="height:22px;width:160px"></div><div class="skel" style="height:44px;width:70%"></div><div class="skel" style="height:16px;width:50%"></div>
+        </div>
+        <div class="panel queue-skel"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+      </div>
+      <aside data-today-aside aria-label="Plan">
+        <section class="panel"><div class="skel" style="height:20px;width:60%"></div><div class="skel" style="height:44px;width:40%;margin-top:16px"></div><div class="skel" style="height:60px;margin-top:16px"></div></section>
+        <section class="panel"><div class="skel" style="height:20px;width:55%"></div><div class="skel" style="height:56px;margin-top:16px"></div></section>
+        <section class="panel"><div class="skel" style="height:20px;width:40%"></div><div class="skel" style="height:32px;margin-top:16px"></div></section>
+      </aside>
+    </div>
+  </div>
 </Base>
+
+<style is:global>
+  .today-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--space-10); align-items: start; }
+  .today-layout.is-first-run { grid-template-columns: 1fr; }
+  .today-layout.is-first-run aside { display: none; }
+  .today .greet h1 { font-size: var(--text-xl); }
+  .today .greet p { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-md); font-variation-settings: "wdth" 95; }
+  .today .greet .countdown-inline { display: none; }
+
+  .today .nextup { margin-top: var(--space-8); padding: var(--space-6) var(--space-8); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-6) var(--space-10); }
+  .today .nextup .tags { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .today .nextup h2 { margin-top: var(--space-3); font-size: var(--text-2xl); font-weight: 680; letter-spacing: var(--track-display); line-height: var(--leading-tight); }
+  .today .nextup h2 a { text-decoration: none; }
+  .today .nextup .meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-sm); align-items: center; }
+  .today .nextup .meta .icon { width: 15px; height: 15px; display: inline; vertical-align: -3px; }
+  .today .nextup .why { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: var(--space-3) var(--space-4); padding-top: var(--space-5); border-top: 1px solid var(--line); }
+  .today .nextup .why p { color: var(--ink-2); font-size: var(--text-sm); max-width: 52ch; }
+  .today .nextup .rail { align-self: center; text-align: right; }
+  .today .nextup .rail .cap { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); }
+  .today .nextup-skel { margin-top: var(--space-8); padding: var(--space-6) var(--space-8); display: grid; gap: 12px; }
+  .today .queue-skel { margin-top: var(--space-10); padding: var(--space-4); display: grid; gap: 16px; }
+  .today .queue-skel .skel { height: 40px; }
+
+  .today .group { margin-top: var(--space-10); }
+  .today .group .section-head h2 { font-size: var(--text-lg); }
+
+  .today aside { display: grid; gap: var(--space-5); }
+  .today aside .panel { padding: var(--space-5); }
+  .today aside h2 { font-size: var(--text-md); }
+  .today aside .section-head { margin: 0; align-items: center; }
+  .today .pace { margin-top: var(--space-4); display: grid; gap: var(--space-3); font-size: var(--text-sm); }
+  .today .pace-row { display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); align-items: center; }
+  .today .pace-row .bar { grid-column: 1 / -1; }
+  .today .countdown { margin-top: var(--space-3); display: flex; align-items: baseline; gap: var(--space-2); }
+  .today .pace-cause { grid-column: 1 / -1; font-size: var(--text-xs); color: var(--ink-3); }
+  .today .plan-note { margin-top: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
+  .today .why-lead { color: var(--ink); font-weight: 600; }
+
+  .today .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: var(--space-4); list-style: none; padding: 0; }
+  .today .day { display: grid; justify-items: center; gap: 6px; font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
+  .today .day .n { width: 100%; height: 40px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--surface-sunk); color: var(--ink); font-size: var(--text-sm); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); }
+  .today .day.is-today .n { background: var(--due-soft); color: var(--due); box-shadow: inset 0 0 0 1.5px var(--due-solid); }
+  .today .day.light .n { color: var(--ink-3); font-weight: 600; }
+  .today .budget { margin-top: var(--space-3); }
+  .today aside .fineprint { margin-top: var(--space-3); }
+
+  .today .firstrun { margin-top: var(--space-8); display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-8); padding: var(--space-8); }
+  .today .firstrun h2 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); }
+  .today .firstrun p { margin-top: var(--space-3); color: var(--ink-2); max-width: 46ch; }
+  .today .choices { display: grid; gap: var(--space-3); align-content: start; }
+  .today .choice { display: grid; grid-template-columns: auto 1fr; gap: var(--space-1) var(--space-4); padding: var(--space-4) var(--space-5); border: 1px solid var(--line-strong); border-radius: var(--radius-md); text-decoration: none; transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out); }
+  .today .choice:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .today .choice strong { font-size: var(--text-base); }
+  .today .choice span { grid-column: 2; font-size: var(--text-sm); color: var(--ink-2); }
+  .today .choice .icon { grid-row: span 2; color: var(--accent); margin-top: 2px; }
+
+  .today .checkin ol { margin-top: var(--space-3); }
+  .today .checkin .actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .today .checkin p { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-sm); }
+  .today .checkin .qrow { padding: var(--space-2) var(--space-3); min-height: 48px; gap: var(--space-3); grid-template-columns: minmax(0, 1fr) auto; }
+  .today .checkin .qrow .ladder-cell, .today .checkin .qrow .diff { display: none; }
+  .today .checkin .qrow .title { font-size: var(--text-sm); }
+
+  @media (max-width: 1100px) {
+    .today-layout { grid-template-columns: 1fr; }
+    .today aside { grid-template-columns: repeat(2, 1fr); align-items: start; }
+    .today aside > section:first-child { grid-row: span 2; }
+  }
+  @media (max-width: 760px) {
+    .today.page { padding-top: var(--space-6); }
+    .today aside { grid-template-columns: 1fr; }
+    .today aside > section:first-child { grid-row: auto; }
+    .today .greet p { font-size: var(--text-base); }
+    .today .greet .countdown-inline { display: block; margin-top: var(--space-1); color: var(--ink); font-weight: 600; font-size: var(--text-sm); }
+    .today .nextup { grid-template-columns: 1fr; padding: var(--space-5); gap: var(--space-5); }
+    .today .nextup h2 { font-size: var(--text-xl); }
+    .today .nextup .rail { text-align: left; }
+    .today .nextup .why { grid-template-columns: 1fr 1fr; }
+    .today .nextup .why p { grid-column: 1 / -1; }
+    .today .firstrun { grid-template-columns: 1fr; padding: var(--space-5); }
+    .today .firstrun h2 { font-size: var(--text-xl); }
+  }
+</style>
+
+<script>
+  import "../scripts/today";
+</script>
