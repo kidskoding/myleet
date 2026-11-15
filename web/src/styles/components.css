@@ -920,6 +920,8 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 /* Inside a narrow flow (the diagnostic intro) the steps stack */
 .flow .gate-steps { grid-template-columns: 1fr; }
 .gate-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }
+/* Long calls to action wrap on a phone instead of pushing the page sideways */
+.gate-actions .btn { max-width: 100%; height: auto; min-height: var(--h); padding-block: var(--space-2); white-space: normal; line-height: 1.25; text-align: center; }
 
 /* Touch screens: 44px targets for the small inline controls */
 @media (pointer: coarse) {
