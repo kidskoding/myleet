@@ -29,21 +29,21 @@ ______________________________________________________________________
 
 ## Features
 
-| #   | Feature                                                               | Status | Spec                                    | Plan                                    | Depends On            |
-| --- | --------------------------------------------------------------------- | ------ | --------------------------------------- | --------------------------------------- | --------------------- |
-| 1   | Rust crate scaffold + CI                                              | built  | [spec](../specs/rust-crate-scaffold.md) | [plan](../plans/rust-crate-scaffold.md) | —                     |
-| 2   | Catalog, config, `validate`                                           | todo   | —                                       | —                                       | #1                    |
-| 3   | Progress log, save state, schedule                                    | todo   | —                                       | —                                       | #2                    |
-| 4   | Session queue, placement, interview pick, checkpoint, stats           | todo   | —                                       | —                                       | #3                    |
-| 5   | Workspace, runner, watch, editor, prompt fetch                        | todo   | —                                       | —                                       | #2                    |
-| 6   | CLI commands                                                          | todo   | —                                       | —                                       | #3, #4, #5            |
-| 7   | TUI shell, theme, widgets, markdown                                   | todo   | —                                       | —                                       | #1                    |
-| 8   | Today screen + placement flow                                         | todo   | —                                       | —                                       | #4, #7                |
-| 9   | Focus core: timer, tests, edit/run loop                               | todo   | —                                       | —                                       | #5, #7                |
-| 10  | Focus extras: pause/restart, hints, solution, diff, zoom, copy, mouse | todo   | —                                       | —                                       | #9                    |
-| 11  | Map, Notes, Playlists, Search                                         | todo   | —                                       | —                                       | #7, #9                |
-| 12  | Timed interview + Stats/settings                                      | todo   | —                                       | —                                       | #9                    |
-| 13  | Cutover: packaging, docs, delete Go                                   | todo   | —                                       | —                                       | #6, #8, #10, #11, #12 |
+| #   | Feature                                                               | Status | Spec                                             | Plan                                             | Depends On            |
+| --- | --------------------------------------------------------------------- | ------ | ------------------------------------------------ | ------------------------------------------------ | --------------------- |
+| 1   | Rust crate scaffold + CI                                              | built  | [spec](../specs/rust-crate-scaffold.md)          | [plan](../plans/rust-crate-scaffold.md)          | —                     |
+| 2   | Catalog, config, `validate`                                           | built  | [spec](../specs/rust-catalog-config-validate.md) | [plan](../plans/rust-catalog-config-validate.md) | #1                    |
+| 3   | Progress log, save state, schedule                                    | todo   | —                                                | —                                                | #2                    |
+| 4   | Session queue, placement, interview pick, checkpoint, stats           | todo   | —                                                | —                                                | #3                    |
+| 5   | Workspace, runner, watch, editor, prompt fetch                        | todo   | —                                                | —                                                | #2                    |
+| 6   | CLI commands                                                          | todo   | —                                                | —                                                | #3, #4, #5            |
+| 7   | TUI shell, theme, widgets, markdown                                   | todo   | —                                                | —                                                | #1                    |
+| 8   | Today screen + placement flow                                         | todo   | —                                                | —                                                | #4, #7                |
+| 9   | Focus core: timer, tests, edit/run loop                               | todo   | —                                                | —                                                | #5, #7                |
+| 10  | Focus extras: pause/restart, hints, solution, diff, zoom, copy, mouse | todo   | —                                                | —                                                | #9                    |
+| 11  | Map, Notes, Playlists, Search                                         | todo   | —                                                | —                                                | #7, #9                |
+| 12  | Timed interview + Stats/settings                                      | todo   | —                                                | —                                                | #9                    |
+| 13  | Cutover: packaging, docs, delete Go                                   | todo   | —                                                | —                                                | #6, #8, #10, #11, #12 |
 
 Effort: #1 S · #2 M · #3 M · #4 M · #5 M · #6 M · #7 M · #8 M · #9 L · #10 M · #11 M · #12 M · #13 S.
 
