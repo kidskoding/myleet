@@ -88,7 +88,7 @@ pub struct Technique {
     pub problems: Vec<usize>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Problem {
     pub id: String,
     pub title: String,
