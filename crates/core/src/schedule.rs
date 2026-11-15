@@ -14,8 +14,8 @@ pub fn mastery_stage(rung: i32) -> &'static str {
         i32::MIN..=0 => "just learned",
         1 => "still settling in",
         2 => "getting solid",
-        3 => "nearly mastered",
-        _ => "mastered",
+        3 => "mastered",
+        _ => "locked in",
     }
 }
 

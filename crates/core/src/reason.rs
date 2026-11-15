@@ -91,9 +91,9 @@ fn mastery_after(days_to_next: i64) -> &'static str {
     match days_to_next {
         i64::MIN..=1 => "brings it back tomorrow",
         2..=3 => "starts to lock it in",
-        4..=7 => "makes it stick",
-        8..=14 => "puts it one step from mastered",
-        _ => "means you've mastered it",
+        4..=7 => "puts it one step from mastered",
+        8..=14 => "means you've mastered it",
+        _ => "keeps it mastered for the long run",
     }
 }
 
@@ -259,7 +259,7 @@ mod tests {
         };
         assert_eq!(
             build(&f),
-            "You needed a hint here 6 days ago, so a clean pass now puts it one step from mastered."
+            "You needed a hint here 6 days ago, so a clean pass now means you've mastered it."
         );
     }
 

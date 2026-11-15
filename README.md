@@ -43,8 +43,9 @@ you are interviewing with
 - **A plan that adapts.** Pick an interview date and companies, or a 15, 30 or 90-day
   roadmap. The plan reshapes after every solve and syncs to Google, Apple or Outlook
   calendars
-- **Spaced review.** Every problem climbs a 1, 3, 7, 14 and 30-day ladder. A clean pass
-  climbs one rung, and a hint, a peek or going over time sends it back to 1 day
+- **Spaced review.** Every problem moves through five review levels and comes back after
+  1, 3, 7, 14 and then 30 days. A clean pass moves it up a level, and a hint, a peek or
+  going over time sends it back to level 1
 - **Personal coaching.** Today, Plan and the result screen explain each choice from your
   data, for example which edge case tripped you up last week and why a problem is due
   today
@@ -53,16 +54,16 @@ you are interviewing with
   candidate reports, and learners can report where they were asked a problem
 - **A notes book.** Eighteen modules of notes that teach each pattern before the drills
 
-## How the review ladder works
+## How review levels work
 
 ```text
-1 day → 3 days → 7 days → 14 days (mastered) → 30 days
+Level 1 (1 day) → Level 2 (3 days) → Level 3 (7 days) → Level 4 (14 days, mastered) → Level 5 (30 days)
 ```
 
 Every problem has a 25-minute target, about what one problem gets in a live interview.
-Passing the tests with no hint, no peek at the solution and under the target climbs one
-rung. Solving it again the same day does not count. A hint, a peek, running over time or
-giving up drops it back to 1 day. The full rules are on the
+Passing the tests with no hint, no peek at the solution and under the target moves it up
+one level. Solving it again the same day does not count. A hint, a peek, running over time or
+giving up drops it back to level 1. The full rules are on the
 [How it works](https://myleet.anirudhkonidala.workers.dev/how-it-works) page
 
 ## Curriculum

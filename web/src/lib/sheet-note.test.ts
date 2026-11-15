@@ -16,7 +16,7 @@ const plan = (days: { kind: string; technique: string | null }[][]) =>
 
 describe("resultNote", () => {
   it("celebrates a clean pass with the review and the level", () => {
-    expect(resultNote(facts())).toBe("That's your third clean sliding window solve this week, which makes it stick. Sliding window is starting to feel solid");
+    expect(resultNote(facts())).toBe("That's your third clean sliding window solve this week, which puts it one step from mastered. Sliding window is starting to feel solid");
   });
   it("ties in a company only when given", () => {
     expect(resultNote(facts({ company: "Meta", daysLeft: 12 }))).toContain("Meta's set leans on sliding window and your interview is 12 days away");

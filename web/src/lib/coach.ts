@@ -271,7 +271,7 @@ export function whenFrom(now: Date, n: number): string {
 export function masteryAfter(days: number): string {
   if (days <= 1) return "brings it back tomorrow";
   if (days <= 3) return "starts to lock it in";
-  if (days <= 7) return "makes it stick";
-  if (days <= 14) return "puts it one step from mastered";
-  return "means you've mastered it";
+  if (days <= 7) return "puts it one step from mastered";
+  if (days <= 14) return "means you've mastered it";
+  return "keeps it mastered for the long run";
 }
