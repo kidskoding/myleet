@@ -7,7 +7,7 @@ import Base from "../../layouts/Base.astro";
 import { buildCatalog } from "../../lib/build-catalog";
 import { companySlug } from "../../lib/catalog";
 import { companyLogo } from "../../lib/company-logos";
-import { ROUTES } from "../../lib/routes";
+import { problemHref, ROUTES } from "../../lib/routes";
 import { icon } from "../../lib/ui/icons";
 import type { Playlist } from "../../lib/types";
 
@@ -23,8 +23,23 @@ const { playlist: p } = Astro.props;
 const c = buildCatalog();
 const slug = companySlug(p.id);
 const n = p.entries.length;
-// The focus line is a sourced sentence about the company's interviews (see the playlist file's sources).
-const lead = (p.focus ?? "").replace(/\.$/, "");
+// Topics in the order the sourced focus line names them, plus the set's first (most reported) problem.
+const TOPICS: [RegExp, string][] = [
+  [/graph|bfs|dfs|topolog|shortest path/i, "graphs"], [/tree/i, "trees"], [/dynamic programming|\bdp\b/i, "dynamic programming"],
+  [/sliding window/i, "sliding window"], [/stack|queue/i, "stacks"], [/heap|priority/i, "heaps"], [/interval/i, "intervals"],
+  [/binary search/i, "binary search"], [/linked list/i, "linked lists"], [/\btrie/i, "tries"], [/backtrack/i, "backtracking"],
+  [/greedy/i, "greedy problems"], [/\bbit/i, "bit manipulation"], [/two pointer/i, "two pointers"], [/design/i, "data-structure design"],
+  [/simulat/i, "simulation"], [/pars/i, "parsing"], [/hash|array|string/i, "arrays and strings"],
+];
+const focus = p.focus ?? "";
+const topics = TOPICS.map(([re, label]) => ({ label, at: focus.search(re) }))
+  .filter((t) => t.at >= 0)
+  .sort((a, b) => a.at - b.at)
+  .slice(0, 3)
+  .map((t) => t.label);
+const list = new Intl.ListFormat("en", { type: "conjunction" }).format(topics).replace(", and ", " and ");
+const firstEntry = p.entries.find((e) => e.problem !== null);
+const example = firstEntry?.problem != null ? c.problems[firstEntry.problem] : undefined;
 ---
 
 <Base title={`${p.title} prep`} nav="companies" description={`A curated ${p.title} practice set of ${n} problems, most asked first, with the techniques it leans on. Not a list of actual interview questions.`}>
@@ -33,7 +48,12 @@ const lead = (p.focus ?? "").replace(/\.$/, "");
     <div class="prep-head">
       <div>
         <h1 class="co-title"><Fragment set:html={companyLogo(slug).value} />{p.title}</h1>
-        {lead && <p class="lead">{lead}</p>}
+        {topics.length > 0 && (
+          <p class="lead">
+            {p.title}'s interviews mostly cover {list}
+            {example && <>, with problems like <a href={problemHref(example.id)}><strong>{example.title}</strong></a></>}
+          </p>
+        )}
       </div>
       <div>
         <div class="actions">
