@@ -1,7 +1,11 @@
 //! The interactive trainer: ratatui + crossterm port of internal/tui.
 
 pub mod app;
+#[cfg(test)]
+mod browse_testing;
+pub mod filter;
 mod help;
+pub mod mapscreen;
 pub mod markdown;
 pub mod screens;
 pub mod theme;
