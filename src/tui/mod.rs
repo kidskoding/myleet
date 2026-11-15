@@ -7,6 +7,7 @@ pub mod filter;
 mod focus;
 mod help;
 pub mod home;
+mod interview;
 pub mod mapscreen;
 pub mod markdown;
 pub mod placement;

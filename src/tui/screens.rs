@@ -8,11 +8,12 @@ use super::ui::{self, Lines, Tone};
 use super::widgets::indent;
 
 /// The root screen for tab i (0 today, 1 map, 2 timed, 3 playlists, 4 stats).
-pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
+pub fn new_tab(sh: &mut Shared, i: usize) -> Box<dyn Screen> {
     let i = if i < TAB_NAMES.len() { i } else { 0 };
     match i {
         0 => Box::new(super::home::Home::new()),
         1 => Box::new(super::mapscreen::MapScreen::new()),
+        2 => Box::new(super::interview::Interview::new(sh)),
         3 => Box::new(super::playlists::Playlists::new()),
         4 => Box::new(super::settings::Settings::new()),
         _ => Box::new(Placeholder {
@@ -50,12 +51,8 @@ fn mode_const(mode: &str) -> &'static str {
 }
 
 /// The recommended check-in Today's `c` opens (Go `NewInterviewCheckpoint`).
-pub fn new_checkpoint(_sh: &mut Shared) -> Box<dyn Screen> {
-    Box::new(Placeholder {
-        title: "check-in".into(),
-        tab: None,
-        kind: Kind::Other,
-    })
+pub fn new_checkpoint(sh: &mut Shared) -> Box<dyn Screen> {
+    Box::new(super::interview::Interview::checkpoint(sh))
 }
 
 struct Placeholder {
