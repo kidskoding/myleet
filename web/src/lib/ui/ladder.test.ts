@@ -8,7 +8,7 @@ describe("expressive ladder", () => {
     expect(s).toContain('class="node current due"');
     expect(s).toContain('class="node next"');
     expect(s).toContain('class="route"');
-    expect(s).toContain('aria-label="On the 3-day rung of 5, review due"');
+    expect(s).toContain('aria-label="On level 2 of 5, review due"');
   });
 
   it("marks a climb, skips the next rung when asked, and gives each gradient its own id", () => {

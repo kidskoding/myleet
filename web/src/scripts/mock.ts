@@ -470,14 +470,14 @@ async function record(): Promise<void> {
 // ---- reveal ----
 
 function effectText(p: ProblemResult): string {
-  const days = (rung: number) => plural(RUNG_DAYS[Math.max(0, rung)] ?? 1, "day");
+  const level = (rung: number) => `level ${Math.max(0, rung) + 1}, back in ${plural(RUNG_DAYS[Math.max(0, rung)] ?? 1, "day")}`;
   if (!p.started) return p.rungBefore < 0 ? "Not started. Nothing recorded" : "Not started. Its schedule didn't change";
-  if (!p.green) return `${p.total ? `${p.passed} of ${p.total} tests` : "No submit"}. Back to 1 day`;
-  if (p.rungBefore < 0) return allYes(p.checks) && !p.overTime ? "First pass. Review in 1 day" : "Passed with help. Review in 1 day";
-  if (p.rungAfter > p.rungBefore) return `Clean pass. Up to ${days(p.rungAfter)}`;
-  if (p.rungAfter === p.rungBefore && p.rungAfter > 0) return `Clean pass, same day as the last one. Stays at ${days(p.rungAfter)}`;
+  if (!p.green) return `${p.total ? `${p.passed} of ${p.total} tests` : "No submit"}. Back to level 1`;
+  if (p.rungBefore < 0) return allYes(p.checks) && !p.overTime ? "First pass. Level 1, review in 1 day" : "Passed with help. Level 1, review in 1 day";
+  if (p.rungAfter > p.rungBefore) return `Clean pass. Up to ${level(p.rungAfter)}`;
+  if (p.rungAfter === p.rungBefore && p.rungAfter > 0) return `Clean pass, same day as the last one. Stays on ${level(p.rungAfter)}`;
   const why = !allYes(p.checks) ? "self-check not all yes" : p.overTime ? "after time ran out" : "over its time target";
-  return `Passed, not clean (${why}). Back to 1 day`;
+  return `Passed, not clean (${why}). Back to level 1`;
 }
 
 const yesNo = (c: Checks | null) => (c ?? []).map((x) => (x ? "yes" : "no")).join(", ");

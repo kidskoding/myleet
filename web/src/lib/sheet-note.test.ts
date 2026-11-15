@@ -37,7 +37,7 @@ describe("resultNote", () => {
     expect(resultNote(facts({ kind: "miss", passed: 0, total: 0 }))).toBeNull();
   });
   it("says what a hint means for the review", () => {
-    expect(resultNote(facts({ kind: "hint", reviewDays: 1 }))).toBe("You used a hint on this one, so the review stays at 1 day instead of climbing. A clean pass on a later day gets it moving again");
+    expect(resultNote(facts({ kind: "hint", reviewDays: 1 }))).toBe("You used a hint on this one, so the review stays at 1 day instead of leveling up. A clean pass on a later day gets it moving again");
   });
   it("explains going over the target", () => {
     expect(resultNote(facts({ kind: "over", reviewDays: 1 }))).toContain("past the 25-minute target");

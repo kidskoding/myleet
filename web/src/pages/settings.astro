@@ -76,7 +76,7 @@ const account = [
           <div class="panel">
             <div class="row"><div><div class="lbl">Catppuccin {FLAVOR_NAMES[SITE_FLAVOR]}</div><div class="desc">Dark theme with your choice of accent color</div></div></div>
             <div class="row stack">
-              <div><div class="lbl" id="ac-l">Accent <b data-accent-name>Mauve</b></div><div class="desc">Buttons, links, focus, your current rung and the heatmap. Tags keep their own colors</div></div>
+              <div><div class="lbl" id="ac-l">Accent <b data-accent-name>Mauve</b></div><div class="desc">Buttons, links, focus, your current level and the heatmap. Tags keep their own colors</div></div>
               <div>
                 <div class="accents" role="radiogroup" aria-labelledby="ac-l">
                   {ACCENTS.map((a) => (
@@ -99,7 +99,7 @@ const account = [
               <div class="ctl"><select id="set-read-font" class="input" style="width:180px" data-pref="readFont"><option value="literata">Literata</option><option value="mono">JetBrains Mono</option></select></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system. On also stops the rung climb and pass wash here</div></div>
+              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system. On also stops the level-up animation and pass wash here</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="reduceMotion" aria-labelledby="rm-l" /></label></div>
             </div>
             <p class="credit">Colors are <a href="https://catppuccin.com" rel="noopener">Catppuccin</a>, MIT licensed</p>

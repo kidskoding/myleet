@@ -46,7 +46,7 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
           <ul class="rules">
             <li><Fragment set:html={svg(EyeOff)} /><span>Problem titles are visible. Technique labels, module labels, hints, and reference solutions stay hidden during the round</span></li>
             <li><Fragment set:html={svg(Timer)} /><span>One clock for the whole round. You can move between problems; time keeps running</span></li>
-            <li><Fragment set:html={svg(GitCommitHorizontal)} /><span>Results count like reviews: a clean pass climbs a rung, a miss drops that problem to 1 day. A pass counts as clean only if your self-check is all yes</span></li>
+            <li><Fragment set:html={svg(GitCommitHorizontal)} /><span>Results count like reviews: a clean pass levels a problem up, and a miss sends it back to level 1. A pass counts as clean only if your self-check is all yes</span></li>
           </ul>
           <p class="mk-err" data-setup-err role="alert" hidden></p>
           <div class="go">

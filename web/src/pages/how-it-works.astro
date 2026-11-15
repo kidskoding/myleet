@@ -6,12 +6,12 @@ import { ROUTES } from "../lib/routes";
 <LongForm
   title="How myleet tracks mastery"
   pageTitle="How it works"
-  description="What counts as a clean pass, how the review ladder schedules problems, how weak spots are found, and how Today and your plan are built."
+  description="What counts as a clean pass, how review levels schedule problems, how weak spots are found, and how Today and your plan are built."
   toc={[
     ["idea", "The idea behind it"],
     ["clean", "What counts as a clean pass"],
     ["targets", "Time targets"],
-    ["ladder", "The review ladder"],
+    ["ladder", "Review levels"],
     ["example", "One problem, start to finish"],
     ["mastered", "When a problem counts as mastered"],
     ["missed", "Missed reviews and busy weeks"],
@@ -22,14 +22,14 @@ import { ROUTES } from "../lib/routes";
     ["today", "How Today picks your problems"],
     ["plan", "How your plan is built"],
     ["forecast", "The forecast and \"behind by N\""],
-    ["exempt", "Practice that never moves the ladder"],
+    ["exempt", "Practice that never changes a level"],
     ["mock", "Mock interviews"],
     ["data", "Where your progress lives"],
   ]}
 >
   <h2 id="idea">The idea behind it</h2>
   <p>In an interview you get one cold attempt at a problem you may not have seen for weeks. Solving it yesterday with the editorial open in another tab says very little about how that attempt will go. So myleet treats a problem as learned only when you can solve it again, days later, with nothing to lean on.</p>
-  <p>Two pieces of bookkeeping follow from that. Each problem sits on a review ladder that brings it back after longer and longer gaps, and each technique (sliding window, grid BFS, top-k with a heap and so on) gets a mastery score built from every attempt you make at its problems. Today, the Plan, the Skills page and the company pages all read from those two records.</p>
+  <p>Two pieces of bookkeeping follow from that. Each problem sits on a review level that brings it back after longer and longer gaps, and each technique (sliding window, grid BFS, top-k with a heap and so on) gets a mastery score built from every attempt you make at its problems. Today, the Plan, the Skills page and the company pages all read from those two records.</p>
 
   <h2 id="clean">What counts as a clean pass</h2>
   <p>Almost everything on this page depends on one definition. An attempt is a clean pass when all four of these hold at the moment you press Submit:</p>
@@ -46,42 +46,42 @@ import { ROUTES } from "../lib/routes";
   <p>Every problem has the same 25-minute target, whether it is easy, medium or hard. That is about the time one problem gets in a real interview round, once you leave room to talk through your approach and test your code.</p>
   <p>The timer starts on your first keystroke. You can pause it during practice, and the code hides while it is paused so the pause stays honest. Restarting it is allowed, but a pass after a restart is not clean, because the clock is the part of the interview you cannot restart.</p>
 
-  <h2 id="ladder">The review ladder</h2>
-  <p>Every problem you finish sits on a ladder with five rungs: 1, 3, 7, 14 and 30 days. The rung decides how long myleet waits before showing the problem to you again.</p>
+  <h2 id="ladder">Review levels</h2>
+  <p>Every problem you finish sits on one of five levels. Level 1 brings it back after 1 day, level 2 after 3 days, level 3 after 7, level 4 after 14 and level 5 after 30. The level decides how long myleet waits before showing the problem to you again.</p>
   <ul>
-    <li>The first time you finish a problem, whether you passed or gave up, it lands on the 1-day rung.</li>
-    <li>When it comes back and you pass it cleanly on a later day, it climbs one rung, so the next gap is longer.</li>
-    <li>A clean pass on the same day as your last finish leaves the rung where it is. Solving a problem twice in one sitting mostly tests short-term memory, so the ladder waits for a new day.</li>
-    <li>Any other finish drops it back to 1 day: a failed submit, giving up, a hint or a look at the solution before passing, a timer restart, or going over the target.</li>
+    <li>The first time you finish a problem, whether you passed or gave up, it starts on level 1.</li>
+    <li>When it comes back and you pass it cleanly on a later day, it levels up, so the next gap is longer.</li>
+    <li>A clean pass on the same day as your last finish leaves the level where it is. Solving a problem twice in one sitting mostly tests short-term memory, so leveling up waits for a new day.</li>
+    <li>Any other finish sends it back to level 1: a failed submit, giving up, a hint or a look at the solution before passing, a timer restart, or going over the target.</li>
   </ul>
   <p>The new due date is midnight in your own time zone, that many days after the day you finished. A pass at 11:50 pm and another at 12:10 am count as two different days, because they are.</p>
-  <p>Dropping all the way back to 1 day can feel harsh for a small slip, but a problem you needed help with is one you would have struggled with in an interview, and seeing it again tomorrow is the cheapest time to fix that. A clean pass the next day puts it straight back on the climb.</p>
+  <p>Dropping all the way back to level 1 can feel harsh for a small slip, but a problem you needed help with is one you would have struggled with in an interview, and seeing it again tomorrow is the cheapest time to fix that. A clean pass the next day starts it leveling up again.</p>
 
   <h2 id="example">One problem, start to finish</h2>
-  <p>Here is how Longest Consecutive Sequence might move through the ladder for one learner.</p>
+  <p>Here is how Longest Consecutive Sequence might move through the levels for one learner.</p>
   <ol>
-    <li>Monday: they solve it for the first time in 19 minutes against a 25-minute target. First finishes always start at 1 day, so it is due Tuesday.</li>
-    <li>Tuesday: they pass cleanly in 12 minutes. It climbs to the 3-day rung and is due Friday.</li>
-    <li>Friday: they open a hint, then pass. The hint drops it back to 1 day, due Saturday.</li>
-    <li>Saturday: a clean pass in 9 minutes. Back to 3 days, due Tuesday.</li>
-    <li>Tuesday: clean again, up to 7 days.</li>
-    <li>The next Tuesday: clean, up to 14 days. It now counts as mastered.</li>
-    <li>Two weeks later: clean, up to 30 days, where it stays as long as the passes stay clean.</li>
+    <li>Monday: they solve it for the first time in 19 minutes against a 25-minute target. First finishes always start on level 1, so it is due Tuesday.</li>
+    <li>Tuesday: they pass cleanly in 12 minutes. It moves up to level 2 (3 days) and is due Friday.</li>
+    <li>Friday: they open a hint, then pass. The hint sends it back to level 1, due Saturday.</li>
+    <li>Saturday: a clean pass in 9 minutes. Back to level 2, due Tuesday.</li>
+    <li>Tuesday: clean again, up to level 3 (7 days).</li>
+    <li>The next Tuesday: clean, up to level 4 (14 days). It now counts as mastered.</li>
+    <li>Two weeks later: clean, up to level 5 (30 days), where it stays as long as the passes stay clean.</li>
   </ol>
-  <p>The one hint on Friday cost about four days of progress on the ladder.</p>
+  <p>The one hint on Friday cost about four days of progress.</p>
 
   <h2 id="mastered">When a problem counts as mastered</h2>
-  <p>A problem counts as mastered once it reaches the 14-day rung. It takes at least two clean, cold redos after the first finish, each on a later day, and in practice usually more. The 30-day rung exists to keep mastered problems from fading.</p>
-  <p>The status shown on a problem follows the ladder directly. Problems on the 1-day and 3-day rungs are Learning, the 7-day rung is Reviewing, and the 14-day and 30-day rungs are Mastered. A mastered problem that you then fail drops to the 1-day rung and shows as Learning again.</p>
+  <p>A problem counts as mastered once it reaches level 4, the 14-day level. It takes at least two clean, cold redos after the first finish, each on a later day, and in practice usually more. Level 5, at 30 days, keeps mastered problems from fading.</p>
+  <p>The status shown on a problem follows its level directly. Problems on levels 1 and 2 are Learning, level 3 is Reviewing, and levels 4 and 5 are Mastered. A mastered problem that you then fail goes back to level 1 and shows as Learning again.</p>
 
   <h2 id="missed">Missed reviews and busy weeks</h2>
-  <p>A review you miss stays due; nothing extra is added, and the rung does not drop just because time passed. It waits at the top of Today, ordered by how overdue it is, until you get to it. If you then pass it cleanly, it climbs as usual.</p>
+  <p>A review you miss stays due; nothing extra is added, and the level does not drop just because time passed. It waits at the top of Today, ordered by how overdue it is, until you get to it. If you then pass it cleanly, it levels up as usual.</p>
   <p>When you come back after a gap, Today will usually be mostly reviews. That is on purpose: they are the problems you are closest to forgetting. The Plan spreads a backlog over your next free windows instead of stacking it all into one day.</p>
 
   <h2 id="skills">How technique mastery is scored</h2>
   <p>Problems are how you practice, but techniques are what an interview tests. A new problem you have never seen will still be a sliding window or a topological sort, so myleet keeps a mastery score from 0 to 1 for each technique, built from your attempts at all of its problems.</p>
   <p>Each attempt gets a score. A clean pass scores 1. A pass with help scores less: the first hint takes off 0.25 and each extra hint another 0.1, a look at the solution takes off 0.4, and a timer restart takes off 0.1. Going over the time target takes some off as well. A failed attempt still earns a little, up to 0.25, in proportion to how many tests your best run passed, because getting most of the way there is real progress.</p>
-  <p>Those scores are averaged with recent work counting the most: an attempt three weeks old counts half as much as one from today, and one six weeks old a quarter as much. Three quarters of the final score comes from that history of attempts, and one quarter from where the technique's problems sit on the review ladder, so a technique full of 14-day and 30-day problems reads as stronger than one where everything is due tomorrow.</p>
+  <p>Those scores are averaged with recent work counting the most: an attempt three weeks old counts half as much as one from today, and one six weeks old a quarter as much. Three quarters of the final score comes from that history of attempts, and one quarter from where the technique's problems sit on the review levels, so a technique full of level 4 and level 5 problems reads as stronger than one where everything is due tomorrow.</p>
   <p>On the skill map the score turns into a level: Shaky below 0.35, Building below 0.65, Solid below 0.85 and Strong above that. A technique you have never attempted is simply New.</p>
   <p>Once a technique has at least four scored attempts, myleet also shows a trend. It compares the score of your more recent half of attempts with the older half; a difference of more than 0.15 either way reads as improving or slipping, and anything smaller reads as flat.</p>
 
@@ -104,7 +104,7 @@ import { ROUTES } from "../lib/routes";
   <p>The <a href={ROUTES.diagnostic}>diagnostic</a> takes about 15 minutes and works without an account. It has two parts.</p>
   <p>First come eight multiple-choice questions. Each one shows a real problem from the curriculum and asks which of four patterns solves it. Six patterns are always asked: hashing, two pointers, sliding window, binary search, trees and graphs. The other two are drawn from stacks, heaps, dynamic programming and intervals. A right answer within 60 seconds counts as strong, a right answer that took longer counts as shaky, and a wrong answer or "I don't know this yet" means that pattern is where you start.</p>
   <p>Then come up to three coding problems in the normal editor, taken from the patterns you were least sure of. A pattern you missed starts with an easy problem, and one you got right starts with a medium one. After a clean pass the next problem is one level harder. Two problems without a clean pass end the run, because a third would only confirm what the first two showed. For each pattern you coded, the coding result replaces the question's result.</p>
-  <p>The results list every pattern as strong, shaky or start here. The first pattern marked start here (or shaky, if none is) becomes the first module of your plan. Nothing from the diagnostic goes on the review ladder.</p>
+  <p>The results list every pattern as strong, shaky or start here. The first pattern marked start here (or shaky, if none is) becomes the first module of your plan. Nothing from the diagnostic gets a review level.</p>
 
   <h2 id="today">How Today picks your problems</h2>
   <p>Today is the short list of what to practice now. It is rebuilt from your history every time you open it, in this order:</p>
@@ -113,7 +113,7 @@ import { ROUTES } from "../lib/routes";
     <li>New problems, up to your daily number (three unless you change it in Settings). Techniques with a weak spot come first, then problems you started and did not finish, then new topics in the order the notes teach them. Your target companies move the techniques they lean on up the list.</li>
     <li>Keep-sharp drills on days when nothing is due and there is nothing new to add, so mastered techniques stay warm.</li>
   </ol>
-  <p>Every item says why it is there, for example "weak spot: Graphs, 3 of 5 failed on edge cases", "Google leans on trees" or "overdue 2 days: 1-day review". If a reason ever looks wrong, it usually means a setting is out of date, such as a target company you have stopped preparing for.</p>
+  <p>Every item says why it is there, for example "weak spot: Graphs, 3 of 5 failed on edge cases", "Google leans on trees" or "overdue 2 days: level 1 review". If a reason ever looks wrong, it usually means a setting is out of date, such as a target company you have stopped preparing for.</p>
 
   <h2 id="plan">How your plan is built</h2>
   <p>The <a href={ROUTES.plan}>Plan</a> looks further ahead than Today. It walks forward one day at a time from today to your interview date, or four weeks ahead if you have not set one, and places sessions inside the hours you told it you are free, up to your daily time. Without any free hours set, it uses one window a day at the hour you usually practice, or 7 pm until it has learned that.</p>
@@ -127,16 +127,16 @@ import { ROUTES } from "../lib/routes";
   <p>The forecast counts the problems you have already started plus the ones the plan will add before the date. If that reaches the goal, the technique is on track. If it falls short, it is behind by the number of problems it would miss. "Behind by N" means the same thing everywhere in myleet: how many problems short you would be on the day if you kept to the current plan.</p>
   <p>When something is behind, the plan suggests the smallest change that would close the gap, usually a little more daily time on weekdays. The suggestion is only a suggestion; turning down the budget is always allowed, and the forecast simply shows the honest result.</p>
 
-  <h2 id="exempt">Practice that never moves the ladder</h2>
+  <h2 id="exempt">Practice that never changes a level</h2>
   <p>Some kinds of practice measure you without changing your review schedule.</p>
   <ul>
-    <li>The diagnostic only tells Today which patterns are strong, which are shaky and where to start. None of its questions or problems go on the ladder.</li>
+    <li>The diagnostic only tells Today which patterns are strong, which are shaky and where to start. None of its questions or problems get a review level.</li>
     <li>Check-ins sample a stretch of modules you have studied and report how they are holding up, again without touching due dates.</li>
-    <li>Keep-sharp drills count toward your streak and your stats, and they feed the skill scores, but they never change a problem's rung or due date.</li>
+    <li>Keep-sharp drills count toward your streak and your stats, and they feed the skill scores, but they never change a problem's level or due date.</li>
   </ul>
 
   <h2 id="mock">Mock interviews</h2>
-  <p>A mock round is 45 minutes for one to three problems, chosen without telling you the technique, since recognizing the pattern is half of a real interview. Each hint costs three minutes off the round clock. After the round you answer a short self-check (could you explain your approach and its complexity out loud?), and a pass you could not explain, or one that ran past the clock, is recorded as not clean. Mock results then flow into the ladder and the skill scores like any other attempt.</p>
+  <p>A mock round is 45 minutes for one to three problems, chosen without telling you the technique, since recognizing the pattern is half of a real interview. Each hint costs three minutes off the round clock. After the round you answer a short self-check (could you explain your approach and its complexity out loud?), and a pass you could not explain, or one that ran past the clock, is recorded as not clean. Mock results then flow into review levels and the skill scores like any other attempt.</p>
 
   <h2 id="data">Where your progress lives</h2>
   <p>Your history is a list of events (opened, ran the tests, passed, used a hint and so on). Everything on this page is computed from that list in your browser. Practicing needs a free account, and the list syncs to it so your other devices see the same history. Your browser keeps its own copy as well, so practice keeps working offline and syncs when you reconnect.</p>

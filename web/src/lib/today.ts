@@ -39,11 +39,10 @@ export function whyLine(e: TodayEntry, targetMins: number): string {
   const rule = `A clean pass, with no hints and under ${targetMins} minutes,`;
   const r = e.state.rung;
   if (e.kind === "practice") return `Extra practice that does not change your review schedule`;
-  if (r < 0) return `${rule} starts its review ladder at 1 day`;
-  const here = RUNG_DAYS[r] ?? 1;
+  if (r < 0) return `${rule} puts it on level 1, back in 1 day`;
   const next = RUNG_DAYS[Math.min(r + 1, RUNG_DAYS.length - 1)] ?? 30;
-  if (r >= RUNG_DAYS.length - 1) return `You're on the top rung. ${rule} keeps it there for another 30 days`;
-  return `You're on the ${here}-day rung. ${rule} moves it to ${next} days`;
+  if (r >= RUNG_DAYS.length - 1) return `You're on the top level. ${rule} keeps it there for another 30 days`;
+  return `You're on level ${r + 1}. ${rule} moves it up to level ${r + 2}, back in ${next} days`;
 }
 
 export type Budget = "plan" | "30" | "60" | "all" | "120";

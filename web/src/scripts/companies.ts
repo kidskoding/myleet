@@ -56,7 +56,7 @@ function readyBar(r: Readiness, label: string): SafeHtml {
   );
 }
 
-const readyLabel = (r: Readiness) => `${r.ready} of ${r.tracked} ready: ${r.mastered} mastered, ${r.climbing} climbing, ${r.started} started`;
+const readyLabel = (r: Readiness) => `${r.ready} of ${r.tracked} ready: ${r.mastered} mastered, ${r.climbing} leveling up, ${r.started} started`;
 
 /** First tracked entry that isn't ready yet, in set order. */
 function nextEntry(c: Ctx, p: Playlist): string | null {
@@ -211,11 +211,11 @@ function renderReadiness(c: Ctx, p: Playlist): void {
       ${nextEntry(c, p) ? html`<a class="btn btn-primary" href="${companyProblemHref(nextEntry(c, p)!, companySlug(p.id))}">${r.unseen === r.tracked ? "Start practicing" : "Continue practicing"}</a>` : ""}
       <div class="big"><b>${r.ready}</b><span class="text-secondary">of ${r.tracked} ready</span></div>
       ${readyBar(r, readyLabel(r))}
-      <div class="keys"><span><i style="background:var(--pass-solid)"></i>${r.mastered} mastered</span><span><i style="background:var(--ink)"></i>${r.climbing} climbing</span><span><i style="background:var(--line-strong)"></i>${r.started} started</span><span>${r.unseen} not started</span></div>
+      <div class="keys"><span><i style="background:var(--pass-solid)"></i>${r.mastered} mastered</span><span><i style="background:var(--ink)"></i>${r.climbing} leveling up</span><span><i style="background:var(--line-strong)"></i>${r.started} started</span><span>${r.unseen} not started</span></div>
       <p class="f">${
         all
           ? `Every problem in this set is ready. Keep it sharp with a ${p.title} mock`
-          : `Ready means mastered or climbing the ladder with a clean last pass${pace !== null && date && left !== null ? `. ${plural(left, "day")} to ${shortDate(date)}: about ${plural(pace, `${p.title} problem`)} a day gets the whole set ready` : ""}`
+          : `Ready means mastered or leveling up with a clean last pass${pace !== null && date && left !== null ? `. ${plural(left, "day")} to ${shortDate(date)}: about ${plural(pace, `${p.title} problem`)} a day gets the whole set ready` : ""}`
       }</p>`,
   );
 }

@@ -86,7 +86,7 @@ export function getStaticPaths() {
       </div>
       <section class="sec" aria-labelledby="heat-h"><div class="section-head"><h2 id="heat-h">Practice, last 48 weeks</h2></div>
         <div class="panel heatwrap" data-heatwrap>${heatmap(s.heatmap, { label: `${name} practised on ${plural(days, "day")} in the last 48 weeks` })}</div></section>
-      <footer class="foot"><span>Mastered on myleet means a clean, cold redo on the 14-day review rung</span><a class="btn btn-primary btn-sm" href="${ROUTES.home}">Practice with myleet</a></footer>`;
+      <footer class="foot"><span>Mastered on myleet means a clean, cold redo on review level 4</span><a class="btn btn-primary btn-sm" href="${ROUTES.home}">Practice with myleet</a></footer>`;
   }
 
   async function init(): Promise<void> {

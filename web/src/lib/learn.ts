@@ -38,7 +38,7 @@ export const touched = (t: Tally): number => t.mastered + t.climbing + t.started
 export function statusTag(st: State | undefined, now: number): [TagKind, string] | null {
   const s = pstatus(st);
   if (s === "unseen" || !st) return null;
-  if (isDue(st, now)) return ["due", st.rung === 0 && st.fails > 0 ? "Review due, fell to 1 day" : "Review due"];
+  if (isDue(st, now)) return ["due", st.rung === 0 && st.fails > 0 ? "Review due, back to level 1" : "Review due"];
   if (s === "mastered") return ["pass", "Mastered"];
   return ["progress", "In progress"];
 }

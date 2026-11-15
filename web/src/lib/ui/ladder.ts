@@ -32,8 +32,7 @@ export interface LadderOpts {
 
 export function ladderLabel(rung: number, due = false): string {
   if (rung <= 0) return "Not started";
-  const day = RUNG_DAYS[rung - 1];
-  const base = rung >= MASTERED_RUNG ? `Mastered, on the ${day}-day rung` : `On the ${day}-day rung of 5`;
+  const base = rung >= MASTERED_RUNG ? `Mastered, on level ${rung} of 5` : `On level ${rung} of 5`;
   return due ? `${base}, review due` : base;
 }
 

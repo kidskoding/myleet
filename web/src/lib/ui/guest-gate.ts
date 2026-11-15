@@ -92,8 +92,8 @@ const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [st
     lede: html`Everything you practice is <strong>saved to your account</strong>, so it follows you to every device`,
     steps: [
       ["Your streak", "Days in a row you've practiced, right in the top bar"],
-      ["Topic by topic", "See which patterns are solid and which are still climbing"],
-      ["Reviews coming due", "Problems come back on a 1, 3, 7, 14, 30-day ladder after a clean pass"],
+      ["Topic by topic", "See which patterns are solid and which are still leveling up"],
+      ["Reviews coming due", "Each clean pass levels a problem up, and it comes back after 1, 3, 7, 14, then 30 days"],
     ],
   },
 };

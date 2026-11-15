@@ -81,7 +81,7 @@ function paintPrefs(): void {
 function accentNote(accent: Accent, latte: boolean): string {
   const meaning = ACCENT_MEANING[accent];
   if (meaning)
-    return `${ACCENT_NAMES[accent]} is also the colour of “${meaning}”, so your current rung, links and heatmap will look like it. Tags and the ladder keep their words and shapes. Mauve, Blue, Lavender or Sapphire keep them apart`;
+    return `${ACCENT_NAMES[accent]} is also the colour of “${meaning}”, so your current level, links and heatmap will look like it. Tags and the levels keep their words and shapes. Mauve, Blue, Lavender or Sapphire keep them apart`;
   return latte ? "Pale accents are drawn deeper in Latte so text on them stays readable" : "Every accent is readable as text in this flavor";
 }
 

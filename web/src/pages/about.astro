@@ -10,7 +10,7 @@ import { ROUTES } from "../lib/routes";
   description="How myleet chooses your practice and schedules reviews. Free and open source"
   toc={[
     ["what", "What myleet is"],
-    ["ladder", "The review ladder"],
+    ["ladder", "Review levels"],
     ["curriculum", "The curriculum"],
     ["companies", "Company sets"],
     ["free", "Free and open source"],
@@ -20,13 +20,13 @@ import { ROUTES } from "../lib/routes";
   <p>myleet is a practice app for software engineering internship, co-op and new-grad coding interviews. You read a short note on a pattern, solve problems in the browser against real Python tests, and the app decides what comes back and when</p>
   <p>Your daily practice comes from your history: reviews that are due, techniques you keep missing, new problems in the order the book teaches them, and the company sets you pinned. You practice in your browser without installing anything, and a free account keeps your plan and history</p>
 
-  <h2 id="ladder">The review ladder</h2>
-  <p>Every problem you solve goes on a ladder of growing gaps: 1, 3, 7, 14 and 30 days. When it comes back, a clean solve moves it up one rung</p>
+  <h2 id="ladder">Review levels</h2>
+  <p>Every problem you solve starts on level 1 and comes back after a growing gap: 1, 3, 7, 14 and then 30 days for levels 1 to 5. When it comes back, a clean solve levels it up</p>
   <ul>
-    <li>Move up one rung by passing the tests without hints or a look at the solution, under the 25-minute time target</li>
-    <li>Using a hint, looking at the solution, going over time, or giving up sends it back to the 1-day rung. The attempt stays in your history</li>
-    <li>Passing again on the same day keeps the rung. You need to solve it on a later day to move up</li>
-    <li>A problem is marked mastered when you solve it from memory after 14 days without help and within the time target. Monthly reviews follow</li>
+    <li>Level up by passing the tests without hints or a look at the solution, under the 25-minute time target</li>
+    <li>Using a hint, looking at the solution, going over time, or giving up sends it back to level 1. The attempt stays in your history</li>
+    <li>Passing again on the same day keeps its level. You need to solve it on a later day to move up</li>
+    <li>A problem is marked mastered when it reaches level 4, solved from memory after 14 days without help and within the time target. Monthly reviews follow</li>
   </ul>
 
   <h2 id="curriculum">The curriculum</h2>

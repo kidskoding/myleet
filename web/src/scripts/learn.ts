@@ -84,7 +84,7 @@ function railBar(t: Tally, label: string): SafeHtml {
   );
 }
 
-const railLabel = (t: Tally) => `${t.mastered} mastered, ${t.climbing} climbing, ${t.started} started of ${t.total}`;
+const railLabel = (t: Tally) => `${t.mastered} mastered, ${t.climbing} leveling up, ${t.started} started of ${t.total}`;
 
 // ---- technique blocks (map and module page) ----
 
@@ -125,13 +125,13 @@ function techBlock(c: Ctx, m: Module, t: Technique, open: boolean): SafeHtml {
     const noteTitle = t.note ? c.cat.catalog.modules.flatMap((x) => x.notes).find((n) => n.path === t.note)?.title : null;
     return html`<button class="tech-collapsed" type="button" aria-expanded="false" data-tech="${t.id}" data-tech-mod="${m.id}">
       <span><strong>${title}</strong><span class="t">${all.length} problems${noteTitle ? `, note: ${noteTitle}` : ""}</span></span>
-      <span class="tbar">${railBar(tl, railLabel(tl))}</span><span class="k">${tl.mastered} mastered, ${tl.climbing} climbing</span></button>`;
+      <span class="tbar">${railBar(tl, railLabel(tl))}</span><span class="k">${tl.mastered} mastered, ${tl.climbing} leveling up</span></button>`;
   }
   const hid = `t-${m.id}-${t.id}`;
   return html`<section class="tech" aria-labelledby="${hid}" data-tech-open="${t.id}">
     <div class="tech-head">
       <div><h3 id="${hid}">${title}</h3>${noteLine(c, t)}</div>
-      <div class="tbar">${railBar(tl, railLabel(tl))}<div class="mini">${tl.mastered} mastered, ${tl.climbing} climbing of ${tl.total}</div></div>
+      <div class="tbar">${railBar(tl, railLabel(tl))}<div class="mini">${tl.mastered} mastered, ${tl.climbing} leveling up of ${tl.total}</div></div>
       <button class="btn btn-ghost btn-sm" type="button" data-tech="${t.id}" data-tech-mod="${m.id}" aria-expanded="true">Collapse</button>
     </div>
     ${ids.length ? html`<ol class="queue">${ids.map((id) => problemRow(c, id))}</ol>` : html`<p class="tech-empty">No problems here match the filter</p>`}
@@ -264,7 +264,7 @@ function emptyCopy(due: number): SafeHtml {
   if (query.trim()) return html`<h2>No problem matches “${query.trim()}”</h2><p>Filters match problem titles. Try part of the name, or clear the filter</p><div class="actions"><button class="btn btn-secondary" type="button" data-clear>Clear filter</button></div>`;
   if (mode === "weak")
     return html`<h2>No weak spots right now</h2><p>A technique becomes a weak spot when you've started its problems but mostly not passed them cleanly. Everything you've started is on track.${due ? ` The Due filter has ${due} ${due === 1 ? "review" : "reviews"} waiting` : ""}</p>${due ? html`<div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="due">Show due reviews</button></div>` : ""}`;
-  if (mode === "due") return html`<h2>Nothing due</h2><p>Every review is on schedule. Reviews come back on a 1, 3, 7, 14, 30-day ladder after a clean pass</p><div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="all">Show all modules</button></div>`;
+  if (mode === "due") return html`<h2>Nothing due</h2><p>Every review is on schedule. Each clean pass levels a problem up, and it comes back after 1, 3, 7, 14, then 30 days</p><div class="actions"><button class="btn btn-secondary" type="button" data-set-mode="all">Show all modules</button></div>`;
   return html`<h2>You have started every problem</h2><p>Use the Due filter to find your next reviews</p>`;
 }
 
@@ -292,7 +292,7 @@ function renderModulePage(c: Ctx): void {
     b.innerHTML = [["m", tl.mastered], ["c", tl.climbing], ["s", tl.started]].map(([k, v]) => `<span class="${k}" style="width:${((Number(v) / n) * 100).toFixed(1)}%"></span>`).join("");
     b.setAttribute("aria-label", railLabel(tl));
   }
-  render($("[data-stats]"), html`<span><b>${tl.mastered}</b>mastered</span><span><b>${tl.climbing}</b>climbing</span><span><b>${tl.started}</b>started</span><span><b>${tl.total - touched(tl)}</b>not started</span>`);
+  render($("[data-stats]"), html`<span><b>${tl.mastered}</b>mastered</span><span><b>${tl.climbing}</b>leveling up</span><span><b>${tl.started}</b>started</span><span><b>${tl.total - touched(tl)}</b>not started</span>`);
   const techs = $("[data-techs]");
   if (techs) {
     techs.removeAttribute("aria-busy");

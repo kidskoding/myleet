@@ -449,7 +449,7 @@ async function renderPractice(): Promise<void> {
   );
   const tl = tally(data.ids, states, now);
   const meta = $("[data-practice-meta]");
-  if (meta) meta.textContent = `${tl.mastered} mastered, ${tl.climbing} climbing of ${tl.total}`;
+  if (meta) meta.textContent = `${tl.mastered} mastered, ${tl.climbing} leveling up of ${tl.total}`;
 }
 
 // ---- Try it ----

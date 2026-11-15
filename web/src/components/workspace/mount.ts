@@ -670,7 +670,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       const failing = r.timedOut ? "a run that never finished" : `${r.total - r.passed} failing test${r.total - r.passed === 1 ? "" : "s"}`;
       const ok = await confirmPop(root, $$<HTMLElement>(root, '[data-act="submit"]').find((b) => b.offsetParent) ?? $(root, '.wbar [data-act="submit"]'), {
         title: `Submit with ${failing}?`,
-        body: "This counts as a miss: it goes back to the first rung. Keep working and you can still pass",
+        body: "This counts as a miss: it goes back to level 1. Keep working and you can still pass",
         ok: "Submit as a miss",
         cancel: "Keep working",
         danger: true,
@@ -760,37 +760,37 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const clock = formatClock(elapsed);
     const dueText = after?.due_ms ? formatDay(after.due_ms) : null;
     const days = [1, 3, 7, 14, 30][Math.max(0, to - 1)] ?? 1;
-    const rungName = `${days}-day rung`;
+    const levelName = `level ${Math.max(1, to)}`;
     let title: string;
     let body: string;
     const fell = to < from || (to === 1 && from > 1);
     if (!green) {
       title = "Counted as a miss";
-      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}. The reference is unlocked in the Solution tab`;
+      body = `Back to level 1, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}. The reference is unlocked in the Solution tab`;
     } else if (mode === "drill") {
       title = attempt.assisted || over ? "Drill complete" : `Sharp: ${clock}`;
       body = "Drills keep a problem warm without moving its review";
     } else if (attempt.peeks > 0) {
       title = "Passed after a peek";
-      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}`;
+      body = `Back to level 1, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}`;
     } else if (attempt.hints > 0) {
       title = "Passed with a hint";
-      body = `Back to the 1-day rung, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}`;
+      body = `Back to level 1, so it comes back ${dueText ? `on ${dueText}` : "tomorrow"}`;
     } else if (attempt.restarts > 0) {
       title = `Passed after a restart, ${clock}`;
-      body = `A restart counts like a hint: back to the 1-day rung, next review ${dueText ?? "tomorrow"}`;
+      body = `A restart counts like a hint: back to level 1, next review ${dueText ?? "tomorrow"}`;
     } else if (over) {
       title = `Passed, ${formatClock(elapsed - targetMs)} over target`;
-      body = `Over the ${Math.round(targetMs / 60_000)}-minute target counts like a hint: back to the 1-day rung, next review ${dueText ?? "tomorrow"}`;
+      body = `Over the ${Math.round(targetMs / 60_000)}-minute target counts like a hint: back to level 1, next review ${dueText ?? "tomorrow"}`;
     } else if (from === 0) {
       title = `First pass in ${clock}`;
-      body = `On the 1-day rung; next review ${dueText ? `on ${dueText}` : "tomorrow"}. Clean passes on later days climb it`;
+      body = `On level 1; next review ${dueText ? `on ${dueText}` : "tomorrow"}. Clean passes on later days level it up`;
     } else if (to === from) {
       title = `Clean pass in ${clock}`;
-      body = `Same day as your last finish, so the ladder holds at the ${rungName}. Next review on ${dueText ?? "schedule"}`;
+      body = `Same day as your last finish, so it stays on ${levelName}. Next review on ${dueText ?? "schedule"}`;
     } else {
       title = `Clean pass in ${clock}`;
-      body = `No hints, under ${Math.round(targetMs / 60_000)} minutes. It climbs to the ${rungName}, so the next review is ${dueText ?? "on schedule"}`;
+      body = `No hints, under ${Math.round(targetMs / 60_000)} minutes. It levels up to ${levelName}, so the next review is ${dueText ?? "on schedule"}`;
     }
     const mastered = to >= 4 && from < 4 && green;
     let extras: ResultExtras | null = null;
@@ -970,7 +970,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
             h(
               "div",
               { class: "hint-confirm", role: "alertdialog", "aria-label": "Open a hint?" },
-              h("span", {}, "Open it? This attempt becomes assisted: it goes back to the first rung"),
+              h("span", {}, "Open it? This attempt becomes assisted: it goes back to level 1"),
               h("div", { class: "acts" }, cancel, h("button", { class: "btn btn-primary btn-sm", "data-hint-ok": "", onclick: () => revealHint(true) }, `Show ${it.label.toLowerCase()}`)),
             ),
           );
@@ -1042,7 +1042,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
           "div",
           { class: "locked" },
           h("h2", {}, "The solution opens when you're done"),
-          h("p", {}, "It unlocks after you pass with Submit or give up. Peeking before then records this attempt as assisted: it goes back to the first rung"),
+          h("p", {}, "It unlocks after you pass with Submit or give up. Peeking before then records this attempt as assisted: it goes back to level 1"),
           h("div", { class: "acts" }, peek),
         ),
       );
@@ -1135,7 +1135,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       const lad = h("span", { class: "ladder-cell" });
       if (st) renderLadder(lad, { rung: ladderRung(st.rung) });
       const prevAttempt = list[i + 1];
-      const effect = a.outcome === "passed" && st ? (tag.tone === "pass" ? `on the ${[1, 3, 7, 14, 30][st.rung] ?? 1}-day rung` : "back to 1 day") : a.outcome === "gave_up" || a.outcome === "missed" ? "back to 1 day" : a.outcome === "open" ? "in progress" : "";
+      const effect = a.outcome === "passed" && st ? (tag.tone === "pass" ? `on level ${ladderRung(st.rung)}` : "back to level 1") : a.outcome === "gave_up" || a.outcome === "missed" ? "back to level 1" : a.outcome === "open" ? "in progress" : "";
       const diffBtn = h("button", { class: "btn btn-ghost btn-sm" }, "Diff");
       diffBtn.addEventListener("click", async () => {
         const snap = await loadSnapshot(id, a.id);
@@ -1460,7 +1460,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     if (exam || attempt.end) return;
     const ok = await confirmPop(root, anchor, {
       title: "Give up on this attempt?",
-      body: "It goes back to the first rung and the reference solution opens. Your draft is kept in History",
+      body: "It goes back to level 1 and the reference solution opens. Your draft is kept in History",
       ok: "Give up and see solution",
       cancel: "Keep going",
       danger: true,
@@ -1474,7 +1474,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     await addToHistory(id, code).catch(() => {});
     unlocked = true;
     showSolution(files?.solution ? "diff" : "ref");
-    announce("Gave up. It goes back to the first rung; the reference solution is open");
+    announce("Gave up. It goes back to level 1; the reference solution is open");
   }
 
   // ---- Focus mode, fullscreen ----

@@ -120,9 +120,9 @@ function masteryPanel(c: Ctx): SafeHtml {
         { value: f(k.climbing), kind: "c" },
         { value: f(k.started), kind: "s" },
       ],
-      `${k.mastered} mastered, ${k.climbing} climbing, ${k.started} started, ${k.notStarted} not started`,
+      `${k.mastered} mastered, ${k.climbing} leveling up, ${k.started} started, ${k.notStarted} not started`,
     )}</div>
-    <div class="legend"><span><i class="lg-m"></i>Mastered ${k.mastered}</span><span><i class="lg-c"></i>Climbing ${k.climbing}</span><span><i class="lg-s"></i>Started ${k.started}</span><span><i class="lg-n"></i>Not started ${k.notStarted}</span></div>
+    <div class="legend"><span><i class="lg-m"></i>Mastered ${k.mastered}</span><span><i class="lg-c"></i>Leveling up ${k.climbing}</span><span><i class="lg-s"></i>Started ${k.started}</span><span><i class="lg-n"></i>Not started ${k.notStarted}</span></div>
     <p class="next">Mastered means a clean cold redo on the 14-day rung</p>
   </section>`;
 }
@@ -221,7 +221,7 @@ function modulesSection(c: Ctx): SafeHtml {
             { value: r.mastered / Math.max(1, r.total), kind: "m" },
             { value: r.climbing / Math.max(1, r.total), kind: "c" },
           ],
-          `${r.mastered} mastered, ${r.climbing} climbing, of ${r.total}`,
+          `${r.mastered} mastered, ${r.climbing} leveling up, of ${r.total}`,
         )}</div></li>`,
     )}</ol>
   </section>`;
@@ -486,7 +486,7 @@ function renderAll(c: Ctx): void {
       html`<section class="gate" aria-labelledby="pg-h"><h1 id="pg-h">Progress</h1><p class="lede">Your streak, mastery and reviews show up here <strong>after your first solve</strong></p>
         ${gateSteps([
           ["Your streak", "Days in a row you've practiced, also in the top bar"],
-          ["Topic by topic", "Which patterns are solid and which are still climbing the ladder"],
+          ["Topic by topic", "Which patterns are solid and which are still leveling up"],
           ["Reviews coming due", "Problems come back after 1, 3, 7, 14 and 30 days once you pass them clean"],
         ])}
         <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Browse the modules</a></div></section>`,
@@ -519,7 +519,7 @@ function renderAll(c: Ctx): void {
     ${notesSection(c)}
     ${milestonesSection(c, milestoneFacts(c, atts, best))}
     <section class="danger" aria-labelledby="rs">
-      <div><h2 id="rs">Start over</h2><p>Reset clears your ladder, attempts and streak on this device${document.documentElement.dataset.auth === "in" ? " and your account" : ""}. Notes highlights and settings stay. Export first if you want a copy</p></div>
+      <div><h2 id="rs">Start over</h2><p>Reset clears your levels, attempts and streak on this device${document.documentElement.dataset.auth === "in" ? " and your account" : ""}. Notes highlights and settings stay. Export first if you want a copy</p></div>
       <div class="danger-actions"><button class="btn btn-ghost" type="button" data-export>${icon("download")}Export data</button><button class="btn btn-quiet-danger" type="button" data-reset>Reset progress</button></div>
     </section>`,
   );

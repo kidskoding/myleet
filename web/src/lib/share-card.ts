@@ -174,7 +174,7 @@ export function drawCard(canvas: HTMLCanvasElement, d: CardData, flavor: Flavor,
     ctx.textAlign = "right";
     ctx.fillStyle = t.ink3;
     font(ctx, 550, 18);
-    ctx.fillText("Problems on each rung", CARD_W - P, CARD_H - P + 6);
+    ctx.fillText("Problems on each level", CARD_W - P, CARD_H - P + 6);
     ctx.textAlign = "left";
   }
 }
@@ -184,6 +184,6 @@ export function cardLabel(d: CardData): string {
   if (d.streak !== null) parts.push(`${d.streak}-day streak`);
   if (d.mastered !== null) parts.push(`${d.mastered} mastered`);
   if (d.strongest?.length) parts.push(`strongest: ${d.strongest.join(", ")}`);
-  if (d.rungs) parts.push(`problems on each rung from 1 to 30 days: ${d.rungs.join(", ")}`);
+  if (d.rungs) parts.push(`problems on each level from 1 to 5: ${d.rungs.join(", ")}`);
   return `${parts.join(", ")}`;
 }

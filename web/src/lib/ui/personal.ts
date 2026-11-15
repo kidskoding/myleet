@@ -99,7 +99,7 @@ export function forecastRows(rows: Forecast[], o: ForecastOpts): SafeHtml {
 }
 
 export const forecastKey = (): SafeHtml =>
-  html`<div class="fc-key" aria-hidden="true"><span><i class="m"></i>Mastered</span><span><i class="c"></i>Climbing</span><span><i class="p"></i>Added by the plan</span><span><i class="need"></i>Needed</span></div>`;
+  html`<div class="fc-key" aria-hidden="true"><span><i class="m"></i>Mastered</span><span><i class="c"></i>Leveling up</span><span><i class="p"></i>Added by the plan</span><span><i class="need"></i>Needed</span></div>`;
 
 // ---- re-plan note ----
 

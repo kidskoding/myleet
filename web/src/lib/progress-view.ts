@@ -221,7 +221,7 @@ export function milestoneList(f: MilestoneFacts): Milestone[] {
   items.push({
     name: "First problem mastered",
     day: f.firstMastered?.day ?? null,
-    detail: f.firstMastered ? `${f.firstMastered.title}, on the 14-day rung` : "A clean cold redo on the 14-day rung",
+    detail: f.firstMastered ? `${f.firstMastered.title}, on level 4` : "A clean cold redo on level 4",
     near: f.mastered > 0 ? 1 : 0.3,
   });
   let prevStreak = 0;

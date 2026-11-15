@@ -22,7 +22,7 @@ describe("learn", () => {
 
   it("tags rows and filters by mode", () => {
     const fell = st({ rung: 0, fails: 1, due_ms: NOW });
-    expect(statusTag(fell, NOW)).toEqual(["due", "Review due, fell to 1 day"]);
+    expect(statusTag(fell, NOW)).toEqual(["due", "Review due, back to level 1"]);
     expect(statusTag(undefined, NOW)).toBeNull();
     expect(isDue(st({ rung: -1, due_ms: NOW }), NOW)).toBe(false);
     expect(keep("weak", fell, true, NOW)).toBe(true);

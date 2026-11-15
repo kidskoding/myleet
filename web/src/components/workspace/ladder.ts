@@ -17,8 +17,7 @@ export const ladderRung = (coreRung: number) => Math.max(0, Math.min(5, coreRung
 
 export function ladderLabel(rung: number): string {
   if (rung <= 0) return "Not started";
-  const d = DAYS[rung - 1]!;
-  return rung >= 4 ? `Mastered, on the ${d}-day rung` : `On the ${d}-day rung of 5`;
+  return rung >= 4 ? `Mastered, on level ${rung} of 5` : `On level ${rung} of 5`;
 }
 
 function geometry(lg: boolean) {

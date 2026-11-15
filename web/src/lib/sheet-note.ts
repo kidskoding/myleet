@@ -70,7 +70,7 @@ export function resultNote(f: ResultFacts): string | null {
   }
   if (f.kind === "hint") {
     return join([
-      `You used a hint on this one, so the review stays at ${review} instead of climbing.`,
+      `You used a hint on this one, so the review stays at ${review} instead of leveling up.`,
       "A clean pass on a later day gets it moving again.",
       tie,
     ]);
