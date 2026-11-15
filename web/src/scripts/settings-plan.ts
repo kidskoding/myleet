@@ -2,6 +2,8 @@
 // settings record as the Plan page's panel and onboarding, so all three stay in sync.
 import { cachedMe, calendarStatus } from "../lib/account";
 import { listedCompany, loadCatalog, type LoadedCatalog } from "../lib/catalog";
+import { sentenceCase } from "../lib/display";
+import { focusModules } from "../lib/goals";
 import { drawerLede } from "../lib/plan-copy";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { readEvents } from "../lib/progress";
@@ -51,6 +53,9 @@ function planGroup(): SafeHtml {
   const chosen = p.companies.map((s) => ({ slug: s, title: cat?.catalog.playlists.find((x) => slugOf(x.id) === s)?.title ?? s }));
   const others = (cat?.catalog.playlists ?? []).filter(listedCompany).filter((x) => !p.companies.includes(slugOf(x.id)));
   const leans = cat ? lean(cat, p.companies) : [];
+  const mods = cat ? focusModules(cat.catalog) : [];
+  const topics = p.focusTopics.map((id) => ({ id, title: sentenceCase(mods.find((m) => m.id === id)?.title ?? id) }));
+  const moreTopics = mods.filter((m) => !p.focusTopics.includes(m.id));
   const max = Math.max(1, ...leans.map((l) => l.n));
   return html`
     <div class="row avail-row"><div><div class="lbl" id="iv-l">Interviews</div><div class="desc">Add each interview you have lined up. The plan paces toward the nearest one and leans on that company's set before it. Without a date, it covers the next 4 weeks</div></div>
@@ -60,6 +65,10 @@ function planGroup(): SafeHtml {
         (c) => html`<span class="co-chip">${c.title}<button type="button" data-co-remove="${c.slug}" aria-label="Remove ${c.title}">${icon("x")}</button></span>`,
       )}<label class="co-add"><span class="visually-hidden">Add a company</span><select class="input" data-co-add><option value="">Add a company</option>${others.map((o) => html`<option value="${slugOf(o.id)}">${o.title}</option>`)}</select></label></div>
       ${leans.length ? html`<div class="lean" aria-label="Techniques your companies lean on, by problem count in their sets">${leans.map((l) => html`<div><span>${l.title}</span><span class="bar" aria-hidden="true"><span style="width:${((l.n / max) * 100).toFixed(0)}%"></span></span><b>${l.n}</b></div>`)}</div>` : ""}</div></div>
+    <div class="row avail-row"><div><div class="lbl" id="ft-l">Focus topics</div><div class="desc">The plan gives these extra time and still covers the rest</div></div>
+      <div class="ctl wide" aria-labelledby="ft-l"><div class="co-chips">${topics.map(
+        (t) => html`<span class="co-chip">${t.title}<button type="button" data-topic-remove="${t.id}" aria-label="Remove ${t.title}">${icon("x")}</button></span>`,
+      )}<label class="co-add"><span class="visually-hidden">Add a topic</span><select class="input" data-topic-add><option value="">Add a topic</option>${moreTopics.map((m) => html`<option value="${m.id}">${sentenceCase(m.title)}</option>`)}</select></label></div></div></div>
     <div class="row"><div><div class="lbl">Practice windows</div><div class="desc" data-win-summary>${windowsSummary(p.availability)}</div></div>
       <div class="ctl"><button type="button" class="btn btn-secondary btn-sm" data-edit-windows>Edit windows</button></div></div>
     <div class="row"><div><div class="lbl" id="sl-l">Session length</div><div class="desc">Limit the length of each session. Longer practice days are split into two sessions</div></div>
@@ -186,6 +195,7 @@ function onClick(e: MouseEvent): void {
   const ps = t.closest<HTMLElement>("[data-pstep]");
   const sess = t.closest<HTMLElement>("[data-psession]");
   const rm = t.closest<HTMLElement>("[data-co-remove]");
+  const rmTopic = t.closest<HTMLElement>("[data-topic-remove]");
   if (ps) {
     const p = readPrefs().plan;
     const dir = Number(ps.dataset.by) > 0 ? 1 : -1;
@@ -193,6 +203,7 @@ function onClick(e: MouseEvent): void {
     else updatePrefs({ plan: { weekendMinutes: step(WEEKEND_STEPS, p.weekendMinutes ?? p.dailyMinutes ?? 60, dir) } });
   } else if (sess) updatePrefs({ plan: { sessionMinutes: Number(sess.dataset.psession) } });
   else if (rm) updatePrefs({ plan: { companies: readPrefs().plan.companies.filter((c) => c !== rm.dataset.coRemove) } });
+  else if (rmTopic) updatePrefs({ plan: { focusTopics: readPrefs().plan.focusTopics.filter((x) => x !== rmTopic.dataset.topicRemove) } });
   else if (t.closest("[data-edit-windows]")) openWindows();
   else if (t.closest("[data-drawer-close]")) closeWindows();
   else if (t.closest("[data-cal-manage]")) void openSync();
@@ -202,6 +213,7 @@ async function onChange(e: Event): Promise<void> {
   if (!$("[data-plan-settings]")) return;
   const el = e.target as HTMLInputElement | HTMLSelectElement;
   if (el.matches("[data-co-add]") && el.value) updatePrefs({ plan: { companies: [...readPrefs().plan.companies, el.value] } });
+  else if (el.matches("[data-topic-add]") && el.value) updatePrefs({ plan: { focusTopics: [...readPrefs().plan.focusTopics, el.value] } });
   else if (el.matches("[data-lead]")) {
     const lead = Number(el.value);
     updatePrefs({ reminders: { lead }, plan: readPrefs().plan.reminderMinutes !== null ? { reminderMinutes: lead } : {} });

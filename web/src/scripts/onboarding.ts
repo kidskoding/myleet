@@ -1,10 +1,12 @@
-// Onboarding (/onboarding?step=...): goal, companies, date, time, hours, then the plan.
+// Onboarding (/onboarding?step=...): goal, what you are working toward, then companies, dates
+// and topics for the aims picked, LeetCode, time, hours and the plan.
 // Each step is a URL so Back works. Answers save as you go (lib/prefs). The placement
 // diagnostic lives at /diagnostic.
 import { navigate } from "astro:transitions/client";
 import { companySlug, listedCompany, loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { daysUntil, planWeeks, shortDate, TIME_OPTIONS, timeOption } from "../lib/plan";
-import { planSettings, readPrefs, updatePrefs, type Goal } from "../lib/prefs";
+import { focusModules } from "../lib/goals";
+import { planSettings, readPrefs, updatePrefs, type Aim, type Goal } from "../lib/prefs";
 import { DEFAULT_WINDOWS } from "../lib/schedule";
 import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
@@ -13,14 +15,33 @@ import { ROUTES } from "../lib/routes";
 import { addDays, localDay } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Playlist, PlaylistGroup } from "../lib/types";
+import { sentenceCase } from "../lib/display";
 import { kbd, plural, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { mountInterviews } from "../lib/ui/interviews";
 import { mountLeetcodePanel } from "../lib/ui/leetcode-connect";
 
-const STEPS = ["goal", "companies", "date", "leetcode", "time", "when", "plan"] as const;
+const STEPS = ["goal", "aims", "companies", "date", "topics", "leetcode", "time", "when", "plan"] as const;
 type Step = (typeof STEPS)[number];
+/** Steps that only follow when their aim is picked. */
+const AIM_STEP: Partial<Record<Step, Aim>> = { companies: "companies", date: "interview", topics: "topics" };
+
+const AIMS: { id: Aim; label: string; detail: string }[] = [
+  { id: "interview", label: "An interview date", detail: "The plan counts down to it and leans on that company's problems" },
+  { id: "companies", label: "Target companies", detail: "No date yet. The plan works through their practice sets" },
+  { id: "topics", label: "Topics to focus on", detail: "Extra time on the patterns you want to get better at" },
+  { id: "sharp", label: "Staying sharp", detail: "A steady routine of new patterns and reviews" },
+];
+
+/** The steps for the aims picked so far; with none picked yet, every step. */
+function steps(): Step[] {
+  const aims = readPrefs().plan.aims;
+  return STEPS.filter((s) => {
+    const aim = AIM_STEP[s];
+    return !aims.length || !aim || aims.includes(aim);
+  });
+}
 
 const GOALS: { id: Goal; label: string; detail: string }[] = [
   { id: "internship", label: "Internship", detail: "Mostly easy and medium problems, arrays to trees first" },
@@ -50,12 +71,13 @@ function go(step: Step, replace = false): void {
 }
 
 function head(step: Step, opts: { skip?: boolean } = {}): SafeHtml {
-  const i = STEPS.indexOf(step);
+  const all = steps();
+  const i = all.indexOf(step);
   const back = i > 0 ? html`<button class="icon-btn back" type="button" data-back aria-label="Back">${icon("arrow-left")}</button>` : "";
-  return html`<div class="steps">${back}<span class="count">Step ${i + 1} of ${STEPS.length}</span>${
+  return html`<div class="steps">${back}<span class="count">Step ${i + 1} of ${all.length}</span>${
     opts.skip === false ? "" : html`<button class="btn btn-ghost btn-sm skip" type="button" data-skip>Skip setup</button>`
   }</div>
-  <div class="track" style="--n:${STEPS.length}" aria-hidden="true">${STEPS.map((_, j) => html`<i class="${j <= i ? "on" : ""}"></i>`)}</div>`;
+  <div class="track" style="--n:${all.length}" aria-hidden="true">${all.map((_, j) => html`<i class="${j <= i ? "on" : ""}"></i>`)}</div>`;
 }
 
 function radios(name: string, label: string, opts: { id: string; label: string; detail: string }[], value: string | null): SafeHtml {
@@ -74,6 +96,34 @@ function goalStep(): SafeHtml {
     <p class="sub">Your goal helps set time targets and the order of topics. You can change it in Settings</p>
     ${radios("goal", "q1", GOALS, g)}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("3")} to pick, ${kbd("enter")} to continue</span></div>
+  </section>`;
+}
+
+function aimsStep(): SafeHtml {
+  const aims = readPrefs().plan.aims;
+  return html`${head("aims")}<section class="q" aria-labelledby="q1b">
+    <h1 id="q1b">What are you working toward?</h1>
+    <p class="sub">Pick as many as fit. Your plan blends them, and you can change them in Settings</p>
+    <fieldset class="options" aria-labelledby="q1b">${AIMS.map(
+      (o, i) =>
+        html`<label class="opt"><input type="checkbox" name="aim" value="${o.id}" ${aims.includes(o.id) ? "checked" : ""} /><strong>${o.label}</strong><span>${o.detail}</span>${kbd(String(i + 1))}</label>`,
+    )}</fieldset>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${aims.length ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("4")} to pick, ${kbd("enter")} to continue</span></div>
+  </section>`;
+}
+
+function topicsStep(): SafeHtml {
+  const picked = readPrefs().plan.focusTopics;
+  const mods = cat ? focusModules(cat.catalog) : [];
+  return html`${head("topics")}<section class="q" aria-labelledby="q3t">
+    <h1 id="q3t">Which topics do you want to focus on?</h1>
+    <p class="sub">Your plan gives them extra time and still covers the rest</p>
+    <div class="row topic-row" role="group" aria-labelledby="q3t">${
+      mods.length
+        ? mods.map((m) => html`<button class="chip" type="button" data-topic="${m.id}" aria-pressed="${picked.includes(m.id) ? "true" : "false"}">${sentenceCase(m.title)}</button>`)
+        : [1, 2, 3, 4].map(() => html`<span class="skel" style="width:110px;height:34px"></span>`)
+    }</div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>${picked.length ? `Continue with ${picked.length}` : "Continue"}</button></div>
   </section>`;
 }
 
@@ -206,7 +256,7 @@ function planStep(): SafeHtml {
   const later = plan.summary.behind.slice(0, 6);
   return html`${head("plan", { skip: false })}<section class="q" aria-labelledby="q5">
     <h1 id="q5">${title}</h1>
-    <p class="sub"><strong>${plan.summary.headline}</strong> Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}, around your daily time</p>
+    <p class="sub"><strong>${plan.summary.headline}</strong> Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>
     <ol class="weeks" aria-label="Week by week">${weeks.map(
       (w) =>
         html`<li class="week"><div class="when">${w.label}<small>${shortDate(w.from)}${w.from !== w.to ? ` to ${shortDate(w.to)}` : ""}</small></div><div class="tech">${
@@ -234,6 +284,10 @@ async function paint(): Promise<void> {
   const body =
     step === "goal"
       ? goalStep()
+      : step === "aims"
+        ? aimsStep()
+      : step === "topics"
+        ? topicsStep()
       : step === "companies"
         ? companiesStep()
         : step === "date"
@@ -284,8 +338,19 @@ function advance(): void {
     root()?.querySelector<HTMLElement>("[data-iv-date]")?.focus();
     return;
   }
-  const i = STEPS.indexOf(step);
-  const next = STEPS[i + 1];
+  if (step === "aims") {
+    // A goal left unpicked is dropped, so the plan follows what was just answered.
+    const aims = readPrefs().plan.aims;
+    updatePrefs({
+      plan: {
+        ...(aims.includes("companies") ? {} : { companies: [] }),
+        ...(aims.includes("interview") ? {} : { interviews: [] }),
+        ...(aims.includes("topics") ? {} : { focusTopics: [] }),
+      },
+    });
+  }
+  const all = steps();
+  const next = all[all.indexOf(step) + 1];
   if (next) go(next);
 }
 
@@ -295,6 +360,7 @@ function onClick(e: MouseEvent): void {
   const company = t.closest<HTMLElement>("[data-company]");
   const quick = t.closest<HTMLElement>("[data-quick]");
   const more = t.closest<HTMLElement>("[data-more]");
+  const topic = t.closest<HTMLElement>("[data-topic]");
   if (t.closest("[data-continue]")) advance();
   if (t.closest("[data-add-cal]") && trainer) {
     const tr = trainer;
@@ -309,6 +375,16 @@ function onClick(e: MouseEvent): void {
     updatePrefs({ plan: { onboarded: true } });
     void navigate(ROUTES.today);
   } else if (company?.dataset.company) toggleCompany(company.dataset.company);
+  else if (topic?.dataset.topic) {
+    const id = topic.dataset.topic;
+    const cur = readPrefs().plan.focusTopics;
+    const on = !cur.includes(id);
+    updatePrefs({ plan: { focusTopics: on ? [...cur, id] : cur.filter((x) => x !== id) } });
+    topic.setAttribute("aria-pressed", String(on));
+    const n = readPrefs().plan.focusTopics.length;
+    const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
+    if (btn) btn.textContent = n ? `Continue with ${n}` : "Continue";
+  }
   else if (more) {
     expanded.add(more.dataset.more as PlaylistGroup);
     refreshCompanies();
@@ -317,7 +393,8 @@ function onClick(e: MouseEvent): void {
     renderDate();
   } else if (t.closest("[data-no-date]")) {
     updatePrefs({ plan: { interviewDate: null } });
-    go("leetcode");
+    const all = steps();
+    go(all[all.indexOf("date") + 1] ?? "leetcode");
   } else if (t.closest("[data-change]")) go("goal");
   else if (t.closest("[data-finish-plan]")) {
     const opt = timeOption(readPrefs().plan.dailyMinutes);
@@ -329,6 +406,17 @@ function onClick(e: MouseEvent): void {
 function onChange(e: Event): void {
   const input = e.target as HTMLInputElement;
   if (input.name === "goal") updatePrefs({ plan: { goal: input.value as Goal } });
+  else if (input.name === "aim") {
+    const picked = [...(root()?.querySelectorAll<HTMLInputElement>('input[name="aim"]:checked') ?? [])].map((x) => x.value as Aim);
+    updatePrefs({ plan: { aims: AIMS.map((a) => a.id).filter((a) => picked.includes(a)) } });
+    const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
+    if (btn) btn.disabled = picked.length === 0;
+    // The step count follows the aims picked.
+    const fresh = document.createElement("div");
+    render(fresh, head("aims"));
+    for (const sel of [".steps", ".track"]) root()?.querySelector(sel)?.replaceWith(fresh.querySelector(sel) ?? "");
+    return;
+  }
   else if (input.name === "time") updatePrefs({ plan: { dailyMinutes: Number(input.value) }, newPerDay: timeOption(Number(input.value)).newPerDay });
   else return;
   const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
@@ -364,15 +452,15 @@ function onKey(e: KeyboardEvent): void {
     }
     return;
   }
-  const typing = a && (/^(TEXTAREA|SELECT)$/.test(a.tagName) || (a.tagName === "INPUT" && (a as HTMLInputElement).type !== "radio"));
+  const typing = a && (/^(TEXTAREA|SELECT)$/.test(a.tagName) || (a.tagName === "INPUT" && !["radio", "checkbox"].includes((a as HTMLInputElement).type)));
   if (typing && e.key !== "Enter") return;
-  const radiosEl = [...(root()?.querySelectorAll<HTMLInputElement>('input[type="radio"]') ?? [])];
+  const radiosEl = [...(root()?.querySelectorAll<HTMLInputElement>('input[type="radio"], input[type="checkbox"]') ?? [])];
   const n = Number(e.key);
   if (radiosEl.length && n >= 1 && n <= radiosEl.length) {
     e.preventDefault();
     const r = radiosEl[n - 1];
     if (r) {
-      r.checked = true;
+      r.checked = r.type === "checkbox" ? !r.checked : true;
       r.focus();
       r.dispatchEvent(new Event("change", { bubbles: true }));
     }
@@ -384,7 +472,7 @@ function onKey(e: KeyboardEvent): void {
       const b = root()?.querySelector<HTMLButtonElement>("[data-continue]");
       if (b && !b.disabled) advance();
     }
-  } else if (e.key === "Escape" && STEPS.indexOf(step) > 0) {
+  } else if (e.key === "Escape" && steps().indexOf(step) > 0) {
     history.back();
   }
 }

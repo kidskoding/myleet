@@ -224,6 +224,8 @@ export interface PlanSettings {
   interview_date?: string | null;
   interviews?: Interview[];
   target_companies?: string[];
+  /** Module ids, e.g. `graphs`. */
+  focus_topics?: string[];
   new_per_day?: number;
   daily_minutes?: number;
   session_minutes?: number;

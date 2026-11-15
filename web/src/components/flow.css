@@ -19,6 +19,9 @@
 .flow .opt input { appearance: none; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--control-edge); grid-row: span 2; margin: 0; display: grid; place-items: center; }
 .flow .opt input:checked { border-color: var(--accent); }
 .flow .opt input:checked::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.flow .opt input[type="checkbox"] { border-radius: 5px; }
+.flow .opt input[type="checkbox"]:checked { background: var(--accent); }
+.flow .opt input[type="checkbox"]:checked::after { width: 9px; height: 5px; border-radius: 0; background: none; border: solid var(--on-accent); border-width: 0 0 2px 2px; transform: translateY(-1px) rotate(-45deg); }
 .flow .opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
 .flow .opt:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
 .flow .opt strong { font-size: var(--text-base); }
@@ -39,6 +42,7 @@
 .flow .search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 .flow .search .icon { color: var(--ink-3); }
 .flow .search input { flex: 1; min-width: 0; border: 0; background: none; font-size: var(--text-base); outline: none; }
+.flow .topic-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-8); }
 .flow .picked { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
 .flow .picked:empty { display: none; }
 .flow .groups { margin-top: var(--space-6); display: grid; gap: var(--space-5); }

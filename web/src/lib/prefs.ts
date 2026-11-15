@@ -7,6 +7,8 @@ import type { Availability, Difficulty, Interview, PlanMove, PlanSettings } from
 
 export type ThemePref = "system" | Flavor;
 export type Goal = "internship" | "coop" | "newgrad";
+/** What the learner is working toward; any mix. Decides which onboarding questions follow. */
+export type Aim = "interview" | "companies" | "topics" | "sharp";
 
 export interface EditorPrefs {
   keymap: "standard" | "vim";
@@ -22,6 +24,10 @@ export interface Plan {
   goal: Goal | null;
   /** Playlist slugs (`companySlug`). */
   companies: string[];
+  /** Curriculum module ids to lean toward, e.g. `graphs`. */
+  focusTopics: string[];
+  /** Picked in onboarding. Device-local: the goals themselves sync. */
+  aims: Aim[];
   /** The interview the plan paces toward, `YYYY-MM-DD` in the learner's zone. Kept in step with `interviews`. */
   interviewDate: string | null;
   /** Every interview, soonest first. */
@@ -89,6 +95,8 @@ export const DEFAULT_PREFS: Prefs = {
   plan: {
     goal: null,
     companies: [],
+    focusTopics: [],
+    aims: [],
     interviewDate: null,
     interviews: [],
     history: [],
@@ -206,6 +214,7 @@ export function planSettings(p: Prefs = readPrefs()): PlanSettings {
     interview_date: p.plan.interviewDate,
     interviews: p.plan.interviews,
     target_companies: p.plan.companies,
+    focus_topics: p.plan.focusTopics,
     new_per_day: p.newPerDay,
     daily_minutes: p.plan.dailyMinutes ?? 60,
     weekend_minutes: p.plan.weekendMinutes,

@@ -25,6 +25,8 @@ export interface ServerSettings {
   /** Absent on a Worker that predates the LeetCode import. */
   leetcode_username?: string | null;
   target_companies: string[];
+  /** Absent on a Worker that predates focus topics. */
+  focus_topics?: string[];
   reminders: boolean;
   public_profile: boolean;
   daily_minutes: number;
@@ -268,6 +270,7 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     plan_ledger: readLedger(),
     leetcode_username: p.leetcodeUsername,
     target_companies: p.plan.companies,
+    focus_topics: p.plan.focusTopics,
     reminders: p.reminders.on,
     public_profile: p.publicProfile,
     daily_minutes: p.plan.dailyMinutes ?? 60,
@@ -294,6 +297,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
       history: mergeHistory(base.plan.history, s.plan_history ?? []),
       interviews: s.interviews ?? (s.interview_date ? [{ date: s.interview_date, company: null }] : []),
       companies: s.target_companies,
+      focusTopics: s.focus_topics ?? base.plan.focusTopics,
       dailyMinutes: s.daily_minutes ?? base.plan.dailyMinutes,
       sessionMinutes: s.session_minutes ?? base.plan.sessionMinutes,
       availability: s.availability ?? base.plan.availability,
@@ -311,6 +315,7 @@ export function isDefaultServer(s: ServerSettings): boolean {
     s.new_per_day === d.new_per_day &&
     s.interview_date === null &&
     s.target_companies.length === 0 &&
+    (s.focus_topics?.length ?? 0) === 0 &&
     !s.public_profile &&
     !s.reminders &&
     (s.availability?.length ?? 0) === 0 &&
