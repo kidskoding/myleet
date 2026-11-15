@@ -99,7 +99,7 @@ describe("empty Today", () => {
       "You worked through two problems today, all cleanly, in about 40 minutes! Nothing else is due until tomorrow, so the rest of the day is yours. Tomorrow we'll pick up opposite-end pointers, after two quick reviews",
     );
     expect(wrapUp({ clean: 0, total: 0, minutes: 0 }, now.getTime(), now)).toEqual({
-      text: "Nothing is due today, so your reviews are on schedule and the rest of the day is yours.",
+      text: "Nothing is due today, so your reviews are on schedule and the rest of the day is yours",
       retake: false,
     });
   });
