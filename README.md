@@ -5,7 +5,7 @@
 **Personalized technical interview prep.**
 
 A LeetCode trainer that learns how you solve, plans each day around your interview, and
-brings every problem back until you can solve it cold.
+brings every problem back until you can solve it cold
 
 [**Try it live**](https://myleet.anirudhkonidala.workers.dev) ·
 [How it works](https://myleet.anirudhkonidala.workers.dev/how-it-works) ·
@@ -26,7 +26,7 @@ ______________________________________________________________________
 Fixed lists like the NeetCode 150 give everyone the same problems in the same order.
 myleet starts with a 15-minute diagnostic, then builds each day from your own history:
 the techniques you are weakest at, the reviews that are about to slip, and the companies
-you are interviewing with.
+you are interviewing with
 
 | Fixed lists                            | myleet                                                                     |
 | -------------------------------------- | -------------------------------------------------------------------------- |
@@ -37,21 +37,21 @@ you are interviewing with.
 ## Features
 
 - **Solve in the browser.** Write Python in a real editor and run it against the tests
-  with Pyodide. Nothing to install.
+  with Pyodide. Nothing to install
 - **A diagnostic first.** About 15 minutes of pattern questions and real coding finds
-  where you stand, topic by topic.
+  where you stand, topic by topic
 - **A plan that adapts.** Pick an interview date and companies, or a 15, 30 or 90-day
   roadmap. The plan reshapes after every solve and syncs to Google, Apple or Outlook
-  calendars.
+  calendars
 - **Spaced review.** Every problem climbs a 1, 3, 7, 14 and 30-day ladder. A clean pass
-  climbs one rung, and a hint, a peek or going over time sends it back to 1 day.
+  climbs one rung, and a hint, a peek or going over time sends it back to 1 day
 - **Personal coaching.** Today, Plan and the result screen explain each choice from your
   data, for example which edge case tripped you up last week and why a problem is due
-  today.
+  today
 - **Company sets.** 285 practice sets across Big Tech, AI & Startups, Consumer and
   Business Tech, Trading Firms and the Fortune 500. Each lists its sources from recent
-  candidate reports, and learners can report where they were asked a problem.
-- **A notes book.** Eighteen modules of notes that teach each pattern before the drills.
+  candidate reports, and learners can report where they were asked a problem
+- **A notes book.** Eighteen modules of notes that teach each pattern before the drills
 
 ## How the review ladder works
 
@@ -63,12 +63,12 @@ Every problem has a 25-minute target, about what one problem gets in a live inte
 Passing the tests with no hint, no peek at the solution and under the target climbs one
 rung. Solving it again the same day does not count. A hint, a peek, running over time or
 giving up drops it back to 1 day. The full rules are on the
-[How it works](https://myleet.anirudhkonidala.workers.dev/how-it-works) page.
+[How it works](https://myleet.anirudhkonidala.workers.dev/how-it-works) page
 
 ## Curriculum
 
 720 problems in eighteen modules, ordered by interview pattern rather than textbook
-chapter, plus 909 playlist-only problems in `bank/` that company sets can open.
+chapter, plus 909 playlist-only problems in `bank/` that company sets can open
 
 |     | Module                   | Focus                             |
 | --- | ------------------------ | --------------------------------- |
@@ -119,7 +119,7 @@ myleet/
 
 You need Rust, [Bun](https://bun.sh), [uv](https://docs.astral.sh/uv/) and
 [just](https://github.com/casey/just). The repo's `devenv.nix` provides all of them,
-plus wasm-pack, with `devenv shell`.
+plus wasm-pack, with `devenv shell`
 
 ```bash
 git clone https://github.com/kidskoding/myleet.git && cd myleet
@@ -128,7 +128,7 @@ just web-dev        # exports the catalog, builds the wasm core, starts the dev 
 ```
 
 The dev server watches `playlists/`, `curriculum/`, `bank/` and `guide/` and reloads
-when content changes.
+when content changes
 
 ## Contributing
 
@@ -142,9 +142,9 @@ just cd-check       # the deploy build, without deploying
 After adding or editing problems, run `myleet validate` and
 `myleet check --solutions <id>`. New problems also need `myleet validate --lock`, with
 `problem-ids.lock` committed. [CLAUDE.md](CLAUDE.md) has the full content and writing
-rules.
+rules
 
 ## License
 
 [MIT](LICENSE). Problem statements belong to their original sources, such as LeetCode,
-and link back to them.
+and link back to them
