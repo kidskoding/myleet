@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Shopify Jointaro report (Mar 2025): https://www.jointaro.com/interviews/companies/shopify/experiences/software-engineer-united-states-march-17-2025-no-offer-neutral-8859dfbf/
+# - Shopify Glassdoor senior report (Jun 2025): https://static.glassdoor.com.br/Interview/Shopify-Sr-Software-Engineer-Interview-Questions-EI_IE675933.0,7_KO8,28_IP2.htm
 title = "Shopify"
 group = "Consumer and Business Tech"
-focus = "practical commerce-flavored problems: greedy allocation, frequency counting, binary search on capacity, prefix-sum bookings, and small design classes."
+focus = "LeetCode-style coding rounds of medium difficulty, including LRU cache and autocomplete from search frequencies, plus a 75 minute pair programming session."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "08_heaps", "12_greedy_algorithms", "14_tries"]
 
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "Design Circular Queue"

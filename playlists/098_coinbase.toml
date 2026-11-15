@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Coinbase Jointaro Brazil report (Mar 2025): https://www.jointaro.com/interviews/companies/coinbase/experiences/software-engineer-brazil-march-1-2025-no-offer-positive-0f280168/
+# - Coinbase Jointaro Canada report (Jul 2025): https://www.jointaro.com/interviews/companies/coinbase/experiences/software-engineer-canada-july-29-2025-no-offer-positive-c6b45b41
+# - Coinbase Jointaro US report (Sep 2025): https://www.jointaro.com/interviews/companies/coinbase/experiences/software-development-engineer-sde-united-states-september-2-2025-no-offer-neutral-d31a2d9d
 title = "Coinbase"
 group = "Consumer and Business Tech"
-focus = "Careful array and hash-map code, money-style DP, and graph problems with weights, tested against edge cases."
+focus = "Easy to medium online assessment (math-heavy, with a prioritized job queue), then onsite coding such as a multi-part iterator and a graph medium, plus system design."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "10_graphs", "11_dp", "08_heaps", "14_tries"]
 
+[[entries]]
+title = "Flatten Nested List Iterator"
+url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+
+[[entries]]
+title = "Peeking Iterator"
+url = "https://leetcode.com/problems/peeking-iterator/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
 title = "Subarray Sum Equals K"

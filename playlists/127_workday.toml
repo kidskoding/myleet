@@ -1,8 +1,18 @@
+# Sources (checked 2026-11-15):
+# - Workday Glassdoor software engineer reports (2025): https://www2.glassdoor.com.au/Interview/Workday-Software-Engineer-Interview-Questions-EI_IE197851.0,7_KO8,25.htm
+# - Workday Glassdoor SDE reports (2025): https://www.glassdoor.com/Interview/Workday-Software-Development-Engineer-SDE-Interview-Questions-EI_IE197851.0,7_KO8,41.htm
 title = "Workday"
 group = "Consumer and Business Tech"
-focus = "hash maps and sorting over business records, prefix sums, intervals and scheduling, org-chart trees and graphs, and small stateful designs."
+focus = "Easy to medium coding rounds on strings, hash maps, arrays and recursion, with a timed online assessment and heavy behavioral weight."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "07_trees", "10_graphs", "08_heaps", "12_greedy_algorithms"]
 
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
 title = "Two Sum II - Input Array Is Sorted"

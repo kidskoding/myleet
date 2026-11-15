@@ -1,8 +1,10 @@
+# Sources (checked 2026-11-15):
+# - Atlassian Glassdoor reports (2025): https://www.glassdoor.co.uk/Interview/Atlassian-Interview-E115699-RVW98851519.htm
+# - Atlassian Jointaro Australia report (Aug 2025): https://www.jointaro.com/interviews/companies/atlassian/experiences/software-engineer-australia-august-21-2025-declined-offer-positive-b1ff8f41
 title = "Atlassian"
 group = "Consumer and Business Tech"
-focus = "graphs, trees, hashing, arrays, and core interview problem solving."
+focus = "A Karat screen then two 60 minute data structures rounds, with online assessments at easy to medium and onsite questions medium to hard, plus a values interview."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
-
 
 [[entries]]
 title = "Multiply Strings"

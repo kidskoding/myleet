@@ -1,8 +1,19 @@
+# Sources (checked 2026-11-15):
+# - Reddit Jointaro report (Nov 2025): https://www.jointaro.com/interviews/companies/reddit/experiences/software-engineer-united-states-november-1-2025-no-offer-positive-5e826ab8
+# - Reddit Jointaro senior report (Jul 2025): https://www.jointaro.com/interviews/companies/reddit/experiences/senior-software-engineer-canada-july-17-2025-no-offer-neutral-820c8490
+# - Reddit Jointaro new grad report (Sep 2025): https://www.jointaro.com/interviews/companies/reddit/experiences/new-grad-software-engineer-new-york-ny-september-30-2025-no-offer-neutral-113aaa42
 title = "Reddit"
 group = "Consumer and Business Tech"
-focus = "strings, graphs, trees, heaps, backtracking, and clean implementation."
+focus = "Two LeetCode medium problems, often reframed in a Reddit context, such as tree DFS, log parsing and searching intervals, plus a system design round."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "10_graphs", "07_trees"]
 
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Valid Sudoku"

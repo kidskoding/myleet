@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Airbnb Jointaro report (Sep 2025): https://www.jointaro.com/interviews/companies/airbnb/experiences/software-engineer-united-states-september-1-2025-no-offer-negative-8231f149
+# - Airbnb Jointaro India report (Jul 2025): https://www.jointaro.com/interviews/companies/airbnb/experiences/software-engineer-india-july-1-2025-no-offer-negative-82b2946a
+# - Airbnb Jointaro senior report (Mar 2025): https://www.jointaro.com/interviews/companies/airbnb/experiences/senior-software-engineer-united-states-march-18-2025-no-offer-neutral-bbd1d629
 title = "Airbnb"
 group = "Consumer and Business Tech"
-focus = "Backtracking and recursion, string partitioning, and search problems where you prune and explain the state."
+focus = "Hard LeetCode-style rounds in 2025 reports, mixing graph search, topological sort, dynamic programming and binary search, plus an object-oriented design round."
 review_modules = ["01_arrays_and_hashing", "09_backtracking", "10_graphs", "11_dp", "14_tries", "15_bit_manipulation"]
 
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Combination Sum II"

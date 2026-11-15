@@ -1,8 +1,19 @@
+# Sources (checked 2026-11-15):
+# - PayPal LeetCode Discuss SDE3 report (2025): https://leetcode.com/discuss/interview-experience/7374048
+# - PayPal Jointaro San Jose report (Sep 2025): https://www.jointaro.com/interviews/companies/paypal/experiences/software-engineer-san-jose-ca-september-20-2025-no-offer-neutral-fa6e5966
+# - PayPal 1point3acres senior report (2025): https://www.1point3acres.com/interview/post/7488459
 title = "PayPal"
 group = "Consumer and Business Tech"
-focus = "string and stack processing, binary search variants, matrix traversal, union find over relationships, and knapsack-style DP."
+focus = "An online assessment, then two LeetCode medium problems on heaps, binary search, stacks and arrays, plus a data structure with O(1) operations and live React for some roles."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "11_dp", "12_greedy_algorithms", "15_bit_manipulation"]
 
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
 title = "Minimum Add to Make Parentheses Valid"
@@ -195,11 +206,3 @@ url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
 [[entries]]
 title = "Maximum Sum Obtained of Any Permutation"
 url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
-
-[[entries]]
-title = "Time Needed to Rearrange a Binary String"
-url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
-
-[[entries]]
-title = "Maximum Number of Ones"
-url = "https://leetcode.com/problems/maximum-number-of-ones/"

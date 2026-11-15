@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Oracle Jointaro NY report (Apr 2025): https://www.jointaro.com/interviews/companies/oracle/experiences/software-engineer-new-york-ny-april-11-2025-no-offer-neutral-0ca8fcd7
+# - Oracle Jointaro report (Sep 2025): https://www.jointaro.com/interviews/companies/oracle/experiences/software-engineer-united-states-september-18-2025-no-offer-positive-dbd2c421/
+# - Oracle Jointaro Hyderabad report (Apr 2025): https://www.jointaro.com/interviews/companies/oracle/experiences/software-engineer-hyderabad-april-1-2025-no-offer-positive-81336417/
 title = "Oracle"
 group = "Consumer and Business Tech"
-focus = "Linked lists, arrays and hash maps, number and geometry helpers, and object-oriented design-style coding."
+focus = "Medium LeetCode-style data structures problems (BST, DP, linked lists, subarray sums) after a 2 to 3 question online assessment, with difficulty varying by team."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
+[[entries]]
+title = "Add Two Numbers II"
+url = "https://leetcode.com/problems/add-two-numbers-ii/"
+
+[[entries]]
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
 title = "Bag of Tokens"

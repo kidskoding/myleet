@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - IBM Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/ibm/experiences/software-engineer-october-13-2025-no-offer-positive-53e32a68
+# - IBM Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/ibm/experiences/software-engineer-united-states-october-4-2025-no-offer-positive-569f9600
+# - IBM Jointaro entry level report (Nov 2025): https://www.jointaro.com/interviews/companies/ibm/experiences/entry-level-software-engineer-united-states-november-13-2025-no-offer-neutral-c87c00eb
 title = "IBM"
 group = "Consumer and Business Tech"
-focus = "fundamentals, clean implementation, trees, graphs, DP basics, and practical design."
+focus = "A 90 minute online assessment with two LeetCode medium problems (arrays, hash maps, sliding window, graphs), then technical rounds with one medium and one harder question."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "07_trees", "10_graphs", "11_dp"]
 
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Binary Tree Upside Down"
@@ -191,15 +206,3 @@ url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-
 [[entries]]
 title = "Running Sum of 1d Array"
 url = "https://leetcode.com/problems/running-sum-of-1d-array/"
-
-[[entries]]
-title = "Reach a Number"
-url = "https://leetcode.com/problems/reach-a-number/"
-
-[[entries]]
-title = "Maximum Sum of Distinct Subarrays With Length K"
-url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
-
-[[entries]]
-title = "Find All Possible Stable Binary Arrays II"
-url = "https://leetcode.com/problems/find-all-possible-stable-binary-arrays-ii/"

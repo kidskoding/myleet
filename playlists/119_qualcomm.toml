@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Qualcomm Jointaro Hyderabad report (Feb 2025): https://www.jointaro.com/interviews/companies/qualcomm/experiences/software-engineer-hyderabad-february-1-2025-no-offer-positive-db755561
+# - Qualcomm Jointaro Mumbai report (Jul 2025): https://www.jointaro.com/interviews/companies/qualcomm/experiences/software-engineer-mumbai-july-17-2025-no-offer-positive-b5f7d179
+# - Qualcomm Glassdoor San Diego reports (2025): https://static.glassdoor.com.ar/Interview/Qualcomm-Interview-Questions-E640_P16.htm
 title = "Qualcomm"
 group = "Consumer and Business Tech"
-focus = "bit manipulation, in-place array and pointer work, linked list surgery, and low-level integer and string conversion."
+focus = "Easy to medium coding in C or C++ with bit and string manipulation, interval overlap and driver-style code, plus OS topics such as mutexes and semaphores."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "16_math_geometry"]
 
+[[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Single Number"
+url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
 title = "Maximum Swap"
@@ -23,10 +38,6 @@ url = "https://leetcode.com/problems/all-oone-data-structure/"
 [[entries]]
 title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
-
-[[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
 
 [[entries]]
 title = "Remove Nth Node From End of List"
@@ -159,10 +170,6 @@ url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
 [[entries]]
 title = "Remove Duplicates from Sorted Array II"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/"
-
-[[entries]]
-title = "Single Number"
-url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
 title = "Permutations"

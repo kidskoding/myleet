@@ -1,8 +1,19 @@
+# Sources (checked 2026-11-15):
+# - Intel Jointaro Canada report (Aug 2025): https://www.jointaro.com/interviews/companies/intel/experiences/software-engineer-canada-august-7-2025-no-offer-neutral-fa6f5b31
+# - Intel Jointaro Hyderabad report (Jul 2025): https://www.jointaro.com/interviews/companies/intel/experiences/software-development-engineer-sde-hyderabad-july-4-2025-accepted-offer-positive-69ff912d
+# - Intel Jointaro Bengaluru report (Apr 2025): https://www.jointaro.com/interviews/companies/intel/experiences/software-engineer-bengaluru-april-18-2025-accepted-offer-positive-1a2e3653
 title = "Intel"
 group = "Consumer and Business Tech"
-focus = "bit tricks, string and number conversion, binary search, two-pointer array work, and classic linked list manipulation."
+focus = "Medium data structures problems in C or C++ (trees, arrays, grids, linked lists), often two questions per virtual round, with architecture and OS questions mixed in."
 review_modules = ["15_bit_manipulation", "16_math_geometry", "05_binary_search", "02_two_pointers", "06_linked_lists", "03_stacks_and_queues"]
 
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Binary Tree Inorder Traversal"
+url = "https://leetcode.com/problems/binary-tree-inorder-traversal/"
 
 [[entries]]
 title = "Integer to Roman"
@@ -151,10 +162,6 @@ url = "https://leetcode.com/problems/product-of-array-except-self/"
 [[entries]]
 title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Number of Valid Words for Each Puzzle"

@@ -1,8 +1,22 @@
+# Sources (checked 2026-11-15):
+# - ServiceNow Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/servicenow/experiences/software-engineer-united-states-october-1-2025-no-offer-positive-2ff93386
+# - ServiceNow LeetCode Discuss IC2 report (May 2025): https://leetcode.com/discuss/interview-experience/6749919
 title = "ServiceNow"
 group = "Consumer and Business Tech"
-focus = "fundamentals, arrays/maps, trees, BFS/DFS, practical design, and reliable implementation."
+focus = "Two coding rounds of LeetCode medium difficulty (string and stack problems, hash maps with linked lists, arrays, trees and DP), plus system design and an HR round."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "11_dp"]
 
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
 title = "Encode and Decode TinyURL"
@@ -23,10 +37,6 @@ url = "https://leetcode.com/problems/contains-duplicate-iii/"
 [[entries]]
 title = "Maximum Absolute Sum of Any Subarray"
 url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
@@ -195,11 +205,3 @@ url = "https://leetcode.com/problems/n-th-tribonacci-number/"
 [[entries]]
 title = "Fruit Into Baskets"
 url = "https://leetcode.com/problems/fruit-into-baskets/"
-
-[[entries]]
-title = "New 21 Game"
-url = "https://leetcode.com/problems/new-21-game/"
-
-[[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"

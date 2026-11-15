@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Lyft Jointaro report (Nov 2025): https://www.jointaro.com/interviews/companies/lyft/experiences/software-engineer-new-york-new-york-november-13-2025-no-offer-neutral-d72fc653
+# - Lyft Jointaro Canada report (Oct 2025): https://www.jointaro.com/interviews/companies/lyft/experiences/software-engineer-canada-october-31-2025-no-offer-positive-210cbb9e
+# - Lyft Jointaro Canada report (Feb 2025): https://www.jointaro.com/interviews/companies/lyft/experiences/software-engineer-canada-february-20-2025-accepted-offer-positive-e4197577/
 title = "Lyft"
 group = "Consumer and Business Tech"
-focus = "graphs, intervals, heaps, trees, arrays, and core data structures."
+focus = "A one hour coding screen, then an onsite with one coding and two design rounds, at LeetCode medium with occasional hards such as median in a sliding window and minimum window."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Equal Sum Arrays With Minimum Number of Operations"
@@ -191,15 +206,3 @@ url = "https://leetcode.com/problems/car-fleet/"
 [[entries]]
 title = "Nim Game"
 url = "https://leetcode.com/problems/nim-game/"
-
-[[entries]]
-title = "Count Days Without Meetings"
-url = "https://leetcode.com/problems/count-days-without-meetings/"
-
-[[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
-
-[[entries]]
-title = "The Maze III"
-url = "https://leetcode.com/problems/the-maze-iii/"

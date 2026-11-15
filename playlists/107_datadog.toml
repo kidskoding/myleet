@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Datadog Jointaro report (Aug 2025): https://www.jointaro.com/interviews/companies/datadog/experiences/software-engineer-united-states-august-12-2025-no-offer-negative-3bb08840
+# - Datadog Jointaro NY report (May 2025): https://www.jointaro.com/interviews/companies/datadog/experiences/software-engineer-new-york-new-york-may-1-2025-no-offer-positive-1f3d13a6
+# - Datadog Jointaro Paris report (Oct 2025): https://www.jointaro.com/interviews/companies/datadog/experiences/senior-software-engineer-paris-october-1-2025-accepted-offer-positive-ec203d92/
 title = "Datadog"
 group = "Consumer and Business Tech"
-focus = "logs, streams, rate limits, sliding windows, heaps, graph connectivity, intervals, and design data structures."
+focus = "Mixed difficulty coding rounds with product of array except self, coin change DP, sliding windows and a buffered file writer, plus system design and behavioral rounds."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Design Front Middle Back Queue"
@@ -39,10 +54,6 @@ url = "https://leetcode.com/problems/top-k-frequent-words/"
 [[entries]]
 title = "Divide Intervals Into Minimum Number of Groups"
 url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -127,10 +138,6 @@ url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/
 [[entries]]
 title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
 title = "Implement Stack using Queues"

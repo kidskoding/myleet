@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Palo Alto Networks Jointaro new grad report (Sep 2025): https://www.jointaro.com/interviews/companies/palo-alto-networks/experiences/software-engineer-new-grad-santa-clara-ca-september-11-2025-accepted-offer-positive-a9979bbb
+# - Palo Alto Networks Jointaro Israel report (Mar 2025): https://www.jointaro.com/interviews/companies/palo-alto-networks/experiences/senior-software-engineer-israel-march-24-2025-no-offer-positive-5843d938/
+# - Palo Alto Networks Jointaro report (May 2025): https://www.jointaro.com/interviews/companies/palo-alto-networks/experiences/software-engineer-united-states-may-8-2025-no-offer-positive-932809d8
 title = "Palo Alto Networks"
 group = "Consumer and Business Tech"
-focus = "bitwise tricks, careful string parsing and conversion, tries, interval sweeps, and union-find connectivity."
+focus = "Easy to medium LeetCode-style screens on strings, arrays and DP (Codility for some roles), with LRU cache, anagrams and a DFS graph problem reported, and design-leaning new grad rounds."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "14_tries", "13_intervals", "10_graphs", "17_advanced"]
 
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Sum of Two Integers"
@@ -191,15 +206,3 @@ url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attend
 [[entries]]
 title = "Shortest Word Distance"
 url = "https://leetcode.com/problems/shortest-word-distance/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"

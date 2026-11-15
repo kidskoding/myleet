@@ -1,8 +1,15 @@
+# Sources (checked 2026-11-15):
+# - LinkedIn Jointaro report (Mar 2025): https://www.jointaro.com/interviews/companies/linkedin/experiences/software-engineer-united-states-march-25-2025-accepted-offer-positive-804372a9
+# - LinkedIn Jointaro Mountain View report (Mar 2025): https://www.jointaro.com/interviews/companies/linkedin/experiences/software-engineer-mountain-view-ca-march-1-2025-no-offer-positive-a5dda642
+# - LinkedIn LeetCode Discuss report (2025): https://leetcode.com/discuss/post/8359456/linkedin-software-engineer-interview-exp-dp7a/
 title = "LinkedIn"
 group = "Consumer and Business Tech"
-focus = "Graphs and topological sort, trees, and a spread of DP and heap problems."
+focus = "Online assessment at easy to medium level, then medium coding rounds with follow-ups, including designing a data structure whose operations all run in O(1)."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "10_graphs", "17_advanced"]
 
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Course Schedule II"

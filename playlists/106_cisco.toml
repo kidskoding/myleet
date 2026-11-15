@@ -1,8 +1,22 @@
+# Sources (checked 2026-11-15):
+# - Cisco Jointaro intern report (Jun 2025): https://www.jointaro.com/interviews/companies/cisco/experiences/software-engineerinternship-san-jose-ca-june-24-2025-no-offer-positive-bd800f95
+# - Cisco Glassdoor new grad reports (2025): https://www.glassdoor.co.in/Interview/Cisco-Software-Engineer-New-Grad-Interview-Questions-EI_IE1425.0,5_KO6,32.htm
 title = "Cisco"
 group = "Consumer and Business Tech"
-focus = "network graphs, BFS/DFS, shortest paths, intervals, heaps, strings, trees, and design data structures."
+focus = "Easy to medium online assessment (arrays, hashing, house robber DP, linked lists and strings), usually three to five timed problems, plus networking and practical questions."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Network Delay Time"
@@ -169,10 +183,6 @@ title = "Find Center of Star Graph"
 url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
 title = "Contiguous Array"
 url = "https://leetcode.com/problems/contiguous-array/"
 
@@ -195,11 +205,3 @@ url = "https://leetcode.com/problems/smallest-range-i/"
 [[entries]]
 title = "Expressive Words"
 url = "https://leetcode.com/problems/expressive-words/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Minimum Cost to Make Array Equal"
-url = "https://leetcode.com/problems/minimum-cost-to-make-array-equal/"

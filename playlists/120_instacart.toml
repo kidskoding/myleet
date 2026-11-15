@@ -1,8 +1,10 @@
+# Sources (checked 2026-11-15):
+# - Instacart Glassdoor reports (2025): https://www.glassdoor.sg/Interview/Instacart-Interview-E714486-RVW99406853.htm
+# - Instacart Glassdoor report (2025): https://www.glassdoor.co.uk/Interview/Instacart-Interview-E714486-RVW93550842.htm
 title = "Instacart"
 group = "Consumer and Business Tech"
-focus = "heaps, routing-style graphs, intervals, sliding windows, arrays, greedy reasoning, and data-structure design."
+focus = "Four questions in about 75 minutes online, then two proctored coding rounds, with reports ranging from easy to hard and a banking-system problem with follow-up extensions."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "17_advanced"]
-
 
 [[entries]]
 title = "Super Ugly Number"

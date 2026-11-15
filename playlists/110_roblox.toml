@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Roblox Jointaro senior report (Jul 2025): https://www.jointaro.com/interviews/companies/roblox/experiences/senior-software-engineer-san-mateo-ca-july-20-2025-no-offer-positive-787ad794/
+# - Roblox Jointaro new grad report (Sep 2025): https://www.jointaro.com/interviews/companies/roblox/experiences/new-grad-software-engineer-united-states-september-23-2025-no-offer-neutral-23015254/
+# - Roblox Jointaro report (Nov 2025): https://www.jointaro.com/interviews/companies/roblox/experiences/software-engineer-united-states-november-19-2025-no-offer-positive-ac4530ed/
 title = "Roblox"
 group = "Consumer and Business Tech"
-focus = "Medium-to-hard graph problems with topological sort, tries, grid simulation and optimization puzzles, solved quickly in a timed online assessment."
+focus = "Online assessment with two medium to hard coding questions plus game-style tasks, then live rounds on monotonic stacks, tries and topological sort."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "16_math_geometry"]
 
+[[entries]]
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
+
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
 title = "Time Needed to Inform All Employees"
@@ -27,10 +42,6 @@ url = "https://leetcode.com/problems/course-schedule/"
 [[entries]]
 title = "Word Squares"
 url = "https://leetcode.com/problems/word-squares/"
-
-[[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
 title = "Map Sum Pairs"

@@ -1,8 +1,19 @@
+# Sources (checked 2026-11-15):
+# - Cloudflare Jointaro London report (Jan 2025): https://www.jointaro.com/interviews/companies/cloudflare/experiences/software-engineer-london-england-january-1-2025-no-offer-positive-965712ca
+# - Cloudflare Jointaro intern report (Nov 2025): https://www.jointaro.com/interviews/companies/cloudflare/experiences/software-engineer-intern-united-states-november-1-2025-no-offer-positive-7f5a5a91
+# - Cloudflare PracHub report (2025): https://prachub.com/interview-experiences/cloudflare-software-engineer-interview-experience-hm-chat-hr-screen-then-a-key-value-store-round-where-ai-wrote-my-crypto
 title = "Cloudflare"
 group = "Consumer and Business Tech"
-focus = "bit manipulation and IP math, tries for prefix matching, string hashing and pattern search, range and interval structures, and cache designs."
+focus = "Medium difficulty practical coding rounds (LRU cache, key-value store, a container variant, a battleship game) with emphasis on implementation and explaining your reasoning."
 review_modules = ["15_bit_manipulation", "14_tries", "13_intervals", "01_arrays_and_hashing", "17_advanced"]
 
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
 title = "Single Number III"

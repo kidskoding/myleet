@@ -1,8 +1,19 @@
+# Sources (checked 2026-11-15):
+# - Bloomberg LeetCode Discuss senior report (Nov 2025): https://leetcode.com/discuss/interview-experience/7363661
+# - Bloomberg Jointaro report (Nov 2025): https://www.jointaro.com/interviews/companies/bloomberg-lp/experiences/software-engineer-november-14-2025-no-offer-positive-643f56d4
+# - Bloomberg Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/bloomberg-lp/experiences/software-engineer-october-21-2025-no-offer-positive-889e3ae9
 title = "Bloomberg"
 group = "Consumer and Business Tech"
-focus = "Stacks, queues, small data-structure designs, strings, and binary search trees, with careful, readable implementation."
+focus = "A 15 to 20 minute resume discussion followed by one LeetCode medium problem in about 25 minutes, with interval, string and stack questions reported and communication weighted heavily."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "10_graphs", "13_intervals", "17_advanced"]
 
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Design Circular Queue"

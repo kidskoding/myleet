@@ -1,8 +1,15 @@
+# Sources (checked 2026-11-15):
+# - Chime Jointaro report (May 2025): https://www.jointaro.com/interviews/companies/chime/experiences/software-engineer-united-states-may-1-2025-no-offer-positive-a36699c4
+# - Chime Jointaro senior report (Jan 2025): https://www.jointaro.com/interviews/companies/chime/experiences/senior-software-engineer-los-angeles-ca-january-1-2025-accepted-offer-positive-a5f46b74
+# - Chime PracHub report (2025): https://prachub.com/interview-experiences/chime-software-engineer-interview-experience-two-back-to-back-phone-screens-rejected-for-pipeline-fit
 title = "Chime"
 group = "Consumer and Business Tech"
-focus = "design and simulation, topological sort, stacks and monotonic stacks, scheduling with heaps, string parsing, and graph bfs"
+focus = "LeetCode medium coding with clear thought process expected, easy greedy and SQL for some roles, design and simulation problems, and a React or JavaScript task for front-end teams."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "12_greedy_algorithms", "18_mixed_interview_practice"]
 
+[[entries]]
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
 title = "Word Squares II"

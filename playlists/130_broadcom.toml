@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Broadcom Jointaro senior report (Apr 2025): https://www.jointaro.com/interviews/companies/broadcom/experiences/senior-software-engineer-united-states-april-1-2025-accepted-offer-positive-799d40ff
+# - Broadcom Jointaro intern report (Oct 2025): https://www.jointaro.com/interviews/companies/broadcom/experiences/software-engineer-intern-plano-tx-october-6-2025-accepted-offer-positive-8b4c6d49/
+# - Broadcom Jointaro Vancouver report (Sep 2025): https://www.jointaro.com/interviews/companies/broadcom/experiences/software-developer-vancouver-bc-september-30-2025-no-offer-negative-2c7fc9b0
 title = "Broadcom"
 group = "Consumer and Business Tech"
-focus = "C fundamentals, linked lists, bit manipulation, memory/buffer design, hashing, and OS-adjacent data structures."
+focus = "Two or three coding questions at easy to hard level (linked lists, arrays, low-level code) for interns and seniors, plus system design for senior roles."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "08_heaps", "15_bit_manipulation"]
 
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Linked List Cycle"
+url = "https://leetcode.com/problems/linked-list-cycle/"
 
 [[entries]]
 title = "Design Linked List"
@@ -27,10 +42,6 @@ url = "https://leetcode.com/problems/utf-8-validation/"
 [[entries]]
 title = "Validate Stack Sequences"
 url = "https://leetcode.com/problems/validate-stack-sequences/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Count Nodes Equal to Average of Subtree"

@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Intuit Jointaro San Diego report (Jul 2025): https://www.jointaro.com/interviews/companies/intuit/experiences/software-engineer-san-diego-ca-july-20-2025-no-offer-neutral-ce0c9a7d
+# - Intuit Jointaro New York report (Feb 2025): https://www.jointaro.com/interviews/companies/intuit/experiences/software-engineer-new-york-ny-february-28-2025-no-offer-neutral-9317a5bd
+# - Intuit Glassdoor Bengaluru report (Aug 2025): https://static.glassdoor.at/Interview/Intuit-Staff-Software-Developer-Interview-Questions-EI_IE2293.0,6_KO7,31_IP2.htm
 title = "Intuit"
 group = "Consumer and Business Tech"
-focus = "prefix sums and hash maps over transaction-style arrays, stack-based string cleanup, org-chart graph traversal, and money-flavored DP."
+focus = "Easy to medium coding (sliding window, matrix path finding, string hashing, a rate limiter), sometimes four questions in 90 minutes at the intern level, plus system design and AI questions."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
 
+[[entries]]
+title = "Minimum Size Subarray Sum"
+url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+
+[[entries]]
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
 title = "Advantage Shuffle"
@@ -191,15 +206,3 @@ url = "https://leetcode.com/problems/max-area-of-island/"
 [[entries]]
 title = "Divisor Game"
 url = "https://leetcode.com/problems/divisor-game/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
-
-[[entries]]
-title = "Reverse Pairs"
-url = "https://leetcode.com/problems/reverse-pairs/"

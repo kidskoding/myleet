@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Snap Jointaro LA report (Mar 2025): https://www.jointaro.com/interviews/companies/snap/experiences/software-engineer-los-angeles-ca-march-1-2025-no-offer-neutral-e3675af1
+# - Snap Jointaro Canada report (Sep 2025): https://www.jointaro.com/interviews/companies/snap/experiences/software-engineer-canada-september-30-2025-accepted-offer-positive-0f1b29a3
+# - Snap Jointaro LA report (Aug 2025): https://www.jointaro.com/interviews/companies/snap/experiences/software-engineer-iii-los-angeles-ca-august-1-2025-no-offer-neutral-fe6ae546
 title = "Snap"
 group = "Consumer and Business Tech"
-focus = "arrays, heaps, sliding windows, grids, graph traversal, backtracking, trees, and DP."
+focus = "Medium to hard coding rounds on linked lists, topological sort, graph BFS and DFS, and backtracking with complexity follow-ups, plus system design for experienced hires."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "K Closest Points to Origin"
@@ -191,15 +206,3 @@ url = "https://leetcode.com/problems/game-of-life/"
 [[entries]]
 title = "Left and Right Sum Differences"
 url = "https://leetcode.com/problems/left-and-right-sum-differences/"
-
-[[entries]]
-title = "Combination Sum II"
-url = "https://leetcode.com/problems/combination-sum-ii/"
-
-[[entries]]
-title = "Number of Closed Islands"
-url = "https://leetcode.com/problems/number-of-closed-islands/"
-
-[[entries]]
-title = "Bricks Falling When Hit"
-url = "https://leetcode.com/problems/bricks-falling-when-hit/"

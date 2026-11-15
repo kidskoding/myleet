@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Spotify Jointaro NY report (Feb 2025): https://www.jointaro.com/interviews/companies/spotify/experiences/software-engineer-new-york-ny-february-26-2025-accepted-offer-positive-2d2d7808/
+# - Spotify Jointaro London report (Jun 2025): https://www.jointaro.com/interviews/companies/spotify/experiences/software-engineer-london-england-june-1-2025-no-offer-neutral-25c6c3bb
+# - Spotify Jointaro US report (Jun 2025): https://www.jointaro.com/interviews/companies/spotify/experiences/software-engineer-united-states-june-6-2025-no-offer-neutral-9a9ddcc1
 title = "Spotify"
 group = "Consumer and Business Tech"
-focus = "playlist-style linked lists and queues, randomized shuffling and sampling, sliding windows over streams, heaps for ranking, and string DP."
+focus = "Easy to medium online assessment and phone screen (strings with hash maps, Kth largest), with a LeetCode hard such as median of a data stream in some loops."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "06_linked_lists", "08_heaps", "10_graphs", "11_dp", "14_tries"]
 
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
 
 [[entries]]
 title = "Shuffle an Array"
@@ -59,10 +74,6 @@ url = "https://leetcode.com/problems/fruit-into-baskets/"
 [[entries]]
 title = "Maximum Erasure Value"
 url = "https://leetcode.com/problems/maximum-erasure-value/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Longest Substring with At Most K Distinct Characters"
@@ -123,10 +134,6 @@ url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
 [[entries]]
 title = "Stream of Characters"
 url = "https://leetcode.com/problems/stream-of-characters/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"

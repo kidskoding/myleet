@@ -1,8 +1,23 @@
+# Sources (checked 2026-11-15):
+# - Epic Jointaro intern report (Sep 2025): https://www.jointaro.com/interviews/companies/epic-systems/experiences/software-engineer-internship-madison-wisconsin-september-26-2025-no-offer-neutral-ed119138
+# - Epic Jointaro report (Nov 2025): https://www.jointaro.com/interviews/companies/epic-systems/experiences/software-developer-united-states-november-14-2025-no-offer-positive-a5ba144e
+# - Epic Jointaro report (Oct 2025): https://www.jointaro.com/interviews/companies/epic-systems/experiences/software-engineer-united-states-october-29-2025-no-offer-neutral-e8635129
 title = "Epic Systems"
 group = "Consumer and Business Tech"
-focus = "Array and hash map fundamentals, tree and graph traversal, linked lists and backtracking."
+focus = "Long timed online assessment mixing logic, math and three coding problems, with backtracking, DFS, string and matrix questions of uneven difficulty."
 review_modules = ["01_arrays_and_hashing", "07_trees", "10_graphs", "06_linked_lists", "09_backtracking", "13_intervals"]
 
+[[entries]]
+title = "Subsets"
+url = "https://leetcode.com/problems/subsets/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Factor Combinations"
