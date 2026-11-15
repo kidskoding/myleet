@@ -1,7 +1,12 @@
 ---
+import { chevronRight } from "../../components/learn/icons";
+import "../../components/companies/companies.css";
+import { setRow, SET_FOLD } from "../../components/companies/rows";
 import Base from "../../layouts/Base.astro";
 import { buildCatalog } from "../../lib/build-catalog";
 import { companySlug } from "../../lib/catalog";
+import { ROUTES } from "../../lib/routes";
+import { icon } from "../../lib/ui/icons";
 import type { Playlist } from "../../lib/types";
 
 export function getStaticPaths() {
@@ -12,12 +17,64 @@ interface Props {
   playlist: Playlist;
 }
 
-const { playlist } = Astro.props;
+const { playlist: p } = Astro.props;
+const c = buildCatalog();
+const slug = companySlug(p.id);
+const n = p.entries.length;
+const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}.` : "";
 ---
 
-<Base title={`${playlist.title} prep`}>
-  <h1>{playlist.title} prep</h1>
-  <p>{playlist.focus}</p>
-  <p><a href={`/playlists/${playlist.id}`}>Open the {playlist.title} playlist</a></p>
-  <p>Placeholder: the techniques this company leans on and your readiness land here.</p>
+<Base title={`${p.title} prep`} nav="companies" description={`A curated ${p.title} practice set of ${n} problems, most asked first, with the techniques it leans on. Not a list of actual interview questions.`}>
+  <div class="page cos" data-cos="prep" data-playlist={p.id} data-slug={slug}>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href={ROUTES.companies}>Companies</a><Fragment set:html={chevronRight().value} /><span>{p.group}</span></nav>
+    <div class="prep-head">
+      <div>
+        <h1>{p.title}</h1>
+        {lead && <p class="lead">{lead}</p>}
+        <p class="disclaim">A curated practice set of {n} problems, most asked first. It is not a list of actual interview questions.</p>
+      </div>
+      <div>
+        <div class="actions">
+          <a class="btn btn-secondary" href={`${ROUTES.mock}?company=${slug}`} aria-keyshortcuts="m"><Fragment set:html={icon("timer").value} />{p.title} mock</a>
+          <button class="btn btn-primary" type="button" data-pin aria-pressed="false" aria-keyshortcuts="p">Pin to your plan</button>
+        </div>
+        <p class="pinned-note" data-pinned-note hidden></p>
+      </div>
+    </div>
+
+    <div class="prep-grid">
+      <section aria-labelledby="ps">
+        <div class="set-tools">
+          <h2 id="ps">The set</h2>
+          <div class="seg" role="group" aria-label="Show" data-set-seg>
+            <button type="button" aria-pressed="true" data-show="all">All<span class="n">{n}</span></button>
+            <button type="button" aria-pressed="false" data-show="notready">Not ready<span class="n" data-n="notready"></span></button>
+            <button type="button" aria-pressed="false" data-show="due">Due<span class="n" data-n="due"></span></button>
+          </div>
+        </div>
+        <ol class="panel set queue" aria-label={`${p.title} practice set, most asked first`} data-set>
+          <Fragment set:html={p.entries.map((e, i) => setRow(c, e, i + 1).value).join("")} />
+        </ol>
+        {n > SET_FOLD && <button type="button" class="btn btn-ghost more" data-show-all aria-expanded="false">Show all {n}</button>}
+        <p class="set-foot" data-set-foot hidden></p>
+      </section>
+      <aside data-aside>
+        <section class="panel readiness" aria-labelledby="rd" data-readiness>
+          <h2 id="rd">Readiness</h2>
+          <div class="skel" style="height:44px;width:60%;margin-top:12px"></div>
+          <div class="skel" style="height:8px;margin-top:12px"></div>
+        </section>
+        <section class="panel leans" aria-labelledby="ln" data-leans>
+          <h2 id="ln">Techniques this set leans on</h2>
+          <p class="text-small text-muted" style="margin-top:var(--space-1)">Counted from the set's problems, with your mastery of each.</p>
+          <div class="skel" style="height:80px;margin-top:12px"></div>
+        </section>
+        <section class="panel inplan" aria-labelledby="ip" data-inplan hidden></section>
+      </aside>
+    </div>
+  </div>
 </Base>
+
+<script>
+  import "../../scripts/companies";
+</script>
