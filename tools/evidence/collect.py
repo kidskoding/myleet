@@ -4,7 +4,15 @@ Usage: python3 tools/evidence/collect.py collect [company-slug ...]   # fetch, w
        python3 tools/evidence/collect.py apply                       # reorder playlists from data/
 Standard library only. Stops a company's fetching on 403/429 instead of retrying with other identities.
 """
-import json, re, sys, time, tomllib, urllib.parse, urllib.request, urllib.error
+
+import json
+import re
+import sys
+import time
+import tomllib
+import urllib.error
+import urllib.parse
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -17,16 +25,26 @@ CUTOFF = datetime(2024, 1, 1, tzinfo=timezone.utc).timestamp()
 DELAY = 2.5
 # slug -> (search names, playlist slug: the file name without its NNN_ order prefix)
 COMPANIES = {
-    "google": (["google"], "google"), "amazon": (["amazon"], "amazon"),
-    "microsoft": (["microsoft"], "microsoft"), "meta": (["meta", "facebook"], "meta"),
-    "apple": (["apple"], "apple"), "nvidia": (["nvidia"], "nvidia"),
-    "netflix": (["netflix"], "netflix"), "bytedance": (["bytedance"], "bytedance"),
-    "tiktok": (["tiktok"], "tiktok_bytedance"), "openai": (["openai"], "openai"),
-    "anthropic": (["anthropic"], "anthropic"), "spacex": (["spacex"], "spacex"),
-    "databricks": (["databricks"], "databricks"), "palantir": (["palantir"], "palantir"),
-    "anysphere": (["cursor anysphere", "anysphere"], "anysphere"), "stripe": (["stripe"], "stripe"),
-    "xai": (["xai"], "xai"), "scale-ai": (["scale ai"], "scale_ai"),
-    "uber": (["uber"], "uber"), "adobe": (["adobe"], "adobe"),
+    "google": (["google"], "google"),
+    "amazon": (["amazon"], "amazon"),
+    "microsoft": (["microsoft"], "microsoft"),
+    "meta": (["meta", "facebook"], "meta"),
+    "apple": (["apple"], "apple"),
+    "nvidia": (["nvidia"], "nvidia"),
+    "netflix": (["netflix"], "netflix"),
+    "bytedance": (["bytedance"], "bytedance"),
+    "tiktok": (["tiktok"], "tiktok_bytedance"),
+    "openai": (["openai"], "openai"),
+    "anthropic": (["anthropic"], "anthropic"),
+    "spacex": (["spacex"], "spacex"),
+    "databricks": (["databricks"], "databricks"),
+    "palantir": (["palantir"], "palantir"),
+    "anysphere": (["cursor anysphere", "anysphere"], "anysphere"),
+    "stripe": (["stripe"], "stripe"),
+    "xai": (["xai"], "xai"),
+    "scale-ai": (["scale ai"], "scale_ai"),
+    "uber": (["uber"], "uber"),
+    "adobe": (["adobe"], "adobe"),
 }
 BIG = {"uber", "adobe", "google", "amazon", "microsoft", "meta", "apple", "nvidia", "netflix", "bytedance", "tiktok"}
 
@@ -36,8 +54,16 @@ def pool():
     for p in list(ROOT.glob("curriculum/**/problem.toml")) + list(ROOT.glob("bank/**/problem.toml")):
         d = tomllib.loads(p.read_text())
         slug = re.search(r"/problems/([^/]+)", d.get("url", ""))
-        out.append({"id": d["id"], "title": d["title"], "difficulty": d.get("difficulty"),
-                    "lc": d.get("leetcode"), "slug": slug.group(1) if slug else None, "url": d.get("url", "")})
+        out.append(
+            {
+                "id": d["id"],
+                "title": d["title"],
+                "difficulty": d.get("difficulty"),
+                "lc": d.get("leetcode"),
+                "slug": slug.group(1) if slug else None,
+                "url": d.get("url", ""),
+            }
+        )
     return out
 
 
@@ -101,8 +127,12 @@ def collect(slugs):
                 a["last_seen"] = max(a["last_seen"], day)
                 if len(a["sources"]) < 3:
                     a["sources"].append(url)
-        out = {"company": slug, "posts_found": len(posts), "blocked": blocked,
-               "problems": sorted(agg.values(), key=lambda a: (-a["mentions"], a["last_seen"]), reverse=False)}
+        out = {
+            "company": slug,
+            "posts_found": len(posts),
+            "blocked": blocked,
+            "problems": sorted(agg.values(), key=lambda a: (-a["mentions"], a["last_seen"]), reverse=False),
+        }
         out["problems"].sort(key=lambda a: (a["mentions"], a["last_seen"]), reverse=True)
         (DATA / f"{slug}.json").write_text(json.dumps(out, indent=2) + "\n")
         print(slug, "posts", len(posts), "problems", len(agg), blocked or "")
@@ -121,7 +151,11 @@ def apply():
         path = next((ROOT / "playlists").glob(f"[0-9]*_{fname}.toml"))
         head, *blocks = re.split(r"\n(?=\[\[entries\]\])", path.read_text().rstrip() + "\n")
         entries = [(re.search(r'title = "(.*)"', b).group(1), re.search(r'url = "(.*)"', b).group(1)) for b in blocks]
-        diff = lambda title, url: P.get(byurl.get(url.split("/problems/")[-1].strip("/"), {}).get("id", ""), {}).get("difficulty")
+
+        def diff(url: str) -> str | None:
+            meta = byurl.get(url.split("/problems/")[-1].strip("/"), {})
+            return P.get(meta.get("id", ""), {}).get("difficulty")
+
         big = slug in BIG
         chosen, seen = [], set()
         for a in ev:
@@ -129,14 +163,16 @@ def apply():
             if p["difficulty"] == "easy" and big and a["mentions"] < 3:
                 continue
             if p["url"] and p["url"] not in seen:
-                chosen.append((p["title"], p["url"])); seen.add(p["url"])
+                chosen.append((p["title"], p["url"]))
+                seen.add(p["url"])
         rest = [e for e in entries if e[1] not in seen]
         final = (chosen + rest)[:50]
         if not big:
-            easy = sum(1 for t, u in final if diff(t, u) == "easy")
+            easy = sum(1 for _, u in final if diff(u) == "easy")
             if easy > max(1, round(len(final) * 0.1)):
                 print("WARN easy share high", slug, easy, len(final))
-        path.write_text(head + "\n" + "\n".join(f'\n[[entries]]\ntitle = "{t}"\nurl = "{u}"' for t, u in final).replace("\n\n[[", "\n[[", 0) + "\n")
+        body = "\n".join(f'\n[[entries]]\ntitle = "{t}"\nurl = "{u}"' for t, u in final)
+        path.write_text(head + "\n" + body + "\n")
         print("updated", fname, len(final))
 
 
