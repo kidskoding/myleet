@@ -234,6 +234,7 @@ const NEW_PER_DAY: std::ops::RangeInclusive<u32> = 0..=20;
 const MAX_TARGET_COMPANIES: usize = 40;
 const MAX_COMPANY_SLUG: usize = 40;
 const MAX_INTERVIEWS: usize = 20;
+const MAX_FOCUS_TOPICS: usize = 30;
 const DAILY_MINUTES: std::ops::RangeInclusive<u32> = 15..=600;
 const SESSION_MINUTES: std::ops::RangeInclusive<u32> = 15..=240;
 const REMINDER_MINUTES: std::ops::RangeInclusive<u32> = 0..=1440;
@@ -315,6 +316,9 @@ pub struct Extra {
     /// Planned load per past day, `YYYY-MM-DD` to its record.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plan_ledger: Option<BTreeMap<String, DayRecord>>,
+    /// Curriculum module ids the plan leans toward, e.g. `graphs`.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub focus_topics: Option<Vec<String>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -414,6 +418,7 @@ pub struct SettingsPatch {
     pub leetcode_username: Option<Option<String>>,
     pub plan_history: Option<Vec<HistoryEntry>>,
     pub plan_ledger: Option<BTreeMap<String, DayRecord>>,
+    pub focus_topics: Option<Vec<String>>,
 }
 
 impl Settings {
@@ -621,6 +626,15 @@ impl Extra {
                 return Err("leetcode_username is not a LeetCode username".to_string());
             }
             x.leetcode_username = Some(v);
+        }
+        if let Some(v) = p.focus_topics.clone() {
+            if v.len() > MAX_FOCUS_TOPICS {
+                return Err(format!("at most {MAX_FOCUS_TOPICS} focus_topics"));
+            }
+            if !v.iter().all(|t| valid_slug(t, MAX_COMPANY_SLUG)) {
+                return Err("focus_topics must be module ids".to_string());
+            }
+            x.focus_topics = Some(v);
         }
         if let Some(v) = p.interviews.clone() {
             if v.len() > MAX_INTERVIEWS {
@@ -933,7 +947,8 @@ mod tests {
             .apply(patch(
                 r#"{"daily_minutes":90,"session_minutes":30,"reminder_minutes":null,
                     "availability":[{"days":["mon","tue"],"start":"19:00","end":"20:30"}],
-                    "days_off":["2027-01-01"],"target_companies":["salesforce_slack"]}"#,
+                    "days_off":["2027-01-01"],"target_companies":["salesforce_slack"],
+                    "focus_topics":["graphs","dp"]}"#,
             ))
             .unwrap();
         assert_eq!(
@@ -949,6 +964,7 @@ mod tests {
             (p.daily_minutes, p.session_minutes, p.new_per_day),
             (90, 30, 5)
         );
+        assert_eq!(p.focus_topics, ["graphs", "dp"]);
     }
 
     #[test]
@@ -959,6 +975,7 @@ mod tests {
             r#"{"editor_font_size":4}"#,
             r#"{"interview_date":"2027-02-30"}"#,
             r#"{"target_companies":["Google"]}"#,
+            r#"{"focus_topics":["Graphs!"]}"#,
             r#"{"daily_minutes":5}"#,
             r#"{"session_minutes":500}"#,
             r#"{"reminder_minutes":2000}"#,
