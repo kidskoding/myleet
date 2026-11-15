@@ -58,26 +58,47 @@ Event kinds and modes are the strings in `myleet_core::progress::{kind, mode}`, 
 `Settings` is the account `settings` object from `GET /api/me` (unknown fields are
 ignored, missing ones default): `{interview_date?, target_companies?, new_per_day?, daily_minutes?, session_minutes?, availability?: [{days: ["mon", ...], start: "HH:MM", end: "HH:MM"}], days_off?: ["YYYY-MM-DD"]}`. Pass `""` for defaults.
 
+Three device-local fields extend it (the Worker does not store them yet):
+`weekend_minutes?` (Saturday and Sunday budget, `daily_minutes` when unset),
+`day_minutes?: {"YYYY-MM-DD": minutes}` (one-day budget, "Shorter day") and
+`moves?: [{from, from_start, to, to_start, minutes}]` (a dragged session: that much time
+leaves `from` at `from_start` and opens a window on `to` at `to_start`; both days are
+refilled, so the moved block holds what is due on its new day).
+
 | Call                                                | Returns                                                                                       |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `trainer.plan(events, settings_json, now_ms, tz)`   | `Plan` (below)                                                                                |
 | `trainer.skills(events, now_ms, tz, settings_json)` | `{techniques: [Skill], modules: [{module, title, mastery, confidence}]}`                      |
 | `plan_ics(plan_json, options_json)`                 | iCalendar text; options `{site?, alarm_minutes?: number \| null, uid_suffix?, name?}` or `""` |
+| `trainer.plan_fixes(events, settings_json, now_ms, tz)` | `{techniques: [{module, technique, weekday_minutes \| null}], all: minutes \| null, note: Note \| null}`: the smallest weekday budget (30 to 120 in 15-minute steps) that closes each gap, one that closes every gap, and the over-budget note |
+| `trainer.habits(events, now_ms, tz, limit)` | `{history: {sessions, cells: [[weekday 0-6, half-hour 0-47]], suggestion: {windows, sessions, text} \| null}, insights: [{kind, icon, text}]}`; `text` marks the two facts with `**bold**`; a suggestion needs 8 sittings in 4 weeks |
+| `trainer.attempt_feedback(events, attempt_id, now_ms, tz)` | `{module, technique, technique_title, before, after, trend, text, cleared, weak_spot}` (levels `new`, `shaky`, `building`, `solid`, `strong`) or `null` |
 
 `Plan`:
 
 ```
 {version, generated_ms, tz, start, end, interview_date,
  pace: {median_secs: {easy?, medium?, hard?}, speed: {easy, medium, hard},
-        new_minutes: {easy, medium, hard}, best_hour},
- days: [{date, weekday, rest, minutes,
-         sessions: [{id, start_ms, end_ms, minutes, title,
-                     items: [{kind, problem, title, technique, minutes, reason, note?}]}]}],
+        new_minutes: {easy, medium, hard}, best_hour, review_minutes, sample, habit},
+ days: [{date, weekday, rest, minutes, cap, off, windows: [{start, end}],
+         sessions: [{id, start_ms, end_ms, minutes, title, moved_from?,
+                     items: [{kind, tag, problem, title, technique, minutes, reason, note?,
+                              chips?: [{icon, text}]}]}]}],
  forecast: [{module, technique, title, module_title, companies, goal, started_now,
              projected, status, behind_by, mastery, confidence, cause}],
  summary: {days_left, sessions, minutes, reviews, new, drills, mocks, checkpoints,
-           on_track, behind: [title], headline}}
+           on_track, behind: [title], headline},
+ notes: [{kind, title, body, actions: [{kind, label, value?}]}]}
 ```
+
+- `tag` is the item's reason tag (`review`, `weak`, `new`, `progress`, `sharp`, `mock`,
+  `check`); `weak` needs 4+ attempts in the last 6 weeks. `reason` never repeats the tag
+  word; `chips` are up to three short "why this one" phrases with a Lucide icon name.
+- `windows` are the whole day's practice windows with moves applied (today's are not
+  trimmed to now); `cap` is the day's budget, 0 on a day off.
+- `notes` kinds: `date_passed`, `cram`, `away`, `missed`, `great_day`, `backlog`, newest
+  first; action kinds `weekday_minutes` (`value`), `availability`, `set_date`,
+  `clear_date`. The over-budget note comes from `plan_fixes`.
 
 - `kind` is `review`, `new`, `drill`, `note` (re-read `note`, a content path), `mock`
   or `checkpoint`. Every item has a `reason`.
@@ -95,8 +116,19 @@ ignored, missing ones default): `{interview_date?, target_companies?, new_per_da
  companies: [{company, problems}], seen, total,
  evidence: {attempts, passes, clean, fails, hinted, peeked, gave_up, restarted,
             cant_start, wrong_approach, edge_cases, too_slow, forgot},
- actions: [{kind, problem, note, reason}]}
+ actions: [{kind, problem, note, reason, title, minutes}],
+ level, sureness, recent, weak_spot, watch, diagnosis,
+ history: [{problem, title, date, mark, cause, detail}], clean_per_week: [n x 6],
+ technique_number, techniques_in_module}
 ```
+
+- `level` is `new`, `shaky` (< 0.35), `building` (< 0.65), `solid` (< 0.85) or
+  `strong`. `sureness` reads `recent` (attempts in the last 6 weeks): `none`,
+  `first_read` (1-3), `fairly_sure` (4-5), `sure` (6+). `weak_spot` is `weak` with 4+
+  recent attempts; `watch` is a first read with a cause (shown as Watching, never weak).
+- `diagnosis` is the plain-words reading: counts, then the cause, then what was right.
+  `history` is the last 6 attempts, oldest first; `mark` is `clean`, `missed`, `hint` or
+  `over`. `clean_per_week` ends with the current 7 days.
 
 - `mastery` and `confidence` are 0 to 1. Mastery weights recent attempts more
   (21-day half-life) and blends in the review ladder; confidence grows with attempts.

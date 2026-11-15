@@ -4,6 +4,7 @@
 
 use std::collections::HashMap;
 
+use jiff::civil::Date;
 use jiff::tz::TimeZone;
 use jiff::{SignedDuration, Timestamp};
 use serde::{Deserialize, Serialize};
@@ -26,6 +27,16 @@ pub const LOW_CONFIDENCE: f64 = 0.5;
 const CAUSE_MIN_ATTEMPTS: u32 = 2;
 const TREND_MIN_ATTEMPTS: usize = 4;
 const TREND_DELTA: f64 = 0.15;
+/// Confidence and the weak-spot call count attempts in this many recent days.
+pub const RECENT_DAYS: i64 = 42;
+/// Recent attempts before the model calls a weak spot; fewer is a first read.
+pub const SURE_ATTEMPTS: u32 = 4;
+/// Recent attempts at which a read is "sure" rather than "fairly sure".
+pub const VERY_SURE_ATTEMPTS: u32 = 6;
+/// Attempts kept per technique for the evidence strip.
+pub const HISTORY: usize = 6;
+/// Weeks of clean passes in the technique detail.
+pub const WEEKS: usize = 6;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -38,6 +49,17 @@ pub enum Cause {
 }
 
 impl Cause {
+    /// How `n` attempts with this cause read in a sentence: "2 failed on edge cases".
+    pub fn counted(self, n: u32) -> String {
+        match self {
+            Cause::CantStart => format!("{n} stalled before a test passed"),
+            Cause::WrongApproach => format!("{n} needed a hint or a restart to find the approach"),
+            Cause::EdgeCases => format!("{n} failed on edge cases"),
+            Cause::TooSlow => format!("{n} ran over the time target"),
+            Cause::Forgetting => format!("{n} slipped after an earlier clean pass"),
+        }
+    }
+
     pub fn as_str(self) -> &'static str {
         match self {
             Cause::CantStart => "can't start",
@@ -55,6 +77,81 @@ pub enum Trend {
     Improving,
     Flat,
     Slipping,
+}
+
+/// Mastery in words: New (no attempts), Shaky, Building, Solid, Strong.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Level {
+    New,
+    Shaky,
+    Building,
+    Solid,
+    Strong,
+}
+
+impl Level {
+    pub fn of(mastery: f64, attempts: u32) -> Level {
+        match mastery {
+            _ if attempts == 0 => Level::New,
+            m if m < 0.35 => Level::Shaky,
+            m if m < 0.65 => Level::Building,
+            m if m < 0.85 => Level::Solid,
+            _ => Level::Strong,
+        }
+    }
+
+    pub fn word(self) -> &'static str {
+        match self {
+            Level::New => "New",
+            Level::Shaky => "Shaky",
+            Level::Building => "Building",
+            Level::Solid => "Solid",
+            Level::Strong => "Strong",
+        }
+    }
+}
+
+/// How sure the model is, from recent attempts: 1-3 first read, 4-5 fairly sure, 6+ sure.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Sureness {
+    None,
+    FirstRead,
+    FairlySure,
+    Sure,
+}
+
+impl Sureness {
+    pub fn of(recent: u32) -> Sureness {
+        match recent {
+            0 => Sureness::None,
+            n if n < SURE_ATTEMPTS => Sureness::FirstRead,
+            n if n < VERY_SURE_ATTEMPTS => Sureness::FairlySure,
+            _ => Sureness::Sure,
+        }
+    }
+}
+
+/// How one attempt went, for the evidence strip.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Mark {
+    Clean,
+    Missed,
+    Hint,
+    Over,
+}
+
+#[derive(Debug, Clone)]
+pub struct AttemptMark {
+    /// Index into `Catalog::problems`.
+    pub problem: usize,
+    pub day: Date,
+    pub mark: Mark,
+    pub cause: Option<Cause>,
+    /// "passed 5 of 7 tests", "31 min against 25", "hint to start".
+    pub detail: String,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
@@ -81,6 +178,10 @@ pub struct Action {
     pub problem: Option<usize>,
     pub note: Option<String>,
     pub reason: String,
+    /// Button text: "Edge-case drill: Number of Enclaves".
+    pub title: String,
+    /// Minutes at the target pace.
+    pub minutes: u32,
 }
 
 /// Raw counts behind a skill; the labels count attempts by their likely cause.
@@ -117,9 +218,57 @@ pub struct Skill {
     /// Unseen problems in the order to start them: easier first while warming up.
     pub unseen: Vec<usize>,
     pub actions: Vec<Action>,
+    /// Attempts in the last `RECENT_DAYS`.
+    pub recent: u32,
+    /// The last `HISTORY` attempts, oldest first.
+    pub history: Vec<AttemptMark>,
+    /// Clean passes per week, oldest first, the last entry being the current 7 days.
+    pub clean_per_week: [u32; WEEKS],
+    /// Plain-words reading of the evidence (copy rules in the skills design).
+    pub diagnosis: String,
 }
 
 impl Skill {
+    pub fn level(&self) -> Level {
+        Level::of(self.mastery, self.evidence.attempts)
+    }
+
+    pub fn sureness(&self) -> Sureness {
+        Sureness::of(self.recent)
+    }
+
+    /// A weak spot the UI may name: weak on enough recent attempts to say so.
+    pub fn flagged(&self) -> bool {
+        self.weak() && self.recent >= SURE_ATTEMPTS
+    }
+
+    /// A first read (1-3 recent attempts) with a cause: shown as "Watching", never weak.
+    pub fn watch(&self) -> bool {
+        self.cause.is_some() && (1..SURE_ATTEMPTS).contains(&self.recent)
+    }
+
+    /// "3 of 5 attempts not clean, 2 failed on edge cases" for reason lines.
+    pub fn evidence_line(&self) -> String {
+        let e = &self.evidence;
+        let missed = e.attempts - e.clean;
+        let base = format!("{missed} of {} attempts not clean", e.attempts);
+        match self.cause {
+            Some(c) => format!("{base}, {}", c.counted(self.cause_count(c))),
+            None => base,
+        }
+    }
+
+    pub fn cause_count(&self, c: Cause) -> u32 {
+        let e = &self.evidence;
+        match c {
+            Cause::CantStart => e.cant_start,
+            Cause::WrongApproach => e.wrong_approach,
+            Cause::EdgeCases => e.edge_cases,
+            Cause::TooSlow => e.too_slow,
+            Cause::Forgetting => e.forgot,
+        }
+    }
+
     /// How much the learner needs this technique: low mastery we are sure of ranks
     /// above low mastery we have not measured.
     pub fn need(&self) -> f64 {
@@ -249,6 +398,8 @@ pub fn score(a: &Attempt, target: SignedDuration, r: Runs) -> f64 {
 struct Scored<'a> {
     a: &'a Attempt,
     p: &'a Problem,
+    day: Date,
+    age_days: f64,
     weight: f64,
     score: f64,
     label: Option<Cause>,
@@ -305,6 +456,8 @@ pub fn assess(
             .push(Scored {
                 a,
                 p,
+                day,
+                age_days,
                 weight: 0.5f64.powf(age_days / HALF_LIFE_DAYS),
                 score: score(a, t, r),
                 label: classify(a, t, r),
@@ -313,12 +466,21 @@ pub fn assess(
             });
     }
 
+    let today = local_day(now, tz);
     let mut report = Report::default();
     for (mi, m) in c.modules.iter().enumerate().filter(|(_, m)| !m.bank) {
         let (mut w_sum, mut m_sum) = (0.0, 0.0);
         for (ti, t) in m.techniques.iter().enumerate() {
             let scored = by_tech.remove(&(mi, ti)).unwrap_or_default();
-            let skill = build(c, mi, ti, t.note.as_ref(), &t.problems, &scored, states);
+            let skill = build(
+                c,
+                (mi, ti),
+                t.note.as_ref(),
+                &t.problems,
+                &scored,
+                states,
+                today,
+            );
             w_sum += skill.confidence;
             m_sum += skill.mastery * skill.confidence;
             report.index.insert((mi, ti), report.techniques.len());
@@ -334,14 +496,40 @@ pub fn assess(
     report
 }
 
+fn mark_of(s: &Scored) -> (Mark, String) {
+    let a = s.a;
+    let target = target_of(s.p);
+    let tests = |r: Runs| format!("passed {} of {} tests", r.best_passed, r.best_total);
+    match a.outcome {
+        Outcome::Pass if a.hints > 0 || a.peeks > 0 => {
+            let what = if a.peeks > 0 {
+                "looked at the solution"
+            } else {
+                "used a hint"
+            };
+            (Mark::Hint, what.to_string())
+        }
+        Outcome::Pass if a.elapsed >= target => (
+            Mark::Over,
+            format!("{} min against {}", mins(a.elapsed), mins(target)),
+        ),
+        Outcome::Pass => (
+            Mark::Clean,
+            format!("clean in {} min", mins(a.elapsed).max(1)),
+        ),
+        _ if s.runs.best_total > 0 => (Mark::Missed, tests(s.runs)),
+        _ => (Mark::Missed, "stopped before any test passed".to_string()),
+    }
+}
+
 fn build(
     c: &Catalog,
-    module: usize,
-    technique: usize,
+    (module, technique): (usize, usize),
     note: Option<&std::path::PathBuf>,
     problems: &[usize],
     scored: &[Scored],
     states: &HashMap<String, State>,
+    today: Date,
 ) -> Skill {
     let mut e = Evidence::default();
     let mut tally: HashMap<Cause, f64> = HashMap::new();
@@ -427,6 +615,34 @@ fn build(
         }
     });
 
+    let recent = scored
+        .iter()
+        .filter(|s| s.age_days <= RECENT_DAYS as f64)
+        .count() as u32;
+    let history = scored[scored.len().saturating_sub(HISTORY)..]
+        .iter()
+        .map(|s| {
+            let (mark, detail) = mark_of(s);
+            AttemptMark {
+                problem: s.p.order,
+                day: s.day,
+                mark,
+                cause: if s.forgot {
+                    Some(Cause::Forgetting)
+                } else {
+                    s.label
+                },
+                detail,
+            }
+        })
+        .collect();
+    let mut clean_per_week = [0u32; WEEKS];
+    for s in scored.iter().filter(|s| s.a.clean) {
+        let back = i64::from((today - s.day).get_days()).max(0) / 7;
+        if let Some(slot) = (WEEKS - 1).checked_sub(back as usize) {
+            clean_per_week[slot] += 1;
+        }
+    }
     let mut skill = Skill {
         module,
         technique,
@@ -439,7 +655,12 @@ fn build(
         total: problems.len(),
         unseen,
         actions: Vec::new(),
+        recent,
+        history,
+        clean_per_week,
+        diagnosis: String::new(),
     };
+    skill.diagnosis = diagnosis(c, &skill);
     if skill.warming_up() {
         skill.unseen.sort_by_key(|&i| {
             let p = &c.problems()[i];
@@ -454,6 +675,71 @@ fn latest<'s, 'a>(scored: &'s [Scored<'a>], f: impl Fn(&Scored) -> bool) -> Opti
     scored.iter().rev().find(|s| f(s))
 }
 
+/// "Grid DFS" reads as "grid DFS" mid-sentence; "1D DP" stays as it is.
+pub fn mid_sentence(title: &str) -> String {
+    let first = title.split_whitespace().next().unwrap_or("");
+    let shouty = first
+        .chars()
+        .filter(|c| c.is_alphabetic())
+        .all(|c| c.is_uppercase());
+    if shouty {
+        return title.to_string();
+    }
+    let mut cs = title.chars();
+    cs.next().map_or(String::new(), |f| {
+        f.to_lowercase().collect::<String>() + cs.as_str()
+    })
+}
+
+/// The plain-words reading of a technique: counts first, then the cause, then what was right.
+pub fn diagnosis(c: &Catalog, s: &Skill) -> String {
+    let e = &s.evidence;
+    if e.attempts == 0 {
+        return String::new();
+    }
+    let tech = mid_sentence(&c.modules[s.module].techniques[s.technique].title);
+    let n = e.attempts;
+    let mut out = match e.clean {
+        0 => format!("None of your {n} {tech} attempts was a clean pass yet."),
+        k if k == n => format!("All {n} of your {tech} attempts were clean passes."),
+        k => format!("You passed {k} of {n} {tech} attempts cleanly."),
+    };
+    let missed = n - e.clean;
+    if let Some(cause) = s.cause.filter(|_| missed > 0) {
+        let k = s.cause_count(cause).min(missed);
+        out += &format!(" Of the {missed} that weren't clean, {}.", cause.counted(k));
+        if let Some(h) = s.history.iter().rev().find(|h| h.cause == Some(cause)) {
+            out += &format!(
+                " Most recent: {}, {}.",
+                c.problems()[h.problem].title,
+                h.detail
+            );
+        }
+        out += match cause {
+            Cause::EdgeCases => " Most tests passed each time, so the approach held.",
+            Cause::TooSlow => " Each one passed, so the idea has landed; speed is what is left.",
+            Cause::Forgetting => " The idea landed once and faded, rather than never landing.",
+            Cause::CantStart | Cause::WrongApproach => "",
+        };
+    } else {
+        out += match s.trend {
+            Some(Trend::Improving) => " Your recent attempts are cleaner than the earlier ones.",
+            Some(Trend::Slipping) => " Your recent attempts are less clean than the earlier ones.",
+            _ => "",
+        };
+    }
+    if s.recent > 0 && s.recent < SURE_ATTEMPTS {
+        let a = if s.recent == 1 { "attempt" } else { "attempts" };
+        out += &format!(
+            " With {} {a} this is a first read, not a verdict.",
+            s.recent
+        );
+    }
+    out
+}
+
+const NOTE_MINUTES: u32 = 10;
+
 fn actions(
     c: &Catalog,
     s: &Skill,
@@ -462,11 +748,13 @@ fn actions(
 ) -> Vec<Action> {
     let tech = &c.modules[s.module].techniques[s.technique].title;
     let e = &s.evidence;
-    let act = |kind, problem: Option<usize>, reason: String| Action {
+    let act = |kind, p: &Problem, title: String, reason: String| Action {
         kind,
-        problem,
+        problem: Some(p.order),
         note: None,
         reason,
+        title,
+        minutes: mins(target_of(p)).max(5) as u32,
     };
     let mut out = Vec::new();
     match s.cause {
@@ -479,7 +767,7 @@ fn actions(
                     )
                 } else {
                     format!(
-                        "{} of {} attempts needed hints or missed the approach",
+                        "{} of {} attempts needed a hint or a restart",
                         e.wrong_approach, e.attempts
                     )
                 };
@@ -487,7 +775,9 @@ fn actions(
                     kind: ActionKind::ReadNote,
                     problem: None,
                     note: Some(path.to_string_lossy().replace('\\', "/")),
-                    reason: format!("re-read the {tech} note: {why}"),
+                    reason: why,
+                    title: format!("Re-read the {tech} note"),
+                    minutes: NOTE_MINUTES,
                 });
             }
         }
@@ -495,9 +785,10 @@ fn actions(
             if let Some(x) = latest(scored, |x| x.label == Some(Cause::EdgeCases)) {
                 out.push(act(
                     ActionKind::EdgeCaseRedo,
-                    Some(x.p.order),
+                    x.p,
+                    format!("Edge-case drill: {}", x.p.title),
                     format!(
-                        "edge cases: {} passed {}/{} tests; redo it and list the edge cases first",
+                        "{} passed {} of {} tests; list the edge cases first",
                         x.p.title, x.runs.best_passed, x.runs.best_total
                     ),
                 ));
@@ -507,9 +798,10 @@ fn actions(
             if let Some(x) = latest(scored, |x| x.label == Some(Cause::TooSlow)) {
                 out.push(act(
                     ActionKind::TimedRep,
-                    Some(x.p.order),
+                    x.p,
+                    format!("Timed rep: {}", x.p.title),
                     format!(
-                        "timed rep: {} took {} min, target {} min",
+                        "{} took {} min against a {} min target",
                         x.p.title,
                         mins(x.a.elapsed),
                         mins(target_of(x.p))
@@ -521,8 +813,9 @@ fn actions(
             if let Some(x) = latest(scored, |x| x.forgot) {
                 out.push(act(
                     ActionKind::SpacedRedo,
-                    Some(x.p.order),
-                    format!("spaced redo: {} slipped after you had passed it", x.p.title),
+                    x.p,
+                    format!("Spaced redo: {}", x.p.title),
+                    format!("{} slipped after an earlier clean pass", x.p.title),
                 ));
             }
         }
@@ -533,22 +826,126 @@ fn actions(
         if s.warming_up() {
             out.push(act(
                 ActionKind::Warmup,
-                Some(first),
-                format!(
-                    "warm-up: the easiest unseen {tech} problem ({}) first, confidence {:.0}%",
-                    p.difficulty.as_str(),
-                    s.confidence * 100.0
-                ),
+                p,
+                format!("Warm-up: {}", p.title),
+                format!("The easiest unseen {} problem first", mid_sentence(tech)),
             ));
         } else if s.cause.is_none() {
             out.push(act(
                 ActionKind::Next,
-                Some(first),
-                format!("next in {tech}"),
+                p,
+                format!("Next: {}", p.title),
+                format!("Next in {}", mid_sentence(tech)),
             ));
         }
     }
     out
+}
+
+/// What one attempt changed for its technique, for the result sheet.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Feedback {
+    pub module: usize,
+    pub technique: usize,
+    pub before: Level,
+    pub after: Level,
+    pub trend: Option<Trend>,
+    /// One or two sentences: the fact, then what it means or what comes next.
+    pub text: String,
+    /// It was a weak spot before this attempt and isn't now.
+    pub cleared: bool,
+    /// Still a weak spot after it.
+    pub weak: bool,
+}
+
+/// Compares the skill model without and with attempt `id`.
+pub fn feedback(
+    c: &Catalog,
+    events: &[Event],
+    id: &str,
+    now: Timestamp,
+    tz: &TimeZone,
+) -> Option<Feedback> {
+    let target = |pid: &str| c.problem(pid).map_or(SignedDuration::ZERO, target_of);
+    let p = c.problem(&events.iter().find(|e| e.attempt == id)?.problem)?;
+    let attempts = schedule::attempts(events, target);
+    let a = attempts
+        .iter()
+        .find(|a| a.id == id && a.outcome != Outcome::None)?;
+    let before_ev: Vec<Event> = events.iter().filter(|e| e.attempt != id).cloned().collect();
+    let model = |ev: &[Event]| assess(c, ev, &schedule::compute(ev, target, tz), now, tz);
+    let (r0, r1) = (model(&before_ev), model(events));
+    let (s0, s1) = (r0.of(p)?, r1.of(p)?);
+    let tech = mid_sentence(&c.technique_of(p).title);
+    let runs = runs_by_attempt(events).get(id).copied().unwrap_or_default();
+    let (before, after) = (s0.level(), s1.level());
+    let cleared = s0.flagged() && !s1.flagged();
+    let e = &s1.evidence;
+    let mut text = if a.clean {
+        if cleared {
+            format!(
+                "{} is no longer a weak spot: {} of your {} attempts are clean passes now.",
+                c.technique_of(p).title,
+                e.clean,
+                e.attempts
+            )
+        } else if after > before {
+            format!(
+                "{} moved up to {}: {} of your {} attempts are clean passes.",
+                c.technique_of(p).title,
+                after.word().to_lowercase(),
+                e.clean,
+                e.attempts
+            )
+        } else if s1.flagged() {
+            format!(
+                "A clean pass on a weak spot: {} of your {} {tech} attempts are clean now. It stays a weak spot until more of the recent ones are.",
+                e.clean, e.attempts
+            )
+        } else {
+            format!(
+                "A clean pass. {} holds at {}.",
+                c.technique_of(p).title,
+                after.word().to_lowercase()
+            )
+        }
+    } else if a.outcome == Outcome::Pass {
+        let t = target_of(p);
+        if a.hints > 0 || a.peeks > 0 {
+            "It passed with help, so it counts toward the approach, not as a clean pass."
+                .to_string()
+        } else {
+            format!(
+                "It passed in {} min against a {} min target: right, but slow.",
+                mins(a.elapsed),
+                mins(t)
+            )
+        }
+    } else if runs.best_total > 0 {
+        format!("{} of {} tests passed.", runs.best_passed, runs.best_total)
+    } else {
+        "It stopped before any test passed.".to_string()
+    };
+    if !a.clean {
+        if let (Some(c0), Some(c1)) = (s0.cause, s1.cause)
+            && c0 == c1
+        {
+            text += &format!(" Same cause as before: {}.", c1.as_str());
+        }
+        if let Some(next) = s1.actions.iter().find(|x| x.kind != ActionKind::Next) {
+            text += &format!(" Next for {tech}: {}.", next.title);
+        }
+    }
+    Some(Feedback {
+        module: p.module,
+        technique: p.technique,
+        before,
+        after,
+        trend: s1.trend,
+        text,
+        cleared,
+        weak: s1.flagged(),
+    })
 }
 
 #[cfg(test)]
@@ -677,7 +1074,7 @@ mod tests {
         let a = &s.actions[0];
         assert_eq!(a.kind, ActionKind::EdgeCaseRedo);
         assert_eq!(c.problems()[a.problem.unwrap()].id, "p-two");
-        assert!(a.reason.contains("7/8 tests"), "{}", a.reason);
+        assert!(a.reason.contains("7 of 8 tests"), "{}", a.reason);
     }
 
     #[test]
@@ -724,7 +1121,7 @@ mod tests {
         assert_eq!(a.kind, ActionKind::TimedRep);
         assert_eq!(c.problems()[a.problem.unwrap()].id, "p-two");
         assert!(
-            a.reason.contains("took 40 min, target 20 min"),
+            a.reason.contains("took 40 min against a 20 min target"),
             "{}",
             a.reason
         );
@@ -866,6 +1263,153 @@ mod tests {
                 "{outcome:?} hints={hints} {m}m {r:?}"
             );
         }
+    }
+
+    #[test]
+    fn levels_sureness_and_first_reads() {
+        assert_eq!(Level::of(0.0, 0), Level::New);
+        assert_eq!(Level::of(0.2, 3), Level::Shaky);
+        assert_eq!(Level::of(0.5, 3), Level::Building);
+        assert_eq!(Level::of(0.7, 3), Level::Solid);
+        assert_eq!(Level::of(0.9, 3), Level::Strong);
+        assert_eq!(
+            [0, 1, 3, 4, 5, 6].map(Sureness::of),
+            [
+                Sureness::None,
+                Sureness::FirstRead,
+                Sureness::FirstRead,
+                Sureness::FairlySure,
+                Sureness::FairlySure,
+                Sureness::Sure
+            ]
+        );
+        // Two near misses: weak, with a cause, but only a first read.
+        let events = [
+            att(
+                "p-one",
+                "a1",
+                at(1, 10),
+                &[(9, kind::TEST_RUN, RUN7), (10, kind::GAVE_UP, &[])],
+            ),
+            att(
+                "p-two",
+                "a2",
+                at(2, 10),
+                &[(9, kind::TEST_RUN, RUN7), (12, kind::GAVE_UP, &[])],
+            ),
+        ]
+        .concat();
+        let (_, r) = report(&events, at(3, 12));
+        let s = one(&r);
+        assert!(s.weak() && !s.flagged() && s.watch());
+        assert!(
+            s.diagnosis
+                .ends_with("With 2 attempts this is a first read, not a verdict."),
+            "{}",
+            s.diagnosis
+        );
+        assert!(s.diagnosis.starts_with("None of your 2 one attempts was a clean pass yet. Of the 2 that weren't clean, 2 failed on edge cases."), "{}", s.diagnosis);
+        assert!(
+            s.diagnosis
+                .contains("Most recent: P Two, passed 7 of 8 tests."),
+            "{}",
+            s.diagnosis
+        );
+        for banned in [
+            "struggle",
+            "bad at",
+            "weak at",
+            "unfortunately",
+            "only",
+            "!",
+        ] {
+            assert!(
+                !s.diagnosis.to_lowercase().contains(banned),
+                "{banned}: {}",
+                s.diagnosis
+            );
+        }
+    }
+
+    #[test]
+    fn four_recent_misses_flag_a_weak_spot_with_history() {
+        let events: Vec<Event> = (1..=4)
+            .flat_map(|d| {
+                att(
+                    "p-two",
+                    &format!("m{d}"),
+                    at(d, 10),
+                    &[(9, kind::TEST_RUN, RUN7), (10, kind::GAVE_UP, &[])],
+                )
+            })
+            .chain(att("p-one", "c1", at(5, 10), &[(5, kind::PASSED, &[])]))
+            .collect();
+        let (c, r) = report(&events, at(6, 12));
+        let s = one(&r);
+        assert!(s.flagged() && !s.watch());
+        assert_eq!((s.recent, s.sureness()), (5, Sureness::FairlySure));
+        assert_eq!(s.history.len(), 5);
+        assert_eq!(s.history[0].mark, Mark::Missed);
+        assert_eq!(s.history[0].cause, Some(Cause::EdgeCases));
+        assert_eq!(s.history[4].mark, Mark::Clean);
+        assert_eq!(c.problems()[s.history[4].problem].id, "p-one");
+        assert_eq!(s.clean_per_week.iter().sum::<u32>(), 1);
+        assert_eq!(
+            s.clean_per_week[WEEKS - 1],
+            1,
+            "this week's clean pass is last"
+        );
+        assert!(
+            s.evidence_line()
+                .starts_with("4 of 5 attempts not clean, 4 failed on edge cases"),
+            "{}",
+            s.evidence_line()
+        );
+        let a = &s.actions[0];
+        assert_eq!(a.title, "Edge-case drill: P Two");
+        assert!(a.minutes >= 5);
+        // Old attempts drop out of the recent window.
+        let (_, later) = report(&events, at(6, 12) + SignedDuration::from_hours(24 * 60));
+        assert_eq!(one(&later).recent, 0);
+    }
+
+    #[test]
+    fn feedback_compares_before_and_after_an_attempt() {
+        let mut events: Vec<Event> = (1..=4)
+            .flat_map(|d| {
+                att(
+                    "p-two",
+                    &format!("m{d}"),
+                    at(d, 10),
+                    &[(9, kind::TEST_RUN, RUN7), (10, kind::GAVE_UP, &[])],
+                )
+            })
+            .collect();
+        events.extend(att(
+            "p-two",
+            "miss",
+            at(5, 10),
+            &[(9, kind::TEST_RUN, RUN7), (10, kind::GAVE_UP, &[])],
+        ));
+        let c = good_catalog();
+        let f = feedback(&c, &events, "miss", at(6, 12), &chicago()).unwrap();
+        assert!(
+            f.text
+                .starts_with("7 of 8 tests passed. Same cause as before: edge cases."),
+            "{}",
+            f.text
+        );
+        assert!(
+            f.text.contains("Next for one: Edge-case drill: P Two."),
+            "{}",
+            f.text
+        );
+        assert!(f.weak && !f.cleared);
+        events.extend(att("p-one", "win", at(6, 10), &[(5, kind::PASSED, &[])]));
+        let f = feedback(&c, &events, "win", at(6, 12), &chicago()).unwrap();
+        assert!(f.after >= f.before);
+        assert!(!f.text.contains("Next for"), "{}", f.text);
+        assert!(feedback(&c, &events, "nope", at(6, 12), &chicago()).is_none());
     }
 
     #[test]

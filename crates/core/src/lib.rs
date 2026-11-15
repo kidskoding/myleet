@@ -4,6 +4,7 @@
 pub mod catalog;
 pub mod checkpoint;
 pub mod godur;
+pub mod habits;
 pub mod ical;
 pub mod interview;
 pub mod placement;

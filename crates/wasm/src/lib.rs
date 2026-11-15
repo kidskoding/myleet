@@ -11,7 +11,9 @@ use myleet_core::catalog::{Catalog, Difficulty, Module};
 use myleet_core::placement::{self, ItemResult};
 use myleet_core::progress::{self, Event, kind, mode};
 use myleet_core::schedule::{self, Attempt, State, Status};
-use myleet_core::{checkpoint, godur, ical, interview, planner, savestate, session, skills, stats};
+use myleet_core::{
+    checkpoint, godur, habits, ical, interview, planner, savestate, session, skills, stats,
+};
 use serde::Deserialize;
 use serde_json::{Value, json};
 use wasm_bindgen::prelude::*;
@@ -248,7 +250,26 @@ impl Trainer {
                         "problem": a.problem.map(|i| &c.problems()[i].id),
                         "note": a.note,
                         "reason": a.reason,
+                        "title": a.title,
+                        "minutes": a.minutes,
                     })).collect::<Vec<_>>(),
+                    "level": s.level(),
+                    "sureness": s.sureness(),
+                    "recent": s.recent,
+                    "weak_spot": s.flagged(),
+                    "watch": s.watch(),
+                    "diagnosis": s.diagnosis,
+                    "history": s.history.iter().map(|h| json!({
+                        "problem": c.problems()[h.problem].id,
+                        "title": c.problems()[h.problem].title,
+                        "date": h.day.to_string(),
+                        "mark": h.mark,
+                        "cause": h.cause,
+                        "detail": h.detail,
+                    })).collect::<Vec<_>>(),
+                    "clean_per_week": s.clean_per_week,
+                    "technique_number": s.technique + 1,
+                    "techniques_in_module": m.techniques.len(),
                 })
             })
             .collect();
@@ -265,6 +286,46 @@ impl Trainer {
             })
             .collect();
         Ok(json!({"techniques": techniques, "modules": modules}).to_string())
+    }
+
+    fn fixes_json(&self, jsonl: &str, settings_json: &str, now_ms: f64, tz: &str) -> Res {
+        let f = planner::fixes(
+            &self.catalog,
+            &events(jsonl),
+            &parse_settings(settings_json)?,
+            instant(now_ms)?,
+            &zone(tz)?,
+        )?;
+        serde_json::to_string(&f).map_err(|e| e.to_string())
+    }
+
+    fn habits_json(&self, jsonl: &str, now_ms: f64, tz: &str, limit: u32) -> Res {
+        let (evs, now, tz) = (events(jsonl), instant(now_ms)?, zone(tz)?);
+        Ok(json!({
+            "history": habits::history(&self.catalog, &evs, now, &tz),
+            "insights": habits::insights(&self.catalog, &evs, now, &tz, limit as usize),
+        })
+        .to_string())
+    }
+
+    fn feedback_json(&self, jsonl: &str, attempt: &str, now_ms: f64, tz: &str) -> Res {
+        let c = &self.catalog;
+        let f = skills::feedback(c, &events(jsonl), attempt, instant(now_ms)?, &zone(tz)?);
+        Ok(f.map_or(Value::Null, |f| {
+            let m = &c.modules[f.module];
+            json!({
+                "module": m.id,
+                "technique": m.techniques[f.technique].id,
+                "technique_title": m.techniques[f.technique].title,
+                "before": f.before,
+                "after": f.after,
+                "trend": f.trend,
+                "text": f.text,
+                "cleared": f.cleared,
+                "weak_spot": f.weak,
+            })
+        })
+        .to_string())
     }
 
     fn states_json(&self, jsonl: &str, tz: &str) -> Res {
@@ -489,6 +550,39 @@ impl Trainer {
         settings_json: &str,
     ) -> Result<String, JsError> {
         js(self.skills_json(events_jsonl, now_ms, tz, settings_json))
+    }
+
+    /// Weekday budgets that would close each technique the plan leaves short.
+    pub fn plan_fixes(
+        &self,
+        events_jsonl: &str,
+        settings_json: &str,
+        now_ms: f64,
+        tz: &str,
+    ) -> Result<String, JsError> {
+        js(self.fixes_json(events_jsonl, settings_json, now_ms, tz))
+    }
+
+    /// Practice history for the availability editor and "Noticed this week".
+    pub fn habits(
+        &self,
+        events_jsonl: &str,
+        now_ms: f64,
+        tz: &str,
+        limit: u32,
+    ) -> Result<String, JsError> {
+        js(self.habits_json(events_jsonl, now_ms, tz, limit))
+    }
+
+    /// What attempt `attempt` changed for its technique, or `null`.
+    pub fn attempt_feedback(
+        &self,
+        events_jsonl: &str,
+        attempt: &str,
+        now_ms: f64,
+        tz: &str,
+    ) -> Result<String, JsError> {
+        js(self.feedback_json(events_jsonl, attempt, now_ms, tz))
     }
 
     pub fn states(&self, events_jsonl: &str, tz: &str) -> Result<String, JsError> {
@@ -812,6 +906,30 @@ mod tests {
                 .unwrap(),
         );
         assert_eq!(today[0]["why"], "due: 1-day review");
+
+        assert_eq!(three["level"], "solid");
+        assert_eq!(three["sureness"], "first_read");
+        assert_eq!(three["history"][0]["mark"], "clean");
+        assert_eq!(three["history"][0]["title"], "Two Sum");
+        assert!(three["diagnosis"].as_str().unwrap().contains("first read"));
+
+        let f = parse(
+            &t.fixes_json(
+                "",
+                r#"{"interview_date":"2026-11-16","daily_minutes":15}"#,
+                now,
+                CHICAGO,
+            )
+            .unwrap(),
+        );
+        assert!(f["techniques"].is_array() && f.get("all").is_some());
+        let h = parse(&t.habits_json(&passed_two_sum(), now, CHICAGO, 3).unwrap());
+        assert!(h["history"]["cells"].is_array() && h["insights"].is_array());
+        assert_eq!(
+            t.feedback_json(&passed_two_sum(), "nope", now, CHICAGO)
+                .unwrap(),
+            "null"
+        );
     }
 
     #[test]
