@@ -681,11 +681,11 @@ impl Ctx<'_> {
     }
 
     fn review(&self, p: &Problem, s: &Sim, overdue: i64) -> PlanItem {
-        let gap = RUNGS[s.rung.clamp(0, RUNGS.len() as i32 - 1) as usize];
+        let stage = crate::schedule::mastery_stage(s.rung);
         let reason = match overdue {
-            0 => format!("{gap}-day review is due"),
-            1 => format!("{gap}-day review, due yesterday"),
-            n => format!("{gap}-day review, due {n} days ago"),
+            0 => format!("Due today while it's {stage}"),
+            1 => format!("Due yesterday while it's {stage}"),
+            n => format!("Due {n} days ago while it's {stage}"),
         };
         let reason = match self.lc_days.get(&p.id) {
             Some(n) => format!("{reason}, {}", reason::leetcode_clause(*n)),
@@ -698,7 +698,9 @@ impl Ctx<'_> {
             self.review_minutes(p),
             reason,
         );
-        it.chips.push(chip("repeat", format!("{gap}-day review")));
+        let mut label = stage.to_string();
+        label[..1].make_ascii_uppercase();
+        it.chips.push(chip("repeat", label));
         it
     }
 
@@ -2354,7 +2356,7 @@ mod tests {
             .expect("the first new problem is reviewed later");
         assert_eq!(review.0, "2026-11-16", "1-day review the next practice day");
         assert!(
-            review.1.reason.contains("1-day review"),
+            review.1.reason.contains("just learned"),
             "{}",
             review.1.reason
         );

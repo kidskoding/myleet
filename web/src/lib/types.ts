@@ -113,7 +113,7 @@ export interface TodayEntry {
   index: number;
   kind: "review" | "new" | "practice";
   reason: string | null;
-  /** The skill model's reason line, e.g. `overdue 2d: 1-day review`. */
+  /** The skill model's reason line, e.g. `overdue 2d, just learned`. */
   why?: string;
   overdue_days: number;
   state: State;

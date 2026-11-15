@@ -91,7 +91,7 @@ function where(cat: LoadedCatalog, p: ProblemMeta): string {
   return [m?.title, tech?.title].filter(Boolean).join(", ");
 }
 
-/** "overdue 2d: 1-day review" reads as "Overdue 2d: 1-day review". */
+/** "overdue 2d, just learned" reads as "Overdue 2d, just learned". */
 const sentence = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
 
 const targetMins = (p: ProblemMeta | undefined) => Math.round((p?.time_target_secs ?? 1500) / 60);
@@ -262,7 +262,7 @@ function budgetPanel(b: Budget, planned: number): SafeHtml {
     <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${opts.map(
       (o) => html`<button type="button" data-budget="${o.id}" aria-pressed="${o.id === b ? "true" : "false"}">${o.label}</button>`,
     )}</div></div>
-    <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts toward your streak.</p></section>`;
+    <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts toward your streak</p></section>`;
 }
 
 // ---- main column ----

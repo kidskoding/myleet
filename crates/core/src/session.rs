@@ -6,7 +6,7 @@ use jiff::tz::TimeZone;
 
 use crate::catalog::{Catalog, Difficulty, Problem};
 use crate::progress::Event;
-use crate::schedule::{RUNGS, State, Status, local_day};
+use crate::schedule::{State, Status, local_day};
 use crate::skills::{self, ActionKind, Report};
 use crate::{checkpoint, placement};
 
@@ -162,11 +162,11 @@ pub fn why(
     let tech = &c.technique_of(it.problem).title;
     let skill = report.of(it.problem);
     if it.kind == Kind::Review {
-        let gap = RUNGS[it.state.rung.clamp(0, RUNGS.len() as i32 - 1) as usize];
+        let stage = crate::schedule::mastery_stage(it.state.rung);
         let base = if it.overdue_days > 0 {
-            format!("overdue {}d: {gap}-day review", it.overdue_days)
+            format!("overdue {}d, {stage}", it.overdue_days)
         } else {
-            format!("due: {gap}-day review")
+            format!("due today, {stage}")
         };
         return match lc.get(&it.problem.id) {
             Some(n) => format!("{base}, {}", crate::reason::leetcode_clause(*n)),

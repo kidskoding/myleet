@@ -994,7 +994,7 @@ mod tests {
             &t.today_json(&passed_two_sum(), ms_of("2026-10-21T15:00:00Z"), CHICAGO, 0)
                 .unwrap(),
         );
-        assert_eq!(today[0]["why"], "due: 1-day review");
+        assert_eq!(today[0]["why"], "due today, just learned");
 
         assert_eq!(three["level"], "solid");
         assert_eq!(three["sureness"], "first_read");

@@ -229,7 +229,7 @@ pub fn history(c: &Catalog, events: &[Event], now: Timestamp, tz: &TimeZone) -> 
             windows,
             sessions: ss.len(),
             text: format!(
-                "You usually practise {}, from your last {} sessions.",
+                "You usually practice {}, from your last {} sessions.",
                 phrases.join(" and "),
                 ss.len()
             ),
@@ -520,7 +520,7 @@ mod tests {
         assert_eq!(s.windows[1].days, vec!["sat".to_string()]);
         assert_eq!(
             s.text,
-            "You usually practise **9 to 10 pm on weekdays** and **Saturday mornings**, from your last 12 sessions."
+            "You usually practice **9 to 10 pm on weekdays** and **Saturday mornings**, from your last 12 sessions."
         );
         let few = history(&c, &events[..12], at(11, 14, 20, 0), &chicago());
         assert!(few.suggestion.is_none() && !few.cells.is_empty());

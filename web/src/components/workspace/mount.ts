@@ -670,7 +670,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       const failing = r.timedOut ? "a run that never finished" : `${r.total - r.passed} failing test${r.total - r.passed === 1 ? "" : "s"}`;
       const ok = await confirmPop(root, $$<HTMLElement>(root, '[data-act="submit"]').find((b) => b.offsetParent) ?? $(root, '.wbar [data-act="submit"]'), {
         title: `Submit with ${failing}?`,
-        body: "This counts as a miss: the review drops to 1 day. Keep working and you can still pass",
+        body: "This counts as a miss: it goes back to the first rung. Keep working and you can still pass",
         ok: "Submit as a miss",
         cancel: "Keep working",
         danger: true,
@@ -970,7 +970,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
             h(
               "div",
               { class: "hint-confirm", role: "alertdialog", "aria-label": "Open a hint?" },
-              h("span", {}, "Open it? This attempt becomes assisted: the review drops to 1 day"),
+              h("span", {}, "Open it? This attempt becomes assisted: it goes back to the first rung"),
               h("div", { class: "acts" }, cancel, h("button", { class: "btn btn-primary btn-sm", "data-hint-ok": "", onclick: () => revealHint(true) }, `Show ${it.label.toLowerCase()}`)),
             ),
           );
@@ -1042,7 +1042,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
           "div",
           { class: "locked" },
           h("h2", {}, "The solution opens when you're done"),
-          h("p", {}, "It unlocks after you pass with Submit or give up. Peeking before then records this attempt as assisted: the review drops to 1 day"),
+          h("p", {}, "It unlocks after you pass with Submit or give up. Peeking before then records this attempt as assisted: it goes back to the first rung"),
           h("div", { class: "acts" }, peek),
         ),
       );
@@ -1460,7 +1460,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     if (exam || attempt.end) return;
     const ok = await confirmPop(root, anchor, {
       title: "Give up on this attempt?",
-      body: "The review drops to 1 day and the reference solution opens. Your draft is kept in History",
+      body: "It goes back to the first rung and the reference solution opens. Your draft is kept in History",
       ok: "Give up and see solution",
       cancel: "Keep going",
       danger: true,
@@ -1474,7 +1474,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     await addToHistory(id, code).catch(() => {});
     unlocked = true;
     showSolution(files?.solution ? "diff" : "ref");
-    announce("Gave up. The review drops to 1 day; the reference solution is open");
+    announce("Gave up. It goes back to the first rung; the reference solution is open");
   }
 
   // ---- Focus mode, fullscreen ----

@@ -8,6 +8,17 @@ use crate::progress::{Event, kind, mode};
 
 pub const RUNGS: [i64; 5] = [1, 3, 7, 14, 30];
 
+/// How well a problem has stuck, by ladder rung, for review copy that talks mastery rather than intervals.
+pub fn mastery_stage(rung: i32) -> &'static str {
+    match rung {
+        i32::MIN..=0 => "just learned",
+        1 => "still settling in",
+        2 => "getting solid",
+        3 => "nearly mastered",
+        _ => "mastered",
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Status {
     Unseen,
