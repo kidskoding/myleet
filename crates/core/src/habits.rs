@@ -346,22 +346,30 @@ pub fn insights(
         top.sort_by_key(|x| (std::cmp::Reverse(x.1), x.0));
         top.truncate(2);
         top.sort();
-        let short = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-        let when = match top.as_slice() {
-            [] => range(h * 60, h * 60 + 60),
+        let days = [
+            "Mondays",
+            "Tuesdays",
+            "Wednesdays",
+            "Thursdays",
+            "Fridays",
+            "Saturdays",
+            "Sundays",
+        ];
+        let mostly = match top.as_slice() {
+            [] => String::new(),
             xs => format!(
-                "{}, {}",
+                ", mostly on {}",
                 xs.iter()
-                    .map(|x| short[x.0])
+                    .map(|x| days[x.0])
                     .collect::<Vec<_>>()
-                    .join(" and "),
-                range(h * 60, h * 60 + 60)
+                    .join(" and ")
             ),
         };
+        let when = range(h * 60, h * 60 + 60);
         out.push(Insight {
             kind: "clean_hour".into(),
             icon: "clock-3".into(),
-            text: format!("Your cleanest hour is **{when}**: {k} of {n} clean passes."),
+            text: format!("Your cleanest hour is **{when}**{mostly}: {k} of {n} clean passes."),
         });
     }
 

@@ -384,6 +384,8 @@ impl Trainer {
             "counts": counts,
             "mastery": s.mastery,
             "streak": s.streak,
+            "rest_days": s.rest_days.iter().map(ToString::to_string).collect::<Vec<_>>(),
+            "last_practiced": s.last_practiced.map(|d| d.to_string()),
             "heatmap": heatmap,
             "weakest": weakest,
             "median_secs": median,

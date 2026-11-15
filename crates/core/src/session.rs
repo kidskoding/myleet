@@ -125,12 +125,13 @@ pub fn today<'a>(
             .then(a.problem.order.cmp(&b.problem.order))
     });
     let report = skills::assess(c, events, states, now, tz);
+    let weak = weak_modules(events);
     let mut out = reviews;
     out.extend(pick_new(
         c,
         states,
         new_per_day.saturating_sub(started_today),
-        &weak_modules(events),
+        &weak,
         &report,
     ));
     if out.is_empty() {
@@ -142,13 +143,20 @@ pub fn today<'a>(
         out = pick_keep_sharp(c, states, today, tz, slots as usize);
     }
     for it in &mut out {
-        it.why = why(c, it, &report, today, tz);
+        it.why = why(c, it, &report, &weak, today, tz);
     }
     out
 }
 
 /// The reason line shown on a queue row.
-pub fn why(c: &Catalog, it: &Item, report: &Report, today: Date, tz: &TimeZone) -> String {
+pub fn why(
+    c: &Catalog,
+    it: &Item,
+    report: &Report,
+    weak: &HashMap<String, &'static str>,
+    today: Date,
+    tz: &TimeZone,
+) -> String {
     let tech = &c.technique_of(it.problem).title;
     let skill = report.of(it.problem);
     if it.kind == Kind::Review {
@@ -173,10 +181,14 @@ pub fn why(c: &Catalog, it: &Item, report: &Report, today: Date, tz: &TimeZone) 
     match it.reason {
         Some(Reason::Weak) => match skill.filter(|s| s.evidence.attempts > 0) {
             Some(s) => format!("weak spot: {tech}, {}", s.struggle_text()),
-            None => format!(
-                "weak spot: your check-in flagged {}",
-                c.module_of(it.problem).title
-            ),
+            None => {
+                let m = c.module_of(it.problem);
+                let by = weak.get(&m.id).copied().unwrap_or("check-in");
+                format!(
+                    "weak spot: your {by} flagged {}",
+                    skills::mid_sentence(&m.title)
+                )
+            }
         },
         Some(Reason::InProgress) => match skill {
             Some(s) => format!("in progress: {tech}, {}/{} started", s.seen, s.total),
@@ -190,13 +202,23 @@ pub fn why(c: &Catalog, it: &Item, report: &Report, today: Date, tz: &TimeZone) 
     }
 }
 
-fn weak_modules(events: &[Event]) -> HashSet<String> {
-    let mut out = HashSet::new();
+/// Modules the diagnostic or the latest check-in found weak, each with what flagged it
+/// ("diagnostic" or "check-in"); a check-in overrides the diagnostic.
+pub(crate) fn weak_modules(events: &[Event]) -> HashMap<String, &'static str> {
+    let mut out = HashMap::new();
     if let Some(r) = placement::load(events).filter(|r| !r.skipped) {
-        out.extend(placement::weak_modules(&r));
+        out.extend(
+            placement::weak_modules(&r)
+                .into_iter()
+                .map(|m| (m, "diagnostic")),
+        );
     }
     if let Some(r) = checkpoint::load(events) {
-        out.extend(checkpoint::weak_modules(&r));
+        out.extend(
+            checkpoint::weak_modules(&r)
+                .into_iter()
+                .map(|m| (m, "check-in")),
+        );
     }
     out
 }
@@ -211,7 +233,7 @@ fn pick_new<'a>(
     c: &'a Catalog,
     states: &HashMap<String, State>,
     slots: u32,
-    weak_mods: &HashSet<String>,
+    weak_mods: &HashMap<String, &'static str>,
     report: &Report,
 ) -> Vec<Item<'a>> {
     let (mut started, mut untouched, mut placed) = (Vec::new(), Vec::new(), Vec::new());
@@ -239,7 +261,7 @@ fn pick_new<'a>(
                 continue;
             }
             if !seen {
-                if weak_mods.contains(&m.id) {
+                if weak_mods.contains_key(&m.id) {
                     cand.reason = Reason::Weak;
                     cand.struggle = 1.0;
                     placed.push(cand);
@@ -603,6 +625,11 @@ mod tests {
             Some(Reason::Weak),
             "placement-boosted problems should be labeled weak spot"
         );
+        let why = &today(&c, &none, day(19), &tz, 1, &events)[0].why;
+        assert!(
+            why.starts_with("weak spot: your diagnostic flagged"),
+            "names the diagnostic, not a check-in: {why}"
+        );
     }
 
     #[test]
@@ -628,5 +655,7 @@ mod tests {
             ["two-sum", "p-one", "p-three"],
             "checkpoint weak modules should lead"
         );
+        let why = &today(&c, &HashMap::new(), day(19), &chicago(), 1, &events)[0].why;
+        assert!(why.starts_with("weak spot: your check-in flagged"), "{why}");
     }
 }

@@ -1,4 +1,4 @@
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, BTreeSet, HashMap};
 
 use jiff::civil::Date;
 use jiff::tz::TimeZone;
@@ -9,6 +9,8 @@ use crate::schedule::{Attempt, Outcome, State, Status, local_day};
 
 const MIN_ATTEMPTS_FOR_WEAKNESS: u32 = 3;
 const MAX_WEAKEST: usize = 5;
+/// One missed day per this many days is a rest day: it keeps the streak but doesn't add to it.
+const REST_EVERY_DAYS: i32 = 7;
 
 #[derive(Debug)]
 pub struct TechniqueScore<'a> {
@@ -24,7 +26,12 @@ pub struct Summary<'a> {
     pub counts: HashMap<Status, usize>,
     /// Mastered and total, curriculum only.
     pub mastery: [usize; 2],
+    /// Practice days in a row (any finished attempt counts), allowing one rest day a week.
     pub streak: usize,
+    /// The rest days inside the current streak, newest first.
+    pub rest_days: Vec<Date>,
+    /// The latest local day with a finished attempt.
+    pub last_practiced: Option<Date>,
     /// Passes per local day.
     pub heatmap: BTreeMap<Date, usize>,
     pub weakest: Vec<TechniqueScore<'a>>,
@@ -87,18 +94,13 @@ pub fn compute<'a>(
         }
     }
 
-    let passed = |d: Date| s.heatmap.get(&d).is_some_and(|&n| n > 0);
-    let mut day = local_day(now, tz);
-    if !passed(day) {
-        day = day.yesterday().unwrap_or(day);
-    }
-    let mut streak = 0;
-    while passed(day) {
-        streak += 1;
-        let Ok(prev) = day.yesterday() else { break };
-        day = prev;
-    }
-    s.streak = streak;
+    let practiced: BTreeSet<Date> = attempts
+        .iter()
+        .filter(|a| a.outcome != Outcome::None && c.problem(&a.problem).is_some())
+        .filter_map(|a| a.end.map(|end| local_day(end, tz)))
+        .collect();
+    (s.streak, s.rest_days) = streak(&practiced, local_day(now, tz));
+    s.last_practiced = practiced.last().copied();
 
     for ((m, t), tally) in by_tech {
         if tally.attempts < MIN_ATTEMPTS_FOR_WEAKNESS || tally.fails + tally.hinted == 0 {
@@ -125,6 +127,32 @@ pub fn compute<'a>(
         s.median_by_diff.insert(diff, ds[ds.len() / 2]);
     }
     s
+}
+
+/// Practice days in a row ending today or yesterday. A missed day is forgiven as a rest day
+/// when the day before it was practiced and no other rest day falls within a week of it.
+fn streak(practiced: &BTreeSet<Date>, today: Date) -> (usize, Vec<Date>) {
+    let mut day = today;
+    if !practiced.contains(&day) {
+        day = day.yesterday().unwrap_or(day);
+    }
+    let (mut n, mut rests) = (0, Vec::<Date>::new());
+    loop {
+        let Ok(prev) = day.yesterday() else { break };
+        if practiced.contains(&day) {
+            n += 1;
+        } else {
+            let spaced = rests
+                .last()
+                .is_none_or(|&r| (r - day).get_days() >= REST_EVERY_DAYS);
+            if !(spaced && practiced.contains(&prev)) {
+                break;
+            }
+            rests.push(day);
+        }
+        day = prev;
+    }
+    (n, rests)
 }
 
 #[cfg(test)]
@@ -169,16 +197,38 @@ mod tests {
             pass_on("p-one", 16, mins(1)),
         ];
         let tz = chicago();
-        assert_eq!(compute(&c, &none(), &atts, day(19), &tz).streak, 2);
+        let at = |d| {
+            let s = compute(&c, &none(), &atts, day(d), &tz);
+            (s.streak, s.rest_days.len())
+        };
         assert_eq!(
-            compute(&c, &none(), &atts, day(20), &tz).streak,
-            2,
-            "streak ending yesterday"
+            at(19),
+            (3, 1),
+            "the 17th is a rest day between practice days"
         );
+        assert_eq!(at(20), (3, 1), "streak ending yesterday");
         assert_eq!(
-            compute(&c, &none(), &atts, day(21), &tz).streak,
-            0,
-            "broken streak"
+            at(21),
+            (2, 1),
+            "yesterday is the rest day; the 17th is too close to be another"
+        );
+        assert_eq!(at(22), (0, 0), "two missed days in a row break it");
+
+        // A rest day a week apart from the last one is forgiven again.
+        let days: Vec<Attempt> = (1..=20)
+            .filter(|d| ![5, 13].contains(d))
+            .map(|d| pass_on("p-one", d, mins(1)))
+            .collect();
+        let s = compute(&c, &none(), &days, day(20), &tz);
+        assert_eq!((s.streak, s.rest_days.len()), (18, 2));
+        let close: Vec<Attempt> = (1..=20)
+            .filter(|d| ![9, 13].contains(d))
+            .map(|d| pass_on("p-one", d, mins(1)))
+            .collect();
+        assert_eq!(
+            compute(&c, &none(), &close, day(20), &tz).streak,
+            10,
+            "rest days 4 apart: the older one breaks it"
         );
     }
 

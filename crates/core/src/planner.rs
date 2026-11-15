@@ -24,7 +24,7 @@ use crate::progress::{Event, kind, mode};
 use crate::reason::{self, Facts};
 use crate::schedule::{self, Attempt, Outcome, RUNGS, State, Status, local_day};
 use crate::skills::{self, ActionKind, Cause, Report, Skill};
-use crate::{checkpoint, interview, placement};
+use crate::{checkpoint, interview, session};
 
 /// Plan length when there is no interview date.
 pub const DEFAULT_DAYS: i64 = 28;
@@ -729,7 +729,7 @@ impl Ctx<'_> {
         }
     }
 
-    fn new_item(&self, p: &Problem, weak_mods: &HashSet<String>) -> PlanItem {
+    fn new_item(&self, p: &Problem, weak_mods: &HashMap<String, &'static str>) -> PlanItem {
         let tech = self.tech(p);
         let skill = self.report.of(p);
         let started = self.states.get(&p.id).is_some_and(|st| st.attempts > 0);
@@ -750,15 +750,21 @@ impl Ctx<'_> {
                 Some(chip("history", "Started, not passed yet".into())),
             );
             Tag::Progress
-        } else if skill.is_none_or(|s| s.evidence.attempts == 0)
-            && weak_mods.contains(&self.c.module_of(p).id)
+        } else if let Some(by) = weak_mods
+            .get(&self.c.module_of(p).id)
+            .filter(|_| skill.is_none_or(|s| s.evidence.attempts == 0))
         {
             let m = &self.c.module_of(p).title;
+            let by = if *by == "diagnostic" {
+                "Diagnostic"
+            } else {
+                "Check-in"
+            };
             push_chip(
                 &mut chips,
                 Some(chip(
                     "list-checks",
-                    format!("Check-in flagged {}", skills::mid_sentence(m)),
+                    format!("{by} flagged {}", skills::mid_sentence(m)),
                 )),
             );
             Tag::New
@@ -1045,16 +1051,7 @@ fn build(
         );
     }
 
-    let weak_mods = {
-        let mut out = HashSet::new();
-        if let Some(r) = placement::load(events).filter(|r| !r.skipped) {
-            out.extend(placement::weak_modules(&r));
-        }
-        if let Some(r) = checkpoint::load(events) {
-            out.extend(checkpoint::weak_modules(&r));
-        }
-        out
-    };
+    let weak_mods = session::weak_modules(events);
     let targets_all = rel.is_empty();
     let n_tech = report.techniques.len().max(1) as f64;
     let max_rel = rel
@@ -1082,7 +1079,7 @@ fn build(
         });
         let r = weighted as f64 / max_rel;
         let mut skill_need = s.clone();
-        if s.evidence.attempts == 0 && weak_mods.contains(&c.modules[s.module].id) {
+        if s.evidence.attempts == 0 && weak_mods.contains_key(&c.modules[s.module].id) {
             skill_need.mastery = 0.0;
             skill_need.confidence = 1.0;
         }
