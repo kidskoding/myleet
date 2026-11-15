@@ -8,7 +8,10 @@ use std::time::Duration;
 
 pub use load::{LoadError, load, note_title};
 pub use lock::{LOCK_FILE, read_lock, write_lock};
-pub use root::find_root;
+pub use root::{
+    CONTENT_DIR_NAME, DEFAULT_REPO, bootstrap_content, content_dir, ensure_root, ensure_root_with,
+    find_root, find_root_with, root_kind, root_kind_with, sync_deps, update_content,
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Difficulty {
