@@ -42,7 +42,8 @@ myleet/
 │                            `bun run dev` re-exports on content edits and proxies /api/statement to production.
 │                            Personal copy lives in lib/coach.ts (Today), lib/plan-copy.ts (Plan), lib/sheet-note.ts
 │                            (result sheet) and crates/core/src/reason.rs ("Why this one"); guest vs account rules in lib/access.ts
-├── worker/                  workers-rs backend on Cloudflare (D1, KV): auth, sync, statements, interview reports
+├── worker/                  workers-rs backend on Cloudflare (D1, KV): auth, sync, statements, interview reports,
+│                            LeetCode profile import (alfa-leetcode-api first, LeetCode GraphQL fallback; public data only)
 ├── guide/                   start-here notes shown at the top of the map
 ├── curriculum/
 │   ├── _lib/                shared Python helpers importable from every test
