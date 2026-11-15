@@ -2,6 +2,7 @@
 // settings record as the Plan page's panel and onboarding, so all three stay in sync.
 import { cachedMe, calendarStatus } from "../lib/account";
 import { listedCompany, loadCatalog, type LoadedCatalog } from "../lib/catalog";
+import { drawerLede } from "../lib/plan-copy";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { readEvents } from "../lib/progress";
 import { reminderSupport, requestReminderPermission } from "../lib/reminders";
@@ -10,6 +11,7 @@ import { fmtM, LEAD_TIMES, SESSION_LENGTHS, step, WEEKDAY_STEPS, WEEKEND_STEPS, 
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
+import { mountInterviews } from "../lib/ui/interviews";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { toast } from "../lib/ui/overlay";
@@ -51,8 +53,8 @@ function planGroup(): SafeHtml {
   const leans = cat ? lean(cat, p.companies) : [];
   const max = Math.max(1, ...leans.map((l) => l.n));
   return html`
-    <div class="row"><div><label class="lbl" for="set-iv">Interview date</label><div class="desc">Set a deadline for your plan. Without a date, the plan covers the next 4 weeks</div></div>
-      <div class="ctl"><input class="input" id="set-iv" type="date" style="width:170px" value="${p.interviewDate ?? ""}" data-iv /><button type="button" class="btn btn-ghost btn-sm" data-no-date aria-pressed="${p.interviewDate ? "false" : "true"}">No date yet</button></div></div>
+    <div class="row avail-row"><div><div class="lbl" id="iv-l">Interviews</div><div class="desc">Add each interview you have lined up. The plan paces toward the nearest one and leans on that company's set before it. Without a date, it covers the next 4 weeks</div></div>
+      <div class="ctl wide" aria-labelledby="iv-l" data-iv-editor></div></div>
     <div class="row avail-row"><div><div class="lbl" id="co-l">Target companies</div><div class="desc">Their sets decide which techniques the plan leans on. Curated practice sets, not actual interview questions</div></div>
       <div class="ctl wide" aria-labelledby="co-l"><div class="co-chips">${chosen.map(
         (c) => html`<span class="co-chip">${c.title}<button type="button" data-co-remove="${c.slug}" aria-label="Remove ${c.title}">${icon("x")}</button></span>`,
@@ -106,6 +108,8 @@ function paint(): void {
     render(planEl, planGroup());
     const host = planEl.querySelector<HTMLElement>("[data-off-editor]");
     if (host) offEditor = mountAvailability(host, { sections: ["daysoff"], headings: false, id: "set-off" });
+    const ivHost = planEl.querySelector<HTMLElement>("[data-iv-editor]");
+    if (ivHost) mountInterviews(ivHost, cat?.catalog.playlists ?? [], { id: "set-iv", get: () => readPrefs().plan.interviews, set: (interviews) => updatePrefs({ plan: { interviews } }) });
   }
   if (remEl) render(remEl, reminderGroup());
 }
@@ -115,7 +119,7 @@ function openWindows(): void {
   if (!d) return;
   render(
     d,
-    html`<div class="dr-head"><div><h2 id="dr-h">When you practice</h2><p>Choose the hours when you can practice. Changes save automatically</p></div><button type="button" class="icon-btn" data-drawer-close aria-label="Close (Esc)">${icon("x")}</button></div>
+    html`<div class="dr-head"><div><h2 id="dr-h">When do you want to practice?</h2><p data-dr-lede>${drawerLede(null)}</p></div><button type="button" class="icon-btn" data-drawer-close aria-label="Close (Esc)">${icon("x")}</button></div>
     <div data-av-host style="margin-top:var(--space-5)"></div>
     <div class="dr-foot"><span>Saved as you go</span><a class="link text-small" href="${ROUTES.plan}">Open the plan</a><button type="button" class="btn btn-secondary" data-drawer-close>Done</button></div>`,
   );
@@ -127,6 +131,8 @@ function openWindows(): void {
       try {
         history = trainer?.habits(ev).history ?? null;
         drawerEditor?.refresh(history);
+        const lede = d.querySelector("[data-dr-lede]");
+        if (lede) lede.textContent = drawerLede(history);
       } catch {
         // No dots or suggestion.
       }
@@ -187,7 +193,6 @@ function onClick(e: MouseEvent): void {
     else updatePrefs({ plan: { weekendMinutes: step(WEEKEND_STEPS, p.weekendMinutes ?? p.dailyMinutes ?? 60, dir) } });
   } else if (sess) updatePrefs({ plan: { sessionMinutes: Number(sess.dataset.psession) } });
   else if (rm) updatePrefs({ plan: { companies: readPrefs().plan.companies.filter((c) => c !== rm.dataset.coRemove) } });
-  else if (t.closest("[data-no-date]")) updatePrefs({ plan: { interviewDate: null } });
   else if (t.closest("[data-edit-windows]")) openWindows();
   else if (t.closest("[data-drawer-close]")) closeWindows();
   else if (t.closest("[data-cal-manage]")) void openSync();
@@ -196,8 +201,7 @@ function onClick(e: MouseEvent): void {
 async function onChange(e: Event): Promise<void> {
   if (!$("[data-plan-settings]")) return;
   const el = e.target as HTMLInputElement | HTMLSelectElement;
-  if (el.matches("[data-iv]")) updatePrefs({ plan: { interviewDate: el.value || null } });
-  else if (el.matches("[data-co-add]") && el.value) updatePrefs({ plan: { companies: [...readPrefs().plan.companies, el.value] } });
+  if (el.matches("[data-co-add]") && el.value) updatePrefs({ plan: { companies: [...readPrefs().plan.companies, el.value] } });
   else if (el.matches("[data-lead]")) {
     const lead = Number(el.value);
     updatePrefs({ reminders: { lead }, plan: readPrefs().plan.reminderMinutes !== null ? { reminderMinutes: lead } : {} });
@@ -225,7 +229,7 @@ document.addEventListener("change", (e) => void onChange(e));
 document.addEventListener("keydown", (e) => e.key === "Escape" && closeWindows());
 document.addEventListener("astro:page-load", () => void init());
 addEventListener("myleet:prefs", () => {
-  const busy = $("[data-av-drawer]")?.contains(document.activeElement) || $("[data-off-editor]")?.contains(document.activeElement);
+  const busy = ["[data-av-drawer]", "[data-off-editor]", "[data-iv-editor]"].some((k) => $(k)?.contains(document.activeElement));
   if (!$("[data-plan-settings]") || busy) {
     const sum = $("[data-win-summary]");
     if (sum) sum.textContent = windowsSummary(readPrefs().plan.availability);
