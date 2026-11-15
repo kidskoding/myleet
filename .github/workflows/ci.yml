@@ -12,10 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Go
-        uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
+      - name: Install Rust from rust-toolchain.toml
+        run: rustup show active-toolchain || rustup toolchain install
+
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -23,15 +24,16 @@ jobs:
       - name: Sync development environment
         run: uv sync --group dev
 
-      - name: Check Go code
+      - name: Check Rust code
         run: |
-          go vet ./...
-          go test ./...
+          cargo fmt --check
+          cargo clippy --all-targets -- -D warnings
+          cargo test
 
       - name: Check curriculum
         run: |
-          go run ./cmd/myleet validate
-          go run ./cmd/myleet check --solutions
+          cargo run --release -- validate
+          cargo run --release -- check --solutions
 
       - name: Check Python style
         run: |
@@ -45,29 +47,4 @@ jobs:
         run: uv run pytest
 
       - name: Check Markdown formatting
-        run: find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
-
-  rust:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Rust from rust-toolchain.toml
-        run: rustup show active-toolchain || rustup toolchain install
-
-      - name: Cache Cargo
-        uses: Swatinem/rust-cache@v2
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-
-      - name: Sync Python environment
-        run: uv sync --group dev
-
-      - name: Check Rust code
-        run: |
-          cargo fmt --check
-          cargo clippy --all-targets -- -D warnings
-          cargo test
+        run: find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -path './target' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
