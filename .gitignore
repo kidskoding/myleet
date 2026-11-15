@@ -33,3 +33,6 @@ previous/
 
 # Rust build output
 target/
+
+# session handoff notes
+.handoff/
