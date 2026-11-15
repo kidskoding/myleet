@@ -1,0 +1,35 @@
+name = "myleet"
+main = "build/worker/shim.mjs"
+compatibility_date = "2026-11-01"
+
+# worker-build compiles the crate to wasm and writes build/. Installed on first use;
+# installing it needs OpenSSL headers (see README).
+[build]
+command = "command -v worker-build >/dev/null 2>&1 || cargo install -q --locked worker-build@0.9.0; worker-build --release"
+
+# The same Worker serves the Astro site. Only /api/* runs Rust; everything else is a
+# static asset, so page views cost no Worker CPU.
+[assets]
+directory = "../web/dist"
+not_found_handling = "404-page"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "myleet"
+database_id = "00000000-0000-0000-0000-000000000000" # replace: `bunx wrangler d1 create myleet`
+migrations_dir = "migrations"
+
+# Statement cache and magic-link rate-limit counters.
+[[kv_namespaces]]
+binding = "STATEMENTS"
+id = "00000000000000000000000000000000" # replace: `bunx wrangler kv namespace create STATEMENTS`
+
+# Public values only. Secrets are set with `bunx wrangler secret put <NAME>`:
+#   GITHUB_CLIENT_SECRET, GOOGLE_CLIENT_SECRET, RESEND_API_KEY
+# Local dev reads both from .dev.vars (gitignored; see .dev.vars.example).
+[vars]
+SITE_ORIGIN = "https://myleet.example.com"
+GITHUB_CLIENT_ID = "replace-with-github-oauth-client-id"
+GOOGLE_CLIENT_ID = "replace-with-google-oauth-client-id.apps.googleusercontent.com"
+EMAIL_FROM = "myleet <login@myleet.example.com>"
