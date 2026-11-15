@@ -64,7 +64,7 @@ const PROFILE_MAX_MIN = 180;
 const FORECAST_ROWS = 6;
 
 let ctx: Ctx | undefined;
-let view: "week" | "month" = "week";
+let view: "week" | "month" | "roadmap" = "week";
 let offset = 0;
 let liveText = "";
 let openPopId: string | null = null;
@@ -128,13 +128,65 @@ function currentNote(c: Ctx): PlanNote | null {
     pool.push({
       kind: "no_date" as PlanNote["kind"],
       title: "No interview date yet",
-      body: "This plan covers the next 4 weeks and rolls forward each day. Add a date and it builds toward it, with mocks closer together near the end",
-      actions: [{ kind: "set_date", label: "Add a date" }],
+      body: "Until you set one, the plan covers the next 4 weeks. Pick a 15, 30 or 60-day roadmap to pace the curriculum toward your target companies, or toward general big-tech readiness if you haven't picked any. You can also add your own date. Mocks get closer together near the end.",
+      actions: [
+        ...ROADMAPS.map((r) => ({ kind: "roadmap" as const, label: r.label, value: r.days })),
+        { kind: "set_date", label: "Pick a date" },
+      ],
     });
   return pool.find((n) => !noteDismissed(n)) ?? null;
 }
 
 const STICKY_NOTES = new Set(["offline", "date_passed", "over_budget"]);
+
+// Roadmap presets only set an end date and a daily budget; the personalized planner does the rest.
+export const ROADMAPS = [
+  { days: 15, label: "15-day sprint", weekday: 180, weekend: 240 },
+  { days: 30, label: "30-day plan", weekday: 120, weekend: 180 },
+  { days: 60, label: "60-day plan", weekday: 60, weekend: 120 },
+] as const;
+
+// shortcut: the chosen roadmap is a per-device hint; the dates and budgets it sets do sync with the account.
+const ROADMAP_KEY = "myleet-roadmap";
+
+function chosenRoadmap(): string {
+  try {
+    return localStorage.getItem(ROADMAP_KEY) ?? "custom";
+  } catch {
+    return "custom";
+  }
+}
+
+function roadmapPicker(): SafeHtml {
+  const cur = chosenRoadmap();
+  return html`<div class="seg roadmap-pick" role="group" aria-label="Roadmap">${ROADMAPS.map((r) => html`<button type="button" data-roadmap="${r.days}" aria-pressed="${cur === String(r.days)}">${r.label}</button>`)}<button type="button" data-roadmap="custom" aria-pressed="${cur === "custom"}">Custom</button></div>`;
+}
+
+function pickRoadmap(choice: string): void {
+  try {
+    localStorage.setItem(ROADMAP_KEY, choice);
+  } catch {
+    /* private mode: the plan still changes, only the highlight is lost */
+  }
+  if (choice === "custom") return (paint(), openDrawer());
+  startRoadmap(Number(choice));
+}
+
+function startRoadmap(days: number): void {
+  const r = ROADMAPS.find((x) => x.days === days);
+  if (!r) return;
+  try {
+    localStorage.setItem(ROADMAP_KEY, String(days));
+  } catch {
+    /* ignore */
+  }
+  const due = new Date();
+  due.setDate(due.getDate() + r.days);
+  // Technique emphasis comes from the learner's target companies; with none picked the planner aims at general readiness.
+  updatePrefs({ plan: { interviewDate: isoDay(due), dailyMinutes: r.weekday, weekendMinutes: r.weekend } });
+  view = "roadmap";
+  history.replaceState(history.state, "", `${location.pathname}?view=roadmap`);
+}
 
 // ---- the week grid ----
 
@@ -273,13 +325,15 @@ function dayHeadline(d: PlanDay): string {
     .join(", ");
 }
 
-function monthGrid(c: Ctx): SafeHtml {
+function monthGrid(c: Ctx, whole = false): SafeHtml {
   const start = dateOf(c.plan.start);
   start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
+  const finish = [c.plan.days.at(-1)?.date ?? c.plan.start, c.plan.interview_date ?? ""].sort().at(-1) ?? c.plan.start;
+  const span = whole ? Math.ceil((dateOf(finish).getTime() - start.getTime()) / 86400000 / 7 + 1 / 7) * 7 : 35;
   const byDate = new Map(c.plan.days.map((d, i) => [d.date, [d, i] as const]));
   const practised = new Set(attempts(parseEvents(c.events)).filter((a) => a.end).map((a) => isoDay(new Date(a.end ?? 0))));
   const cells: SafeHtml[] = [];
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0; i < span; i++) {
     const dt = new Date(start);
     dt.setDate(start.getDate() + i);
     const day = isoDay(dt);
@@ -298,11 +352,11 @@ function monthGrid(c: Ctx): SafeHtml {
     const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
     const what = dayHeadline(d);
     cells.push(html`<button type="button" class="mc${day === c.plan.start ? " today" : ""}" data-goto="${idx}" aria-label="${longDay(day)}: ${d.off ? "day off" : d.minutes ? `${fmtM(d.minutes)}, ${what}` : "nothing planned"}">
-      <span class="num"><span>${dt.getDate()}</span>${d.minutes ? html`<small>${d.minutes}m</small>` : ""}</span>
-      ${d.off ? html`<span class="chip off">Day off</span>` : html`${what ? html`<span class="what">${what}</span>` : ""}${mock ? html`<span class="chip mock on-wall">Mock</span>` : ""}${check ? html`<span class="chip check">Check-in</span>` : ""}`}
+      <span class="num"><span>${whole && (i === 0 || dt.getDate() === 1) ? short(day) : dt.getDate()}</span>${d.minutes ? html`<small>${d.minutes}m</small>` : ""}</span>
+      ${d.off ? html`<span class="chip off">Day off</span>` : html`${what ? html`<span class="what">${what}</span>` : ""}${whole && d.minutes ? mixBar(d.sessions.flatMap((x) => x.items)) : ""}${mock ? html`<span class="chip mock on-wall">Mock</span>` : ""}${check ? html`<span class="chip check">Check-in</span>` : ""}`}
     </button>`);
   }
-  return html`<div class="panel month">${DAY_SHORT.map((d) => html`<div class="mh">${d}</div>`)}${cells}</div>`;
+  return html`${whole ? html`<p class="roadmap-sum">${c.plan.summary.headline}</p>` : ""}<div class="panel month${whole ? " roadmap" : ""}">${DAY_SHORT.map((d) => html`<div class="mh">${d}</div>`)}${cells}</div>`;
 }
 
 function agenda(c: Ctx): SafeHtml {
@@ -411,7 +465,8 @@ function head(c: Ctx): SafeHtml {
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
     <header class="plan-head">
       <div><h1>${date ? `Plan to ${short(date)}` : "Your next 4 weeks"}</h1>
-        <p class="lede">${date ? html`<b>${who ? `${who} interview` : "Interview"} in ${plural(left ?? 0, "day")}.</b> Sessions use your available hours and usual solving time` : "Sessions use your available hours and usual solving time"}. The plan updates after each solve.</p></div>
+        <p class="lede">${date ? html`<b>${who ? `${who} interview` : "Interview"} in ${plural(left ?? 0, "day")}.</b> Sessions use your available hours and usual solving time` : "Sessions use your available hours and usual solving time"}. The plan updates after each solve.</p>
+        ${roadmapPicker()}</div>
       <div class="head-actions"><button type="button" class="btn btn-ghost" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Availability ${kbd("a")}</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
     </header>`;
 }
@@ -423,7 +478,9 @@ function toolbar(c: Ctx, g: Grid): SafeHtml {
   const first = g.days[0]?.date ?? c.plan.start;
   const last = g.days.at(-1)?.date ?? first;
   const range =
-    view === "month"
+    view === "roadmap"
+      ? `${short(c.plan.start)} to ${short(c.plan.interview_date ?? c.plan.days.at(-1)?.date ?? c.plan.start)}`
+      : view === "month"
       ? (() => {
           const s = dateOf(c.plan.start);
           s.setDate(s.getDate() - ((s.getDay() + 6) % 7));
@@ -438,11 +495,11 @@ function toolbar(c: Ctx, g: Grid): SafeHtml {
     html`<span class="bg"><span id="${k}-l">${label}</span><span class="stepper" role="group" aria-labelledby="${k}-l"><button type="button" data-step="${k}" data-by="-1" aria-label="Less ${label.toLowerCase()} time" ${v <= (steps[0] ?? 0) ? "disabled" : ""}>${icon("minus")}</button><output aria-live="off">${fmtM(v)}</output><button type="button" data-step="${k}" data-by="1" aria-label="More ${label.toLowerCase()} time" ${v >= (steps.at(-1) ?? 0) ? "disabled" : ""}>${icon("plus")}</button></span></span>`;
   const n = cols();
   return html`<div class="cal-bar">
-    <div class="nav2"><button type="button" class="icon-btn" data-nav="-1" aria-label="Previous ${n === 7 ? "week" : "4 days"} ( [ )" ${offset === 0 || view === "month" ? "disabled" : ""}>${icon("chevron-left")}</button><button type="button" class="icon-btn" data-nav="1" aria-label="Next ${n === 7 ? "week" : "4 days"} ( ] )" ${offset + n >= c.plan.days.length || view === "month" ? "disabled" : ""}>${icon("chevron-right")}</button></div>
+    <div class="nav2"><button type="button" class="icon-btn" data-nav="-1" aria-label="Previous ${n === 7 ? "week" : "4 days"} ( [ )" ${offset === 0 || view !== "week" ? "disabled" : ""}>${icon("chevron-left")}</button><button type="button" class="icon-btn" data-nav="1" aria-label="Next ${n === 7 ? "week" : "4 days"} ( ] )" ${offset + n >= c.plan.days.length || view !== "week" ? "disabled" : ""}>${icon("chevron-right")}</button></div>
     <button type="button" class="btn btn-secondary btn-sm todaybtn" data-today aria-keyshortcuts="t">Today ${kbd("t")}</button>
     <h2 id="cal-h">${range}</h2>
     <div class="budget" role="group" aria-labelledby="dt-l"><span class="bl" id="dt-l">Daily time</span>${stepper("wd", wd, WEEKDAY_STEPS, "Weekdays")}${stepper("we", we, WEEKEND_STEPS, "Weekends")}</div>
-    <div class="seg" role="group" aria-label="View"><button type="button" data-view="week" aria-pressed="${view === "week"}">${n === 7 ? "Week" : "4 days"}</button><button type="button" data-view="month" aria-pressed="${view === "month"}">Month</button></div>
+    <div class="seg" role="group" aria-label="View"><button type="button" data-view="week" aria-pressed="${view === "week"}">${n === 7 ? "Week" : "4 days"}</button><button type="button" data-view="month" aria-pressed="${view === "month"}">Month</button><button type="button" data-view="roadmap" aria-pressed="${view === "roadmap"}">Roadmap</button></div>
   </div>
   <div data-live-host></div>`;
 }
@@ -476,7 +533,7 @@ function paint(): void {
     el,
     html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
-        ${view === "week" ? weekGrid(c, g) : monthGrid(c)}${agenda(c)}
+        ${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}
         <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
       <div class="route">${profile(c)}${forecast(c)}</div>
@@ -509,7 +566,7 @@ function placeBracket(): void {
   const all = [...prof.querySelectorAll<HTMLElement>(".pcol")];
   const a = all[offset];
   const b = all[Math.min(all.length - 1, offset + cols() - 1)];
-  if (!a || !b || view === "month") return void (br.style.display = "none");
+  if (!a || !b || view !== "week") return void (br.style.display = "none");
   const base = prof.getBoundingClientRect();
   br.style.left = `${a.getBoundingClientRect().left - base.left}px`;
   br.style.width = `${b.getBoundingClientRect().right - a.getBoundingClientRect().left}px`;
@@ -1070,7 +1127,7 @@ function goTo(index: number, openFirst = false): void {
 function onClick(e: MouseEvent): void {
   if (!root() || !ctx) return;
   const t = e.target as Element;
-  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],[data-nav],[data-today],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol,.ag-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
+  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],[data-nav],[data-today],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol,.ag-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href],[data-roadmap]");
   if (!t.closest(".daymenu-pop") && !t.closest("[data-daymenu]")) closeDayMenu();
   if (!a) {
     if (!t.closest("[data-pop]") && !t.closest(".ses") && !t.closest(".toast")) closePop();
@@ -1078,6 +1135,7 @@ function onClick(e: MouseEvent): void {
   }
   const d = a.dataset;
   if (d.startHref) return void (location.href = d.startHref);
+  if (d.roadmap) return pickRoadmap(d.roadmap);
   if (d.act === "avail") return (closeDayMenu(), openDrawer());
   if (d.act === "sync") return openSync();
   if (a.matches("[data-drawer-close]")) return closeDrawer();
@@ -1089,8 +1147,8 @@ function onClick(e: MouseEvent): void {
   }
   if (d.fix) return setBudget("wd", Number(d.fix));
   if (d.view) {
-    view = d.view === "month" ? "month" : "week";
-    history.replaceState(history.state, "", view === "month" ? `${location.pathname}?view=month` : location.pathname);
+    view = d.view === "month" || d.view === "roadmap" ? d.view : "week";
+    history.replaceState(history.state, "", view === "week" ? location.pathname : `${location.pathname}?view=${view}`);
     return paint();
   }
   if (d.nav) {
@@ -1122,6 +1180,7 @@ function onClick(e: MouseEvent): void {
     if (d.noteAct === "weekday_minutes") return setBudget("wd", Number(d.value));
     if (d.noteAct === "availability") return openDrawer();
     if (d.noteAct === "set_date") return void (location.href = `${ROUTES.settings}#plan`);
+    if (d.noteAct === "roadmap") return startRoadmap(Number(d.value));
     if (d.noteAct === "clear_date") return void updatePrefs({ plan: { interviewDate: null } });
   }
   if (a.matches("[data-use-suggest]")) {
@@ -1211,7 +1270,8 @@ function errorState(err: unknown): void {
 
 async function init(): Promise<void> {
   if (!root()) return;
-  view = new URLSearchParams(location.search).get("view") === "month" ? "month" : "week";
+  const v = new URLSearchParams(location.search).get("view");
+  view = v === "month" || v === "roadmap" ? v : "week";
   offset = 0;
   openPopId = null;
   liveText = "";

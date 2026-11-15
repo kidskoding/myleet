@@ -272,7 +272,7 @@ export interface PlanDay {
 }
 
 export interface NoteAction {
-  kind: "weekday_minutes" | "availability" | "set_date" | "clear_date" | "open_plan";
+  kind: "weekday_minutes" | "availability" | "set_date" | "clear_date" | "open_plan" | "roadmap";
   label: string;
   value?: number;
 }
