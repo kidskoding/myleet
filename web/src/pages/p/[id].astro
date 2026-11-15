@@ -1,7 +1,21 @@
 ---
-import Base from "../../layouts/Base.astro";
+// The problem workspace. Its own document: the workspace bar replaces the app's top bar,
+// and a full page load keeps the editor, runner and timer lifecycle simple.
+import "@fontsource-variable/archivo/wdth.css";
+import "@fontsource-variable/literata/opsz.css";
+import "@fontsource-variable/jetbrains-mono/wght.css";
+import "@fontsource-variable/jetbrains-mono/wght-italic.css";
+import archivoLatin from "@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url";
+import monoLatin from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import "../../styles/tokens.css";
+import "../../styles/base.css";
+import Workspace from "../../components/workspace/Workspace.astro";
+import { renderMarkdown } from "../../components/workspace/markdown";
 import { buildCatalog } from "../../lib/build-catalog";
-import type { ProblemMeta } from "../../lib/types";
+import { ROUTES } from "../../lib/routes";
+import type { ProblemFiles, ProblemMeta } from "../../lib/types";
 
 export function getStaticPaths() {
   return buildCatalog().problems.map((problem) => ({ params: { id: problem.id }, props: { problem } }));
@@ -12,12 +26,60 @@ interface Props {
 }
 
 const { problem } = Astro.props;
+const catalog = buildCatalog();
+const mod = catalog.modules[problem.module];
+const technique = mod?.techniques[problem.technique];
+// Sentence case for the breadcrumb ("Arrays and hashing"), keeping acronyms such as DP or BFS.
+const sentence = (t: string) => t.split(" ").map((w, i) => (i === 0 || /^[A-Z0-9]{2,}$/.test(w) ? w : w.toLowerCase())).join(" ");
+const moduleTitle = mod?.bank ? "Extra practice" : sentence(mod?.title ?? "");
+const files = JSON.parse(readFileSync(join(process.cwd(), "public/data/problems", `${problem.id}.json`), "utf8")) as ProblemFiles;
+const statementHtml = files.prompt.trim() ? renderMarkdown(files.prompt) : null;
+const title = `${problem.title} · myleet`;
+const description = `Practise ${problem.title} (LeetCode ${problem.leetcode}, ${problem.difficulty}) in Python with tests that run in your browser.`;
+const site = Astro.site ?? new URL("https://myleet.dev");
+const canonical = new URL(Astro.url.pathname, site).href;
 ---
 
-<Base title={problem.title}>
-  <article data-problem-id={problem.id}>
-    <h1>{problem.title}</h1>
-    <p>{problem.difficulty} · <a href={problem.url} rel="noopener" target="_blank">LeetCode {problem.leetcode}</a></p>
-    <p>Placeholder: statement, editor and tests land here (client-rendered from data/problems/{problem.id}.json).</p>
-  </article>
-</Base>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:site_name" content="myleet" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/og/default.png", site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f2f3ef" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121417" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" href={archivoLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={monoLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("myleet-theme");
+          if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <Workspace
+      problem={problem}
+      moduleTitle={moduleTitle}
+      techniqueTitle={sentence(technique?.title ?? "")}
+      starter={files.starter}
+      statementHtml={statementHtml}
+      backHref={ROUTES.today}
+    />
+  </body>
+</html>

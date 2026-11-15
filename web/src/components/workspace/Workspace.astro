@@ -1,0 +1,212 @@
+---
+// The problem workspace (design: .planning/design/screens/problem). Server-renders
+// everything readable before JS (statement, static highlighted starter, chrome); the
+// client script turns it into the editor, runner and timer.
+import "./workspace.css";
+import { highlightLines } from "../../lib/editor/highlight";
+import type { ProblemMeta } from "../../lib/types";
+import { icon } from "./icons";
+
+interface Props {
+  problem: ProblemMeta;
+  moduleTitle: string;
+  techniqueTitle: string;
+  starter: string;
+  /** The problem's own prompt, rendered; null means fetch LeetCode's statement. */
+  statementHtml: string | null;
+  backHref: string;
+}
+
+const { problem, moduleTitle, techniqueTitle, starter, statementHtml, backHref } = Astro.props;
+const lines = highlightLines(starter);
+const minutes = Math.round(problem.time_target_secs / 60);
+const target = `${minutes}:00`;
+const diffLabel = problem.difficulty[0]!.toUpperCase() + problem.difficulty.slice(1);
+const crumb = [moduleTitle, techniqueTitle].filter(Boolean).join(", ");
+const hintCount = problem.hints.length + (problem.key_idea ? 1 : 0);
+const say = problem.say_aloud.map((s) => s[0]!.toUpperCase() + s.slice(1));
+const data = JSON.stringify({ meta: problem, starter, moduleTitle, techniqueTitle }).replace(/</g, "\\u003c");
+---
+
+<div class="wsx" id="workspace" data-problem={problem.id} data-back={backHref} data-state="loading">
+  <a class="skip-link" href="#editor">Skip to editor</a>
+
+  <header class="wbar">
+    <div class="left">
+      <a class="icon-btn" href={backHref} data-back aria-label="Back to Today" set:html={icon("arrow-left")} />
+      <div class="crumbs">
+        <h1 class="t" id="ptitle" title={problem.title} style={`view-transition-name: p-${problem.id}`}>{problem.title}</h1>
+        <div class="s"><span class="tag tag-new" data-tag hidden>New</span><span class="reason" data-reason data-crumb>{crumb}</span><span class="yourpace" data-pace hidden></span></div>
+      </div>
+    </div>
+
+    <div class="timer" data-timer data-state="idle" role="timer" aria-live="off" aria-label={`Timer not started, ${minutes} minute target`}>
+      <div>
+        <div class="clock" data-clock>0:00</div>
+        <div class="track"><span data-track style="width:0%"></span></div>
+      </div>
+      <div class="target" data-target-label>of {target}</div>
+    </div>
+
+    <div class="right">
+      <button class="icon-btn hide-m" data-act="pause" aria-label="Pause timer (Ctrl .)" aria-keyshortcuts="Control+." set:html={icon("pause")} />
+      <button class="icon-btn hide-m" data-act="focusMode" aria-label="Focus mode (Ctrl Shift F)" aria-pressed="false" set:html={icon("scan")} />
+      <button class="icon-btn hide-m hide-t" data-act="palette" aria-label="Search and commands (Ctrl K)" set:html={icon("command")} />
+      <span class="sep hide-m"></span>
+      <button class="btn btn-secondary hide-m" data-act="run" aria-keyshortcuts="Control+Enter"><span class="spin" aria-hidden="true"></span><span data-run-label>Run</span> <kbd data-kbd="⌘↵">Ctrl ↵</kbd></button>
+      <button class="btn btn-primary hide-m" data-act="submit" aria-keyshortcuts="Control+Shift+Enter">Submit</button>
+      <button class="icon-btn" data-act="more" aria-label="More: restart, give up, editor settings" aria-haspopup="menu" aria-expanded="false" set:html={icon("ellipsis")} />
+    </div>
+  </header>
+
+  <div class="mtabs tabs" role="tablist" aria-label="Workspace panes">
+    <button role="tab" data-mtab="problem" aria-selected="false">Problem</button>
+    <button role="tab" data-mtab="code" aria-selected="true">Code</button>
+    <button role="tab" data-mtab="tests" aria-selected="false">Tests <span class="count" data-mtests-count></span></button>
+  </div>
+
+  <main class="ws" id="main" data-mpane="code">
+    <section class="col left-col" id="pane-problem" aria-label="Problem" data-pane="problem">
+      <div class="pane">
+        <div class="pane-head">
+          <div class="tabs" role="tablist" aria-label="Problem">
+            <button role="tab" id="lt-problem" aria-controls="lp-problem" aria-selected="true" data-ltab="problem">Problem</button>
+            <button role="tab" id="lt-hints" aria-controls="lp-hints" aria-selected="false" tabindex="-1" data-ltab="hints" data-exam-hide-hints>Hints <span class="count" data-hint-count>0/{hintCount}</span></button>
+            <button role="tab" id="lt-solution" aria-controls="lp-solution" aria-selected="false" tabindex="-1" data-ltab="solution" data-exam-hide><span data-lock set:html={icon("lock", 13, "icon-sm")} />Solution</button>
+            <button role="tab" id="lt-history" aria-controls="lp-history" aria-selected="false" tabindex="-1" data-ltab="history">History</button>
+          </div>
+          <button class="icon-btn" data-act="toggleProblem" aria-label="Collapse problem pane (Ctrl B)" set:html={icon("panel-left-close")} />
+        </div>
+        <div class="pane-body" data-scroll>
+          <article class="statement" id="lp-problem" role="tabpanel" aria-labelledby="lt-problem">
+            <div class="meta">
+              <span class="diff" data-level={problem.difficulty}><i><b></b><b></b><b></b></i>{diffLabel}</span>
+              <span>{minutes} min target</span>
+              <a class="link" href={problem.url} target="_blank" rel="noopener">LeetCode {problem.leetcode}</a>
+            </div>
+            <div class="prose" data-statement data-has-prompt={statementHtml ? "" : undefined}>
+              {statementHtml ? <Fragment set:html={statementHtml} /> : (
+                <div class="stmt-skel" aria-label="Loading the statement" role="status">
+                  <span class="skel" style="width:96%"></span><span class="skel" style="width:88%"></span><span class="skel" style="width:70%"></span>
+                  <span class="skel tall" style="width:100%"></span><span class="skel" style="width:60%"></span>
+                </div>
+              )}
+            </div>
+
+            <section class="hintbox" aria-labelledby="hints-h" data-exam-hide-hints>
+              <h2 id="hints-h">Hints</h2>
+              <p class="cost">Opening any hint records this attempt as assisted: the review drops to 1 day. You can still pass the tests.</p>
+              <div data-hints></div>
+            </section>
+
+            {say.length > 0 && (
+              <section class="say" aria-labelledby="say-h">
+                <h2 id="say-h">Say it aloud</h2>
+                {say.map((s, i) => (
+                  <label><input type="checkbox" data-say={problem.say_aloud[i]} /> {s}</label>
+                ))}
+              </section>
+            )}
+          </article>
+          <div class="tabpanel" id="lp-hints" role="tabpanel" aria-labelledby="lt-hints" hidden>
+            <section class="hintbox solo">
+              <p class="cost">Opening any hint records this attempt as assisted: the review drops to 1 day. You can still pass the tests.</p>
+              <div data-hints></div>
+            </section>
+          </div>
+          <div class="tabpanel" id="lp-solution" role="tabpanel" aria-labelledby="lt-solution" hidden data-solution></div>
+          <div class="tabpanel" id="lp-history" role="tabpanel" aria-labelledby="lt-history" hidden data-history></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="gutter v" data-gutter="problem" role="separator" tabindex="0" aria-orientation="vertical" aria-controls="pane-problem" aria-label="Resize problem pane" aria-valuemin="15" aria-valuemax="70" aria-valuenow="36"></div>
+
+    <section class="col right-col" aria-label="Code and tests">
+      <div class="pane ed-pane" id="pane-editor" data-pane="editor" aria-label="Editor">
+        <div class="pane-head ed-head">
+          <span class="file"><span set:html={icon("file-code-2", 14, "icon-sm")} />solution.py</span>
+          <span class="saved" data-saved aria-live="off"></span>
+          <div class="tools">
+            <span class="mode-tag" data-interview-tag hidden>Interview mode</span>
+            <button class="btn btn-ghost btn-sm hide-m" data-act="drafts" aria-haspopup="dialog" aria-expanded="false"><span set:html={icon("history", 14, "icon-sm")} />Drafts</button>
+            <button class="icon-btn" data-act="save" aria-label="Format with ruff (Ctrl S)" set:html={icon("wand-sparkles")} />
+            <button class="icon-btn" data-act="settings" aria-label="Editor settings" aria-haspopup="dialog" aria-expanded="false" set:html={icon("settings-2")} />
+            <button class="icon-btn hide-m" data-act="zen" aria-label="Zen: hide problem and tests panes" aria-pressed="false" set:html={icon("maximize-2")} />
+          </div>
+        </div>
+        <div class="draft-bar" data-draft-bar hidden></div>
+        <div class="pane-body ed-body">
+          <div class="editor" id="editor" data-editor>
+            <pre class="static-code" aria-label="solution.py starter code" tabindex="0">{lines.map((l, i) => (
+              <div class="cl"><span class="ln" aria-hidden="true">{i + 1}</span><span class="cg"></span><code set:html={l || " "} /></div>
+            ))}</pre>
+          </div>
+          <div class="paused-veil" data-veil hidden>
+            <div>
+              <span set:html={icon("pause", 28)} />
+              <h2 data-veil-title>Paused</h2>
+              <p>The code is hidden so a pause can't become thinking time.</p>
+              <button class="btn btn-primary" data-act="pause">Resume <kbd data-kbd="⌘.">Ctrl .</kbd></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gutter h" data-gutter="tests" role="separator" tabindex="0" aria-orientation="horizontal" aria-controls="pane-tests" aria-label="Resize tests pane" aria-valuemin="12" aria-valuemax="80" aria-valuenow="37"></div>
+
+      <div class="pane tests-pane" id="pane-tests" data-pane="tests" aria-label="Tests">
+        <div class="pane-head">
+          <div class="tabs" role="tablist" aria-label="Results">
+            <button role="tab" id="tt-tests" aria-controls="tp-tests" aria-selected="true" data-ttab="tests">Tests <span class="count" data-tests-count></span></button>
+            <button role="tab" id="tt-custom" aria-controls="tp-custom" aria-selected="false" tabindex="-1" data-ttab="custom" data-exam-hide>Custom input</button>
+            <button role="tab" id="tt-console" aria-controls="tp-console" aria-selected="false" tabindex="-1" data-ttab="console">Console</button>
+          </div>
+          <label class="switch hide-m"><input type="checkbox" data-run-on-save /> Run on save</label>
+          <button class="icon-btn" data-act="toggleTests" aria-label="Collapse tests pane (Ctrl J)" set:html={icon("panel-bottom-close")} />
+        </div>
+        <div class="pane-body tests-body" data-scroll>
+          <div id="tp-tests" role="tabpanel" aria-labelledby="tt-tests" data-tests>
+            <p class="empty-note">Run the tests with <kbd data-kbd="⌘↵">Ctrl ↵</kbd>. Nothing is recorded until you Submit.</p>
+          </div>
+          <div id="tp-custom" role="tabpanel" aria-labelledby="tt-custom" hidden data-custom></div>
+          <div id="tp-console" role="tabpanel" aria-labelledby="tt-console" hidden><pre class="console" data-console>Nothing printed yet.</pre></div>
+        </div>
+        <div class="result-slot" data-result></div>
+      </div>
+    </section>
+
+    <button class="rail rail-left" data-rail="problem" hidden aria-label="Show problem pane (Ctrl B)"><span set:html={icon("panel-left-open")} /><span>Problem</span></button>
+    <button class="rail rail-bottom" data-rail="tests" hidden aria-label="Show tests pane (Ctrl J)"><span set:html={icon("panel-bottom-open")} /><span>Tests</span><span class="count" data-rail-count></span></button>
+  </main>
+
+  <div class="mbar" aria-label="Coding keys">
+    <button class="key" data-key={"\t"} aria-label="Indent">⇥</button>
+    <button class="key" data-key="(">(</button>
+    <button class="key" data-key="[">[</button>
+    <button class="key" data-key=":">:</button>
+    <button class="key" data-key="=">=</button>
+    <button class="key" data-key={'"'}>"</button>
+    <button class="btn btn-primary" data-act="run">Run</button>
+  </div>
+
+  <footer class="status" aria-label="Editor status">
+    <span data-st="cursor">Ln 1, Col 1</span>
+    <button class="opt" data-st="lint" data-act="nextProblem"><span class="dot" data-lint-dot></span><span data-lint-text>Lint loading</span></button>
+    <button class="opt" data-st="tests" data-act="focusTests"><span class="dot" data-tests-dot></span><span data-tests-text>Tests not run</span></button>
+    <span class="grow opt" data-st="runtime">Python loading</span>
+    <button class="opt" data-st="spaces" data-act="settings">Spaces: 4</button>
+    <button class="opt" data-st="vim" data-act="toggleVim">Vim off</button>
+    <span data-st="saved"><span set:html={icon("hard-drive", 13, "icon-xs")} /><span data-saved-text>Saved</span></span>
+  </footer>
+
+  <div class="visually-hidden" role="status" aria-live="polite" data-live></div>
+  <div class="toast-slot" data-toast></div>
+</div>
+
+<script type="application/json" id="wsx-data" set:html={data} />
+
+<script>
+  import { mountFromPage } from "./mount";
+  mountFromPage();
+</script>
