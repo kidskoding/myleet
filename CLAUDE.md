@@ -131,6 +131,20 @@ The `NNN_` file prefix sets display order: within a group, lower numbers come fi
 
 ______________________________________________________________________
 
+## CI and deploy
+
+Every push to master runs CI (`.github/workflows/ci.yml`), and Deploy ships the site only when CI passes, so a red check blocks the release. Keep CI green while working, not just at the end:
+
+| You changed                                                         | Run before committing                                          |
+| ------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Rust in `src/`, `crates/` or `worker/`                              | `just ci-rust`                                                 |
+| Anything in `web/`                                                  | `just ci-web` (export, wasm, build with type check, tests)     |
+| Problems, notes, playlists, `bank/`                                 | `just ci-content`, then `just export` so the site sees it      |
+| Python or Markdown anywhere (including `tools/`, notes and READMEs) | `just ci-python` (ruff check and format, ty, pytest, mdformat) |
+| The worker, migrations or deploy config                             | `just cd-check` (the Deploy build without deploying)           |
+
+Run `just ci` (everything) before a push that touches more than one area. Run the formatters inside the repo so they pick up `pyproject.toml` settings: `uv run ruff format .` and `uv run mdformat <file>`, never a global install. When other sessions have uncommitted work in the tree, check the commit on its own before pushing: extract it with `git archive HEAD` into a temp folder and run the checks there. A local pass on files that aren't in the commit proves nothing.
+
 ## Writing for people
 
 Run the `humanizer` skill on every piece of prose a person will read: web pages (How it works, About, Privacy, Terms, landing), UI copy and descriptions, notes, READMEs, commit messages and PR descriptions. Docs pages should be thorough and long enough to answer the reader's real questions, with concrete numbers and examples taken from the code (for example the ladder rungs, time targets and skill thresholds in `crates/core`), never invented. Use full sentences with periods, sentence-case headings, and no em dashes.

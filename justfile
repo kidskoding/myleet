@@ -29,6 +29,37 @@ validate:
 check:
     cargo run --release -- check --solutions
 
+# every check CI runs (.github/workflows/ci.yml); run before pushing
+ci: ci-rust ci-web ci-content ci-python
+
+ci-rust:
+    cargo fmt --check
+    cargo clippy --workspace --all-targets -- -D warnings
+    cargo test --workspace
+    cargo check -p myleet-core -p myleet-wasm --target wasm32-unknown-unknown
+    cargo fmt --check --manifest-path worker/Cargo.toml
+    cargo clippy --manifest-path worker/Cargo.toml --all-targets -- -D warnings
+    cargo clippy --manifest-path worker/Cargo.toml --target wasm32-unknown-unknown -- -D warnings
+    cargo test --manifest-path worker/Cargo.toml
+
+ci-web: web-build
+    cd web && bun run test
+
+ci-content:
+    cargo run --release -- validate
+    cargo run --release -- check --solutions
+
+ci-python:
+    uv run ruff check .
+    uv run ruff format --check .
+    uv run ty check
+    uv run pytest
+    find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -path './target' -prune -o -path '*/node_modules' -prune -o -path './worker/target' -prune -o -path './web/dist' -prune -o -path './web/src/wasm' -prune -o -path './web/public/data' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
+
+# what the Deploy workflow builds, without deploying (needs worker-build)
+cd-check: web-build
+    cd worker && bun install --frozen-lockfile && bunx wrangler deploy --dry-run
+
 # write the catalog JSON the web app loads into web/public/data
 export:
     cargo run --release -- export web/public/data
