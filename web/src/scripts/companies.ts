@@ -28,6 +28,8 @@ interface Ctx {
   clean: Set<string>;
   skills: Skill[];
   now: number;
+  /** problem id to reporter count, from "I was asked this" reports. */
+  reported: Map<string, number>;
 }
 
 let ctx: Ctx | null = null;
@@ -167,7 +169,9 @@ function renderSet(c: Ctx, p: Playlist): void {
   const rows: string[] = [];
   let notReady = 0;
   let due = 0;
-  p.entries.forEach((e, i) => {
+  // Reported problems first, most reported first; the sort is stable so the rest keep curated order.
+  const count = (e: Playlist["entries"][number]) => (e.problem === null ? 0 : (c.reported.get(c.cat.catalog.problems[e.problem]?.id ?? "") ?? 0));
+  [...p.entries].sort((a, b) => count(b) - count(a)).forEach((e, i) => {
     const meta = e.problem === null ? undefined : c.cat.catalog.problems[e.problem];
     if (meta) {
       const ready = entryState(c.states[meta.id], c.clean.has(meta.id)) === "ready";
@@ -176,7 +180,7 @@ function renderSet(c: Ctx, p: Playlist): void {
       const keep = show === "all" || (show === "notready" && !ready) || (show === "due" && isDue(c.states[meta.id], c.now));
       if (!keep) return;
       const [status, st] = setStatus(c, meta.id);
-      rows.push(setRow(c.cat.catalog, e, i + 1, st, status).value);
+      rows.push(setRow(c.cat.catalog, e, i + 1, st, status, count(e)).value);
     } else if (show === "all") rows.push(setRow(c.cat.catalog, e, i + 1).value);
   });
   list.innerHTML = rows.join("") || html`<li class="tech-empty" style="padding:var(--space-4);color:var(--ink-3);font-size:var(--text-sm)">${show === "due" ? "Nothing from this set is due" : "Every problem in this set is ready"}</li>`.value;
@@ -348,6 +352,23 @@ function rerender(): void {
   renderInPlan(c, p);
 }
 
+/** Fills in report counts after first paint; any failure leaves the curated order. */
+async function loadReported(): Promise<void> {
+  const mine = ctx;
+  const slug = root()?.dataset["slug"];
+  if (!mine || !slug) return;
+  try {
+    const res = await fetch(`/api/reports/company?company=${encodeURIComponent(slug)}`);
+    if (!res.ok) return;
+    const body = (await res.json()) as { problems?: { problem: string; count: number }[] };
+    if (ctx !== mine || !body.problems?.length) return;
+    mine.reported = new Map(body.problems.map((r) => [r.problem, r.count]));
+    rerender();
+  } catch {
+    // Offline or blocked: the curated order stays.
+  }
+}
+
 async function load(): Promise<void> {
   if (!root()) return;
   // Signed out, the sets are read-only: no progress, even if this browser has some.
@@ -367,8 +388,9 @@ async function load(): Promise<void> {
     // Without the trainer the pages still list every set; progress fills in on the next load.
   }
   const target = (id: string) => cat.byId.get(id)?.time_target_secs ?? 1500;
-  ctx = { cat, t, events, states, clean: lastCleanSet(parseEvents(events), target), skills, now };
+  ctx = { cat, t, events, states, clean: lastCleanSet(parseEvents(events), target), skills, now, reported: new Map() };
   rerender();
+  void loadReported();
 }
 
 document.addEventListener("astro:page-load", () => {

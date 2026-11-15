@@ -13,7 +13,7 @@ use crate::account::{self, MePatch, PublicSummary, Resolution, Settings, Setting
 use crate::calendar;
 use crate::magic;
 use crate::oauth::{self, Failure, Profile, Provider};
-use crate::reports::{self, CompanyCount};
+use crate::reports::{self, CompanyCount, ProblemCount};
 use crate::session::{self, SESSION_COOKIE, STATE_COOKIE};
 use crate::statement::{self, Cached};
 use crate::sync::{self, Write};
@@ -123,6 +123,7 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
         (Method::Put, "/api/plan") => put_plan(req, app).await,
         (Method::Get, "/api/calendar") => feed_status(req, app).await,
         (Method::Get, "/api/reports") => get_reports(req, app).await,
+        (Method::Get, "/api/reports/company") => get_company_reports(req, app).await,
         (Method::Post, "/api/reports") => post_report(req, app).await,
         _ => json_error("not found", 404),
     }
@@ -1382,6 +1383,29 @@ async fn get_reports(req: &Request, app: &App) -> Result<Response> {
     };
     let user = current(req, app).await?.map(|c| c.user_id);
     reports_body(&app.db()?, &problem, user.as_deref()).await
+}
+
+/// `GET /api/reports/company?company=<slug>`: that company's problems with enough reporters.
+async fn get_company_reports(req: &Request, app: &App) -> Result<Response> {
+    let Some(company) = query_param(req, "company")?.filter(|c| reports::valid_company(c)) else {
+        return json_error("unknown company", 400);
+    };
+    let rows: Vec<ProblemCount> = app
+        .db()?
+        .prepare(
+            "SELECT problem_id AS problem, COUNT(*) AS count FROM reports WHERE company = ?1 GROUP BY problem_id",
+        )
+        .bind(&[text(&company)])?
+        .all()
+        .await?
+        .results()?;
+    let mut res = json(
+        &serde_json::json!({ "problems": reports::public_problems(rows) }),
+        200,
+    )?;
+    res.headers_mut()
+        .set("Cache-Control", "public, max-age=600")?;
+    Ok(res)
 }
 
 /// `POST /api/reports {problem, company, season?, reported}`: adds or removes one report.

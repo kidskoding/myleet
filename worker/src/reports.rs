@@ -72,6 +72,23 @@ pub fn public_counts(mut rows: Vec<CompanyCount>) -> Vec<CompanyCount> {
     rows
 }
 
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+pub struct ProblemCount {
+    pub problem: String,
+    pub count: u32,
+}
+
+/// One company's reported problems under the threshold dropped; most reported first, then by id.
+pub fn public_problems(mut rows: Vec<ProblemCount>) -> Vec<ProblemCount> {
+    rows.retain(|r| r.count >= MIN_REPORTERS);
+    rows.sort_by(|a, b| {
+        b.count
+            .cmp(&a.count)
+            .then_with(|| a.problem.cmp(&b.problem))
+    });
+    rows
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -93,6 +110,16 @@ mod tests {
         ]);
         assert_eq!(shown, vec![row("amazon", 7), row("google", 3)]);
         assert!(public_counts(vec![row("google", MIN_REPORTERS - 1)]).is_empty());
+    }
+
+    #[test]
+    fn company_problems_threshold_and_order() {
+        let p = |problem: &str, count| ProblemCount {
+            problem: problem.into(),
+            count,
+        };
+        let shown = public_problems(vec![p("b", 3), p("c", 2), p("a", 3), p("d", 9)]);
+        assert_eq!(shown, vec![p("d", 9), p("a", 3), p("b", 3)]);
     }
 
     #[test]
