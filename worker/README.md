@@ -61,24 +61,24 @@ logged in (`bunx wrangler login`).
    bunx wrangler d1 create myleet
    ```
 
-1. **Create the KV namespace** and put its id in `wrangler.toml` (`kv_namespaces.id`):
+2. **Create the KV namespace** and put its id in `wrangler.toml` (`kv_namespaces.id`):
 
    ```sh
    bunx wrangler kv namespace create STATEMENTS
    ```
 
-1. **Apply the schema:**
+3. **Apply the schema:**
 
    ```sh
    bun run migrate          # remote
    bun run migrate:local    # local dev database
    ```
 
-1. **Set `SITE_ORIGIN`** in `wrangler.toml` to the site's origin, for example
+4. **Set `SITE_ORIGIN`** in `wrangler.toml` to the site's origin, for example
    `https://myleet.dev` (scheme and host, no trailing slash). OAuth callbacks, magic
    links, CORS and the CSRF check all use it.
 
-1. **Register a GitHub OAuth app** at GitHub, Settings, Developer settings, OAuth Apps,
+5. **Register a GitHub OAuth app** at GitHub, Settings, Developer settings, OAuth Apps,
    New OAuth App:
 
    - Homepage URL: `SITE_ORIGIN`
@@ -86,7 +86,7 @@ logged in (`bunx wrangler login`).
 
    Put the client id in `GITHUB_CLIENT_ID` and generate a client secret.
 
-1. **Create a Google OAuth client** in Google Cloud Console, APIs & Services:
+6. **Create a Google OAuth client** in Google Cloud Console, APIs & Services:
    configure the OAuth consent screen (scopes `openid`, `email`, `profile`), then
    Credentials, Create credentials, OAuth client ID, type Web application:
 
@@ -95,12 +95,12 @@ logged in (`bunx wrangler login`).
 
    Put the client id in `GOOGLE_CLIENT_ID`.
 
-1. **Set up Resend** for magic-link email: add and verify your sending domain at
+7. **Set up Resend** for magic-link email: add and verify your sending domain at
    [resend.com](https://resend.com), create an API key with sending access, and set
    `EMAIL_FROM` in `wrangler.toml` to an address on that domain, for example
    `myleet <login@myleet.dev>`.
 
-1. **Set the secrets.** Each command prompts for the value; secrets never go in the
+8. **Set the secrets.** Each command prompts for the value; secrets never go in the
    repo:
 
    ```sh
