@@ -48,7 +48,6 @@
 .cos .prep-head h1 { font-size: var(--text-2xl); letter-spacing: var(--track-display); display: flex; align-items: center; gap: 0.3em; }
 .cos .prep-head h1 .co-logo { width: 0.85em !important; height: 0.85em !important; }
 .cos .prep-head .lead { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-md); max-width: 60ch; font-variation-settings: "wdth" 95; }
-.cos .prep-head .disclaim { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-3); max-width: 64ch; }
 .cos .actions { display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: flex-end; }
 .cos .pinned-note { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); text-align: right; max-width: 36ch; margin-left: auto; }
 
