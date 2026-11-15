@@ -252,8 +252,17 @@ import Base from "../layouts/Base.astro";
   .summit.rolling .icon { color: var(--ink-3); }
   .summit strong { font-size: var(--text-sm); font-weight: 700; font-variation-settings: "wdth" 88; white-space: nowrap; }
   .summit span { font-size: var(--text-xs); color: var(--ink-3); line-height: 1.3; }
-  .paxis { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)) var(--summit-w); margin-top: 6px; font-size: var(--text-2xs); font-weight: 600; color: var(--ink-3); font-variation-settings: "wdth" 75; font-variant-numeric: tabular-nums; }
-  .paxis span { text-align: center; white-space: nowrap; }
+  .paxis { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)) var(--summit-w); margin-top: 18px; font-size: var(--text-2xs); font-weight: 600; color: var(--ink-3); font-variation-settings: "wdth" 75; font-variant-numeric: tabular-nums; }
+  .paxis span { position: relative; text-align: center; white-space: nowrap; }
+  .paxis span em { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-style: normal; font-weight: 700; color: var(--ink-2); line-height: 1.3; }
+  .pcol.empty, .pcol.iv { pointer-events: none; }
+  .pcol.empty .b { background: var(--line); }
+  .pcol.iv .b { background: var(--accent); }
+  .dh.past, .ag-day.past { color: var(--ink-3); }
+  .dh.past .dn, .dh.past .dn b { color: var(--ink-3); }
+  .dh.past.st-done .load { color: var(--pass); }
+  .dh.past.st-missed .load { color: var(--fail); }
+  .col.past { background: color-mix(in srgb, var(--ink) 3%, transparent); }
   .paxis span.mon { color: var(--ink); }
   .paxis span.thin { visibility: hidden; }
   .paxis .end { visibility: hidden; }

@@ -5,7 +5,7 @@ import { attempts, parseEvents } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { nextInterview, onPrefsChange, planSettings, readPrefs, updatePrefs, type Prefs } from "../lib/prefs";
 import { catchUp, changePreview, drawerLede, forecastLead, headCopy, INSIGHTS_EMPTY, onTrackLine, paceLine, progressLine, spreadDays, topicsMoved, weeklyCheckin } from "../lib/plan-copy";
-import { recordPlanned, standing, type DayStatus } from "../lib/plan-progress";
+import { recordPlanned, standing, type DayStatus, type PastDay } from "../lib/plan-progress";
 import { companyLogo } from "../lib/company-logos";
 import { addDays } from "../lib/streak";
 import { companyTitle, mountInterviews } from "../lib/ui/interviews";
@@ -87,6 +87,26 @@ let fixesKey = "";
 const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) => root.querySelector<T>(sel);
 const root = () => $("[data-plan]");
 /** Days per page: 7, or 4 on tablets; phones show a 7-day agenda. */
+/** Days from Monday to today. The 7-day view starts on that Monday, like the chart's week ticks; the 4-day view rolls. */
+const lead = (c: Ctx): number => (cols() === 7 ? weekdayIndex(c.plan.start) : 0);
+
+/** Earlier days of the week as outcomes, so the grid's index 0 is a Monday. */
+function pastOf(c: Ctx): Map<string, PastDay> {
+  return new Map(standing(c.plan, c.events, c.now).days.map((d) => [d.date, d]));
+}
+
+/** The days the week view pages through: this week's earlier days (empty, no sessions), then the plan. */
+function vdays(c: Ctx): PlanDay[] {
+  const n = lead(c);
+  if (!n) return c.plan.days;
+  const past = pastOf(c);
+  const before = Array.from({ length: n }, (_, i): PlanDay => {
+    const date = addDays(c.plan.start, i - n);
+    return { date, weekday: (WEEKDAYS[weekdayIndex(date)] ?? "mon") as PlanDay["weekday"], rest: false, minutes: past.get(date)?.planned ?? 0, sessions: [], cap: 0, off: false, windows: [] };
+  });
+  return [...before, ...c.plan.days];
+}
+
 const cols = () => (matchMedia("(max-width: 1100px) and (min-width: 761px)").matches ? 4 : 7);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce";
 const hourPx = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hour")) || 112;
@@ -224,8 +244,8 @@ interface Grid {
 }
 
 function grid(c: Ctx): Grid {
-  const days = c.plan.days.slice(offset, offset + cols());
-  const done = offset === 0 ? doneSittings(c) : [];
+  const days = vdays(c).slice(offset, offset + cols());
+  const done = days.some((d) => d.date === c.plan.start) ? doneSittings(c) : [];
   const busy: [number, number][] = [];
   for (const d of days) {
     for (const w of windowsOf(d)) busy.push([w.start, w.end]);
@@ -248,13 +268,16 @@ function dayHeader(c: Ctx, d: PlanDay, g: Grid): SafeHtml {
   const isToday = d.date === c.plan.start;
   const doneMin = isToday ? g.done.reduce((n, s) => n + s.minutes, 0) : 0;
   const planned = d.minutes + doneMin;
-  const load = d.off
+  const was = d.date < c.plan.start ? pastOf(c).get(d.date) : undefined;
+  const load = d.date < c.plan.start
+    ? html`${was ? `${STATUS_TEXT[was.status]}, ${fmtM(was.practised)} of ${fmtM(was.planned)}` : "Nothing recorded"}`
+    : d.off
     ? html`Day off`
     : !d.windows.length
       ? html`No window`
       : html`<span class="bar" aria-hidden="true"><span style="width:${Math.min(100, (planned / Math.max(1, d.cap)) * 100).toFixed(0)}%"></span></span>${planned}/${d.cap}m`;
   const dt = dateOf(d.date);
-  return html`<div class="dh${isToday ? " today" : ""}${d.off ? " off" : ""}" data-date="${d.date}" tabindex="-1" aria-label="${longDay(d.date)}${isToday ? ", today" : ""}">
+  return html`<div class="dh${isToday ? " today" : ""}${d.off ? " off" : ""}${d.date < c.plan.start ? ` past st-${was?.status ?? "none"}` : ""}" data-date="${d.date}" tabindex="-1" aria-label="${longDay(d.date)}${isToday ? ", today" : ""}">
     <div class="dh-top"><span class="dn">${DAY_SHORT[weekdayIndex(d.date)]} <b>${dt.getDate()}</b></span><button type="button" class="icon-btn daymenu" data-daymenu="${d.date}" aria-label="${dayName(d.date)} options" aria-haspopup="menu">${icon("ellipsis")}</button></div>
     <span class="load">${load}</span></div>`;
 }
@@ -325,7 +348,7 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
       isToday && g.bs.length && nowMin >= (g.bs[0]?.from ?? 0) && nowMin <= (g.bs.at(-1)?.to ?? 0)
         ? html`<div class="now" style="top:${yOf(nowMin, g.bs, g.hour, FOLD)}px" aria-hidden="true"></div>`
         : "";
-    return html`<section class="col${isToday ? " today" : ""}${d.off ? " off" : ""}" data-day="${i}" data-date="${d.date}" aria-label="${longDay(d.date)}${d.off ? ", day off" : ""}">${winEls}${
+    return html`<section class="col${isToday ? " today" : ""}${d.off ? " off" : ""}${d.date < c.plan.start ? " past" : ""}" data-day="${i}" data-date="${d.date}" aria-label="${longDay(d.date)}${d.off ? ", day off" : ""}">${winEls}${
       d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows</span>` : ""
     }<ol aria-label="Sessions on ${dayName(d.date)}">${done}${d.sessions.map((s, j) => sessionBlock(c, d, s, g, j === 0))}</ol>${now}</section>`;
   });
@@ -402,13 +425,17 @@ function monthGrid(c: Ctx, whole = false): SafeHtml {
 }
 
 function agenda(c: Ctx): SafeHtml {
-  const days = c.plan.days.slice(offset, offset + 7);
-  const done = offset === 0 ? doneSittings(c) : [];
+  const days = vdays(c).slice(offset, offset + 7);
+  const done = days.some((d) => d.date === c.plan.start) ? doneSittings(c) : [];
+  const past = pastOf(c);
   return html`<ol class="agenda" aria-label="Next 7 days">${days.map((d, i) => {
     const isToday = d.date === c.plan.start;
     const dt = dateOf(d.date);
     const head = `${isToday ? "Today, " : ""}${DAY_SHORT[weekdayIndex(d.date)]} ${dt.toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
-    const body = d.off
+    const was = d.date < c.plan.start ? past.get(d.date) : undefined;
+    const body = d.date < c.plan.start
+      ? html`<div class="ag-empty">${was ? STATUS_TEXT[was.status] : "Nothing recorded"}</div>`
+      : d.off
       ? html`<div class="ag-off">Day off. Its work moved to the next free windows</div>`
       : html`${isToday ? done.map((s) => html`<div class="ag-ses done"><span class="t">${clock(s.start)}</span><div><div class="h">Done: ${s.clean ? plural(s.clean, "clean pass", "clean passes") : `${s.solved} solved`}</div></div></div>`) : ""}${
           d.sessions.length
@@ -420,7 +447,7 @@ function agenda(c: Ctx): SafeHtml {
               )
             : html`<div class="ag-empty">${d.windows.length ? "Nothing planned in your windows" : "No window this day"}</div>`
         }`;
-    return html`<li class="ag-day${isToday ? " today" : ""}" data-agenda-day="${i}"><h3>${head}<small>${d.off ? "Day off" : fmtM(d.minutes)}</small></h3>${body}</li>`;
+    return html`<li class="ag-day${isToday ? " today" : ""}${d.date < c.plan.start ? ` past st-${was?.status ?? "none"}` : ""}" data-agenda-day="${i}"><h3>${head}<small>${d.date < c.plan.start ? "" : d.off ? "Day off" : fmtM(d.minutes)}</small></h3>${body}</li>`;
   })}</ol>`;
 }
 
@@ -429,17 +456,19 @@ function agenda(c: Ctx): SafeHtml {
 function profile(c: Ctx): SafeHtml {
   const days = c.plan.days.slice(0, PROFILE_MAX_DAYS);
   const before = standing(c.plan, c.events, c.now).days.filter((d) => d.date >= addDays(c.plan.start, -PAST_DAYS));
-  const n = days.length + before.length;
+  const date = c.plan.interview_date;
+  // Run the chart through the interview day itself; only a date past the 63-day maximum falls off the end.
+  const gap = date && days.length ? Math.max(0, Math.round((dateOf(date).getTime() - dateOf(days.at(-1)?.date ?? date).getTime()) / 86_400_000)) : 0;
+  const tail = Array.from({ length: Math.min(gap, PROFILE_MAX_DAYS - days.length) }, (_, i) => addDays(days.at(-1)?.date ?? c.plan.start, i + 1));
+  const n = days.length + before.length + tail.length;
   const thin = n > 31;
-  const total = days.reduce((m, d) => m + d.minutes, 0);
   const mocks = days.filter((d) => d.sessions.some(isMock)).length;
   const checks = days.filter((d) => d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"))).length;
   const offs = days.filter((d) => d.off).length;
-  const date = c.plan.interview_date;
   const who = company(c);
   const pastHtml = before.map((d) => {
     const bh = Math.max(3, (Math.min(d.planned, PROFILE_MAX_MIN) / PROFILE_MAX_MIN) * 82);
-    return html`<span class="pcol past st-${d.status}" role="img" aria-label="${longDay(d.date)}: ${STATUS_TEXT[d.status].toLowerCase()}, ${fmtM(d.practised)} of ${fmtM(d.planned)}"><span class="b" style="height:${bh.toFixed(1)}%"><span class="f" style="height:${Math.min(100, (d.practised / Math.max(1, d.planned)) * 100).toFixed(0)}%"></span></span></span>`;
+    return html`<span class="pcol past st-${d.status}" data-date="${d.date}" role="img" aria-label="${longDay(d.date)}: ${STATUS_TEXT[d.status].toLowerCase()}, ${fmtM(d.practised)} of ${fmtM(d.planned)}"><span class="b" style="height:${bh.toFixed(1)}%"><span class="f" style="height:${Math.min(100, (d.practised / Math.max(1, d.planned)) * 100).toFixed(0)}%"></span></span></span>`;
   });
   const colsHtml = days.map((d, i) => {
     const m = d.minutes;
@@ -447,11 +476,12 @@ function profile(c: Ctx): SafeHtml {
     const mock = d.sessions.some(isMock);
     const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
     const label = `${longDay(d.date)}: ${d.off ? "day off" : fmtM(m)}${mock ? ", mock interview" : ""}${check ? ", check-in" : ""}`;
-    return html`<button type="button" class="pcol${i === 0 ? " today" : ""}${d.off ? " off" : ""}" data-p="${i}" aria-label="${label}">${mock ? html`<i class="mk mock" style="bottom:calc(${bh}% + 6px)"></i>` : ""}${
+    return html`<button type="button" class="pcol${i === 0 ? " today" : ""}${d.off ? " off" : ""}" data-p="${i}" data-date="${d.date}" aria-label="${label}">${mock ? html`<i class="mk mock" style="bottom:calc(${bh}% + 6px)"></i>` : ""}${
       check ? html`<i class="mk check" style="bottom:calc(${bh}% + ${mock ? 18 : 6}px)"></i>` : ""
     }${d.off ? html`<span class="offl">off</span>` : ""}<span class="b" style="height:${bh.toFixed(1)}%"></span></button>`;
   });
-  const lastShown = days.at(-1)?.date;
+  const tailHtml = tail.map((d) => html`<span class="pcol empty${d === date ? " iv" : ""}" data-date="${d}" role="img" aria-label="${longDay(d)}${d === date ? ", interview day" : ", beyond the plan"}"><span class="b" style="height:${d === date ? 6 : 3}%"></span></span>`);
+  const lastShown = tail.at(-1) ?? days.at(-1)?.date;
   const beyond = date && lastShown ? Math.round((dateOf(date).getTime() - dateOf(lastShown).getTime()) / 86_400_000) : 0;
   const nextIv = (c.plan.interviews ?? []).find((i) => i.date === date);
   const later = (c.plan.interviews ?? []).filter((i) => date && i.date > date);
@@ -460,16 +490,17 @@ function profile(c: Ctx): SafeHtml {
     : html`<div class="summit rolling">${icon("calendar-plus")}<strong>${short(c.plan.end)}</strong><span>Rolls forward daily</span></div>`;
   // Mondays are the ticks that always show, so the first one in each month names the month.
   let month = -1;
-  const axis = [...before, ...days].map((d) => {
-    const dt = dateOf(d.date);
-    const mon = weekdayIndex(d.date) === 0;
+  const axis = [...before.map((d) => d.date), ...days.map((d) => d.date), ...tail].map((day) => {
+    const dt = dateOf(day);
+    const mon = weekdayIndex(day) === 0;
     const named = mon && dt.getMonth() !== month;
     if (named) month = dt.getMonth();
-    return html`<span class="${mon ? "mon" : thin ? "thin" : ""}">${named ? short(d.date) : dt.getDate()}</span>`;
+    // The month sits on its own line above the day number, so numbers stay in one row and never collide.
+    return html`<span class="${mon ? "mon" : thin ? "thin" : ""}">${named ? html`<em>${dt.toLocaleDateString(undefined, { month: "short" })}</em>` : ""}${dt.getDate()}</span>`;
   });
   return html`<section class="panel approach" aria-labelledby="ap-h">
-    <div class="section-head"><h2 id="ap-h">${date ? `${c.plan.summary.days_left} days to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">About ${fmtM(total)} planned, ${plural(mocks, "mock")}, ${plural(checks, "check-in")}${offs ? `, ${plural(offs, "day")} off` : ""}</span></div>
-    <div class="profile" style="--n:${n}" role="group" aria-label="Planned minutes per day${date ? " until the interview" : ""}, after the last week's outcomes. Choose a day to show its week.">${pastHtml}${colsHtml}${summit}<div class="bracket" data-bracket></div></div>
+    <div class="section-head"><h2 id="ap-h">${date ? `${c.plan.summary.days_left} days to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${plural(mocks, "mock")}, ${plural(checks, "check-in")}${offs ? `, ${plural(offs, "day")} off` : ""}</span></div>
+    <div class="profile" style="--n:${n}" role="group" aria-label="Planned minutes per day${date ? " until the interview" : ""}, after the last week's outcomes. Choose a day to show its week.">${pastHtml}${colsHtml}${tailHtml}${summit}<div class="bracket" data-bracket></div></div>
     <div class="paxis" style="--n:${n}" aria-hidden="true">${axis}<span class="end">${date ? short(date) : ""}</span></div>
     <div class="legend"><span><i style="background:var(--accent)"></i>Today</span><span><i style="background:var(--line-strong)"></i>Planned minutes</span><span><i class="lg-mock"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i class="lg-off"></i>Day off</span>${before.length ? html`<span><i class="lg-done"></i>Done</span><span><i class="lg-missed"></i>Missed, moved forward</span>` : ""}</div>
   </section>`;
@@ -527,7 +558,7 @@ function head(c: Ctx): SafeHtml {
   const p = readPrefs().plan;
   const date = c.plan.interview_date;
   const later = (c.plan.interviews ?? []).find((i) => date && i.date > date);
-  const copy = headCopy({ plan: c.plan, company: company(c), name: firstName(), windows: p.availability, today: c.plan.start, nextAfter: later ? { company: later.name ?? null, date: later.date } : null });
+  const copy = headCopy({ plan: c.plan, company: company(c), name: firstName(), windows: p.availability, weekday: p.dailyMinutes ?? undefined, weekend: p.weekendMinutes ?? p.dailyMinutes ?? undefined, today: c.plan.start, nextAfter: later ? { company: later.name ?? null, date: later.date } : null });
   const prog = date ? progressLine(p.startedAt && p.startedAt <= c.plan.start ? p.startedAt : c.plan.start, date, c.plan.start) : null;
   const track = onTrackLine(standing(c.plan, c.events, c.now), date, company(c));
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
@@ -562,7 +593,7 @@ function toolbar(c: Ctx, g: Grid): SafeHtml {
         : `${short(first)} to ${short(last)}`;
   const n = cols();
   return html`<div class="cal-bar">
-    <div class="nav2"><button type="button" class="icon-btn" data-nav="-1" aria-label="Previous ${n === 7 ? "week" : "4 days"} ( [ )" ${offset === 0 || view !== "week" ? "disabled" : ""}>${icon("chevron-left")}</button><button type="button" class="icon-btn" data-nav="1" aria-label="Next ${n === 7 ? "week" : "4 days"} ( ] )" ${offset + n >= c.plan.days.length || view !== "week" ? "disabled" : ""}>${icon("chevron-right")}</button></div>
+    <div class="nav2"><button type="button" class="icon-btn" data-nav="-1" aria-label="Previous ${n === 7 ? "week" : "4 days"} ( [ )" ${offset === 0 || view !== "week" ? "disabled" : ""}>${icon("chevron-left")}</button><button type="button" class="icon-btn" data-nav="1" aria-label="Next ${n === 7 ? "week" : "4 days"} ( ] )" ${offset + n >= vdays(c).length || view !== "week" ? "disabled" : ""}>${icon("chevron-right")}</button></div>
     <button type="button" class="btn btn-secondary btn-sm todaybtn" data-today aria-keyshortcuts="t">Today ${kbd("t")}</button>
     <h2 id="cal-h">${range}</h2>
     <button type="button" class="budget budget-read" data-act="change" aria-label="Daily time: ${fmtM(wd)} on weekdays, ${fmtM(we)} on weekends. Change plan"><span class="bl">Daily time</span><span>${fmtM(wd)} weekdays</span><span>${fmtM(we)} weekends</span></button>
@@ -659,13 +690,17 @@ function placeBracket(): void {
   const prof = $(".profile");
   const br = $("[data-bracket]");
   if (!prof || !br) return;
-  const n = prof.querySelectorAll(".pcol:not(.past)").length;
-  const past = prof.querySelectorAll(".pcol.past").length;
-  const span = Math.min(cols(), n - offset);
-  if (view !== "week" || span <= 0) return void (br.style.display = "none");
+  const win = ctx ? vdays(ctx).slice(offset, offset + cols()) : [];
+  const first = win[0]?.date ?? "";
+  const last = win.at(-1)?.date ?? "";
+  const dates = [...prof.querySelectorAll<HTMLElement>(".pcol")].map((x) => x.dataset.date ?? "");
+  const from = dates.findIndex((d) => d >= first);
+  const to = dates.findLastIndex((d) => d <= last);
+  const span = to - from + 1;
+  if (view !== "week" || from < 0 || span <= 0) return void (br.style.display = "none");
   // Placed in the columns' own grid cells, so it follows any later layout change (fonts, resize, the inspector).
   br.style.display = "";
-  br.style.gridColumn = `${past + offset + 1} / span ${span}`;
+  br.style.gridColumn = `${from + 1} / span ${span}`;
   // The chart re-renders on every move, so glide the window from where it was instead of jumping.
   const base = prof.getBoundingClientRect();
   const r = br.getBoundingClientRect();
@@ -784,7 +819,7 @@ function replan(): void {
   ctx.fixes = null;
   if (pendingChange?.kind === "budget") liveText = `<strong>Updated</strong> ${pendingChange.label}. ${forecastLine(prev, ctx.plan)}`;
   pendingChange = null;
-  offset = Math.min(offset, Math.max(0, ctx.plan.days.length - 1));
+  offset = Math.min(offset, Math.max(0, vdays(ctx).length - 1));
   rememberSessions(ctx.plan);
   paint();
   morph(before);
@@ -1467,9 +1502,15 @@ function goTo(index: number, openFirst = false): void {
   const n = cols();
   const was = { view, offset };
   view = "week";
-  offset = Math.max(0, Math.min(index, ctx.plan.days.length - 1));
-  if (n === 4 || offset > 0) offset = Math.max(0, Math.min(offset, ctx.plan.days.length - n));
-  if (index < offset || index >= offset + n) offset = index;
+  const lead0 = lead(ctx);
+  const total = vdays(ctx).length;
+  // Whole calendar weeks in the 7-day view; the 4-day view rolls from the day you picked.
+  offset = Math.max(0, Math.min(index + lead0, total - 1));
+  if (n === 7) offset = Math.floor(offset / 7) * 7;
+  else {
+    if (offset > 0) offset = Math.max(0, Math.min(offset, total - n));
+    if (index < offset || index >= offset + n) offset = index;
+  }
   enter = was.view !== "week" ? "view" : offset > was.offset ? "next" : offset < was.offset ? "prev" : null;
   const day = ctx.plan.days[index];
   openPopId = null;
@@ -1509,7 +1550,7 @@ function onClick(e: MouseEvent): void {
     return paint();
   }
   if (d.nav) {
-    const next = Math.max(0, Math.min(ctx.plan.days.length - 1, offset + Number(d.nav) * cols()));
+    const next = Math.max(0, Math.min(vdays(ctx).length - 1, offset + Number(d.nav) * cols()));
     if (next !== offset) enter = next > offset ? "next" : "prev";
     offset = next;
     return paint();
