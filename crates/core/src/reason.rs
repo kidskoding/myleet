@@ -22,6 +22,10 @@ pub struct Facts {
     pub first_in_tech: bool,
     /// A pinned company and how many of its problems sit in this technique.
     pub company: Option<(String, usize)>,
+    /// Every target company whose set has this technique, most problems first.
+    pub sets: Vec<String>,
+    /// The focus topic this problem belongs to, mid-sentence ("graphs").
+    pub focus: Option<String>,
     /// Days until the next interview.
     pub days_left: Option<i64>,
     /// Difficulty word and the learner's median minutes for it.
@@ -145,17 +149,27 @@ pub fn build(f: &Facts) -> String {
         };
         format!("{} shows up in {n} of {co}'s problems", f.tech)
     };
+    let in_sets = |co: &str, n: usize| {
+        if f.sets.len() > 1 {
+            format!("{} shows up in your {} sets", f.tech, names(&f.sets))
+        } else {
+            shows_up(co, n)
+        }
+    };
     match (&f.company, f.days_left.filter(|d| *d > 0)) {
         (Some((co, n)), Some(d)) => more.push(format!(
             "your interview is {} away and {}",
             days(d),
-            shows_up(co, *n)
+            in_sets(co, *n)
         )),
-        (Some((co, n)), None) => more.push(shows_up(co, *n)),
+        (Some((co, n)), None) => more.push(in_sets(co, *n)),
         (None, Some(d)) if d <= NEAR_DAYS => {
             more.push(format!("your interview is {} away", days(d)))
         }
         _ => {}
+    }
+    if let Some(t) = &f.focus {
+        more.push(format!("you picked {t} as a focus topic"));
     }
     if let Some((diff, m)) = &f.pace {
         more.push(format!("{diff}s usually take you about {m} minutes"));
@@ -170,6 +184,17 @@ pub fn build(f: &Facts) -> String {
     }
     out.push('.');
     out
+}
+
+/// "Stripe", "Stripe and Ramp", "Stripe, Ramp and Meta", "Stripe, Ramp and 2 more".
+fn names(list: &[String]) -> String {
+    match list {
+        [] => String::new(),
+        [a] => a.clone(),
+        [a, b] => format!("{a} and {b}"),
+        [a, b, c] => format!("{a}, {b} and {c}"),
+        [a, b, rest @ ..] => format!("{a}, {b} and {} more", rest.len()),
+    }
 }
 
 /// The clause for a problem the learner solved on LeetCode before ever opening it here.
@@ -277,6 +302,32 @@ mod tests {
         assert_eq!(
             build(&f),
             "Your hashing is coming along, and this is the next problem in it. Your interview is 12 days away and hashing shows up in 3 of Meta's problems. Mediums usually take you about 22 minutes."
+        );
+    }
+
+    #[test]
+    fn several_sets_and_a_focus_topic() {
+        let f = Facts {
+            tech: "graph traversal".into(),
+            first_in_tech: true,
+            company: Some(("Stripe".into(), 4)),
+            sets: vec!["Stripe".into(), "Ramp".into()],
+            focus: Some("graphs".into()),
+            ..base()
+        };
+        assert_eq!(
+            build(&f),
+            "This is your first graph traversal problem. Graph traversal shows up in your Stripe and Ramp sets. You picked graphs as a focus topic."
+        );
+        let f = Facts {
+            sets: vec!["A".into(), "B".into(), "C".into(), "D".into()],
+            focus: None,
+            ..f
+        };
+        assert!(
+            build(&f).contains("your A, B and 2 more sets"),
+            "{}",
+            build(&f)
         );
     }
 

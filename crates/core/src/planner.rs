@@ -51,6 +51,8 @@ const MOCK_MIN_SEEN: usize = 8;
 const MOCK_EVERY_DAYS: i64 = 7;
 /// A mock for an interview with a named company lands this many days before it.
 const COMPANY_MOCK_DAYS: i64 = 3;
+/// Relevance of a focus topic's techniques: as much as the technique a target company leans on most.
+const FOCUS_RELEVANCE: f64 = 1.0;
 /// How much more the next interview's company set counts than other targets.
 const NEXT_COMPANY_WEIGHT: usize = 2;
 const MOCK_EVERY_DAYS_NEAR: i64 = 3;
@@ -89,6 +91,8 @@ pub struct Settings {
     pub interviews: Vec<Interview>,
     /// Company slugs: a playlist id without its `NNN_` prefix, e.g. `google`.
     pub target_companies: Vec<String>,
+    /// Module ids the learner asked to focus on, e.g. `graphs`.
+    pub focus_topics: Vec<String>,
     pub new_per_day: u32,
     pub daily_minutes: u32,
     pub session_minutes: u32,
@@ -109,6 +113,7 @@ impl Default for Settings {
             interview_date: None,
             interviews: Vec::new(),
             target_companies: Vec::new(),
+            focus_topics: Vec::new(),
             new_per_day: 3,
             daily_minutes: 60,
             session_minutes: 45,
@@ -592,6 +597,8 @@ struct Ctx<'a> {
     report: &'a Report,
     pace: &'a Pace,
     rel: &'a HashMap<(usize, usize), Vec<(String, usize)>>,
+    /// Modules the learner picked as focus topics.
+    focus: &'a HashSet<usize>,
     states: &'a HashMap<String, State>,
     today: Date,
     interview: Option<Date>,
@@ -726,6 +733,14 @@ impl Ctx<'_> {
             warmup,
             first_in_tech: skill.is_none_or(|s| s.evidence.attempts == 0),
             company: self.company(p).map(|(c, n)| (c.to_string(), n)),
+            sets: self
+                .rel
+                .get(&(p.module, p.technique))
+                .map_or_else(Vec::new, |v| v.iter().map(|(c, _)| c.clone()).collect()),
+            focus: self
+                .focus
+                .contains(&p.module)
+                .then(|| skills::mid_sentence(&self.c.module_of(p).title)),
             days_left: self.interview.map(|d| days_between(self.today, d)),
             pace: self
                 .pace
@@ -994,6 +1009,9 @@ fn build(
     let mut pace = pace_of(c, &attempts, tz);
     pace.review_minutes = crate::habits::review_minutes(c, events);
     let rel = relevance(c, &settings.target_companies);
+    let focus_mods: HashSet<usize> = (0..c.modules.len())
+        .filter(|&m| settings.focus_topics.contains(&c.modules[m].id))
+        .collect();
     let today = local_day(now, tz);
     let interview = interview.filter(|d| *d > today);
     let lc_days = crate::leetcode::solved_days(events, &states, today, tz);
@@ -1003,6 +1021,7 @@ fn build(
         report: &report,
         pace: &pace,
         rel: &rel,
+        focus: &focus_mods,
         states: &states,
         today,
         interview,
@@ -1086,7 +1105,9 @@ fn build(
                 })
                 .sum::<usize>()
         });
+        let focused = focus_mods.contains(&s.module);
         let r = weighted as f64 / max_rel;
+        let r = if focused { r.max(FOCUS_RELEVANCE) } else { r };
         let mut skill_need = s.clone();
         if s.evidence.attempts == 0 && weak_mods.contains_key(&c.modules[s.module].id) {
             skill_need.mastery = 0.0;
@@ -1106,6 +1127,12 @@ fn build(
             tracked.clamp(MIN_GOAL, MAX_GOAL)
         } else {
             0
+        };
+        // A focus topic is in the plan even when no target company leans on it.
+        let goal = if focused {
+            goal.max(DEFAULT_GOAL)
+        } else {
+            goal
         }
         .min(s.total);
         let note = s
@@ -2464,6 +2491,46 @@ mod tests {
         assert_eq!(p.forecast.len(), 1, "only Meta's techniques have goals");
         assert_eq!(p.forecast[0].status, "on_track");
         assert_eq!(p.forecast[0].companies, vec!["Meta".to_string()]);
+    }
+
+    #[test]
+    fn focus_topics_lead_new_work_alongside_companies() {
+        // Beta comes last in reading order; a focus on it brings it first.
+        let p = run(
+            &[],
+            &settings(r#"{"focus_topics":["beta"],"new_per_day":1}"#),
+            at(11, 14, 8),
+        );
+        let first_new = all_items(&p)
+            .into_iter()
+            .find(|(_, i)| i.kind == ItemKind::New)
+            .unwrap();
+        assert_eq!(first_new.1.problem.as_deref(), Some("two-sum"));
+        assert!(
+            first_new
+                .1
+                .reason
+                .contains("You picked beta as a focus topic"),
+            "{}",
+            first_new.1.reason
+        );
+        // With a company, a focus topic it never touches still gets a goal.
+        let s = settings(r#"{"target_companies":["meta"],"focus_topics":["alpha"]}"#);
+        let p = run(&[], &s, at(11, 14, 8));
+        let mut techs: Vec<&str> = p.forecast.iter().map(|f| f.technique.as_str()).collect();
+        techs.sort_unstable();
+        assert_eq!(techs, ["one", "three", "two"]);
+        // An unknown topic changes nothing.
+        let a = run(
+            &[],
+            &settings(r#"{"focus_topics":["nope"]}"#),
+            at(11, 14, 8),
+        );
+        let b = run(&[], &Settings::default(), at(11, 14, 8));
+        assert_eq!(
+            serde_json::to_string(&a.days).unwrap(),
+            serde_json::to_string(&b.days).unwrap()
+        );
     }
 
     #[test]
