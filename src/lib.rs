@@ -13,6 +13,7 @@ pub mod savestate;
 pub mod schedule;
 pub mod session;
 pub mod stats;
+pub mod tui;
 pub mod version;
 pub mod watch;
 pub mod workspace;

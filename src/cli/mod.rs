@@ -1,8 +1,8 @@
 mod validate;
 
-use std::io::Write;
+use std::io::{IsTerminal, Write};
 
-use crate::version;
+use crate::{catalog, tui, version};
 
 /// A writer plus whether it may print colors (a terminal with `NO_COLOR` unset).
 pub struct Term<W: Write> {
@@ -49,12 +49,29 @@ pub fn run<O: Write, E: Write>(args: &[String], out: &mut Term<O>, err: &mut Ter
             0
         }
         "validate" => validate::run(rest, out, err),
+        "" => trainer(err),
         _ => {
-            let what = if cmd.is_empty() { "the trainer" } else { cmd };
-            err.line(&format!(
-                "myleet-rs: {what:?} is not ported yet; use myleet"
-            ));
+            err.line(&format!("myleet-rs: {cmd:?} is not ported yet; use myleet"));
             2
+        }
+    }
+}
+
+fn trainer<E: Write>(err: &mut Term<E>) -> u8 {
+    if !std::io::stdout().is_terminal() {
+        err.line("myleet-rs: the trainer needs a terminal");
+        return 1;
+    }
+    // Without a curriculum the shell still runs; the placeholder says so.
+    let catalog = std::env::current_dir()
+        .ok()
+        .and_then(|d| catalog::find_root(&d).ok())
+        .and_then(|root| catalog::load(&root).ok());
+    match tui::run(tui::Shared::new(catalog)) {
+        Ok(()) => 0,
+        Err(e) => {
+            err.line(&format!("myleet-rs: {e}"));
+            1
         }
     }
 }
@@ -85,11 +102,9 @@ mod tests {
 
     #[test]
     fn unported_commands_exit_2() {
-        for args in [&["doctor"][..], &[][..]] {
-            let (code, out) = call(args);
-            assert_eq!(code, 2, "{args:?}");
-            assert!(out.contains("not ported yet"), "{args:?}: {out}");
-        }
+        let (code, out) = call(&["doctor"]);
+        assert_eq!(code, 2);
+        assert!(out.contains("not ported yet"), "{out}");
     }
 
     #[test]
