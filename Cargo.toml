@@ -9,7 +9,7 @@ repository = "https://github.com/kidskoding/myleet"
 publish = false
 
 [[bin]]
-name = "myleet-rs"
+name = "myleet"
 path = "src/main.rs"
 
 [dependencies]

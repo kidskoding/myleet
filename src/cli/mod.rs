@@ -29,7 +29,7 @@ Install (pick one), then run myleet:
 
   curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh | sh
   nix run github:kidskoding/myleet
-  go install github.com/kidskoding/myleet/cmd/myleet@latest   # needs $(go env GOPATH)/bin on PATH";
+  cargo install --git https://github.com/kidskoding/myleet --locked";
 
 /// A writer plus whether it may print colors (a terminal with `NO_COLOR` unset).
 pub struct Term<W: Write> {
