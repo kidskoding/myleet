@@ -3,25 +3,26 @@ group = "Consumer and Business Tech"
 focus = "hash maps and sorting over business records, prefix sums, intervals and scheduling, org-chart trees and graphs, and small stateful designs."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "07_trees", "10_graphs", "08_heaps", "12_greedy_algorithms"]
 
+
 [[entries]]
 title = "Two Sum II - Input Array Is Sorted"
 url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
 [[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
+title = "Plates Between Candles"
+url = "https://leetcode.com/problems/plates-between-candles/"
 
 [[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+title = "Sort Transformed Array"
+url = "https://leetcode.com/problems/sort-transformed-array/"
 
 [[entries]]
 title = "Number of Flowers in Full Bloom"
 url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
 
 [[entries]]
-title = "Least Number of Unique Integers after K Removals"
-url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
+title = "Maximum Gap"
+url = "https://leetcode.com/problems/maximum-gap/"
 
 [[entries]]
 title = "Rank Teams by Votes"
@@ -32,52 +33,52 @@ title = "Merge Sorted Array"
 url = "https://leetcode.com/problems/merge-sorted-array/"
 
 [[entries]]
-title = "Brick Wall"
-url = "https://leetcode.com/problems/brick-wall/"
+title = "Minimize Maximum of Array"
+url = "https://leetcode.com/problems/minimize-maximum-of-array/"
 
 [[entries]]
-title = "Contiguous Array"
-url = "https://leetcode.com/problems/contiguous-array/"
+title = "Minimum Increase to Maximize Special Indices"
+url = "https://leetcode.com/problems/minimum-increase-to-maximize-special-indices/"
 
 [[entries]]
 title = "Sort Items by Groups Respecting Dependencies"
 url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
 
 [[entries]]
-title = "Maximum Size Subarray Sum Equals k"
-url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
+title = "Design File System"
+url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
 title = "Longest Substring with At Most K Distinct Characters"
 url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Max Sum of Rectangle No Larger Than K"
+url = "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Find the N-th Value After K Seconds"
+url = "https://leetcode.com/problems/find-the-n-th-value-after-k-seconds/"
 
 [[entries]]
-title = "Employee Importance"
-url = "https://leetcode.com/problems/employee-importance/"
+title = "The Maze II"
+url = "https://leetcode.com/problems/the-maze-ii/"
 
 [[entries]]
 title = "Find Pivot Index"
 url = "https://leetcode.com/problems/find-pivot-index/"
 
 [[entries]]
-title = "Time Needed to Inform All Employees"
-url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
+title = "Is Graph Bipartite?"
+url = "https://leetcode.com/problems/is-graph-bipartite/"
 
 [[entries]]
 title = "Count Good Nodes in Binary Tree"
 url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Maximum Score From Grid Operations"
+url = "https://leetcode.com/problems/maximum-score-from-grid-operations/"
 
 [[entries]]
 title = "Binary Tree Zigzag Level Order Traversal"
@@ -108,28 +109,28 @@ title = "Maximum Population Year"
 url = "https://leetcode.com/problems/maximum-population-year/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Find the Score of All Prefixes of an Array"
+url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
 
 [[entries]]
-title = "Divide Intervals Into Minimum Number of Groups"
-url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+title = "Find Valid Matrix Given Row and Column Sums"
+url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
 
 [[entries]]
 title = "Odd Even Jump"
 url = "https://leetcode.com/problems/odd-even-jump/"
 
 [[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
+title = "Heaters"
+url = "https://leetcode.com/problems/heaters/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Increment Submatrices by One"
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
 
 [[entries]]
-title = "Stock Price Fluctuation"
-url = "https://leetcode.com/problems/stock-price-fluctuation/"
+title = "K Highest Ranked Items Within a Price Range"
+url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
 
 [[entries]]
 title = "Maximum Score After Splitting a String"
@@ -144,40 +145,40 @@ title = "Create Maximum Number"
 url = "https://leetcode.com/problems/create-maximum-number/"
 
 [[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+title = "Largest Magic Square"
+url = "https://leetcode.com/problems/largest-magic-square/"
 
 [[entries]]
 title = "Break a Palindrome"
 url = "https://leetcode.com/problems/break-a-palindrome/"
 
 [[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
+title = "Palindrome Partitioning"
+url = "https://leetcode.com/problems/palindrome-partitioning/"
 
 [[entries]]
 title = "Russian Doll Envelopes"
 url = "https://leetcode.com/problems/russian-doll-envelopes/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Make K-Subarray Sums Equal"
+url = "https://leetcode.com/problems/make-k-subarray-sums-equal/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Pancake Sorting"
+url = "https://leetcode.com/problems/pancake-sorting/"
 
 [[entries]]
 title = "Meeting Rooms"
 url = "https://leetcode.com/problems/meeting-rooms/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Make Sum Divisible by P"
+url = "https://leetcode.com/problems/make-sum-divisible-by-p/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Make the Prefix Sum Non-negative"
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
 title = "Longest Duplicate Substring"

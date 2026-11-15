@@ -3,21 +3,22 @@ group = "AI & Startups"
 focus = "Sequence problems with sliding window, dynamic programming, math, stacks and two pointers."
 review_modules = ["04_sliding_window", "11_dp", "01_arrays_and_hashing", "16_math_geometry", "03_stacks_and_queues", "02_two_pointers"]
 
+
 [[entries]]
-title = "K-Concatenation Maximum Sum"
-url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+title = "Maximum Rows Covered by Columns"
+url = "https://leetcode.com/problems/maximum-rows-covered-by-columns/"
 
 [[entries]]
 title = "Find the Minimum Area to Cover All Ones I"
 url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
 
 [[entries]]
-title = "Can I Win"
-url = "https://leetcode.com/problems/can-i-win/"
+title = "Longest Arithmetic Sequence After Changing At Most One Element"
+url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
 
 [[entries]]
-title = "Add Edges to Make Degrees of All Nodes Even"
-url = "https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even/"
+title = "Maximum Equal Frequency"
+url = "https://leetcode.com/problems/maximum-equal-frequency/"
 
 [[entries]]
 title = "Minimum Factorization"
@@ -28,108 +29,108 @@ title = "Faulty Keyboard"
 url = "https://leetcode.com/problems/faulty-keyboard/"
 
 [[entries]]
-title = "First Completely Painted Row or Column"
-url = "https://leetcode.com/problems/first-completely-painted-row-or-column/"
+title = "Strings Differ by One Character"
+url = "https://leetcode.com/problems/strings-differ-by-one-character/"
 
 [[entries]]
-title = "Longest Balanced Substring I"
-url = "https://leetcode.com/problems/longest-balanced-substring-i/"
+title = "Vowel Spellchecker"
+url = "https://leetcode.com/problems/vowel-spellchecker/"
 
 [[entries]]
 title = "Kth Smallest Product of Two Sorted Arrays"
 url = "https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/"
 
 [[entries]]
-title = "Count the Number of Fair Pairs"
-url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
+title = "Number of Perfect Pairs"
+url = "https://leetcode.com/problems/number-of-perfect-pairs/"
 
 [[entries]]
-title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
-url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
+title = "Binary Subarrays With Sum"
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
 
 [[entries]]
-title = "Next Greater Element II"
-url = "https://leetcode.com/problems/next-greater-element-ii/"
+title = "Alice and Bob Playing Flower Game"
+url = "https://leetcode.com/problems/alice-and-bob-playing-flower-game/"
 
 [[entries]]
 title = "Minimum Moves to Pick K Ones"
 url = "https://leetcode.com/problems/minimum-moves-to-pick-k-ones/"
 
 [[entries]]
-title = "Number of Equal Count Substrings"
-url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
+title = "Score of Parentheses"
+url = "https://leetcode.com/problems/score-of-parentheses/"
 
 [[entries]]
 title = "Find the Town Judge"
 url = "https://leetcode.com/problems/find-the-town-judge/"
 
 [[entries]]
-title = "Maximum Nesting Depth of Two Valid Parentheses Strings"
-url = "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/"
+title = "Shortest Unsorted Continuous Subarray"
+url = "https://leetcode.com/problems/shortest-unsorted-continuous-subarray/"
 
 [[entries]]
-title = "Maximum Number of Occurrences of a Substring"
-url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+title = "Swap For Longest Repeated Character Substring"
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
 
 [[entries]]
-title = "Count Nodes With the Highest Score"
-url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
+title = "Smallest Subtree with all the Deepest Nodes"
+url = "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/"
 
 [[entries]]
 title = "Palindrome Partitioning II"
 url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
 
 [[entries]]
-title = "Closest Leaf in a Binary Tree"
-url = "https://leetcode.com/problems/closest-leaf-in-a-binary-tree/"
+title = "Nested List Weight Sum"
+url = "https://leetcode.com/problems/nested-list-weight-sum/"
 
 [[entries]]
-title = "Count Nodes Equal to Average of Subtree"
-url = "https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/"
+title = "Most Profitable Path in a Tree"
+url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
 
 [[entries]]
 title = "Widest Vertical Area Between Two Points Containing No Points"
 url = "https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Cooldown"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+title = "Count Lattice Points Inside a Circle"
+url = "https://leetcode.com/problems/count-lattice-points-inside-a-circle/"
 
 [[entries]]
 title = "Minimum Cost to Merge Stones"
 url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Count the Number of Good Subsequences"
+url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
 
 [[entries]]
-title = "Longest Palindromic Subsequence"
-url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+title = "Find The Original Array of Prefix Xor"
+url = "https://leetcode.com/problems/find-the-original-array-of-prefix-xor/"
 
 [[entries]]
-title = "Partition Equal Subset Sum"
-url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+title = "Gray Code"
+url = "https://leetcode.com/problems/gray-code/"
 
 [[entries]]
 title = "Special Binary String"
 url = "https://leetcode.com/problems/special-binary-string/"
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Largest Combination With Bitwise AND Greater Than Zero"
+url = "https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Transaction Fee"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+title = "Maximum Points Tourist Can Earn"
+url = "https://leetcode.com/problems/maximum-points-tourist-can-earn/"
 
 [[entries]]
 title = "Substrings of Size Three with Distinct Characters"
 url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
 
 [[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
+title = "Maximum Profit From Trading Stocks"
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
 
 [[entries]]
 title = "Pairs of Songs With Total Durations Divisible by 60"

@@ -3,21 +3,22 @@ group = "Fortune 500"
 focus = "graphs, trees, dp, greedy, sliding window"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Make K-Subarray Sums Equal"
+url = "https://leetcode.com/problems/make-k-subarray-sums-equal/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Maximum White Tiles Covered by a Carpet"
+url = "https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/"
 
 [[entries]]
-title = "Two Sum II - Input Array Is Sorted"
-url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+title = "Eliminate Maximum Number of Monsters"
+url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
+
+[[entries]]
+title = "Find Minimum Time to Reach Last Room I"
+url = "https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/"
 
 [[entries]]
 title = "Minimize Length of Array Using Operations"
@@ -40,32 +41,32 @@ title = "Sum of Distances"
 url = "https://leetcode.com/problems/sum-of-distances/"
 
 [[entries]]
-title = "Fibonacci Number"
-url = "https://leetcode.com/problems/fibonacci-number/"
+title = "Minimum Number of Food Buckets to Feed the Hamsters"
+url = "https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters/"
 
 [[entries]]
 title = "Bitwise ORs of Subarrays"
 url = "https://leetcode.com/problems/bitwise-ors-of-subarrays/"
 
 [[entries]]
-title = "Pascal's Triangle"
-url = "https://leetcode.com/problems/pascals-triangle/"
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
 
 [[entries]]
-title = "Car Fleet"
-url = "https://leetcode.com/problems/car-fleet/"
+title = "Find Valid Matrix Given Row and Column Sums"
+url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
 
 [[entries]]
 title = "Remove Digit From Number to Maximize Result"
 url = "https://leetcode.com/problems/remove-digit-from-number-to-maximize-result/"
 
 [[entries]]
-title = "Count Number of Maximum Bitwise-OR Subsets"
-url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
+title = "Check If a String Contains All Binary Codes of Size K"
+url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Group the People Given the Group Size They Belong To"
+url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
 
 [[entries]]
 title = "Two Furthest Houses With Different Colors"
@@ -76,129 +77,129 @@ title = "Count Visited Nodes in a Directed Graph"
 url = "https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Hand of Straights"
+url = "https://leetcode.com/problems/hand-of-straights/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "K Highest Ranked Items Within a Price Range"
+url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
 
 [[entries]]
-title = "Divisor Game"
-url = "https://leetcode.com/problems/divisor-game/"
+title = "Minimum Number of Lines to Cover Points"
+url = "https://leetcode.com/problems/minimum-number-of-lines-to-cover-points/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
 
 [[entries]]
 title = "Is Subsequence"
 url = "https://leetcode.com/problems/is-subsequence/"
 
 [[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
+title = "Maximum Number of Integers to Choose From a Range I"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
 
 [[entries]]
 title = "Maximum Repeating Substring"
 url = "https://leetcode.com/problems/maximum-repeating-substring/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Maximum OR"
+url = "https://leetcode.com/problems/maximum-or/"
 
 [[entries]]
 title = "Lexicographically Maximum MEX Array"
 url = "https://leetcode.com/problems/lexicographically-maximum-mex-array/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
 
 [[entries]]
 title = "Maximum 69 Number"
 url = "https://leetcode.com/problems/maximum-69-number/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Maximum Points After Enemy Battles"
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
 
 [[entries]]
 title = "Time Needed to Buy Tickets"
 url = "https://leetcode.com/problems/time-needed-to-buy-tickets/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Maximum Subsequence Score"
+url = "https://leetcode.com/problems/maximum-subsequence-score/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Maximum Sum Obtained of Any Permutation"
+url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
 
 [[entries]]
 title = "Final Array State After K Multiplication Operations I"
 url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
 
 [[entries]]
-title = "Partition Equal Subset Sum"
-url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+title = "Maximum Total Importance of Roads"
+url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
 
 [[entries]]
 title = "Find the Maximum Length of a Good Subsequence II"
 url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Maximum Xor Product"
+url = "https://leetcode.com/problems/maximum-xor-product/"
 
 [[entries]]
 title = "Alternating Groups I"
 url = "https://leetcode.com/problems/alternating-groups-i/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Merge Triplets to Form Target Triplet"
+url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"
 
 [[entries]]
 title = "Minimum Recolors to Get K Consecutive Black Blocks"
 url = "https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Mice and Cheese"
+url = "https://leetcode.com/problems/mice-and-cheese/"
 
 [[entries]]
 title = "Distribute Money to Maximum Children"
 url = "https://leetcode.com/problems/distribute-money-to-maximum-children/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Minesweeper"
+url = "https://leetcode.com/problems/minesweeper/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Minimize Rounding Error to Meet Target"
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
 
 [[entries]]
-title = "N-th Tribonacci Number"
-url = "https://leetcode.com/problems/n-th-tribonacci-number/"
+title = "Minimum Operations to Reduce an Integer to 0"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Minimize XOR"
+url = "https://leetcode.com/problems/minimize-xor/"
 
 [[entries]]
 title = "Cherry Pickup"
 url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Minimum Array Length After Pair Removals"
+url = "https://leetcode.com/problems/minimum-array-length-after-pair-removals/"
 
 [[entries]]
 title = "Min Cost Climbing Stairs"
 url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Minimum Cost Homecoming of a Robot in a Grid"
+url = "https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/"

@@ -3,17 +3,18 @@ group = "Trading Firms"
 focus = "performance-minded algorithms, heaps, graphs, and careful implementation."
 review_modules = ["16_math_geometry", "11_dp", "08_heaps", "03_stacks_and_queues", "09_backtracking", "10_graphs"]
 
+
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
 
 [[entries]]
 title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
 
 [[entries]]
 title = "Task Scheduler"
@@ -24,28 +25,28 @@ title = "Largest Rectangle in Histogram"
 url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Process Tasks Using Servers"
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "House Robber III"
+url = "https://leetcode.com/problems/house-robber-iii/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Maximum Performance of a Team"
+url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
 
 [[entries]]
-title = "Implement Rand10() Using Rand7()"
-url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+title = "Factorial Trailing Zeroes"
+url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
 title = "New 21 Game"
 url = "https://leetcode.com/problems/new-21-game/"
 
 [[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
+title = "IPO"
+url = "https://leetcode.com/problems/ipo/"
 
 [[entries]]
 title = "Soup Servings"
@@ -56,8 +57,8 @@ title = "Number of Dice Rolls With Target Sum"
 url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
 title = "Ugly Number II"
@@ -96,8 +97,8 @@ title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "All Ancestors of a Node in a Directed Acyclic Graph"
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
 
 [[entries]]
 title = "Word Ladder"
@@ -112,36 +113,36 @@ title = "Nim Game"
 url = "https://leetcode.com/problems/nim-game/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
 title = "Alien Dictionary"
 url = "https://leetcode.com/problems/alien-dictionary/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
 title = "Dice Roll Simulation"
 url = "https://leetcode.com/problems/dice-roll-simulation/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -152,8 +153,8 @@ title = "Basic Calculator"
 url = "https://leetcode.com/problems/basic-calculator/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
 
 [[entries]]
 title = "Expression Add Operators"
@@ -172,8 +173,8 @@ title = "Binary Tree Maximum Path Sum"
 url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
+title = "Coin Change II"
+url = "https://leetcode.com/problems/coin-change-ii/"
 
 [[entries]]
 title = "Stock Price Fluctuation"

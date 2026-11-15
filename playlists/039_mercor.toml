@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "Practical matching and ranking problems with hash maps, heaps and intervals, plus graph search and binary search."
 review_modules = ["01_arrays_and_hashing", "08_heaps", "13_intervals", "10_graphs", "05_binary_search", "03_stacks_and_queues"]
 
+
 [[entries]]
 title = "Shortest Word Distance III"
 url = "https://leetcode.com/problems/shortest-word-distance-iii/"
@@ -100,16 +101,16 @@ title = "Manhattan Distances of All Arrangements of Pieces"
 url = "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/"
 
 [[entries]]
-title = "Reorder Routes to Make All Paths Lead to the City Zero"
-url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
+title = "Circular Permutation in Binary Representation"
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
 
 [[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
+title = "Equal Sum Arrays With Minimum Number of Operations"
+url = "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/"
 
 [[entries]]
-title = "Corporate Flight Bookings"
-url = "https://leetcode.com/problems/corporate-flight-bookings/"
+title = "Largest Plus Sign"
+url = "https://leetcode.com/problems/largest-plus-sign/"
 
 [[entries]]
 title = "Number of Flowers in Full Bloom"
@@ -120,8 +121,8 @@ title = "Partition Labels"
 url = "https://leetcode.com/problems/partition-labels/"
 
 [[entries]]
-title = "Divide Intervals Into Minimum Number of Groups"
-url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+title = "Longest Palindrome by Concatenating Two Letter Words"
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
 
 [[entries]]
 title = "How Many Apples Can You Put into the Basket"

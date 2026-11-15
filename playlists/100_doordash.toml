@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "Intervals, heaps, graph and grid search, trees, and backtracking, with a working solution first and then a faster one."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
+
 [[entries]]
 title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"

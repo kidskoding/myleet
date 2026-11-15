@@ -3,182 +3,183 @@ group = "Consumer and Business Tech"
 focus = "caches, stacks, recursion and tree traversal, grids, sliding windows, strings, and binary search"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "16_math_geometry"]
 
-[[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Maximum Area of Two Non-Overlapping Square Submatrices"
+url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
 
 [[entries]]
-title = "Number of Subarrays That Match a Pattern I"
-url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
+title = "Maximum Sum of Distinct Subarrays With Length K"
+url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
+
+[[entries]]
+title = "Count Subtrees With Max Distance Between Cities"
+url = "https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities/"
 
 [[entries]]
 title = "Elimination Game"
 url = "https://leetcode.com/problems/elimination-game/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Minimum Sum of Squared Difference"
+url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
 
 [[entries]]
 title = "Implement Queue using Stacks"
 url = "https://leetcode.com/problems/implement-queue-using-stacks/"
 
 [[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
+title = "Minimum Swaps to Group All 1's Together"
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Minimum Swaps to Group All 1's Together II"
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/"
 
 [[entries]]
-title = "Distribute Elements Into Two Arrays II"
-url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-ii/"
+title = "Last Substring in Lexicographical Order"
+url = "https://leetcode.com/problems/last-substring-in-lexicographical-order/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Number of Equal Count Substrings"
+url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Score of Parentheses"
+url = "https://leetcode.com/problems/score-of-parentheses/"
 
 [[entries]]
 title = "Number of Subarrays That Match a Pattern II"
 url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Swap For Longest Repeated Character Substring"
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Ternary Expression Parser"
+url = "https://leetcode.com/problems/ternary-expression-parser/"
 
 [[entries]]
 title = "Linked List Cycle"
 url = "https://leetcode.com/problems/linked-list-cycle/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Two Best Non-Overlapping Events"
+url = "https://leetcode.com/problems/two-best-non-overlapping-events/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
 
 [[entries]]
-title = "Count Prefix and Suffix Pairs II"
-url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
+title = "Minimum Deletions to Make Array Divisible"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Count Complete Subarrays in an Array"
+url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Minimum Operations to Make Binary Array Elements Equal to One II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Circular Permutation in Binary Representation"
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Connecting Cities With Minimum Cost"
+url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
 
 [[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Construct Quad Tree"
+url = "https://leetcode.com/problems/construct-quad-tree/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Shuffle an Array"
+url = "https://leetcode.com/problems/shuffle-an-array/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Number of Steps to Reduce a Number in Binary Representation to One"
+url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/"
 
 [[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+title = "Find Subarray With Bitwise OR Closest to K"
+url = "https://leetcode.com/problems/find-subarray-with-bitwise-or-closest-to-k/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Check If a String Contains All Binary Codes of Size K"
+url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Tweet Counts Per Frequency"
+url = "https://leetcode.com/problems/tweet-counts-per-frequency/"
 
 [[entries]]
 title = "Most Visited Sector in  a Circular Track"
 url = "https://leetcode.com/problems/most-visited-sector-in-a-circular-track/"
 
 [[entries]]
-title = "Nested List Weight Sum"
-url = "https://leetcode.com/problems/nested-list-weight-sum/"
+title = "Jump Game III"
+url = "https://leetcode.com/problems/jump-game-iii/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Find K-th Smallest Pair Distance"
+url = "https://leetcode.com/problems/find-k-th-smallest-pair-distance/"
 
 [[entries]]
-title = "Daily Temperatures"
-url = "https://leetcode.com/problems/daily-temperatures/"
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Range Sum Query 2D - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-mutable/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Repeated String Match"
+url = "https://leetcode.com/problems/repeated-string-match/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Maximize Subarrays After Removing One Conflicting Pair"
+url = "https://leetcode.com/problems/maximize-subarrays-after-removing-one-conflicting-pair/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Number of Ways to Build House of Cards"
+url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Remove Adjacent Almost-Equal Characters"
+url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
 
 [[entries]]
 title = "Faulty Keyboard"
 url = "https://leetcode.com/problems/faulty-keyboard/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Bulb Switcher"
+url = "https://leetcode.com/problems/bulb-switcher/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Count Alternating Subarrays"
+url = "https://leetcode.com/problems/count-alternating-subarrays/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Online Majority Element In Subarray"
+url = "https://leetcode.com/problems/online-majority-element-in-subarray/"

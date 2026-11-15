@@ -3,182 +3,183 @@ group = "AI & Startups"
 focus = "tables, formulas, graphs, design data structures, intervals, strings, heaps, trees, and DP."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "03_stacks_and_queues", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
-[[entries]]
-title = "Sparse Matrix Multiplication"
-url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
 
 [[entries]]
-title = "Range Sum Query 2D - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+title = "Minimum Number of Steps to Make Two Strings Anagram"
+url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
+
+[[entries]]
+title = "Step-By-Step Directions From a Binary Tree Node to Another"
+url = "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/"
 
 [[entries]]
 title = "Range Sum Query - Mutable"
 url = "https://leetcode.com/problems/range-sum-query-mutable/"
 
 [[entries]]
-title = "Design Excel Sum Formula"
-url = "https://leetcode.com/problems/design-excel-sum-formula/"
+title = "Sliding Puzzle"
+url = "https://leetcode.com/problems/sliding-puzzle/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Count Ways To Build Good Strings"
+url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Design Linked List"
+url = "https://leetcode.com/problems/design-linked-list/"
 
 [[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
+title = "Maximum Increasing Triplet Value"
+url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Maximum Sum of an Hourglass"
+url = "https://leetcode.com/problems/maximum-sum-of-an-hourglass/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Minimum Cost of a Path With Special Roads"
+url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Minimum Cost to Convert String II"
+url = "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Minimum Factorization"
+url = "https://leetcode.com/problems/minimum-factorization/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Minimum Time to Visit All Houses"
+url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "K-th Smallest in Lexicographical Order"
+url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Non-decreasing Array"
+url = "https://leetcode.com/problems/non-decreasing-array/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Number of Adjacent Elements With the Same Color"
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
 
 [[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Number of People That Can Be Seen in a Grid"
+url = "https://leetcode.com/problems/number-of-people-that-can-be-seen-in-a-grid/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Couples Holding Hands"
+url = "https://leetcode.com/problems/couples-holding-hands/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Number of Subarrays That Match a Pattern I"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Path Sum IV"
+url = "https://leetcode.com/problems/path-sum-iv/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Query Kth Smallest Trimmed Number"
+url = "https://leetcode.com/problems/query-kth-smallest-trimmed-number/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Maximum Candies You Can Get from Boxes"
+url = "https://leetcode.com/problems/maximum-candies-you-can-get-from-boxes/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Remove Comments"
+url = "https://leetcode.com/problems/remove-comments/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"
 
 [[entries]]
 title = "Squares of a Sorted Array"
 url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Split Concatenated Strings"
+url = "https://leetcode.com/problems/split-concatenated-strings/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Minimize Malware Spread"
+url = "https://leetcode.com/problems/minimize-malware-spread/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Sum of Even Numbers After Queries"
+url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Subarray of 1's After Deleting One Element"
+url = "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Swap Adjacent in LR String"
+url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
 
 [[entries]]
 title = "Range Sum of BST"
 url = "https://leetcode.com/problems/range-sum-of-bst/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "The Number of the Smallest Unoccupied Chair"
+url = "https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Minimum Edge Reversals So Every Node Is Reachable"
+url = "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Wiggle Sort II"
+url = "https://leetcode.com/problems/wiggle-sort-ii/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Web Crawler"
+url = "https://leetcode.com/problems/web-crawler/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Array Nesting"
+url = "https://leetcode.com/problems/array-nesting/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Minimum Runes to Add to Cast Spell"
+url = "https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Bag of Tokens"
+url = "https://leetcode.com/problems/bag-of-tokens/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Array With Elements Not Equal to Average of Neighbors"
+url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
 
 [[entries]]
 title = "Kth Missing Positive Number"
 url = "https://leetcode.com/problems/kth-missing-positive-number/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Can I Win"
+url = "https://leetcode.com/problems/can-i-win/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Candy Crush"
+url = "https://leetcode.com/problems/candy-crush/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "Palindrome Pairs"
+url = "https://leetcode.com/problems/palindrome-pairs/"

@@ -3,6 +3,7 @@ group = "Trading Firms"
 focus = "Probability-friendly math, dynamic programming, sliding window and heap problems with tight time bounds."
 review_modules = ["11_dp", "16_math_geometry", "04_sliding_window", "08_heaps", "01_arrays_and_hashing", "12_greedy_algorithms"]
 
+
 [[entries]]
 title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
@@ -56,16 +57,16 @@ title = "Break a Palindrome"
 url = "https://leetcode.com/problems/break-a-palindrome/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
 title = "Minimize Deviation in Array"
 url = "https://leetcode.com/problems/minimize-deviation-in-array/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
 
 [[entries]]
 title = "Smallest Range Covering Elements from K Lists"
@@ -76,20 +77,20 @@ title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
 
 [[entries]]
 title = "Minimum Cost to Merge Stones"
 url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Count Square Submatrices with All Ones"
+url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
 title = "Palindrome Partitioning II"
@@ -120,8 +121,8 @@ title = "Perfect Rectangle"
 url = "https://leetcode.com/problems/perfect-rectangle/"
 
 [[entries]]
-title = "Rectangle Area"
-url = "https://leetcode.com/problems/rectangle-area/"
+title = "Reverse Integer"
+url = "https://leetcode.com/problems/reverse-integer/"
 
 [[entries]]
 title = "Multiply Strings"

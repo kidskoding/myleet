@@ -3,6 +3,7 @@ group = "Big Tech"
 focus = "Intervals, heaps, shortest paths on graphs and grids, and greedy optimization under constraints."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "13_intervals"]
 
+
 [[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
@@ -40,8 +41,8 @@ title = "Furthest Building You Can Reach"
 url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
 
 [[entries]]
-title = "Lemonade Change"
-url = "https://leetcode.com/problems/lemonade-change/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
 title = "The Maze II"
@@ -84,8 +85,8 @@ title = "Two City Scheduling"
 url = "https://leetcode.com/problems/two-city-scheduling/"
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 
 [[entries]]
 title = "Queue Reconstruction by Height"
@@ -140,8 +141,8 @@ title = "Minimum Deletions to Make Character Frequencies Unique"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
 
 [[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
 title = "Hand of Straights"

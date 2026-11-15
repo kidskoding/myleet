@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "sliding window and strings, dp on strings, grid bfs/dfs, hash maps, linked-list based design, and intervals"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "10_graphs", "11_dp", "13_intervals"]
 
+
 [[entries]]
 title = "Flood Fill"
 url = "https://leetcode.com/problems/flood-fill/"
@@ -12,8 +13,8 @@ title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Sliding Subarray Beauty"
+url = "https://leetcode.com/problems/sliding-subarray-beauty/"
 
 [[entries]]
 title = "Valid Anagram"

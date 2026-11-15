@@ -3,45 +3,46 @@ group = "AI & Startups"
 focus = "stateful data structures, hash maps, intervals, prefix sums, graphs, heaps, and clean API-style implementation."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "16_math_geometry", "17_advanced"]
 
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Beautiful Towers II"
+url = "https://leetcode.com/problems/beautiful-towers-ii/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Maximum Size Subarray Sum Equals k"
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Max Sum of Rectangle No Larger Than K"
+url = "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Online Stock Span"
+url = "https://leetcode.com/problems/online-stock-span/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Design File System"
+url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Design a File Sharing System"
+url = "https://leetcode.com/problems/design-a-file-sharing-system/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Reorder Routes to Make All Paths Lead to the City Zero"
+url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
+
+[[entries]]
+title = "Shortest Subarray with Sum at Least K"
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -52,64 +53,64 @@ title = "Continuous Subarray Sum"
 url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Subarray Sums Divisible by K"
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
 
 [[entries]]
 title = "Range Sum Query - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Corporate Flight Bookings"
+url = "https://leetcode.com/problems/corporate-flight-bookings/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Find the Kth Smallest Sum of a Matrix With Sorted Rows"
+url = "https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
 
 [[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Count Integers in Intervals"
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Least Number of Unique Integers after K Removals"
+url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
 
 [[entries]]
 title = "Maximum Score After Splitting a String"
 url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
@@ -128,36 +129,36 @@ title = "House Robber II"
 url = "https://leetcode.com/problems/house-robber-ii/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
 
 [[entries]]
 title = "Find Pivot Index"
 url = "https://leetcode.com/problems/find-pivot-index/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Count Vowel Strings in Ranges"
+url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Count Subarrays With Fixed Bounds"
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -172,12 +173,12 @@ title = "Left and Right Sum Differences"
 url = "https://leetcode.com/problems/left-and-right-sum-differences/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Is Graph Bipartite?"
+url = "https://leetcode.com/problems/is-graph-bipartite/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
 
 [[entries]]
 title = "Median of Two Sorted Arrays"

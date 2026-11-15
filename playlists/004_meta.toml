@@ -3,6 +3,7 @@ group = "Big Tech"
 focus = "Arrays, strings, two pointers, prefix sums, trees, and graphs, solved quickly and cleanly in a plain editor."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "07_trees", "10_graphs", "13_intervals"]
 
+
 [[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
 url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"

@@ -3,181 +3,182 @@ group = "Consumer and Business Tech"
 focus = "hash maps and strings, grouping and aggregating records, intervals and concurrency counts, linked lists, and stateful class design"
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
+
 [[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
+title = "Shortest Word Distance II"
+url = "https://leetcode.com/problems/shortest-word-distance-ii/"
 
 [[entries]]
 title = "Maximum Number of Occurrences of a Substring"
 url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Maximum Sum Obtained of Any Permutation"
+url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
 
 [[entries]]
 title = "Find the K-Sum of an Array"
 url = "https://leetcode.com/problems/find-the-k-sum-of-an-array/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Meeting Scheduler"
+url = "https://leetcode.com/problems/meeting-scheduler/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Capacity To Ship Packages Within D Days"
+url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
 
 [[entries]]
 title = "Merge Sorted Array"
 url = "https://leetcode.com/problems/merge-sorted-array/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Throne Inheritance"
+url = "https://leetcode.com/problems/throne-inheritance/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Zigzag Iterator"
+url = "https://leetcode.com/problems/zigzag-iterator/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Count Ways to Build Rooms in an Ant Colony"
+url = "https://leetcode.com/problems/count-ways-to-build-rooms-in-an-ant-colony/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Number of Pairs of Strings With Concatenation Equal to Target"
+url = "https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Shortest String That Contains Three Strings"
+url = "https://leetcode.com/problems/shortest-string-that-contains-three-strings/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Design an Array Statistics Tracker"
+url = "https://leetcode.com/problems/design-an-array-statistics-tracker/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Stone Game IX"
+url = "https://leetcode.com/problems/stone-game-ix/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Sum Game"
+url = "https://leetcode.com/problems/sum-game/"
 
 [[entries]]
 title = "Merge Two Sorted Lists"
 url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
-title = "Repeated DNA Sequences"
-url = "https://leetcode.com/problems/repeated-dna-sequences/"
+title = "Number of Ways to Arrive at Destination"
+url = "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Unique Substrings With Equal Digit Frequency"
+url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Find Minimum Diameter After Merging Two Trees"
+url = "https://leetcode.com/problems/find-minimum-diameter-after-merging-two-trees/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Boundary of Binary Tree"
+url = "https://leetcode.com/problems/boundary-of-binary-tree/"
 
 [[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+title = "Check Completeness of a Binary Tree"
+url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
 
 [[entries]]
 title = "Analyze User Website Visit Pattern"
 url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Find the Last Marked Nodes in Tree"
+url = "https://leetcode.com/problems/find-the-last-marked-nodes-in-tree/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Closest Leaf in a Binary Tree"
+url = "https://leetcode.com/problems/closest-leaf-in-a-binary-tree/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Replace the Substring for Balanced String"
+url = "https://leetcode.com/problems/replace-the-substring-for-balanced-string/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Design Log Storage System"
+url = "https://leetcode.com/problems/design-log-storage-system/"
 
 [[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+title = "Minimum Size Subarray Sum"
+url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Construct String With Repeat Limit"
+url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Find the Maximum Sum of Node Values"
+url = "https://leetcode.com/problems/find-the-maximum-sum-of-node-values/"
 
 [[entries]]
 title = "Design A Leaderboard"
 url = "https://leetcode.com/problems/design-a-leaderboard/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Count Nodes Equal to Average of Subtree"
+url = "https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Count Nodes With the Highest Score"
+url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
 
 [[entries]]
 title = "Read N Characters Given Read4"
 url = "https://leetcode.com/problems/read-n-characters-given-read4/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Delete Nodes And Return Forest"
+url = "https://leetcode.com/problems/delete-nodes-and-return-forest/"
 
 [[entries]]
 title = "Kth Ancestor of a Tree Node"
 url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
 
 [[entries]]
-title = "Stock Price Fluctuation"
-url = "https://leetcode.com/problems/stock-price-fluctuation/"
+title = "Design Order Management System"
+url = "https://leetcode.com/problems/design-order-management-system/"
 
 [[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
+title = "Detect Squares"
+url = "https://leetcode.com/problems/detect-squares/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Diameter of N-Ary Tree"
+url = "https://leetcode.com/problems/diameter-of-n-ary-tree/"
 
 [[entries]]
 title = "Design a Text Editor"
 url = "https://leetcode.com/problems/design-a-text-editor/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Find Duplicate Subtrees"
+url = "https://leetcode.com/problems/find-duplicate-subtrees/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Find Leaves of Binary Tree"
+url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
 
 [[entries]]
 title = "Design an Ordered Stream"
 url = "https://leetcode.com/problems/design-an-ordered-stream/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Find Players With Zero or One Losses"
+url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "First Unique Number"
+url = "https://leetcode.com/problems/first-unique-number/"
 
 [[entries]]
 title = "Design Graph With Shortest Path Calculator"

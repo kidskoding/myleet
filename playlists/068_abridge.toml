@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "Sequence and text-processing problems with sliding window, two pointers, hash maps and dynamic programming."
 review_modules = ["04_sliding_window", "01_arrays_and_hashing", "02_two_pointers", "11_dp", "03_stacks_and_queues", "07_trees"]
 
+
 [[entries]]
 title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
@@ -12,8 +13,8 @@ title = "Coordinate With Maximum Network Quality"
 url = "https://leetcode.com/problems/coordinate-with-maximum-network-quality/"
 
 [[entries]]
-title = "Contiguous Array"
-url = "https://leetcode.com/problems/contiguous-array/"
+title = "Find Minimum Cost to Remove Array Elements"
+url = "https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements/"
 
 [[entries]]
 title = "Minimum Cost to Split an Array"
@@ -28,8 +29,8 @@ title = "Number of Valid Words in a Sentence"
 url = "https://leetcode.com/problems/number-of-valid-words-in-a-sentence/"
 
 [[entries]]
-title = "Finding the Users Active Minutes"
-url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
+title = "Prison Cells After N Days"
+url = "https://leetcode.com/problems/prison-cells-after-n-days/"
 
 [[entries]]
 title = "Separate Black and White Balls"
@@ -52,20 +53,20 @@ title = "Maximize Win From Two Segments"
 url = "https://leetcode.com/problems/maximize-win-from-two-segments/"
 
 [[entries]]
-title = "Minimum Window Subsequence"
-url = "https://leetcode.com/problems/minimum-window-subsequence/"
+title = "Count All Valid Pickup and Delivery Options"
+url = "https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options/"
 
 [[entries]]
-title = "Count Zero Request Servers"
-url = "https://leetcode.com/problems/count-zero-request-servers/"
+title = "Minimum Swaps to Group All 1's Together II"
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/"
 
 [[entries]]
 title = "Minimum Operations to Make Array Values Equal to K"
 url = "https://leetcode.com/problems/minimum-operations-to-make-array-values-equal-to-k/"
 
 [[entries]]
-title = "Minimum Operations to Reduce X to Zero"
-url = "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/"
+title = "Maximum Sum of Distinct Subarrays With Length K"
+url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
 
 [[entries]]
 title = "Remove All Occurrences of a Substring"
@@ -80,12 +81,12 @@ title = "Lexicographically Maximum MEX Array"
 url = "https://leetcode.com/problems/lexicographically-maximum-mex-array/"
 
 [[entries]]
-title = "Successful Pairs of Spells and Potions"
-url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
+title = "Greatest Sum Divisible by Three"
+url = "https://leetcode.com/problems/greatest-sum-divisible-by-three/"
 
 [[entries]]
-title = "Search in a Sorted Array of Unknown Size"
-url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+title = "Largest 1-Bordered Square"
+url = "https://leetcode.com/problems/largest-1-bordered-square/"
 
 [[entries]]
 title = "Check If a Number Is Majority Element in a Sorted Array"
@@ -100,28 +101,28 @@ title = "Number of Ways to Separate Numbers"
 url = "https://leetcode.com/problems/number-of-ways-to-separate-numbers/"
 
 [[entries]]
-title = "Inorder Successor in BST"
-url = "https://leetcode.com/problems/inorder-successor-in-bst/"
+title = "Path Sum II"
+url = "https://leetcode.com/problems/path-sum-ii/"
 
 [[entries]]
-title = "Delete Node in a BST"
-url = "https://leetcode.com/problems/delete-node-in-a-bst/"
+title = "Populating Next Right Pointers in Each Node"
+url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
 
 [[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
+title = "Last Stone Weight II"
+url = "https://leetcode.com/problems/last-stone-weight-ii/"
 
 [[entries]]
 title = "Cherry Pickup"
 url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
-title = "Target Sum"
-url = "https://leetcode.com/problems/target-sum/"
+title = "Length of the Longest Subsequence That Sums to Target"
+url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Transaction Fee"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+title = "Longest Arithmetic Subsequence"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence/"
 
 [[entries]]
 title = "Maximum Product of Three Numbers"
@@ -136,5 +137,5 @@ title = "K-diff Pairs in an Array"
 url = "https://leetcode.com/problems/k-diff-pairs-in-an-array/"
 
 [[entries]]
-title = "Contains Duplicate III"
-url = "https://leetcode.com/problems/contains-duplicate-iii/"
+title = "Stamping The Sequence"
+url = "https://leetcode.com/problems/stamping-the-sequence/"

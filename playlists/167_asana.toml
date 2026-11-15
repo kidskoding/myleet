@@ -3,182 +3,183 @@ group = "Consumer and Business Tech"
 focus = "task graphs, topological ordering, intervals, strings, design data structures, heaps, and DP."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Count Number of Teams"
+url = "https://leetcode.com/problems/count-number-of-teams/"
 
 [[entries]]
-title = "Course Schedule IV"
-url = "https://leetcode.com/problems/course-schedule-iv/"
+title = "Reorder Data in Log Files"
+url = "https://leetcode.com/problems/reorder-data-in-log-files/"
 
 [[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
+title = "Broken Calculator"
+url = "https://leetcode.com/problems/broken-calculator/"
 
 [[entries]]
-title = "Find Eventual Safe States"
-url = "https://leetcode.com/problems/find-eventual-safe-states/"
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
 
 [[entries]]
-title = "All Paths From Source to Target"
-url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
+title = "Count Days Without Meetings"
+url = "https://leetcode.com/problems/count-days-without-meetings/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Divide Array in Sets of K Consecutive Numbers"
+url = "https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "RLE Iterator"
+url = "https://leetcode.com/problems/rle-iterator/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Find Maximum Area of a Triangle"
+url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Find Maximum Value in a Constrained Sequence"
+url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Create Sorted Array through Instructions"
+url = "https://leetcode.com/problems/create-sorted-array-through-instructions/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Group the People Given the Group Size They Belong To"
+url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Lexicographically Smallest String After Operations With Constraint"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Count of Smaller Numbers After Self"
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Lexicographically Smallest String After Substring Operation"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/"
+
+[[entries]]
+title = "Longest Happy String"
+url = "https://leetcode.com/problems/longest-happy-string/"
 
 [[entries]]
 title = "Kth Largest Element in a Stream"
 url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Longest Palindrome by Concatenating Two Letter Words"
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Maximum Number of Tasks You Can Assign"
+url = "https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
 
 [[entries]]
-title = "Binary Tree Right Side View"
-url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Maximize the Topmost Element After K Moves"
+url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Binary Tree Cameras"
+url = "https://leetcode.com/problems/binary-tree-cameras/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Maximum Median Sum of Subsequences of Size 3"
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
 
 [[entries]]
 title = "Maximum Repeating Substring"
 url = "https://leetcode.com/problems/maximum-repeating-substring/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Maximum Number of Eaten Apples"
+url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Maximum Number of Integers to Choose From a Range I"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Constrained Subsequence Sum"
+url = "https://leetcode.com/problems/constrained-subsequence-sum/"
 
 [[entries]]
-title = "Minimum Cost Path with Edge Reversals"
-url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
+title = "Maximum OR"
+url = "https://leetcode.com/problems/maximum-or/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Maximum Points After Enemy Battles"
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
 
 [[entries]]
 title = "Last Stone Weight"
 url = "https://leetcode.com/problems/last-stone-weight/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Subsequence Score"
+url = "https://leetcode.com/problems/maximum-subsequence-score/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Sum Obtained of Any Permutation"
+url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximum Total Importance of Roads"
+url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Maximum Xor Product"
+url = "https://leetcode.com/problems/maximum-xor-product/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Maximum Total Beauty of the Gardens"
+url = "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Merge Triplets to Form Target Triplet"
+url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Mice and Cheese"
+url = "https://leetcode.com/problems/mice-and-cheese/"
 
 [[entries]]
 title = "Number of Common Factors"
 url = "https://leetcode.com/problems/number-of-common-factors/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Minimize Length of Array Using Operations"
+url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Minimize Rounding Error to Meet Target"
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Minimize Malware Spread"
+url = "https://leetcode.com/problems/minimize-malware-spread/"

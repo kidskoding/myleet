@@ -3,93 +3,94 @@ group = "Fortune 500"
 focus = "Arrays and strings, bit manipulation, stacks and queues, linked lists, and basic tree and graph traversal."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "10_graphs"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Number of Ways to Split Array"
-url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+title = "Alternating Groups II"
+url = "https://leetcode.com/problems/alternating-groups-ii/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Check if a Parentheses String Can Be Valid"
+url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Check If Word Is Valid After Substitutions"
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Construct Smallest Number From DI String"
+url = "https://leetcode.com/problems/construct-smallest-number-from-di-string/"
+
+[[entries]]
+title = "Count Sorted Vowel Strings"
+url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
 
 [[entries]]
 title = "Maximum Score After Splitting a String"
 url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Exclusive Time of Functions"
+url = "https://leetcode.com/problems/exclusive-time-of-functions/"
 
 [[entries]]
 title = "Vertical Order Traversal of a Binary Tree"
 url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
-title = "Partition Labels"
-url = "https://leetcode.com/problems/partition-labels/"
+title = "Find Longest Special Substring That Occurs Thrice II"
+url = "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/"
 
 [[entries]]
 title = "Range Sum Query - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
 [[entries]]
-title = "Rearrange Array Elements by Sign"
-url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
+title = "Find the Longest Equal Subarray"
+url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
 
 [[entries]]
 title = "Single Element in a Sorted Array"
 url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Find the Winner of the Circular Game"
+url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
 
 [[entries]]
-title = "Successful Pairs of Spells and Potions"
-url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
 
 [[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
+title = "Longest Absolute File Path"
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
-title = "Find a Peak Element II"
-url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+title = "Search in a Sorted Array of Unknown Size"
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
 
 [[entries]]
 title = "Critical Connections in a Network"
 url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 
 [[entries]]
-title = "Convert Sorted List to Binary Search Tree"
-url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Add Two Numbers II"
+url = "https://leetcode.com/problems/add-two-numbers-ii/"
 
 [[entries]]
 title = "Delete Nodes From Linked List Present in Array"
 url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Linked List Random Node"
+url = "https://leetcode.com/problems/linked-list-random-node/"
 
 [[entries]]
-title = "Delete Node in a BST"
-url = "https://leetcode.com/problems/delete-node-in-a-bst/"
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
 
 [[entries]]
 title = "Find Bottom Left Tree Value"
@@ -108,8 +109,8 @@ title = "Find Eventual Safe States"
 url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Construct Binary Tree from Preorder and Postorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/"
 
 [[entries]]
 title = "Minimum Number of Vertices to Reach All Nodes"

@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "graphs/union-find, design-style data structures, intervals, DP, arrays/hashing, and trees."
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "18_mixed_interview_practice"]
 
+
 [[entries]]
 title = "Moving Average from Data Stream"
 url = "https://leetcode.com/problems/moving-average-from-data-stream/"
@@ -16,16 +17,16 @@ title = "Number of Steps to Reduce a Number in Binary Representation to One"
 url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Find All Duplicates in an Array"
+url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
 
 [[entries]]
 title = "Minimum Deletions to Make Character Frequencies Unique"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
 title = "Dot Product of Two Sparse Vectors"
@@ -52,12 +53,12 @@ title = "Index Pairs of a String"
 url = "https://leetcode.com/problems/index-pairs-of-a-string/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
 title = "Island Perimeter"
@@ -88,12 +89,12 @@ title = "Number of Recent Calls"
 url = "https://leetcode.com/problems/number-of-recent-calls/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Find the City With the Smallest Number of Neighbors at a Threshold Distance"
+url = "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Design Twitter"
+url = "https://leetcode.com/problems/design-twitter/"
 
 [[entries]]
 title = "Meeting Rooms"
@@ -108,16 +109,16 @@ title = "First Missing Positive"
 url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
 title = "Counting Words With a Given Prefix"
 url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
 title = "Implement Queue using Stacks"
@@ -128,16 +129,16 @@ title = "Design Add and Search Words Data Structure"
 url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Divide Intervals Into Minimum Number of Groups"
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
 
 [[entries]]
 title = "String Matching in an Array"
 url = "https://leetcode.com/problems/string-matching-in-an-array/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Least Number of Unique Integers after K Removals"
+url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
 
 [[entries]]
 title = "Word Search II"
@@ -164,8 +165,8 @@ title = "Unique Paths"
 url = "https://leetcode.com/problems/unique-paths/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
 
 [[entries]]
 title = "Find the Index of the First Occurrence in a String"
@@ -176,17 +177,17 @@ title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Find Servers That Handled Most Number of Requests"
+url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
 
 [[entries]]
 title = "Repeated Substring Pattern"
 url = "https://leetcode.com/problems/repeated-substring-pattern/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"

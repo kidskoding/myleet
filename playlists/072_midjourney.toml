@@ -3,13 +3,14 @@ group = "AI & Startups"
 focus = "Core data-structure problems with dynamic programming, math and grid helpers, and tree and graph traversal."
 review_modules = ["01_arrays_and_hashing", "16_math_geometry", "11_dp", "07_trees", "10_graphs", "08_heaps"]
 
+
 [[entries]]
 title = "Average Waiting Time"
 url = "https://leetcode.com/problems/average-waiting-time/"
 
 [[entries]]
-title = "Maximum Size Subarray Sum Equals k"
-url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
+title = "Longest Non-Decreasing Subarray After Replacing at Most One Element"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-after-replacing-at-most-one-element/"
 
 [[entries]]
 title = "Count Unguarded Cells in the Grid"
@@ -88,32 +89,32 @@ title = "Find the N-th Value After K Seconds"
 url = "https://leetcode.com/problems/find-the-n-th-value-after-k-seconds/"
 
 [[entries]]
-title = "Delete and Earn"
-url = "https://leetcode.com/problems/delete-and-earn/"
+title = "Longest Non-decreasing Subarray From Two Arrays"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays/"
 
 [[entries]]
 title = "Average Value of Even Numbers That Are Divisible by Three"
 url = "https://leetcode.com/problems/average-value-of-even-numbers-that-are-divisible-by-three/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Maximize Total Tastiness of Purchased Fruits"
+url = "https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits/"
 
 [[entries]]
 title = "Minimum Cost to Reach Destination in Time"
 url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
 
 [[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
+title = "Maximum Length of Repeated Subarray"
+url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
 title = "Spiral Matrix II"
 url = "https://leetcode.com/problems/spiral-matrix-ii/"
 
 [[entries]]
-title = "Factorial Trailing Zeroes"
-url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
+title = "Reverse Integer"
+url = "https://leetcode.com/problems/reverse-integer/"
 
 [[entries]]
 title = "Palindrome Partitioning II"
@@ -124,8 +125,8 @@ title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
-title = "Break a Palindrome"
-url = "https://leetcode.com/problems/break-a-palindrome/"
+title = "Remove Colored Pieces if Both Neighbors are the Same Color"
+url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
 
 [[entries]]
 title = "Plus One"

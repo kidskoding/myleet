@@ -3,182 +3,183 @@ group = "AI & Startups"
 focus = "systems-flavored data structures, parsing, graphs, tries, intervals, heaps, trees, and implementation-heavy problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
-[[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Design Event Manager"
+url = "https://leetcode.com/problems/design-event-manager/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Beautiful Towers I"
+url = "https://leetcode.com/problems/beautiful-towers-i/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Count Integers in Intervals"
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Break a Palindrome"
+url = "https://leetcode.com/problems/break-a-palindrome/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Broken Calculator"
+url = "https://leetcode.com/problems/broken-calculator/"
 
 [[entries]]
-title = "Design Add and Search Words Data Structure"
-url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
+title = "Longest Word in Dictionary"
+url = "https://leetcode.com/problems/longest-word-in-dictionary/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Number of Matching Subsequences"
+url = "https://leetcode.com/problems/number-of-matching-subsequences/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Create Maximum Number"
+url = "https://leetcode.com/problems/create-maximum-number/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Count Days Without Meetings"
+url = "https://leetcode.com/problems/count-days-without-meetings/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Find Maximum Area of a Triangle"
+url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Palindrome Pairs"
+url = "https://leetcode.com/problems/palindrome-pairs/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Find Valid Matrix Given Row and Column Sums"
+url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
+
+[[entries]]
+title = "Group the People Given the Group Size They Belong To"
+url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
 
 [[entries]]
 title = "Backspace String Compare"
 url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "K Highest Ranked Items Within a Price Range"
+url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Make the Prefix Sum Non-negative"
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Longest Duplicate Substring"
+url = "https://leetcode.com/problems/longest-duplicate-substring/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "Word Squares"
+url = "https://leetcode.com/problems/word-squares/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Combination Sum II"
+url = "https://leetcode.com/problems/combination-sum-ii/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Maximize the Topmost Element After K Moves"
+url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
 
 [[entries]]
 title = "Kth Missing Positive Number"
 url = "https://leetcode.com/problems/kth-missing-positive-number/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Maximum Distance in Arrays"
+url = "https://leetcode.com/problems/maximum-distance-in-arrays/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Convert BST to Greater Tree"
+url = "https://leetcode.com/problems/convert-bst-to-greater-tree/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
 
 [[entries]]
 title = "Valid Palindrome"
 url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Max Consecutive Ones III"
+url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Count Visited Nodes in a Directed Graph"
+url = "https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Continuous Subarray Sum"
+url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Number of Subarrays with Bounded Maximum"
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Maximum Median Sum of Subsequences of Size 3"
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
 
 [[entries]]
 title = "Reverse String"
 url = "https://leetcode.com/problems/reverse-string/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Count Increasing Quadruplets"
+url = "https://leetcode.com/problems/count-increasing-quadruplets/"

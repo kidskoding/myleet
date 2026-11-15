@@ -3,182 +3,183 @@ group = "Trading Firms"
 focus = "arrays, DP, graphs, and hedge-fund SWE coding rounds."
 review_modules = ["16_math_geometry", "11_dp", "08_heaps", "03_stacks_and_queues", "09_backtracking", "10_graphs"]
 
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Minimum Edge Reversals So Every Node Is Reachable"
+url = "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Minimum Cost to Reach Destination in Time"
+url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Apply Substitutions"
+url = "https://leetcode.com/problems/apply-substitutions/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Minimum Number of Refueling Stops"
+url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
 
 [[entries]]
-title = "Nim Game"
-url = "https://leetcode.com/problems/nim-game/"
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Sort Characters By Frequency"
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Minimum Runes to Add to Cast Spell"
+url = "https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Minimum Time to Visit a Cell In a Grid"
+url = "https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Super Ugly Number"
+url = "https://leetcode.com/problems/super-ugly-number/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Array Nesting"
+url = "https://leetcode.com/problems/array-nesting/"
 
 [[entries]]
-title = "Implement Rand10() Using Rand7()"
-url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+title = "Create Maximum Number"
+url = "https://leetcode.com/problems/create-maximum-number/"
 
 [[entries]]
-title = "Dice Roll Simulation"
-url = "https://leetcode.com/problems/dice-roll-simulation/"
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
 
 [[entries]]
-title = "New 21 Game"
-url = "https://leetcode.com/problems/new-21-game/"
+title = "Count Non Decreasing Arrays With Given Digit Sums"
+url = "https://leetcode.com/problems/count-non-decreasing-arrays-with-given-digit-sums/"
 
 [[entries]]
-title = "Soup Servings"
-url = "https://leetcode.com/problems/soup-servings/"
+title = "Largest 1-Bordered Square"
+url = "https://leetcode.com/problems/largest-1-bordered-square/"
 
 [[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
+title = "Length of the Longest Subsequence That Sums to Target"
+url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
 
 [[entries]]
-title = "Number of Dice Rolls With Target Sum"
-url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
+
+[[entries]]
+title = "Longest Arithmetic Subsequence"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence/"
 
 [[entries]]
 title = "Divisor Game"
 url = "https://leetcode.com/problems/divisor-game/"
 
 [[entries]]
-title = "Ugly Number II"
-url = "https://leetcode.com/problems/ugly-number-ii/"
+title = "Pow(x, n)"
+url = "https://leetcode.com/problems/powx-n/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Number of Increasing Paths in a Grid"
+url = "https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/"
 
 [[entries]]
-title = "Water and Jug Problem"
-url = "https://leetcode.com/problems/water-and-jug-problem/"
+title = "Spiral Matrix II"
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Number of Possible Sets of Closing Branches"
+url = "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
 
 [[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
+title = "24 Game"
+url = "https://leetcode.com/problems/24-game/"
 
 [[entries]]
-title = "Different Ways to Add Parentheses"
-url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
+title = "Number of Ways to Arrive at Destination"
+url = "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/"
 
 [[entries]]
-title = "Largest Rectangle in Histogram"
-url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+title = "Number of Ways to Reach Destination in the Grid"
+url = "https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+title = "Minimum Moves to Reach Target with Rotations"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Continuous Subarray Sum"
+url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
 [[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
+title = "Minimum Obstacle Removal to Reach Corner"
+url = "https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
 title = "Is Subsequence"
 url = "https://leetcode.com/problems/is-subsequence/"
 
 [[entries]]
-title = "Shortest Path in a Grid with Obstacles Elimination"
-url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
+title = "Rank Transform of a Matrix"
+url = "https://leetcode.com/problems/rank-transform-of-a-matrix/"
 
 [[entries]]
-title = "Palindrome Partitioning"
-url = "https://leetcode.com/problems/palindrome-partitioning/"
+title = "Letter Tile Possibilities"
+url = "https://leetcode.com/problems/letter-tile-possibilities/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
 
 [[entries]]
-title = "Russian Doll Envelopes"
-url = "https://leetcode.com/problems/russian-doll-envelopes/"
+title = "Longest Duplicate Substring"
+url = "https://leetcode.com/problems/longest-duplicate-substring/"

@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "String parsing, hash-map bookkeeping, intervals, rate limiting, and small in-memory designs."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "13_intervals", "17_advanced"]
 
+
 [[entries]]
 title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
@@ -20,8 +21,8 @@ title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Design A Leaderboard"
+url = "https://leetcode.com/problems/design-a-leaderboard/"
 
 [[entries]]
 title = "Simplify Path"
@@ -32,16 +33,16 @@ title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
 
 [[entries]]
 title = "Invalid Transactions"
 url = "https://leetcode.com/problems/invalid-transactions/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
 
 [[entries]]
 title = "Text Justification"
@@ -56,12 +57,12 @@ title = "Number of Atoms"
 url = "https://leetcode.com/problems/number-of-atoms/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Design Circular Deque"
+url = "https://leetcode.com/problems/design-circular-deque/"
 
 [[entries]]
 title = "Decode String"
@@ -76,8 +77,8 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Divide Intervals Into Minimum Number of Groups"
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
 
 [[entries]]
 title = "Largest Rectangle in Histogram"
@@ -96,8 +97,8 @@ title = "Design HashMap"
 url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "House Robber III"
+url = "https://leetcode.com/problems/house-robber-iii/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -140,8 +141,8 @@ title = "Word Ladder II"
 url = "https://leetcode.com/problems/word-ladder-ii/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
 
 [[entries]]
 title = "Fraction to Recurring Decimal"

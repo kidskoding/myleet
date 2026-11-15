@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "fundamentals, arrays/strings, linked lists, trees, BFS/DFS, bit basics, and clean OOP implementation."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "07_trees", "10_graphs"]
 
+
 [[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
@@ -16,36 +17,36 @@ title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
+url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
 
 [[entries]]
 title = "Reverse Linked List"
 url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
 title = "Trapping Rain Water"
 url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Corporate Flight Bookings"
+url = "https://leetcode.com/problems/corporate-flight-bookings/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Merge In Between Linked Lists"
+url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
 
 [[entries]]
 title = "Linked List Cycle"
@@ -60,8 +61,8 @@ title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
@@ -72,16 +73,16 @@ title = "Valid Palindrome"
 url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
 
 [[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
 
 [[entries]]
 title = "Reverse String"
@@ -96,8 +97,8 @@ title = "Longest Common Prefix"
 url = "https://leetcode.com/problems/longest-common-prefix/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "House Robber III"
+url = "https://leetcode.com/problems/house-robber-iii/"
 
 [[entries]]
 title = "Rotting Oranges"
@@ -164,8 +165,8 @@ title = "Valid Palindrome II"
 url = "https://leetcode.com/problems/valid-palindrome-ii/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
 
 [[entries]]
 title = "Median of Two Sorted Arrays"
@@ -180,5 +181,5 @@ title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"

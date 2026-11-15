@@ -3,6 +3,7 @@ group = "Trading Firms"
 focus = "Hard dynamic programming, combinatorial backtracking, math and heap problems for trading-style reasoning."
 review_modules = ["11_dp", "16_math_geometry", "09_backtracking", "08_heaps", "10_graphs", "05_binary_search"]
 
+
 [[entries]]
 title = "Spiral Matrix IV"
 url = "https://leetcode.com/problems/spiral-matrix-iv/"
@@ -24,8 +25,8 @@ title = "Stamping the Grid"
 url = "https://leetcode.com/problems/stamping-the-grid/"
 
 [[entries]]
-title = "Super Ugly Number"
-url = "https://leetcode.com/problems/super-ugly-number/"
+title = "Maximum Length of Repeated Subarray"
+url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
 title = "Removing Minimum Number of Magic Beans"
@@ -84,48 +85,48 @@ title = "Design a Text Editor"
 url = "https://leetcode.com/problems/design-a-text-editor/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Maximum Number of Subsequences After One Inserting"
+url = "https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/"
 
 [[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
+title = "Maximum Points Tourist Can Earn"
+url = "https://leetcode.com/problems/maximum-points-tourist-can-earn/"
 
 [[entries]]
 title = "Design Excel Sum Formula"
 url = "https://leetcode.com/problems/design-excel-sum-formula/"
 
 [[entries]]
-title = "Decode Ways"
-url = "https://leetcode.com/problems/decode-ways/"
+title = "Maximum Total Damage With Spell Casting"
+url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
 
 [[entries]]
 title = "Design In-Memory File System"
 url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
-title = "Delete and Earn"
-url = "https://leetcode.com/problems/delete-and-earn/"
+title = "Minimize Maximum of Array"
+url = "https://leetcode.com/problems/minimize-maximum-of-array/"
 
 [[entries]]
 title = "Number of Common Factors"
 url = "https://leetcode.com/problems/number-of-common-factors/"
 
 [[entries]]
-title = "Count Square Submatrices with All Ones"
-url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
+title = "Minimizing Array After Replacing Pairs With Their Product"
+url = "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/"
 
 [[entries]]
 title = "Design Skiplist"
 url = "https://leetcode.com/problems/design-skiplist/"
 
 [[entries]]
-title = "Minimum Falling Path Sum"
-url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+title = "Minimum Cost For Tickets"
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Minimum Cost to Make All Characters Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1) - Duplicates allowed"

@@ -3,6 +3,7 @@ group = "Big Tech"
 focus = "Bit manipulation, binary search, matrix and grid problems, and dynamic programming, with an eye on running time and memory."
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "15_bit_manipulation", "16_math_geometry"]
 
+
 [[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
@@ -108,8 +109,8 @@ title = "Kth Smallest Element in a Sorted Matrix"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Maximum Number of Robots Within Budget"
+url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
 
 [[entries]]
 title = "Minimum Speed to Arrive on Time"

@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "Fintech-flavored array, dynamic programming, greedy, interval and heap problems."
 review_modules = ["01_arrays_and_hashing", "11_dp", "12_greedy_algorithms", "08_heaps", "13_intervals", "05_binary_search"]
 
+
 [[entries]]
 title = "Permutations III"
 url = "https://leetcode.com/problems/permutations-iii/"
@@ -16,8 +17,8 @@ title = "Split Array with Equal Sum"
 url = "https://leetcode.com/problems/split-array-with-equal-sum/"
 
 [[entries]]
-title = "Longest Turbulent Subarray"
-url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+title = "Maximum Coin Collection"
+url = "https://leetcode.com/problems/maximum-coin-collection/"
 
 [[entries]]
 title = "Non-decreasing Array"
@@ -76,24 +77,24 @@ title = "Falling Squares"
 url = "https://leetcode.com/problems/falling-squares/"
 
 [[entries]]
-title = "Minimum Falling Path Sum"
-url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+title = "Maximum Earnings From Taxi"
+url = "https://leetcode.com/problems/maximum-earnings-from-taxi/"
 
 [[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
+title = "Maximum Length of Repeated Subarray"
+url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
 title = "Amount of New Area Painted Each Day"
 url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
 
 [[entries]]
-title = "Count Square Submatrices with All Ones"
-url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
+title = "Maximum Number of Subsequences After One Inserting"
+url = "https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/"
 
 [[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
+title = "Maximum Points Tourist Can Earn"
+url = "https://leetcode.com/problems/maximum-points-tourist-can-earn/"
 
 [[entries]]
 title = "Maximum Nesting Depth of the Parentheses"
@@ -120,8 +121,8 @@ title = "Eliminate Maximum Number of Monsters"
 url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
 
 [[entries]]
-title = "Maximal Rectangle"
-url = "https://leetcode.com/problems/maximal-rectangle/"
+title = "Maximize Palindrome Length From Subsequences"
+url = "https://leetcode.com/problems/maximize-palindrome-length-from-subsequences/"
 
 [[entries]]
 title = "Minimum Jumps to Reach Home"
@@ -144,5 +145,5 @@ title = "Reverse Words in a String II"
 url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
 
 [[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"

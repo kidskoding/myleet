@@ -3,97 +3,98 @@ group = "Consumer and Business Tech"
 focus = "messaging-style design, rate limits, strings, heaps, graphs, trees, intervals, and DP."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "14_tries", "17_advanced"]
 
-[[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Sum of Prefix Scores of Strings"
+url = "https://leetcode.com/problems/sum-of-prefix-scores-of-strings/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "House Robber III"
+url = "https://leetcode.com/problems/house-robber-iii/"
+
+[[entries]]
+title = "Longest Turbulent Subarray"
+url = "https://leetcode.com/problems/longest-turbulent-subarray/"
 
 [[entries]]
 title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
 
 [[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
+title = "Super Ugly Number"
+url = "https://leetcode.com/problems/super-ugly-number/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Max Value of Equation"
+url = "https://leetcode.com/problems/max-value-of-equation/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Least Number of Unique Integers after K Removals"
+url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Minimum Cost to Reach Destination in Time"
+url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Frequency of the Most Frequent Element"
+url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
 title = "Last Stone Weight"
 url = "https://leetcode.com/problems/last-stone-weight/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Map of Highest Peak"
+url = "https://leetcode.com/problems/map-of-highest-peak/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
@@ -108,28 +109,28 @@ title = "Backspace String Compare"
 url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Sort Characters By Frequency"
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Count Integers in Intervals"
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Count Square Submatrices with All Ones"
+url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
 
 [[entries]]
 title = "Valid Palindrome II"
@@ -144,28 +145,28 @@ title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Longest Mountain in Array"
+url = "https://leetcode.com/problems/longest-mountain-in-array/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
 
 [[entries]]
 title = "Range Sum Query - Immutable"

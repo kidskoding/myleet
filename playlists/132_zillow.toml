@@ -3,182 +3,183 @@ group = "Consumer and Business Tech"
 focus = "search/ranking, heaps, intervals, grids, graph traversal, maps, trees, and DP."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
+
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Maximum Star Sum of a Graph"
+url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
 
 [[entries]]
 title = "Find K Closest Elements"
 url = "https://leetcode.com/problems/find-k-closest-elements/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Minimize Connected Groups by Inserting Interval"
+url = "https://leetcode.com/problems/minimize-connected-groups-by-inserting-interval/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
 title = "Search Suggestions System"
 url = "https://leetcode.com/problems/search-suggestions-system/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Minimum Knight Moves"
+url = "https://leetcode.com/problems/minimum-knight-moves/"
 
 [[entries]]
 title = "First Bad Version"
 url = "https://leetcode.com/problems/first-bad-version/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Sell Diminishing-Valued Colored Balls"
+url = "https://leetcode.com/problems/sell-diminishing-valued-colored-balls/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Verify Preorder Sequence in Binary Search Tree"
+url = "https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Escape the Spreading Fire"
+url = "https://leetcode.com/problems/escape-the-spreading-fire/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Binary Search Tree to Greater Sum Tree"
+url = "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Convert Binary Search Tree to Sorted Doubly Linked List"
+url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Convert BST to Greater Tree"
+url = "https://leetcode.com/problems/convert-bst-to-greater-tree/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
+url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
 
 [[entries]]
 title = "Find Smallest Letter Greater Than Target"
 url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Find the Safest Path in a Grid"
+url = "https://leetcode.com/problems/find-the-safest-path-in-a-grid/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "Grid Teleportation Traversal"
+url = "https://leetcode.com/problems/grid-teleportation-traversal/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Last Day Where You Can Still Cross"
+url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Inorder Successor in BST"
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Kth Smallest Element in a BST"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Find the Kth Smallest Sum of a Matrix With Sorted Rows"
+url = "https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/"
 
 [[entries]]
-title = "Binary Tree Vertical Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
+title = "Unique Binary Search Trees"
+url = "https://leetcode.com/problems/unique-binary-search-trees/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Trim a Binary Search Tree"
+url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
 
 [[entries]]
 title = "Kth Missing Positive Number"
 url = "https://leetcode.com/problems/kth-missing-positive-number/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Maximize Amount After Two Days of Conversions"
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Minimum Speed to Arrive on Time"
+url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Longest Cycle in a Graph"
+url = "https://leetcode.com/problems/longest-cycle-in-a-graph/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Design a File Sharing System"
+url = "https://leetcode.com/problems/design-a-file-sharing-system/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Maximum Number of Integers to Choose From a Range II"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Maximum Value at a Given Index in a Bounded Array"
+url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
 
 [[entries]]
 title = "Rectangle Overlap"
 url = "https://leetcode.com/problems/rectangle-overlap/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Construct Binary Search Tree from Preorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Maximum Employees to Be Invited to a Meeting"
+url = "https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Delete Node in a BST"
+url = "https://leetcode.com/problems/delete-node-in-a-bst/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Detonate the Maximum Bombs"
+url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Number of Substrings Containing All Three Characters"
+url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Minimum Edge Reversals So Every Node Is Reachable"
+url = "https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Lowest Common Ancestor of a Binary Search Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
 
 [[entries]]
 title = "Largest Triangle Area"
 url = "https://leetcode.com/problems/largest-triangle-area/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Boats to Save People"
+url = "https://leetcode.com/problems/boats-to-save-people/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Find in Mountain Array"
+url = "https://leetcode.com/problems/find-in-mountain-array/"

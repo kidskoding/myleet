@@ -3,45 +3,46 @@ group = "AI & Startups"
 focus = "arrays, hash tables, strings, heaps, math, BFS/DFS, binary search, greedy, and design-style data structures."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "05_binary_search", "06_linked_lists", "08_heaps", "10_graphs", "12_greedy", "16_math_geometry"]
 
+
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Minimum Levels to Gain More Points"
+url = "https://leetcode.com/problems/minimum-levels-to-gain-more-points/"
 
 [[entries]]
 title = "Add Two Numbers"
 url = "https://leetcode.com/problems/add-two-numbers/"
 
 [[entries]]
-title = "Design Tic-Tac-Toe"
-url = "https://leetcode.com/problems/design-tic-tac-toe/"
+title = "Seat Reservation Manager"
+url = "https://leetcode.com/problems/seat-reservation-manager/"
 
 [[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+title = "Best Position for a Service Centre"
+url = "https://leetcode.com/problems/best-position-for-a-service-centre/"
 
 [[entries]]
 title = "Gas Station"
 url = "https://leetcode.com/problems/gas-station/"
 
 [[entries]]
-title = "Find Peak Element"
-url = "https://leetcode.com/problems/find-peak-element/"
+title = "Minimum Number of Days to Make m Bouquets"
+url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
 
 [[entries]]
 title = "Move Zeroes"
 url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Pancake Sorting"
+url = "https://leetcode.com/problems/pancake-sorting/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Factorial Trailing Zeroes"
+url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
-title = "Design an Array Statistics Tracker"
-url = "https://leetcode.com/problems/design-an-array-statistics-tracker/"
+title = "Minimum Cost to Split an Array"
+url = "https://leetcode.com/problems/minimum-cost-to-split-an-array/"
 
 [[entries]]
 title = "Fraction to Recurring Decimal"
@@ -52,16 +53,16 @@ title = "Continuous Subarrays"
 url = "https://leetcode.com/problems/continuous-subarrays/"
 
 [[entries]]
-title = "Substring with Concatenation of All Words"
-url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+title = "Minimum Number of Operations to Make Arrays Similar"
+url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/"
 
 [[entries]]
-title = "Design Snake Game"
-url = "https://leetcode.com/problems/design-snake-game/"
+title = "Minimum Time to Visit All Houses"
+url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
 
 [[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
 
 [[entries]]
 title = "Contains Duplicate"
@@ -72,8 +73,8 @@ title = "Lowest Common Ancestor of a Binary Search Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Number of Steps to Reduce a Number in Binary Representation to One"
+url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock IV"
@@ -84,101 +85,101 @@ title = "Add Two Numbers II"
 url = "https://leetcode.com/problems/add-two-numbers-ii/"
 
 [[entries]]
-title = "Graph Valid Tree"
-url = "https://leetcode.com/problems/graph-valid-tree/"
+title = "Number of Subarrays That Match a Pattern I"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Permutations III"
+url = "https://leetcode.com/problems/permutations-iii/"
 
 [[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
+title = "Number of Flowers in Full Bloom"
+url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
 
 [[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
+title = "Pour Water"
+url = "https://leetcode.com/problems/pour-water/"
 
 [[entries]]
-title = "Count Sub Islands"
-url = "https://leetcode.com/problems/count-sub-islands/"
+title = "Remove Comments"
+url = "https://leetcode.com/problems/remove-comments/"
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
+title = "Remove Sub-Folders from the Filesystem"
+url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "The Number of the Smallest Unoccupied Chair"
+url = "https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Minimum Operations to Make Numbers Non-positive"
+url = "https://leetcode.com/problems/minimum-operations-to-make-numbers-non-positive/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Binary Subarrays With Sum"
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Ways to Make a Fair Array"
+url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Advantage Shuffle"
+url = "https://leetcode.com/problems/advantage-shuffle/"
 
 [[entries]]
 title = "Remove Duplicates from Sorted Array"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Array Nesting"
+url = "https://leetcode.com/problems/array-nesting/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Partition Array Into Two Arrays to Minimize Sum Difference"
+url = "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Average Waiting Time"
+url = "https://leetcode.com/problems/average-waiting-time/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Subarray Product Less Than K"
+url = "https://leetcode.com/problems/subarray-product-less-than-k/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Can I Win"
+url = "https://leetcode.com/problems/can-i-win/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Preimage Size of Factorial Zeroes Function"
+url = "https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Circular Permutation in Binary Representation"
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Compare Version Numbers"
+url = "https://leetcode.com/problems/compare-version-numbers/"
 
 [[entries]]
 title = "Valid Palindrome II"
 url = "https://leetcode.com/problems/valid-palindrome-ii/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Coordinate With Maximum Network Quality"
+url = "https://leetcode.com/problems/coordinate-with-maximum-network-quality/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Count Unhappy Friends"
+url = "https://leetcode.com/problems/count-unhappy-friends/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Find Minimum in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/"

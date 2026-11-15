@@ -3,190 +3,191 @@ group = "AI & Startups"
 focus = "intervals and sweep line, cache and key-value store design, graph reachability, streaming parsing, and matrix validation"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "13_intervals", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Smallest Missing Non-negative Integer After Operations"
+url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "3Sum Smaller"
+url = "https://leetcode.com/problems/3sum-smaller/"
+
+[[entries]]
+title = "Minimum Cost to Make Array Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-array-equal/"
 
 [[entries]]
 title = "Remove Sub-Folders from the Filesystem"
 url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Brightest Position on Street"
+url = "https://leetcode.com/problems/brightest-position-on-street/"
 
 [[entries]]
 title = "Diameter of Binary Tree"
 url = "https://leetcode.com/problems/diameter-of-binary-tree/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Divide Array in Sets of K Consecutive Numbers"
+url = "https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/"
 
 [[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
+title = "Jump Game III"
+url = "https://leetcode.com/problems/jump-game-iii/"
 
 [[entries]]
-title = "Basic Calculator III"
-url = "https://leetcode.com/problems/basic-calculator-iii/"
+title = "Subarrays Distinct Element Sum of Squares II"
+url = "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-ii/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Find Valid Matrix Given Row and Column Sums"
+url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Water and Jug Problem"
+url = "https://leetcode.com/problems/water-and-jug-problem/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Maximize Value of Function in a Ball Passing Game"
+url = "https://leetcode.com/problems/maximize-value-of-function-in-a-ball-passing-game/"
 
 [[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Maximum OR"
+url = "https://leetcode.com/problems/maximum-or/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Maximum Total Importance of Roads"
+url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Value at a Given Index in a Bounded Array"
+url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Median of a Row Wise Sorted Matrix"
+url = "https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Minimum Replacements to Sort the Array"
+url = "https://leetcode.com/problems/minimum-replacements-to-sort-the-array/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Meeting Scheduler"
+url = "https://leetcode.com/problems/meeting-scheduler/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Merge Triplets to Form Target Triplet"
+url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+title = "Minimize Length of Array Using Operations"
+url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Minimum Absolute Difference Between Elements With Constraint"
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Rearranging Fruits"
+url = "https://leetcode.com/problems/rearranging-fruits/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Minimum Array Length After Pair Removals"
+url = "https://leetcode.com/problems/minimum-array-length-after-pair-removals/"
 
 [[entries]]
 title = "Minimum Number of Arrows to Burst Balloons"
 url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Minimum Cost to Equalize Arrays Using Swaps"
+url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
 
 [[entries]]
-title = "Data Stream as Disjoint Intervals"
-url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+title = "Falling Squares"
+url = "https://leetcode.com/problems/falling-squares/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Minimum Difference Between Largest and Smallest Value in Three Moves"
+url = "https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Minimum Operations to Halve Array Sum"
+url = "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/"
 
 [[entries]]
 title = "Determine if Two Events Have Conflict"
 url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Most Profit Assigning Work"
+url = "https://leetcode.com/problems/most-profit-assigning-work/"
 
 [[entries]]
 title = "Range Module"
 url = "https://leetcode.com/problems/range-module/"
 
 [[entries]]
-title = "Keys and Rooms"
-url = "https://leetcode.com/problems/keys-and-rooms/"
+title = "Previous Permutation With One Swap"
+url = "https://leetcode.com/problems/previous-permutation-with-one-swap/"
 
 [[entries]]
-title = "Number of Provinces"
-url = "https://leetcode.com/problems/number-of-provinces/"
+title = "Sum of Distances"
+url = "https://leetcode.com/problems/sum-of-distances/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Linked List Components"
+url = "https://leetcode.com/problems/linked-list-components/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Rectangle Area II"
+url = "https://leetcode.com/problems/rectangle-area-ii/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Maximum Total Damage With Spell Casting"
+url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
 
 [[entries]]
 title = "Points That Intersect With Cars"
 url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
 
 [[entries]]
-title = "All Ancestors of a Node in a Directed Acyclic Graph"
-url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
+title = "Minimum Number of Lines to Cover Points"
+url = "https://leetcode.com/problems/minimum-number-of-lines-to-cover-points/"
 
 [[entries]]
-title = "Bulls and Cows"
-url = "https://leetcode.com/problems/bulls-and-cows/"
+title = "Count the Hidden Sequences"
+url = "https://leetcode.com/problems/count-the-hidden-sequences/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "My Calendar III"
+url = "https://leetcode.com/problems/my-calendar-iii/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Number of Unique XOR Triplets I"
+url = "https://leetcode.com/problems/number-of-unique-xor-triplets-i/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Sort Integers by The Power Value"
+url = "https://leetcode.com/problems/sort-integers-by-the-power-value/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Sort the Jumbled Numbers"
+url = "https://leetcode.com/problems/sort-the-jumbled-numbers/"
 
 [[entries]]
 title = "Summary Ranges"
 url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Sort the Students by Their Kth Score"
+url = "https://leetcode.com/problems/sort-the-students-by-their-kth-score/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Set Intersection Size At Least Two"
+url = "https://leetcode.com/problems/set-intersection-size-at-least-two/"

@@ -3,105 +3,106 @@ group = "Consumer and Business Tech"
 focus = "string parsing and stacks, simulation, sliding windows over sensor streams, hashing, intervals, and matrix validation"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "09_backtracking", "13_intervals", "16_math_geometry"]
 
+
 [[entries]]
 title = "Alternating Groups II"
 url = "https://leetcode.com/problems/alternating-groups-ii/"
 
 [[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
+title = "Longest Substring Of All Vowels in Order"
+url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Move Pieces to Obtain a String"
+url = "https://leetcode.com/problems/move-pieces-to-obtain-a-string/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Number of Visible People in a Queue"
+url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Number of Subarrays With LCM Equal to K"
+url = "https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Add Bold Tag in String"
+url = "https://leetcode.com/problems/add-bold-tag-in-string/"
 
 [[entries]]
 title = "Alternating Groups I"
 url = "https://leetcode.com/problems/alternating-groups-i/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Bold Words in String"
+url = "https://leetcode.com/problems/bold-words-in-string/"
 
 [[entries]]
-title = "Mini Parser"
-url = "https://leetcode.com/problems/mini-parser/"
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Maximum Profitable Triplets With Increasing Prices II"
+url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
 
 [[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+title = "Bulls and Cows"
+url = "https://leetcode.com/problems/bulls-and-cows/"
 
 [[entries]]
-title = "Integer to English Words"
-url = "https://leetcode.com/problems/integer-to-english-words/"
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
 
 [[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
+title = "Split Concatenated Strings"
+url = "https://leetcode.com/problems/split-concatenated-strings/"
 
 [[entries]]
 title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Construct String With Repeat Limit"
+url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
 
 [[entries]]
 title = "Zigzag Conversion"
 url = "https://leetcode.com/problems/zigzag-conversion/"
 
 [[entries]]
-title = "Reverse Words in a String"
-url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+title = "Number of Subsequences That Satisfy the Given Sum Condition"
+url = "https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Design a Text Editor"
+url = "https://leetcode.com/problems/design-a-text-editor/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Find Longest Special Substring That Occurs Thrice II"
+url = "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/"
 
 [[entries]]
-title = "Validate IP Address"
-url = "https://leetcode.com/problems/validate-ip-address/"
+title = "String Compression III"
+url = "https://leetcode.com/problems/string-compression-iii/"
 
 [[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
+title = "Find the Winner of the Circular Game"
+url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Number of Ways to Form a Target String Given a Dictionary"
+url = "https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/"
 
 [[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
+title = "Lexicographically Smallest String After Operations With Constraint"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Finding Pairs With a Certain Sum"
+url = "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/"
 
 [[entries]]
 title = "Longest Common Prefix"
@@ -116,52 +117,52 @@ title = "Exclusive Time of Functions"
 url = "https://leetcode.com/problems/exclusive-time-of-functions/"
 
 [[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Lexicographically Smallest String After Substring Operation"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Successful Pairs of Spells and Potions"
+url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Longest String Chain"
+url = "https://leetcode.com/problems/longest-string-chain/"
 
 [[entries]]
 title = "Monotonic Array"
 url = "https://leetcode.com/problems/monotonic-array/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Longest Substring with At Most Two Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Count Good Subarrays"
+url = "https://leetcode.com/problems/count-good-subarrays/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Match Alphanumerical Pattern in Matrix I"
+url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Maximum Coins From K Consecutive Bags"
+url = "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
 
 [[entries]]
 title = "Minimum Deletions to Make Array Divisible"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Maximum Sum of Distinct Subarrays With Length K"
+url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
 
 [[entries]]
 title = "Robot Bounded In Circle"
@@ -176,8 +177,8 @@ title = "Walking Robot Simulation"
 url = "https://leetcode.com/problems/walking-robot-simulation/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Minimum Deletions to Make String K-Special"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/"
 
 [[entries]]
 title = "Minimum Cost to Split an Array"

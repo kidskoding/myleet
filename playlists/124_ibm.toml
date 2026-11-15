@@ -3,13 +3,14 @@ group = "Consumer and Business Tech"
 focus = "fundamentals, clean implementation, trees, graphs, DP basics, and practical design."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "07_trees", "10_graphs", "11_dp"]
 
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Binary Tree Upside Down"
+url = "https://leetcode.com/problems/binary-tree-upside-down/"
+
+[[entries]]
+title = "Boundary of Binary Tree"
+url = "https://leetcode.com/problems/boundary-of-binary-tree/"
 
 [[entries]]
 title = "Min Stack"
@@ -20,12 +21,12 @@ title = "My Calendar III"
 url = "https://leetcode.com/problems/my-calendar-iii/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Brace Expansion"
+url = "https://leetcode.com/problems/brace-expansion/"
 
 [[entries]]
 title = "Longest Subarray of 1's After Deleting One Element"
@@ -40,8 +41,8 @@ title = "The Skyline Problem"
 url = "https://leetcode.com/problems/the-skyline-problem/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Check Completeness of a Binary Tree"
+url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
 
 [[entries]]
 title = "Find the City With the Smallest Number of Neighbors at a Threshold Distance"
@@ -56,12 +57,12 @@ title = "Minimum Difficulty of a Job Schedule"
 url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Minimum Falling Path Sum"
+url = "https://leetcode.com/problems/minimum-falling-path-sum/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Coloring A Border"
+url = "https://leetcode.com/problems/coloring-a-border/"
 
 [[entries]]
 title = "Valid Palindrome"
@@ -120,8 +121,8 @@ title = "Minimum Cost to Reach Destination in Time"
 url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Factorial Trailing Zeroes"
+url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
 title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
@@ -136,8 +137,8 @@ title = "Taking Maximum Energy From the Mystic Dungeon"
 url = "https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon/"
 
 [[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
+title = "24 Game"
+url = "https://leetcode.com/problems/24-game/"
 
 [[entries]]
 title = "Length of the Longest Alphabetical Continuous Substring"

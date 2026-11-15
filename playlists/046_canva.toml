@@ -3,181 +3,182 @@ group = "AI & Startups"
 focus = "data structure design, tries, hash maps, topological sort, grids"
 review_modules = ["01_arrays_and_hashing", "10_graphs", "14_tries", "16_math_geometry", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Replace Words"
+url = "https://leetcode.com/problems/replace-words/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Detect Squares"
+url = "https://leetcode.com/problems/detect-squares/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "K Highest Ranked Items Within a Price Range"
+url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
 
 [[entries]]
-title = "Design Add and Search Words Data Structure"
-url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
+title = "Russian Doll Envelopes"
+url = "https://leetcode.com/problems/russian-doll-envelopes/"
 
 [[entries]]
-title = "Implement Magic Dictionary"
-url = "https://leetcode.com/problems/implement-magic-dictionary/"
+title = "Short Encoding of Words"
+url = "https://leetcode.com/problems/short-encoding-of-words/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "Implement Trie II (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
+
+[[entries]]
+title = "Minimize Maximum Component Cost"
+url = "https://leetcode.com/problems/minimize-maximum-component-cost/"
 
 [[entries]]
 title = "Map Sum Pairs"
 url = "https://leetcode.com/problems/map-sum-pairs/"
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Longest Word in Dictionary"
+url = "https://leetcode.com/problems/longest-word-in-dictionary/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Concatenated Words"
+url = "https://leetcode.com/problems/concatenated-words/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Reorder Data in Log Files"
+url = "https://leetcode.com/problems/reorder-data-in-log-files/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find Minimum in Rotated Sorted Array"
+url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Longest Duplicate Substring"
+url = "https://leetcode.com/problems/longest-duplicate-substring/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Design Order Management System"
+url = "https://leetcode.com/problems/design-order-management-system/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Find All Possible Recipes from Given Supplies"
+url = "https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/"
 
 [[entries]]
 title = "Flood Fill"
 url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "First Unique Number"
+url = "https://leetcode.com/problems/first-unique-number/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Design Snake Game"
+url = "https://leetcode.com/problems/design-snake-game/"
 
 [[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
+title = "Design an Array Statistics Tracker"
+url = "https://leetcode.com/problems/design-an-array-statistics-tracker/"
 
 [[entries]]
-title = "Design Spreadsheet"
-url = "https://leetcode.com/problems/design-spreadsheet/"
+title = "Design SQL"
+url = "https://leetcode.com/problems/design-sql/"
 
 [[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
+title = "Parallel Courses"
+url = "https://leetcode.com/problems/parallel-courses/"
 
 [[entries]]
-title = "Design Log Storage System"
-url = "https://leetcode.com/problems/design-log-storage-system/"
+title = "Design Task Manager"
+url = "https://leetcode.com/problems/design-task-manager/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Kth Ancestor of a Tree Node"
+url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Campus Bikes"
+url = "https://leetcode.com/problems/campus-bikes/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Count the Number of Fair Pairs"
+url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
 
 [[entries]]
-title = "Rectangle Overlap"
-url = "https://leetcode.com/problems/rectangle-overlap/"
+title = "Count Primes"
+url = "https://leetcode.com/problems/count-primes/"
 
 [[entries]]
-title = "Max Area of Island"
-url = "https://leetcode.com/problems/max-area-of-island/"
+title = "Count Ways to Group Overlapping Ranges"
+url = "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Divide Players Into Teams of Equal Skill"
+url = "https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Smallest Range Covering Elements from K Lists"
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Equal Row and Column Pairs"
+url = "https://leetcode.com/problems/equal-row-and-column-pairs/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Factorial Trailing Zeroes"
+url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
+title = "Filter Restaurants by Vegan-Friendly, Price and Distance"
+url = "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/"
 
 [[entries]]
 title = "Contains Duplicate"
 url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Range Sum Query 2D - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+title = "H-Index"
+url = "https://leetcode.com/problems/h-index/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Grid Illumination"
+url = "https://leetcode.com/problems/grid-illumination/"
 
 [[entries]]
-title = "Rectangle Area"
-url = "https://leetcode.com/problems/rectangle-area/"
+title = "Perfect Squares"
+url = "https://leetcode.com/problems/perfect-squares/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "High-Access Employees"
+url = "https://leetcode.com/problems/high-access-employees/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Insertion Sort List"
+url = "https://leetcode.com/problems/insertion-sort-list/"
 
 [[entries]]
 title = "Max Stack"
 url = "https://leetcode.com/problems/max-stack/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Longest Arithmetic Subsequence of Given Difference"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Permutations II"
+url = "https://leetcode.com/problems/permutations-ii/"
 
 [[entries]]
 title = "Valid Anagram"
 url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
+title = "Make Lexicographically Smallest Array by Swapping Elements"
+url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Mark Elements on Array by Performing Queries"
+url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
 
 [[entries]]
 title = "Design Skiplist"

@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "arrays, hash maps, design data structures, heaps, graphs, intervals, trees, DP, and clean state modeling."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
 
+
 [[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
@@ -28,8 +29,8 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
 
 [[entries]]
 title = "Possible Bipartition"

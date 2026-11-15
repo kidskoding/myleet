@@ -3,161 +3,162 @@ group = "AI & Startups"
 focus = "caches and key-value stores, rate limiting, crawling and dependency graphs, scheduling, streams, and serialization"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Apply Substitutions"
+url = "https://leetcode.com/problems/apply-substitutions/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Kth Smallest Element in a Sorted Matrix"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Count Islands With Total Value Divisible by K"
+url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Odd Even Jump"
+url = "https://leetcode.com/problems/odd-even-jump/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Unit Conversion I"
+url = "https://leetcode.com/problems/unit-conversion-i/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "RLE Iterator"
+url = "https://leetcode.com/problems/rle-iterator/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Sum of Matrix After Queries"
+url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Design a Stack With Increment Operation"
+url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
 
 [[entries]]
-title = "Find Duplicate File in System"
-url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+title = "Find X Value of Array II"
+url = "https://leetcode.com/problems/find-x-value-of-array-ii/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Count Good Meals"
+url = "https://leetcode.com/problems/count-good-meals/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Check if There is a Valid Path in a Grid"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Online Majority Element In Subarray"
+url = "https://leetcode.com/problems/online-majority-element-in-subarray/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Closest Equal Element Queries"
+url = "https://leetcode.com/problems/closest-equal-element-queries/"
+
+[[entries]]
+title = "Coloring A Border"
+url = "https://leetcode.com/problems/coloring-a-border/"
 
 [[entries]]
 title = "Design HashMap"
 url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Count Good Nodes in Binary Tree"
+url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
+url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Russian Doll Envelopes"
+url = "https://leetcode.com/problems/russian-doll-envelopes/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Delete Nodes From Linked List Present in Array"
+url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Destroy Sequential Targets"
+url = "https://leetcode.com/problems/destroy-sequential-targets/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Detonate the Maximum Bombs"
+url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Largest Color Value in a Directed Graph"
+url = "https://leetcode.com/problems/largest-color-value-in-a-directed-graph/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Find All Lonely Numbers in the Array"
+url = "https://leetcode.com/problems/find-all-lonely-numbers-in-the-array/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Find Bottom Left Tree Value"
+url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+title = "Find Maximum Value in a Constrained Sequence"
+url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Find the Length of the Longest Common Prefix"
+url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Dot Product of Two Sparse Vectors"
+url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
 
 [[entries]]
-title = "Stock Price Fluctuation"
-url = "https://leetcode.com/problems/stock-price-fluctuation/"
+title = "Find the Longest Equal Subarray"
+url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
 
 [[entries]]
-title = "Design A Leaderboard"
-url = "https://leetcode.com/problems/design-a-leaderboard/"
+title = "Find Consecutive Integers from a Data Stream"
+url = "https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream/"
 
 [[entries]]
 title = "Majority Element"
 url = "https://leetcode.com/problems/majority-element/"
 
 [[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
+title = "Find the Maximum Length of a Good Subsequence I"
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-i/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Sort Items by Groups Respecting Dependencies"
+url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Find the N-th Value After K Seconds"
+url = "https://leetcode.com/problems/find-the-n-th-value-after-k-seconds/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Maximum Absolute Sum of Any Subarray"
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Course Schedule III"
+url = "https://leetcode.com/problems/course-schedule-iii/"
 
 [[entries]]
 title = "Sparse Matrix Multiplication"
@@ -172,13 +173,13 @@ title = "Number of Recent Calls"
 url = "https://leetcode.com/problems/number-of-recent-calls/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Erasure Value"
+url = "https://leetcode.com/problems/maximum-erasure-value/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Find the Safest Path in a Grid"
+url = "https://leetcode.com/problems/find-the-safest-path-in-a-grid/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"

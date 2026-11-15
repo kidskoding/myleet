@@ -3,17 +3,18 @@ group = "AI & Startups"
 focus = "grid and time-indexed path search, vehicle and robot simulation, geometry, intervals, string parsing and expression evaluation, and queue class design."
 review_modules = ["03_stacks_and_queues", "10_graphs", "13_intervals", "16_math_geometry", "17_advanced"]
 
+
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Design Phone Directory"
+url = "https://leetcode.com/problems/design-phone-directory/"
 
 [[entries]]
 title = "Minimum Number of Frogs Croaking"
 url = "https://leetcode.com/problems/minimum-number-of-frogs-croaking/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Minimum Deletions to Make String K-Special"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/"
 
 [[entries]]
 title = "Max Points on a Line"
@@ -24,64 +25,64 @@ title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "Minimum Processing Time"
+url = "https://leetcode.com/problems/minimum-processing-time/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
-title = "Path With Minimum Effort"
-url = "https://leetcode.com/problems/path-with-minimum-effort/"
+title = "Minimum Suffix Flips"
+url = "https://leetcode.com/problems/minimum-suffix-flips/"
 
 [[entries]]
 title = "Minimum Knight Moves"
 url = "https://leetcode.com/problems/minimum-knight-moves/"
 
 [[entries]]
-title = "Swim in Rising Water"
-url = "https://leetcode.com/problems/swim-in-rising-water/"
+title = "Minimum Cost to Hire K Workers"
+url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Minimum Time to Complete Trips"
+url = "https://leetcode.com/problems/minimum-time-to-complete-trips/"
 
 [[entries]]
-title = "Walking Robot Simulation"
-url = "https://leetcode.com/problems/walking-robot-simulation/"
+title = "Minimum Length of String After Operations"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-operations/"
 
 [[entries]]
 title = "Regular Expression Matching"
 url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
-title = "Robot Bounded In Circle"
-url = "https://leetcode.com/problems/robot-bounded-in-circle/"
+title = "Maximum Length of a Concatenated String with Unique Characters"
+url = "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/"
 
 [[entries]]
-title = "Car Fleet"
-url = "https://leetcode.com/problems/car-fleet/"
+title = "Repeated String Match"
+url = "https://leetcode.com/problems/repeated-string-match/"
 
 [[entries]]
 title = "Rectangle Overlap"
 url = "https://leetcode.com/problems/rectangle-overlap/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Sell Diminishing-Valued Colored Balls"
+url = "https://leetcode.com/problems/sell-diminishing-valued-colored-balls/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Shortest Way to Form String"
+url = "https://leetcode.com/problems/shortest-way-to-form-string/"
 
 [[entries]]
 title = "Wildcard Matching"
 url = "https://leetcode.com/problems/wildcard-matching/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "String Compression III"
+url = "https://leetcode.com/problems/string-compression-iii/"
 
 [[entries]]
 title = "Valid Square"
@@ -100,32 +101,32 @@ title = "Angle Between Hands of a Clock"
 url = "https://leetcode.com/problems/angle-between-hands-of-a-clock/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
 
 [[entries]]
 title = "Largest Triangle Area"
 url = "https://leetcode.com/problems/largest-triangle-area/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Transform Binary String Using Subsequence Sort"
+url = "https://leetcode.com/problems/transform-binary-string-using-subsequence-sort/"
 
 [[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
+title = "Eliminate Maximum Number of Monsters"
+url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Subarray Sums Divisible by K"
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Valid Parenthesis String"
+url = "https://leetcode.com/problems/valid-parenthesis-string/"
 
 [[entries]]
 title = "4Sum"
@@ -144,36 +145,36 @@ title = "Reconstruct Itinerary"
 url = "https://leetcode.com/problems/reconstruct-itinerary/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Check if There is a Valid Path in a Grid"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Construct String With Repeat Limit"
+url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Design Bounded Blocking Queue"
+url = "https://leetcode.com/problems/design-bounded-blocking-queue/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Minimum Number of Refueling Stops"
+url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Design Ride Sharing System"
+url = "https://leetcode.com/problems/design-ride-sharing-system/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Find Minimum Time to Reach Last Room I"
+url = "https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/"
 
 [[entries]]
 title = "Happy Number"
 url = "https://leetcode.com/problems/happy-number/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "First Unique Number"
+url = "https://leetcode.com/problems/first-unique-number/"
 
 [[entries]]
 title = "Pow(x, n)"

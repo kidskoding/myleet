@@ -3,25 +3,26 @@ group = "Fortune 500"
 focus = "Array and string fundamentals, hash maps, sliding window, simple dynamic programming and trees."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "07_trees", "06_linked_lists"]
 
+
 [[entries]]
 title = "Defanging an IP Address"
 url = "https://leetcode.com/problems/defanging-an-ip-address/"
 
 [[entries]]
-title = "Decode the Slanted Ciphertext"
-url = "https://leetcode.com/problems/decode-the-slanted-ciphertext/"
+title = "Ways to Make a Fair Array"
+url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
 
 [[entries]]
-title = "Coordinate With Maximum Network Quality"
-url = "https://leetcode.com/problems/coordinate-with-maximum-network-quality/"
+title = "Zigzag Conversion"
+url = "https://leetcode.com/problems/zigzag-conversion/"
 
 [[entries]]
 title = "Reverse Vowels of a String"
 url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
 
 [[entries]]
-title = "One Edit Distance"
-url = "https://leetcode.com/problems/one-edit-distance/"
+title = "Count and Say"
+url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
 title = "Minimum Absolute Difference Between Two Values"
@@ -80,8 +81,8 @@ title = "Valid Perfect Square"
 url = "https://leetcode.com/problems/valid-perfect-square/"
 
 [[entries]]
-title = "Design Circular Deque"
-url = "https://leetcode.com/problems/design-circular-deque/"
+title = "Paint Fence"
+url = "https://leetcode.com/problems/paint-fence/"
 
 [[entries]]
 title = "Minimum Absolute Difference"
@@ -96,16 +97,16 @@ title = "Longest Arithmetic Subsequence of Given Difference"
 url = "https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/"
 
 [[entries]]
-title = "Length of Last Word"
-url = "https://leetcode.com/problems/length-of-last-word/"
+title = "Average Waiting Time"
+url = "https://leetcode.com/problems/average-waiting-time/"
 
 [[entries]]
 title = "Sum Root to Leaf Numbers"
 url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
 
 [[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
+title = "Paint House"
+url = "https://leetcode.com/problems/paint-house/"
 
 [[entries]]
 title = "Running Sum of 1d Array"

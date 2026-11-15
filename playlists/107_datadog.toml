@@ -3,17 +3,18 @@ group = "Consumer and Business Tech"
 focus = "logs, streams, rate limits, sliding windows, heaps, graph connectivity, intervals, and design data structures."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
+
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Design Front Middle Back Queue"
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
 
 [[entries]]
 title = "LFU Cache"
@@ -24,8 +25,8 @@ title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
 
 [[entries]]
 title = "Logger Rate Limiter"
@@ -36,8 +37,8 @@ title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Divide Intervals Into Minimum Number of Groups"
+url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
 
 [[entries]]
 title = "Sliding Window Maximum"
@@ -48,16 +49,16 @@ title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Graph Valid Tree"
+url = "https://leetcode.com/problems/graph-valid-tree/"
 
 [[entries]]
 title = "Sliding Window Median"
 url = "https://leetcode.com/problems/sliding-window-median/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "All Ancestors of a Node in a Directed Acyclic Graph"
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
 
 [[entries]]
 title = "Network Delay Time"
@@ -68,8 +69,8 @@ title = "Moving Average from Data Stream"
 url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
 title = "Clone Graph"
@@ -144,16 +145,16 @@ title = "Minimum Window Substring"
 url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Longest Palindromic Subsequence"
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Continuous Subarrays"
+url = "https://leetcode.com/problems/continuous-subarrays/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Subarray Sums Divisible by K"
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
 
 [[entries]]
 title = "Find Median from Data Stream"
@@ -164,16 +165,16 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
 
 [[entries]]
 title = "Implement Queue using Stacks"
 url = "https://leetcode.com/problems/implement-queue-using-stacks/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Number of Subsequences That Satisfy the Given Sum Condition"
+url = "https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/"
 
 [[entries]]
 title = "Minimum Number of Vertices to Reach All Nodes"

@@ -3,41 +3,42 @@ group = "Consumer and Business Tech"
 focus = "hash maps and sliding window over records, interval and calendar scheduling, heaps for ranking and streams, and graph traversal."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
+
 [[entries]]
 title = "Bulls and Cows"
 url = "https://leetcode.com/problems/bulls-and-cows/"
 
 [[entries]]
-title = "Least Number of Unique Integers after K Removals"
-url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
+title = "Count Subarrays Where Max Element Appears at Least K Times"
+url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
 
 [[entries]]
-title = "Fruit Into Baskets"
-url = "https://leetcode.com/problems/fruit-into-baskets/"
+title = "K Radius Subarray Averages"
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Valid Palindrome III"
+url = "https://leetcode.com/problems/valid-palindrome-iii/"
 
 [[entries]]
 title = "Maximum Erasure Value"
 url = "https://leetcode.com/problems/maximum-erasure-value/"
 
 [[entries]]
-title = "Longest Substring with At Most K Distinct Characters"
-url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+title = "Continuous Subarrays"
+url = "https://leetcode.com/problems/continuous-subarrays/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Count the Number of Good Subarrays"
+url = "https://leetcode.com/problems/count-the-number-of-good-subarrays/"
 
 [[entries]]
 title = "Partition Labels"
 url = "https://leetcode.com/problems/partition-labels/"
 
 [[entries]]
-title = "Two City Scheduling"
-url = "https://leetcode.com/problems/two-city-scheduling/"
+title = "Jump Game VII"
+url = "https://leetcode.com/problems/jump-game-vii/"
 
 [[entries]]
 title = "My Calendar III"
@@ -48,56 +49,56 @@ title = "Hand of Straights"
 url = "https://leetcode.com/problems/hand-of-straights/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Find the Longest Equal Subarray"
+url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
 
 [[entries]]
 title = "Meeting Rooms III"
 url = "https://leetcode.com/problems/meeting-rooms-iii/"
 
 [[entries]]
-title = "Corporate Flight Bookings"
-url = "https://leetcode.com/problems/corporate-flight-bookings/"
+title = "Length of Longest Subarray With at Most K Frequency"
+url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
 
 [[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
+title = "Longest Substring with At Most Two Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/"
 
 [[entries]]
 title = "Happy Number"
 url = "https://leetcode.com/problems/happy-number/"
 
 [[entries]]
-title = "Divide Intervals Into Minimum Number of Groups"
-url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+title = "Match Alphanumerical Pattern in Matrix I"
+url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
 
 [[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+title = "Minimum Operations to Reduce X to Zero"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/"
 
 [[entries]]
 title = "Number of Flowers in Full Bloom"
 url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
 
 [[entries]]
-title = "Open the Lock"
-url = "https://leetcode.com/problems/open-the-lock/"
+title = "Minimum Removals to Balance Array"
+url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Minimum Size Subarray in Infinite Array"
+url = "https://leetcode.com/problems/minimum-size-subarray-in-infinite-array/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "New 21 Game"
+url = "https://leetcode.com/problems/new-21-game/"
 
 [[entries]]
 title = "Find Servers That Handled Most Number of Requests"
 url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Number of Ways to Buy Pens and Pencils"
+url = "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/"
 
 [[entries]]
 title = "Reward Top K Students"
@@ -108,77 +109,77 @@ title = "Summary Ranges"
 url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
-title = "K Highest Ranked Items Within a Price Range"
-url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
+title = "Sum of Matrix After Queries"
+url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
 
 [[entries]]
-title = "Coloring A Border"
-url = "https://leetcode.com/problems/coloring-a-border/"
+title = "Number of People That Can Be Seen in a Grid"
+url = "https://leetcode.com/problems/number-of-people-that-can-be-seen-in-a-grid/"
 
 [[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+title = "Delivering Boxes from Storage to Ports"
+url = "https://leetcode.com/problems/delivering-boxes-from-storage-to-ports/"
 
 [[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
+title = "Predict the Winner"
+url = "https://leetcode.com/problems/predict-the-winner/"
 
 [[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
+title = "Knight Dialer"
+url = "https://leetcode.com/problems/knight-dialer/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Knight Probability in Chessboard"
+url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
 
 [[entries]]
 title = "Meeting Rooms"
 url = "https://leetcode.com/problems/meeting-rooms/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Longest Arithmetic Subsequence of Given Difference"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/"
 
 [[entries]]
 title = "Minimum Interval to Include Each Query"
 url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Maximize Win From Two Segments"
+url = "https://leetcode.com/problems/maximize-win-from-two-segments/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Earnings From Taxi"
+url = "https://leetcode.com/problems/maximum-earnings-from-taxi/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Points Tourist Can Earn"
+url = "https://leetcode.com/problems/maximum-points-tourist-can-earn/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Count Subtrees With Max Distance Between Cities"
+url = "https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximum Total Damage With Spell Casting"
+url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Minimize Maximum of Array"
+url = "https://leetcode.com/problems/minimize-maximum-of-array/"
 
 [[entries]]
 title = "Determine if Two Events Have Conflict"
 url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Minimum Cost For Tickets"
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
 
 [[entries]]
-title = "Replace the Substring for Balanced String"
-url = "https://leetcode.com/problems/replace-the-substring-for-balanced-string/"
+title = "Minimum Increase to Maximize Special Indices"
+url = "https://leetcode.com/problems/minimum-increase-to-maximize-special-indices/"
 
 [[entries]]
-title = "IPO"
-url = "https://leetcode.com/problems/ipo/"
+title = "Distinct Echo Substrings"
+url = "https://leetcode.com/problems/distinct-echo-substrings/"

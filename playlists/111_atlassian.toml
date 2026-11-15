@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "graphs, trees, hashing, arrays, and core interview problem solving."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
+
 [[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
@@ -28,12 +29,12 @@ title = "Add Binary"
 url = "https://leetcode.com/problems/add-binary/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Next Greater Element II"
+url = "https://leetcode.com/problems/next-greater-element-ii/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
 
 [[entries]]
 title = "Reverse Pairs"
@@ -56,8 +57,8 @@ title = "Checking Existence of Edge Length Limited Paths"
 url = "https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock with Transaction Fee"
@@ -68,8 +69,8 @@ title = "Move Zeroes"
 url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
 title = "Valid Parenthesis String"
@@ -172,16 +173,16 @@ title = "Maximum Xor Product"
 url = "https://leetcode.com/problems/maximum-xor-product/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
 
 [[entries]]
 title = "Verbal Arithmetic Puzzle"
 url = "https://leetcode.com/problems/verbal-arithmetic-puzzle/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Find K Pairs with Smallest Sums"
+url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
 
 [[entries]]
 title = "Pairs of Songs With Total Durations Divisible by 60"
@@ -192,8 +193,8 @@ title = "Longest Palindrome"
 url = "https://leetcode.com/problems/longest-palindrome/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
 
 [[entries]]
 title = "Sentence Similarity II"

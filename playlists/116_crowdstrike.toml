@@ -3,13 +3,14 @@ group = "Consumer and Business Tech"
 focus = "hashing for duplicate and anomaly detection, string and number parsing, sliding windows over event logs, bit tricks, and grouping with union-find."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "15_bit_manipulation", "05_binary_search", "10_graphs"]
 
-[[entries]]
-title = "Find All Duplicates in an Array"
-url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
+
+[[entries]]
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
 
 [[entries]]
 title = "Single Element in a Sorted Array"
@@ -20,8 +21,8 @@ title = "Maximum Frequency Stack"
 url = "https://leetcode.com/problems/maximum-frequency-stack/"
 
 [[entries]]
-title = "4Sum II"
-url = "https://leetcode.com/problems/4sum-ii/"
+title = "Maximum Size Subarray Sum Equals k"
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 
 [[entries]]
 title = "Maximum Swap"
@@ -40,12 +41,12 @@ title = "Find Duplicate File in System"
 url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
 [[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+title = "Count the Number of Incremovable Subarrays II"
+url = "https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-ii/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Find All Anagrams in a String"
+url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
 
 [[entries]]
 title = "Longest Substring with At Most Two Distinct Characters"
@@ -64,8 +65,8 @@ title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Thr
 url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
 
 [[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
 
 [[entries]]
 title = "Maximum Erasure Value"
@@ -96,8 +97,8 @@ title = "Count Subarrays With Fixed Bounds"
 url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Number of Ways to Split Array"
+url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
 
 [[entries]]
 title = "String Compression"
@@ -108,12 +109,12 @@ title = "Happy Number"
 url = "https://leetcode.com/problems/happy-number/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Minimum Number of Vertices to Reach All Nodes"
+url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
 
 [[entries]]
 title = "Shortest Subarray with Sum at Least K"
@@ -124,61 +125,61 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
 
 [[entries]]
 title = "Substrings of Size Three with Distinct Characters"
 url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Count the Number of Infection Sequences"
+url = "https://leetcode.com/problems/count-the-number-of-infection-sequences/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Number of Subarrays with Bounded Maximum"
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Find the City With the Smallest Number of Neighbors at a Threshold Distance"
+url = "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/"
 
 [[entries]]
 title = "Contains Duplicate II"
 url = "https://leetcode.com/problems/contains-duplicate-ii/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Maximum Absolute Sum of Any Subarray"
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Maximum Number of Robots Within Budget"
+url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"

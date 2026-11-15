@@ -3,61 +3,62 @@ group = "Consumer and Business Tech"
 focus = "arrays, heaps, sliding windows, grids, graph traversal, backtracking, trees, and DP."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
+
 [[entries]]
 title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
 
 [[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Count Subarrays With Fixed Bounds"
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Continuous Subarray Sum"
+url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
 [[entries]]
 title = "Island Perimeter"
 url = "https://leetcode.com/problems/island-perimeter/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Maximum Number of Robots Within Budget"
+url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "All Ancestors of a Node in a Directed Acyclic Graph"
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Keys and Rooms"
+url = "https://leetcode.com/problems/keys-and-rooms/"
 
 [[entries]]
 title = "Pacific Atlantic Water Flow"
@@ -72,20 +73,20 @@ title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
 
 [[entries]]
 title = "Serialize and Deserialize Binary Tree"
 url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Process Tasks Using Servers"
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
 title = "Flood Fill"
@@ -108,8 +109,8 @@ title = "Subsets"
 url = "https://leetcode.com/problems/subsets/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
 title = "Longest Increasing Subsequence"
@@ -136,8 +137,8 @@ title = "Ternary Expression Parser"
 url = "https://leetcode.com/problems/ternary-expression-parser/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
 
 [[entries]]
 title = "Largest Merge Of Two Strings"
@@ -152,8 +153,8 @@ title = "Number of Distinct Islands"
 url = "https://leetcode.com/problems/number-of-distinct-islands/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Recover a Tree From Preorder Traversal"
+url = "https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/"
 
 [[entries]]
 title = "One Edit Distance"

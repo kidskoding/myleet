@@ -3,49 +3,50 @@ group = "Consumer and Business Tech"
 focus = "string building and parsing, stack-based expression evaluation, input validation, sliding windows over text, and rate-limit and token-expiry designs."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "09_backtracking", "11_dp"]
 
+
 [[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
+title = "Minimize Result by Adding Parentheses to Expression"
+url = "https://leetcode.com/problems/minimize-result-by-adding-parentheses-to-expression/"
 
 [[entries]]
 title = "Reverse Words in a String"
 url = "https://leetcode.com/problems/reverse-words-in-a-string/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Distribute Candies Among Children II"
+url = "https://leetcode.com/problems/distribute-candies-among-children-ii/"
 
 [[entries]]
 title = "Valid Number"
 url = "https://leetcode.com/problems/valid-number/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Exclusive Time of Functions"
+url = "https://leetcode.com/problems/exclusive-time-of-functions/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+title = "Length of Longest Subarray With at Most K Frequency"
+url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
 
 [[entries]]
 title = "Add Strings"
 url = "https://leetcode.com/problems/add-strings/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Longest Absolute File Path"
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+title = "Mini Parser"
+url = "https://leetcode.com/problems/mini-parser/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Building Boxes"
+url = "https://leetcode.com/problems/building-boxes/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Minimum Insertions to Balance a Parentheses String"
+url = "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/"
 
 [[entries]]
 title = "Permutation in String"
@@ -68,8 +69,8 @@ title = "Find the Index of the First Occurrence in a String"
 url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Minimum Operations to Reduce X to Zero"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/"
 
 [[entries]]
 title = "UTF-8 Validation"
@@ -80,12 +81,12 @@ title = "Number of Atoms"
 url = "https://leetcode.com/problems/number-of-atoms/"
 
 [[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
+title = "Subsets II"
+url = "https://leetcode.com/problems/subsets-ii/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Minimum Removals to Balance Array"
+url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
 
 [[entries]]
 title = "Design Authentication Manager"
@@ -96,8 +97,8 @@ title = "Basic Calculator"
 url = "https://leetcode.com/problems/basic-calculator/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Next Greater Node In Linked List"
+url = "https://leetcode.com/problems/next-greater-node-in-linked-list/"
 
 [[entries]]
 title = "Maximize Greatness of an Array"
@@ -124,61 +125,61 @@ title = "Furthest Building You Can Reach"
 url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Extra Characters in a String"
+url = "https://leetcode.com/problems/extra-characters-in-a-string/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Number of Good Binary Strings"
+url = "https://leetcode.com/problems/number-of-good-binary-strings/"
 
 [[entries]]
 title = "Remove All Adjacent Duplicates In String"
 url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Remove All Occurrences of a Substring"
+url = "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/"
 
 [[entries]]
 title = "Expression Add Operators"
 url = "https://leetcode.com/problems/expression-add-operators/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Reverse Substrings Between Each Pair of Parentheses"
+url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Score of Parentheses"
+url = "https://leetcode.com/problems/score-of-parentheses/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Distribute Candies Among Children III"
+url = "https://leetcode.com/problems/distribute-candies-among-children-iii/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Shortest and Lexicographically Smallest Beautiful String"
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Swap For Longest Repeated Character Substring"
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
 
 [[entries]]
 title = "Create Target Array in the Given Order"
 url = "https://leetcode.com/problems/create-target-array-in-the-given-order/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
 [[entries]]
-title = "Maximum Frequency Stack"
-url = "https://leetcode.com/problems/maximum-frequency-stack/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"

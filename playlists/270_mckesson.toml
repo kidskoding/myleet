@@ -3,130 +3,131 @@ group = "Fortune 500"
 focus = "Arrays and hash maps, strings, intervals, heaps, and basic graph traversal."
 review_modules = ["01_arrays_and_hashing", "08_heaps", "10_graphs", "12_greedy_algorithms", "07_trees"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
+title = "Largest Merge Of Two Strings"
+url = "https://leetcode.com/problems/largest-merge-of-two-strings/"
 
 [[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+title = "Largest Number"
+url = "https://leetcode.com/problems/largest-number/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Maximum Number of Integers to Choose From a Range I"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Maximum OR"
+url = "https://leetcode.com/problems/maximum-or/"
 
 [[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
 
 [[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+title = "Maximum Points After Enemy Battles"
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
+
+[[entries]]
+title = "Maximum Subsequence Score"
+url = "https://leetcode.com/problems/maximum-subsequence-score/"
 
 [[entries]]
 title = "Smallest Range Covering Elements from K Lists"
 url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
-title = "Magnetic Force Between Two Balls"
-url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+title = "Merge Triplets to Form Target Triplet"
+url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"
 
 [[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+title = "Mice and Cheese"
+url = "https://leetcode.com/problems/mice-and-cheese/"
 
 [[entries]]
-title = "Minimum Number of Days to Make m Bouquets"
-url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
+title = "Minimize Rounding Error to Meet Target"
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
 
 [[entries]]
-title = "Delete Nodes From Linked List Present in Array"
-url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
+title = "Minimize XOR"
+url = "https://leetcode.com/problems/minimize-xor/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Minimum Elements to Add to Form a Given Sum"
+url = "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/"
 
 [[entries]]
-title = "Delete the Middle Node of a Linked List"
-url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
+title = "Minimum Moves to Reach Target Score"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-score/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Minimum Processing Time"
+url = "https://leetcode.com/problems/minimum-processing-time/"
 
 [[entries]]
-title = "Count Good Nodes in Binary Tree"
-url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
+title = "Minimum Rounds to Complete All Tasks"
+url = "https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/"
 
 [[entries]]
 title = "Parallel Courses III"
 url = "https://leetcode.com/problems/parallel-courses-iii/"
 
 [[entries]]
-title = "Time Needed to Inform All Employees"
-url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
+title = "Monotone Increasing Digits"
+url = "https://leetcode.com/problems/monotone-increasing-digits/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Previous Permutation With One Swap"
+url = "https://leetcode.com/problems/previous-permutation-with-one-swap/"
 
 [[entries]]
-title = "Walls and Gates"
-url = "https://leetcode.com/problems/walls-and-gates/"
+title = "Put Boxes Into the Warehouse I"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
 
 [[entries]]
-title = "Cousins in Binary Tree"
-url = "https://leetcode.com/problems/cousins-in-binary-tree/"
+title = "Put Boxes Into the Warehouse II"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-ii/"
 
 [[entries]]
-title = "Find Closest Node to Given Two Nodes"
-url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
+title = "Remove Colored Pieces if Both Neighbors are the Same Color"
+url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
 
 [[entries]]
-title = "Find Eventual Safe States"
-url = "https://leetcode.com/problems/find-eventual-safe-states/"
+title = "Smallest Missing Non-negative Integer After Operations"
+url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
 
 [[entries]]
-title = "Find if Path Exists in Graph"
-url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
+title = "Stone Game IX"
+url = "https://leetcode.com/problems/stone-game-ix/"
 
 [[entries]]
-title = "Maximum Product After K Increments"
-url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+title = "Subsequence of Size K With the Largest Even Sum"
+url = "https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even-sum/"
 
 [[entries]]
-title = "Remove Stones to Minimize the Total"
-url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+title = "Sum Game"
+url = "https://leetcode.com/problems/sum-game/"
 
 [[entries]]
 title = "Last Stone Weight"
 url = "https://leetcode.com/problems/last-stone-weight/"
 
 [[entries]]
-title = "Super Ugly Number"
-url = "https://leetcode.com/problems/super-ugly-number/"
+title = "Valid Triangle Number"
+url = "https://leetcode.com/problems/valid-triangle-number/"
 
 [[entries]]
 title = "Critical Connections in a Network"
 url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 
 [[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+title = "Video Stitching"
+url = "https://leetcode.com/problems/video-stitching/"
 
 [[entries]]
-title = "Kth Smallest Element in a Sorted Matrix"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+title = "Beautiful Towers II"
+url = "https://leetcode.com/problems/beautiful-towers-ii/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Find Maximum Area of a Triangle"
+url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"

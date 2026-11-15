@@ -3,9 +3,10 @@ group = "AI & Startups"
 focus = "trees, graphs, strings, design, and practical coding under time pressure."
 review_modules = ["01_arrays_and_hashing", "07_trees", "10_graphs", "14_tries", "16_math_geometry", "17_advanced"]
 
+
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "House Robber III"
+url = "https://leetcode.com/problems/house-robber-iii/"
 
 [[entries]]
 title = "Implement Trie (Prefix Tree)"
@@ -20,20 +21,20 @@ title = "Design In-Memory File System"
 url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Minimum Speed to Arrive on Time"
+url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Time Needed to Inform All Employees"
+url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Minimum Height Trees"
+url = "https://leetcode.com/problems/minimum-height-trees/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Describe the Painting"
+url = "https://leetcode.com/problems/describe-the-painting/"
 
 [[entries]]
 title = "Design Add and Search Words Data Structure"
@@ -60,16 +61,16 @@ title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
 title = "Minimum Window Substring"
 url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
 
 [[entries]]
 title = "Implement Rand10() Using Rand7()"
@@ -132,12 +133,12 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Design Twitter"
+url = "https://leetcode.com/problems/design-twitter/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Process Tasks Using Servers"
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
 title = "Find Median from Data Stream"

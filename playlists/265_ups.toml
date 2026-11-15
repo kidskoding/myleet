@@ -3,141 +3,142 @@ group = "Fortune 500"
 focus = "sorting and complexity analysis, arrays and hash maps, binary search on answers, graph routing, intervals, and package/capacity scheduling"
 review_modules = ["02_two_pointers", "06_linked_lists", "08_heaps", "10_graphs", "12_greedy_algorithms"]
 
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Sort List"
-url = "https://leetcode.com/problems/sort-list/"
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Sell Diminishing-Valued Colored Balls"
+url = "https://leetcode.com/problems/sell-diminishing-valued-colored-balls/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Smallest Range II"
+url = "https://leetcode.com/problems/smallest-range-ii/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Transform Binary String Using Subsequence Sort"
+url = "https://leetcode.com/problems/transform-binary-string-using-subsequence-sort/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Two Best Non-Overlapping Events"
+url = "https://leetcode.com/problems/two-best-non-overlapping-events/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Ugly Number III"
+url = "https://leetcode.com/problems/ugly-number-iii/"
+
+[[entries]]
+title = "Count Days Without Meetings"
+url = "https://leetcode.com/problems/count-days-without-meetings/"
 
 [[entries]]
 title = "Bus Routes"
 url = "https://leetcode.com/problems/bus-routes/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Find Right Interval"
+url = "https://leetcode.com/problems/find-right-interval/"
 
 [[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
+title = "Heaters"
+url = "https://leetcode.com/problems/heaters/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Max Number of K-Sum Pairs"
+url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
 
 [[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+title = "Maximum Area of Two Non-Overlapping Square Submatrices"
+url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Permutation in String"
+url = "https://leetcode.com/problems/permutation-in-string/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Maximum Number of Alloys"
+url = "https://leetcode.com/problems/maximum-number-of-alloys/"
 
 [[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
 
 [[entries]]
-title = "Capacity To Ship Packages Within D Days"
-url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+title = "Search in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
 
 [[entries]]
 title = "Maximum Units on a Truck"
 url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Find First and Last Position of Element in Sorted Array"
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Smallest Substring With Identical Characters II"
+url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
 
 [[entries]]
 title = "Two City Scheduling"
 url = "https://leetcode.com/problems/two-city-scheduling/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Maximum Number of Integers to Choose From a Range II"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii/"
 
 [[entries]]
-title = "Boats to Save People"
-url = "https://leetcode.com/problems/boats-to-save-people/"
+title = "Maximum Side Length of a Square with Sum Less than or Equal to Threshold"
+url = "https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Maximum Star Sum of a Graph"
+url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Maximum Value at a Given Index in a Bounded Array"
+url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Minimize Connected Groups by Inserting Interval"
+url = "https://leetcode.com/problems/minimize-connected-groups-by-inserting-interval/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Minimum Absolute Difference Between Elements With Constraint"
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Minimum Limit of Balls in a Bag"
+url = "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Minimum Operations to Make All Array Elements Equal"
+url = "https://leetcode.com/problems/minimum-operations-to-make-all-array-elements-equal/"
 
 [[entries]]
 title = "Can Place Flowers"
 url = "https://leetcode.com/problems/can-place-flowers/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Minimum Sum of Squared Difference"
+url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
 
 [[entries]]
 title = "Course Schedule III"
 url = "https://leetcode.com/problems/course-schedule-iii/"
 
 [[entries]]
-title = "Assign Cookies"
-url = "https://leetcode.com/problems/assign-cookies/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
 
 [[entries]]
 title = "Lemonade Change"
@@ -152,33 +153,33 @@ title = "Arranging Coins"
 url = "https://leetcode.com/problems/arranging-coins/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
 title = "String Matching in an Array"
 url = "https://leetcode.com/problems/string-matching-in-an-array/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Minimum Cost to Equalize Arrays Using Swaps"
+url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
 
 [[entries]]
 title = "IPO"
 url = "https://leetcode.com/problems/ipo/"
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Implement Router"
+url = "https://leetcode.com/problems/implement-router/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Non-overlapping Intervals"
+url = "https://leetcode.com/problems/non-overlapping-intervals/"

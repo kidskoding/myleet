@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "2D arrays, geometry-adjacent grids, collaboration-style design, graphs, intervals, tries, trees, and string parsing."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry", "17_advanced"]
 
+
 [[entries]]
 title = "Sparse Matrix Multiplication"
 url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
@@ -16,28 +17,28 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Count Integers in Intervals"
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Rectangle Area"
+url = "https://leetcode.com/problems/rectangle-area/"
 
 [[entries]]
-title = "Island Perimeter"
-url = "https://leetcode.com/problems/island-perimeter/"
+title = "Minimum Number of Vertices to Reach All Nodes"
+url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Number of Connected Components in an Undirected Graph"
+url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
 
 [[entries]]
-title = "Max Area of Island"
-url = "https://leetcode.com/problems/max-area-of-island/"
+title = "Number of Enclaves"
+url = "https://leetcode.com/problems/number-of-enclaves/"
 
 [[entries]]
 title = "Design Search Autocomplete System"
@@ -48,28 +49,28 @@ title = "Pacific Atlantic Water Flow"
 url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
 
 [[entries]]
-title = "Shortest Bridge"
-url = "https://leetcode.com/problems/shortest-bridge/"
+title = "Possible Bipartition"
+url = "https://leetcode.com/problems/possible-bipartition/"
 
 [[entries]]
 title = "Text Justification"
 url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
-title = "Path With Minimum Effort"
-url = "https://leetcode.com/problems/path-with-minimum-effort/"
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Reorder Routes to Make All Paths Lead to the City Zero"
+url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
 
 [[entries]]
 title = "Find if Path Exists in Graph"
 url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
 
 [[entries]]
 title = "All Paths From Source to Target"
@@ -80,24 +81,24 @@ title = "Word Search II"
 url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Candy Crush"
+url = "https://leetcode.com/problems/candy-crush/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Describe the Painting"
+url = "https://leetcode.com/problems/describe-the-painting/"
 
 [[entries]]
 title = "My Calendar II"
@@ -108,12 +109,12 @@ title = "Intersection of Two Arrays II"
 url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Design Front Middle Back Queue"
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
 
 [[entries]]
 title = "Longest Increasing Path in a Matrix"
@@ -128,8 +129,8 @@ title = "Binary Tree Vertical Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
 title = "Majority Element"
@@ -140,45 +141,45 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Longest Turbulent Subarray"
+url = "https://leetcode.com/problems/longest-turbulent-subarray/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Maximum Absolute Sum of Any Subarray"
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
 
 [[entries]]
 title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
 title = "Find Center of Star Graph"
 url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
 
 [[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Check if There Is a Valid Parentheses String Path"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/"

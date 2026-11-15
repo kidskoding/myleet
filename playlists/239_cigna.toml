@@ -3,73 +3,74 @@ group = "Fortune 500"
 focus = "Arrays, strings, hash maps, linked lists, and trees, kept to easy and medium problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "11_dp"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Number of Ways to Split Array"
-url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+title = "Minimum Levels to Gain More Points"
+url = "https://leetcode.com/problems/minimum-levels-to-gain-more-points/"
 
 [[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+title = "Minimum Penalty for a Shop"
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Minimum Time to Visit All Houses"
+url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
 
 [[entries]]
-title = "Brick Wall"
-url = "https://leetcode.com/problems/brick-wall/"
+title = "Non-decreasing Array"
+url = "https://leetcode.com/problems/non-decreasing-array/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Number of Adjacent Elements With the Same Color"
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
 
 [[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Number of Subarrays That Match a Pattern I"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Maximum Profitable Triplets With Increasing Prices II"
+url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii/"
+
+[[entries]]
+title = "One Edit Distance"
+url = "https://leetcode.com/problems/one-edit-distance/"
 
 [[entries]]
 title = "Substrings of Size Three with Distinct Characters"
 url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Permutations III"
+url = "https://leetcode.com/problems/permutations-iii/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Pour Water"
+url = "https://leetcode.com/problems/pour-water/"
 
 [[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
+title = "Remove Comments"
+url = "https://leetcode.com/problems/remove-comments/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Remove Sub-Folders from the Filesystem"
+url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
 
 [[entries]]
 title = "Guess Number Higher or Lower"
 url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
 
 [[entries]]
-title = "Wiggle Sort II"
-url = "https://leetcode.com/problems/wiggle-sort-ii/"
+title = "Reverse Words in a String II"
+url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
 title = "H-Index II"
@@ -84,49 +85,49 @@ title = "Plus One Linked List"
 url = "https://leetcode.com/problems/plus-one-linked-list/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Reverse Linked List II"
+url = "https://leetcode.com/problems/reverse-linked-list-ii/"
 
 [[entries]]
 title = "Remove Duplicates from Sorted List II"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
 
 [[entries]]
-title = "Remove Zero Sum Consecutive Nodes from Linked List"
-url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+title = "Split Linked List in Parts"
+url = "https://leetcode.com/problems/split-linked-list-in-parts/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
 
 [[entries]]
 title = "Reverse Nodes in Even Length Groups"
 url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
 
 [[entries]]
-title = "Trim a Binary Search Tree"
-url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Lowest Common Ancestor of a Binary Search Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"
 
 [[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+title = "Minimum Cost to Split an Array"
+url = "https://leetcode.com/problems/minimum-cost-to-split-an-array/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
 
 [[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
+title = "Shortest Word Distance III"
+url = "https://leetcode.com/problems/shortest-word-distance-iii/"
 
 [[entries]]
-title = "Majority Element II"
-url = "https://leetcode.com/problems/majority-element-ii/"
+title = "Spiral Matrix IV"
+url = "https://leetcode.com/problems/spiral-matrix-iv/"

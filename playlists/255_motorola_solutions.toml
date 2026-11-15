@@ -3,17 +3,18 @@ group = "Fortune 500"
 focus = "Bit manipulation, two pointers, stacks, linked lists and number problems for device-software style questions."
 review_modules = ["01_arrays_and_hashing", "15_bit_manipulation", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "16_math_geometry"]
 
+
 [[entries]]
 title = "Sum of Squares of Special Elements"
 url = "https://leetcode.com/problems/sum-of-squares-of-special-elements/"
 
 [[entries]]
-title = "Find Players With Zero or One Losses"
-url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
+title = "Can I Win"
+url = "https://leetcode.com/problems/can-i-win/"
 
 [[entries]]
-title = "Find the Score of All Prefixes of an Array"
-url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
+title = "Sum of Even Numbers After Queries"
+url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
 
 [[entries]]
 title = "Distribute Elements Into Two Arrays I"
@@ -28,16 +29,16 @@ title = "Count Pairs Of Similar Strings"
 url = "https://leetcode.com/problems/count-pairs-of-similar-strings/"
 
 [[entries]]
-title = "Largest Magic Square"
-url = "https://leetcode.com/problems/largest-magic-square/"
+title = "Swap Adjacent in LR String"
+url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
 
 [[entries]]
 title = "Maximum Frequency Stack"
 url = "https://leetcode.com/problems/maximum-frequency-stack/"
 
 [[entries]]
-title = "Group Shifted Strings"
-url = "https://leetcode.com/problems/group-shifted-strings/"
+title = "Max Sum of a Pair With Equal Sum of Digits"
+url = "https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/"
 
 [[entries]]
 title = "Count the Number of Vowel Strings in Range"
@@ -56,8 +57,8 @@ title = "Count the Hidden Sequences"
 url = "https://leetcode.com/problems/count-the-hidden-sequences/"
 
 [[entries]]
-title = "Minimum Size Subarray in Infinite Array"
-url = "https://leetcode.com/problems/minimum-size-subarray-in-infinite-array/"
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
 
 [[entries]]
 title = "Binary Tree Tilt"
@@ -68,8 +69,8 @@ title = "Number of Equal Count Substrings"
 url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
 
 [[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
 
 [[entries]]
 title = "Maximum Sum of Distinct Subarrays With Length K"
@@ -88,8 +89,8 @@ title = "Reverse Bits"
 url = "https://leetcode.com/problems/reverse-bits/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree IV"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
+title = "Pythagorean Distance Nodes in a Tree"
+url = "https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree/"
 
 [[entries]]
 title = "Number of Distinct Islands"
@@ -100,12 +101,12 @@ title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
-title = "Rotate List"
-url = "https://leetcode.com/problems/rotate-list/"
+title = "Circular Array Loop"
+url = "https://leetcode.com/problems/circular-array-loop/"
 
 [[entries]]
-title = "Rotate String"
-url = "https://leetcode.com/problems/rotate-string/"
+title = "Ways to Make a Fair Array"
+url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
 
 [[entries]]
 title = "Parallel Courses"

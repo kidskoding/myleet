@@ -3,73 +3,74 @@ group = "Fortune 500"
 focus = "linked lists, tree and graph dfs/bfs, heaps and k-th element, strings and hash maps, and retail-flavored design"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "08_heaps", "10_graphs"]
 
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Sort List"
+url = "https://leetcode.com/problems/sort-list/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximize Amount After Two Days of Conversions"
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
+
+[[entries]]
+title = "Graph Valid Tree"
+url = "https://leetcode.com/problems/graph-valid-tree/"
 
 [[entries]]
 title = "Isomorphic Strings"
 url = "https://leetcode.com/problems/isomorphic-strings/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Find Bottom Left Tree Value"
+url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Time Needed to Inform All Employees"
+url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Find the Maximum Length of a Good Subsequence II"
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Swap Nodes in Pairs"
+url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Is Graph Bipartite?"
+url = "https://leetcode.com/problems/is-graph-bipartite/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
+title = "Copy List with Random Pointer"
+url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
 
 [[entries]]
-title = "Max Area of Island"
-url = "https://leetcode.com/problems/max-area-of-island/"
+title = "Number of Connected Components in an Undirected Graph"
+url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Maximum Star Sum of a Graph"
+url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Sum Root to Leaf Numbers"
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Peeking Iterator"
+url = "https://leetcode.com/problems/peeking-iterator/"
 
 [[entries]]
 title = "Binary Tree Right Side View"
@@ -80,48 +81,48 @@ title = "Making A Large Island"
 url = "https://leetcode.com/problems/making-a-large-island/"
 
 [[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
+title = "Count Sorted Vowel Strings"
+url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Design a File Sharing System"
+url = "https://leetcode.com/problems/design-a-file-sharing-system/"
 
 [[entries]]
 title = "Reorder List"
 url = "https://leetcode.com/problems/reorder-list/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Design A Leaderboard"
+url = "https://leetcode.com/problems/design-a-leaderboard/"
 
 [[entries]]
-title = "Remove Nth Node From End of List"
-url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+title = "Design File System"
+url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Design Log Storage System"
+url = "https://leetcode.com/problems/design-log-storage-system/"
 
 [[entries]]
 title = "Final Prices With a Special Discount in a Shop"
 url = "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Design Order Management System"
+url = "https://leetcode.com/problems/design-order-management-system/"
 
 [[entries]]
 title = "Middle of the Linked List"
 url = "https://leetcode.com/problems/middle-of-the-linked-list/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Detect Squares"
+url = "https://leetcode.com/problems/detect-squares/"
 
 [[entries]]
 title = "Parallel Courses III"
@@ -132,20 +133,20 @@ title = "Palindrome Linked List"
 url = "https://leetcode.com/problems/palindrome-linked-list/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "First Unique Number"
+url = "https://leetcode.com/problems/first-unique-number/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Shortest String That Contains Three Strings"
+url = "https://leetcode.com/problems/shortest-string-that-contains-three-strings/"
 
 [[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
+title = "Shortest Word Distance II"
+url = "https://leetcode.com/problems/shortest-word-distance-ii/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Smallest Common Region"
+url = "https://leetcode.com/problems/smallest-common-region/"
 
 [[entries]]
 title = "Delete N Nodes After M Nodes of a Linked List"
@@ -160,25 +161,25 @@ title = "Subsets"
 url = "https://leetcode.com/problems/subsets/"
 
 [[entries]]
-title = "Diameter of Binary Tree"
-url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+title = "Lowest Common Ancestor of Deepest Leaves"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Spiral Matrix IV"
+url = "https://leetcode.com/problems/spiral-matrix-iv/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1) - Duplicates allowed"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
 
 [[entries]]
-title = "Convert Binary Number in a Linked List to Integer"
-url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
+title = "Step-By-Step Directions From a Binary Tree Node to Another"
+url = "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Throne Inheritance"
+url = "https://leetcode.com/problems/throne-inheritance/"
 
 [[entries]]
-title = "Apply Discount Every n Orders"
-url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
+title = "Zigzag Iterator"
+url = "https://leetcode.com/problems/zigzag-iterator/"

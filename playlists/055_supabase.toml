@@ -3,9 +3,10 @@ group = "AI & Startups"
 focus = "Database-flavored problems with intervals, heaps, binary search and union find, plus advanced data-structure design."
 review_modules = ["17_advanced", "05_binary_search", "13_intervals", "08_heaps", "01_arrays_and_hashing", "06_linked_lists"]
 
+
 [[entries]]
-title = "Maximum Sum of Two Non-Overlapping Subarrays"
-url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+title = "Find Palindrome With Fixed Length"
+url = "https://leetcode.com/problems/find-palindrome-with-fixed-length/"
 
 [[entries]]
 title = "Most Popular Video Creator"
@@ -20,8 +21,8 @@ title = "Guess the Word"
 url = "https://leetcode.com/problems/guess-the-word/"
 
 [[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
+title = "Find The Original Array of Prefix Xor"
+url = "https://leetcode.com/problems/find-the-original-array-of-prefix-xor/"
 
 [[entries]]
 title = "Most Visited Sector in  a Circular Track"
@@ -68,12 +69,12 @@ title = "Minimum Non-Zero Product of the Array Elements"
 url = "https://leetcode.com/problems/minimum-non-zero-product-of-the-array-elements/"
 
 [[entries]]
-title = "Describe the Painting"
-url = "https://leetcode.com/problems/describe-the-painting/"
+title = "Find X Value of Array I"
+url = "https://leetcode.com/problems/find-x-value-of-array-i/"
 
 [[entries]]
-title = "Corporate Flight Bookings"
-url = "https://leetcode.com/problems/corporate-flight-bookings/"
+title = "Make Sum Divisible by P"
+url = "https://leetcode.com/problems/make-sum-divisible-by-p/"
 
 [[entries]]
 title = "Falling Squares"

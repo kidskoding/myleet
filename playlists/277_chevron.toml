@@ -3,134 +3,135 @@ group = "Fortune 500"
 focus = "Arrays and strings, hash maps, intervals, binary search, tree traversal, and a few basic dynamic programming problems."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Brick Wall"
-url = "https://leetcode.com/problems/brick-wall/"
+title = "Minimum Score Triangulation of Polygon"
+url = "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
 
 [[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
+title = "Minimum Substring Partition of Equal Character Frequency"
+url = "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Number of Self-Divisible Permutations"
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Number of Ways to Build House of Cards"
+url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
 
 [[entries]]
-title = "Increasing Triplet Subsequence"
-url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+title = "Paint Fence"
+url = "https://leetcode.com/problems/paint-fence/"
+
+[[entries]]
+title = "Paint House"
+url = "https://leetcode.com/problems/paint-house/"
 
 [[entries]]
 title = "Distinct Subsequences"
 url = "https://leetcode.com/problems/distinct-subsequences/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Partition Array for Maximum Sum"
+url = "https://leetcode.com/problems/partition-array-for-maximum-sum/"
 
 [[entries]]
 title = "Find Smallest Letter Greater Than Target"
 url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Predict the Winner"
+url = "https://leetcode.com/problems/predict-the-winner/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Push Dominoes"
+url = "https://leetcode.com/problems/push-dominoes/"
 
 [[entries]]
-title = "3Sum Smaller"
-url = "https://leetcode.com/problems/3sum-smaller/"
+title = "Remove Adjacent Almost-Equal Characters"
+url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Rotated Digits"
+url = "https://leetcode.com/problems/rotated-digits/"
 
 [[entries]]
-title = "3Sum With Multiplicity"
-url = "https://leetcode.com/problems/3sum-with-multiplicity/"
+title = "Sentence Screen Fitting"
+url = "https://leetcode.com/problems/sentence-screen-fitting/"
 
 [[entries]]
-title = "Find a Peak Element II"
-url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+title = "Shopping Offers"
+url = "https://leetcode.com/problems/shopping-offers/"
 
 [[entries]]
 title = "Average of Levels in Binary Tree"
 url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
 
 [[entries]]
-title = "Find K Closest Elements"
-url = "https://leetcode.com/problems/find-k-closest-elements/"
+title = "Sort Integers by The Power Value"
+url = "https://leetcode.com/problems/sort-integers-by-the-power-value/"
 
 [[entries]]
 title = "Burst Balloons"
 url = "https://leetcode.com/problems/burst-balloons/"
 
 [[entries]]
-title = "Find the Smallest Divisor Given a Threshold"
-url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+title = "Stone Game"
+url = "https://leetcode.com/problems/stone-game/"
 
 [[entries]]
 title = "Balanced Binary Tree"
 url = "https://leetcode.com/problems/balanced-binary-tree/"
 
 [[entries]]
-title = "All Nodes Distance K in Binary Tree"
-url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+title = "Stone Game II"
+url = "https://leetcode.com/problems/stone-game-ii/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Taking Maximum Energy From the Mystic Dungeon"
+url = "https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon/"
 
 [[entries]]
-title = "Binary Search Tree Iterator"
-url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
 
 [[entries]]
-title = "Assign Cookies"
-url = "https://leetcode.com/problems/assign-cookies/"
+title = "Jump Game III"
+url = "https://leetcode.com/problems/jump-game-iii/"
 
 [[entries]]
-title = "01 Matrix"
-url = "https://leetcode.com/problems/01-matrix/"
+title = "Best Sightseeing Pair"
+url = "https://leetcode.com/problems/best-sightseeing-pair/"
 
 [[entries]]
-title = "All Ancestors of a Node in a Directed Acyclic Graph"
-url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
+title = "Campus Bikes II"
+url = "https://leetcode.com/problems/campus-bikes-ii/"
 
 [[entries]]
 title = "Binary Tree Inorder Traversal"
 url = "https://leetcode.com/problems/binary-tree-inorder-traversal/"
 
 [[entries]]
-title = "As Far from Land as Possible"
-url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+title = "Champagne Tower"
+url = "https://leetcode.com/problems/champagne-tower/"
 
 [[entries]]
 title = "Regular Expression Matching"
 url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Count Number of Texts"
+url = "https://leetcode.com/problems/count-number-of-texts/"
 
 [[entries]]
-title = "Symmetric Tree"
-url = "https://leetcode.com/problems/symmetric-tree/"
+title = "Count Strictly Increasing Subarrays"
+url = "https://leetcode.com/problems/count-strictly-increasing-subarrays/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Transaction Fee"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+title = "Domino and Tromino Tiling"
+url = "https://leetcode.com/problems/domino-and-tromino-tiling/"

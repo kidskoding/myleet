@@ -3,13 +3,14 @@ group = "Big Tech"
 focus = "Arrays, strings, linked lists, trees, and graph traversal, with careful handling of edge cases and clear complexity talk."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
+
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Car Pooling"
+url = "https://leetcode.com/problems/car-pooling/"
 
 [[entries]]
 title = "Spiral Matrix"

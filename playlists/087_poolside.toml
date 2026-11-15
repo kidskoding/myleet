@@ -3,186 +3,187 @@ group = "AI & Startups"
 focus = "code parsing and file paths, diffing, autocomplete tries, dependency graphs, caches, scheduling, and heaps"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "14_tries"]
 
-[[entries]]
-title = "Longest Absolute File Path"
-url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Ternary Expression Parser"
+url = "https://leetcode.com/problems/ternary-expression-parser/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Coloring A Border"
+url = "https://leetcode.com/problems/coloring-a-border/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Number of Increasing Paths in a Grid"
+url = "https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/"
 
 [[entries]]
-title = "Find Duplicate File in System"
-url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+title = "Gray Code"
+url = "https://leetcode.com/problems/gray-code/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Making File Names Unique"
+url = "https://leetcode.com/problems/making-file-names-unique/"
+
+[[entries]]
+title = "Masking Personal Information"
+url = "https://leetcode.com/problems/masking-personal-information/"
 
 [[entries]]
 title = "Remove Comments"
 url = "https://leetcode.com/problems/remove-comments/"
 
 [[entries]]
-title = "Mini Parser"
-url = "https://leetcode.com/problems/mini-parser/"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
 
 [[entries]]
 title = "Tag Validator"
 url = "https://leetcode.com/problems/tag-validator/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Minesweeper"
+url = "https://leetcode.com/problems/minesweeper/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Number of Distinct Islands"
+url = "https://leetcode.com/problems/number-of-distinct-islands/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Minimum One Bit Operations to Make Integers Zero"
+url = "https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Number of Operations to Make Network Connected"
+url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+title = "Number of People That Can Be Seen in a Grid"
+url = "https://leetcode.com/problems/number-of-people-that-can-be-seen-in-a-grid/"
 
 [[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+title = "Number of Restricted Paths From First to Last Node"
+url = "https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Number of Ways to Arrive at Destination"
+url = "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/"
 
 [[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
+title = "Minimum Time to Visit a Cell In a Grid"
+url = "https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Path Sum III"
+url = "https://leetcode.com/problems/path-sum-iii/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Path Sum IV"
+url = "https://leetcode.com/problems/path-sum-iv/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Power Grid Maintenance"
+url = "https://leetcode.com/problems/power-grid-maintenance/"
 
 [[entries]]
 title = "Final Array State After K Multiplication Operations I"
 url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Sentence Similarity II"
+url = "https://leetcode.com/problems/sentence-similarity-ii/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Count Prefix and Suffix Pairs II"
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Sum Root to Leaf Numbers"
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
 
 [[entries]]
-title = "Parallel Courses"
-url = "https://leetcode.com/problems/parallel-courses/"
+title = "The Time When the Network Becomes Idle"
+url = "https://leetcode.com/problems/the-time-when-the-network-becomes-idle/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "K-th Smallest in Lexicographical Order"
+url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
 
 [[entries]]
-title = "Find Eventual Safe States"
-url = "https://leetcode.com/problems/find-eventual-safe-states/"
+title = "Web Crawler"
+url = "https://leetcode.com/problems/web-crawler/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Make Costs of Paths Equal in a Binary Tree"
+url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
 
 [[entries]]
 title = "Alternating Groups I"
 url = "https://leetcode.com/problems/alternating-groups-i/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Path Sum II"
+url = "https://leetcode.com/problems/path-sum-ii/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Two City Scheduling"
+url = "https://leetcode.com/problems/two-city-scheduling/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Number of Possible Sets of Closing Branches"
+url = "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Delete the Middle Node of a Linked List"
+url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Fair Distribution of Cookies"
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Couples Holding Hands"
+url = "https://leetcode.com/problems/couples-holding-hands/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Find the Largest Area of Square Inside Two Rectangles"
+url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
 
 [[entries]]
 title = "Minimum Recolors to Get K Consecutive Black Blocks"
 url = "https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Flatten a Multilevel Doubly Linked List"
+url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Lowest Common Ancestor of Deepest Leaves"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Last Day Where You Can Still Cross"
+url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Maximum Alternating Sum of Squares"
+url = "https://leetcode.com/problems/maximum-alternating-sum-of-squares/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Maximum Number That Makes Result of Bitwise AND Zero"
+url = "https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Maximum Product of Word Lengths"
+url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
 
 [[entries]]
 title = "Final Prices With a Special Discount in a Shop"
 url = "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/"
 
 [[entries]]
-title = "Nested List Weight Sum"
-url = "https://leetcode.com/problems/nested-list-weight-sum/"
+title = "Number of Good Leaf Nodes Pairs"
+url = "https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Longest Cycle in a Graph"
+url = "https://leetcode.com/problems/longest-cycle-in-a-graph/"

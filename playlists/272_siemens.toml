@@ -3,125 +3,126 @@ group = "Fortune 500"
 focus = "Arrays, strings, bit manipulation, linked lists, trees, and graph traversal."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Maximum Sum Circular Subarray"
-url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+title = "Detonate the Maximum Bombs"
+url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
 
 [[entries]]
-title = "Maximum Sum of Two Non-Overlapping Subarrays"
-url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+title = "Grid Teleportation Traversal"
+url = "https://leetcode.com/problems/grid-teleportation-traversal/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
+url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
 
 [[entries]]
-title = "Maximum Swap"
-url = "https://leetcode.com/problems/maximum-swap/"
+title = "Count Lattice Points Inside a Circle"
+url = "https://leetcode.com/problems/count-lattice-points-inside-a-circle/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Count Number of Homogenous Substrings"
+url = "https://leetcode.com/problems/count-number-of-homogenous-substrings/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Distribute Candies Among Children II"
+url = "https://leetcode.com/problems/distribute-candies-among-children-ii/"
+
+[[entries]]
+title = "Elimination Game"
+url = "https://leetcode.com/problems/elimination-game/"
 
 [[entries]]
 title = "Self Crossing"
 url = "https://leetcode.com/problems/self-crossing/"
 
 [[entries]]
-title = "Minimum Speed to Arrive on Time"
-url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
+title = "Fair Distribution of Cookies"
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
 
 [[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
+title = "Find the Largest Area of Square Inside Two Rectangles"
+url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
 
 [[entries]]
-title = "Search a 2D Matrix II"
-url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+title = "Four Divisors"
+url = "https://leetcode.com/problems/four-divisors/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Gray Code"
+url = "https://leetcode.com/problems/gray-code/"
 
 [[entries]]
-title = "Single Element in a Sorted Array"
-url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+title = "High-Access Employees"
+url = "https://leetcode.com/problems/high-access-employees/"
 
 [[entries]]
-title = "Convert Sorted List to Binary Search Tree"
-url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
+title = "IP to CIDR"
+url = "https://leetcode.com/problems/ip-to-cidr/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "K-th Symbol in Grammar"
+url = "https://leetcode.com/problems/k-th-symbol-in-grammar/"
 
 [[entries]]
-title = "Double a Number Represented as a Linked List"
-url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
+title = "Letter Tile Possibilities"
+url = "https://leetcode.com/problems/letter-tile-possibilities/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Maximum Alternating Sum of Squares"
+url = "https://leetcode.com/problems/maximum-alternating-sum-of-squares/"
 
 [[entries]]
-title = "Insert Greatest Common Divisors in Linked List"
-url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
+title = "Maximum Gap"
+url = "https://leetcode.com/problems/maximum-gap/"
 
 [[entries]]
 title = "Erect the Fence"
 url = "https://leetcode.com/problems/erect-the-fence/"
 
 [[entries]]
-title = "Path Sum II"
-url = "https://leetcode.com/problems/path-sum-ii/"
+title = "Maximum K to Sort a Permutation"
+url = "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Maximum Number That Makes Result of Bitwise AND Zero"
+url = "https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero/"
 
 [[entries]]
-title = "Path Sum III"
-url = "https://leetcode.com/problems/path-sum-iii/"
+title = "Maximum Product of Word Lengths"
+url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
 
 [[entries]]
-title = "Populating Next Right Pointers in Each Node"
-url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
+title = "Maximum Rows Covered by Columns"
+url = "https://leetcode.com/problems/maximum-rows-covered-by-columns/"
 
 [[entries]]
 title = "Largest Triangle Area"
 url = "https://leetcode.com/problems/largest-triangle-area/"
 
 [[entries]]
-title = "As Far from Land as Possible"
-url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+title = "Minimum Flips to Make a OR b Equal to c"
+url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
 
 [[entries]]
-title = "Nim Game"
-url = "https://leetcode.com/problems/nim-game/"
+title = "Perfect Squares"
+url = "https://leetcode.com/problems/perfect-squares/"
 
 [[entries]]
-title = "Count Sub Islands"
-url = "https://leetcode.com/problems/count-sub-islands/"
+title = "Minimum Jumps to Reach Home"
+url = "https://leetcode.com/problems/minimum-jumps-to-reach-home/"
 
 [[entries]]
-title = "Course Schedule IV"
-url = "https://leetcode.com/problems/course-schedule-iv/"
+title = "Minimum Moves to Capture The Queen"
+url = "https://leetcode.com/problems/minimum-moves-to-capture-the-queen/"
 
 [[entries]]
 title = "Number of Common Factors"
 url = "https://leetcode.com/problems/number-of-common-factors/"
 
 [[entries]]
-title = "Detect Cycles in 2D Grid"
-url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
+title = "Minimum Sensors to Cover Grid"
+url = "https://leetcode.com/problems/minimum-sensors-to-cover-grid/"
 
 [[entries]]
 title = "Perfect Rectangle"
@@ -132,8 +133,8 @@ title = "Binary Tree Paths"
 url = "https://leetcode.com/problems/binary-tree-paths/"
 
 [[entries]]
-title = "Minimum Number of Vertices to Reach All Nodes"
-url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
+title = "Minimum Time Difference"
+url = "https://leetcode.com/problems/minimum-time-difference/"
 
 [[entries]]
 title = "Letter Case Permutation"

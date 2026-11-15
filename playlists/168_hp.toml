@@ -3,21 +3,22 @@ group = "Consumer and Business Tech"
 focus = "arrays/strings, linked lists, stacks, hashing, trees, and C/OOP fundamentals."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Spiral Matrix IV"
+url = "https://leetcode.com/problems/spiral-matrix-iv/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Make Costs of Paths Equal in a Binary Tree"
+url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Nested List Weight Sum"
+url = "https://leetcode.com/problems/nested-list-weight-sum/"
+
+[[entries]]
+title = "Number of Music Playlists"
+url = "https://leetcode.com/problems/number-of-music-playlists/"
 
 [[entries]]
 title = "Minimum Cost Homecoming of a Robot in a Grid"
@@ -28,156 +29,156 @@ title = "Valid Parenthesis String"
 url = "https://leetcode.com/problems/valid-parenthesis-string/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Linked List Random Node"
+url = "https://leetcode.com/problems/linked-list-random-node/"
 
 [[entries]]
-title = "Remove Nth Node From End of List"
-url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+title = "Maximum Twin Sum of a Linked List"
+url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
 
 [[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
+title = "Partition List"
+url = "https://leetcode.com/problems/partition-list/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Number Of Ways To Reconstruct A Tree"
+url = "https://leetcode.com/problems/number-of-ways-to-reconstruct-a-tree/"
 
 [[entries]]
-title = "Design Linked List"
-url = "https://leetcode.com/problems/design-linked-list/"
+title = "Plus One Linked List"
+url = "https://leetcode.com/problems/plus-one-linked-list/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Minimum Number of Frogs Croaking"
+url = "https://leetcode.com/problems/minimum-number-of-frogs-croaking/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Random Pick with Blacklist"
+url = "https://leetcode.com/problems/random-pick-with-blacklist/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Most Frequent IDs"
+url = "https://leetcode.com/problems/most-frequent-ids/"
 
 [[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
+title = "People Whose List of Favorite Companies Is Not a Subset of Another List"
+url = "https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list/"
 
 [[entries]]
 title = "Linked List Cycle"
 url = "https://leetcode.com/problems/linked-list-cycle/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Prison Cells After N Days"
+url = "https://leetcode.com/problems/prison-cells-after-n-days/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
+title = "Remove Nodes From Linked List"
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Find Minimum in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Sentence Similarity III"
+url = "https://leetcode.com/problems/sentence-similarity-iii/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Separate Black and White Balls"
+url = "https://leetcode.com/problems/separate-black-and-white-balls/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Split Linked List in Parts"
+url = "https://leetcode.com/problems/split-linked-list-in-parts/"
 
 [[entries]]
 title = "Find K-th Smallest Pair Distance"
 url = "https://leetcode.com/problems/find-k-th-smallest-pair-distance/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Synonymous Sentences"
+url = "https://leetcode.com/problems/synonymous-sentences/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Add Two Numbers II"
+url = "https://leetcode.com/problems/add-two-numbers-ii/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Delete Nodes From Linked List Present in Array"
+url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Calculate Score After Performing Instructions"
+url = "https://leetcode.com/problems/calculate-score-after-performing-instructions/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Count Good Meals"
+url = "https://leetcode.com/problems/count-good-meals/"
 
 [[entries]]
 title = "Minimum Initial Energy to Finish Tasks"
 url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Delete the Middle Node of a Linked List"
+url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Destroy Sequential Targets"
+url = "https://leetcode.com/problems/destroy-sequential-targets/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Double a Number Represented as a Linked List"
+url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
 
 [[entries]]
 title = "Diameter of Binary Tree"
 url = "https://leetcode.com/problems/diameter-of-binary-tree/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Find All Lonely Numbers in the Array"
+url = "https://leetcode.com/problems/find-all-lonely-numbers-in-the-array/"
 
 [[entries]]
 title = "Put Marbles in Bags"
 url = "https://leetcode.com/problems/put-marbles-in-bags/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Find Occurrences of an Element in an Array"
+url = "https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Find the Length of the Longest Common Prefix"
+url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Finding the Users Active Minutes"
+url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
 
 [[entries]]
 title = "Make String Anti-palindrome"
 url = "https://leetcode.com/problems/make-string-anti-palindrome/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "First Completely Painted Row or Column"
+url = "https://leetcode.com/problems/first-completely-painted-row-or-column/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "HTML Entity Parser"
+url = "https://leetcode.com/problems/html-entity-parser/"
 
 [[entries]]
 title = "Set Mismatch"
 url = "https://leetcode.com/problems/set-mismatch/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Identify the Largest Outlier in an Array"
+url = "https://leetcode.com/problems/identify-the-largest-outlier-in-an-array/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Insert Greatest Common Divisors in Linked List"
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
 
 [[entries]]
 title = "Maximum Total Beauty of the Gardens"

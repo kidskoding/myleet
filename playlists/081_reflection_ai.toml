@@ -3,181 +3,182 @@ group = "AI & Startups"
 focus = "graph and state-space search, heaps, scheduling, intervals, dynamic programming, sampling, and simulation"
 review_modules = ["03_stacks_and_queues", "08_heaps", "10_graphs", "11_dp", "17_advanced"]
 
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Minimum Operations to Reduce an Integer to 0"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Minimum Substring Partition of Equal Character Frequency"
+url = "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Count Palindromic Subsequences"
+url = "https://leetcode.com/problems/count-palindromic-subsequences/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Number of Ways to Build House of Cards"
+url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
+
+[[entries]]
+title = "Partition Array for Maximum Sum"
+url = "https://leetcode.com/problems/partition-array-for-maximum-sum/"
 
 [[entries]]
 title = "Maximum Depth of N-ary Tree"
 url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Remove Adjacent Almost-Equal Characters"
+url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Shopping Offers"
+url = "https://leetcode.com/problems/shopping-offers/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Decode Ways II"
+url = "https://leetcode.com/problems/decode-ways-ii/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Stone Game"
+url = "https://leetcode.com/problems/stone-game/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Stone Game II"
+url = "https://leetcode.com/problems/stone-game-ii/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Find the Count of Monotonic Pairs II"
+url = "https://leetcode.com/problems/find-the-count-of-monotonic-pairs-ii/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Taking Maximum Energy From the Mystic Dungeon"
+url = "https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Toss Strange Coins"
+url = "https://leetcode.com/problems/toss-strange-coins/"
 
 [[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+title = "Bitwise ORs of Subarrays"
+url = "https://leetcode.com/problems/bitwise-ors-of-subarrays/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Champagne Tower"
+url = "https://leetcode.com/problems/champagne-tower/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Count Number of Texts"
+url = "https://leetcode.com/problems/count-number-of-texts/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Shortest Path Visiting All Nodes"
+url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Count Strictly Increasing Subarrays"
+url = "https://leetcode.com/problems/count-strictly-increasing-subarrays/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Find All Good Indices"
+url = "https://leetcode.com/problems/find-all-good-indices/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "Find Minimum Cost to Remove Array Elements"
+url = "https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements/"
 
 [[entries]]
 title = "Sliding Puzzle"
 url = "https://leetcode.com/problems/sliding-puzzle/"
 
 [[entries]]
-title = "Open the Lock"
-url = "https://leetcode.com/problems/open-the-lock/"
+title = "Find Palindrome With Fixed Length"
+url = "https://leetcode.com/problems/find-palindrome-with-fixed-length/"
 
 [[entries]]
-title = "Snakes and Ladders"
-url = "https://leetcode.com/problems/snakes-and-ladders/"
+title = "Find the Maximum Length of a Good Subsequence I"
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-i/"
 
 [[entries]]
 title = "Destination City"
 url = "https://leetcode.com/problems/destination-city/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Greatest Sum Divisible by Three"
+url = "https://leetcode.com/problems/greatest-sum-divisible-by-three/"
 
 [[entries]]
-title = "Path With Minimum Effort"
-url = "https://leetcode.com/problems/path-with-minimum-effort/"
+title = "Knight Dialer"
+url = "https://leetcode.com/problems/knight-dialer/"
 
 [[entries]]
 title = "Dungeon Game"
 url = "https://leetcode.com/problems/dungeon-game/"
 
 [[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
+title = "Largest 1-Bordered Square"
+url = "https://leetcode.com/problems/largest-1-bordered-square/"
 
 [[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
+title = "Last Stone Weight II"
+url = "https://leetcode.com/problems/last-stone-weight-ii/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Length of the Longest Subsequence That Sums to Target"
+url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
 
 [[entries]]
 title = "Middle of the Linked List"
 url = "https://leetcode.com/problems/middle-of-the-linked-list/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Longest Arithmetic Subsequence"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Find the Maximum Length of a Good Subsequence II"
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Longest Non-Decreasing Subarray After Replacing at Most One Element"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-after-replacing-at-most-one-element/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Longest Non-decreasing Subarray From Two Arrays"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Maximize Total Tastiness of Purchased Fruits"
+url = "https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits/"
 
 [[entries]]
-title = "Minimum Moves to Reach Target with Rotations"
-url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
+title = "Shortest Path to Get All Keys"
+url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"
 
 [[entries]]
-title = "Design Snake Game"
-url = "https://leetcode.com/problems/design-snake-game/"
+title = "Maximum Coin Collection"
+url = "https://leetcode.com/problems/maximum-coin-collection/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Maximum Earnings From Taxi"
+url = "https://leetcode.com/problems/maximum-earnings-from-taxi/"
 
 [[entries]]
 title = "Maximum Depth of Binary Tree"
 url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Maximum Length of Repeated Subarray"
+url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Maximum Number of Subsequences After One Inserting"
+url = "https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/"
 
 [[entries]]
 title = "Distinct Subsequences"

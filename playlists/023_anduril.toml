@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "grid and graph traversal, topological sort, tries and word search, intervals, linked-list and queue implementation, and stack parsing."
 review_modules = ["03_stacks_and_queues", "05_binary_search", "10_graphs", "14_tries", "16_math_geometry"]
 
+
 [[entries]]
 title = "Palindromic Substrings"
 url = "https://leetcode.com/problems/palindromic-substrings/"
@@ -20,16 +21,16 @@ title = "Critical Connections in a Network"
 url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Camelcase Matching"
+url = "https://leetcode.com/problems/camelcase-matching/"
 
 [[entries]]
 title = "Valid Parentheses"
 url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
 
 [[entries]]
 title = "Design Linked List"
@@ -44,20 +45,20 @@ title = "Minesweeper"
 url = "https://leetcode.com/problems/minesweeper/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
 title = "Making A Large Island"
 url = "https://leetcode.com/problems/making-a-large-island/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
 title = "Video Stitching"
@@ -76,12 +77,12 @@ title = "Daily Temperatures"
 url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Course Schedule III"
+url = "https://leetcode.com/problems/course-schedule-iii/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
 title = "Shortest Word Distance II"
@@ -92,28 +93,28 @@ title = "Verifying an Alien Dictionary"
 url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "Time Needed to Inform All Employees"
+url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
 
 [[entries]]
 title = "Push Dominoes"
 url = "https://leetcode.com/problems/push-dominoes/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
 
 [[entries]]
 title = "Race Car"
@@ -128,8 +129,8 @@ title = "Island Perimeter"
 url = "https://leetcode.com/problems/island-perimeter/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Sort Characters By Frequency"
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
 [[entries]]
 title = "Queries on Number of Points Inside a Circle"
@@ -148,8 +149,8 @@ title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Design Most Recently Used Queue"
+url = "https://leetcode.com/problems/design-most-recently-used-queue/"
 
 [[entries]]
 title = "Longest Cycle in a Graph"
@@ -180,8 +181,8 @@ title = "Longest Increasing Path in a Matrix"
 url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "All Ancestors of a Node in a Directed Acyclic Graph"
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
 
 [[entries]]
 title = "Buildings With an Ocean View"
@@ -196,8 +197,8 @@ title = "Binary Tree Vertical Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
 
 [[entries]]
-title = "Snakes and Ladders"
-url = "https://leetcode.com/problems/snakes-and-ladders/"
+title = "Minimum Height Trees"
+url = "https://leetcode.com/problems/minimum-height-trees/"
 
 [[entries]]
 title = "Shortest Path in a Grid with Obstacles Elimination"

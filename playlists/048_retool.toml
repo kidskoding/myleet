@@ -3,65 +3,66 @@ group = "AI & Startups"
 focus = "in-memory sql and spreadsheets, parsing, arrays, trees, recursion, dp"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "07_trees", "11_dp"]
 
+
 [[entries]]
 title = "Design SQL"
 url = "https://leetcode.com/problems/design-sql/"
 
 [[entries]]
-title = "Design Spreadsheet"
-url = "https://leetcode.com/problems/design-spreadsheet/"
+title = "Design Memory Allocator"
+url = "https://leetcode.com/problems/design-memory-allocator/"
 
 [[entries]]
 title = "Bulls and Cows"
 url = "https://leetcode.com/problems/bulls-and-cows/"
 
 [[entries]]
-title = "Design Excel Sum Formula"
-url = "https://leetcode.com/problems/design-excel-sum-formula/"
+title = "Read N Characters Given read4 II - Call Multiple Times"
+url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Array Nesting"
+url = "https://leetcode.com/problems/array-nesting/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Can I Win"
+url = "https://leetcode.com/problems/can-i-win/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Combination Sum III"
+url = "https://leetcode.com/problems/combination-sum-iii/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Coordinate With Maximum Network Quality"
+url = "https://leetcode.com/problems/coordinate-with-maximum-network-quality/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Count Unhappy Friends"
+url = "https://leetcode.com/problems/count-unhappy-friends/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Building Boxes"
+url = "https://leetcode.com/problems/building-boxes/"
 
 [[entries]]
-title = "Mini Parser"
-url = "https://leetcode.com/problems/mini-parser/"
+title = "Minimum Swaps to Group All 1's Together"
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Finding Pairs With a Certain Sum"
+url = "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/"
 
 [[entries]]
 title = "Invert Binary Tree"
@@ -76,56 +77,56 @@ title = "Best Time to Buy and Sell Stock with Cooldown"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Count Non Decreasing Arrays With Given Digit Sums"
+url = "https://leetcode.com/problems/count-non-decreasing-arrays-with-given-digit-sums/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Diagonal Traverse"
+url = "https://leetcode.com/problems/diagonal-traverse/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Expressive Words"
+url = "https://leetcode.com/problems/expressive-words/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Factor Combinations"
+url = "https://leetcode.com/problems/factor-combinations/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Distribute Elements Into Two Arrays II"
+url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-ii/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Find Players With Zero or One Losses"
+url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
+url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
 
 [[entries]]
 title = "Min Cost Climbing Stairs"
 url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Find The First Player to win K Games in a Row"
+url = "https://leetcode.com/problems/find-the-first-player-to-win-k-games-in-a-row/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Find the Minimum Area to Cover All Ones I"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Find All Possible Stable Binary Arrays II"
+url = "https://leetcode.com/problems/find-all-possible-stable-binary-arrays-ii/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Delete Node in a BST"
+url = "https://leetcode.com/problems/delete-node-in-a-bst/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Inorder Successor in BST"
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
 
 [[entries]]
 title = "House Robber"
@@ -136,49 +137,49 @@ title = "Same Tree"
 url = "https://leetcode.com/problems/same-tree/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Design an Array Statistics Tracker"
+url = "https://leetcode.com/problems/design-an-array-statistics-tracker/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Count Square Submatrices with All Ones"
+url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Delete and Earn"
+url = "https://leetcode.com/problems/delete-and-earn/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Find the Minimum Area to Cover All Ones II"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Find the Winner of an Array Game"
+url = "https://leetcode.com/problems/find-the-winner-of-an-array-game/"
 
 [[entries]]
 title = "Diameter of Binary Tree"
 url = "https://leetcode.com/problems/diameter-of-binary-tree/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Increment Submatrices by One"
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Subsets II"
+url = "https://leetcode.com/problems/subsets-ii/"
 
 [[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
+title = "Design Graph With Shortest Path Calculator"
+url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"

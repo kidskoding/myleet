@@ -3,37 +3,38 @@ group = "Consumer and Business Tech"
 focus = "meeting and interval scheduling, heaps for servers and tasks, sliding windows over streams, queue designs, and weighted shortest paths."
 review_modules = ["13_intervals", "08_heaps", "04_sliding_window", "03_stacks_and_queues", "10_graphs"]
 
-[[entries]]
-title = "K Radius Subarray Averages"
-url = "https://leetcode.com/problems/k-radius-subarray-averages/"
 
 [[entries]]
-title = "Maximum Number of Vowels in a Substring of Given Length"
-url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
+title = "Find the Closest Marked Node"
+url = "https://leetcode.com/problems/find-the-closest-marked-node/"
 
 [[entries]]
-title = "Grumpy Bookstore Owner"
-url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
+title = "Number of Restricted Paths From First to Last Node"
+url = "https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node/"
+
+[[entries]]
+title = "Number of Ways to Arrive at Destination"
+url = "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/"
 
 [[entries]]
 title = "Find Servers That Handled Most Number of Requests"
 url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
 
 [[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+title = "Shortest Way to Form String"
+url = "https://leetcode.com/problems/shortest-way-to-form-string/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Find the Winner of the Circular Game"
+url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
 
 [[entries]]
 title = "Maximum Average Subarray I"
 url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Minimum Number of Swaps to Make the String Balanced"
+url = "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/"
 
 [[entries]]
 title = "Seat Reservation Manager"
@@ -44,8 +45,8 @@ title = "Data Stream as Disjoint Intervals"
 url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Shortest and Lexicographically Smallest Beautiful String"
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
 
 [[entries]]
 title = "Meeting Scheduler"
@@ -56,28 +57,28 @@ title = "Meeting Rooms III"
 url = "https://leetcode.com/problems/meeting-rooms-iii/"
 
 [[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
+title = "Queue Reconstruction by Height"
+url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Shortest Unsorted Continuous Subarray"
+url = "https://leetcode.com/problems/shortest-unsorted-continuous-subarray/"
 
 [[entries]]
 title = "Number of Recent Calls"
 url = "https://leetcode.com/problems/number-of-recent-calls/"
 
 [[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
+title = "Maximum Number of Upgradable Servers"
+url = "https://leetcode.com/problems/maximum-number-of-upgradable-servers/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Minimum Number of Lines to Cover Points"
+url = "https://leetcode.com/problems/minimum-number-of-lines-to-cover-points/"
 
 [[entries]]
-title = "Course Schedule III"
-url = "https://leetcode.com/problems/course-schedule-iii/"
+title = "Find the Shortest Superstring"
+url = "https://leetcode.com/problems/find-the-shortest-superstring/"
 
 [[entries]]
 title = "Exclusive Time of Functions"
@@ -88,97 +89,97 @@ title = "Minimum Cost to Connect Sticks"
 url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Minimum Score Triangulation of Polygon"
+url = "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/"
 
 [[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
+title = "Lexicographically Maximum MEX Array"
+url = "https://leetcode.com/problems/lexicographically-maximum-mex-array/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
 
 [[entries]]
-title = "Path with Maximum Probability"
-url = "https://leetcode.com/problems/path-with-maximum-probability/"
+title = "Minimum Substring Partition of Equal Character Frequency"
+url = "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/"
 
 [[entries]]
 title = "Moving Average from Data Stream"
 url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Non-decreasing Subsequences"
+url = "https://leetcode.com/problems/non-decreasing-subsequences/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Number of Self-Divisible Permutations"
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
 [[entries]]
 title = "Minimum Interval to Include Each Query"
 url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Number of Ways to Buy Pens and Pencils"
+url = "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Predict the Winner"
+url = "https://leetcode.com/problems/predict-the-winner/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Shopping Offers"
+url = "https://leetcode.com/problems/shopping-offers/"
 
 [[entries]]
 title = "Substrings of Size Three with Distinct Characters"
 url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Sort Transformed Array"
+url = "https://leetcode.com/problems/sort-transformed-array/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "Maximum Number of Tasks You Can Assign"
+url = "https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Count the Hidden Sequences"
+url = "https://leetcode.com/problems/count-the-hidden-sequences/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Count the Number of Good Subsequences"
+url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Count Ways To Build Good Strings"
+url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Number of Increasing Paths in a Grid"
+url = "https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Design Bounded Blocking Queue"
+url = "https://leetcode.com/problems/design-bounded-blocking-queue/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Design Phone Directory"
+url = "https://leetcode.com/problems/design-phone-directory/"
 
 [[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
+title = "Design Ride Sharing System"
+url = "https://leetcode.com/problems/design-ride-sharing-system/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Knight Dialer"
+url = "https://leetcode.com/problems/knight-dialer/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Knight Probability in Chessboard"
+url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Number of Visible People in a Queue"
+url = "https://leetcode.com/problems/number-of-visible-people-in-a-queue/"

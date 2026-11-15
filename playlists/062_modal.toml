@@ -3,121 +3,122 @@ group = "AI & Startups"
 focus = "systems data structures, caches and rate limiters, scheduling with heaps, counting/bucket sorts, randomization, and streaming."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "13_intervals", "18_mixed_interview_practice"]
 
+
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Vowel Spellchecker"
+url = "https://leetcode.com/problems/vowel-spellchecker/"
 
 [[entries]]
 title = "Shuffle an Array"
 url = "https://leetcode.com/problems/shuffle-an-array/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Calculate Score After Performing Instructions"
+url = "https://leetcode.com/problems/calculate-score-after-performing-instructions/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Create Maximum Number"
+url = "https://leetcode.com/problems/create-maximum-number/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Count Good Meals"
+url = "https://leetcode.com/problems/count-good-meals/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find Minimum in Rotated Sorted Array"
+url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Design Bounded Blocking Queue"
+url = "https://leetcode.com/problems/design-bounded-blocking-queue/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Destroy Sequential Targets"
+url = "https://leetcode.com/problems/destroy-sequential-targets/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Equal Sum Arrays With Minimum Number of Operations"
+url = "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/"
 
 [[entries]]
-title = "Find Servers That Handled Most Number of Requests"
-url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+title = "Odd Even Jump"
+url = "https://leetcode.com/problems/odd-even-jump/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Finding the Users Active Minutes"
+url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Identify the Largest Outlier in an Array"
+url = "https://leetcode.com/problems/identify-the-largest-outlier-in-an-array/"
 
 [[entries]]
 title = "Parallel Courses III"
 url = "https://leetcode.com/problems/parallel-courses-iii/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "K-diff Pairs in an Array"
+url = "https://leetcode.com/problems/k-diff-pairs-in-an-array/"
 
 [[entries]]
 title = "Design Task Manager"
 url = "https://leetcode.com/problems/design-task-manager/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+title = "Longest Balanced Subarray I"
+url = "https://leetcode.com/problems/longest-balanced-subarray-i/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Make Sum Divisible by P"
+url = "https://leetcode.com/problems/make-sum-divisible-by-p/"
 
 [[entries]]
-title = "Design Circular Deque"
-url = "https://leetcode.com/problems/design-circular-deque/"
+title = "Minimum Operations to Write the Letter Y on a Grid"
+url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "My Calendar III"
+url = "https://leetcode.com/problems/my-calendar-iii/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Pairs of Songs With Total Durations Divisible by 60"
+url = "https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Exam Room"
+url = "https://leetcode.com/problems/exam-room/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Prison Cells After N Days"
+url = "https://leetcode.com/problems/prison-cells-after-n-days/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Count Non Decreasing Arrays With Given Digit Sums"
+url = "https://leetcode.com/problems/count-non-decreasing-arrays-with-given-digit-sums/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Implement Router"
+url = "https://leetcode.com/problems/implement-router/"
 
 [[entries]]
-title = "Peeking Iterator"
-url = "https://leetcode.com/problems/peeking-iterator/"
+title = "Tweet Counts Per Frequency"
+url = "https://leetcode.com/problems/tweet-counts-per-frequency/"
 
 [[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+title = "Sentence Similarity III"
+url = "https://leetcode.com/problems/sentence-similarity-iii/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Strings Differ by One Character"
+url = "https://leetcode.com/problems/strings-differ-by-one-character/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Sum of Distances"
+url = "https://leetcode.com/problems/sum-of-distances/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Reverse Pairs"
+url = "https://leetcode.com/problems/reverse-pairs/"
 
 [[entries]]
 title = "Linked List Random Node"
@@ -132,53 +133,53 @@ title = "Sort an Array"
 url = "https://leetcode.com/problems/sort-an-array/"
 
 [[entries]]
-title = "Design an Ordered Stream"
-url = "https://leetcode.com/problems/design-an-ordered-stream/"
+title = "Design a Food Rating System"
+url = "https://leetcode.com/problems/design-a-food-rating-system/"
 
 [[entries]]
 title = "H-Index"
 url = "https://leetcode.com/problems/h-index/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Divide an Array Into Subarrays With Minimum Cost II"
+url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-ii/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Count Pairs of Connectable Servers in a Weighted Tree Network"
+url = "https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Max Sum of a Pair With Equal Sum of Digits"
+url = "https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Minimum Length of String After Operations"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-operations/"
 
 [[entries]]
-title = "IPO"
-url = "https://leetcode.com/problems/ipo/"
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Number of Divisible Substrings"
+url = "https://leetcode.com/problems/number-of-divisible-substrings/"
 
 [[entries]]
-title = "Stock Price Fluctuation"
-url = "https://leetcode.com/problems/stock-price-fluctuation/"
+title = "Task Scheduler II"
+url = "https://leetcode.com/problems/task-scheduler-ii/"
 
 [[entries]]
-title = "Design Parking System"
-url = "https://leetcode.com/problems/design-parking-system/"
+title = "Design Ride Sharing System"
+url = "https://leetcode.com/problems/design-ride-sharing-system/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "K Radius Subarray Averages"
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Count Collisions of Monkeys on a Polygon"
+url = "https://leetcode.com/problems/count-collisions-of-monkeys-on-a-polygon/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Meeting Rooms III"
+url = "https://leetcode.com/problems/meeting-rooms-iii/"

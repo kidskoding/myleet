@@ -3,93 +3,94 @@ group = "Consumer and Business Tech"
 focus = "arrays, hash maps, strings, stock profit variants, scheduling"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "12_greedy_algorithms", "13_intervals"]
 
-[[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Transaction Fee"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+title = "Two City Scheduling"
+url = "https://leetcode.com/problems/two-city-scheduling/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Cooldown"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+title = "Maximum Increasing Triplet Value"
+url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock III"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
+title = "Maximum Profit From Trading Stocks"
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Number of Squareful Arrays"
+url = "https://leetcode.com/problems/number-of-squareful-arrays/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Maximum Sum of an Hourglass"
+url = "https://leetcode.com/problems/maximum-sum-of-an-hourglass/"
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
+title = "Minimum Factorization"
+url = "https://leetcode.com/problems/minimum-factorization/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Rearrange Array Elements by Sign"
+url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
 
 [[entries]]
-title = "Two Sum II - Input Array Is Sorted"
-url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+title = "Maximum Number of Vowels in a Substring of Given Length"
+url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Remove Duplicates from Sorted Array II"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Distribute Elements Into Two Arrays II"
+url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-ii/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Wiggle Sort II"
+url = "https://leetcode.com/problems/wiggle-sort-ii/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "3Sum Closest"
+url = "https://leetcode.com/problems/3sum-closest/"
+
+[[entries]]
+title = "Longest Substring of One Repeating Character"
+url = "https://leetcode.com/problems/longest-substring-of-one-repeating-character/"
 
 [[entries]]
 title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
 
 [[entries]]
-title = "Gas Station"
-url = "https://leetcode.com/problems/gas-station/"
+title = "Minimum Jumps to Reach Home"
+url = "https://leetcode.com/problems/minimum-jumps-to-reach-home/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Minimum Length of String After Deleting Similar Ends"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Most Popular Video Creator"
+url = "https://leetcode.com/problems/most-popular-video-creator/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Minimum Cost to Split an Array"
+url = "https://leetcode.com/problems/minimum-cost-to-split-an-array/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Non-decreasing Array"
+url = "https://leetcode.com/problems/non-decreasing-array/"
 
 [[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+title = "Number of Adjacent Elements With the Same Color"
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Number of Subarrays That Match a Pattern I"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
 
 [[entries]]
 title = "Design Excel Sum Formula"
@@ -100,20 +101,20 @@ title = "Mini Parser"
 url = "https://leetcode.com/problems/mini-parser/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Permutations III"
+url = "https://leetcode.com/problems/permutations-iii/"
 
 [[entries]]
 title = "Valid Palindrome II"
 url = "https://leetcode.com/problems/valid-palindrome-ii/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Split Concatenated Strings"
+url = "https://leetcode.com/problems/split-concatenated-strings/"
 
 [[entries]]
 title = "Online Majority Element In Subarray"
@@ -144,40 +145,40 @@ title = "Design an Array Statistics Tracker"
 url = "https://leetcode.com/problems/design-an-array-statistics-tracker/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Swap Adjacent in LR String"
+url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "The Number of the Smallest Unoccupied Chair"
+url = "https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Apply Operations to Make All Array Elements Equal to Zero"
+url = "https://leetcode.com/problems/apply-operations-to-make-all-array-elements-equal-to-zero/"
 
 [[entries]]
 title = "Count Integers in Intervals"
 url = "https://leetcode.com/problems/count-integers-in-intervals/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Array Nesting"
+url = "https://leetcode.com/problems/array-nesting/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Array With Elements Not Equal to Average of Neighbors"
+url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
 
 [[entries]]
 title = "Squares of a Sorted Array"
 url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Detect Squares"
+url = "https://leetcode.com/problems/detect-squares/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
 
 [[entries]]
 title = "Read N Characters Given read4 II - Call Multiple Times"

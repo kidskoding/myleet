@@ -3,29 +3,30 @@ group = "Consumer and Business Tech"
 focus = "graphs, heaps, trees, strings, and clean interview algorithms."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
-title = "Contiguous Array"
-url = "https://leetcode.com/problems/contiguous-array/"
+title = "Step-By-Step Directions From a Binary Tree Node to Another"
+url = "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/"
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Count Ways To Build Good Strings"
+url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
 
 [[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
+title = "Maximum XOR of Two Numbers in an Array"
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "24 Game"
+url = "https://leetcode.com/problems/24-game/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Strings Differ by One Character"
+url = "https://leetcode.com/problems/strings-differ-by-one-character/"
+
+[[entries]]
+title = "Longest Arithmetic Sequence After Changing At Most One Element"
+url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
 
 [[entries]]
 title = "Move Zeroes"
@@ -36,28 +37,28 @@ title = "Maximum Width of Binary Tree"
 url = "https://leetcode.com/problems/maximum-width-of-binary-tree/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Delete Operation for Two Strings"
+url = "https://leetcode.com/problems/delete-operation-for-two-strings/"
 
 [[entries]]
 title = "Integer to English Words"
 url = "https://leetcode.com/problems/integer-to-english-words/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Transaction Fee"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+title = "Equalize Strings by Adding or Removing Characters at Ends"
+url = "https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Lowest Common Ancestor of a Binary Tree II"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/"
 
 [[entries]]
 title = "Count of Smaller Numbers After Self"
 url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
 
 [[entries]]
-title = "Reorder Routes to Make All Paths Lead to the City Zero"
-url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
+title = "Lowest Common Ancestor of a Binary Tree IV"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
 
 [[entries]]
 title = "Merge Triplets to Form Target Triplet"
@@ -68,117 +69,117 @@ title = "Add Binary"
 url = "https://leetcode.com/problems/add-binary/"
 
 [[entries]]
-title = "The Maze"
-url = "https://leetcode.com/problems/the-maze/"
+title = "Maximum Increasing Triplet Value"
+url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
 
 [[entries]]
 title = "Stone Game"
 url = "https://leetcode.com/problems/stone-game/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock IV"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
+title = "Minimize Malware Spread II"
+url = "https://leetcode.com/problems/minimize-malware-spread-ii/"
 
 [[entries]]
-title = "Next Greater Element II"
-url = "https://leetcode.com/problems/next-greater-element-ii/"
+title = "Maximum Nesting Depth of Two Valid Parentheses Strings"
+url = "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/"
 
 [[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
+title = "Maximum Profitable Triplets With Increasing Prices I"
+url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i/"
 
 [[entries]]
 title = "Design a File Sharing System"
 url = "https://leetcode.com/problems/design-a-file-sharing-system/"
 
 [[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
+title = "Minimum Cost to Convert String II"
+url = "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/"
 
 [[entries]]
 title = "Toss Strange Coins"
 url = "https://leetcode.com/problems/toss-strange-coins/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Maximum Sum of an Hourglass"
+url = "https://leetcode.com/problems/maximum-sum-of-an-hourglass/"
 
 [[entries]]
 title = "Next Greater Element I"
 url = "https://leetcode.com/problems/next-greater-element-i/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Minimum Cost Path with Edge Reversals"
+url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Sliding Puzzle"
+url = "https://leetcode.com/problems/sliding-puzzle/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Minimum Length of String After Deleting Similar Ends"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Minimum Number of Steps to Make Two Strings Anagram"
+url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Minimum Penalty for a Shop"
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
 
 [[entries]]
 title = "Remove Duplicates from Sorted Array"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Boats to Save People"
+url = "https://leetcode.com/problems/boats-to-save-people/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Minimum Swaps to Make Strings Equal"
+url = "https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Minimum Time to Collect All Apples in a Tree"
+url = "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Pancake Sorting"
+url = "https://leetcode.com/problems/pancake-sorting/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Rank Transform of a Matrix"
+url = "https://leetcode.com/problems/rank-transform-of-a-matrix/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Most Popular Video Creator"
+url = "https://leetcode.com/problems/most-popular-video-creator/"
 
 [[entries]]
 title = "Image Smoother"
 url = "https://leetcode.com/problems/image-smoother/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Most Profitable Path in a Tree"
+url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Search in a Sorted Array of Unknown Size"
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Check if There Is a Valid Parentheses String Path"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/"

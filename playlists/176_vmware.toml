@@ -3,181 +3,182 @@ group = "Consumer and Business Tech"
 focus = "systems-flavored DSA, graphs, design, concurrency-friendly problems, and clean code."
 review_modules = ["10_graphs", "17_advanced", "01_arrays_and_hashing", "07_trees", "03_stacks_and_queues"]
 
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Circular Permutation in Binary Representation"
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Incremental Memory Leak"
+url = "https://leetcode.com/problems/incremental-memory-leak/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Invalid Transactions"
+url = "https://leetcode.com/problems/invalid-transactions/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Minimum One Bit Operations to Make Integers Zero"
+url = "https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "IP to CIDR"
+url = "https://leetcode.com/problems/ip-to-cidr/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "K-th Symbol in Grammar"
+url = "https://leetcode.com/problems/k-th-symbol-in-grammar/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Largest 1-Bordered Square"
+url = "https://leetcode.com/problems/largest-1-bordered-square/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Largest Combination With Bitwise AND Greater Than Zero"
+url = "https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Largest Plus Sign"
+url = "https://leetcode.com/problems/largest-plus-sign/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Check if There Is a Valid Parentheses String Path"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/"
 
 [[entries]]
-title = "Pacific Atlantic Water Flow"
-url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+title = "Last Stone Weight II"
+url = "https://leetcode.com/problems/last-stone-weight-ii/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Length of the Longest Subsequence That Sums to Target"
+url = "https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/"
 
 [[entries]]
-title = "Find Palindrome With Fixed Length"
-url = "https://leetcode.com/problems/find-palindrome-with-fixed-length/"
+title = "Couples Holding Hands"
+url = "https://leetcode.com/problems/couples-holding-hands/"
 
 [[entries]]
-title = "Break a Palindrome"
-url = "https://leetcode.com/problems/break-a-palindrome/"
+title = "Longest Arithmetic Subsequence"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence/"
+
+[[entries]]
+title = "Longest Non-Decreasing Subarray After Replacing at Most One Element"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-after-replacing-at-most-one-element/"
 
 [[entries]]
 title = "Binary Tree Paths"
 url = "https://leetcode.com/problems/binary-tree-paths/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Mark Elements on Array by Performing Queries"
+url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Maximize Total Tastiness of Purchased Fruits"
+url = "https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Escape the Spreading Fire"
+url = "https://leetcode.com/problems/escape-the-spreading-fire/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Maximum Alternating Sum of Squares"
+url = "https://leetcode.com/problems/maximum-alternating-sum-of-squares/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Maximum Coin Collection"
+url = "https://leetcode.com/problems/maximum-coin-collection/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Difference Score in a Grid"
+url = "https://leetcode.com/problems/maximum-difference-score-in-a-grid/"
 
 [[entries]]
 title = "Make Array Non-decreasing or Non-increasing"
 url = "https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Maximum Earnings From Taxi"
+url = "https://leetcode.com/problems/maximum-earnings-from-taxi/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Maximum Gap"
+url = "https://leetcode.com/problems/maximum-gap/"
 
 [[entries]]
 title = "Search in a Binary Search Tree"
 url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Maximum K to Sort a Permutation"
+url = "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Maximum Length of a Concatenated String with Unique Characters"
+url = "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Kth Smallest Number in Multiplication Table"
+url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Maximum Length of Repeated Subarray"
+url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Maximum Number of Subsequences After One Inserting"
+url = "https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Maximum Number That Makes Result of Bitwise AND Zero"
+url = "https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero/"
 
 [[entries]]
 title = "Range Sum of BST"
 url = "https://leetcode.com/problems/range-sum-of-bst/"
 
 [[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
+title = "Maximum Points Tourist Can Earn"
+url = "https://leetcode.com/problems/maximum-points-tourist-can-earn/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Lexicographically Smallest Generated String"
+url = "https://leetcode.com/problems/lexicographically-smallest-generated-string/"
 
 [[entries]]
-title = "Combination Sum"
-url = "https://leetcode.com/problems/combination-sum/"
+title = "Maximum Product of Word Lengths"
+url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
 
 [[entries]]
-title = "Subsets"
-url = "https://leetcode.com/problems/subsets/"
+title = "Maximum Profit From Trading Stocks"
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
 
 [[entries]]
-title = "Daily Temperatures"
-url = "https://leetcode.com/problems/daily-temperatures/"
+title = "Maximum Rows Covered by Columns"
+url = "https://leetcode.com/problems/maximum-rows-covered-by-columns/"
 
 [[entries]]
 title = "Paint House II"
 url = "https://leetcode.com/problems/paint-house-ii/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Maximum Total Damage With Spell Casting"
+url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Maximum XOR After Operations"
+url = "https://leetcode.com/problems/maximum-xor-after-operations/"
 
 [[entries]]
 title = "Binary Tree Preorder Traversal"
 url = "https://leetcode.com/problems/binary-tree-preorder-traversal/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Maximum XOR for Each Query"
+url = "https://leetcode.com/problems/maximum-xor-for-each-query/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Minimize Maximum of Array"
+url = "https://leetcode.com/problems/minimize-maximum-of-array/"
 
 [[entries]]
 title = "Race Car"

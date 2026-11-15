@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "bit manipulation, matrix and in-place array transforms, linked lists, cache-style design, and task scheduling with heaps."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "08_heaps", "13_intervals"]
 
+
 [[entries]]
 title = "Single Number III"
 url = "https://leetcode.com/problems/single-number-iii/"
@@ -16,8 +17,8 @@ title = "Total Hamming Distance"
 url = "https://leetcode.com/problems/total-hamming-distance/"
 
 [[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
+title = "Maximum Strength of K Disjoint Subarrays"
+url = "https://leetcode.com/problems/maximum-strength-of-k-disjoint-subarrays/"
 
 [[entries]]
 title = "Minimum Flips to Make a OR b Equal to c"
@@ -36,8 +37,8 @@ title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
 
 [[entries]]
 title = "Maximum XOR With an Element From Array"
@@ -52,12 +53,12 @@ title = "Game of Life"
 url = "https://leetcode.com/problems/game-of-life/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Count Good Triplets in an Array"
+url = "https://leetcode.com/problems/count-good-triplets-in-an-array/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
 
 [[entries]]
 title = "Odd Even Linked List"
@@ -72,16 +73,16 @@ title = "Add Two Numbers"
 url = "https://leetcode.com/problems/add-two-numbers/"
 
 [[entries]]
-title = "Design Circular Deque"
-url = "https://leetcode.com/problems/design-circular-deque/"
+title = "Next Greater Element II"
+url = "https://leetcode.com/problems/next-greater-element-ii/"
 
 [[entries]]
 title = "Shortest Path Visiting All Nodes"
 url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Corporate Flight Bookings"
+url = "https://leetcode.com/problems/corporate-flight-bookings/"
 
 [[entries]]
 title = "Task Scheduler"
@@ -112,20 +113,20 @@ title = "Longest Nice Subarray"
 url = "https://leetcode.com/problems/longest-nice-subarray/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Reverse Integer"
+url = "https://leetcode.com/problems/reverse-integer/"
 
 [[entries]]
 title = "Perfect Rectangle"
 url = "https://leetcode.com/problems/perfect-rectangle/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Maximum Swap"
+url = "https://leetcode.com/problems/maximum-swap/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
 
 [[entries]]
 title = "3Sum"
@@ -136,48 +137,48 @@ title = "Convert Binary Number in a Linked List to Integer"
 url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
 
 [[entries]]
 title = "Rectangle Area II"
 url = "https://leetcode.com/problems/rectangle-area-ii/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
 title = "Count of Range Sum"
 url = "https://leetcode.com/problems/count-of-range-sum/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Maximum Size Subarray Sum Equals k"
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Count Square Submatrices with All Ones"
+url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
 
 [[entries]]
 title = "Minimum Bit Flips to Convert Number"
 url = "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
 
 [[entries]]
 title = "Max Sum of Rectangle No Larger Than K"

@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "Stacks, queues, small data-structure designs, strings, and binary search trees, with careful, readable implementation."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "10_graphs", "13_intervals", "17_advanced"]
 
+
 [[entries]]
 title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"

@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "in-place array manipulation, two pointers, sliding windows, hash-map counting, and integer and string arithmetic done without overflow."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "05_binary_search", "16_math_geometry"]
 
+
 [[entries]]
 title = "Plus One"
 url = "https://leetcode.com/problems/plus-one/"
@@ -20,16 +21,16 @@ title = "Factorial Trailing Zeroes"
 url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
 
 [[entries]]
 title = "Remove Element"
 url = "https://leetcode.com/problems/remove-element/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
 
 [[entries]]
 title = "Max Points on a Line"
@@ -104,16 +105,16 @@ title = "Add Strings"
 url = "https://leetcode.com/problems/add-strings/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Rearrange Array Elements by Sign"
+url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
 
 [[entries]]
 title = "Earliest Possible Day of Full Bloom"
 url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Longest Mountain in Array"
+url = "https://leetcode.com/problems/longest-mountain-in-array/"
 
 [[entries]]
 title = "Excel Sheet Column Title"
@@ -128,8 +129,8 @@ title = "Nim Game"
 url = "https://leetcode.com/problems/nim-game/"
 
 [[entries]]
-title = "4Sum II"
-url = "https://leetcode.com/problems/4sum-ii/"
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
 title = "Subarray Product Less Than K"

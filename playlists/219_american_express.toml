@@ -3,17 +3,18 @@ group = "Fortune 500"
 focus = "sliding window, prefix sums, hashmaps, linked lists"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "10_graphs"]
 
+
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
+title = "Remove Zero Sum Consecutive Nodes from Linked List"
+url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
 
 [[entries]]
 title = "Sort an Array"
 url = "https://leetcode.com/problems/sort-an-array/"
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
+title = "4Sum"
+url = "https://leetcode.com/problems/4sum/"
 
 [[entries]]
 title = "Fruit Into Baskets"
@@ -24,8 +25,8 @@ title = "Maximum Area of Two Non-Overlapping Square Submatrices"
 url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
 
 [[entries]]
 title = "Maximize the Topmost Element After K Moves"
@@ -40,16 +41,16 @@ title = "Equal Sum Arrays With Minimum Number of Operations"
 url = "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Flatten a Multilevel Doubly Linked List"
+url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
 
 [[entries]]
 title = "Ugly Number III"
 url = "https://leetcode.com/problems/ugly-number-iii/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Linked List Components"
+url = "https://leetcode.com/problems/linked-list-components/"
 
 [[entries]]
 title = "Maximum XOR After Operations"
@@ -72,8 +73,8 @@ title = "Minimum Deletions to Make Character Frequencies Unique"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Subarray Sums Divisible by K"
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
 
 [[entries]]
 title = "Linked List Cycle II"
@@ -92,12 +93,12 @@ title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Number of Ways to Split Array"
+url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
 
 [[entries]]
 title = "Divide an Array Into Subarrays With Minimum Cost II"
@@ -108,8 +109,8 @@ title = "Minimum Size Subarray Sum"
 url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
 
 [[entries]]
 title = "Longest Repeating Character Replacement"
@@ -120,20 +121,20 @@ title = "Permutation in String"
 url = "https://leetcode.com/problems/permutation-in-string/"
 
 [[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
+title = "Maximum Absolute Sum of Any Subarray"
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
 
 [[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+title = "Sliding Subarray Beauty"
+url = "https://leetcode.com/problems/sliding-subarray-beauty/"
 
 [[entries]]
 title = "Maximum Average Subarray I"
 url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Boats to Save People"
+url = "https://leetcode.com/problems/boats-to-save-people/"
 
 [[entries]]
 title = "Check If It Is a Good Array"
@@ -148,41 +149,41 @@ title = "Maximum Score After Splitting a String"
 url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
-title = "Continuous Subarray Sum"
-url = "https://leetcode.com/problems/continuous-subarray-sum/"
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
 
 [[entries]]
 title = "Add Binary"
 url = "https://leetcode.com/problems/add-binary/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
 title = "Binary Number with Alternating Bits"
 url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Maximum Number of Robots Within Budget"
+url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Search in a Sorted Array of Unknown Size"
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
 
 [[entries]]
 title = "Contains Duplicate II"
 url = "https://leetcode.com/problems/contains-duplicate-ii/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"

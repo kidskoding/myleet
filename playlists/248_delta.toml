@@ -3,13 +3,14 @@ group = "Fortune 500"
 focus = "Flight-scheduling flavored interval, heap, graph and greedy problems with array fundamentals."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "10_graphs", "08_heaps", "12_greedy_algorithms", "05_binary_search"]
 
+
 [[entries]]
 title = "Take Gifts From the Richest Pile"
 url = "https://leetcode.com/problems/take-gifts-from-the-richest-pile/"
 
 [[entries]]
-title = "Expressive Words"
-url = "https://leetcode.com/problems/expressive-words/"
+title = "Array With Elements Not Equal to Average of Neighbors"
+url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
 
 [[entries]]
 title = "Number of Orders in the Backlog"
@@ -44,8 +45,8 @@ title = "Reverse Prefix of Word"
 url = "https://leetcode.com/problems/reverse-prefix-of-word/"
 
 [[entries]]
-title = "Count Zero Request Servers"
-url = "https://leetcode.com/problems/count-zero-request-servers/"
+title = "Binary Searchable Numbers in an Unsorted Array"
+url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
 
 [[entries]]
 title = "Nested List Weight Sum"

@@ -3,9 +3,10 @@ group = "Consumer and Business Tech"
 focus = "fundamentals, arrays/maps, trees, BFS/DFS, practical design, and reliable implementation."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "10_graphs", "11_dp"]
 
+
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 
 [[entries]]
 title = "Remove Covered Intervals"
@@ -20,44 +21,44 @@ title = "Contains Duplicate III"
 url = "https://leetcode.com/problems/contains-duplicate-iii/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Maximum Absolute Sum of Any Subarray"
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
 
 [[entries]]
 title = "Valid Parentheses"
 url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Design Circular Deque"
-url = "https://leetcode.com/problems/design-circular-deque/"
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
 [[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
 
 [[entries]]
 title = "Russian Doll Envelopes"
 url = "https://leetcode.com/problems/russian-doll-envelopes/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
 
 [[entries]]
 title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
 
 [[entries]]
 title = "Optimal Account Balancing"
 url = "https://leetcode.com/problems/optimal-account-balancing/"
 
 [[entries]]
-title = "Redundant Connection"
-url = "https://leetcode.com/problems/redundant-connection/"
+title = "Minimum Height Trees"
+url = "https://leetcode.com/problems/minimum-height-trees/"
 
 [[entries]]
 title = "Construct Binary Tree from Inorder and Postorder Traversal"
@@ -68,8 +69,8 @@ title = "Design HashMap"
 url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
-title = "Find K Pairs with Smallest Sums"
-url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
 
 [[entries]]
 title = "Divide Two Integers"
@@ -84,16 +85,16 @@ title = "Number of Enclaves"
 url = "https://leetcode.com/problems/number-of-enclaves/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Delete and Earn"
+url = "https://leetcode.com/problems/delete-and-earn/"
 
 [[entries]]
 title = "Move Zeroes"
 url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+title = "Wiggle Subsequence"
+url = "https://leetcode.com/problems/wiggle-subsequence/"
 
 [[entries]]
 title = "Perfect Squares"
@@ -168,8 +169,8 @@ title = "Is Subsequence"
 url = "https://leetcode.com/problems/is-subsequence/"
 
 [[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
 
 [[entries]]
 title = "Pacific Atlantic Water Flow"

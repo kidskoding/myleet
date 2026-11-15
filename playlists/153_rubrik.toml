@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "design data structures, intervals, greedy, math, trees"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "13_intervals", "18_mixed_interview_practice"]
 
+
 [[entries]]
 title = "Maximum Points After Enemy Battles"
 url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
@@ -40,16 +41,16 @@ title = "Stamping the Grid"
 url = "https://leetcode.com/problems/stamping-the-grid/"
 
 [[entries]]
-title = "Candy Crush"
-url = "https://leetcode.com/problems/candy-crush/"
+title = "Number of Operations to Make Network Connected"
+url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
 
 [[entries]]
 title = "Task Scheduler II"
 url = "https://leetcode.com/problems/task-scheduler-ii/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Maximum Subsequence Score"
+url = "https://leetcode.com/problems/maximum-subsequence-score/"
 
 [[entries]]
 title = "Find X Value of Array II"
@@ -68,8 +69,8 @@ title = "Paint Fence"
 url = "https://leetcode.com/problems/paint-fence/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Maximum Total Importance of Roads"
+url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
 
 [[entries]]
 title = "Smallest String With Swaps"
@@ -80,8 +81,8 @@ title = "Manhattan Distances of All Arrangements of Pieces"
 url = "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/"
 
 [[entries]]
-title = "4Sum"
-url = "https://leetcode.com/problems/4sum/"
+title = "Partition Labels"
+url = "https://leetcode.com/problems/partition-labels/"
 
 [[entries]]
 title = "Design Memory Allocator"
@@ -92,104 +93,104 @@ title = "Convert Integer to the Sum of Two No-Zero Integers"
 url = "https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/"
 
 [[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Mice and Cheese"
+url = "https://leetcode.com/problems/mice-and-cheese/"
 
 [[entries]]
 title = "Find the Sum of Subsequence Powers"
 url = "https://leetcode.com/problems/find-the-sum-of-subsequence-powers/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Minimize Length of Array Using Operations"
+url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
 
 [[entries]]
 title = "Count Ways to Group Overlapping Ranges"
 url = "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Minimize Rounding Error to Meet Target"
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
 
 [[entries]]
 title = "Distribute Candies Among Children III"
 url = "https://leetcode.com/problems/distribute-candies-among-children-iii/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Minimize XOR"
+url = "https://leetcode.com/problems/minimize-xor/"
 
 [[entries]]
-title = "Number of Connected Components in an Undirected Graph"
-url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+title = "Minimum Difference Between Largest and Smallest Value in Three Moves"
+url = "https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/"
 
 [[entries]]
 title = "Count Substrings with Only One Distinct Letter"
 url = "https://leetcode.com/problems/count-substrings-with-only-one-distinct-letter/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Maximum Binary Tree"
+url = "https://leetcode.com/problems/maximum-binary-tree/"
 
 [[entries]]
-title = "Minimum Height Trees"
-url = "https://leetcode.com/problems/minimum-height-trees/"
+title = "Minimum Operations to Halve Array Sum"
+url = "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/"
 
 [[entries]]
 title = "Minimum Number of Moves to Make Palindrome"
 url = "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find Minimum in Rotated Sorted Array"
+url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Minimum Rounds to Complete All Tasks"
+url = "https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/"
 
 [[entries]]
-title = "Remove Invalid Parentheses"
-url = "https://leetcode.com/problems/remove-invalid-parentheses/"
+title = "N-Queens II"
+url = "https://leetcode.com/problems/n-queens-ii/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Design Ride Sharing System"
+url = "https://leetcode.com/problems/design-ride-sharing-system/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Minimum Suffix Flips"
+url = "https://leetcode.com/problems/minimum-suffix-flips/"
 
 [[entries]]
 title = "Find N Unique Integers Sum up to Zero"
 url = "https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Monotone Increasing Digits"
+url = "https://leetcode.com/problems/monotone-increasing-digits/"
 
 [[entries]]
-title = "Design Circular Deque"
-url = "https://leetcode.com/problems/design-circular-deque/"
+title = "Most Profit Assigning Work"
+url = "https://leetcode.com/problems/most-profit-assigning-work/"
 
 [[entries]]
 title = "Scramble String"
 url = "https://leetcode.com/problems/scramble-string/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Reduce Array Size to The Half"
+url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Remove Duplicates from Sorted Array II"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/"
 
 [[entries]]
 title = "Fizz Buzz"
 url = "https://leetcode.com/problems/fizz-buzz/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Remove Colored Pieces if Both Neighbors are the Same Color"
+url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
 
 [[entries]]
 title = "Mirror Reflection"

@@ -3,13 +3,14 @@ group = "AI & Startups"
 focus = "graph cycle detection, intervals, linked lists and iterators, sliding windows, practical data handling"
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "10_graphs", "13_intervals"]
 
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Check Completeness of a Binary Tree"
+url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
+
+[[entries]]
+title = "Count Nodes Equal to Average of Subtree"
+url = "https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/"
 
 [[entries]]
 title = "Design Spreadsheet"
@@ -20,80 +21,80 @@ title = "Design Excel Sum Formula"
 url = "https://leetcode.com/problems/design-excel-sum-formula/"
 
 [[entries]]
-title = "Find Eventual Safe States"
-url = "https://leetcode.com/problems/find-eventual-safe-states/"
+title = "Count Subarrays Where Max Element Appears at Least K Times"
+url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Count the Number of Good Subarrays"
+url = "https://leetcode.com/problems/count-the-number-of-good-subarrays/"
 
 [[entries]]
 title = "Missing Ranges"
 url = "https://leetcode.com/problems/missing-ranges/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Delete Nodes And Return Forest"
+url = "https://leetcode.com/problems/delete-nodes-and-return-forest/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Diameter of N-Ary Tree"
+url = "https://leetcode.com/problems/diameter-of-n-ary-tree/"
 
 [[entries]]
 title = "Redundant Connection II"
 url = "https://leetcode.com/problems/redundant-connection-ii/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Number of Ways to Split Array"
+url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
+url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Smallest Range Covering Elements from K Lists"
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
 title = "Sentence Screen Fitting"
 url = "https://leetcode.com/problems/sentence-screen-fitting/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Inorder Successor in BST II"
+url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
 
 [[entries]]
 title = "Summary Ranges"
 url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Length of Longest Subarray With at Most K Frequency"
+url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Lowest Common Ancestor of a Binary Tree II"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Peak Index in a Mountain Array"
+url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Lowest Common Ancestor of a Binary Tree III"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Shortest Word Distance II"
+url = "https://leetcode.com/problems/shortest-word-distance-ii/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Count the Number of Houses at a Certain Distance II"
+url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/"
 
 [[entries]]
 title = "Peeking Iterator"
@@ -104,8 +105,8 @@ title = "Zigzag Iterator"
 url = "https://leetcode.com/problems/zigzag-iterator/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+title = "Make K-Subarray Sums Equal"
+url = "https://leetcode.com/problems/make-k-subarray-sums-equal/"
 
 [[entries]]
 title = "Binary Search Tree Iterator"
@@ -124,61 +125,61 @@ title = "Linked List Cycle II"
 url = "https://leetcode.com/problems/linked-list-cycle-ii/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Maximum Star Sum of a Graph"
+url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
 
 [[entries]]
-title = "Design an Ordered Stream"
-url = "https://leetcode.com/problems/design-an-ordered-stream/"
+title = "Throne Inheritance"
+url = "https://leetcode.com/problems/throne-inheritance/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximum Subtree of the Same Color"
+url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
 
 [[entries]]
 title = "Max Stack"
 url = "https://leetcode.com/problems/max-stack/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Meeting Scheduler"
+url = "https://leetcode.com/problems/meeting-scheduler/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Merge In Between Linked Lists"
+url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Minimum Operations to Reduce X to Zero"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Count Subtrees With Max Distance Between Cities"
+url = "https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Minimum Removals to Balance Array"
+url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
 
 [[entries]]
-title = "Design Parking System"
-url = "https://leetcode.com/problems/design-parking-system/"
+title = "Find Consecutive Integers from a Data Stream"
+url = "https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Minimum Falling Path Sum"
+url = "https://leetcode.com/problems/minimum-falling-path-sum/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Collect Coins in a Tree"
+url = "https://leetcode.com/problems/collect-coins-in-a-tree/"

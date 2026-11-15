@@ -3,13 +3,14 @@ group = "AI & Startups"
 focus = "Graph and grid search, trees, geometry helpers, heaps and dynamic programming."
 review_modules = ["10_graphs", "16_math_geometry", "07_trees", "08_heaps", "11_dp", "05_binary_search"]
 
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree IV"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
 
 [[entries]]
-title = "Convert Binary Search Tree to Sorted Doubly Linked List"
-url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
+title = "Paint Fence"
+url = "https://leetcode.com/problems/paint-fence/"
+
+[[entries]]
+title = "Partition Array for Maximum Sum"
+url = "https://leetcode.com/problems/partition-array-for-maximum-sum/"
 
 [[entries]]
 title = "Optimal Partition of String"
@@ -28,36 +29,36 @@ title = "Univalued Binary Tree"
 url = "https://leetcode.com/problems/univalued-binary-tree/"
 
 [[entries]]
-title = "Maximum Sum Obtained of Any Permutation"
-url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
+title = "Smallest Range II"
+url = "https://leetcode.com/problems/smallest-range-ii/"
 
 [[entries]]
-title = "Maximum Value at a Given Index in a Bounded Array"
-url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
+title = "Subsequence of Size K With the Largest Even Sum"
+url = "https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even-sum/"
 
 [[entries]]
 title = "Frog Jump"
 url = "https://leetcode.com/problems/frog-jump/"
 
 [[entries]]
-title = "Maximum Product After K Increments"
-url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+title = "Remove Adjacent Almost-Equal Characters"
+url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
 
 [[entries]]
-title = "Merge Triplets to Form Target Triplet"
-url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"
+title = "Rotated Digits"
+url = "https://leetcode.com/problems/rotated-digits/"
 
 [[entries]]
-title = "Put Boxes Into the Warehouse I"
-url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
+title = "Shopping Offers"
+url = "https://leetcode.com/problems/shopping-offers/"
 
 [[entries]]
 title = "Sum of k-Mirror Numbers"
 url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
 
 [[entries]]
-title = "Minimum Sum of Squared Difference"
-url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
+title = "K-th Symbol in Grammar"
+url = "https://leetcode.com/problems/k-th-symbol-in-grammar/"
 
 [[entries]]
 title = "Symmetric Tree"
@@ -72,20 +73,20 @@ title = "Maximum Product of Word Lengths"
 url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
 
 [[entries]]
-title = "Map of Highest Peak"
-url = "https://leetcode.com/problems/map-of-highest-peak/"
+title = "Stone Game"
+url = "https://leetcode.com/problems/stone-game/"
 
 [[entries]]
 title = "Permutation Sequence"
 url = "https://leetcode.com/problems/permutation-sequence/"
 
 [[entries]]
-title = "Circular Permutation in Binary Representation"
-url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
+title = "Maximum Number That Makes Result of Bitwise AND Zero"
+url = "https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero/"
 
 [[entries]]
-title = "Design a Food Rating System"
-url = "https://leetcode.com/problems/design-a-food-rating-system/"
+title = "Stone Game II"
+url = "https://leetcode.com/problems/stone-game-ii/"
 
 [[entries]]
 title = "Cousins in Binary Tree"
@@ -96,20 +97,20 @@ title = "Split a String Into the Max Number of Unique Substrings"
 url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
 
 [[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
+title = "Taking Maximum Energy From the Mystic Dungeon"
+url = "https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Toss Strange Coins"
+url = "https://leetcode.com/problems/toss-strange-coins/"
 
 [[entries]]
-title = "House Robber II"
-url = "https://leetcode.com/problems/house-robber-ii/"
+title = "Best Sightseeing Pair"
+url = "https://leetcode.com/problems/best-sightseeing-pair/"
 
 [[entries]]
 title = "Rectangle Area II"
@@ -120,8 +121,8 @@ title = "Four Divisors"
 url = "https://leetcode.com/problems/four-divisors/"
 
 [[entries]]
-title = "Check If a String Contains All Binary Codes of Size K"
-url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
+title = "Maximum XOR for Each Query"
+url = "https://leetcode.com/problems/maximum-xor-for-each-query/"
 
 [[entries]]
 title = "Smallest Divisible Digit Product I"

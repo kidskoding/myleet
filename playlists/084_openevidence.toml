@@ -3,77 +3,78 @@ group = "AI & Startups"
 focus = "Lookup and search problems with tries, hash maps, sliding window, binary search and heaps."
 review_modules = ["14_tries", "01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "08_heaps", "02_two_pointers"]
 
+
 [[entries]]
-title = "Maximum Sum Circular Subarray"
-url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+title = "Ways to Split Array Into Three Subarrays"
+url = "https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/"
 
 [[entries]]
 title = "Maximum Increasing Triplet Value"
 url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
 
 [[entries]]
-title = "Maximize Distance to Closest Person"
-url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+title = "Maximum Profitable Triplets With Increasing Prices I"
+url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i/"
 
 [[entries]]
-title = "Grid Illumination"
-url = "https://leetcode.com/problems/grid-illumination/"
+title = "Add Edges to Make Degrees of All Nodes Even"
+url = "https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even/"
 
 [[entries]]
-title = "Array Nesting"
-url = "https://leetcode.com/problems/array-nesting/"
+title = "Maximum Sum of an Hourglass"
+url = "https://leetcode.com/problems/maximum-sum-of-an-hourglass/"
 
 [[entries]]
 title = "Sum of Squares of Special Elements"
 url = "https://leetcode.com/problems/sum-of-squares-of-special-elements/"
 
 [[entries]]
-title = "4Sum II"
-url = "https://leetcode.com/problems/4sum-ii/"
+title = "Check If a String Contains All Binary Codes of Size K"
+url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
 
 [[entries]]
-title = "Group Shifted Strings"
-url = "https://leetcode.com/problems/group-shifted-strings/"
+title = "Longest Balanced Subarray I"
+url = "https://leetcode.com/problems/longest-balanced-subarray-i/"
 
 [[entries]]
 title = "Find a Value of a Mysterious Function Closest to Target"
 url = "https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target/"
 
 [[entries]]
-title = "Minimum Number of Steps to Make Two Strings Anagram"
-url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
+title = "Longest Balanced Substring I"
+url = "https://leetcode.com/problems/longest-balanced-substring-i/"
 
 [[entries]]
-title = "Better Compression of String"
-url = "https://leetcode.com/problems/better-compression-of-string/"
+title = "Reward Top K Students"
+url = "https://leetcode.com/problems/reward-top-k-students/"
 
 [[entries]]
 title = "Fruit Into Baskets"
 url = "https://leetcode.com/problems/fruit-into-baskets/"
 
 [[entries]]
-title = "Count Subarrays With Fixed Bounds"
-url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
+title = "Maximum Sum of 3 Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/"
 
 [[entries]]
-title = "Count Subarrays Where Max Element Appears at Least K Times"
-url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
+title = "Number of Equal Count Substrings"
+url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
 
 [[entries]]
 title = "Backspace String Compare"
 url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
-title = "Binary Searchable Numbers in an Unsorted Array"
-url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
 
 [[entries]]
-title = "Length of Longest Subarray With at Most K Frequency"
-url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
+title = "Count Complete Subarrays in an Array"
+url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
 
 [[entries]]
-title = "Binary Tree Upside Down"
-url = "https://leetcode.com/problems/binary-tree-upside-down/"
+title = "Lowest Common Ancestor of a Binary Tree II"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/"
 
 [[entries]]
 title = "Maximum Points After Collecting Coins From All Nodes"
@@ -84,8 +85,8 @@ title = "Minimum Time to Collect All Apples in a Tree"
 url = "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/"
 
 [[entries]]
-title = "Diameter of N-Ary Tree"
-url = "https://leetcode.com/problems/diameter-of-n-ary-tree/"
+title = "Lowest Common Ancestor of a Binary Tree IV"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
 
 [[entries]]
 title = "Minimum Absolute Difference"
@@ -100,40 +101,40 @@ title = "Make String Anti-palindrome"
 url = "https://leetcode.com/problems/make-string-anti-palindrome/"
 
 [[entries]]
-title = "Maximum Star Sum of a Graph"
-url = "https://leetcode.com/problems/maximum-star-sum-of-a-graph/"
+title = "Maximum White Tiles Covered by a Carpet"
+url = "https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/"
 
 [[entries]]
-title = "Merge Operations to Turn Array Into a Palindrome"
-url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
+title = "Minimum Number of People to Teach"
+url = "https://leetcode.com/problems/minimum-number-of-people-to-teach/"
 
 [[entries]]
-title = "Longest Happy String"
-url = "https://leetcode.com/problems/longest-happy-string/"
+title = "Minimum Rounds to Complete All Tasks"
+url = "https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/"
 
 [[entries]]
-title = "Concatenated Words"
-url = "https://leetcode.com/problems/concatenated-words/"
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"
 
 [[entries]]
-title = "Implement Magic Dictionary"
-url = "https://leetcode.com/problems/implement-magic-dictionary/"
+title = "Circular Permutation in Binary Representation"
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
 
 [[entries]]
-title = "Extra Characters in a String"
-url = "https://leetcode.com/problems/extra-characters-in-a-string/"
+title = "Jump Game VII"
+url = "https://leetcode.com/problems/jump-game-vii/"
 
 [[entries]]
 title = "Merge Two Binary Trees"
 url = "https://leetcode.com/problems/merge-two-binary-trees/"
 
 [[entries]]
-title = "Short Encoding of Words"
-url = "https://leetcode.com/problems/short-encoding-of-words/"
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
 
 [[entries]]
-title = "Convert Binary Search Tree to Sorted Doubly Linked List"
-url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
+title = "Print Binary Tree"
+url = "https://leetcode.com/problems/print-binary-tree/"
 
 [[entries]]
 title = "Word Squares"

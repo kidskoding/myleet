@@ -3,37 +3,38 @@ group = "Consumer and Business Tech"
 focus = "heaps, routing-style graphs, intervals, sliding windows, arrays, greedy reasoning, and data-structure design."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms", "13_intervals", "17_advanced"]
 
-[[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Super Ugly Number"
+url = "https://leetcode.com/problems/super-ugly-number/"
 
 [[entries]]
-title = "Find K Pairs with Smallest Sums"
-url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+title = "Apply Operations to Make All Array Elements Equal to Zero"
+url = "https://leetcode.com/problems/apply-operations-to-make-all-array-elements-equal-to-zero/"
+
+[[entries]]
+title = "Beautiful Towers I"
+url = "https://leetcode.com/problems/beautiful-towers-i/"
 
 [[entries]]
 title = "Smallest Range Covering Elements from K Lists"
 url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Sum of Subarray Minimums"
+url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
 
 [[entries]]
 title = "Check if Every Row and Column Contains All Numbers"
 url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Beautiful Towers II"
+url = "https://leetcode.com/problems/beautiful-towers-ii/"
 
 [[entries]]
 title = "Car Pooling"
@@ -48,40 +49,40 @@ title = "Gas Station"
 url = "https://leetcode.com/problems/gas-station/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Break a Palindrome"
+url = "https://leetcode.com/problems/break-a-palindrome/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Broken Calculator"
+url = "https://leetcode.com/problems/broken-calculator/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Shortest Bridge"
+url = "https://leetcode.com/problems/shortest-bridge/"
 
 [[entries]]
 title = "Squares of a Sorted Array"
 url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Surrounded Regions"
+url = "https://leetcode.com/problems/surrounded-regions/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Construct String With Repeat Limit"
+url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
 
 [[entries]]
 title = "Cheapest Flights Within K Stops"
@@ -96,60 +97,60 @@ title = "Wildcard Matching"
 url = "https://leetcode.com/problems/wildcard-matching/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
 
 [[entries]]
 title = "Backspace String Compare"
 url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Count Subarrays Where Max Element Appears at Least K Times"
+url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Count the Number of Good Subarrays"
+url = "https://leetcode.com/problems/count-the-number-of-good-subarrays/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Minimize Deviation in Array"
+url = "https://leetcode.com/problems/minimize-deviation-in-array/"
 
 [[entries]]
 title = "Minimum Size Subarray Sum"
 url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Describe the Painting"
+url = "https://leetcode.com/problems/describe-the-painting/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
 
 [[entries]]
 title = "Maximum Score After Splitting a String"
 url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Delete and Earn"
+url = "https://leetcode.com/problems/delete-and-earn/"
 
 [[entries]]
 title = "Regular Expression Matching"
 url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "House Robber II"
+url = "https://leetcode.com/problems/house-robber-ii/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
 
 [[entries]]
 title = "Average Waiting Time"
@@ -176,8 +177,8 @@ title = "Simple Bank System"
 url = "https://leetcode.com/problems/simple-bank-system/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Count Zero Request Servers"
+url = "https://leetcode.com/problems/count-zero-request-servers/"
 
 [[entries]]
 title = "Minimum Cost to Merge Stones"

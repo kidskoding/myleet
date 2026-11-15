@@ -3,37 +3,38 @@ group = "Fortune 500"
 focus = "Boarding and scheduling flavored interval, heap, graph and greedy problems with array fundamentals."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "10_graphs", "08_heaps", "12_greedy_algorithms", "05_binary_search"]
 
+
 [[entries]]
 title = "Maximum Difference Between Increasing Elements"
 url = "https://leetcode.com/problems/maximum-difference-between-increasing-elements/"
 
 [[entries]]
-title = "Swap Adjacent in LR String"
-url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
+title = "Find Maximum Value in a Constrained Sequence"
+url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
 
 [[entries]]
-title = "Pour Water"
-url = "https://leetcode.com/problems/pour-water/"
+title = "Longest Palindrome by Concatenating Two Letter Words"
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
 
 [[entries]]
 title = "Number of Changing Keys"
 url = "https://leetcode.com/problems/number-of-changing-keys/"
 
 [[entries]]
-title = "Reverse Words in a String II"
-url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
+title = "Make the Prefix Sum Non-negative"
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
 title = "Most Common Word"
 url = "https://leetcode.com/problems/most-common-word/"
 
 [[entries]]
-title = "Number of Pairs of Strings With Concatenation Equal to Target"
-url = "https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/"
+title = "Calculate Score After Performing Instructions"
+url = "https://leetcode.com/problems/calculate-score-after-performing-instructions/"
 
 [[entries]]
-title = "Number of Atoms"
-url = "https://leetcode.com/problems/number-of-atoms/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
 
 [[entries]]
 title = "Minimum Number of Frogs Croaking"
@@ -44,20 +45,20 @@ title = "How Many Apples Can You Put into the Basket"
 url = "https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/"
 
 [[entries]]
-title = "Minimum Removals to Balance Array"
-url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
 
 [[entries]]
-title = "Delete Nodes And Return Forest"
-url = "https://leetcode.com/problems/delete-nodes-and-return-forest/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
 title = "Minimum Time Visiting All Points"
 url = "https://leetcode.com/problems/minimum-time-visiting-all-points/"
 
 [[entries]]
-title = "Smallest Common Region"
-url = "https://leetcode.com/problems/smallest-common-region/"
+title = "Maximize the Topmost Element After K Moves"
+url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
 
 [[entries]]
 title = "Bitwise OR of Adjacent Elements"
@@ -80,8 +81,8 @@ title = "Perfect Number"
 url = "https://leetcode.com/problems/perfect-number/"
 
 [[entries]]
-title = "Shortest String That Contains Three Strings"
-url = "https://leetcode.com/problems/shortest-string-that-contains-three-strings/"
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
 
 [[entries]]
 title = "Summary Ranges"
@@ -92,16 +93,16 @@ title = "Can Make Palindrome from Substring"
 url = "https://leetcode.com/problems/can-make-palindrome-from-substring/"
 
 [[entries]]
-title = "Minimum Sum of Squared Difference"
-url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
+title = "Count Number of Maximum Bitwise-OR Subsets"
+url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
 
 [[entries]]
-title = "Lemonade Change"
-url = "https://leetcode.com/problems/lemonade-change/"
+title = "Minimum Cost to Connect Sticks"
+url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
 
 [[entries]]
-title = "Advantage Shuffle"
-url = "https://leetcode.com/problems/advantage-shuffle/"
+title = "Split Array into Consecutive Subsequences"
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
 
 [[entries]]
 title = "Jump Game III"
@@ -112,8 +113,8 @@ title = "Number of Days Between Two Dates"
 url = "https://leetcode.com/problems/number-of-days-between-two-dates/"
 
 [[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
+title = "Maximum Number of Eaten Apples"
+url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
 
 [[entries]]
 title = "Maximize Sum of Weights after Edge Removals"

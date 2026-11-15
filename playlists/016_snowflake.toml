@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "Heaps, intervals, minimum spanning trees and connectivity, and classic DP, with attention to running time."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "08_heaps", "13_intervals", "10_graphs", "11_dp"]
 
+
 [[entries]]
 title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
@@ -140,8 +141,8 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Stock Price Fluctuation"
+url = "https://leetcode.com/problems/stock-price-fluctuation/"
 
 [[entries]]
 title = "Count of Smaller Numbers After Self"

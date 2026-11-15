@@ -3,17 +3,18 @@ group = "Consumer and Business Tech"
 focus = "design and simulation, topological sort, stacks and monotonic stacks, scheduling with heaps, string parsing, and graph bfs"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "12_greedy_algorithms", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Word Squares II"
+url = "https://leetcode.com/problems/word-squares-ii/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Divide Players Into Teams of Equal Skill"
+url = "https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/"
+
+[[entries]]
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
 title = "Alien Dictionary"
@@ -28,12 +29,12 @@ title = "Daily Temperatures"
 url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Design Memory Allocator"
+url = "https://leetcode.com/problems/design-memory-allocator/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Maximum Total Damage With Spell Casting"
+url = "https://leetcode.com/problems/maximum-total-damage-with-spell-casting/"
 
 [[entries]]
 title = "Parallel Courses"
@@ -48,12 +49,12 @@ title = "Design Tic-Tac-Toe"
 url = "https://leetcode.com/problems/design-tic-tac-toe/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Count Primes"
+url = "https://leetcode.com/problems/count-primes/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Minimum Cost to Hire K Workers"
+url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
 
 [[entries]]
 title = "Candy Crush"
@@ -80,36 +81,36 @@ title = "Design Excel Sum Formula"
 url = "https://leetcode.com/problems/design-excel-sum-formula/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Exam Room"
+url = "https://leetcode.com/problems/exam-room/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Search in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Number of Perfect Pairs"
+url = "https://leetcode.com/problems/number-of-perfect-pairs/"
 
 [[entries]]
 title = "Number of Atoms"
 url = "https://leetcode.com/problems/number-of-atoms/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Sum of Subarray Minimums"
+url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Reward Top K Students"
+url = "https://leetcode.com/problems/reward-top-k-students/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Remove K Digits"
+url = "https://leetcode.com/problems/remove-k-digits/"
 
 [[entries]]
 title = "Online Stock Span"
@@ -120,12 +121,12 @@ title = "Largest Rectangle in Histogram"
 url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
 
 [[entries]]
 title = "Basic Calculator II"
@@ -136,48 +137,48 @@ title = "Remove All Adjacent Duplicates In String"
 url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Remove Sub-Folders from the Filesystem"
+url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
 
 [[entries]]
 title = "Read N Characters Given read4 II - Call Multiple Times"
 url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
 
 [[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
+title = "Permutations II"
+url = "https://leetcode.com/problems/permutations-ii/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Minimum Path Sum"
+url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
+title = "Best Team With No Conflicts"
+url = "https://leetcode.com/problems/best-team-with-no-conflicts/"
 
 [[entries]]
 title = "Kth Ancestor of a Tree Node"
 url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Binary Searchable Numbers in an Unsorted Array"
+url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Construct Smallest Number From DI String"
+url = "https://leetcode.com/problems/construct-smallest-number-from-di-string/"
 
 [[entries]]
 title = "Read N Characters Given Read4"
 url = "https://leetcode.com/problems/read-n-characters-given-read4/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Find All Possible Recipes from Given Supplies"
+url = "https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Finding Pairs With a Certain Sum"
+url = "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/"
 
 [[entries]]
 title = "Design a Text Editor"

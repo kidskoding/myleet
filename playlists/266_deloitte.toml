@@ -3,126 +3,127 @@ group = "Fortune 500"
 focus = "Easy array and string problems, hash maps, sorting, two pointers, and a few stack and tree problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "05_binary_search", "07_trees"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
+title = "Find And Replace in String"
+url = "https://leetcode.com/problems/find-and-replace-in-string/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Make Lexicographically Smallest Array by Swapping Elements"
+url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
 
 [[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+title = "Split Array into Consecutive Subsequences"
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
 
 [[entries]]
-title = "Maximum Subarray Sum with One Deletion"
-url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+title = "Better Compression of String"
+url = "https://leetcode.com/problems/better-compression-of-string/"
 
 [[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+title = "Mark Elements on Array by Performing Queries"
+url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
 
 [[entries]]
-title = "Maximum Sum Circular Subarray"
-url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+title = "Brace Expansion"
+url = "https://leetcode.com/problems/brace-expansion/"
+
+[[entries]]
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
 
 [[entries]]
 title = "Largest Rectangle in Histogram"
 url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
 
 [[entries]]
-title = "Maximum Sum of Two Non-Overlapping Subarrays"
-url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+title = "Merge Operations to Turn Array Into a Palindrome"
+url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
 
 [[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
+title = "Transform Binary String Using Subsequence Sort"
+url = "https://leetcode.com/problems/transform-binary-string-using-subsequence-sort/"
 
 [[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Repeated DNA Sequences"
+url = "https://leetcode.com/problems/repeated-dna-sequences/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Plates Between Candles"
+url = "https://leetcode.com/problems/plates-between-candles/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Rearrange Words in a Sentence"
+url = "https://leetcode.com/problems/rearrange-words-in-a-sentence/"
 
 [[entries]]
 title = "Find Smallest Letter Greater Than Target"
 url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
 
 [[entries]]
-title = "Pancake Sorting"
-url = "https://leetcode.com/problems/pancake-sorting/"
+title = "Reward Top K Students"
+url = "https://leetcode.com/problems/reward-top-k-students/"
 
 [[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+title = "Block Placement Queries"
+url = "https://leetcode.com/problems/block-placement-queries/"
 
 [[entries]]
 title = "First Bad Version"
 url = "https://leetcode.com/problems/first-bad-version/"
 
 [[entries]]
-title = "Count Number of Nice Subarrays"
-url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
+title = "Sort the Matrix Diagonally"
+url = "https://leetcode.com/problems/sort-the-matrix-diagonally/"
 
 [[entries]]
-title = "Frequency of the Most Frequent Element"
-url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
+title = "Sort the Students by Their Kth Score"
+url = "https://leetcode.com/problems/sort-the-students-by-their-kth-score/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Word Squares II"
+url = "https://leetcode.com/problems/word-squares-ii/"
 
 [[entries]]
-title = "Grumpy Bookstore Owner"
-url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
+title = "Alert Using Same Key-Card Three or More Times in a One Hour Period"
+url = "https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/"
 
 [[entries]]
 title = "Maximum Depth of N-ary Tree"
 url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Campus Bikes"
+url = "https://leetcode.com/problems/campus-bikes/"
 
 [[entries]]
-title = "K Radius Subarray Averages"
-url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+title = "Closest Equal Element Queries"
+url = "https://leetcode.com/problems/closest-equal-element-queries/"
 
 [[entries]]
 title = "Minimum Depth of Binary Tree"
 url = "https://leetcode.com/problems/minimum-depth-of-binary-tree/"
 
 [[entries]]
-title = "Find the Smallest Divisor Given a Threshold"
-url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+title = "Minimum Number of Days to Make m Bouquets"
+url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
 
 [[entries]]
-title = "Minimum Window Subsequence"
-url = "https://leetcode.com/problems/minimum-window-subsequence/"
+title = "Find the K-Sum of an Array"
+url = "https://leetcode.com/problems/find-the-k-sum-of-an-array/"
 
 [[entries]]
-title = "Maximum Width of Binary Tree"
-url = "https://leetcode.com/problems/maximum-width-of-binary-tree/"
+title = "Count Ways to Group Overlapping Ranges"
+url = "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/"
 
 [[entries]]
 title = "Nim Game"
 url = "https://leetcode.com/problems/nim-game/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Divide Players Into Teams of Equal Skill"
+url = "https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/"

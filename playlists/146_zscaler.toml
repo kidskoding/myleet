@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "Stack and string parsing, trie lookups, graph traversal and binary search for network-security style problems."
 review_modules = ["03_stacks_and_queues", "01_arrays_and_hashing", "10_graphs", "07_trees", "14_tries", "05_binary_search"]
 
+
 [[entries]]
 title = "Find the Minimum Area to Cover All Ones I"
 url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
@@ -120,8 +121,8 @@ title = "Number of Matching Subsequences"
 url = "https://leetcode.com/problems/number-of-matching-subsequences/"
 
 [[entries]]
-title = "Sum of Prefix Scores of Strings"
-url = "https://leetcode.com/problems/sum-of-prefix-scores-of-strings/"
+title = "Longest Common Suffix Queries"
+url = "https://leetcode.com/problems/longest-common-suffix-queries/"
 
 [[entries]]
 title = "Longest Absolute File Path"

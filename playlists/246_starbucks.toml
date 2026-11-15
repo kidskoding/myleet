@@ -3,17 +3,18 @@ group = "Fortune 500"
 focus = "Array and string fundamentals, hash maps, stacks, linked lists and tree problems at easy to medium level."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "07_trees", "02_two_pointers"]
 
+
 [[entries]]
 title = "Length of Last Word"
 url = "https://leetcode.com/problems/length-of-last-word/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Find Bottom Left Tree Value"
+url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
 
 [[entries]]
-title = "Count Unhappy Friends"
-url = "https://leetcode.com/problems/count-unhappy-friends/"
+title = "Reverse Words in a String II"
+url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
 
 [[entries]]
 title = "Valid Word"
@@ -48,8 +49,8 @@ title = "Median of a Row Wise Sorted Matrix"
 url = "https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix/"
 
 [[entries]]
-title = "Sort Transformed Array"
-url = "https://leetcode.com/problems/sort-transformed-array/"
+title = "Make Lexicographically Smallest Array by Swapping Elements"
+url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
 
 [[entries]]
 title = "Divide an Array Into Subarrays With Minimum Cost I"

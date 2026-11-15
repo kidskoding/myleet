@@ -3,133 +3,134 @@ group = "AI & Startups"
 focus = "parsing and nested structures, serialization, bit tricks, hash-based stores, request queues and rate limiting, and streaming."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "15_bit_manipulation", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Mini Parser"
-url = "https://leetcode.com/problems/mini-parser/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Number of Equal Count Substrings"
+url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
+
+[[entries]]
+title = "Split Array into Consecutive Subsequences"
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
 
 [[entries]]
 title = "Ternary Expression Parser"
 url = "https://leetcode.com/problems/ternary-expression-parser/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Parallel Courses II"
+url = "https://leetcode.com/problems/parallel-courses-ii/"
 
 [[entries]]
-title = "Construct Binary Tree from String"
-url = "https://leetcode.com/problems/construct-binary-tree-from-string/"
+title = "Nested List Weight Sum II"
+url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
 
 [[entries]]
 title = "Nested List Weight Sum"
 url = "https://leetcode.com/problems/nested-list-weight-sum/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Hand of Straights"
+url = "https://leetcode.com/problems/hand-of-straights/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Queue Reconstruction by Height"
+url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Range Sum Query - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-mutable/"
 
 [[entries]]
 title = "Parse Lisp Expression"
 url = "https://leetcode.com/problems/parse-lisp-expression/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
 [[entries]]
 title = "XOR Queries of a Subarray"
 url = "https://leetcode.com/problems/xor-queries-of-a-subarray/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Sum of Total Strength of Wizards"
+url = "https://leetcode.com/problems/sum-of-total-strength-of-wizards/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Alternating Groups II"
+url = "https://leetcode.com/problems/alternating-groups-ii/"
 
 [[entries]]
 title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Check if a Parentheses String Can Be Valid"
+url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
 
 [[entries]]
-title = "Number of Atoms"
-url = "https://leetcode.com/problems/number-of-atoms/"
+title = "Tag Validator"
+url = "https://leetcode.com/problems/tag-validator/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Check If Word Is Valid After Substitutions"
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Count Complete Subarrays in an Array"
+url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Eliminate Maximum Number of Monsters"
+url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
 
 [[entries]]
 title = "Parsing A Boolean Expression"
 url = "https://leetcode.com/problems/parsing-a-boolean-expression/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Exclusive Time of Functions"
+url = "https://leetcode.com/problems/exclusive-time-of-functions/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Find the Longest Equal Subarray"
+url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
 
 [[entries]]
 title = "Find the Difference"
 url = "https://leetcode.com/problems/find-the-difference/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Find the Winner of the Circular Game"
+url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Longest Arithmetic Subsequence of Given Difference"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/"
 
 [[entries]]
 title = "Serialize and Deserialize N-ary Tree"
 url = "https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Longest Substring Of All Vowels in Order"
+url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Max Number of K-Sum Pairs"
+url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Maximum Coins From K Consecutive Bags"
+url = "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/"
 
 [[entries]]
 title = "Reverse Prefix of Word"
@@ -140,45 +141,45 @@ title = "Validate IP Address"
 url = "https://leetcode.com/problems/validate-ip-address/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Candy"
+url = "https://leetcode.com/problems/candy/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Nesting Depth of Two Valid Parentheses Strings"
+url = "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Nice Subarray"
+url = "https://leetcode.com/problems/longest-nice-subarray/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Count Good Subarrays"
+url = "https://leetcode.com/problems/count-good-subarrays/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Number of Subarrays With LCM Equal to K"
+url = "https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/"
 
 [[entries]]
 title = "Time Needed to Buy Tickets"
 url = "https://leetcode.com/problems/time-needed-to-buy-tickets/"
 
 [[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Range Sum Query 2D - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-mutable/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Count Subarrays With Median K"
+url = "https://leetcode.com/problems/count-subarrays-with-median-k/"

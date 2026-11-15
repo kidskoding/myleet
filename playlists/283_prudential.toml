@@ -3,134 +3,135 @@ group = "Fortune 500"
 focus = "Arrays and strings, hash maps, intervals, binary search, trees, and basic dynamic programming."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "11_dp", "12_greedy_algorithms"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
+title = "Soup Servings"
+url = "https://leetcode.com/problems/soup-servings/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Toss Strange Coins"
+url = "https://leetcode.com/problems/toss-strange-coins/"
 
 [[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+title = "Best Team With No Conflicts"
+url = "https://leetcode.com/problems/best-team-with-no-conflicts/"
 
 [[entries]]
-title = "Maximum Subarray Sum with One Deletion"
-url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+title = "Knight Probability in Chessboard"
+url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
 
 [[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+title = "Number of Dice Rolls With Target Sum"
+url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Minimum Difference Between Largest and Smallest Value in Three Moves"
+url = "https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/"
+
+[[entries]]
+title = "Minimum Elements to Add to Form a Given Sum"
+url = "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/"
 
 [[entries]]
 title = "Data Stream as Disjoint Intervals"
 url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
 
 [[entries]]
-title = "Number of Subarrays with Bounded Maximum"
-url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
+title = "Minimum Moves to Reach Target Score"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-score/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Minimum Non-Zero Product of the Array Elements"
+url = "https://leetcode.com/problems/minimum-non-zero-product-of-the-array-elements/"
 
 [[entries]]
-title = "Number of Subsequences That Satisfy the Given Sum Condition"
-url = "https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/"
+title = "Minimum Number of People to Teach"
+url = "https://leetcode.com/problems/minimum-number-of-people-to-teach/"
 
 [[entries]]
-title = "Kth Missing Positive Number"
-url = "https://leetcode.com/problems/kth-missing-positive-number/"
+title = "Minimum Operations to Halve Array Sum"
+url = "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/"
 
 [[entries]]
-title = "Number of Substrings Containing All Three Characters"
-url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
+title = "Minimum Operations to Make Array Equal II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Minimum Operations to Make Array Non Decreasing"
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-non-decreasing/"
 
 [[entries]]
-title = "Successful Pairs of Spells and Potions"
-url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
+title = "Minimum Operations to Make Median of Array Equal to K"
+url = "https://leetcode.com/problems/minimum-operations-to-make-median-of-array-equal-to-k/"
 
 [[entries]]
-title = "Kth Smallest Element in a Sorted Matrix"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+title = "Minimum Processing Time"
+url = "https://leetcode.com/problems/minimum-processing-time/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Minimum Rounds to Complete All Tasks"
+url = "https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/"
 
 [[entries]]
-title = "Magnetic Force Between Two Balls"
-url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+title = "Minimum Suffix Flips"
+url = "https://leetcode.com/problems/minimum-suffix-flips/"
 
 [[entries]]
 title = "Smallest Range Covering Elements from K Lists"
 url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
-title = "Minimum Number of Days to Make m Bouquets"
-url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
+title = "Monotone Increasing Digits"
+url = "https://leetcode.com/problems/monotone-increasing-digits/"
 
 [[entries]]
-title = "Last Stone Weight"
-url = "https://leetcode.com/problems/last-stone-weight/"
+title = "Most Profit Assigning Work"
+url = "https://leetcode.com/problems/most-profit-assigning-work/"
 
 [[entries]]
-title = "Find Bottom Left Tree Value"
-url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
+title = "Previous Permutation With One Swap"
+url = "https://leetcode.com/problems/previous-permutation-with-one-swap/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Put Boxes Into the Warehouse I"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
 
 [[entries]]
-title = "Flatten Binary Tree to Linked List"
-url = "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
+title = "Put Boxes Into the Warehouse II"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-ii/"
 
 [[entries]]
-title = "Min Cost Climbing Stairs"
-url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
+title = "Reduce Array Size to The Half"
+url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
 
 [[entries]]
-title = "Inorder Successor in BST"
-url = "https://leetcode.com/problems/inorder-successor-in-bst/"
+title = "Remove Colored Pieces if Both Neighbors are the Same Color"
+url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
 
 [[entries]]
-title = "Super Ugly Number"
-url = "https://leetcode.com/problems/super-ugly-number/"
+title = "Shortest Way to Form String"
+url = "https://leetcode.com/problems/shortest-way-to-form-string/"
 
 [[entries]]
 title = "Points That Intersect With Cars"
 url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Smallest Missing Non-negative Integer After Operations"
+url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
 
 [[entries]]
-title = "Find K-th Smallest Pair Distance"
-url = "https://leetcode.com/problems/find-k-th-smallest-pair-distance/"
+title = "Number of Distinct Roll Sequences"
+url = "https://leetcode.com/problems/number-of-distinct-roll-sequences/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Stone Game IX"
+url = "https://leetcode.com/problems/stone-game-ix/"
 
 [[entries]]
-title = "Balanced Binary Tree"
-url = "https://leetcode.com/problems/balanced-binary-tree/"
+title = "Subsequence of Size K With the Largest Even Sum"
+url = "https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even-sum/"
 
 [[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
+title = "Sum Game"
+url = "https://leetcode.com/problems/sum-game/"

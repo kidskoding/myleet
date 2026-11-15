@@ -3,57 +3,58 @@ group = "Fortune 500"
 focus = "dp and subsequences, sliding window, stack-based expression parsing, arrays and hash maps, trees, and caches"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "08_heaps", "11_dp"]
 
+
 [[entries]]
 title = "Minimum Operations to Make Array Values Equal to K"
 url = "https://leetcode.com/problems/minimum-operations-to-make-array-values-equal-to-k/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Split Array into Consecutive Subsequences"
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
 
 [[entries]]
 title = "Find the Original Typed String I"
 url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
 
 [[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Repeated DNA Sequences"
+url = "https://leetcode.com/problems/repeated-dna-sequences/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Ternary Expression Parser"
+url = "https://leetcode.com/problems/ternary-expression-parser/"
 
 [[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+title = "Number of Substrings Containing All Three Characters"
+url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Advantage Shuffle"
+url = "https://leetcode.com/problems/advantage-shuffle/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Reorder List"
+url = "https://leetcode.com/problems/reorder-list/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Continuous Subarrays"
+url = "https://leetcode.com/problems/continuous-subarrays/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Reverse Nodes in Even Length Groups"
+url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
 
 [[entries]]
-title = "Minimum Size Subarray Sum"
-url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+title = "Count Number of Nice Subarrays"
+url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
 
 [[entries]]
 title = "Fruit Into Baskets"
@@ -68,64 +69,64 @@ title = "Groups of Strings"
 url = "https://leetcode.com/problems/groups-of-strings/"
 
 [[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+title = "Minimize Result by Adding Parentheses to Expression"
+url = "https://leetcode.com/problems/minimize-result-by-adding-parentheses-to-expression/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Verify Preorder Sequence in Binary Search Tree"
+url = "https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Construct Binary Tree from String"
+url = "https://leetcode.com/problems/construct-binary-tree-from-string/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "New 21 Game"
+url = "https://leetcode.com/problems/new-21-game/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Hand of Straights"
+url = "https://leetcode.com/problems/hand-of-straights/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Count the Number of Good Subsequences"
+url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+title = "Maximize Win From Two Segments"
+url = "https://leetcode.com/problems/maximize-win-from-two-segments/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Maximum Median Sum of Subsequences of Size 3"
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
 
 [[entries]]
 title = "The Number of Good Subsets"
 url = "https://leetcode.com/problems/the-number-of-good-subsets/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum White Tiles Covered by a Carpet"
+url = "https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/"
 
 [[entries]]
 title = "Minimum Depth of Binary Tree"
 url = "https://leetcode.com/problems/minimum-depth-of-binary-tree/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Non-decreasing Subsequences"
+url = "https://leetcode.com/problems/non-decreasing-subsequences/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Binary Search Tree Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
 
 [[entries]]
 title = "Average of Levels in Binary Tree"
 url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Lowest Common Ancestor of Deepest Leaves"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
 
 [[entries]]
 title = "Cousins in Binary Tree"
@@ -136,53 +137,53 @@ title = "Binary Tree Right Side View"
 url = "https://leetcode.com/problems/binary-tree-right-side-view/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Distinct Echo Substrings"
+url = "https://leetcode.com/problems/distinct-echo-substrings/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
 title = "Strobogrammatic Number"
 url = "https://leetcode.com/problems/strobogrammatic-number/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
 
 [[entries]]
 title = "Binary Gap"
 url = "https://leetcode.com/problems/binary-gap/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Number of Matching Subsequences"
+url = "https://leetcode.com/problems/number-of-matching-subsequences/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Number of People That Can Be Seen in a Grid"
+url = "https://leetcode.com/problems/number-of-people-that-can-be-seen-in-a-grid/"
 
 [[entries]]
 title = "Count Substrings with Only One Distinct Letter"
 url = "https://leetcode.com/problems/count-substrings-with-only-one-distinct-letter/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Queue Reconstruction by Height"
+url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
 
 [[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Smallest Subsequence of Distinct Characters"
+url = "https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/"
 
 [[entries]]
 title = "Add Binary"
 url = "https://leetcode.com/problems/add-binary/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Beautiful Towers I"
+url = "https://leetcode.com/problems/beautiful-towers-i/"

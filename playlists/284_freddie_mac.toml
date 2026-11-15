@@ -3,133 +3,134 @@ group = "Fortune 500"
 focus = "Arrays and strings, hash maps, intervals, dynamic programming, and breadth-first search."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "10_graphs", "11_dp", "12_greedy_algorithms"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "K-Concatenation Maximum Sum"
-url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+title = "Break a Palindrome"
+url = "https://leetcode.com/problems/break-a-palindrome/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Lexicographically Smallest String After Substring Operation"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/"
 
 [[entries]]
-title = "Longest Turbulent Subarray"
-url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+title = "Maximize the Topmost Element After K Moves"
+url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
 
 [[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+title = "Minimize Rounding Error to Meet Target"
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Minimum Knight Moves"
+url = "https://leetcode.com/problems/minimum-knight-moves/"
+
+[[entries]]
+title = "Put Boxes Into the Warehouse I"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
 
 [[entries]]
 title = "Bus Routes"
 url = "https://leetcode.com/problems/bus-routes/"
 
 [[entries]]
-title = "3Sum Smaller"
-url = "https://leetcode.com/problems/3sum-smaller/"
+title = "Reduce Array Size to The Half"
+url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
 
 [[entries]]
-title = "Left and Right Sum Differences"
-url = "https://leetcode.com/problems/left-and-right-sum-differences/"
+title = "Soup Servings"
+url = "https://leetcode.com/problems/soup-servings/"
 
 [[entries]]
-title = "3Sum With Multiplicity"
-url = "https://leetcode.com/problems/3sum-with-multiplicity/"
+title = "Toss Strange Coins"
+url = "https://leetcode.com/problems/toss-strange-coins/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Best Team With No Conflicts"
+url = "https://leetcode.com/problems/best-team-with-no-conflicts/"
 
 [[entries]]
-title = "4Sum"
-url = "https://leetcode.com/problems/4sum/"
+title = "Smallest Greater Multiple Made of Two Digits"
+url = "https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Subsets II"
+url = "https://leetcode.com/problems/subsets-ii/"
 
 [[entries]]
-title = "All Nodes Distance K in Binary Tree"
-url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+title = "The Earliest Moment When Everyone Become Friends"
+url = "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/"
 
 [[entries]]
-title = "Employee Importance"
-url = "https://leetcode.com/problems/employee-importance/"
+title = "Distribute Candies Among Children II"
+url = "https://leetcode.com/problems/distribute-candies-among-children-ii/"
 
 [[entries]]
 title = "Delete N Nodes After M Nodes of a Linked List"
 url = "https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/"
 
 [[entries]]
-title = "Map of Highest Peak"
-url = "https://leetcode.com/problems/map-of-highest-peak/"
+title = "Exam Room"
+url = "https://leetcode.com/problems/exam-room/"
 
 [[entries]]
 title = "Shortest Path to Get All Keys"
 url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"
 
 [[entries]]
-title = "Minimum Genetic Mutation"
-url = "https://leetcode.com/problems/minimum-genetic-mutation/"
+title = "Number of Restricted Paths From First to Last Node"
+url = "https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Permutations II"
+url = "https://leetcode.com/problems/permutations-ii/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Queue Reconstruction by Height"
+url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
 
 [[entries]]
 title = "Average of Levels in Binary Tree"
 url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Replace Words"
+url = "https://leetcode.com/problems/replace-words/"
 
 [[entries]]
 title = "Find Center of Star Graph"
 url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
+title = "Sum of Matrix After Queries"
+url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
 
 [[entries]]
-title = "Island Perimeter"
-url = "https://leetcode.com/problems/island-perimeter/"
+title = "Valid Parenthesis String"
+url = "https://leetcode.com/problems/valid-parenthesis-string/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Valid Triangle Number"
+url = "https://leetcode.com/problems/valid-triangle-number/"
 
 [[entries]]
 title = "Minimum Moves to Reach Target with Rotations"
 url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Vowel Spellchecker"
+url = "https://leetcode.com/problems/vowel-spellchecker/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Beautiful Towers I"
+url = "https://leetcode.com/problems/beautiful-towers-i/"
 
 [[entries]]
 title = "Minimum Add to Make Parentheses Valid"

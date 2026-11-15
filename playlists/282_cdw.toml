@@ -3,25 +3,26 @@ group = "Fortune 500"
 focus = "Easy to medium arrays, strings, two pointers, stacks, linked lists and tree problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees", "05_binary_search"]
 
-[[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
 
 [[entries]]
-title = "Compare Version Numbers"
-url = "https://leetcode.com/problems/compare-version-numbers/"
+title = "Find Valid Matrix Given Row and Column Sums"
+url = "https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums/"
 
 [[entries]]
-title = "Average Waiting Time"
-url = "https://leetcode.com/problems/average-waiting-time/"
+title = "Min Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "Range Sum Query 2D - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-mutable/"
 
 [[entries]]
 title = "Maximum Distance Between Unequal Words in Array I"
 url = "https://leetcode.com/problems/maximum-distance-between-unequal-words-in-array-i/"
 
 [[entries]]
-title = "Sum of Even Numbers After Queries"
-url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
+title = "Range Sum Query - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-mutable/"
 
 [[entries]]
 title = "Verifying an Alien Dictionary"
@@ -56,56 +57,56 @@ title = "Count Negative Numbers in a Sorted Matrix"
 url = "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/"
 
 [[entries]]
-title = "Swap For Longest Repeated Character Substring"
-url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
+title = "Unit Conversion I"
+url = "https://leetcode.com/problems/unit-conversion-i/"
 
 [[entries]]
 title = "Widest Vertical Area Between Two Points Containing No Points"
 url = "https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/"
 
 [[entries]]
-title = "Longest Substring Of All Vowels in Order"
-url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
+title = "Connecting Cities With Minimum Cost"
+url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
 
 [[entries]]
 title = "Basic Calculator IV"
 url = "https://leetcode.com/problems/basic-calculator-iv/"
 
 [[entries]]
-title = "Minimum Insertions to Balance a Parentheses String"
-url = "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/"
+title = "Construct Quad Tree"
+url = "https://leetcode.com/problems/construct-quad-tree/"
 
 [[entries]]
 title = "Ransom Note"
 url = "https://leetcode.com/problems/ransom-note/"
 
 [[entries]]
-title = "Find Leaves of Binary Tree"
-url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
 title = "Word Pattern"
 url = "https://leetcode.com/problems/word-pattern/"
 
 [[entries]]
-title = "Print Binary Tree"
-url = "https://leetcode.com/problems/print-binary-tree/"
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
 
 [[entries]]
-title = "Sort Integers by The Power Value"
-url = "https://leetcode.com/problems/sort-integers-by-the-power-value/"
+title = "Knight Probability in Chessboard"
+url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
 
 [[entries]]
 title = "Find Words That Can Be Formed by Characters"
 url = "https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/"
 
 [[entries]]
-title = "Knight Dialer"
-url = "https://leetcode.com/problems/knight-dialer/"
+title = "Number of Dice Rolls With Target Sum"
+url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
 
 [[entries]]
-title = "Delete Node in a Linked List"
-url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+title = "Single Number II"
+url = "https://leetcode.com/problems/single-number-ii/"
 
 [[entries]]
 title = "Minimum Index Sum of Two Lists"
@@ -128,5 +129,5 @@ title = "Power Grid Maintenance"
 url = "https://leetcode.com/problems/power-grid-maintenance/"
 
 [[entries]]
-title = "Find Duplicate File in System"
-url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+title = "Minimum Length of String After Operations"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-operations/"

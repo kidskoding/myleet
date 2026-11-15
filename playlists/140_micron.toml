@@ -3,181 +3,182 @@ group = "Consumer and Business Tech"
 focus = "arrays/strings, bit manipulation, number problems, trees, graphs, and intervals."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "15_bit_manipulation", "16_math_geometry"]
 
+
 [[entries]]
 title = "Binary Tree Zigzag Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Largest Number"
+url = "https://leetcode.com/problems/largest-number/"
 
 [[entries]]
-title = "Count Primes"
-url = "https://leetcode.com/problems/count-primes/"
+title = "Valid Square"
+url = "https://leetcode.com/problems/valid-square/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Count Ways to Build Rooms in an Ant Colony"
+url = "https://leetcode.com/problems/count-ways-to-build-rooms-in-an-ant-colony/"
 
 [[entries]]
-title = "Sum of Two Integers"
-url = "https://leetcode.com/problems/sum-of-two-integers/"
+title = "Fair Distribution of Cookies"
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
 
 [[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
+title = "Spiral Matrix II"
+url = "https://leetcode.com/problems/spiral-matrix-ii/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Maximum Number of Eaten Apples"
+url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Can I Win"
+url = "https://leetcode.com/problems/can-i-win/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Maximum Points After Collecting Coins From All Nodes"
+url = "https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Number of Vowels in a Substring of Given Length"
+url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Inorder Successor in BST"
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Minimum Number of Flips to Convert Binary Matrix to Zero Matrix"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Sum Root to Leaf Numbers"
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
 
 [[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
+title = "Total Hamming Distance"
+url = "https://leetcode.com/problems/total-hamming-distance/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Minimum Swaps to Make Strings Equal"
+url = "https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Number of Good Leaf Nodes Pairs"
+url = "https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Kth Smallest Number in Multiplication Table"
+url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Number of Pairs of Strings With Concatenation Equal to Target"
+url = "https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Query Kth Smallest Trimmed Number"
+url = "https://leetcode.com/problems/query-kth-smallest-trimmed-number/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Removing Minimum Number of Magic Beans"
+url = "https://leetcode.com/problems/removing-minimum-number-of-magic-beans/"
 
 [[entries]]
 title = "Minimum Cost to Hire K Workers"
 url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Step-By-Step Directions From a Binary Tree Node to Another"
+url = "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Sum Game"
+url = "https://leetcode.com/problems/sum-game/"
 
 [[entries]]
 title = "Counting Bits"
 url = "https://leetcode.com/problems/counting-bits/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Amount of Time for Binary Tree to Be Infected"
+url = "https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Construct Binary Tree from String"
+url = "https://leetcode.com/problems/construct-binary-tree-from-string/"
 
 [[entries]]
 title = "Parallel Courses III"
 url = "https://leetcode.com/problems/parallel-courses-iii/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Coordinate With Maximum Network Quality"
+url = "https://leetcode.com/problems/coordinate-with-maximum-network-quality/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Minimum Number of Days to Make m Bouquets"
+url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Count Unhappy Friends"
+url = "https://leetcode.com/problems/count-unhappy-friends/"
 
 [[entries]]
 title = "Reverse Bits"
 url = "https://leetcode.com/problems/reverse-bits/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Decode the Slanted Ciphertext"
+url = "https://leetcode.com/problems/decode-the-slanted-ciphertext/"
 
 [[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+title = "Minimum Number of Moves to Make Palindrome"
+url = "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Diagonal Traverse"
+url = "https://leetcode.com/problems/diagonal-traverse/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Expressive Words"
+url = "https://leetcode.com/problems/expressive-words/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Factor Combinations"
+url = "https://leetcode.com/problems/factor-combinations/"
 
 [[entries]]
-title = "Swim in Rising Water"
-url = "https://leetcode.com/problems/swim-in-rising-water/"
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Number of Subsequences That Satisfy the Given Sum Condition"
+url = "https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Find Players With Zero or One Losses"
+url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
 
 [[entries]]
 title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Find The First Player to win K Games in a Row"
+url = "https://leetcode.com/problems/find-the-first-player-to-win-k-games-in-a-row/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "3Sum Smaller"
+url = "https://leetcode.com/problems/3sum-smaller/"
 
 [[entries]]
 title = "The Skyline Problem"

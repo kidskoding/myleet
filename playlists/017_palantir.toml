@@ -3,17 +3,18 @@ group = "AI & Startups"
 focus = "Union-find, grid and graph search, intervals, and modeling messy real-world data in code."
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
 
+
 [[entries]]
 title = "Merge Two Sorted Lists"
 url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
 title = "Course Schedule"

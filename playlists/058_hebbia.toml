@@ -3,13 +3,14 @@ group = "AI & Startups"
 focus = "Search and retrieval problems with tries, hash maps, sliding window and heaps for working over large documents."
 review_modules = ["14_tries", "01_arrays_and_hashing", "04_sliding_window", "08_heaps", "05_binary_search", "03_stacks_and_queues"]
 
+
 [[entries]]
 title = "Length of the Longest Alphabetical Continuous Substring"
 url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
 
 [[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+title = "Count the Number of Good Subsequences"
+url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
 
 [[entries]]
 title = "Minimum Length of String After Deleting Similar Ends"
@@ -108,8 +109,8 @@ title = "Minimum Difference Between Largest and Smallest Value in Three Moves"
 url = "https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/"
 
 [[entries]]
-title = "Implement Trie II (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
+title = "Replace Words"
+url = "https://leetcode.com/problems/replace-words/"
 
 [[entries]]
 title = "Sum of Even Numbers After Queries"

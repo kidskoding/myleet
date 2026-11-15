@@ -3,25 +3,26 @@ group = "Fortune 500"
 focus = "Bit manipulation, two pointers, stacks, linked lists and number problems at easy to medium level."
 review_modules = ["02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "16_math_geometry", "01_arrays_and_hashing", "15_bit_manipulation"]
 
+
 [[entries]]
 title = "Missing Ranges"
 url = "https://leetcode.com/problems/missing-ranges/"
 
 [[entries]]
-title = "Maximum Profitable Triplets With Increasing Prices I"
-url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i/"
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
 
 [[entries]]
-title = "Remove Sub-Folders from the Filesystem"
-url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
+title = "Number of Perfect Pairs"
+url = "https://leetcode.com/problems/number-of-perfect-pairs/"
 
 [[entries]]
 title = "Largest Local Values in a Matrix"
 url = "https://leetcode.com/problems/largest-local-values-in-a-matrix/"
 
 [[entries]]
-title = "Longest Mountain in Array"
-url = "https://leetcode.com/problems/longest-mountain-in-array/"
+title = "Number of Subarrays With LCM Equal to K"
+url = "https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/"
 
 [[entries]]
 title = "Reformat Date"
@@ -56,36 +57,36 @@ title = "Destination City"
 url = "https://leetcode.com/problems/destination-city/"
 
 [[entries]]
-title = "Check if a Parentheses String Can Be Valid"
-url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
+title = "Maximum Number of Occurrences of a Substring"
+url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
 
 [[entries]]
-title = "Excel Sheet Column Title"
-url = "https://leetcode.com/problems/excel-sheet-column-title/"
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
 
 [[entries]]
-title = "Count the Number of Good Subarrays"
-url = "https://leetcode.com/problems/count-the-number-of-good-subarrays/"
+title = "Minimum Swaps to Group All 1's Together"
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
 
 [[entries]]
 title = "Count Increasing Quadruplets"
 url = "https://leetcode.com/problems/count-increasing-quadruplets/"
 
 [[entries]]
-title = "Convert Binary Search Tree to Sorted Doubly Linked List"
-url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
+title = "Removing Minimum Number of Magic Beans"
+url = "https://leetcode.com/problems/removing-minimum-number-of-magic-beans/"
 
 [[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
+title = "Minimum Area Rectangle"
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
 
 [[entries]]
-title = "Make Costs of Paths Equal in a Binary Tree"
-url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
+title = "Number of Equal Count Substrings"
+url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
 
 [[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
+title = "Minimum Number of Days to Make m Bouquets"
+url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
 
 [[entries]]
 title = "Brace Expansion"
@@ -112,8 +113,8 @@ title = "Hamming Distance"
 url = "https://leetcode.com/problems/hamming-distance/"
 
 [[entries]]
-title = "Add Two Numbers II"
-url = "https://leetcode.com/problems/add-two-numbers-ii/"
+title = "Number of Unique XOR Triplets I"
+url = "https://leetcode.com/problems/number-of-unique-xor-triplets-i/"
 
 [[entries]]
 title = "Rectangle Area II"

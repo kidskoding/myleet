@@ -3,29 +3,30 @@ group = "Fortune 500"
 focus = "Array and hash map fundamentals, stacks, sliding window, introductory dynamic programming and trees."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "07_trees", "06_linked_lists"]
 
+
 [[entries]]
 title = "Check if One String Swap Can Make Strings Equal"
 url = "https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/"
 
 [[entries]]
-title = "Increment Submatrices by One"
-url = "https://leetcode.com/problems/increment-submatrices-by-one/"
+title = "Predict the Winner"
+url = "https://leetcode.com/problems/predict-the-winner/"
 
 [[entries]]
-title = "Number of Distinct Substrings in a String"
-url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
+title = "Push Dominoes"
+url = "https://leetcode.com/problems/push-dominoes/"
 
 [[entries]]
 title = "Shortest Distance to a Character"
 url = "https://leetcode.com/problems/shortest-distance-to-a-character/"
 
 [[entries]]
-title = "Longest Arithmetic Sequence After Changing At Most One Element"
-url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
+title = "Remove Adjacent Almost-Equal Characters"
+url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
 
 [[entries]]
-title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
-url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
+title = "Rotated Digits"
+url = "https://leetcode.com/problems/rotated-digits/"
 
 [[entries]]
 title = "Maximize Win From Two Segments"
@@ -56,8 +57,8 @@ title = "Relative Sort Array"
 url = "https://leetcode.com/problems/relative-sort-array/"
 
 [[entries]]
-title = "Maximum Number of Occurrences of a Substring"
-url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+title = "Maximum Coins From K Consecutive Bags"
+url = "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/"
 
 [[entries]]
 title = "Sort Array By Parity"
@@ -80,8 +81,8 @@ title = "Maximum Product of Three Numbers"
 url = "https://leetcode.com/problems/maximum-product-of-three-numbers/"
 
 [[entries]]
-title = "Longest Absolute File Path"
-url = "https://leetcode.com/problems/longest-absolute-file-path/"
+title = "Maximum Sum of Distinct Subarrays With Length K"
+url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
 
 [[entries]]
 title = "Matrix Cells in Distance Order"
@@ -100,12 +101,12 @@ title = "The Employee That Worked on the Longest Task"
 url = "https://leetcode.com/problems/the-employee-that-worked-on-the-longest-task/"
 
 [[entries]]
-title = "Divide Intervals Into Minimum Number of Groups"
-url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+title = "Shopping Offers"
+url = "https://leetcode.com/problems/shopping-offers/"
 
 [[entries]]
-title = "Corporate Flight Bookings"
-url = "https://leetcode.com/problems/corporate-flight-bookings/"
+title = "Sort Integers by The Power Value"
+url = "https://leetcode.com/problems/sort-integers-by-the-power-value/"
 
 [[entries]]
 title = "Sum of Squares of Special Elements"
@@ -128,5 +129,5 @@ title = "Minimum Cost of a Path With Special Roads"
 url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
 
 [[entries]]
-title = "Reverse Linked List II"
-url = "https://leetcode.com/problems/reverse-linked-list-ii/"
+title = "Stone Game"
+url = "https://leetcode.com/problems/stone-game/"

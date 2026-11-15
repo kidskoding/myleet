@@ -3,33 +3,34 @@ group = "Fortune 500"
 focus = "Array and string fundamentals, hash maps, stacks, sliding window, easy dynamic programming and trees."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "07_trees", "06_linked_lists"]
 
+
 [[entries]]
 title = "Maximum Height of a Triangle"
 url = "https://leetcode.com/problems/maximum-height-of-a-triangle/"
 
 [[entries]]
-title = "Minimum Penalty for a Shop"
-url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
+title = "Minimize Maximum of Array"
+url = "https://leetcode.com/problems/minimize-maximum-of-array/"
 
 [[entries]]
-title = "Find The First Player to win K Games in a Row"
-url = "https://leetcode.com/problems/find-the-first-player-to-win-k-games-in-a-row/"
+title = "Minimizing Array After Replacing Pairs With Their Product"
+url = "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/"
 
 [[entries]]
 title = "Find Nearest Point That Has the Same X or Y Coordinate"
 url = "https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/"
 
 [[entries]]
-title = "Array With Elements Not Equal to Average of Neighbors"
-url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
+title = "Minimum Cost For Tickets"
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
 
 [[entries]]
 title = "Delete Characters to Make Fancy String"
 url = "https://leetcode.com/problems/delete-characters-to-make-fancy-string/"
 
 [[entries]]
-title = "Find And Replace in String"
-url = "https://leetcode.com/problems/find-and-replace-in-string/"
+title = "Better Compression of String"
+url = "https://leetcode.com/problems/better-compression-of-string/"
 
 [[entries]]
 title = "Basic Calculator III"
@@ -56,32 +57,32 @@ title = "Points That Intersect With Cars"
 url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
 
 [[entries]]
-title = "Length of Longest Subarray With at Most K Frequency"
-url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
+title = "Longest Substring Of All Vowels in Order"
+url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
 
 [[entries]]
 title = "Maximum Population Year"
 url = "https://leetcode.com/problems/maximum-population-year/"
 
 [[entries]]
-title = "Maximum Coins From K Consecutive Bags"
-url = "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/"
+title = "Swap For Longest Repeated Character Substring"
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
 
 [[entries]]
 title = "Minimum Runes to Add to Cast Spell"
 url = "https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell/"
 
 [[entries]]
-title = "Maximum Nesting Depth of Two Valid Parentheses Strings"
-url = "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/"
+title = "Minimum Cost to Make All Characters Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/"
 
 [[entries]]
 title = "Maximum Product of Two Elements in an Array"
 url = "https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/"
 
 [[entries]]
-title = "Count Subarrays Where Max Element Appears at Least K Times"
-url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
+title = "Minimum Increase to Maximize Special Indices"
+url = "https://leetcode.com/problems/minimum-increase-to-maximize-special-indices/"
 
 [[entries]]
 title = "Distribute Elements Into Two Arrays I"
@@ -112,8 +113,8 @@ title = "Find the Original Typed String I"
 url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
 
 [[entries]]
-title = "Divide Intervals Into Minimum Number of Groups"
-url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+title = "Minimum Moves to Spread Stones Over Grid"
+url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
 
 [[entries]]
 title = "Longest Cycle in a Graph"

@@ -3,182 +3,183 @@ group = "Fortune 500"
 focus = "sorting and two pointers, linear scans, substring search, hash maps and anagrams, linked lists, and code-review style debugging"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "06_linked_lists"]
 
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Maximum Number of Upgradable Servers"
+url = "https://leetcode.com/problems/maximum-number-of-upgradable-servers/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Number of Divisible Substrings"
+url = "https://leetcode.com/problems/number-of-divisible-substrings/"
 
 [[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
+title = "Number of Perfect Pairs"
+url = "https://leetcode.com/problems/number-of-perfect-pairs/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Number of Substrings With Fixed Ratio"
+url = "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/"
+
+[[entries]]
+title = "Sort Transformed Array"
+url = "https://leetcode.com/problems/sort-transformed-array/"
 
 [[entries]]
 title = "Find the Index of the First Occurrence in a String"
 url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
 
 [[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+title = "Maximum Number of Vowels in a Substring of Given Length"
+url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Minimum Space Wasted From Packaging"
+url = "https://leetcode.com/problems/minimum-space-wasted-from-packaging/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Substring with At Most K Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
 
 [[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
+title = "Equal Row and Column Pairs"
+url = "https://leetcode.com/problems/equal-row-and-column-pairs/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Swapping Nodes in a Linked List"
+url = "https://leetcode.com/problems/swapping-nodes-in-a-linked-list/"
 
 [[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
+title = "Ways to Split Array Into Three Subarrays"
+url = "https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Count the Number of Fair Pairs"
+url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Find Right Interval"
+url = "https://leetcode.com/problems/find-right-interval/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Heaters"
+url = "https://leetcode.com/problems/heaters/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Linked List Components"
+url = "https://leetcode.com/problems/linked-list-components/"
 
 [[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
+title = "Max Number of K-Sum Pairs"
+url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
 
 [[entries]]
 title = "Remove Nth Node From End of List"
 url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Preimage Size of Factorial Zeroes Function"
+url = "https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Populating Next Right Pointers in Each Node"
+url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
 
 [[entries]]
 title = "Merge Sorted Array"
 url = "https://leetcode.com/problems/merge-sorted-array/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
 
 [[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+title = "Maximum Side Length of a Square with Sum Less than or Equal to Threshold"
+url = "https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Median of a Row Wise Sorted Matrix"
+url = "https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Minimum Absolute Difference Between Elements With Constraint"
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
 
 [[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+title = "Minimum Operations to Make All Array Elements Equal"
+url = "https://leetcode.com/problems/minimum-operations-to-make-all-array-elements-equal/"
 
 [[entries]]
-title = "Apply Discount Every n Orders"
-url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
+title = "Shortest Word Distance II"
+url = "https://leetcode.com/problems/shortest-word-distance-ii/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Minimum Time to Collect All Apples in a Tree"
+url = "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/"
 
 [[entries]]
 title = "Intersection of Two Arrays II"
 url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
 
 [[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
 
 [[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Most Profitable Path in a Tree"
+url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Nested List Weight Sum"
+url = "https://leetcode.com/problems/nested-list-weight-sum/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Nested List Weight Sum II"
+url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "Number of Good Leaf Nodes Pairs"
+url = "https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Minimum Number of Vertices to Reach All Nodes"
+url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
 
 [[entries]]
 title = "Range Sum Query - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Print Binary Tree"
+url = "https://leetcode.com/problems/print-binary-tree/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Pythagorean Distance Nodes in a Tree"
+url = "https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree/"
 
 [[entries]]
 title = "Maximum Score After Splitting a String"
 url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Capacity To Ship Packages Within D Days"
+url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
-title = "Remove Element"
-url = "https://leetcode.com/problems/remove-element/"
+title = "Smallest Common Region"
+url = "https://leetcode.com/problems/smallest-common-region/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Number of Closed Islands"
+url = "https://leetcode.com/problems/number-of-closed-islands/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Smallest Subtree with all the Deepest Nodes"
+url = "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/"

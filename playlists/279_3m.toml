@@ -3,117 +3,118 @@ group = "Fortune 500"
 focus = "Arrays and strings, hash maps, stacks, binary search, and a few tree and backtracking problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "07_trees", "09_backtracking"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Maximum Swap"
-url = "https://leetcode.com/problems/maximum-swap/"
+title = "Sell Diminishing-Valued Colored Balls"
+url = "https://leetcode.com/problems/sell-diminishing-valued-colored-balls/"
 
 [[entries]]
-title = "Number of Ways to Split Array"
-url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+title = "Two Best Non-Overlapping Events"
+url = "https://leetcode.com/problems/two-best-non-overlapping-events/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Ugly Number III"
+url = "https://leetcode.com/problems/ugly-number-iii/"
 
 [[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+title = "Find Right Interval"
+url = "https://leetcode.com/problems/find-right-interval/"
 
 [[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
+title = "Maximum Number of Alloys"
+url = "https://leetcode.com/problems/maximum-number-of-alloys/"
 
 [[entries]]
-title = "Brick Wall"
-url = "https://leetcode.com/problems/brick-wall/"
+title = "Maximum Value at a Given Index in a Bounded Array"
+url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
+
+[[entries]]
+title = "Camelcase Matching"
+url = "https://leetcode.com/problems/camelcase-matching/"
 
 [[entries]]
 title = "Permutation Sequence"
 url = "https://leetcode.com/problems/permutation-sequence/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Circular Permutation in Binary Representation"
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Implement Magic Dictionary"
+url = "https://leetcode.com/problems/implement-magic-dictionary/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Matchsticks to Square"
+url = "https://leetcode.com/problems/matchsticks-to-square/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Maximum XOR of Two Numbers in an Array"
+url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
 
 [[entries]]
-title = "First Bad Version"
-url = "https://leetcode.com/problems/first-bad-version/"
+title = "Number of Steps to Reduce a Number in Binary Representation to One"
+url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
 
 [[entries]]
-title = "Guess Number Higher or Lower"
-url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
+title = "Range Sum Query 2D - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-mutable/"
 
 [[entries]]
-title = "Minimize Maximum Pair Sum in Array"
-url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+title = "Repeated String Match"
+url = "https://leetcode.com/problems/repeated-string-match/"
 
 [[entries]]
 title = "Sudoku Solver"
 url = "https://leetcode.com/problems/sudoku-solver/"
 
 [[entries]]
-title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
-url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
+title = "Search Suggestions System"
+url = "https://leetcode.com/problems/search-suggestions-system/"
 
 [[entries]]
-title = "Kth Missing Positive Number"
-url = "https://leetcode.com/problems/kth-missing-positive-number/"
+title = "Split a String Into the Max Number of Unique Substrings"
+url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
 
 [[entries]]
-title = "Pancake Sorting"
-url = "https://leetcode.com/problems/pancake-sorting/"
+title = "Unit Conversion I"
+url = "https://leetcode.com/problems/unit-conversion-i/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Beautiful Arrangement"
+url = "https://leetcode.com/problems/beautiful-arrangement/"
 
 [[entries]]
-title = "H-Index II"
-url = "https://leetcode.com/problems/h-index-ii/"
+title = "Connecting Cities With Minimum Cost"
+url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
 
 [[entries]]
-title = "Kth Smallest Element in a Sorted Matrix"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+title = "Construct Quad Tree"
+url = "https://leetcode.com/problems/construct-quad-tree/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Design Add and Search Words Data Structure"
+url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
-title = "Circular Array Loop"
-url = "https://leetcode.com/problems/circular-array-loop/"
+title = "Extra Characters in a String"
+url = "https://leetcode.com/problems/extra-characters-in-a-string/"
 
 [[entries]]
-title = "Binary Search Tree Iterator"
-url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+title = "Implement Router"
+url = "https://leetcode.com/problems/implement-router/"
 
 [[entries]]
-title = "Balanced Binary Tree"
-url = "https://leetcode.com/problems/balanced-binary-tree/"
+title = "Implement Trie II (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
 
 [[entries]]
-title = "Construct Binary Tree from Preorder and Inorder Traversal"
-url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+title = "Letter Case Permutation"
+url = "https://leetcode.com/problems/letter-case-permutation/"
 
 [[entries]]
 title = "Expression Add Operators"

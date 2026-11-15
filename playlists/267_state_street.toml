@@ -3,125 +3,126 @@ group = "Fortune 500"
 focus = "graphs, linked lists, arrays, strings"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "10_graphs", "11_dp", "17_advanced"]
 
-[[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Minimum Number of Vertices to Reach All Nodes"
+url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Nearest Exit from Entrance in Maze"
+url = "https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Check if There is a Valid Path in a Grid"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Number of Closed Islands"
+url = "https://leetcode.com/problems/number-of-closed-islands/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Longest Non-decreasing Subarray From Two Arrays"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Minimum Cost to Reach Destination in Time"
+url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
+title = "Find Minimum Time to Reach Last Room I"
+url = "https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "K Highest Ranked Items Within a Price Range"
+url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Minesweeper"
+url = "https://leetcode.com/problems/minesweeper/"
 
 [[entries]]
-title = "Number of Provinces"
-url = "https://leetcode.com/problems/number-of-provinces/"
+title = "Minimize Maximum Component Cost"
+url = "https://leetcode.com/problems/minimize-maximum-component-cost/"
 
 [[entries]]
-title = "Max Area of Island"
-url = "https://leetcode.com/problems/max-area-of-island/"
+title = "Power Grid Maintenance"
+url = "https://leetcode.com/problems/power-grid-maintenance/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Sum of Matrix After Queries"
+url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "The Time When the Network Becomes Idle"
+url = "https://leetcode.com/problems/the-time-when-the-network-becomes-idle/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Unit Conversion I"
+url = "https://leetcode.com/problems/unit-conversion-i/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Apply Substitutions"
+url = "https://leetcode.com/problems/apply-substitutions/"
+
+[[entries]]
+title = "Campus Bikes II"
+url = "https://leetcode.com/problems/campus-bikes-ii/"
 
 [[entries]]
 title = "Making A Large Island"
 url = "https://leetcode.com/problems/making-a-large-island/"
 
 [[entries]]
-title = "Redundant Connection"
-url = "https://leetcode.com/problems/redundant-connection/"
+title = "Candy Crush"
+url = "https://leetcode.com/problems/candy-crush/"
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
+title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
+url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
 
 [[entries]]
-title = "Is Graph Bipartite?"
-url = "https://leetcode.com/problems/is-graph-bipartite/"
+title = "Detonate the Maximum Bombs"
+url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Find All Possible Recipes from Given Supplies"
+url = "https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/"
 
 [[entries]]
-title = "All Paths From Source to Target"
-url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
+title = "Maximum Coin Collection"
+url = "https://leetcode.com/problems/maximum-coin-collection/"
 
 [[entries]]
-title = "Keys and Rooms"
-url = "https://leetcode.com/problems/keys-and-rooms/"
+title = "Minimum Cost of a Path With Special Roads"
+url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
 
 [[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
+title = "Minimum Cost Path with Edge Reversals"
+url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
 
 [[entries]]
-title = "Pacific Atlantic Water Flow"
-url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+title = "Minimum Cost to Convert String I"
+url = "https://leetcode.com/problems/minimum-cost-to-convert-string-i/"
 
 [[entries]]
-title = "Surrounded Regions"
-url = "https://leetcode.com/problems/surrounded-regions/"
+title = "Minimum Knight Moves"
+url = "https://leetcode.com/problems/minimum-knight-moves/"
 
 [[entries]]
-title = "Island Perimeter"
-url = "https://leetcode.com/problems/island-perimeter/"
+title = "Number of Operations to Make Network Connected"
+url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Parallel Courses"
+url = "https://leetcode.com/problems/parallel-courses/"
 
 [[entries]]
 title = "Longest Increasing Path in a Matrix"
@@ -132,40 +133,40 @@ title = "Find Center of Star Graph"
 url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Path Sum IV"
+url = "https://leetcode.com/problems/path-sum-iv/"
 
 [[entries]]
-title = "Design Linked List"
-url = "https://leetcode.com/problems/design-linked-list/"
+title = "Prison Cells After N Days"
+url = "https://leetcode.com/problems/prison-cells-after-n-days/"
 
 [[entries]]
 title = "Find if Path Exists in Graph"
 url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Sentence Similarity II"
+url = "https://leetcode.com/problems/sentence-similarity-ii/"
 
 [[entries]]
-title = "Remove Duplicates from Sorted List"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list/"
+title = "Web Crawler"
+url = "https://leetcode.com/problems/web-crawler/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Brightest Position on Street"
+url = "https://leetcode.com/problems/brightest-position-on-street/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Coloring A Border"
+url = "https://leetcode.com/problems/coloring-a-border/"
 
 [[entries]]
-title = "Remove Linked List Elements"
-url = "https://leetcode.com/problems/remove-linked-list-elements/"
+title = "Count Islands With Total Value Divisible by K"
+url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Count the Number of Houses at a Certain Distance I"
+url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/"
 
 [[entries]]
 title = "Largest Color Value in a Directed Graph"
@@ -176,9 +177,9 @@ title = "Find the Index of the First Occurrence in a String"
 url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Count Ways To Build Good Strings"
+url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Delete Operation for Two Strings"
+url = "https://leetcode.com/problems/delete-operation-for-two-strings/"

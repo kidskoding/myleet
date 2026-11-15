@@ -1,17 +1,19 @@
 # Interview evidence
 
-This folder holds a script that counts how often each practice problem shows up in public interview write-ups from 2024 to 2026, so the company playlists can be ordered by real reports.
+This folder holds a script that finds LeetCode problems named in public, candidate-reported interview posts from 2024 on, so the company playlists lead with real reports.
 
 ## How to run it
 
-Run `python3 tools/evidence/collect.py collect` to fetch posts for all 18 companies, or pass company slugs such as `collect nvidia stripe` for a subset. It writes one file per company to `tools/evidence/data/<slug>.json`, with the post count, and for each matched problem the mention count, the last date seen and up to three source URLs.
-
-Run `python3 tools/evidence/collect.py apply` to reorder the playlists from those files. Problems with mentions go first, ordered by mention count and then recency, followed by the old list in its existing order, capped at 50 entries. Google's playlist is never edited. Big Tech sets skip easy problems unless they have three or more mentions. After applying, run `cargo run -q --release -- validate`.
+Run `python3 tools/evidence/collect.py fetch` to download posts for every playlist company into a cache in `/tmp`. It waits one second between requests and takes about half an hour. Then run `analyze` to write `data/<slug>.json` (posts used, evidenced problems with counts, last date and up to three source URLs), `apply` to reorder the playlists and `report` to write `report.md`. Google's playlist is never edited. Afterwards run `just ci-content` and `just ci-python`.
 
 ## Sources
 
-The script reads three public sources with no login: the dev.to API (articles tagged interview, leetcode and codinginterview, with the body fetched only when the title or tags name the company), Medium RSS tag feeds (`<company>-interview` and `<company>-interview-questions`), and the Hacker News Algolia search. It keeps posts from 2024 onward, sends a descriptive User-Agent and waits one second between requests. A post is credited to a company only when it is about that company's interview. It does not use LeetCode Premium company tags, tag datasets or mirrors of them, and it does not try to get around login walls or blocks. If a source fails, the script skips it.
+The script reads the dev.to API (articles tagged interview, leetcode and codinginterview), Medium RSS tag feeds and the Hacker News Algolia search, with no login and a descriptive User-Agent. A source that fails is skipped. It does not use LeetCode Premium company tags or mirrors of them.
 
 ## Matching
 
-A post counts once per problem. A problem matches when the post names its LeetCode number ("LC 146", "#146"), its URL slug, or its exact title. Short generic titles such as "two sum" only match through a number or slug.
+A post counts for a company only when its title or opening paragraph names the company next to an interview word such as interview, OA, onsite or phone screen. Posts that list more than 25 problems are study lists and are skipped. A problem matches by exact title, URL slug, or a number written as "LC 146", "LeetCode 146", "#146" or "problem 146" with "LeetCode" or "LC" within about 30 characters. A problem is evidenced when at least 2 distinct posts mention it, or 4 for an easy problem in Big Tech.
+
+## Ordering
+
+Evidenced problems go first, by post count and then recency. The rest keep their curated order. A problem without evidence for a company may appear in at most 3 sets per group and 20 sets overall, and Two Sum without evidence only in up to 10 Fortune 500 sets. Excess entries are swapped for the least-used problem from the same technique, then the same module, preferring words from the set's focus line. Difficulty limits per group and 30 to 50 entries are kept.

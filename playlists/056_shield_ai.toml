@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "Grid and graph search, shortest paths, geometry helpers, and backtracking for autonomy-style problems."
 review_modules = ["10_graphs", "08_heaps", "16_math_geometry", "09_backtracking", "11_dp", "05_binary_search"]
 
+
 [[entries]]
 title = "Smallest Subtree with all the Deepest Nodes"
 url = "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/"
@@ -12,16 +13,16 @@ title = "Unique Binary Search Trees"
 url = "https://leetcode.com/problems/unique-binary-search-trees/"
 
 [[entries]]
-title = "Trapping Rain Water II"
-url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+title = "24 Game"
+url = "https://leetcode.com/problems/24-game/"
 
 [[entries]]
 title = "Lowest Common Ancestor of a Binary Tree III"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
 
 [[entries]]
-title = "Remove Stones to Minimize the Total"
-url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+title = "Find the Closest Marked Node"
+url = "https://leetcode.com/problems/find-the-closest-marked-node/"
 
 [[entries]]
 title = "Maximum 69 Number"
@@ -32,8 +33,8 @@ title = "Transform Binary String Using Subsequence Sort"
 url = "https://leetcode.com/problems/transform-binary-string-using-subsequence-sort/"
 
 [[entries]]
-title = "Number of Enclaves"
-url = "https://leetcode.com/problems/number-of-enclaves/"
+title = "Number of Restricted Paths From First to Last Node"
+url = "https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node/"
 
 [[entries]]
 title = "Minimum Number of Operations to Make String Sorted"
@@ -52,8 +53,8 @@ title = "Reaching Points"
 url = "https://leetcode.com/problems/reaching-points/"
 
 [[entries]]
-title = "Course Schedule IV"
-url = "https://leetcode.com/problems/course-schedule-iv/"
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
 
 [[entries]]
 title = "Subsets II"
@@ -64,8 +65,8 @@ title = "Longest Palindrome"
 url = "https://leetcode.com/problems/longest-palindrome/"
 
 [[entries]]
-title = "Design Order Management System"
-url = "https://leetcode.com/problems/design-order-management-system/"
+title = "Shortest Word Distance II"
+url = "https://leetcode.com/problems/shortest-word-distance-ii/"
 
 [[entries]]
 title = "RLE Iterator"
@@ -76,12 +77,12 @@ title = "Count Number of Trapezoids II"
 url = "https://leetcode.com/problems/count-number-of-trapezoids-ii/"
 
 [[entries]]
-title = "Finding Pairs With a Certain Sum"
-url = "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/"
+title = "Seat Reservation Manager"
+url = "https://leetcode.com/problems/seat-reservation-manager/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"
 
 [[entries]]
 title = "Number of Valid Words for Each Puzzle"
@@ -100,16 +101,16 @@ title = "Minimum Cost to Move Chips to The Same Position"
 url = "https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/"
 
 [[entries]]
-title = "Maximum Product Subarray"
-url = "https://leetcode.com/problems/maximum-product-subarray/"
+title = "Matchsticks to Square"
+url = "https://leetcode.com/problems/matchsticks-to-square/"
 
 [[entries]]
-title = "Longest Palindromic Subsequence"
-url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
-title = "Count Integers in Intervals"
-url = "https://leetcode.com/problems/count-integers-in-intervals/"
+title = "Read N Characters Given read4 II - Call Multiple Times"
+url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
 
 [[entries]]
 title = "Factorial Trailing Zeroes"

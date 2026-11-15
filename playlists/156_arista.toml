@@ -3,29 +3,30 @@ group = "Consumer and Business Tech"
 focus = "linked lists, strings and stacks, sliding windows, hashing, binary search, trees, and bit manipulation"
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "07_trees", "09_backtracking"]
 
-[[entries]]
-title = "Find Minimum in Rotated Sorted Array"
-url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Longest Substring Of All Vowels in Order"
+url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
 
 [[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
+title = "Second Minimum Time to Reach Destination"
+url = "https://leetcode.com/problems/second-minimum-time-to-reach-destination/"
 
 [[entries]]
-title = "Longest Word in Dictionary"
-url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+title = "Continuous Subarrays"
+url = "https://leetcode.com/problems/continuous-subarrays/"
+
+[[entries]]
+title = "Minimum Removals to Balance Array"
+url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
 
 [[entries]]
 title = "Maximum Depth of N-ary Tree"
@@ -36,80 +37,80 @@ title = "Merge Operations to Turn Array Into a Palindrome"
 url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
 
 [[entries]]
-title = "Two Sum II - Input Array Is Sorted"
-url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
 
 [[entries]]
 title = "Smallest Substring With Identical Characters II"
 url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
 
 [[entries]]
-title = "Construct String With Repeat Limit"
-url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
+title = "Maximum Value at a Given Index in a Bounded Array"
+url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
 
 [[entries]]
 title = "Inorder Successor in BST II"
 url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Maximum Number of Events That Can Be Attended II"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/"
 
 [[entries]]
-title = "Restore IP Addresses"
-url = "https://leetcode.com/problems/restore-ip-addresses/"
+title = "Minimum Size Subarray in Infinite Array"
+url = "https://leetcode.com/problems/minimum-size-subarray-in-infinite-array/"
 
 [[entries]]
 title = "Rotated Digits"
 url = "https://leetcode.com/problems/rotated-digits/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Minimum Swaps to Group All 1's Together"
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
 
 [[entries]]
-title = "Reorder List"
-url = "https://leetcode.com/problems/reorder-list/"
+title = "Remove Nodes From Linked List"
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
 
 [[entries]]
 title = "Reverse Linked List II"
 url = "https://leetcode.com/problems/reverse-linked-list-ii/"
 
 [[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+title = "Preimage Size of Factorial Zeroes Function"
+url = "https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/"
 
 [[entries]]
 title = "Remove Duplicates from Sorted List II"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
 
 [[entries]]
-title = "Copy List with Random Pointer"
-url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+title = "Split Linked List in Parts"
+url = "https://leetcode.com/problems/split-linked-list-in-parts/"
 
 [[entries]]
-title = "Maximum Number of Occurrences of a Substring"
-url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
+title = "Number of Equal Count Substrings"
+url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Smallest Substring With Identical Characters I"
+url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-i/"
 
 [[entries]]
 title = "Path Sum II"
 url = "https://leetcode.com/problems/path-sum-ii/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Number of Subarrays With LCM Equal to K"
+url = "https://leetcode.com/problems/number-of-subarrays-with-lcm-equal-to-k/"
 
 [[entries]]
 title = "Maximum Average Subarray I"
 url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Shortest and Lexicographically Smallest Beautiful String"
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
 
 [[entries]]
 title = "Remove All Occurrences of a Substring"
@@ -124,61 +125,61 @@ title = "Swap Nodes in Pairs"
 url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
 
 [[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
+title = "Swap For Longest Repeated Character Substring"
+url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Peak Index in a Mountain Array"
+url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
 
 [[entries]]
 title = "Delete N Nodes After M Nodes of a Linked List"
 url = "https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/"
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Ternary Expression Parser"
+url = "https://leetcode.com/problems/ternary-expression-parser/"
 
 [[entries]]
 title = "Parse Lisp Expression"
 url = "https://leetcode.com/problems/parse-lisp-expression/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Ugly Number III"
+url = "https://leetcode.com/problems/ugly-number-iii/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
 
 [[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
+title = "Delete the Middle Node of a Linked List"
+url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
 
 [[entries]]
 title = "Parsing A Boolean Expression"
 url = "https://leetcode.com/problems/parsing-a-boolean-expression/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Buildings With an Ocean View"
+url = "https://leetcode.com/problems/buildings-with-an-ocean-view/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Check if a Parentheses String Can Be Valid"
+url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
 
 [[entries]]
 title = "Convert Binary Number in a Linked List to Integer"
 url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Check If Word Is Valid After Substitutions"
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Construct Smallest Number From DI String"
+url = "https://leetcode.com/problems/construct-smallest-number-from-di-string/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Count Subarrays With Median K"
+url = "https://leetcode.com/problems/count-subarrays-with-median-k/"

@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "Arrays, strings, hash maps, linked lists, binary search, and breadth-first search on grids."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "06_linked_lists", "07_trees", "10_graphs"]
 
+
 [[entries]]
 title = "Contains Duplicate"
 url = "https://leetcode.com/problems/contains-duplicate/"
@@ -16,16 +17,16 @@ title = "Maximum Sum Circular Subarray"
 url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Maximum Size Subarray Sum Equals k"
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 
 [[entries]]
 title = "Maximum Sum of Two Non-Overlapping Subarrays"
 url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
 
 [[entries]]
 title = "Maximum Swap"
@@ -48,8 +49,8 @@ title = "Count Number of Nice Subarrays"
 url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
 title = "Frequency of the Most Frequent Element"
@@ -60,8 +61,8 @@ title = "Kth Smallest Element in a Sorted Matrix"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Remove Nodes From Linked List"
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
 
 [[entries]]
 title = "Magnetic Force Between Two Balls"

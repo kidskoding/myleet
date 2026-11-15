@@ -3,138 +3,139 @@ group = "Fortune 500"
 focus = "Arrays, hash maps, intervals, dynamic programming, binary search, and clean tree traversal."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "11_dp", "12_greedy_algorithms", "07_trees"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Number of Ways to Split Array"
-url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+title = "Minimum Moves to Spread Stones Over Grid"
+url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
 
 [[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+title = "Minimum Number of Food Buckets to Feed the Hamsters"
+url = "https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Minimum Number of Lines to Cover Points"
+url = "https://leetcode.com/problems/minimum-number-of-lines-to-cover-points/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Minimum Operations to Reduce an Integer to 0"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
 
 [[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
+title = "Minimum Score Triangulation of Polygon"
+url = "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/"
 
 [[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
+
+[[entries]]
+title = "Minimum Substring Partition of Equal Character Frequency"
+url = "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock IV"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
 
 [[entries]]
-title = "Find the Smallest Divisor Given a Threshold"
-url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+title = "Number of Dice Rolls With Target Sum"
+url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Number of Self-Divisible Permutations"
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
 [[entries]]
-title = "H-Index II"
-url = "https://leetcode.com/problems/h-index-ii/"
+title = "Number of Ways to Build House of Cards"
+url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
 
 [[entries]]
-title = "First Bad Version"
-url = "https://leetcode.com/problems/first-bad-version/"
+title = "Optimal Partition of String"
+url = "https://leetcode.com/problems/optimal-partition-of-string/"
 
 [[entries]]
-title = "Recover Binary Search Tree"
-url = "https://leetcode.com/problems/recover-binary-search-tree/"
+title = "Paint Fence"
+url = "https://leetcode.com/problems/paint-fence/"
 
 [[entries]]
-title = "01 Matrix"
-url = "https://leetcode.com/problems/01-matrix/"
+title = "Paint House"
+url = "https://leetcode.com/problems/paint-house/"
 
 [[entries]]
-title = "Guess Number Higher or Lower"
-url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
+title = "Partition Array for Maximum Sum"
+url = "https://leetcode.com/problems/partition-array-for-maximum-sum/"
 
 [[entries]]
-title = "All Ancestors of a Node in a Directed Acyclic Graph"
-url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Predict the Winner"
+url = "https://leetcode.com/problems/predict-the-winner/"
 
 [[entries]]
-title = "Maximum Product After K Increments"
-url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+title = "Push Dominoes"
+url = "https://leetcode.com/problems/push-dominoes/"
 
 [[entries]]
 title = "Minimum Cost to Merge Stones"
 url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
 
 [[entries]]
-title = "Remove Stones to Minimize the Total"
-url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+title = "Remove Adjacent Almost-Equal Characters"
+url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Rotated Digits"
+url = "https://leetcode.com/problems/rotated-digits/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Sentence Screen Fitting"
+url = "https://leetcode.com/problems/sentence-screen-fitting/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
+title = "Shopping Offers"
+url = "https://leetcode.com/problems/shopping-offers/"
 
 [[entries]]
 title = "Range Sum of BST"
 url = "https://leetcode.com/problems/range-sum-of-bst/"
 
 [[entries]]
-title = "Target Sum"
-url = "https://leetcode.com/problems/target-sum/"
+title = "Smallest Subsequence of Distinct Characters"
+url = "https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/"
 
 [[entries]]
 title = "Search in a Binary Search Tree"
 url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
 
 [[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
+title = "Soup Servings"
+url = "https://leetcode.com/problems/soup-servings/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Transaction Fee"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
 
 [[entries]]
 title = "Last Stone Weight"
 url = "https://leetcode.com/problems/last-stone-weight/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Toss Strange Coins"
+url = "https://leetcode.com/problems/toss-strange-coins/"
 
 [[entries]]
 title = "Cherry Pickup"
 url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Champagne Tower"
+url = "https://leetcode.com/problems/champagne-tower/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "First Day Where You Have Been in All the Rooms"
+url = "https://leetcode.com/problems/first-day-where-you-have-been-in-all-the-rooms/"
 
 [[entries]]
-title = "Hand of Straights"
-url = "https://leetcode.com/problems/hand-of-straights/"
+title = "Minimum Add to Make Parentheses Valid"
+url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"

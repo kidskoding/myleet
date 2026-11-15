@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "Core array and hash map problems, stacks, sliding window, introductory dynamic programming and trees."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "11_dp", "07_trees", "06_linked_lists"]
 
+
 [[entries]]
 title = "Teemo Attacking"
 url = "https://leetcode.com/problems/teemo-attacking/"
@@ -12,8 +13,8 @@ title = "The Number of the Smallest Unoccupied Chair"
 url = "https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/"
 
 [[entries]]
-title = "Factor Combinations"
-url = "https://leetcode.com/problems/factor-combinations/"
+title = "Increment Submatrices by One"
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
 
 [[entries]]
 title = "Faulty Keyboard"
@@ -60,8 +61,8 @@ title = "Minimum Swaps to Group All 1's Together"
 url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together/"
 
 [[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
 
 [[entries]]
 title = "Find Longest Special Substring That Occurs Thrice II"
@@ -92,8 +93,8 @@ title = "Number of Ways to Build House of Cards"
 url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
 
 [[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+title = "Optimal Partition of String"
+url = "https://leetcode.com/problems/optimal-partition-of-string/"
 
 [[entries]]
 title = "Rank Transform of an Array"

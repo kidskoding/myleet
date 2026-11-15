@@ -3,165 +3,166 @@ group = "Consumer and Business Tech"
 focus = "fundamentals, arrays/maps, strings, trees, and reliable enterprise-style coding."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "07_trees", "10_graphs", "03_stacks_and_queues"]
 
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Minimum Length of String After Deleting Similar Ends"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Minimum Penalty for a Shop"
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
+
+[[entries]]
+title = "Minimum Time to Complete Trips"
+url = "https://leetcode.com/problems/minimum-time-to-complete-trips/"
 
 [[entries]]
 title = "Count Increasing Quadruplets"
 url = "https://leetcode.com/problems/count-increasing-quadruplets/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Construct Binary Tree from Preorder and Postorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Most Popular Video Creator"
+url = "https://leetcode.com/problems/most-popular-video-creator/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Reverse Nodes in Even Length Groups"
+url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Construct String from Binary Tree"
+url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Next Greater Element III"
+url = "https://leetcode.com/problems/next-greater-element-iii/"
 
 [[entries]]
 title = "Maximum Path Quality of a Graph"
 url = "https://leetcode.com/problems/maximum-path-quality-of-a-graph/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Non-decreasing Array"
+url = "https://leetcode.com/problems/non-decreasing-array/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Magnetic Force Between Two Balls"
+url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
 
 [[entries]]
 title = "Maximum Students Taking Exam"
 url = "https://leetcode.com/problems/maximum-students-taking-exam/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Number of Adjacent Elements With the Same Color"
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "3Sum With Multiplicity"
+url = "https://leetcode.com/problems/3sum-with-multiplicity/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Bag of Tokens"
+url = "https://leetcode.com/problems/bag-of-tokens/"
 
 [[entries]]
 title = "Count the Number of Infection Sequences"
 url = "https://leetcode.com/problems/count-the-number-of-infection-sequences/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Number of Subarrays That Match a Pattern I"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
 
 [[entries]]
 title = "Search a 2D Matrix"
 url = "https://leetcode.com/problems/search-a-2d-matrix/"
 
 [[entries]]
-title = "Count Primes"
-url = "https://leetcode.com/problems/count-primes/"
+title = "Permutations III"
+url = "https://leetcode.com/problems/permutations-iii/"
 
 [[entries]]
 title = "Candy"
 url = "https://leetcode.com/problems/candy/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Find Bottom Left Tree Value"
+url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Get Equal Substrings Within Budget"
+url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Pour Water"
+url = "https://leetcode.com/problems/pour-water/"
 
 [[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
+title = "Circular Array Loop"
+url = "https://leetcode.com/problems/circular-array-loop/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Remove Comments"
+url = "https://leetcode.com/problems/remove-comments/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Distribute Elements Into Two Arrays II"
+url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-ii/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Remove Sub-Folders from the Filesystem"
+url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Reverse Words in a String II"
+url = "https://leetcode.com/problems/reverse-words-in-a-string-ii/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"
 
 [[entries]]
 title = "Palindrome Number"
 url = "https://leetcode.com/problems/palindrome-number/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Shortest Word Distance III"
+url = "https://leetcode.com/problems/shortest-word-distance-iii/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Minimum Cost to Make at Least One Valid Path in a Grid"
+url = "https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "String Compression III"
+url = "https://leetcode.com/problems/string-compression-iii/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Sum of Even Numbers After Queries"
+url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
 
 [[entries]]
-title = "Find a Peak Element II"
-url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+title = "Minimum Number of Days to Make m Bouquets"
+url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Find the Minimum Area to Cover All Ones II"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
 
 [[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
+title = "The Number of the Smallest Unoccupied Chair"
+url = "https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/"
 
 [[entries]]
 title = "Search a 2D Matrix II"
@@ -172,13 +173,13 @@ title = "Valid Perfect Square"
 url = "https://leetcode.com/problems/valid-perfect-square/"
 
 [[entries]]
-title = "H-Index II"
-url = "https://leetcode.com/problems/h-index-ii/"
+title = "Minimum Speed to Arrive on Time"
+url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
 
 [[entries]]
-title = "Search in a Sorted Array of Unknown Size"
-url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Guess the Word"
+url = "https://leetcode.com/problems/guess-the-word/"

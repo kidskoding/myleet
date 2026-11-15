@@ -3,21 +3,22 @@ group = "Consumer and Business Tech"
 focus = "feed and timeline merging with heaps, rate-limited counters, tree traversals, graph search, tries for typeahead, and hard string problems."
 review_modules = ["07_trees", "08_heaps", "09_backtracking", "10_graphs", "14_tries", "17_advanced"]
 
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+
+[[entries]]
+title = "Binary Search Tree to Greater Sum Tree"
+url = "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/"
 
 [[entries]]
 title = "Tweet Counts Per Frequency"
 url = "https://leetcode.com/problems/tweet-counts-per-frequency/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Count Ways to Build Rooms in an Ant Colony"
+url = "https://leetcode.com/problems/count-ways-to-build-rooms-in-an-ant-colony/"
 
 [[entries]]
 title = "Find K Closest Elements"
@@ -28,8 +29,8 @@ title = "Average of Levels in Binary Tree"
 url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Closest Leaf in a Binary Tree"
+url = "https://leetcode.com/problems/closest-leaf-in-a-binary-tree/"
 
 [[entries]]
 title = "Kth Smallest Element in a BST"
@@ -40,8 +41,8 @@ title = "Smallest Range Covering Elements from K Lists"
 url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Connecting Cities With Minimum Cost"
+url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
 
 [[entries]]
 title = "Binary Tree Zigzag Level Order Traversal"
@@ -68,8 +69,8 @@ title = "Cousins in Binary Tree"
 url = "https://leetcode.com/problems/cousins-in-binary-tree/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Construct Binary Search Tree from Preorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
 
 [[entries]]
 title = "All Nodes Distance K in Binary Tree"
@@ -84,8 +85,8 @@ title = "Graph Valid Tree"
 url = "https://leetcode.com/problems/graph-valid-tree/"
 
 [[entries]]
-title = "Minimum Height Trees"
-url = "https://leetcode.com/problems/minimum-height-trees/"
+title = "Reorder Routes to Make All Paths Lead to the City Zero"
+url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
 
 [[entries]]
 title = "Maximum Depth of Binary Tree"
@@ -100,8 +101,8 @@ title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Maximize Sum of Weights after Edge Removals"
+url = "https://leetcode.com/problems/maximize-sum-of-weights-after-edge-removals/"
 
 [[entries]]
 title = "Minimum Elements to Add to Form a Given Sum"
@@ -128,12 +129,12 @@ title = "Invert Binary Tree"
 url = "https://leetcode.com/problems/invert-binary-tree/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Construct Binary Tree from String"
+url = "https://leetcode.com/problems/construct-binary-tree-from-string/"
 
 [[entries]]
-title = "Minimum Genetic Mutation"
-url = "https://leetcode.com/problems/minimum-genetic-mutation/"
+title = "Snakes and Ladders"
+url = "https://leetcode.com/problems/snakes-and-ladders/"
 
 [[entries]]
 title = "Critical Connections in a Network"
@@ -148,8 +149,8 @@ title = "One Edit Distance"
 url = "https://leetcode.com/problems/one-edit-distance/"
 
 [[entries]]
-title = "Number of Connected Components in an Undirected Graph"
-url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+title = "The Maze"
+url = "https://leetcode.com/problems/the-maze/"
 
 [[entries]]
 title = "Longest Increasing Path in a Matrix"
@@ -176,8 +177,8 @@ title = "Minimum Number of Steps to Make Two Strings Anagram"
 url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Maximum XOR With an Element From Array"
+url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
 
 [[entries]]
 title = "Design Authentication Manager"

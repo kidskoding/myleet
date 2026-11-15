@@ -3,130 +3,131 @@ group = "Fortune 500"
 focus = "Array and string fundamentals, hash maps, stacks, linked lists, and easy tree problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "K-Concatenation Maximum Sum"
-url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+title = "Minimum Insertions to Balance a Parentheses String"
+url = "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/"
 
 [[entries]]
-title = "Longest Turbulent Subarray"
-url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+title = "Shortest and Lexicographically Smallest Beautiful String"
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Check if a Parentheses String Can Be Valid"
+url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
 
 [[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
+title = "Construct Smallest Number From DI String"
+url = "https://leetcode.com/problems/construct-smallest-number-from-di-string/"
 
 [[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+title = "Longest Absolute File Path"
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+title = "Minimum Number of Swaps to Make the String Balanced"
+url = "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/"
 
 [[entries]]
-title = "Number of Atoms"
-url = "https://leetcode.com/problems/number-of-atoms/"
+title = "Minimum Swaps to Group All 1's Together II"
+url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
 
 [[entries]]
-title = "Left and Right Sum Differences"
-url = "https://leetcode.com/problems/left-and-right-sum-differences/"
+title = "Repeated DNA Sequences"
+url = "https://leetcode.com/problems/repeated-dna-sequences/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Using a Robot to Print the Lexicographically Smallest String"
+url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Count Complete Subarrays in an Array"
+url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Insert into a Sorted Circular Linked List"
+url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
 
 [[entries]]
-title = "Minimize Maximum Pair Sum in Array"
-url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+title = "Find And Replace in String"
+url = "https://leetcode.com/problems/find-and-replace-in-string/"
 
 [[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
+title = "Make Lexicographically Smallest Array by Swapping Elements"
+url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
 
 [[entries]]
-title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
-url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
+title = "Better Compression of String"
+url = "https://leetcode.com/problems/better-compression-of-string/"
 
 [[entries]]
-title = "Maximum Frequency Stack"
-url = "https://leetcode.com/problems/maximum-frequency-stack/"
+title = "Replace the Substring for Balanced String"
+url = "https://leetcode.com/problems/replace-the-substring-for-balanced-string/"
 
 [[entries]]
-title = "Number of Subarrays with Bounded Maximum"
-url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
+
+[[entries]]
+title = "Count Number of Maximum Bitwise-OR Subsets"
+url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
 
 [[entries]]
 title = "First Bad Version"
 url = "https://leetcode.com/problems/first-bad-version/"
 
 [[entries]]
-title = "H-Index II"
-url = "https://leetcode.com/problems/h-index-ii/"
+title = "Peak Index in a Mountain Array"
+url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
 
 [[entries]]
 title = "Guess Number Higher or Lower"
 url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
 
 [[entries]]
-title = "Remove Nodes From Linked List"
-url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
+title = "Furthest Building You Can Reach"
+url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
 
 [[entries]]
-title = "Remove Zero Sum Consecutive Nodes from Linked List"
-url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+title = "Identify the Largest Outlier in an Array"
+url = "https://leetcode.com/problems/identify-the-largest-outlier-in-an-array/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Implement Trie II (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
 
 [[entries]]
-title = "Reverse Nodes in Even Length Groups"
-url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
+title = "Lexicographically Smallest String After Substring Operation"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-substring-operation/"
 
 [[entries]]
-title = "Split Linked List in Parts"
-url = "https://leetcode.com/problems/split-linked-list-in-parts/"
+title = "Mark Elements on Array by Performing Queries"
+url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Maximum XOR for Each Query"
+url = "https://leetcode.com/problems/maximum-xor-for-each-query/"
 
 [[entries]]
-title = "Inorder Successor in BST"
-url = "https://leetcode.com/problems/inorder-successor-in-bst/"
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Create Sorted Array through Instructions"
+url = "https://leetcode.com/problems/create-sorted-array-through-instructions/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Path Sum II"
+url = "https://leetcode.com/problems/path-sum-ii/"
 
 [[entries]]
-title = "Insert into a Binary Search Tree"
-url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
+title = "Minimize Length of Array Using Operations"
+url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
 
 [[entries]]
-title = "Lowest Common Ancestor of Deepest Leaves"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
+title = "Minimum Add to Make Parentheses Valid"
+url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"

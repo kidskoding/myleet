@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "arrays, trees, intervals, hashing, oop design"
 review_modules = ["01_arrays_and_hashing", "07_trees", "11_dp", "13_intervals", "16_math_geometry"]
 
+
 [[entries]]
 title = "Intersection of Two Arrays"
 url = "https://leetcode.com/problems/intersection-of-two-arrays/"
@@ -12,20 +13,20 @@ title = "Sort an Array"
 url = "https://leetcode.com/problems/sort-an-array/"
 
 [[entries]]
-title = "Range Sum Query 2D - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+title = "Maximum Distance in Arrays"
+url = "https://leetcode.com/problems/maximum-distance-in-arrays/"
 
 [[entries]]
 title = "Binary Tree Inorder Traversal"
 url = "https://leetcode.com/problems/binary-tree-inorder-traversal/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Minimum Cost to Equalize Arrays Using Swaps"
+url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
 
 [[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
+title = "Rectangle Area"
+url = "https://leetcode.com/problems/rectangle-area/"
 
 [[entries]]
 title = "Transform Binary String Using Subsequence Sort"
@@ -40,8 +41,8 @@ title = "Maximum Subtree of the Same Color"
 url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
+title = "Reverse Nodes in Even Length Groups"
+url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
 
 [[entries]]
 title = "Lowest Common Ancestor of a Binary Search Tree"
@@ -52,36 +53,36 @@ title = "Merge Sorted Array"
 url = "https://leetcode.com/problems/merge-sorted-array/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Inorder Successor in BST"
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
 
 [[entries]]
 title = "Maximum Profit From Trading Stocks"
 url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Rotate List"
+url = "https://leetcode.com/problems/rotate-list/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
+title = "Minimum Equal Sum of Two Arrays After Replacing Zeros"
+url = "https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Count Integers in Intervals"
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Equal Sum Arrays With Minimum Number of Operations"
+url = "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/"
 
 [[entries]]
 title = "Diameter of Binary Tree"
@@ -92,36 +93,36 @@ title = "Design Tic-Tac-Toe"
 url = "https://leetcode.com/problems/design-tic-tac-toe/"
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
+title = "Remove Duplicates from Sorted Array II"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Move Pieces to Obtain a String"
+url = "https://leetcode.com/problems/move-pieces-to-obtain-a-string/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "People Whose List of Favorite Companies Is Not a Subset of Another List"
+url = "https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Report Spam Message"
+url = "https://leetcode.com/problems/report-spam-message/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Restore the Array From Adjacent Pairs"
+url = "https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/"
 
 [[entries]]
 title = "Convert Sorted Array to Binary Search Tree"
 url = "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
 
 [[entries]]
 title = "Binary Tree Maximum Path Sum"
@@ -132,40 +133,40 @@ title = "Symmetric Tree"
 url = "https://leetcode.com/problems/symmetric-tree/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Trim a Binary Search Tree"
+url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Synonymous Sentences"
+url = "https://leetcode.com/problems/synonymous-sentences/"
 
 [[entries]]
 title = "Balanced Binary Tree"
 url = "https://leetcode.com/problems/balanced-binary-tree/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Add Bold Tag in String"
+url = "https://leetcode.com/problems/add-bold-tag-in-string/"
 
 [[entries]]
 title = "Subtree of Another Tree"
 url = "https://leetcode.com/problems/subtree-of-another-tree/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Subarray of 1's After Deleting One Element"
+url = "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Analyze User Website Visit Pattern"
+url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
 
 [[entries]]
 title = "Search in a Binary Search Tree"
 url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
 
 [[entries]]
 title = "Vertical Order Traversal of a Binary Tree"
@@ -176,9 +177,9 @@ title = "Range Sum of BST"
 url = "https://leetcode.com/problems/range-sum-of-bst/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"

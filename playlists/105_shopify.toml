@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "practical commerce-flavored problems: greedy allocation, frequency counting, binary search on capacity, prefix-sum bookings, and small design classes."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "08_heaps", "12_greedy_algorithms", "14_tries"]
 
+
 [[entries]]
 title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
@@ -12,16 +13,16 @@ title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Maximum Size Subarray Sum Equals k"
+url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 
 [[entries]]
 title = "LFU Cache"
 url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Number of Ways to Split Array"
+url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
 
 [[entries]]
 title = "Least Number of Unique Integers after K Removals"
@@ -52,8 +53,8 @@ title = "Successful Pairs of Spells and Potions"
 url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
 
 [[entries]]
 title = "Capacity To Ship Packages Within D Days"
@@ -164,20 +165,20 @@ title = "Encode and Decode TinyURL"
 url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
 title = "Implement Stack using Queues"
 url = "https://leetcode.com/problems/implement-stack-using-queues/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Binary Subarrays With Sum"
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
 
 [[entries]]
 title = "Kth Smallest Number in Multiplication Table"

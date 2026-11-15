@@ -3,117 +3,118 @@ group = "AI & Startups"
 focus = "grid and graph pathfinding, delivery scheduling and intervals, heaps for dispatch, geometry and distance, binary search on capacity, and robot/vehicle simulation."
 review_modules = ["05_binary_search", "08_heaps", "10_graphs", "13_intervals", "16_math_geometry"]
 
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Maximum Area of Two Non-Overlapping Square Submatrices"
+url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
 
 [[entries]]
-title = "Path With Minimum Effort"
-url = "https://leetcode.com/problems/path-with-minimum-effort/"
+title = "Maximum Number of Alloys"
+url = "https://leetcode.com/problems/maximum-number-of-alloys/"
 
 [[entries]]
-title = "Swim in Rising Water"
-url = "https://leetcode.com/problems/swim-in-rising-water/"
+title = "Maximum Side Length of a Square with Sum Less than or Equal to Threshold"
+url = "https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "Smallest Substring With Identical Characters II"
+url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Minimum Limit of Balls in a Bag"
+url = "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/"
 
 [[entries]]
-title = "The Maze"
-url = "https://leetcode.com/problems/the-maze/"
+title = "Minimum Moves to Spread Stones Over Grid"
+url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
 
 [[entries]]
-title = "The Maze II"
-url = "https://leetcode.com/problems/the-maze-ii/"
+title = "Minimum Operations to Make All Array Elements Equal"
+url = "https://leetcode.com/problems/minimum-operations-to-make-all-array-elements-equal/"
 
 [[entries]]
-title = "Minimum Cost to Make at Least One Valid Path in a Grid"
-url = "https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/"
+title = "Minimum Sum of Squared Difference"
+url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
 
 [[entries]]
-title = "Walls and Gates"
-url = "https://leetcode.com/problems/walls-and-gates/"
+title = "Minimum Moves to Reach Target with Rotations"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
 
 [[entries]]
-title = "01 Matrix"
-url = "https://leetcode.com/problems/01-matrix/"
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
 
 [[entries]]
-title = "Pacific Atlantic Water Flow"
-url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+title = "Trim a Binary Search Tree"
+url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
+
+[[entries]]
+title = "Two Best Non-Overlapping Events"
+url = "https://leetcode.com/problems/two-best-non-overlapping-events/"
 
 [[entries]]
 title = "Robot Room Cleaner"
 url = "https://leetcode.com/problems/robot-room-cleaner/"
 
 [[entries]]
-title = "Surrounded Regions"
-url = "https://leetcode.com/problems/surrounded-regions/"
+title = "Ugly Number III"
+url = "https://leetcode.com/problems/ugly-number-iii/"
 
 [[entries]]
-title = "Shortest Bridge"
-url = "https://leetcode.com/problems/shortest-bridge/"
+title = "Unique Binary Search Trees"
+url = "https://leetcode.com/problems/unique-binary-search-trees/"
 
 [[entries]]
 title = "Assign Cookies"
 url = "https://leetcode.com/problems/assign-cookies/"
 
 [[entries]]
-title = "Minimum Knight Moves"
-url = "https://leetcode.com/problems/minimum-knight-moves/"
+title = "Check if There is a Valid Path in a Grid"
+url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
 
 [[entries]]
-title = "Walking Robot Simulation"
-url = "https://leetcode.com/problems/walking-robot-simulation/"
+title = "Minimum Operations to Write the Letter Y on a Grid"
+url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
 
 [[entries]]
-title = "IPO"
-url = "https://leetcode.com/problems/ipo/"
+title = "Divide Chocolate"
+url = "https://leetcode.com/problems/divide-chocolate/"
 
 [[entries]]
-title = "Eliminate Maximum Number of Monsters"
-url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
+title = "Two City Scheduling"
+url = "https://leetcode.com/problems/two-city-scheduling/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Lowest Common Ancestor of a Binary Search Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
 
 [[entries]]
 title = "Lemonade Change"
 url = "https://leetcode.com/problems/lemonade-change/"
 
 [[entries]]
-title = "Car Fleet"
-url = "https://leetcode.com/problems/car-fleet/"
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
 
 [[entries]]
 title = "Best Position for a Service Centre"
 url = "https://leetcode.com/problems/best-position-for-a-service-centre/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Minimum Operations to Make Binary Array Elements Equal to One II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/"
 
 [[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
+title = "Ways to Split Array Into Three Subarrays"
+url = "https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Campus Bikes"
+url = "https://leetcode.com/problems/campus-bikes/"
 
 [[entries]]
 title = "Optimize Water Distribution in a Village"
@@ -128,64 +129,64 @@ title = "Can Place Flowers"
 url = "https://leetcode.com/problems/can-place-flowers/"
 
 [[entries]]
-title = "Find K Pairs with Smallest Sums"
-url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+title = "Filter Restaurants by Vegan-Friendly, Price and Distance"
+url = "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Maximum Binary Tree"
+url = "https://leetcode.com/problems/maximum-binary-tree/"
 
 [[entries]]
 title = "Split Array Largest Sum"
 url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
-title = "Min Cost to Connect All Points"
-url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+title = "Number of Restricted Paths From First to Last Node"
+url = "https://leetcode.com/problems/number-of-restricted-paths-from-first-to-last-node/"
 
 [[entries]]
-title = "Connecting Cities With Minimum Cost"
-url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
+title = "Find the Closest Marked Node"
+url = "https://leetcode.com/problems/find-the-closest-marked-node/"
 
 [[entries]]
-title = "Capacity To Ship Packages Within D Days"
-url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
 
 [[entries]]
-title = "Minimum Cost to Hire K Workers"
-url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
+title = "Find Products of Elements of Big Array"
+url = "https://leetcode.com/problems/find-products-of-elements-of-big-array/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Push Dominoes"
+url = "https://leetcode.com/problems/push-dominoes/"
 
 [[entries]]
-title = "Minimum Number of Days to Make m Bouquets"
-url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
+title = "Queries on Number of Points Inside a Circle"
+url = "https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle/"
 
 [[entries]]
 title = "Arranging Coins"
 url = "https://leetcode.com/problems/arranging-coins/"
 
 [[entries]]
-title = "Heaters"
-url = "https://leetcode.com/problems/heaters/"
+title = "Closest Equal Element Queries"
+url = "https://leetcode.com/problems/closest-equal-element-queries/"
 
 [[entries]]
-title = "Magnetic Force Between Two Balls"
-url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+title = "Total Hamming Distance"
+url = "https://leetcode.com/problems/total-hamming-distance/"
 
 [[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+title = "Second Minimum Time to Reach Destination"
+url = "https://leetcode.com/problems/second-minimum-time-to-reach-destination/"
 
 [[entries]]
 title = "Minimum Time to Complete Trips"
 url = "https://leetcode.com/problems/minimum-time-to-complete-trips/"
 
 [[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+title = "Binary Tree Pruning"
+url = "https://leetcode.com/problems/binary-tree-pruning/"
 
 [[entries]]
 title = "Maximum Units on a Truck"

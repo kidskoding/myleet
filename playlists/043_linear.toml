@@ -3,85 +3,86 @@ group = "AI & Startups"
 focus = "practical data structures, dependency graphs, editors, diffs, search"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "10_graphs", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Minimum Sum of Squared Difference"
+url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Search in a Sorted Array of Unknown Size"
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
 
 [[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
+title = "Find the Safest Path in a Grid"
+url = "https://leetcode.com/problems/find-the-safest-path-in-a-grid/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Maximize Amount After Two Days of Conversions"
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
 
 [[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+title = "Minimum Knight Moves"
+url = "https://leetcode.com/problems/minimum-knight-moves/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Maximum Number of Upgradable Servers"
+url = "https://leetcode.com/problems/maximum-number-of-upgradable-servers/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Minimize Maximum Component Cost"
+url = "https://leetcode.com/problems/minimize-maximum-component-cost/"
+
+[[entries]]
+title = "Minimum Cost Path with Edge Reversals"
+url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
 
 [[entries]]
 title = "Sort Items by Groups Respecting Dependencies"
 url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Number of Operations to Make Network Connected"
+url = "https://leetcode.com/problems/number-of-operations-to-make-network-connected/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Path Sum IV"
+url = "https://leetcode.com/problems/path-sum-iv/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Max Sum of Rectangle No Larger Than K"
+url = "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/"
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Camelcase Matching"
+url = "https://leetcode.com/problems/camelcase-matching/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Extra Characters in a String"
+url = "https://leetcode.com/problems/extra-characters-in-a-string/"
 
 [[entries]]
 title = "Valid Parentheses"
 url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Design Snake Game"
+url = "https://leetcode.com/problems/design-snake-game/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Design SQL"
+url = "https://leetcode.com/problems/design-sql/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Prefix and Suffix Search"
+url = "https://leetcode.com/problems/prefix-and-suffix-search/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
 title = "Longest Common Subsequence"
@@ -92,93 +93,93 @@ title = "Delete Operation for Two Strings"
 url = "https://leetcode.com/problems/delete-operation-for-two-strings/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Read N Characters Given read4 II - Call Multiple Times"
+url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Two Best Non-Overlapping Events"
+url = "https://leetcode.com/problems/two-best-non-overlapping-events/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Design Task Manager"
+url = "https://leetcode.com/problems/design-task-manager/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Maximum Swap"
+url = "https://leetcode.com/problems/maximum-swap/"
 
 [[entries]]
-title = "Design Twitter"
-url = "https://leetcode.com/problems/design-twitter/"
+title = "Ugly Number III"
+url = "https://leetcode.com/problems/ugly-number-iii/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Last Day Where You Can Still Cross"
+url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
 
 [[entries]]
-title = "Design A Leaderboard"
-url = "https://leetcode.com/problems/design-a-leaderboard/"
+title = "Exam Room"
+url = "https://leetcode.com/problems/exam-room/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Unique Binary Search Trees"
+url = "https://leetcode.com/problems/unique-binary-search-trees/"
 
 [[entries]]
 title = "Mini Parser"
 url = "https://leetcode.com/problems/mini-parser/"
 
 [[entries]]
-title = "Read N Characters Given Read4"
-url = "https://leetcode.com/problems/read-n-characters-given-read4/"
+title = "Seat Reservation Manager"
+url = "https://leetcode.com/problems/seat-reservation-manager/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Verify Preorder Sequence in Binary Search Tree"
+url = "https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Last Substring in Lexicographical Order"
+url = "https://leetcode.com/problems/last-substring-in-lexicographical-order/"
 
 [[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+title = "Binary Search Tree to Greater Sum Tree"
+url = "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Brace Expansion"
+url = "https://leetcode.com/problems/brace-expansion/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Coloring A Border"
+url = "https://leetcode.com/problems/coloring-a-border/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Course Schedule III"
+url = "https://leetcode.com/problems/course-schedule-iii/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Construct Binary Search Tree from Preorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
 
 [[entries]]
 title = "Binary Tree Right Side View"
 url = "https://leetcode.com/problems/binary-tree-right-side-view/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+title = "Convert Binary Search Tree to Sorted Doubly Linked List"
+url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Escape the Spreading Fire"
+url = "https://leetcode.com/problems/escape-the-spreading-fire/"

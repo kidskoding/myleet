@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "Marketplace-style problems with hash maps, heaps, sliding window, tree traversal and basic dynamic programming."
 review_modules = ["01_arrays_and_hashing", "08_heaps", "07_trees", "10_graphs", "11_dp", "05_binary_search"]
 
+
 [[entries]]
 title = "Maximum Increasing Triplet Value"
 url = "https://leetcode.com/problems/maximum-increasing-triplet-value/"
@@ -16,8 +17,8 @@ title = "Count the Number of Houses at a Certain Distance II"
 url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/"
 
 [[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+title = "Minimum Cost For Tickets"
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
 
 [[entries]]
 title = "Find the Winner of an Array Game"
@@ -40,8 +41,8 @@ title = "Building Boxes"
 url = "https://leetcode.com/problems/building-boxes/"
 
 [[entries]]
-title = "Search in a Sorted Array of Unknown Size"
-url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+title = "Search in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
 
 [[entries]]
 title = "Validate Binary Tree Nodes"
@@ -72,8 +73,8 @@ title = "Make the Prefix Sum Non-negative"
 url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
-title = "Count Ways to Build Rooms in an Ant Colony"
-url = "https://leetcode.com/problems/count-ways-to-build-rooms-in-an-ant-colony/"
+title = "Longest Path With Different Adjacent Characters"
+url = "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/"
 
 [[entries]]
 title = "Largest Number"
@@ -104,28 +105,28 @@ title = "Convert to Base -2"
 url = "https://leetcode.com/problems/convert-to-base-2/"
 
 [[entries]]
-title = "Count Square Submatrices with All Ones"
-url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
+title = "Minimum Cost to Make All Characters Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/"
 
 [[entries]]
 title = "Minimum Initial Energy to Finish Tasks"
 url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
 
 [[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
+title = "Minimum Number of Lines to Cover Points"
+url = "https://leetcode.com/problems/minimum-number-of-lines-to-cover-points/"
 
 [[entries]]
-title = "Minimum Falling Path Sum"
-url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+title = "Minimum Operations to Reduce an Integer to 0"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
 
 [[entries]]
 title = "Number of Different Subsequences GCDs"
 url = "https://leetcode.com/problems/number-of-different-subsequences-gcds/"
 
 [[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
+title = "Minimum Score Triangulation of Polygon"
+url = "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/"
 
 [[entries]]
 title = "Factor Combinations"
@@ -144,5 +145,5 @@ title = "Can I Win"
 url = "https://leetcode.com/problems/can-i-win/"
 
 [[entries]]
-title = "Burst Balloons"
-url = "https://leetcode.com/problems/burst-balloons/"
+title = "Maximum Vacation Days"
+url = "https://leetcode.com/problems/maximum-vacation-days/"

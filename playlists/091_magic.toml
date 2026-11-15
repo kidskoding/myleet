@@ -3,182 +3,183 @@ group = "AI & Startups"
 focus = "long strings and rolling hashes, sliding windows, code parsing, tries, dependency graphs, caches, and heaps"
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "08_heaps", "17_advanced", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
+title = "Maximum Number of Vowels in a Substring of Given Length"
+url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
 
 [[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Number of Substrings Containing All Three Characters"
+url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
+
+[[entries]]
+title = "Parsing A Boolean Expression"
+url = "https://leetcode.com/problems/parsing-a-boolean-expression/"
 
 [[entries]]
 title = "Repeated DNA Sequences"
 url = "https://leetcode.com/problems/repeated-dna-sequences/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Largest Magic Square"
+url = "https://leetcode.com/problems/largest-magic-square/"
 
 [[entries]]
 title = "Find the Index of the First Occurrence in a String"
 url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Count Ways To Build Good Strings"
+url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Equalize Strings by Adding or Removing Characters at Ends"
+url = "https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "The Maze III"
+url = "https://leetcode.com/problems/the-maze-iii/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Expressive Words"
+url = "https://leetcode.com/problems/expressive-words/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Find the Winner of an Array Game"
+url = "https://leetcode.com/problems/find-the-winner-of-an-array-game/"
 
 [[entries]]
-title = "Substring with Concatenation of All Words"
-url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+title = "Distinct Echo Substrings"
+url = "https://leetcode.com/problems/distinct-echo-substrings/"
 
 [[entries]]
-title = "Longest Absolute File Path"
-url = "https://leetcode.com/problems/longest-absolute-file-path/"
+title = "Increment Submatrices by One"
+url = "https://leetcode.com/problems/increment-submatrices-by-one/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Length of the Longest Alphabetical Continuous Substring"
+url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
 
 [[entries]]
 title = "Longest Common Prefix"
 url = "https://leetcode.com/problems/longest-common-prefix/"
 
 [[entries]]
-title = "Remove Comments"
-url = "https://leetcode.com/problems/remove-comments/"
+title = "Minimize Result by Adding Parentheses to Expression"
+url = "https://leetcode.com/problems/minimize-result-by-adding-parentheses-to-expression/"
 
 [[entries]]
-title = "Mini Parser"
-url = "https://leetcode.com/problems/mini-parser/"
+title = "Minimum Length of String After Deleting Similar Ends"
+url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
 
 [[entries]]
-title = "Longest Duplicate Substring"
-url = "https://leetcode.com/problems/longest-duplicate-substring/"
+title = "Groups of Strings"
+url = "https://leetcode.com/problems/groups-of-strings/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Minimum Levels to Gain More Points"
+url = "https://leetcode.com/problems/minimum-levels-to-gain-more-points/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Minimum Penalty for a Shop"
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Minimum Time to Visit All Houses"
+url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
 
 [[entries]]
 title = "Shortest Palindrome"
 url = "https://leetcode.com/problems/shortest-palindrome/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Most Popular Video Creator"
+url = "https://leetcode.com/problems/most-popular-video-creator/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Next Greater Element III"
+url = "https://leetcode.com/problems/next-greater-element-iii/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Non-decreasing Array"
+url = "https://leetcode.com/problems/non-decreasing-array/"
 
 [[entries]]
-title = "Find Eventual Safe States"
-url = "https://leetcode.com/problems/find-eventual-safe-states/"
+title = "Number of Adjacent Elements With the Same Color"
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Number of Distinct Substrings in a String"
+url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "Maximum Number of Visible Points"
+url = "https://leetcode.com/problems/maximum-number-of-visible-points/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Number of Good Binary Strings"
+url = "https://leetcode.com/problems/number-of-good-binary-strings/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Number of Subarrays That Match a Pattern I"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "One Edit Distance"
+url = "https://leetcode.com/problems/one-edit-distance/"
 
 [[entries]]
 title = "Repeated Substring Pattern"
 url = "https://leetcode.com/problems/repeated-substring-pattern/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Query Kth Smallest Trimmed Number"
+url = "https://leetcode.com/problems/query-kth-smallest-trimmed-number/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Minimum Number of Flips to Convert Binary Matrix to Zero Matrix"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Removing Minimum Number of Magic Beans"
+url = "https://leetcode.com/problems/removing-minimum-number-of-magic-beans/"
 
 [[entries]]
-title = "Range Sum Query - Mutable"
-url = "https://leetcode.com/problems/range-sum-query-mutable/"
+title = "Construct Quad Tree"
+url = "https://leetcode.com/problems/construct-quad-tree/"
 
 [[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Shortest Word Distance III"
+url = "https://leetcode.com/problems/shortest-word-distance-iii/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Minimum One Bit Operations to Make Integers Zero"
+url = "https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/"
 
 [[entries]]
-title = "Sparse Matrix Multiplication"
-url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
+title = "Most Frequent IDs"
+url = "https://leetcode.com/problems/most-frequent-ids/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Split Concatenated Strings"
+url = "https://leetcode.com/problems/split-concatenated-strings/"
 
 [[entries]]
 title = "String Matching in an Array"
 url = "https://leetcode.com/problems/string-matching-in-an-array/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Sum of Even Numbers After Queries"
+url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
 
 [[entries]]
-title = "Binary Subarrays With Sum"
-url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
+title = "Count Number of Nice Subarrays"
+url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Minimum Runes to Add to Cast Spell"
+url = "https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell/"

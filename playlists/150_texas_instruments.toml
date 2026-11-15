@@ -3,182 +3,183 @@ group = "Consumer and Business Tech"
 focus = "embedded C, bit manipulation, integer math, linked lists, DP, and arrays/strings."
 review_modules = ["03_stacks_and_queues", "06_linked_lists", "11_dp", "15_bit_manipulation", "16_math_geometry"]
 
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
+title = "Count Lattice Points Inside a Circle"
+url = "https://leetcode.com/problems/count-lattice-points-inside-a-circle/"
 
 [[entries]]
-title = "Pow(x, n)"
-url = "https://leetcode.com/problems/powx-n/"
+title = "IP to CIDR"
+url = "https://leetcode.com/problems/ip-to-cidr/"
 
 [[entries]]
-title = "Substring with Concatenation of All Words"
-url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+title = "Merge In Between Linked Lists"
+url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
 
 [[entries]]
-title = "Jump Game II"
-url = "https://leetcode.com/problems/jump-game-ii/"
+title = "Groups of Strings"
+url = "https://leetcode.com/problems/groups-of-strings/"
+
+[[entries]]
+title = "Minimum Cost to Connect Sticks"
+url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
 
 [[entries]]
 title = "Delete Node in a Linked List"
 url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
 
 [[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
+title = "Gray Code"
+url = "https://leetcode.com/problems/gray-code/"
 
 [[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
+title = "Nested List Weight Sum"
+url = "https://leetcode.com/problems/nested-list-weight-sum/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Nested List Weight Sum II"
+url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Number of Music Playlists"
+url = "https://leetcode.com/problems/number-of-music-playlists/"
 
 [[entries]]
-title = "Sum of Two Integers"
-url = "https://leetcode.com/problems/sum-of-two-integers/"
+title = "Number of Nodes in the Sub-Tree With the Same Label"
+url = "https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/"
 
 [[entries]]
-title = "Bitwise AND of Numbers Range"
-url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
+title = "Number of Orders in the Backlog"
+url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
 
 [[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
+title = "Number Of Ways To Reconstruct A Tree"
+url = "https://leetcode.com/problems/number-of-ways-to-reconstruct-a-tree/"
 
 [[entries]]
-title = "UTF-8 Validation"
-url = "https://leetcode.com/problems/utf-8-validation/"
+title = "Number of Subarrays That Match a Pattern I"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Pour Water"
+url = "https://leetcode.com/problems/pour-water/"
 
 [[entries]]
-title = "Reverse Bits"
-url = "https://leetcode.com/problems/reverse-bits/"
+title = "Print Binary Tree"
+url = "https://leetcode.com/problems/print-binary-tree/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Remove Comments"
+url = "https://leetcode.com/problems/remove-comments/"
 
 [[entries]]
-title = "Divide Two Integers"
-url = "https://leetcode.com/problems/divide-two-integers/"
+title = "Pythagorean Distance Nodes in a Tree"
+url = "https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree/"
 
 [[entries]]
-title = "Maximal Rectangle"
-url = "https://leetcode.com/problems/maximal-rectangle/"
+title = "Serialize and Deserialize N-ary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree/"
 
 [[entries]]
-title = "Remove Nth Node From End of List"
-url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+title = "Maximum Twin Sum of a Linked List"
+url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Longest Nice Subarray"
+url = "https://leetcode.com/problems/longest-nice-subarray/"
 
 [[entries]]
-title = "Partition Equal Subset Sum"
-url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"
 
 [[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
+title = "Check If It Is a Good Array"
+url = "https://leetcode.com/problems/check-if-it-is-a-good-array/"
 
 [[entries]]
 title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
 
 [[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
+title = "Shortest Word Distance III"
+url = "https://leetcode.com/problems/shortest-word-distance-iii/"
 
 [[entries]]
 title = "Power of Two"
 url = "https://leetcode.com/problems/power-of-two/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Smallest Common Region"
+url = "https://leetcode.com/problems/smallest-common-region/"
 
 [[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
+title = "Smallest Subtree with all the Deepest Nodes"
+url = "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/"
 
 [[entries]]
-title = "Burst Balloons"
-url = "https://leetcode.com/problems/burst-balloons/"
+title = "Closest Binary Search Tree Value II"
+url = "https://leetcode.com/problems/closest-binary-search-tree-value-ii/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Spiral Matrix IV"
+url = "https://leetcode.com/problems/spiral-matrix-iv/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Sum of Even Numbers After Queries"
+url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Swap Adjacent in LR String"
+url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
 
 [[entries]]
-title = "Single Number"
-url = "https://leetcode.com/problems/single-number/"
+title = "Validate Binary Tree Nodes"
+url = "https://leetcode.com/problems/validate-binary-tree-nodes/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Amount of Time for Binary Tree to Be Infected"
+url = "https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/"
 
 [[entries]]
-title = "Regular Expression Matching"
-url = "https://leetcode.com/problems/regular-expression-matching/"
+title = "Collect Coins in a Tree"
+url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Search in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Count Complete Tree Nodes"
+url = "https://leetcode.com/problems/count-complete-tree-nodes/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Apply Operations to Make All Array Elements Equal to Zero"
+url = "https://leetcode.com/problems/apply-operations-to-make-all-array-elements-equal-to-zero/"
 
 [[entries]]
-title = "Wildcard Matching"
-url = "https://leetcode.com/problems/wildcard-matching/"
+title = "Count Increasing Quadruplets"
+url = "https://leetcode.com/problems/count-increasing-quadruplets/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Array Nesting"
+url = "https://leetcode.com/problems/array-nesting/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Array With Elements Not Equal to Average of Neighbors"
+url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
 
 [[entries]]
 title = "Counting Bits"
 url = "https://leetcode.com/problems/counting-bits/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Average Waiting Time"
+url = "https://leetcode.com/problems/average-waiting-time/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Binary Tree Upside Down"
+url = "https://leetcode.com/problems/binary-tree-upside-down/"
 
 [[entries]]
-title = "Palindrome Partitioning II"
-url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+title = "Count Paths That Can Form a Palindrome in a Tree"
+url = "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/"

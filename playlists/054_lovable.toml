@@ -3,9 +3,10 @@ group = "AI & Startups"
 focus = "Tree and nested-structure traversal, stack-based parsing, backtracking, and tries for editor-style features."
 review_modules = ["07_trees", "03_stacks_and_queues", "09_backtracking", "01_arrays_and_hashing", "14_tries", "10_graphs"]
 
+
 [[entries]]
-title = "Brick Wall"
-url = "https://leetcode.com/problems/brick-wall/"
+title = "Construct Binary Tree from Inorder and Postorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/"
 
 [[entries]]
 title = "Increment Submatrices by One"
@@ -20,8 +21,8 @@ title = "Number of Valid Move Combinations On Chessboard"
 url = "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
 
 [[entries]]
 title = "Reverse Vowels of a String"
@@ -32,8 +33,8 @@ title = "Find Longest Special Substring That Occurs Thrice II"
 url = "https://leetcode.com/problems/find-longest-special-substring-that-occurs-thrice-ii/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+title = "Construct Binary Tree from Preorder and Postorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/"
 
 [[entries]]
 title = "Maximum Frequency Score of a Subarray"
@@ -68,8 +69,8 @@ title = "Number of Self-Divisible Permutations"
 url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
 [[entries]]
-title = "Minimum Number of Vertices to Reach All Nodes"
-url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
+title = "Construct Binary Tree from String"
+url = "https://leetcode.com/problems/construct-binary-tree-from-string/"
 
 [[entries]]
 title = "Count Lattice Points Inside a Circle"
@@ -80,24 +81,24 @@ title = "Valid Palindrome III"
 url = "https://leetcode.com/problems/valid-palindrome-iii/"
 
 [[entries]]
-title = "Possible Bipartition"
-url = "https://leetcode.com/problems/possible-bipartition/"
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
 
 [[entries]]
 title = "Design Phone Directory"
 url = "https://leetcode.com/problems/design-phone-directory/"
 
 [[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
+title = "Verify Preorder Sequence in Binary Search Tree"
+url = "https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/"
 
 [[entries]]
 title = "Design Event Manager"
 url = "https://leetcode.com/problems/design-event-manager/"
 
 [[entries]]
-title = "Kth Ancestor of a Tree Node"
-url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"
 
 [[entries]]
 title = "Matchsticks to Square"
@@ -108,12 +109,12 @@ title = "Apply Discount Every n Orders"
 url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
 
 [[entries]]
-title = "Camelcase Matching"
-url = "https://leetcode.com/problems/camelcase-matching/"
+title = "Number of Matching Subsequences"
+url = "https://leetcode.com/problems/number-of-matching-subsequences/"
 
 [[entries]]
-title = "Prefix and Suffix Search"
-url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+title = "Word Squares"
+url = "https://leetcode.com/problems/word-squares/"
 
 [[entries]]
 title = "Flip String to Monotone Increasing"

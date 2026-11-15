@@ -3,13 +3,14 @@ group = "AI & Startups"
 focus = "graphs and topological order, heaps and scheduling, timestamped data structures, intervals, and stream processing."
 review_modules = ["08_heaps", "10_graphs", "13_intervals", "17_advanced", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Minimum Processing Time"
+url = "https://leetcode.com/problems/minimum-processing-time/"
+
+[[entries]]
+title = "Reorder Data in Log Files"
+url = "https://leetcode.com/problems/reorder-data-in-log-files/"
 
 [[entries]]
 title = "Split Linked List in Parts"
@@ -20,165 +21,165 @@ title = "Redundant Connection II"
 url = "https://leetcode.com/problems/redundant-connection-ii/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Smallest Greater Multiple Made of Two Digits"
+url = "https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits/"
 
 [[entries]]
-title = "Redundant Connection"
-url = "https://leetcode.com/problems/redundant-connection/"
+title = "Sort the Matrix Diagonally"
+url = "https://leetcode.com/problems/sort-the-matrix-diagonally/"
 
 [[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+title = "Spiral Matrix IV"
+url = "https://leetcode.com/problems/spiral-matrix-iv/"
 
 [[entries]]
-title = "Find Eventual Safe States"
-url = "https://leetcode.com/problems/find-eventual-safe-states/"
+title = "Best Team With No Conflicts"
+url = "https://leetcode.com/problems/best-team-with-no-conflicts/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Better Compression of String"
+url = "https://leetcode.com/problems/better-compression-of-string/"
 
 [[entries]]
 title = "Parallel Courses III"
 url = "https://leetcode.com/problems/parallel-courses-iii/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Bitwise AND of Numbers Range"
+url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Boats to Save People"
+url = "https://leetcode.com/problems/boats-to-save-people/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Sort Items by Groups Respecting Dependencies"
+url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Campus Bikes II"
+url = "https://leetcode.com/problems/campus-bikes-ii/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Closest Equal Element Queries"
+url = "https://leetcode.com/problems/closest-equal-element-queries/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+title = "Count Days Without Meetings"
+url = "https://leetcode.com/problems/count-days-without-meetings/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Count Nodes Equal to Average of Subtree"
+url = "https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Count Number of Teams"
+url = "https://leetcode.com/problems/count-number-of-teams/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Minimum Initial Energy to Finish Tasks"
+url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Count Sorted Vowel Strings"
+url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Count the Number of Fair Pairs"
+url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Count the Number of Houses at a Certain Distance I"
+url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/"
 
 [[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
+title = "Minimum Interval to Include Each Query"
+url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
 
 [[entries]]
-title = "Partition to K Equal Sum Subsets"
-url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+title = "Letter Case Permutation"
+url = "https://leetcode.com/problems/letter-case-permutation/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Diameter of N-Ary Tree"
+url = "https://leetcode.com/problems/diameter-of-n-ary-tree/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Find Maximum Area of a Triangle"
+url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Find Maximum Value in a Constrained Sequence"
+url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Group the People Given the Group Size They Belong To"
+url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Distance to a Cycle in Undirected Graph"
+url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Largest Plus Sign"
+url = "https://leetcode.com/problems/largest-plus-sign/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Longest Palindrome by Concatenating Two Letter Words"
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Make the Prefix Sum Non-negative"
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
 title = "Meeting Rooms"
 url = "https://leetcode.com/problems/meeting-rooms/"
 
 [[entries]]
-title = "House Robber III"
-url = "https://leetcode.com/problems/house-robber-iii/"
+title = "Maximize Greatness of an Array"
+url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Earliest Possible Day of Full Bloom"
+url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
 
 [[entries]]
-title = "Time Needed to Inform All Employees"
-url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
-title = "Course Schedule IV"
-url = "https://leetcode.com/problems/course-schedule-iv/"
+title = "Maximize the Topmost Element After K Moves"
+url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
 
 [[entries]]
-title = "Jump Game VI"
-url = "https://leetcode.com/problems/jump-game-vi/"
+title = "Maximum Median Sum of Subsequences of Size 3"
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Maximum Employees to Be Invited to a Meeting"
+url = "https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting/"
 
 [[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
+title = "Maximum Number of Eaten Apples"
+url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
 
 [[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+title = "Maximum Number of Integers to Choose From a Range I"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
 
 [[entries]]
 title = "Maximum Population Year"
 url = "https://leetcode.com/problems/maximum-population-year/"
 
 [[entries]]
-title = "Minimum Height Trees"
-url = "https://leetcode.com/problems/minimum-height-trees/"
+title = "Maximum OR"
+url = "https://leetcode.com/problems/maximum-or/"
 
 [[entries]]
-title = "Divide Intervals Into Minimum Number of Groups"
-url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Maximum Number of Points From Grid Queries"
+url = "https://leetcode.com/problems/maximum-number-of-points-from-grid-queries/"

@@ -3,13 +3,14 @@ group = "Consumer and Business Tech"
 focus = "graphs and grid bfs/dfs, dynamic programming, backtracking, arrays and two pointers, and caches"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "09_backtracking", "10_graphs"]
 
+
 [[entries]]
 title = "Combinations"
 url = "https://leetcode.com/problems/combinations/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Champagne Tower"
+url = "https://leetcode.com/problems/champagne-tower/"
 
 [[entries]]
 title = "Minimum Cost of a Path With Special Roads"
@@ -56,20 +57,20 @@ title = "Design Graph With Shortest Path Calculator"
 url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"
 
 [[entries]]
-title = "Is Graph Bipartite?"
-url = "https://leetcode.com/problems/is-graph-bipartite/"
+title = "Count Number of Texts"
+url = "https://leetcode.com/problems/count-number-of-texts/"
 
 [[entries]]
-title = "Possible Bipartition"
-url = "https://leetcode.com/problems/possible-bipartition/"
+title = "Domino and Tromino Tiling"
+url = "https://leetcode.com/problems/domino-and-tromino-tiling/"
 
 [[entries]]
 title = "Find the Width of Columns of a Grid"
 url = "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Find All Good Indices"
+url = "https://leetcode.com/problems/find-all-good-indices/"
 
 [[entries]]
 title = "Check if There is a Valid Path in a Grid"
@@ -80,8 +81,8 @@ title = "Count Prefix and Suffix Pairs II"
 url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
 
 [[entries]]
-title = "Divide Two Integers"
-url = "https://leetcode.com/problems/divide-two-integers/"
+title = "Single Number III"
+url = "https://leetcode.com/problems/single-number-iii/"
 
 [[entries]]
 title = "Subarray Product Less Than K"
@@ -108,44 +109,44 @@ title = "Find Peak Element"
 url = "https://leetcode.com/problems/find-peak-element/"
 
 [[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
+title = "Find Minimum Cost to Remove Array Elements"
+url = "https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements/"
 
 [[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Find Palindrome With Fixed Length"
+url = "https://leetcode.com/problems/find-palindrome-with-fixed-length/"
 
 [[entries]]
 title = "Maximum Height by Stacking Cuboids"
 url = "https://leetcode.com/problems/maximum-height-by-stacking-cuboids/"
 
 [[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
+title = "Matchsticks to Square"
+url = "https://leetcode.com/problems/matchsticks-to-square/"
 
 [[entries]]
 title = "Is Subsequence"
 url = "https://leetcode.com/problems/is-subsequence/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Greatest Sum Divisible by Three"
+url = "https://leetcode.com/problems/greatest-sum-divisible-by-three/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Knight Dialer"
+url = "https://leetcode.com/problems/knight-dialer/"
 
 [[entries]]
-title = "Substring with Concatenation of All Words"
-url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+title = "Find the Sum of the Power of All Subsequences"
+url = "https://leetcode.com/problems/find-the-sum-of-the-power-of-all-subsequences/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Knight Probability in Chessboard"
+url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
 
 [[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
 
 [[entries]]
 title = "Jump Game II"
@@ -156,32 +157,32 @@ title = "Partition Array Into Two Arrays to Minimize Sum Difference"
 url = "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Longest Arithmetic Subsequence"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Partition Labels"
+url = "https://leetcode.com/problems/partition-labels/"
 
 [[entries]]
 title = "N-th Tribonacci Number"
 url = "https://leetcode.com/problems/n-th-tribonacci-number/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Longest Non-Decreasing Subarray After Replacing at Most One Element"
+url = "https://leetcode.com/problems/longest-non-decreasing-subarray-after-replacing-at-most-one-element/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Beautiful Arrangement"
+url = "https://leetcode.com/problems/beautiful-arrangement/"
 
 [[entries]]
 title = "Burst Balloons"
 url = "https://leetcode.com/problems/burst-balloons/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Maximize Total Tastiness of Purchased Fruits"
+url = "https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits/"
 
 [[entries]]
 title = "Sentence Screen Fitting"
@@ -200,5 +201,5 @@ title = "Sort Integers by The Power Value"
 url = "https://leetcode.com/problems/sort-integers-by-the-power-value/"
 
 [[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+title = "Make Array Non-decreasing or Non-increasing"
+url = "https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing/"

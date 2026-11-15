@@ -3,25 +3,26 @@ group = "Consumer and Business Tech"
 focus = "Bit manipulation, stack parsing, trie matching, graph traversal and hash map problems."
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "14_tries", "16_math_geometry"]
 
-[[entries]]
-title = "Minimum Length of String After Deleting Similar Ends"
-url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
 
 [[entries]]
-title = "Longest Arithmetic Sequence After Changing At Most One Element"
-url = "https://leetcode.com/problems/longest-arithmetic-sequence-after-changing-at-most-one-element/"
+title = "Unique Substrings With Equal Digit Frequency"
+url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
 
 [[entries]]
-title = "Shortest Word Distance III"
-url = "https://leetcode.com/problems/shortest-word-distance-iii/"
+title = "Smallest Subsequence of Distinct Characters"
+url = "https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/"
 
 [[entries]]
-title = "Time to Cross a Bridge"
-url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+title = "Beautiful Towers I"
+url = "https://leetcode.com/problems/beautiful-towers-i/"
 
 [[entries]]
-title = "Can I Win"
-url = "https://leetcode.com/problems/can-i-win/"
+title = "Count Prefix and Suffix Pairs II"
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-ii/"
+
+[[entries]]
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
 
 [[entries]]
 title = "Reshape the Matrix"
@@ -40,16 +41,16 @@ title = "Count Number of Trapezoids II"
 url = "https://leetcode.com/problems/count-number-of-trapezoids-ii/"
 
 [[entries]]
-title = "Sum of Subarray Minimums"
-url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
+title = "Equal Row and Column Pairs"
+url = "https://leetcode.com/problems/equal-row-and-column-pairs/"
 
 [[entries]]
-title = "Count Subarrays Where Max Element Appears at Least K Times"
-url = "https://leetcode.com/problems/count-subarrays-where-max-element-appears-at-least-k-times/"
+title = "Longest Absolute File Path"
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
-title = "Find Duplicate Subtrees"
-url = "https://leetcode.com/problems/find-duplicate-subtrees/"
+title = "Insert into a Sorted Circular Linked List"
+url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
 
 [[entries]]
 title = "Best Position for a Service Centre"
@@ -76,65 +77,65 @@ title = "Closest Prime Numbers in Range"
 url = "https://leetcode.com/problems/closest-prime-numbers-in-range/"
 
 [[entries]]
-title = "K-th Smallest in Lexicographical Order"
-url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
+title = "Recover a Tree From Preorder Traversal"
+url = "https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/"
 
 [[entries]]
-title = "Number of Matching Subsequences"
-url = "https://leetcode.com/problems/number-of-matching-subsequences/"
+title = "Longest Arithmetic Subsequence of Given Difference"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/"
 
 [[entries]]
-title = "Extra Characters in a String"
-url = "https://leetcode.com/problems/extra-characters-in-a-string/"
+title = "Max Number of K-Sum Pairs"
+url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
 
 [[entries]]
 title = "Evaluate Boolean Binary Tree"
 url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
 
 [[entries]]
-title = "Valid Square"
-url = "https://leetcode.com/problems/valid-square/"
+title = "Minimum Moves to Spread Stones Over Grid"
+url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
 
 [[entries]]
 title = "Self Crossing"
 url = "https://leetcode.com/problems/self-crossing/"
 
 [[entries]]
-title = "Ugly Number II"
-url = "https://leetcode.com/problems/ugly-number-ii/"
+title = "Subdomain Visit Count"
+url = "https://leetcode.com/problems/subdomain-visit-count/"
 
 [[entries]]
-title = "Fair Distribution of Cookies"
-url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
+title = "Design a Stack With Increment Operation"
+url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
 
 [[entries]]
-title = "Gray Code"
-url = "https://leetcode.com/problems/gray-code/"
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
 [[entries]]
 title = "Erect the Fence"
 url = "https://leetcode.com/problems/erect-the-fence/"
 
 [[entries]]
-title = "Maximum XOR of Two Numbers in an Array"
-url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
+title = "Flatten Nested List Iterator"
+url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
 
 [[entries]]
-title = "Minimum Flips to Make a OR b Equal to c"
-url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
 
 [[entries]]
 title = "Counting Words With a Given Prefix"
 url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
 
 [[entries]]
-title = "Pour Water"
-url = "https://leetcode.com/problems/pour-water/"
+title = "Number of Substrings With Fixed Ratio"
+url = "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/"
 
 [[entries]]
-title = "Expressive Words"
-url = "https://leetcode.com/problems/expressive-words/"
+title = "Remove All Occurrences of a Substring"
+url = "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/"
 
 [[entries]]
-title = "Shortest Path Visiting All Nodes"
-url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
+title = "Shortest Path to Get All Keys"
+url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"

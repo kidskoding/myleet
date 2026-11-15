@@ -3,6 +3,7 @@ group = "Fortune 500"
 focus = "arrays and sliding window, heaps and k-th element, trees and graph bfs, stock problems, and shopping-cart style object design"
 review_modules = ["02_two_pointers", "04_sliding_window", "07_trees", "08_heaps", "10_graphs"]
 
+
 [[entries]]
 title = "Kth Largest Element in a Stream"
 url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
@@ -20,16 +21,16 @@ title = "Subtree of Another Tree"
 url = "https://leetcode.com/problems/subtree-of-another-tree/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
 
 [[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
+title = "Find the Grid of Region Average"
+url = "https://leetcode.com/problems/find-the-grid-of-region-average/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Process Tasks Using Servers"
+url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
 title = "Word Ladder II"
@@ -40,24 +41,24 @@ title = "Product of the Last K Numbers"
 url = "https://leetcode.com/problems/product-of-the-last-k-numbers/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
 
 [[entries]]
 title = "Sort Characters By Frequency"
 url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
 [[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
+title = "Design Linked List"
+url = "https://leetcode.com/problems/design-linked-list/"
 
 [[entries]]
 title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
 
 [[entries]]
 title = "Remove Duplicates from Sorted Array"
@@ -68,20 +69,20 @@ title = "Apply Discount Every n Orders"
 url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Maximum Number of Robots Within Budget"
+url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Random Pick with Weight"
+url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
 
 [[entries]]
 title = "Same Tree"
@@ -92,16 +93,16 @@ title = "3Sum Closest"
 url = "https://leetcode.com/problems/3sum-closest/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Frequency of the Most Frequent Element"
+url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Design Most Recently Used Queue"
+url = "https://leetcode.com/problems/design-most-recently-used-queue/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Longest Turbulent Subarray"
+url = "https://leetcode.com/problems/longest-turbulent-subarray/"
 
 [[entries]]
 title = "Longest Path With Different Adjacent Characters"
@@ -112,56 +113,56 @@ title = "Read N Characters Given Read4"
 url = "https://leetcode.com/problems/read-n-characters-given-read4/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
 
 [[entries]]
 title = "Diameter of Binary Tree"
 url = "https://leetcode.com/problems/diameter-of-binary-tree/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Possible Bipartition"
+url = "https://leetcode.com/problems/possible-bipartition/"
 
 [[entries]]
 title = "Symmetric Tree"
 url = "https://leetcode.com/problems/symmetric-tree/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "All Ancestors of a Node in a Directed Acyclic Graph"
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
 title = "Balanced Binary Tree"
 url = "https://leetcode.com/problems/balanced-binary-tree/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Inorder Successor in BST"
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
 
 [[entries]]
 title = "Word Ladder"
 url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Trim a Binary Search Tree"
+url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
 
 [[entries]]
 title = "Reshape the Matrix"
 url = "https://leetcode.com/problems/reshape-the-matrix/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Kth Smallest Element in a BST"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
 
 [[entries]]
 title = "Concatenation of Array"
@@ -172,8 +173,8 @@ title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
 title = "Design an Ordered Stream"
@@ -192,8 +193,8 @@ title = "Shortest Word Distance"
 url = "https://leetcode.com/problems/shortest-word-distance/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Range Sum Query 2D - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
 
 [[entries]]
 title = "Time Based Key-Value Store"

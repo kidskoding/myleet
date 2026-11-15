@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "spreadsheet dependency graphs, interval merging over text, file systems, expression parsing"
 review_modules = ["03_stacks_and_queues", "11_dp", "13_intervals", "14_tries", "18_mixed_interview_practice"]
 
+
 [[entries]]
 title = "Add Bold Tag in String"
 url = "https://leetcode.com/problems/add-bold-tag-in-string/"
@@ -16,8 +17,8 @@ title = "Design Excel Sum Formula"
 url = "https://leetcode.com/problems/design-excel-sum-formula/"
 
 [[entries]]
-title = "Find Duplicate File in System"
-url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+title = "Bulls and Cows"
+url = "https://leetcode.com/problems/bulls-and-cows/"
 
 [[entries]]
 title = "Design Spreadsheet"
@@ -32,44 +33,44 @@ title = "Bold Words in String"
 url = "https://leetcode.com/problems/bold-words-in-string/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "The Maze II"
+url = "https://leetcode.com/problems/the-maze-ii/"
 
 [[entries]]
 title = "Design a Text Editor"
 url = "https://leetcode.com/problems/design-a-text-editor/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Find the City With the Smallest Number of Neighbors at a Threshold Distance"
+url = "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Map of Highest Peak"
+url = "https://leetcode.com/problems/map-of-highest-peak/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Online Majority Element In Subarray"
+url = "https://leetcode.com/problems/online-majority-element-in-subarray/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
+title = "Remove K Digits"
+url = "https://leetcode.com/problems/remove-k-digits/"
 
 [[entries]]
 title = "Isomorphic Strings"
 url = "https://leetcode.com/problems/isomorphic-strings/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Count Islands With Total Value Divisible by K"
+url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
 
 [[entries]]
 title = "Interval List Intersections"
@@ -80,16 +81,16 @@ title = "Find And Replace in String"
 url = "https://leetcode.com/problems/find-and-replace-in-string/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "Finding Pairs With a Certain Sum"
+url = "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/"
 
 [[entries]]
 title = "Design an Ordered Stream"
 url = "https://leetcode.com/problems/design-an-ordered-stream/"
 
 [[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
+title = "Sum of Subarray Minimums"
+url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
 
 [[entries]]
 title = "Basic Calculator III"
@@ -100,44 +101,44 @@ title = "Longest Absolute File Path"
 url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+title = "Extra Characters in a String"
+url = "https://leetcode.com/problems/extra-characters-in-a-string/"
 
 [[entries]]
 title = "Parse Lisp Expression"
 url = "https://leetcode.com/problems/parse-lisp-expression/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Maximize Amount After Two Days of Conversions"
+url = "https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions/"
 
 [[entries]]
 title = "Design Parking System"
 url = "https://leetcode.com/problems/design-parking-system/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Successful Pairs of Spells and Potions"
+url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Minimum Cost of a Path With Special Roads"
+url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
 
 [[entries]]
 title = "Delete Duplicate Folders in System"
 url = "https://leetcode.com/problems/delete-duplicate-folders-in-system/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
 
 [[entries]]
 title = "Stream of Characters"
@@ -156,24 +157,24 @@ title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "K-th Smallest in Lexicographical Order"
+url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Minimum Cost to Convert String I"
+url = "https://leetcode.com/problems/minimum-cost-to-convert-string-i/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Sum of Matrix After Queries"
+url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
 
 [[entries]]
 title = "Ransom Note"
@@ -184,5 +185,5 @@ title = "Design Log Storage System"
 url = "https://leetcode.com/problems/design-log-storage-system/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Maximum Profitable Triplets With Increasing Prices II"
+url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii/"

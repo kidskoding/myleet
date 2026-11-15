@@ -3,6 +3,7 @@ group = "Trading Firms"
 focus = "Low-latency minded array problems, bit tricks, sliding window, heaps and hard dynamic programming."
 review_modules = ["11_dp", "16_math_geometry", "04_sliding_window", "08_heaps", "15_bit_manipulation", "05_binary_search"]
 
+
 [[entries]]
 title = "Maximum Absolute Sum of Any Subarray"
 url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
@@ -64,56 +65,56 @@ title = "Kth Smallest Number in Multiplication Table"
 url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
 
 [[entries]]
 title = "Minimum Cost to Equalize Array"
 url = "https://leetcode.com/problems/minimum-cost-to-equalize-array/"
 
 [[entries]]
-title = "Coin Change II"
-url = "https://leetcode.com/problems/coin-change-ii/"
+title = "Minimum Substring Partition of Equal Character Frequency"
+url = "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/"
 
 [[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
+title = "Number of Self-Divisible Permutations"
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
 [[entries]]
 title = "Minimum Initial Energy to Finish Tasks"
 url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
 
 [[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
+title = "Number of Ways to Build House of Cards"
+url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
 
 [[entries]]
-title = "Decode Ways"
-url = "https://leetcode.com/problems/decode-ways/"
+title = "Paint Fence"
+url = "https://leetcode.com/problems/paint-fence/"
 
 [[entries]]
-title = "Shortest Path Visiting All Nodes"
-url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
+title = "Minimum Obstacle Removal to Reach Corner"
+url = "https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/"
 
 [[entries]]
-title = "Longest Palindromic Subsequence"
-url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+title = "Paint House"
+url = "https://leetcode.com/problems/paint-house/"
 
 [[entries]]
 title = "Word Abbreviation"
 url = "https://leetcode.com/problems/word-abbreviation/"
 
 [[entries]]
-title = "Fraction to Recurring Decimal"
-url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
+title = "Partition Array for Maximum Sum"
+url = "https://leetcode.com/problems/partition-array-for-maximum-sum/"
 
 [[entries]]
 title = "Greatest Common Divisor of Strings"
 url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
 
 [[entries]]
-title = "Valid Square"
-url = "https://leetcode.com/problems/valid-square/"
+title = "Predict the Winner"
+url = "https://leetcode.com/problems/predict-the-winner/"
 
 [[entries]]
 title = "Maximum Number of Ones"

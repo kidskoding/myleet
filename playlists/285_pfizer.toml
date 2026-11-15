@@ -3,130 +3,131 @@ group = "Fortune 500"
 focus = "Arrays, strings, hash maps, intervals, and clear step-by-step solutions to easy and medium problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "12_greedy_algorithms", "11_dp"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+title = "Smallest Missing Non-negative Integer After Operations"
+url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
 
 [[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
+title = "Elimination Game"
+url = "https://leetcode.com/problems/elimination-game/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Maximum XOR After Operations"
+url = "https://leetcode.com/problems/maximum-xor-after-operations/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Beautiful Towers II"
+url = "https://leetcode.com/problems/beautiful-towers-ii/"
 
 [[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+title = "Broken Calculator"
+url = "https://leetcode.com/problems/broken-calculator/"
 
 [[entries]]
-title = "Increasing Triplet Subsequence"
-url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+title = "Circular Permutation in Binary Representation"
+url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
+
+[[entries]]
+title = "Construct String With Repeat Limit"
+url = "https://leetcode.com/problems/construct-string-with-repeat-limit/"
 
 [[entries]]
 title = "Employee Free Time"
 url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
-title = "K-Concatenation Maximum Sum"
-url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+title = "Divide Array in Sets of K Consecutive Numbers"
+url = "https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Find Maximum Area of a Triangle"
+url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Find Maximum Value in a Constrained Sequence"
+url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
 
 [[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+title = "Group the People Given the Group Size They Belong To"
+url = "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/"
 
 [[entries]]
-title = "Search Insert Position"
-url = "https://leetcode.com/problems/search-insert-position/"
+title = "Lexicographically Smallest String After Operations With Constraint"
+url = "https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/"
 
 [[entries]]
-title = "Maximum Number of Vowels in a Substring of Given Length"
-url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
+title = "Longest Happy String"
+url = "https://leetcode.com/problems/longest-happy-string/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Longest Palindrome by Concatenating Two Letter Words"
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
 
 [[entries]]
-title = "Maximum Points You Can Obtain from Cards"
-url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
+title = "Make the Prefix Sum Non-negative"
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
 title = "Minimum Number of Refueling Stops"
 url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
 
 [[entries]]
-title = "Number of Subsequences That Satisfy the Given Sum Condition"
-url = "https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/"
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
 
 [[entries]]
 title = "Convert Sorted Array to Binary Search Tree"
 url = "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
 
 [[entries]]
-title = "Number of Substrings Containing All Three Characters"
-url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Maximum Median Sum of Subsequences of Size 3"
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
 
 [[entries]]
-title = "Minimum Number of Days to Make m Bouquets"
-url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
+title = "Maximum Number of Eaten Apples"
+url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
 
 [[entries]]
-title = "Search in a Sorted Array of Unknown Size"
-url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+title = "Maximum Number of Integers to Choose From a Range I"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
 
 [[entries]]
 title = "Determine if Two Events Have Conflict"
 url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
 
 [[entries]]
-title = "Count Complete Tree Nodes"
-url = "https://leetcode.com/problems/count-complete-tree-nodes/"
+title = "Maximum OR"
+url = "https://leetcode.com/problems/maximum-or/"
 
 [[entries]]
-title = "Maximum Product After K Increments"
-url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+title = "Maximum Points After Enemy Battles"
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
 
 [[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Maximum Subsequence Score"
+url = "https://leetcode.com/problems/maximum-subsequence-score/"
 
 [[entries]]
-title = "Remove Stones to Minimize the Total"
-url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+title = "Maximum Sum Obtained of Any Permutation"
+url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
 
 [[entries]]
 title = "Candy"
 url = "https://leetcode.com/problems/candy/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "Maximum Total Importance of Roads"
+url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
+title = "Maximum Xor Product"
+url = "https://leetcode.com/problems/maximum-xor-product/"
 
 [[entries]]
-title = "Target Sum"
-url = "https://leetcode.com/problems/target-sum/"
+title = "Merge Triplets to Form Target Triplet"
+url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"

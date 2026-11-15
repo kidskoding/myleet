@@ -3,182 +3,183 @@ group = "Fortune 500"
 focus = "hash maps and counting, arrays and strings, debugging-friendly easy classics, linked lists, and simple trees"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "08_heaps"]
 
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Number of Divisible Substrings"
+url = "https://leetcode.com/problems/number-of-divisible-substrings/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Subdomain Visit Count"
+url = "https://leetcode.com/problems/subdomain-visit-count/"
 
 [[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
+title = "Longest Substring with At Most K Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Task Scheduler II"
+url = "https://leetcode.com/problems/task-scheduler-ii/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Unique Substrings With Equal Digit Frequency"
+url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Find the Minimum Area to Cover All Ones II"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
 
 [[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
+title = "Walking Robot Simulation"
+url = "https://leetcode.com/problems/walking-robot-simulation/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Equal Row and Column Pairs"
+url = "https://leetcode.com/problems/equal-row-and-column-pairs/"
 
 [[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Filter Restaurants by Vegan-Friendly, Price and Distance"
+url = "https://leetcode.com/problems/filter-restaurants-by-vegan-friendly-price-and-distance/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Bold Words in String"
+url = "https://leetcode.com/problems/bold-words-in-string/"
 
 [[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
+title = "Bulls and Cows"
+url = "https://leetcode.com/problems/bulls-and-cows/"
+
+[[entries]]
+title = "Count Good Meals"
+url = "https://leetcode.com/problems/count-good-meals/"
 
 [[entries]]
 title = "Ransom Note"
 url = "https://leetcode.com/problems/ransom-note/"
 
 [[entries]]
-title = "Reverse Words in a String"
-url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+title = "Destroy Sequential Targets"
+url = "https://leetcode.com/problems/destroy-sequential-targets/"
 
 [[entries]]
 title = "Isomorphic Strings"
 url = "https://leetcode.com/problems/isomorphic-strings/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Domino and Tromino Tiling"
+url = "https://leetcode.com/problems/domino-and-tromino-tiling/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Grid Illumination"
+url = "https://leetcode.com/problems/grid-illumination/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Number of Enclaves"
+url = "https://leetcode.com/problems/number-of-enclaves/"
 
 [[entries]]
 title = "Word Pattern"
 url = "https://leetcode.com/problems/word-pattern/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Find Occurrences of an Element in an Array"
+url = "https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array/"
 
 [[entries]]
 title = "Intersection of Two Arrays"
 url = "https://leetcode.com/problems/intersection-of-two-arrays/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Find the Length of the Longest Common Prefix"
+url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Finding the Users Active Minutes"
+url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "First Completely Painted Row or Column"
+url = "https://leetcode.com/problems/first-completely-painted-row-or-column/"
 
 [[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+title = "HTML Entity Parser"
+url = "https://leetcode.com/problems/html-entity-parser/"
 
 [[entries]]
-title = "Find All Duplicates in an Array"
-url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
+title = "Identify the Largest Outlier in an Array"
+url = "https://leetcode.com/problems/identify-the-largest-outlier-in-an-array/"
 
 [[entries]]
 title = "Degree of an Array"
 url = "https://leetcode.com/problems/degree-of-an-array/"
 
 [[entries]]
-title = "Count and Say"
-url = "https://leetcode.com/problems/count-and-say/"
+title = "K-diff Pairs in an Array"
+url = "https://leetcode.com/problems/k-diff-pairs-in-an-array/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Guess the Word"
+url = "https://leetcode.com/problems/guess-the-word/"
 
 [[entries]]
 title = "Destination City"
 url = "https://leetcode.com/problems/destination-city/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Longest Balanced Subarray I"
+url = "https://leetcode.com/problems/longest-balanced-subarray-i/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Make Sum Divisible by P"
+url = "https://leetcode.com/problems/make-sum-divisible-by-p/"
 
 [[entries]]
 title = "Find the Town Judge"
 url = "https://leetcode.com/problems/find-the-town-judge/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "01 Matrix"
+url = "https://leetcode.com/problems/01-matrix/"
 
 [[entries]]
 title = "Find Winner on a Tic Tac Toe Game"
 url = "https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Making File Names Unique"
+url = "https://leetcode.com/problems/making-file-names-unique/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Maximum Coins From K Consecutive Bags"
+url = "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/"
 
 [[entries]]
 title = "Check if Every Row and Column Contains All Numbers"
 url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Kth Smallest Element in a Sorted Matrix"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Integer to English Words"
+url = "https://leetcode.com/problems/integer-to-english-words/"
 
 [[entries]]
 title = "Existence of a Substring in a String and Its Reverse"
 url = "https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Magnetic Force Between Two Balls"
+url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"

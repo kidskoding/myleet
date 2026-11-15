@@ -3,61 +3,62 @@ group = "Fortune 500"
 focus = "Array and string manipulation, hash maps, sliding window, binary search, and a few easy tree problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "05_binary_search", "07_trees"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "K-Concatenation Maximum Sum"
-url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+title = "Check If a String Contains All Binary Codes of Size K"
+url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
 
 [[entries]]
-title = "Longest Turbulent Subarray"
-url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+title = "Minimum Number of Flips to Make the Binary String Alternating"
+url = "https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Minimum Operations to Make Binary Array Elements Equal to One II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/"
 
 [[entries]]
-title = "Matrix Block Sum"
-url = "https://leetcode.com/problems/matrix-block-sum/"
+title = "Minimum Sum of Squared Difference"
+url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
 
 [[entries]]
-title = "Minimum Window Subsequence"
-url = "https://leetcode.com/problems/minimum-window-subsequence/"
+title = "Number of Good Binary Strings"
+url = "https://leetcode.com/problems/number-of-good-binary-strings/"
 
 [[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+title = "Find X Value of Array II"
+url = "https://leetcode.com/problems/find-x-value-of-array-ii/"
 
 [[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
 
 [[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+title = "Two Best Non-Overlapping Events"
+url = "https://leetcode.com/problems/two-best-non-overlapping-events/"
+
+[[entries]]
+title = "Construct Binary Tree from Inorder and Postorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/"
 
 [[entries]]
 title = "Left and Right Sum Differences"
 url = "https://leetcode.com/problems/left-and-right-sum-differences/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Count Complete Subarrays in an Array"
+url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
 
 [[entries]]
 title = "Grumpy Bookstore Owner"
 url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Extra Characters in a String"
+url = "https://leetcode.com/problems/extra-characters-in-a-string/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Find the Safest Path in a Grid"
+url = "https://leetcode.com/problems/find-the-safest-path-in-a-grid/"
 
 [[entries]]
 title = "Kth Missing Positive Number"
@@ -76,8 +77,8 @@ title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Li
 url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
 title = "Longest Substring with At Most K Distinct Characters"
@@ -96,8 +97,8 @@ title = "H-Index II"
 url = "https://leetcode.com/problems/h-index-ii/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Maximum Binary Tree"
+url = "https://leetcode.com/problems/maximum-binary-tree/"
 
 [[entries]]
 title = "Kth Smallest Element in a Sorted Matrix"
@@ -108,8 +109,8 @@ title = "Magnetic Force Between Two Balls"
 url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
 
 [[entries]]
-title = "Shortest Subarray with Sum at Least K"
-url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+title = "Smallest Substring With Identical Characters I"
+url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-i/"
 
 [[entries]]
 title = "N-ary Tree Preorder Traversal"

@@ -3,21 +3,22 @@ group = "AI & Startups"
 focus = "Graph search, heaps, intervals, math and dynamic programming for planning and scheduling problems."
 review_modules = ["10_graphs", "08_heaps", "13_intervals", "16_math_geometry", "11_dp", "05_binary_search"]
 
-[[entries]]
-title = "Find the Smallest Divisor Given a Threshold"
-url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
 
 [[entries]]
-title = "Binary Search Tree to Greater Sum Tree"
-url = "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/"
+title = "Minimize Maximum of Array"
+url = "https://leetcode.com/problems/minimize-maximum-of-array/"
+
+[[entries]]
+title = "Validate Binary Tree Nodes"
+url = "https://leetcode.com/problems/validate-binary-tree-nodes/"
 
 [[entries]]
 title = "Count Increasing Quadruplets"
 url = "https://leetcode.com/problems/count-increasing-quadruplets/"
 
 [[entries]]
-title = "Maximum Subtree of the Same Color"
-url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
+title = "Binary Tree Vertical Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
 
 [[entries]]
 title = "Minimum Suffix Flips"
@@ -32,8 +33,8 @@ title = "Stone Game IX"
 url = "https://leetcode.com/problems/stone-game-ix/"
 
 [[entries]]
-title = "Maximum Total Importance of Roads"
-url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
+title = "Minimum Equal Sum of Two Arrays After Replacing Zeros"
+url = "https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/"
 
 [[entries]]
 title = "Minimum Number of Operations to Make Arrays Similar"
@@ -52,8 +53,8 @@ title = "Consecutive Numbers Sum"
 url = "https://leetcode.com/problems/consecutive-numbers-sum/"
 
 [[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+title = "Minimizing Array After Replacing Pairs With Their Product"
+url = "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/"
 
 [[entries]]
 title = "Maximum Alternating Sum of Squares"
@@ -72,12 +73,12 @@ title = "Count the Number of Good Subsequences"
 url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
 
 [[entries]]
-title = "Falling Squares"
-url = "https://leetcode.com/problems/falling-squares/"
+title = "Find the Sum of Subsequence Powers"
+url = "https://leetcode.com/problems/find-the-sum-of-subsequence-powers/"
 
 [[entries]]
-title = "Corporate Flight Bookings"
-url = "https://leetcode.com/problems/corporate-flight-bookings/"
+title = "Minimum Cost For Tickets"
+url = "https://leetcode.com/problems/minimum-cost-for-tickets/"
 
 [[entries]]
 title = "Minimum Number of Arrows to Burst Balloons"
@@ -88,52 +89,52 @@ title = "Distinct Subsequences"
 url = "https://leetcode.com/problems/distinct-subsequences/"
 
 [[entries]]
-title = "Describe the Painting"
-url = "https://leetcode.com/problems/describe-the-painting/"
+title = "Minimum Cost to Make All Characters Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/"
 
 [[entries]]
-title = "Minimum Falling Path Sum"
-url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+title = "Minimum Increase to Maximize Special Indices"
+url = "https://leetcode.com/problems/minimum-increase-to-maximize-special-indices/"
 
 [[entries]]
 title = "Add Digits"
 url = "https://leetcode.com/problems/add-digits/"
 
 [[entries]]
-title = "Maximum Product Subarray"
-url = "https://leetcode.com/problems/maximum-product-subarray/"
+title = "Minimum Number of Food Buckets to Feed the Hamsters"
+url = "https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters/"
 
 [[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
+title = "Minimum Number of Lines to Cover Points"
+url = "https://leetcode.com/problems/minimum-number-of-lines-to-cover-points/"
 
 [[entries]]
 title = "Wildcard Matching"
 url = "https://leetcode.com/problems/wildcard-matching/"
 
 [[entries]]
-title = "Valid Square"
-url = "https://leetcode.com/problems/valid-square/"
+title = "Minimum Operations to Reduce an Integer to 0"
+url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
 
 [[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
+title = "Minimum Sideway Jumps"
+url = "https://leetcode.com/problems/minimum-sideway-jumps/"
 
 [[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
-title = "Spiral Matrix II"
-url = "https://leetcode.com/problems/spiral-matrix-ii/"
+title = "Minimum Substring Partition of Equal Character Frequency"
+url = "https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency/"
 
 [[entries]]
-title = "Factorial Trailing Zeroes"
-url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
+title = "Number of Self-Divisible Permutations"
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
 [[entries]]
-title = "Maximum Population Year"
-url = "https://leetcode.com/problems/maximum-population-year/"
+title = "Number of Ways to Build House of Cards"
+url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
 
 [[entries]]
 title = "Maximum Product of Word Lengths"

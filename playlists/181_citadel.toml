@@ -3,6 +3,7 @@ group = "Trading Firms"
 focus = "Performance-minded array problems, hard DP, sliding-window structures, and design with tight time bounds."
 review_modules = ["16_math_geometry", "11_dp", "08_heaps", "03_stacks_and_queues", "09_backtracking", "10_graphs"]
 
+
 [[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"

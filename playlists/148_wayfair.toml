@@ -3,33 +3,34 @@ group = "Consumer and Business Tech"
 focus = "hash maps and counting, sorting with custom keys, string processing, intervals and greedy scheduling, and BFS over small graphs."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
+title = "Number of Adjacent Elements With the Same Color"
+url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
 
 [[entries]]
-title = "Sort Characters By Frequency"
-url = "https://leetcode.com/problems/sort-characters-by-frequency/"
+title = "Find And Replace in String"
+url = "https://leetcode.com/problems/find-and-replace-in-string/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Queue Reconstruction by Height"
+url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Maximum Number of Events That Can Be Attended II"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Sort Transformed Array"
+url = "https://leetcode.com/problems/sort-transformed-array/"
 
 [[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
+title = "Split Array into Consecutive Subsequences"
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
+
+[[entries]]
+title = "The kth Factor of n"
+url = "https://leetcode.com/problems/the-kth-factor-of-n/"
 
 [[entries]]
 title = "Minimum Time Difference"
@@ -44,100 +45,100 @@ title = "Reaching Points"
 url = "https://leetcode.com/problems/reaching-points/"
 
 [[entries]]
-title = "Fruit Into Baskets"
-url = "https://leetcode.com/problems/fruit-into-baskets/"
+title = "Binary Subarrays With Sum"
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
 
 [[entries]]
 title = "3Sum Closest"
 url = "https://leetcode.com/problems/3sum-closest/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Number of Subarrays With AND Value of K"
+url = "https://leetcode.com/problems/number-of-subarrays-with-and-value-of-k/"
 
 [[entries]]
-title = "Two City Scheduling"
-url = "https://leetcode.com/problems/two-city-scheduling/"
+title = "Hand of Straights"
+url = "https://leetcode.com/problems/hand-of-straights/"
 
 [[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
+title = "Eliminate Maximum Number of Monsters"
+url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
 
 [[entries]]
 title = "Summary Ranges"
 url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
-title = "Minimum Number of Arrows to Burst Balloons"
-url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Count the Number of Good Subsequences"
+url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
 
 [[entries]]
 title = "Constrained Subsequence Sum"
 url = "https://leetcode.com/problems/constrained-subsequence-sum/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Finding Pairs With a Certain Sum"
+url = "https://leetcode.com/problems/finding-pairs-with-a-certain-sum/"
 
 [[entries]]
 title = "Product of the Last K Numbers"
 url = "https://leetcode.com/problems/product-of-the-last-k-numbers/"
 
 [[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Find Maximum Area of a Triangle"
+url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"
 
 [[entries]]
-title = "Max Sum of Rectangle No Larger Than K"
-url = "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/"
+title = "Create Maximum Number"
+url = "https://leetcode.com/problems/create-maximum-number/"
 
 [[entries]]
-title = "Keys and Rooms"
-url = "https://leetcode.com/problems/keys-and-rooms/"
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
 
 [[entries]]
-title = "Number of Provinces"
-url = "https://leetcode.com/problems/number-of-provinces/"
+title = "Max Number of K-Sum Pairs"
+url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
 
 [[entries]]
 title = "Can Place Flowers"
 url = "https://leetcode.com/problems/can-place-flowers/"
 
 [[entries]]
-title = "Nearest Exit from Entrance in Maze"
-url = "https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Maximize the Topmost Element After K Moves"
+url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
 
 [[entries]]
 title = "Count Subtrees With Max Distance Between Cities"
 url = "https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities/"
 
 [[entries]]
-title = "Coin Change II"
-url = "https://leetcode.com/problems/coin-change-ii/"
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
 
 [[entries]]
-title = "Decode Ways"
-url = "https://leetcode.com/problems/decode-ways/"
+title = "Maximum Coin Collection"
+url = "https://leetcode.com/problems/maximum-coin-collection/"
 
 [[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
+title = "Maximum Gap"
+url = "https://leetcode.com/problems/maximum-gap/"
 
 [[entries]]
 title = "Assign Cookies"
 url = "https://leetcode.com/problems/assign-cookies/"
 
 [[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
+title = "Maximum Points After Enemy Battles"
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
 
 [[entries]]
 title = "Count of Range Sum"

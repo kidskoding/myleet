@@ -3,13 +3,14 @@ group = "Fortune 500"
 focus = "careful array and string manipulation, hash-map counting, monotonic and matching stacks, and grid or sequence DP."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "11_dp"]
 
+
 [[entries]]
 title = "First Unique Character in a String"
 url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
 
 [[entries]]
 title = "Robot Return to Origin"
@@ -48,8 +49,8 @@ title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
 
 [[entries]]
 title = "Remove All Adjacent Duplicates in String II"
@@ -96,8 +97,8 @@ title = "Remove Duplicates from Sorted Array"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
 
 [[entries]]
 title = "Squares of a Sorted Array"

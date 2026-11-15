@@ -3,73 +3,74 @@ group = "Fortune 500"
 focus = "Arrays and strings, stacks, binary search, tree recursion, and a few graph and dynamic programming problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "07_trees", "10_graphs"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
+title = "Binary Searchable Numbers in an Unsorted Array"
+url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Equalize Strings by Adding or Removing Characters at Ends"
+url = "https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+title = "Find Minimum Cost to Remove Array Elements"
+url = "https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements/"
 
 [[entries]]
-title = "Increasing Triplet Subsequence"
-url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+title = "Find Palindrome With Fixed Length"
+url = "https://leetcode.com/problems/find-palindrome-with-fixed-length/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Find the Maximum Length of a Good Subsequence I"
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-i/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Find the Safest Path in a Grid"
+url = "https://leetcode.com/problems/find-the-safest-path-in-a-grid/"
+
+[[entries]]
+title = "Find X Value of Array I"
+url = "https://leetcode.com/problems/find-x-value-of-array-i/"
 
 [[entries]]
 title = "Binary Tree Maximum Path Sum"
 url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Flip String to Monotone Increasing"
+url = "https://leetcode.com/problems/flip-string-to-monotone-increasing/"
 
 [[entries]]
 title = "Find Smallest Letter Greater Than Target"
 url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Greatest Sum Divisible by Three"
+url = "https://leetcode.com/problems/greatest-sum-divisible-by-three/"
 
 [[entries]]
 title = "First Bad Version"
 url = "https://leetcode.com/problems/first-bad-version/"
 
 [[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "Heaters"
+url = "https://leetcode.com/problems/heaters/"
 
 [[entries]]
 title = "Guess Number Higher or Lower"
 url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
 
 [[entries]]
-title = "Find K Closest Elements"
-url = "https://leetcode.com/problems/find-k-closest-elements/"
+title = "Boats to Save People"
+url = "https://leetcode.com/problems/boats-to-save-people/"
 
 [[entries]]
 title = "Find the Smallest Divisor Given a Threshold"
 url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
 title = "Circular Array Loop"
@@ -100,8 +101,8 @@ title = "Construct Binary Tree from Preorder and Inorder Traversal"
 url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
 
 [[entries]]
 title = "Construct Binary Tree from Preorder and Postorder Traversal"

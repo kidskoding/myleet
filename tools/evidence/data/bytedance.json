@@ -1,27 +1,5 @@
 {
-  "company": "bytedance",
-  "posts_found": 1,
-  "by_source": {
-    "devto": 1,
-    "medium": 0,
-    "hn": 0
-  },
-  "problems": [
-    {
-      "id": "task-scheduler",
-      "mentions": 1,
-      "last_seen": "2026-10-21",
-      "sources": [
-        "https://dev.to/prachub/bytedance-swe-intern-oa-2027-codesignal-four-questions-and-resume-screening-1pd4"
-      ]
-    },
-    {
-      "id": "task-scheduler-greedy_algorithms",
-      "mentions": 1,
-      "last_seen": "2026-10-21",
-      "sources": [
-        "https://dev.to/prachub/bytedance-swe-intern-oa-2027-codesignal-four-questions-and-resume-screening-1pd4"
-      ]
-    }
-  ]
+ "company": "ByteDance",
+ "posts": 1,
+ "problems": []
 }

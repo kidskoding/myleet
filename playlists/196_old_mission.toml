@@ -3,6 +3,7 @@ group = "Trading Firms"
 focus = "Math, array and binary-search problems, hard dynamic programming, and heap-based design with tight time bounds."
 review_modules = ["16_math_geometry", "01_arrays_and_hashing", "11_dp", "05_binary_search", "08_heaps", "17_advanced"]
 
+
 [[entries]]
 title = "Shortest Word Distance III"
 url = "https://leetcode.com/problems/shortest-word-distance-iii/"
@@ -76,44 +77,44 @@ title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Longest Palindromic Subsequence"
-url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
 title = "Cherry Pickup"
 url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
-title = "House Robber II"
-url = "https://leetcode.com/problems/house-robber-ii/"
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
 
 [[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
+title = "Minimum Path Sum"
+url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
 title = "Distinct Subsequences"
 url = "https://leetcode.com/problems/distinct-subsequences/"
 
 [[entries]]
-title = "Spiral Matrix II"
-url = "https://leetcode.com/problems/spiral-matrix-ii/"
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
 
 [[entries]]
 title = "Self Crossing"
 url = "https://leetcode.com/problems/self-crossing/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Minimum Operations to Make Binary Array Elements Equal to One II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/"
 
 [[entries]]
 title = "Palindrome Number"
 url = "https://leetcode.com/problems/palindrome-number/"
 
 [[entries]]
-title = "Minimum Area Rectangle"
-url = "https://leetcode.com/problems/minimum-area-rectangle/"
+title = "Split Array into Consecutive Subsequences"
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
 
 [[entries]]
 title = "Smallest Sufficient Team"

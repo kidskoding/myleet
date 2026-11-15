@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "dp, greedy and digit manipulation, graphs and trees, hashing, sorted streams"
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "16_math_geometry"]
 
+
 [[entries]]
 title = "Paint House"
 url = "https://leetcode.com/problems/paint-house/"
@@ -12,172 +13,172 @@ title = "Paint Fence"
 url = "https://leetcode.com/problems/paint-fence/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
 title = "Paint House II"
 url = "https://leetcode.com/problems/paint-house-ii/"
 
 [[entries]]
-title = "House Robber II"
-url = "https://leetcode.com/problems/house-robber-ii/"
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
 
 [[entries]]
 title = "Next Greater Element III"
 url = "https://leetcode.com/problems/next-greater-element-iii/"
 
 [[entries]]
-title = "Last Stone Weight"
-url = "https://leetcode.com/problems/last-stone-weight/"
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
 
 [[entries]]
 title = "Monotone Increasing Digits"
 url = "https://leetcode.com/problems/monotone-increasing-digits/"
 
 [[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Sum Game"
+url = "https://leetcode.com/problems/sum-game/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Minimum Cost to Reach Destination in Time"
+url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
 
 [[entries]]
-title = "Largest Number"
-url = "https://leetcode.com/problems/largest-number/"
+title = "Minimize Rounding Error to Meet Target"
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
 
 [[entries]]
-title = "Remove K Digits"
-url = "https://leetcode.com/problems/remove-k-digits/"
+title = "Find the Length of the Longest Common Prefix"
+url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Split Message Based on Limit"
+url = "https://leetcode.com/problems/split-message-based-on-limit/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Insert into a Sorted Circular Linked List"
+url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Max Sum of a Pair With Equal Sum of Digits"
+url = "https://leetcode.com/problems/max-sum-of-a-pair-with-equal-sum-of-digits/"
 
 [[entries]]
 title = "Happy Number"
 url = "https://leetcode.com/problems/happy-number/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Synonymous Sentences"
+url = "https://leetcode.com/problems/synonymous-sentences/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Brace Expansion"
+url = "https://leetcode.com/problems/brace-expansion/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Word Abbreviation"
+url = "https://leetcode.com/problems/word-abbreviation/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Trim a Binary Search Tree"
+url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
 
 [[entries]]
-title = "Binary Tree Right Side View"
-url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+title = "Convert BST to Greater Tree"
+url = "https://leetcode.com/problems/convert-bst-to-greater-tree/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Closest Binary Search Tree Value II"
+url = "https://leetcode.com/problems/closest-binary-search-tree-value-ii/"
 
 [[entries]]
 title = "Path Sum III"
 url = "https://leetcode.com/problems/path-sum-iii/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Match Alphanumerical Pattern in Matrix I"
+url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
 
 [[entries]]
 title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+title = "Pythagorean Distance Nodes in a Tree"
+url = "https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
 
 [[entries]]
-title = "Data Stream as Disjoint Intervals"
-url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+title = "Amount of New Area Painted Each Day"
+url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Unique Substrings With Equal Digit Frequency"
+url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Convert Binary Search Tree to Sorted Doubly Linked List"
+url = "https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/"
 
 [[entries]]
 title = "N-th Tribonacci Number"
 url = "https://leetcode.com/problems/n-th-tribonacci-number/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Find Occurrences of an Element in an Array"
+url = "https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Count Visited Nodes in a Directed Graph"
+url = "https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Finding the Users Active Minutes"
+url = "https://leetcode.com/problems/finding-the-users-active-minutes/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "HTML Entity Parser"
+url = "https://leetcode.com/problems/html-entity-parser/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "K-diff Pairs in an Array"
+url = "https://leetcode.com/problems/k-diff-pairs-in-an-array/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock III"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Search in a Sorted Array of Unknown Size"
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Longest Balanced Subarray I"
+url = "https://leetcode.com/problems/longest-balanced-subarray-i/"
 
 [[entries]]
 title = "Cousins in Binary Tree"
 url = "https://leetcode.com/problems/cousins-in-binary-tree/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
 
 [[entries]]
 title = "Scramble String"

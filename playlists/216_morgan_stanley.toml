@@ -3,9 +3,10 @@ group = "Fortune 500"
 focus = "arrays, hashing, sliding window, dp, linked lists"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "11_dp"]
 
+
 [[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
 
 [[entries]]
 title = "Decode Ways"
@@ -20,8 +21,8 @@ title = "Minimum Cost to Connect Sticks"
 url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
 
 [[entries]]
 title = "Find Subarrays With Equal Sum"
@@ -164,16 +165,16 @@ title = "Reverse Vowels of a String"
 url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
 title = "Shortest Distance to a Character"
 url = "https://leetcode.com/problems/shortest-distance-to-a-character/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
 
 [[entries]]
 title = "Jump Game"
@@ -184,16 +185,16 @@ title = "Shuffle the Array"
 url = "https://leetcode.com/problems/shuffle-the-array/"
 
 [[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
 
 [[entries]]
 title = "Count of Range Sum"
 url = "https://leetcode.com/problems/count-of-range-sum/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
 
 [[entries]]
 title = "Teemo Attacking"

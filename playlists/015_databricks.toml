@@ -3,9 +3,10 @@ group = "AI & Startups"
 focus = "Cache and streaming designs, sliding windows, trees, grids, and scheduling with heaps."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp", "17_advanced"]
 
+
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Apply Operations to Make All Array Elements Equal to Zero"
+url = "https://leetcode.com/problems/apply-operations-to-make-all-array-elements-equal-to-zero/"
 
 [[entries]]
 title = "Design HashMap"
@@ -28,12 +29,12 @@ title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Search in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Binary Searchable Numbers in an Unsorted Array"
+url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
 
 [[entries]]
 title = "LFU Cache"
@@ -108,8 +109,8 @@ title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Design Twitter"
+url = "https://leetcode.com/problems/design-twitter/"
 
 [[entries]]
 title = "Smallest Range Covering Elements from K Lists"

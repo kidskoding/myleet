@@ -1,216 +1,43 @@
 {
-  "company": "google",
-  "posts_found": 24,
-  "by_source": {
-    "devto": 13,
-    "medium": 10,
-    "hn": 1
+ "company": "Google",
+ "posts": 5,
+ "problems": [
+  {
+   "id": "binary-search",
+   "mentions": 4,
+   "last": "2026-10-27",
+   "urls": [
+    "https://dev.to/emilywoodsnyc/google-interview-question-can-you-make-this-lookup-o1-3b3d",
+    "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp",
+    "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
+   ]
   },
-  "problems": [
-    {
-      "id": "binary-search",
-      "mentions": 2,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/emilywoodsnyc/google-interview-question-can-you-make-this-lookup-o1-3b3d",
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "merge-intervals",
-      "mentions": 2,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp",
-        "https://dev.to/alex_hunter_44f4c9ed6671e/google-coding-interview-the-complete-2026-guide-from-an-ex-googler-3185"
-      ]
-    },
-    {
-      "id": "median-of-two-sorted-arrays",
-      "mentions": 2,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp",
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "median-of-two-sorted-arrays-advanced",
-      "mentions": 2,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp",
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "number-of-islands",
-      "mentions": 2,
-      "last_seen": "2026-09-30",
-      "sources": [
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05",
-        "https://dev.to/alex_hunter_44f4c9ed6671e/google-coding-interview-the-complete-2026-guide-from-an-ex-googler-3185"
-      ]
-    },
-    {
-      "id": "course-schedule",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "binary-tree-maximum-path-sum",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "sliding-window-maximum",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "minimum-window-substring",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "generate-parentheses",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "trapping-rain-water",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "trapping-rain-water-stacks_and_queues",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "alien-dictionary",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "word-ladder",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "combination-sum",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "insert-interval",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "longest-increasing-subsequence",
-      "mentions": 1,
-      "last_seen": "2026-10-27",
-      "sources": [
-        "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp"
-      ]
-    },
-    {
-      "id": "longest-substring-without-repeating-characters",
-      "mentions": 1,
-      "last_seen": "2026-09-30",
-      "sources": [
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "add-two-numbers",
-      "mentions": 1,
-      "last_seen": "2026-09-30",
-      "sources": [
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "two-sum",
-      "mentions": 1,
-      "last_seen": "2026-09-30",
-      "sources": [
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "split-array-largest-sum",
-      "mentions": 1,
-      "last_seen": "2026-09-30",
-      "sources": [
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "longest-palindromic-substring",
-      "mentions": 1,
-      "last_seen": "2026-09-30",
-      "sources": [
-        "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05"
-      ]
-    },
-    {
-      "id": "maximum-number-of-ones",
-      "mentions": 1,
-      "last_seen": "2026-09-13",
-      "sources": [
-        "https://dev.to/shaanlabs/image-overlap-leetcode-835-solve-in-seconds-google-microsoft-most-asked-interview-917"
-      ]
-    },
-    {
-      "id": "word-search-ii",
-      "mentions": 1,
-      "last_seen": "2026-01-19",
-      "sources": [
-        "https://dev.to/alex_hunter_44f4c9ed6671e/google-coding-interview-the-complete-2026-guide-from-an-ex-googler-3185"
-      ]
-    },
-    {
-      "id": "word-search-ii-mixed_interview_practice",
-      "mentions": 1,
-      "last_seen": "2026-01-19",
-      "sources": [
-        "https://dev.to/alex_hunter_44f4c9ed6671e/google-coding-interview-the-complete-2026-guide-from-an-ex-googler-3185"
-      ]
-    }
-  ]
+  {
+   "id": "merge-intervals",
+   "mentions": 2,
+   "last": "2026-10-27",
+   "urls": [
+    "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp",
+    "https://dev.to/alex_hunter_44f4c9ed6671e/google-coding-interview-the-complete-2026-guide-from-an-ex-googler-3185"
+   ]
+  },
+  {
+   "id": "word-search",
+   "mentions": 2,
+   "last": "2026-10-27",
+   "urls": [
+    "https://dev.to/gowthampotureddi/google-coding-interview-questions-what-the-2026-loop-really-tests-15jp",
+    "https://dev.to/alex_hunter_44f4c9ed6671e/google-coding-interview-the-complete-2026-guide-from-an-ex-googler-3185"
+   ]
+  },
+  {
+   "id": "number-of-islands",
+   "mentions": 2,
+   "last": "2026-09-30",
+   "urls": [
+    "https://dev.to/zx12345/i-collected-2026s-google-interview-reports-heres-whats-actually-getting-asked-3g05",
+    "https://dev.to/alex_hunter_44f4c9ed6671e/google-coding-interview-the-complete-2026-guide-from-an-ex-googler-3185"
+   ]
+  }
+ ]
 }

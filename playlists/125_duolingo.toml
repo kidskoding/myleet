@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "string comparison and edit-distance DP, palindromes, word-list hashing and ordering, backtracking over letters, and greedy warmups."
 review_modules = ["01_arrays_and_hashing", "11_dp", "09_backtracking", "14_tries", "12_greedy_algorithms", "10_graphs"]
 
+
 [[entries]]
 title = "Letter Case Permutation"
 url = "https://leetcode.com/problems/letter-case-permutation/"
@@ -16,8 +17,8 @@ title = "Minimum Deletions to Make Character Frequencies Unique"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
 
 [[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
 title = "Count Sorted Vowel Strings"
@@ -44,8 +45,8 @@ title = "Palindrome Partitioning II"
 url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Minimum Path Sum"
+url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
 title = "Delete Operation for Two Strings"
@@ -56,8 +57,8 @@ title = "Palindrome Pairs"
 url = "https://leetcode.com/problems/palindrome-pairs/"
 
 [[entries]]
-title = "Longest Palindromic Subsequence"
-url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
 
 [[entries]]
 title = "Longest String Chain"
@@ -80,16 +81,16 @@ title = "Word Ladder II"
 url = "https://leetcode.com/problems/word-ladder-ii/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Minimum Falling Path Sum"
+url = "https://leetcode.com/problems/minimum-falling-path-sum/"
 
 [[entries]]
 title = "Wildcard Matching"
@@ -120,65 +121,65 @@ title = "Regular Expression Matching"
 url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Next Greater Node In Linked List"
+url = "https://leetcode.com/problems/next-greater-node-in-linked-list/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Better Compression of String"
+url = "https://leetcode.com/problems/better-compression-of-string/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
 
 [[entries]]
 title = "Climbing Stairs"
 url = "https://leetcode.com/problems/climbing-stairs/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "The Maze II"
+url = "https://leetcode.com/problems/the-maze-ii/"
 
 [[entries]]
 title = "Encrypt and Decrypt Strings"
 url = "https://leetcode.com/problems/encrypt-and-decrypt-strings/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Bold Words in String"
+url = "https://leetcode.com/problems/bold-words-in-string/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Bulls and Cows"
+url = "https://leetcode.com/problems/bulls-and-cows/"
 
 [[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+title = "Minimum Cost to Make at Least One Valid Path in a Grid"
+url = "https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Snakes and Ladders"
+url = "https://leetcode.com/problems/snakes-and-ladders/"
 
 [[entries]]
 title = "Backspace String Compare"
 url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Check If Word Is Valid After Substitutions"
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Group Shifted Strings"
+url = "https://leetcode.com/problems/group-shifted-strings/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Number of Ways to Form a Target String Given a Dictionary"
+url = "https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/"

@@ -3,137 +3,130 @@ group = "Consumer and Business Tech"
 focus = "Payroll-style array, interval, greedy and sliding window problems with two pointers and trees."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "02_two_pointers", "12_greedy_algorithms", "04_sliding_window", "07_trees"]
 
-[[entries]]
-title = "Remove Sub-Folders from the Filesystem"
-url = "https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/"
 
 [[entries]]
-title = "Swap Adjacent in LR String"
-url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
+title = "Mark Elements on Array by Performing Queries"
+url = "https://leetcode.com/problems/mark-elements-on-array-by-performing-queries/"
 
 [[entries]]
-title = "Find the Score of All Prefixes of an Array"
-url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
+title = "Minimum Moves to Equal Array Elements"
+url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
+
+[[entries]]
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
 
 [[entries]]
 title = "Add Edges to Make Degrees of All Nodes Even"
 url = "https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even/"
 
 [[entries]]
-title = "K-Concatenation Maximum Sum"
-url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+title = "Sentence Screen Fitting"
+url = "https://leetcode.com/problems/sentence-screen-fitting/"
 
 [[entries]]
 title = "Take Gifts From the Richest Pile"
 url = "https://leetcode.com/problems/take-gifts-from-the-richest-pile/"
 
 [[entries]]
-title = "Maximum Sum of Two Non-Overlapping Subarrays"
-url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+title = "Minimum Operations to Write the Letter Y on a Grid"
+url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
 
 [[entries]]
-title = "Longest Balanced Substring I"
-url = "https://leetcode.com/problems/longest-balanced-substring-i/"
+title = "Closest Prime Numbers in Range"
+url = "https://leetcode.com/problems/closest-prime-numbers-in-range/"
 
 [[entries]]
 title = "Maximum Equal Frequency"
 url = "https://leetcode.com/problems/maximum-equal-frequency/"
 
 [[entries]]
-title = "Move Pieces to Obtain a String"
-url = "https://leetcode.com/problems/move-pieces-to-obtain-a-string/"
+title = "Convert to Base -2"
+url = "https://leetcode.com/problems/convert-to-base-2/"
 
 [[entries]]
-title = "Add Bold Tag in String"
-url = "https://leetcode.com/problems/add-bold-tag-in-string/"
+title = "Different Ways to Add Parentheses"
+url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
 
 [[entries]]
-title = "Ugly Number III"
-url = "https://leetcode.com/problems/ugly-number-iii/"
+title = "H-Index"
+url = "https://leetcode.com/problems/h-index/"
 
 [[entries]]
 title = "Minimize Max Distance to Gas Station"
 url = "https://leetcode.com/problems/minimize-max-distance-to-gas-station/"
 
 [[entries]]
-title = "Find And Replace in String"
-url = "https://leetcode.com/problems/find-and-replace-in-string/"
+title = "Invalid Transactions"
+url = "https://leetcode.com/problems/invalid-transactions/"
 
 [[entries]]
 title = "Check if One String Swap Can Make Strings Equal"
 url = "https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal/"
 
 [[entries]]
-title = "Maximum Side Length of a Square with Sum Less than or Equal to Threshold"
-url = "https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/"
+title = "Brightest Position on Street"
+url = "https://leetcode.com/problems/brightest-position-on-street/"
 
 [[entries]]
-title = "Length of Longest Subarray With at Most K Frequency"
-url = "https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/"
+title = "Find the Largest Area of Square Inside Two Rectangles"
+url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
 
 [[entries]]
-title = "Count the Number of Good Subarrays"
-url = "https://leetcode.com/problems/count-the-number-of-good-subarrays/"
+title = "First Day Where You Have Been in All the Rooms"
+url = "https://leetcode.com/problems/first-day-where-you-have-been-in-all-the-rooms/"
 
 [[entries]]
 title = "Count Good Subarrays"
 url = "https://leetcode.com/problems/count-good-subarrays/"
 
 [[entries]]
-title = "Last Stone Weight II"
-url = "https://leetcode.com/problems/last-stone-weight-ii/"
+title = "Flip String to Monotone Increasing"
+url = "https://leetcode.com/problems/flip-string-to-monotone-increasing/"
 
 [[entries]]
-title = "Minimum Sideway Jumps"
-url = "https://leetcode.com/problems/minimum-sideway-jumps/"
+title = "Longest String Chain"
+url = "https://leetcode.com/problems/longest-string-chain/"
 
 [[entries]]
 title = "Maximum Product of Three Numbers"
 url = "https://leetcode.com/problems/maximum-product-of-three-numbers/"
 
 [[entries]]
-title = "Corporate Flight Bookings"
-url = "https://leetcode.com/problems/corporate-flight-bookings/"
+title = "Maximum Product of Word Lengths"
+url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
 
 [[entries]]
-title = "Maximum Sum of Alternating Subsequence With Distance at Least K"
-url = "https://leetcode.com/problems/maximum-sum-of-alternating-subsequence-with-distance-at-least-k/"
+title = "Maximum Strength of K Disjoint Subarrays"
+url = "https://leetcode.com/problems/maximum-strength-of-k-disjoint-subarrays/"
 
 [[entries]]
-title = "Describe the Painting"
-url = "https://leetcode.com/problems/describe-the-painting/"
+title = "Minimum Moves to Spread Stones Over Grid"
+url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Minimum Sensors to Cover Grid"
+url = "https://leetcode.com/problems/minimum-sensors-to-cover-grid/"
 
 [[entries]]
-title = "Partition Labels"
-url = "https://leetcode.com/problems/partition-labels/"
+title = "Non-decreasing Subsequences"
+url = "https://leetcode.com/problems/non-decreasing-subsequences/"
 
 [[entries]]
 title = "Nth Magical Number"
 url = "https://leetcode.com/problems/nth-magical-number/"
 
 [[entries]]
-title = "Partition Array into Disjoint Intervals"
-url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
+title = "Optimal Partition of String"
+url = "https://leetcode.com/problems/optimal-partition-of-string/"
 
 [[entries]]
-title = "Jump Game VII"
-url = "https://leetcode.com/problems/jump-game-vii/"
+title = "Regions Cut By Slashes"
+url = "https://leetcode.com/problems/regions-cut-by-slashes/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
-
-[[entries]]
-title = "Split Array into Consecutive Subsequences"
-url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
-
-[[entries]]
-title = "Queue Reconstruction by Height"
-url = "https://leetcode.com/problems/queue-reconstruction-by-height/"
+title = "Robot Bounded In Circle"
+url = "https://leetcode.com/problems/robot-bounded-in-circle/"
 
 [[entries]]
 title = "Divide Chocolate"

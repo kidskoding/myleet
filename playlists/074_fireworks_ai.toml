@@ -3,29 +3,30 @@ group = "AI & Startups"
 focus = "intervals and GPU idle-time merging, graph validation, tree paths, scheduling with heaps, and practical log/string processing."
 review_modules = ["07_trees", "08_heaps", "10_graphs", "13_intervals", "18_mixed_interview_practice"]
 
-[[entries]]
-title = "Graph Valid Tree"
-url = "https://leetcode.com/problems/graph-valid-tree/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Count Good Nodes in Binary Tree"
+url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Sentence Screen Fitting"
+url = "https://leetcode.com/problems/sentence-screen-fitting/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Find Minimum Time to Finish All Jobs"
+url = "https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Stone Game IX"
+url = "https://leetcode.com/problems/stone-game-ix/"
+
+[[entries]]
+title = "Subsequence of Size K With the Largest Even Sum"
+url = "https://leetcode.com/problems/subsequence-of-size-k-with-the-largest-even-sum/"
 
 [[entries]]
 title = "Binary Tree Paths"
@@ -36,28 +37,28 @@ title = "Count Days Without Meetings"
 url = "https://leetcode.com/problems/count-days-without-meetings/"
 
 [[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
+title = "Advantage Shuffle"
+url = "https://leetcode.com/problems/advantage-shuffle/"
 
 [[entries]]
-title = "Data Stream as Disjoint Intervals"
-url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+title = "Falling Squares"
+url = "https://leetcode.com/problems/falling-squares/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Sum Root to Leaf Numbers"
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "The Time When the Network Becomes Idle"
+url = "https://leetcode.com/problems/the-time-when-the-network-becomes-idle/"
 
 [[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
+title = "Range Module"
+url = "https://leetcode.com/problems/range-module/"
 
 [[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
+title = "Time Needed to Rearrange a Binary String"
+url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
 
 [[entries]]
 title = "Minimum Swaps to Group All 1's Together II"
@@ -72,113 +73,113 @@ title = "Minimum Swaps to Make Strings Equal"
 url = "https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Maximum Deletions on a String"
+url = "https://leetcode.com/problems/maximum-deletions-on-a-string/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Connecting Cities With Minimum Cost"
+url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
 
 [[entries]]
-title = "Process Tasks Using Servers"
-url = "https://leetcode.com/problems/process-tasks-using-servers/"
+title = "Construct String from Binary Tree"
+url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
 
 [[entries]]
-title = "Number of Connected Components in an Undirected Graph"
-url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Minimize Malware Spread II"
+url = "https://leetcode.com/problems/minimize-malware-spread-ii/"
 
 [[entries]]
-title = "Redundant Connection"
-url = "https://leetcode.com/problems/redundant-connection/"
+title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
+url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Find Leaves of Binary Tree"
+url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Grid Teleportation Traversal"
+url = "https://leetcode.com/problems/grid-teleportation-traversal/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Make Costs of Paths Equal in a Binary Tree"
+url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
 
 [[entries]]
-title = "Is Graph Bipartite?"
-url = "https://leetcode.com/problems/is-graph-bipartite/"
+title = "Make the Prefix Sum Non-negative"
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Minimum Time to Make Array Sum At Most x"
+url = "https://leetcode.com/problems/minimum-time-to-make-array-sum-at-most-x/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
 title = "Path Sum II"
 url = "https://leetcode.com/problems/path-sum-ii/"
 
 [[entries]]
-title = "All Paths From Source to Target"
-url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
 
 [[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
+title = "Maximum Distance in Arrays"
+url = "https://leetcode.com/problems/maximum-distance-in-arrays/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Number of Paths with Max Score"
+url = "https://leetcode.com/problems/number-of-paths-with-max-score/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
 
 [[entries]]
-title = "Invalid Transactions"
-url = "https://leetcode.com/problems/invalid-transactions/"
+title = "Minimum Time Difference"
+url = "https://leetcode.com/problems/minimum-time-difference/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Maximum Length of a Concatenated String with Unique Characters"
+url = "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/"
 
 [[entries]]
 title = "Minimum Interval to Include Each Query"
 url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Maximum Median Sum of Subsequences of Size 3"
+url = "https://leetcode.com/problems/maximum-median-sum-of-subsequences-of-size-3/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Maximum Subsequence Score"
+url = "https://leetcode.com/problems/maximum-subsequence-score/"
 
 [[entries]]
 title = "Relative Sort Array"
 url = "https://leetcode.com/problems/relative-sort-array/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Maximum Sum Obtained of Any Permutation"
+url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Merge Operations to Turn Array Into a Palindrome"
+url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Serialize and Deserialize N-ary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree/"

@@ -3,45 +3,46 @@ group = "Consumer and Business Tech"
 focus = "C fundamentals, linked lists, bit manipulation, memory/buffer design, hashing, and OS-adjacent data structures."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "08_heaps", "15_bit_manipulation"]
 
+
 [[entries]]
 title = "Design Linked List"
 url = "https://leetcode.com/problems/design-linked-list/"
 
 [[entries]]
-title = "Sum of Two Integers"
-url = "https://leetcode.com/problems/sum-of-two-integers/"
+title = "Fair Distribution of Cookies"
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
 
 [[entries]]
 title = "Bitwise AND of Numbers Range"
 url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Binary Tree Cameras"
+url = "https://leetcode.com/problems/binary-tree-cameras/"
 
 [[entries]]
 title = "UTF-8 Validation"
 url = "https://leetcode.com/problems/utf-8-validation/"
 
 [[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
 
 [[entries]]
 title = "Reverse Linked List"
 url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Count Nodes Equal to Average of Subtree"
+url = "https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "Minimum Remove to Make Valid Parentheses"
+url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Find the Maximum Sum of Node Values"
+url = "https://leetcode.com/problems/find-the-maximum-sum-of-node-values/"
 
 [[entries]]
 title = "Remove Nth Node From End of List"
@@ -52,8 +53,8 @@ title = "Sort List"
 url = "https://leetcode.com/problems/sort-list/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Random Pick with Blacklist"
+url = "https://leetcode.com/problems/random-pick-with-blacklist/"
 
 [[entries]]
 title = "Copy List with Random Pointer"
@@ -72,16 +73,16 @@ title = "Add Two Numbers"
 url = "https://leetcode.com/problems/add-two-numbers/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Find Players With Zero or One Losses"
+url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
 
 [[entries]]
 title = "Guess the Word"
 url = "https://leetcode.com/problems/guess-the-word/"
 
 [[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
+title = "Factorial Trailing Zeroes"
+url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
 title = "Validate IP Address"
@@ -96,72 +97,72 @@ title = "Last Substring in Lexicographical Order"
 url = "https://leetcode.com/problems/last-substring-in-lexicographical-order/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Count Nodes With the Highest Score"
+url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Number of Vowels in a Substring of Given Length"
+url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
 
 [[entries]]
 title = "Merge Sorted Array"
 url = "https://leetcode.com/problems/merge-sorted-array/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Count Pairs of Connectable Servers in a Weighted Tree Network"
+url = "https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Diameter of N-Ary Tree"
+url = "https://leetcode.com/problems/diameter-of-n-ary-tree/"
 
 [[entries]]
 title = "Valid Arrangement of Pairs"
 url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Find Duplicate Subtrees"
+url = "https://leetcode.com/problems/find-duplicate-subtrees/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Inorder Successor in BST II"
+url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
 
 [[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
+title = "Insert Greatest Common Divisors in Linked List"
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
 
 [[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
+title = "Minimum Flips to Make a OR b Equal to c"
+url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Insert into a Sorted Circular Linked List"
+url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Count Increasing Quadruplets"
+url = "https://leetcode.com/problems/count-increasing-quadruplets/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Lowest Common Ancestor of a Binary Tree II"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Lowest Common Ancestor of a Binary Tree III"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Flatten Binary Tree to Linked List"
+url = "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
 
 [[entries]]
 title = "Number of Subarrays That Match a Pattern II"
 url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Count Complete Tree Nodes"
+url = "https://leetcode.com/problems/count-complete-tree-nodes/"
 
 [[entries]]
 title = "Design Memory Allocator"
@@ -172,12 +173,12 @@ title = "Reverse Bits"
 url = "https://leetcode.com/problems/reverse-bits/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Maximum Subtree of the Same Color"
+url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
 title = "Time to Cross a Bridge"

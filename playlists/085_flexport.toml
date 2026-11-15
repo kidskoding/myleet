@@ -3,57 +3,58 @@ group = "AI & Startups"
 focus = "dp, graph shortest path and bfs, intervals and meeting rooms, string validation, backtracking, and order matching"
 review_modules = ["09_backtracking", "10_graphs", "11_dp", "13_intervals", "17_advanced"]
 
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Coin Change II"
-url = "https://leetcode.com/problems/coin-change-ii/"
+title = "Split a String Into the Max Number of Unique Substrings"
+url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
 
 [[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
+title = "Maximum Palindromes After Operations"
+url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Shortest Path Visiting All Nodes"
+url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Put Boxes Into the Warehouse I"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
 
 [[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
+title = "Put Boxes Into the Warehouse II"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-ii/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Shortest and Lexicographically Smallest Beautiful String"
+url = "https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string/"
 
 [[entries]]
-title = "House Robber III"
-url = "https://leetcode.com/problems/house-robber-iii/"
+title = "Beautiful Arrangement"
+url = "https://leetcode.com/problems/beautiful-arrangement/"
 
 [[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
+title = "Combinations"
+url = "https://leetcode.com/problems/combinations/"
+
+[[entries]]
+title = "Special Binary String"
+url = "https://leetcode.com/problems/special-binary-string/"
 
 [[entries]]
 title = "Restore IP Addresses"
 url = "https://leetcode.com/problems/restore-ip-addresses/"
 
 [[entries]]
-title = "Bulls and Cows"
-url = "https://leetcode.com/problems/bulls-and-cows/"
+title = "Make Sum Divisible by P"
+url = "https://leetcode.com/problems/make-sum-divisible-by-p/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Find And Replace in String"
+url = "https://leetcode.com/problems/find-and-replace-in-string/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "String Transformation"
+url = "https://leetcode.com/problems/string-transformation/"
 
 [[entries]]
 title = "Bag of Tokens"
@@ -64,28 +65,28 @@ title = "Climbing Stairs"
 url = "https://leetcode.com/problems/climbing-stairs/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Optimal Partition of String"
+url = "https://leetcode.com/problems/optimal-partition-of-string/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Longest Path With Different Adjacent Characters"
+url = "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
 
 [[entries]]
 title = "Validate IP Address"
 url = "https://leetcode.com/problems/validate-ip-address/"
 
 [[entries]]
-title = "Min Cost Climbing Stairs"
-url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
+title = "Subsets"
+url = "https://leetcode.com/problems/subsets/"
 
 [[entries]]
 title = "Subarray Product Less Than K"
@@ -96,100 +97,100 @@ title = "Letter Combinations of a Phone Number"
 url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
 
 [[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
+title = "Maximum Path Quality of a Graph"
+url = "https://leetcode.com/problems/maximum-path-quality-of-a-graph/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+title = "Count Number of Maximum Bitwise-OR Subsets"
+url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
+title = "Count the Number of Houses at a Certain Distance I"
+url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/"
 
 [[entries]]
-title = "Number of Flowers in Full Bloom"
-url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
+title = "Shortest Common Supersequence"
+url = "https://leetcode.com/problems/shortest-common-supersequence/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "First Day Where You Have Been in All the Rooms"
+url = "https://leetcode.com/problems/first-day-where-you-have-been-in-all-the-rooms/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "Flip String to Monotone Increasing"
+url = "https://leetcode.com/problems/flip-string-to-monotone-increasing/"
 
 [[entries]]
 title = "Maximum Population Year"
 url = "https://leetcode.com/problems/maximum-population-year/"
 
 [[entries]]
-title = "Path With Minimum Effort"
-url = "https://leetcode.com/problems/path-with-minimum-effort/"
+title = "Letter Case Permutation"
+url = "https://leetcode.com/problems/letter-case-permutation/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Linked List Cycle II"
+url = "https://leetcode.com/problems/linked-list-cycle-ii/"
 
 [[entries]]
-title = "Minimum Interval to Include Each Query"
-url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
+title = "Shortest Palindrome"
+url = "https://leetcode.com/problems/shortest-palindrome/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Longest String Chain"
+url = "https://leetcode.com/problems/longest-string-chain/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximum Number of Integers to Choose From a Range I"
+url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Maximum Points After Enemy Battles"
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
 
 [[entries]]
-title = "Set Intersection Size At Least Two"
-url = "https://leetcode.com/problems/set-intersection-size-at-least-two/"
+title = "Shortest Path in a Grid with Obstacles Elimination"
+url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
 
 [[entries]]
 title = "Number of Orders in the Backlog"
 url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
 
 [[entries]]
-title = "Points That Intersect With Cars"
-url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
+title = "Maximum Subtree of the Same Color"
+url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
 
 [[entries]]
-title = "Partition to K Equal Sum Subsets"
-url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+title = "Letter Tile Possibilities"
+url = "https://leetcode.com/problems/letter-tile-possibilities/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Maximum Xor Product"
+url = "https://leetcode.com/problems/maximum-xor-product/"
 
 [[entries]]
-title = "Falling Squares"
-url = "https://leetcode.com/problems/falling-squares/"
+title = "The Maze III"
+url = "https://leetcode.com/problems/the-maze-iii/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Minimize XOR"
+url = "https://leetcode.com/problems/minimize-xor/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Minimum Cost of a Path With Special Roads"
+url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
 
 [[entries]]
 title = "Find All Numbers Disappeared in an Array"
 url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
 
 [[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+title = "Minimum Elements to Add to Form a Given Sum"
+url = "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/"
 
 [[entries]]
 title = "Burst Balloons"

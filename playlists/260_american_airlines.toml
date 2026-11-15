@@ -3,25 +3,26 @@ group = "Fortune 500"
 focus = "Scheduling-flavored intervals, heaps, graph traversal and greedy, plus array and string basics."
 review_modules = ["01_arrays_and_hashing", "13_intervals", "10_graphs", "08_heaps", "12_greedy_algorithms", "05_binary_search"]
 
+
 [[entries]]
 title = "Lucky Numbers in a Matrix"
 url = "https://leetcode.com/problems/lucky-numbers-in-a-matrix/"
 
 [[entries]]
-title = "Minimum Levels to Gain More Points"
-url = "https://leetcode.com/problems/minimum-levels-to-gain-more-points/"
+title = "Count Unguarded Cells in the Grid"
+url = "https://leetcode.com/problems/count-unguarded-cells-in-the-grid/"
 
 [[entries]]
-title = "Find the Minimum Area to Cover All Ones I"
-url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
+title = "Longest Palindrome by Concatenating Two Letter Words"
+url = "https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/"
 
 [[entries]]
 title = "Calculate Amount Paid in Taxes"
 url = "https://leetcode.com/problems/calculate-amount-paid-in-taxes/"
 
 [[entries]]
-title = "String Compression III"
-url = "https://leetcode.com/problems/string-compression-iii/"
+title = "Make the Prefix Sum Non-negative"
+url = "https://leetcode.com/problems/make-the-prefix-sum-non-negative/"
 
 [[entries]]
 title = "Counting Elements"
@@ -48,16 +49,16 @@ title = "Find the Longest Equal Subarray"
 url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
 
 [[entries]]
-title = "Most Profitable Path in a Tree"
-url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
 
 [[entries]]
 title = "Find N Unique Integers Sum up to Zero"
 url = "https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/"
 
 [[entries]]
-title = "Unique Binary Search Trees"
-url = "https://leetcode.com/problems/unique-binary-search-trees/"
+title = "Maximize Score After Pair Deletions"
+url = "https://leetcode.com/problems/maximize-score-after-pair-deletions/"
 
 [[entries]]
 title = "Minimum Moves to Equal Array Elements III"
@@ -100,12 +101,12 @@ title = "Binary Number with Alternating Bits"
 url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts"
+url = "https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/"
 
 [[entries]]
-title = "Describe the Painting"
-url = "https://leetcode.com/problems/describe-the-painting/"
+title = "Maximum Number of Eaten Apples"
+url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
 
 [[entries]]
 title = "Minimum Time Visiting All Points"
@@ -116,8 +117,8 @@ title = "Hand of Straights"
 url = "https://leetcode.com/problems/hand-of-straights/"
 
 [[entries]]
-title = "Find Minimum in Rotated Sorted Array II"
-url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/"
+title = "Kth Smallest Number in Multiplication Table"
+url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
 
 [[entries]]
 title = "Hexspeak"

@@ -3,13 +3,14 @@ group = "AI & Startups"
 focus = "Graph and shortest-path search, geometry, heaps and union find for navigation-style problems."
 review_modules = ["10_graphs", "16_math_geometry", "08_heaps", "17_advanced", "09_backtracking", "05_binary_search"]
 
-[[entries]]
-title = "Amount of Time for Binary Tree to Be Infected"
-url = "https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/"
 
 [[entries]]
-title = "Minimum Speed to Arrive on Time"
-url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
+title = "Lowest Common Ancestor of a Binary Tree III"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
+
+[[entries]]
+title = "Find the Closest Marked Node"
+url = "https://leetcode.com/problems/find-the-closest-marked-node/"
 
 [[entries]]
 title = "Number of Nodes in the Sub-Tree With the Same Label"
@@ -20,8 +21,8 @@ title = "Find the Last Marked Nodes in Tree"
 url = "https://leetcode.com/problems/find-the-last-marked-nodes-in-tree/"
 
 [[entries]]
-title = "Least Number of Unique Integers after K Removals"
-url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
+title = "Minimum Cost Path with Edge Reversals"
+url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
 
 [[entries]]
 title = "Binary Tree Tilt"
@@ -32,8 +33,8 @@ title = "Find Maximum Area of a Triangle"
 url = "https://leetcode.com/problems/find-maximum-area-of-a-triangle/"
 
 [[entries]]
-title = "Minimum Deletions to Make String K-Special"
-url = "https://leetcode.com/problems/minimum-deletions-to-make-string-k-special/"
+title = "Find Maximum Value in a Constrained Sequence"
+url = "https://leetcode.com/problems/find-maximum-value-in-a-constrained-sequence/"
 
 [[entries]]
 title = "Maximum Total Beauty of the Gardens"
@@ -76,20 +77,20 @@ title = "Combination Sum III"
 url = "https://leetcode.com/problems/combination-sum-iii/"
 
 [[entries]]
-title = "Encrypt and Decrypt Strings"
-url = "https://leetcode.com/problems/encrypt-and-decrypt-strings/"
+title = "Find the Shortest Superstring"
+url = "https://leetcode.com/problems/find-the-shortest-superstring/"
 
 [[entries]]
-title = "First Unique Number"
-url = "https://leetcode.com/problems/first-unique-number/"
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
 
 [[entries]]
-title = "Exam Room"
-url = "https://leetcode.com/problems/exam-room/"
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
 
 [[entries]]
-title = "Read N Characters Given Read4"
-url = "https://leetcode.com/problems/read-n-characters-given-read4/"
+title = "Ugly Number III"
+url = "https://leetcode.com/problems/ugly-number-iii/"
 
 [[entries]]
 title = "Spiral Matrix II"

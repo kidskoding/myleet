@@ -3,53 +3,54 @@ group = "AI & Startups"
 focus = "practical simulation, hashing and aggregation, time-versioned key-value stores, intervals, greedy distribution, and string formatting"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "12_greedy_algorithms", "13_intervals", "16_math_geometry"]
 
-[[entries]]
-title = "Add Bold Tag in String"
-url = "https://leetcode.com/problems/add-bold-tag-in-string/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "First Completely Painted Row or Column"
+url = "https://leetcode.com/problems/first-completely-painted-row-or-column/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
+title = "Eliminate Maximum Number of Monsters"
+url = "https://leetcode.com/problems/eliminate-maximum-number-of-monsters/"
+
+[[entries]]
+title = "Maximum Points After Enemy Battles"
+url = "https://leetcode.com/problems/maximum-points-after-enemy-battles/"
 
 [[entries]]
 title = "Integer to English Words"
 url = "https://leetcode.com/problems/integer-to-english-words/"
 
 [[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
+title = "Maximum Total Importance of Roads"
+url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Maximum Xor Product"
+url = "https://leetcode.com/problems/maximum-xor-product/"
 
 [[entries]]
 title = "Calculate Amount Paid in Taxes"
 url = "https://leetcode.com/problems/calculate-amount-paid-in-taxes/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "Merge Triplets to Form Target Triplet"
+url = "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Minimize Length of Array Using Operations"
+url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
 
 [[entries]]
 title = "Candy"
 url = "https://leetcode.com/problems/candy/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Minimize XOR"
+url = "https://leetcode.com/problems/minimize-xor/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "Minimum Array Length After Pair Removals"
+url = "https://leetcode.com/problems/minimum-array-length-after-pair-removals/"
 
 [[entries]]
 title = "Split Array Largest Sum"
@@ -60,100 +61,100 @@ title = "Gas Station"
 url = "https://leetcode.com/problems/gas-station/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Minimum Cost to Equalize Arrays Using Swaps"
+url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
 
 [[entries]]
 title = "Distribute Money to Maximum Children"
 url = "https://leetcode.com/problems/distribute-money-to-maximum-children/"
 
 [[entries]]
-title = "Capacity To Ship Packages Within D Days"
-url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+title = "Minimum Elements to Add to Form a Given Sum"
+url = "https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Minimum Equal Sum of Two Arrays After Replacing Zeros"
+url = "https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Maximum Total Beauty of the Gardens"
+url = "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Minimum Moves to Reach Target Score"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-score/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Minimum Operations to Halve Array Sum"
+url = "https://leetcode.com/problems/minimum-operations-to-halve-array-sum/"
 
 [[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
+title = "Minimum Operations to Make Array Equal II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Minimum Deletions to Make Array Divisible"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/"
 
 [[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Minimum Operations to Make Array Non Decreasing"
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-non-decreasing/"
 
 [[entries]]
-title = "Subdomain Visit Count"
-url = "https://leetcode.com/problems/subdomain-visit-count/"
+title = "Identify the Largest Outlier in an Array"
+url = "https://leetcode.com/problems/identify-the-largest-outlier-in-an-array/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Minimum Operations to Make Median of Array Equal to K"
+url = "https://leetcode.com/problems/minimum-operations-to-make-median-of-array-equal-to-k/"
 
 [[entries]]
-title = "Analyze User Website Visit Pattern"
-url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
+title = "Maximum Good Subarray Sum"
+url = "https://leetcode.com/problems/maximum-good-subarray-sum/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Minimum Suffix Flips"
+url = "https://leetcode.com/problems/minimum-suffix-flips/"
 
 [[entries]]
 title = "Find the Minimum Area to Cover All Ones II"
 url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
+title = "Monotone Increasing Digits"
+url = "https://leetcode.com/problems/monotone-increasing-digits/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
-title = "Find Duplicate File in System"
-url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+title = "Minimum Operations to Write the Letter Y on a Grid"
+url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
 
 [[entries]]
 title = "Minimum Value to Get Positive Step by Step Sum"
 url = "https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/"
 
 [[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
+title = "String Compression III"
+url = "https://leetcode.com/problems/string-compression-iii/"
 
 [[entries]]
 title = "Maximum Profitable Triplets With Increasing Prices II"
 url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Partitioning Into Minimum Number Of Deci-Binary Numbers"
+url = "https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Put Boxes Into the Warehouse I"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
 
 [[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
+title = "Put Boxes Into the Warehouse II"
+url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-ii/"
 
 [[entries]]
 title = "Number of Subarrays That Match a Pattern II"
@@ -164,8 +165,8 @@ title = "Fraction to Recurring Decimal"
 url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
 
 [[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
+title = "Perfect Squares"
+url = "https://leetcode.com/problems/perfect-squares/"
 
 [[entries]]
 title = "Rotate String"
@@ -176,9 +177,9 @@ title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Reduce Array Size to The Half"
+url = "https://leetcode.com/problems/reduce-array-size-to-the-half/"
 
 [[entries]]
-title = "Time to Cross a Bridge"
-url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+title = "Building Boxes"
+url = "https://leetcode.com/problems/building-boxes/"

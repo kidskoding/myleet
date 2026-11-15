@@ -3,6 +3,7 @@ group = "Consumer and Business Tech"
 focus = "Careful array and hash-map code, money-style DP, and graph problems with weights, tested against edge cases."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "10_graphs", "11_dp", "08_heaps", "14_tries"]
 
+
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
@@ -44,8 +45,8 @@ title = "Coin Change II"
 url = "https://leetcode.com/problems/coin-change-ii/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
 title = "House Robber"

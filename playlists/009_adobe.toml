@@ -3,6 +3,7 @@ group = "Big Tech"
 focus = "Grid and matrix traversal, 2D dynamic programming, and classic string handling."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "10_graphs", "11_dp", "16_math_geometry"]
 
+
 [[entries]]
 title = "Spiral Matrix II"
 url = "https://leetcode.com/problems/spiral-matrix-ii/"
@@ -28,8 +29,8 @@ title = "Detect Cycles in 2D Grid"
 url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
 
 [[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
+title = "Count and Say"
+url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
 title = "Count Sub Islands"
@@ -80,8 +81,8 @@ title = "3Sum With Multiplicity"
 url = "https://leetcode.com/problems/3sum-with-multiplicity/"
 
 [[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
+title = "Count Unguarded Cells in the Grid"
+url = "https://leetcode.com/problems/count-unguarded-cells-in-the-grid/"
 
 [[entries]]
 title = "4Sum II"
@@ -132,8 +133,8 @@ title = "Minimum Path Sum"
 url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
+title = "01 Matrix"
+url = "https://leetcode.com/problems/01-matrix/"
 
 [[entries]]
 title = "Decode String"

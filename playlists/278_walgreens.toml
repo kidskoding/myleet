@@ -3,126 +3,127 @@ group = "Fortune 500"
 focus = "Arrays and strings, hash maps, sliding window, linked lists, and simple trees."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "06_linked_lists", "07_trees", "03_stacks_and_queues"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Increasing Triplet Subsequence"
-url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Longest Arithmetic Subsequence of Given Difference"
+url = "https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/"
 
 [[entries]]
-title = "Maximum Subarray Sum with One Deletion"
-url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+title = "Make K-Subarray Sums Equal"
+url = "https://leetcode.com/problems/make-k-subarray-sums-equal/"
 
 [[entries]]
-title = "Maximum Sum Circular Subarray"
-url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+title = "Maximum White Tiles Covered by a Carpet"
+url = "https://leetcode.com/problems/maximum-white-tiles-covered-by-a-carpet/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Number of Black Blocks"
+url = "https://leetcode.com/problems/number-of-black-blocks/"
 
 [[entries]]
-title = "Maximum Sum of Two Non-Overlapping Subarrays"
-url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+title = "Number of Divisible Substrings"
+url = "https://leetcode.com/problems/number-of-divisible-substrings/"
 
 [[entries]]
-title = "Shortest Subarray with Sum at Least K"
-url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+title = "Number of Substrings With Fixed Ratio"
+url = "https://leetcode.com/problems/number-of-substrings-with-fixed-ratio/"
 
 [[entries]]
-title = "Maximum Swap"
-url = "https://leetcode.com/problems/maximum-swap/"
+title = "Distinct Echo Substrings"
+url = "https://leetcode.com/problems/distinct-echo-substrings/"
 
 [[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
+title = "Product of the Last K Numbers"
+url = "https://leetcode.com/problems/product-of-the-last-k-numbers/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Subdomain Visit Count"
+url = "https://leetcode.com/problems/subdomain-visit-count/"
 
 [[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
+title = "Task Scheduler II"
+url = "https://leetcode.com/problems/task-scheduler-ii/"
 
 [[entries]]
-title = "Continuous Subarrays"
-url = "https://leetcode.com/problems/continuous-subarrays/"
+title = "Unique Substrings With Equal Digit Frequency"
+url = "https://leetcode.com/problems/unique-substrings-with-equal-digit-frequency/"
 
 [[entries]]
-title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
-url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
+title = "Walking Robot Simulation"
+url = "https://leetcode.com/problems/walking-robot-simulation/"
+
+[[entries]]
+title = "Design a File Sharing System"
+url = "https://leetcode.com/problems/design-a-file-sharing-system/"
 
 [[entries]]
 title = "Search Insert Position"
 url = "https://leetcode.com/problems/search-insert-position/"
 
 [[entries]]
-title = "Longest Substring with At Most K Distinct Characters"
-url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+title = "Design A Leaderboard"
+url = "https://leetcode.com/problems/design-a-leaderboard/"
 
 [[entries]]
-title = "Count Subarrays With Fixed Bounds"
-url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
+title = "Longest Path With Different Adjacent Characters"
+url = "https://leetcode.com/problems/longest-path-with-different-adjacent-characters/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Design File System"
+url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
-title = "Maximum Erasure Value"
-url = "https://leetcode.com/problems/maximum-erasure-value/"
+title = "Minimum Area Rectangle"
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
 
 [[entries]]
-title = "Maximum Number of Vowels in a Substring of Given Length"
-url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
+title = "Number of Unique XOR Triplets I"
+url = "https://leetcode.com/problems/number-of-unique-xor-triplets-i/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Number of Ways to Buy Pens and Pencils"
+url = "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/"
 
 [[entries]]
-title = "Minimum Speed to Arrive on Time"
-url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Plates Between Candles"
+url = "https://leetcode.com/problems/plates-between-candles/"
 
 [[entries]]
-title = "Search in a Sorted Array of Unknown Size"
-url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+title = "Pyramid Transition Matrix"
+url = "https://leetcode.com/problems/pyramid-transition-matrix/"
 
 [[entries]]
-title = "Next Greater Node In Linked List"
-url = "https://leetcode.com/problems/next-greater-node-in-linked-list/"
+title = "Queries on Number of Points Inside a Circle"
+url = "https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Rearrange Words in a Sentence"
+url = "https://leetcode.com/problems/rearrange-words-in-a-sentence/"
 
 [[entries]]
-title = "Partition List"
-url = "https://leetcode.com/problems/partition-list/"
+title = "Reorder Data in Log Files"
+url = "https://leetcode.com/problems/reorder-data-in-log-files/"
 
 [[entries]]
-title = "Maximum Number of Robots Within Budget"
-url = "https://leetcode.com/problems/maximum-number-of-robots-within-budget/"
+title = "Maximum Points After Collecting Coins From All Nodes"
+url = "https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes/"
 
 [[entries]]
-title = "Plus One Linked List"
-url = "https://leetcode.com/problems/plus-one-linked-list/"
+title = "Reward Top K Students"
+url = "https://leetcode.com/problems/reward-top-k-students/"
 
 [[entries]]
 title = "Maximum Depth of N-ary Tree"
 url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
 
 [[entries]]
-title = "Maximum Width of Binary Tree"
-url = "https://leetcode.com/problems/maximum-width-of-binary-tree/"
+title = "Seat Reservation Manager"
+url = "https://leetcode.com/problems/seat-reservation-manager/"

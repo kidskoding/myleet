@@ -3,57 +3,58 @@ group = "Fortune 500"
 focus = "Easy array, string, and hash map problems from the online assessment, plus stacks, linked lists, and simple trees."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Maximum Swap"
-url = "https://leetcode.com/problems/maximum-swap/"
+title = "Minimum Time Difference"
+url = "https://leetcode.com/problems/minimum-time-difference/"
 
 [[entries]]
-title = "Number of Ways to Split Array"
-url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+title = "Maximum XOR for Each Query"
+url = "https://leetcode.com/problems/maximum-xor-for-each-query/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Check if a Parentheses String Can Be Valid"
+url = "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
 
 [[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+title = "Check If Word Is Valid After Substitutions"
+url = "https://leetcode.com/problems/check-if-word-is-valid-after-substitutions/"
+
+[[entries]]
+title = "Construct Smallest Number From DI String"
+url = "https://leetcode.com/problems/construct-smallest-number-from-di-string/"
 
 [[entries]]
 title = "First Missing Positive"
 url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
-title = "Brick Wall"
-url = "https://leetcode.com/problems/brick-wall/"
+title = "Implement Router"
+url = "https://leetcode.com/problems/implement-router/"
 
 [[entries]]
 title = "Range Sum Query - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
 [[entries]]
-title = "Longest Turbulent Subarray"
-url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+title = "Longest Absolute File Path"
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
 title = "Left and Right Sum Differences"
 url = "https://leetcode.com/problems/left-and-right-sum-differences/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Maximum Coins From K Consecutive Bags"
+url = "https://leetcode.com/problems/maximum-coins-from-k-consecutive-bags/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Maximum Good Subarray Sum"
+url = "https://leetcode.com/problems/maximum-good-subarray-sum/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Merge Operations to Turn Array Into a Palindrome"
+url = "https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome/"
 
 [[entries]]
 title = "Replace the Substring for Balanced String"
@@ -64,20 +65,20 @@ title = "Implement Stack using Queues"
 url = "https://leetcode.com/problems/implement-stack-using-queues/"
 
 [[entries]]
-title = "Sliding Subarray Beauty"
-url = "https://leetcode.com/problems/sliding-subarray-beauty/"
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
 
 [[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+title = "Find the Maximum Length of a Good Subsequence II"
+url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
 
 [[entries]]
 title = "Search a 2D Matrix II"
 url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Plus One Linked List"
+url = "https://leetcode.com/problems/plus-one-linked-list/"
 
 [[entries]]
 title = "Search in a Sorted Array of Unknown Size"
@@ -88,16 +89,16 @@ title = "Delete the Middle Node of a Linked List"
 url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Remove Nodes From Linked List"
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
 
 [[entries]]
 title = "Double a Number Represented as a Linked List"
 url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Construct String from Binary Tree"
+url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
 
 [[entries]]
 title = "Partition List"

@@ -3,13 +3,14 @@ group = "Consumer and Business Tech"
 focus = "grid traversal with BFS and DFS, matrix simulation, computational geometry with rectangles and points, and shortest paths on game maps."
 review_modules = ["10_graphs", "16_math_geometry", "11_dp", "09_backtracking", "17_advanced"]
 
+
 [[entries]]
 title = "Spiral Matrix II"
 url = "https://leetcode.com/problems/spiral-matrix-ii/"
 
 [[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
+title = "Reward Top K Students"
+url = "https://leetcode.com/problems/reward-top-k-students/"
 
 [[entries]]
 title = "Valid Square"
@@ -32,12 +33,12 @@ title = "Flood Fill"
 url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+title = "Reverse Integer"
+url = "https://leetcode.com/problems/reverse-integer/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Walls and Gates"
+url = "https://leetcode.com/problems/walls-and-gates/"
 
 [[entries]]
 title = "Swim in Rising Water"
@@ -60,16 +61,16 @@ title = "Number of Enclaves"
 url = "https://leetcode.com/problems/number-of-enclaves/"
 
 [[entries]]
-title = "Count Sub Islands"
-url = "https://leetcode.com/problems/count-sub-islands/"
+title = "Surrounded Regions"
+url = "https://leetcode.com/problems/surrounded-regions/"
 
 [[entries]]
-title = "Island Perimeter"
-url = "https://leetcode.com/problems/island-perimeter/"
+title = "Keys and Rooms"
+url = "https://leetcode.com/problems/keys-and-rooms/"
 
 [[entries]]
-title = "Detect Cycles in 2D Grid"
-url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
+title = "Count Lattice Points Inside a Circle"
+url = "https://leetcode.com/problems/count-lattice-points-inside-a-circle/"
 
 [[entries]]
 title = "01 Matrix"
@@ -80,8 +81,8 @@ title = "Unique Paths III"
 url = "https://leetcode.com/problems/unique-paths-iii/"
 
 [[entries]]
-title = "As Far from Land as Possible"
-url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+title = "Alice and Bob Playing Flower Game"
+url = "https://leetcode.com/problems/alice-and-bob-playing-flower-game/"
 
 [[entries]]
 title = "Nearest Exit from Entrance in Maze"
@@ -96,12 +97,12 @@ title = "Trapping Rain Water II"
 url = "https://leetcode.com/problems/trapping-rain-water-ii/"
 
 [[entries]]
-title = "Shortest Bridge"
-url = "https://leetcode.com/problems/shortest-bridge/"
+title = "Count the Number of Houses at a Certain Distance I"
+url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/"
 
 [[entries]]
-title = "Rectangle Area"
-url = "https://leetcode.com/problems/rectangle-area/"
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
 
 [[entries]]
 title = "Rectangle Overlap"
@@ -112,73 +113,73 @@ title = "Minimum Area Rectangle"
 url = "https://leetcode.com/problems/minimum-area-rectangle/"
 
 [[entries]]
-title = "Path With Minimum Effort"
-url = "https://leetcode.com/problems/path-with-minimum-effort/"
+title = "Find the Closest Marked Node"
+url = "https://leetcode.com/problems/find-the-closest-marked-node/"
 
 [[entries]]
 title = "Perfect Rectangle"
 url = "https://leetcode.com/problems/perfect-rectangle/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Find the Winner of the Circular Game"
+url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Grid Teleportation Traversal"
+url = "https://leetcode.com/problems/grid-teleportation-traversal/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
 
 [[entries]]
 title = "Largest Triangle Area"
 url = "https://leetcode.com/problems/largest-triangle-area/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Match Alphanumerical Pattern in Matrix I"
+url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
 
 [[entries]]
 title = "Rectangle Area II"
 url = "https://leetcode.com/problems/rectangle-area-ii/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Maximum Difference Score in a Grid"
+url = "https://leetcode.com/problems/maximum-difference-score-in-a-grid/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "3Sum With Multiplicity"
+url = "https://leetcode.com/problems/3sum-with-multiplicity/"
 
 [[entries]]
 title = "Erect the Fence"
 url = "https://leetcode.com/problems/erect-the-fence/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Median of a Row Wise Sorted Matrix"
+url = "https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Minimum Cost Homecoming of a Robot in a Grid"
+url = "https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/"
 
 [[entries]]
 title = "Greatest Common Divisor of Strings"
 url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Minimum Cost of a Path With Special Roads"
+url = "https://leetcode.com/problems/minimum-cost-of-a-path-with-special-roads/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Painting a Grid With Three Different Colors"
+url = "https://leetcode.com/problems/painting-a-grid-with-three-different-colors/"

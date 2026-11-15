@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "Text and parsing problems with tries, stacks, backtracking and hash maps, plus linked lists and trees."
 review_modules = ["14_tries", "01_arrays_and_hashing", "03_stacks_and_queues", "09_backtracking", "07_trees", "06_linked_lists"]
 
+
 [[entries]]
 title = "Find the Score of All Prefixes of an Array"
 url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
@@ -32,8 +33,8 @@ title = "Get Equal Substrings Within Budget"
 url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
 
 [[entries]]
-title = "K Radius Subarray Averages"
-url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
+url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock III"
@@ -44,12 +45,12 @@ title = "Sort the Students by Their Kth Score"
 url = "https://leetcode.com/problems/sort-the-students-by-their-kth-score/"
 
 [[entries]]
-title = "Minimum Removals to Balance Array"
-url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
+title = "Binary Searchable Numbers in an Unsorted Array"
+url = "https://leetcode.com/problems/binary-searchable-numbers-in-an-unsorted-array/"
 
 [[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+title = "Insert Greatest Common Divisors in Linked List"
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
 
 [[entries]]
 title = "Minimum Cost to Convert String II"
@@ -64,8 +65,8 @@ title = "Time Needed to Buy Tickets"
 url = "https://leetcode.com/problems/time-needed-to-buy-tickets/"
 
 [[entries]]
-title = "Sum of Subarray Minimums"
-url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
+title = "Count Number of Maximum Bitwise-OR Subsets"
+url = "https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/"
 
 [[entries]]
 title = "Best Sightseeing Pair"
@@ -92,44 +93,44 @@ title = "Average of Levels in Binary Tree"
 url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
 
 [[entries]]
-title = "Count Unreachable Pairs of Nodes in an Undirected Graph"
-url = "https://leetcode.com/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/"
+title = "Minimum Cost Path with Edge Reversals"
+url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
 
 [[entries]]
-title = "Online Majority Element In Subarray"
-url = "https://leetcode.com/problems/online-majority-element-in-subarray/"
+title = "Maximum Sum of Alternating Subsequence With Distance at Least K"
+url = "https://leetcode.com/problems/maximum-sum-of-alternating-subsequence-with-distance-at-least-k/"
 
 [[entries]]
 title = "K Highest Ranked Items Within a Price Range"
 url = "https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range/"
 
 [[entries]]
-title = "Design a File Sharing System"
-url = "https://leetcode.com/problems/design-a-file-sharing-system/"
+title = "Double a Number Represented as a Linked List"
+url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
 
 [[entries]]
 title = "Combination Sum II"
 url = "https://leetcode.com/problems/combination-sum-ii/"
 
 [[entries]]
-title = "Prefix and Suffix Search"
-url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+title = "Concatenated Words"
+url = "https://leetcode.com/problems/concatenated-words/"
 
 [[entries]]
 title = "Palindrome Partitioning"
 url = "https://leetcode.com/problems/palindrome-partitioning/"
 
 [[entries]]
-title = "Replace Words"
-url = "https://leetcode.com/problems/replace-words/"
+title = "Nested List Weight Sum II"
+url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
 
 [[entries]]
 title = "Count Prefix and Suffix Pairs I"
 url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
 
 [[entries]]
-title = "Longest Word in Dictionary"
-url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+title = "Plus One Linked List"
+url = "https://leetcode.com/problems/plus-one-linked-list/"
 
 [[entries]]
 title = "Factor Combinations"

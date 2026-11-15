@@ -3,9 +3,10 @@ group = "AI & Startups"
 focus = "Graph and grid search, geometry, backtracking and union find for robotics-style planning problems."
 review_modules = ["10_graphs", "16_math_geometry", "09_backtracking", "17_advanced", "08_heaps", "11_dp"]
 
+
 [[entries]]
-title = "Maximum Number of Integers to Choose From a Range I"
-url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i/"
+title = "Minimum Operations to Make Array Equal II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/"
 
 [[entries]]
 title = "Smallest Missing Non-negative Integer After Operations"
@@ -16,12 +17,12 @@ title = "Minimum Number of Moves to Make Palindrome"
 url = "https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/"
 
 [[entries]]
-title = "Maximum OR"
-url = "https://leetcode.com/problems/maximum-or/"
+title = "Monotone Increasing Digits"
+url = "https://leetcode.com/problems/monotone-increasing-digits/"
 
 [[entries]]
-title = "Mice and Cheese"
-url = "https://leetcode.com/problems/mice-and-cheese/"
+title = "Remove Colored Pieces if Both Neighbors are the Same Color"
+url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
 
 [[entries]]
 title = "Count Substrings with Only One Distinct Letter"
@@ -52,68 +53,68 @@ title = "Largest Palindrome Product"
 url = "https://leetcode.com/problems/largest-palindrome-product/"
 
 [[entries]]
-title = "Throne Inheritance"
-url = "https://leetcode.com/problems/throne-inheritance/"
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
 
 [[entries]]
-title = "Implement Router"
-url = "https://leetcode.com/problems/implement-router/"
+title = "Regions Cut By Slashes"
+url = "https://leetcode.com/problems/regions-cut-by-slashes/"
 
 [[entries]]
 title = "Minimum Bit Flips to Convert Number"
 url = "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/"
 
 [[entries]]
-title = "Design a Stack With Increment Operation"
-url = "https://leetcode.com/problems/design-a-stack-with-increment-operation/"
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
 
 [[entries]]
 title = "Letter Tile Possibilities"
 url = "https://leetcode.com/problems/letter-tile-possibilities/"
 
 [[entries]]
-title = "Design Graph With Shortest Path Calculator"
-url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
 
 [[entries]]
-title = "Count Primes"
-url = "https://leetcode.com/problems/count-primes/"
+title = "Split a String Into the Max Number of Unique Substrings"
+url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
 
 [[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
+title = "24 Game"
+url = "https://leetcode.com/problems/24-game/"
 
 [[entries]]
-title = "Water and Jug Problem"
-url = "https://leetcode.com/problems/water-and-jug-problem/"
+title = "Swapping Nodes in a Linked List"
+url = "https://leetcode.com/problems/swapping-nodes-in-a-linked-list/"
 
 [[entries]]
-title = "Ugly Number II"
-url = "https://leetcode.com/problems/ugly-number-ii/"
+title = "The Earliest Moment When Everyone Become Friends"
+url = "https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/"
 
 [[entries]]
 title = "Add Two Integers"
 url = "https://leetcode.com/problems/add-two-integers/"
 
 [[entries]]
-title = "Pow(x, n)"
-url = "https://leetcode.com/problems/powx-n/"
+title = "Beautiful Arrangement"
+url = "https://leetcode.com/problems/beautiful-arrangement/"
 
 [[entries]]
-title = "Perfect Squares"
-url = "https://leetcode.com/problems/perfect-squares/"
+title = "Delete Operation for Two Strings"
+url = "https://leetcode.com/problems/delete-operation-for-two-strings/"
 
 [[entries]]
-title = "Maximal Rectangle"
-url = "https://leetcode.com/problems/maximal-rectangle/"
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
 
 [[entries]]
-title = "Find the Closest Marked Node"
-url = "https://leetcode.com/problems/find-the-closest-marked-node/"
+title = "Beautiful Array"
+url = "https://leetcode.com/problems/beautiful-array/"
 
 [[entries]]
 title = "Repeated String Match"
@@ -136,13 +137,13 @@ title = "Smallest Even Multiple"
 url = "https://leetcode.com/problems/smallest-even-multiple/"
 
 [[entries]]
-title = "Circular Permutation in Binary Representation"
-url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
+title = "Find the Largest Area of Square Inside Two Rectangles"
+url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
 
 [[entries]]
 title = "Convert to Base -2"
 url = "https://leetcode.com/problems/convert-to-base-2/"
 
 [[entries]]
-title = "Self Crossing"
-url = "https://leetcode.com/problems/self-crossing/"
+title = "Rectangle Area II"
+url = "https://leetcode.com/problems/rectangle-area-ii/"

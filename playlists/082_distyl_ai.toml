@@ -3,6 +3,7 @@ group = "AI & Startups"
 focus = "Hash maps, stacks, graph search and linked lists, with mixed problems that chain two patterns."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "06_linked_lists", "18_mixed_interview_practice", "08_heaps"]
 
+
 [[entries]]
 title = "Rotating the Box"
 url = "https://leetcode.com/problems/rotating-the-box/"
@@ -16,24 +17,24 @@ title = "Find Players With Zero or One Losses"
 url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
 
 [[entries]]
-title = "Time to Cross a Bridge"
-url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+title = "Number of Subarrays That Match a Pattern II"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii/"
 
 [[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
+title = "Insert Greatest Common Divisors in Linked List"
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
 
 [[entries]]
 title = "Find the Original Typed String I"
 url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
 
 [[entries]]
-title = "Design Front Middle Back Queue"
-url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+title = "Count Nodes With the Highest Score"
+url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
 
 [[entries]]
-title = "Design Most Recently Used Queue"
-url = "https://leetcode.com/problems/design-most-recently-used-queue/"
+title = "Delete Nodes From Linked List Present in Array"
+url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
 title = "Minimum Initial Energy to Finish Tasks"
@@ -44,36 +45,36 @@ title = "Reverse Substrings Between Each Pair of Parentheses"
 url = "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/"
 
 [[entries]]
-title = "Nested List Weight Sum II"
-url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
+title = "Inorder Successor in BST II"
+url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
 
 [[entries]]
-title = "Boundary of Binary Tree"
-url = "https://leetcode.com/problems/boundary-of-binary-tree/"
+title = "Insert into a Sorted Circular Linked List"
+url = "https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/"
 
 [[entries]]
 title = "Maximum Number of Ones"
 url = "https://leetcode.com/problems/maximum-number-of-ones/"
 
 [[entries]]
-title = "Peak Index in a Mountain Array"
-url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
+title = "Double a Number Represented as a Linked List"
+url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
 
 [[entries]]
 title = "Concatenation of Array"
 url = "https://leetcode.com/problems/concatenation-of-array/"
 
 [[entries]]
-title = "Maximize Greatness of an Array"
-url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
+title = "Mice and Cheese"
+url = "https://leetcode.com/problems/mice-and-cheese/"
 
 [[entries]]
-title = "Meeting Scheduler"
-url = "https://leetcode.com/problems/meeting-scheduler/"
+title = "Minimize Rounding Error to Meet Target"
+url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
 
 [[entries]]
-title = "Beautiful Towers I"
-url = "https://leetcode.com/problems/beautiful-towers-i/"
+title = "Minimum Non-Zero Product of the Array Elements"
+url = "https://leetcode.com/problems/minimum-non-zero-product-of-the-array-elements/"
 
 [[entries]]
 title = "Find X Value of Array II"
@@ -100,8 +101,8 @@ title = "Count Array Pairs Divisible by K"
 url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
 
 [[entries]]
-title = "Minimum Cost Path with Edge Reversals"
-url = "https://leetcode.com/problems/minimum-cost-path-with-edge-reversals/"
+title = "Count Islands With Total Value Divisible by K"
+url = "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/"
 
 [[entries]]
 title = "Find Minimum Time to Reach Last Room I"
@@ -116,8 +117,8 @@ title = "Distance to a Cycle in Undirected Graph"
 url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
 
 [[entries]]
-title = "Can I Win"
-url = "https://leetcode.com/problems/can-i-win/"
+title = "Count Vowel Strings in Ranges"
+url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
 
 [[entries]]
 title = "Pour Water"
@@ -136,5 +137,5 @@ title = "Count Unhappy Friends"
 url = "https://leetcode.com/problems/count-unhappy-friends/"
 
 [[entries]]
-title = "Create Maximum Number"
-url = "https://leetcode.com/problems/create-maximum-number/"
+title = "Maximum Students Taking Exam"
+url = "https://leetcode.com/problems/maximum-students-taking-exam/"

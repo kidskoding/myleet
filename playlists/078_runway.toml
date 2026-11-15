@@ -3,9 +3,10 @@ group = "AI & Startups"
 focus = "Tree and graph traversal, math helpers and dynamic programming for media-pipeline style problems."
 review_modules = ["07_trees", "10_graphs", "16_math_geometry", "11_dp", "01_arrays_and_hashing", "05_binary_search"]
 
+
 [[entries]]
-title = "Compare Version Numbers"
-url = "https://leetcode.com/problems/compare-version-numbers/"
+title = "Maximize Distance to Closest Person"
+url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
 
 [[entries]]
 title = "String Compression III"
@@ -16,8 +17,8 @@ title = "Permutations III"
 url = "https://leetcode.com/problems/permutations-iii/"
 
 [[entries]]
-title = "Count the Number of Houses at a Certain Distance II"
-url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/"
+title = "Longest Substring of One Repeating Character"
+url = "https://leetcode.com/problems/longest-substring-of-one-repeating-character/"
 
 [[entries]]
 title = "Minimum Levels to Gain More Points"
@@ -32,8 +33,8 @@ title = "Smallest Common Region"
 url = "https://leetcode.com/problems/smallest-common-region/"
 
 [[entries]]
-title = "Find a Peak Element II"
-url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+title = "Maximum Profit From Trading Stocks"
+url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
 
 [[entries]]
 title = "Number of Music Playlists"
@@ -48,8 +49,8 @@ title = "Find X Value of Array I"
 url = "https://leetcode.com/problems/find-x-value-of-array-i/"
 
 [[entries]]
-title = "Minimum Array Length After Pair Removals"
-url = "https://leetcode.com/problems/minimum-array-length-after-pair-removals/"
+title = "Make K-Subarray Sums Equal"
+url = "https://leetcode.com/problems/make-k-subarray-sums-equal/"
 
 [[entries]]
 title = "Count of Integers"
@@ -64,8 +65,8 @@ title = "Balanced Binary Tree"
 url = "https://leetcode.com/problems/balanced-binary-tree/"
 
 [[entries]]
-title = "Largest Merge Of Two Strings"
-url = "https://leetcode.com/problems/largest-merge-of-two-strings/"
+title = "Max Increase to Keep City Skyline"
+url = "https://leetcode.com/problems/max-increase-to-keep-city-skyline/"
 
 [[entries]]
 title = "Maximum XOR for Each Query"
@@ -76,12 +77,12 @@ title = "Minimum Moves to Equal Array Elements"
 url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock IV"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
-title = "Maximum Length of a Concatenated String with Unique Characters"
-url = "https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters/"
+title = "Elimination Game"
+url = "https://leetcode.com/problems/elimination-game/"
 
 [[entries]]
 title = "Number of Unique XOR Triplets I"
@@ -100,16 +101,16 @@ title = "Perfect Rectangle"
 url = "https://leetcode.com/problems/perfect-rectangle/"
 
 [[entries]]
-title = "Target Sum"
-url = "https://leetcode.com/problems/target-sum/"
+title = "Minimizing Array After Replacing Pairs With Their Product"
+url = "https://leetcode.com/problems/minimizing-array-after-replacing-pairs-with-their-product/"
 
 [[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
+title = "Minimum Cost to Make All Characters Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-all-characters-equal/"
 
 [[entries]]
-title = "Count Square Submatrices with All Ones"
-url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
+title = "Minimum Number of Food Buckets to Feed the Hamsters"
+url = "https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters/"
 
 [[entries]]
 title = "Erect the Fence"
