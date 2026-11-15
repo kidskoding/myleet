@@ -5,6 +5,7 @@ import { ClientRouter } from "astro:transitions";
 import TabBar from "../components/shell/TabBar.astro";
 import TopBar, { type NavKey } from "../components/shell/TopBar.astro";
 import { flavorTokens, THEME_BOOT } from "../lib/flavors";
+import { GATE_BOOT } from "../lib/gate";
 import "@catppuccin/palette/css/catppuccin.css";
 import "../styles/flavors.css";
 import "../styles/tokens.css";
@@ -26,6 +27,8 @@ interface Props {
   /** Absolute or root-relative 1200x630 image. */
   ogImage?: string;
   ogType?: string;
+  /** Needs an account: a signed-out visit goes to /signin before first paint. */
+  gated?: boolean;
 }
 
 const {
@@ -36,6 +39,7 @@ const {
   noindex = false,
   ogImage = "/og/default.png",
   ogType = "website",
+  gated = false,
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://myleet.dev");
@@ -47,7 +51,7 @@ const chrome = shell === "app" || shell === "public" || shell === "focused";
 ---
 
 <!doctype html>
-<html lang="en" data-flavor="mocha" data-theme="dark">
+<html lang="en" data-flavor="mocha" data-theme="dark" data-gated={gated ? "" : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -76,6 +80,7 @@ const chrome = shell === "app" || shell === "public" || shell === "focused";
     <link rel="preload" href={archivoLatin} as="font" type="font/woff2" crossorigin />
     <!-- Before first paint: flavor, accent, in-app reduced motion and the signed-in flag, so nothing flashes. -->
     <script is:inline set:html={THEME_BOOT} />
+    {gated && <script is:inline set:html={GATE_BOOT} />}
     <ClientRouter fallback="swap" />
   </head>
   <body data-shell={shell} data-nav={nav} class={shell === "app" ? "has-tabbar" : undefined}>

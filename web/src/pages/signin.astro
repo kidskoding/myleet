@@ -2,14 +2,14 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Sign in" shell="focused" description="Sync your practice progress across devices. Sign in with GitHub, Google, or an email link">
+<Base title="Sign up or sign in" shell="focused" description="Create a free myleet account to keep your study plan, get reviews on the right day and sync progress across devices">
   <div class="signin-page">
     <div class="panel auth-panel" data-signin-page aria-live="polite">
-      <h1 id="si-h">Sign in to myleet</h1>
-      <p class="auth-sub">Keep your progress on every device. New here? These buttons create your account</p>
-      <div class="auth-stack">
-        <a class="btn btn-secondary provider" href="/api/auth/github">Continue with GitHub</a>
-        <a class="btn btn-secondary provider" href="/api/auth/google">Continue with Google</a>
+      <h1 id="si-h" class="visually-hidden">Sign up or sign in</h1>
+      <div class="auth-stack" aria-hidden="true">
+        <span class="skel" style="height:28px;width:70%"></span>
+        <span class="skel" style="height:40px"></span>
+        <span class="skel" style="height:44px;margin-top:var(--space-4)"></span>
       </div>
     </div>
   </div>
@@ -22,7 +22,8 @@ import Base from "../layouts/Base.astro";
 
 <script>
   import { AUTH_ERRORS, fetchMe } from "../lib/account";
-  import { ROUTES } from "../lib/routes";
+  import { afterSignIn } from "../lib/gate";
+  import { readPrefs } from "../lib/prefs";
 
   async function init(): Promise<void> {
     const el = document.querySelector<HTMLElement>("[data-signin-page]");
@@ -31,11 +32,11 @@ import Base from "../layouts/Base.astro";
     const code = params.get("auth_error");
     const me = await fetchMe();
     if (me && !code) {
-      location.replace(params.get("next") ?? ROUTES.today);
+      location.replace(afterSignIn(me, params.get("next"), readPrefs().plan.onboarded));
       return;
     }
     const { mountSignInPage } = await import("../scripts/auth-ui");
-    mountSignInPage(el, code === null ? undefined : (AUTH_ERRORS[code] ?? "Sign-in didn't finish. Try again or use another method"));
+    await mountSignInPage(el, code === null ? undefined : (AUTH_ERRORS[code] ?? "Sign-in didn't finish. Try again or use another method"));
   }
   document.addEventListener("astro:page-load", () => void init());
 </script>

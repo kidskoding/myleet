@@ -1,29 +1,9 @@
-// Landing: the scripted demo run (no Python on this page) and the late redirect for
-// learners whose only trace is progress in IndexedDB.
+// Landing: the scripted demo run (no Python on this page).
 
 const STAGGER_MS = 70;
 const FIRST_MS = 350;
 
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset["motion"] === "reduce";
-
-/** Anyone with local events goes to Today; the inline head check covers the localStorage flags. */
-function redirectIfReturning(): void {
-  if (typeof indexedDB === "undefined") return;
-  const open = indexedDB.open("myleet", 1);
-  open.onupgradeneeded = () => open.result.createObjectStore("kv");
-  open.onsuccess = () => {
-    const db = open.result;
-    try {
-      const get = db.transaction("kv", "readonly").objectStore("kv").get("events");
-      get.onsuccess = () => {
-        db.close();
-        if (typeof get.result === "string" && get.result.trim()) location.replace("/app");
-      };
-    } catch {
-      db.close();
-    }
-  };
-}
 
 function setupDemo(demo: HTMLElement): void {
   const rows = [...demo.querySelectorAll<HTMLElement>(".trow")];
@@ -77,6 +57,5 @@ function setupDemo(demo: HTMLElement): void {
 document.addEventListener("astro:page-load", () => {
   const demo = document.querySelector<HTMLElement>("[data-landing] #demo");
   if (!demo) return;
-  redirectIfReturning();
   setupDemo(demo);
 });

@@ -282,16 +282,15 @@ function doneRow(c: Ctx, d: DoneItem, states: Record<string, State>): SafeHtml {
 }
 
 function firstRun(c: Ctx): SafeHtml {
-  const items = c.t.placement(c.events).items.map((i) => meta(c.cat, i.problem)?.title ?? i.problem);
   const guide = c.cat.catalog.guide[0];
-  const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || (cachedMe() ? null : "Guest");
+  const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null;
   return html`<section aria-labelledby="fr-title">
-    <div class="greet"><h1>Welcome to myleet${name ? `, ${name}` : ""}</h1><p>Start with a warm-up or a module. Your results help choose what to practice next</p></div>
+    <div class="greet"><h1>Welcome to myleet${name ? `, ${name}` : ""}</h1><p>Find your level first, or start at the beginning. Your results decide what Today offers next</p></div>
     <div class="panel firstrun">
-      <div><h2 id="fr-title">Find your starting point</h2>
-        <p>Try ${items.length} short problems to see which topics you know and which need practice. The warm-up takes about 40 minutes and does not change your review schedule. You can stop after any problem</p></div>
+      <div><h2 id="fr-title">Take the diagnostic</h2>
+        <p>Eight quick questions about which pattern fits a problem, then two or three short coding problems. It takes about 15 minutes and doesn't change your review schedule</p></div>
       <div class="choices">
-        <a class="choice" href="${ROUTES.onboarding}?step=warm-up">${icon("flag")}<strong>Take the warm-up</strong><span>${items.join(", ")}</span></a>
+        <a class="choice" href="${ROUTES.diagnostic}">${icon("flag")}<strong>Take the diagnostic</strong><span>Hashing, two pointers, sliding window, binary search, trees, graphs and two more</span></a>
         <a class="choice" href="${guide ? noteHref(guide.path) : ROUTES.learn}">${icon("book-open")}<strong>I'm new to DSA, start at the beginning</strong><span>Read ${guide?.title ?? "How to prepare"}, then module 1: ${c.cat.catalog.modules[0]?.title ?? "Arrays and hashing"}</span></a>
         <a class="choice" href="${ROUTES.companies}">${icon("building-2")}<strong>I have a company in mind</strong><span>Pick a company set; Today will mix it in</span></a>
       </div>
@@ -363,7 +362,7 @@ function paint(c: Ctx): void {
   }
 
   const placement = c.t.placement(c.events);
-  const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || (cachedMe() ? null : "Guest");
+  const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null;
   const hello = greeting(c.now, name);
   let body: SafeHtml;
   if (placement.needs && Object.keys(states).length === 0) {
@@ -473,7 +472,7 @@ function errorState(err: unknown): void {
   const offline = !navigator.onLine;
   render(
     main,
-    html`<div class="greet"><h1>${greeting(new Date(), cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || (cachedMe() ? null : "Guest"))}</h1></div>
+    html`<div class="greet"><h1>${greeting(new Date(), cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null)}</h1></div>
     <div class="panel state-note" style="margin-top:var(--space-8)" role="alert">
       <h2>Couldn't load the curriculum</h2>
       <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practised; those work offline</p>

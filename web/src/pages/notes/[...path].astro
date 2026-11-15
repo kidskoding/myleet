@@ -4,6 +4,7 @@ import "@fontsource-variable/jetbrains-mono/wght.css";
 import "../../components/learn/notes.css";
 import { chevronRight } from "../../components/learn/icons";
 import Base from "../../layouts/Base.astro";
+import TrackCta from "../../components/TrackCta.astro";
 import { buildCatalog } from "../../lib/build-catalog";
 import { renderNote } from "../../lib/build-note-html";
 import { noteText } from "../../lib/build-notes";
@@ -64,7 +65,7 @@ const description = first.replace(/[*_`[\]]/g, "").replace(/\(https?:[^)]*\)/g, 
         <div class="bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress" data-progress><span style="width:0%"></span></div>
         <div class="tabs" role="tablist" aria-label="Contents or your notes">
           <button type="button" role="tab" aria-selected="true" aria-controls="toc-list" id="tab-toc" data-tab="toc">Contents</button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="toc-mine" id="tab-mine" data-tab="mine">Your notes <span class="count" data-mine-count></span></button>
+          <button class="when-in" type="button" role="tab" aria-selected="false" aria-controls="toc-mine" id="tab-mine" data-tab="mine">Your notes <span class="count" data-mine-count></span></button>
         </div>
         <ol id="toc-list" role="tabpanel" aria-labelledby="tab-toc" data-toc>
           <li><a href="#top">{title}</a></li>
@@ -91,7 +92,7 @@ const description = first.replace(/[*_`[\]]/g, "").replace(/\(https?:[^)]*\)/g, 
         <div class="byline">
           <span>{minutes} min read</span>
           {problems.length > 0 && <span>Practises {problems.length} problems in {techTitle}</span>}
-          <button class="btn btn-secondary btn-sm" type="button" data-mark-read aria-pressed="false" aria-keyshortcuts="m"><Fragment set:html={icon("check").value} /><span>Mark as read</span></button>
+          <button class="btn btn-secondary btn-sm when-in" type="button" data-mark-read aria-pressed="false" aria-keyshortcuts="m"><Fragment set:html={icon("check").value} /><span>Mark as read</span></button>
         </div>
         <div class="prose" data-prose set:html={r.html} />
 
@@ -99,6 +100,7 @@ const description = first.replace(/[*_`[\]]/g, "").replace(/\(https?:[^)]*\)/g, 
           problems.length > 0 && (
             <section class="panel practice" aria-labelledby="pt" id="practice">
               <div class="section-head" style="margin:0"><h2 id="pt">Practice this technique</h2><span class="meta" data-practice-meta>{problems.length} problems</span></div>
+              <TrackCta detail="Your account marks what you've solved here and when each problem comes back for review" />
               <ol class="queue" data-practice></ol>
               <a class="link text-small" href={practice.all} style="display:inline-block;margin-top:var(--space-3)">All {problems.length} {techTitle.toLowerCase()} problems</a>
             </section>

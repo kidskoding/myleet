@@ -18,6 +18,7 @@ import { ROUTES } from "../lib/routes";
     ["skills", "How technique mastery is scored"],
     ["sure", "How sure myleet is"],
     ["causes", "Why you are stuck, and what helps"],
+    ["level", "Finding your level"],
     ["today", "How Today picks your problems"],
     ["plan", "How your plan is built"],
     ["forecast", "The forecast and \"behind by N\""],
@@ -99,6 +100,12 @@ import { ROUTES } from "../lib/routes";
   </ul>
   <p>The <a href={`${ROUTES.progress}/skills`}>Skills</a> page explains each diagnosis in plain words, with the evidence first, for example "You passed 2 of 6 grid DFS problems. 3 of the 4 misses failed on edge cases." After every attempt, the result sheet shows what that attempt changed in the diagnosis.</p>
 
+  <h2 id="level">Finding your level</h2>
+  <p>The <a href={ROUTES.diagnostic}>diagnostic</a> takes about 15 minutes and works without an account. It has two parts.</p>
+  <p>First come eight multiple-choice questions. Each one shows a real problem from the curriculum and asks which of four patterns solves it. Six patterns are always asked: hashing, two pointers, sliding window, binary search, trees and graphs. The other two are drawn from stacks, heaps, dynamic programming and intervals. A right answer within 60 seconds counts as strong, a right answer that took longer counts as shaky, and a wrong answer or "I don't know this yet" means that pattern is where you start.</p>
+  <p>Then come up to three coding problems in the normal editor, taken from the patterns you were least sure of. A pattern you missed starts with an easy problem, and one you got right starts with a medium one. After a clean pass the next problem is one level harder. Two problems without a clean pass end the run, because a third would only confirm what the first two showed. For each pattern you coded, the coding result replaces the question's result.</p>
+  <p>The results list every pattern as strong, shaky or start here. The first pattern marked start here (or shaky, if none is) becomes the first module of your plan. Nothing from the diagnostic goes on the review ladder.</p>
+
   <h2 id="today">How Today picks your problems</h2>
   <p>Today is the short list of what to practice now. It is rebuilt from your history every time you open it, in this order:</p>
   <ol>
@@ -123,7 +130,7 @@ import { ROUTES } from "../lib/routes";
   <h2 id="exempt">Practice that never moves the ladder</h2>
   <p>Some kinds of practice measure you without changing your review schedule.</p>
   <ul>
-    <li>The placement warm-up on your first visit only tells Today which topics are strong, which are shaky and where to start. None of its problems go on the ladder.</li>
+    <li>The diagnostic only tells Today which patterns are strong, which are shaky and where to start. None of its questions or problems go on the ladder.</li>
     <li>Check-ins sample a stretch of modules you have studied and report how they are holding up, again without touching due dates.</li>
     <li>Keep-sharp drills count toward your streak and your stats, and they feed the skill scores, but they never change a problem's rung or due date.</li>
   </ul>
@@ -132,5 +139,6 @@ import { ROUTES } from "../lib/routes";
   <p>A mock round is 45 minutes for one to three problems, chosen without telling you the technique, since recognizing the pattern is half of a real interview. Each hint costs three minutes off the round clock. After the round you answer a short self-check (could you explain your approach and its complexity out loud?), and a pass you could not explain, or one that ran past the clock, is recorded as not clean. Mock results then flow into the ladder and the skill scores like any other attempt.</p>
 
   <h2 id="data">Where your progress lives</h2>
-  <p>Your history is a list of events (opened, ran the tests, passed, used a hint and so on) kept in your browser. Everything on this page is computed from that list on your own device. If you sign in, the list also syncs to your account so other devices see the same history, and you can export it or delete it at any time from <a href={ROUTES.settings}>Settings</a>.</p>
+  <p>Your history is a list of events (opened, ran the tests, passed, used a hint and so on). Everything on this page is computed from that list in your browser. Practicing needs a free account, and the list syncs to it so your other devices see the same history. Your browser keeps its own copy as well, so practice keeps working offline and syncs when you reconnect.</p>
+  <p>The diagnostic is the one part you can do without an account. Its answers stay in your browser until you sign up, and then they move to your account. You can export your history or delete it at any time from <a href={ROUTES.settings}>Settings</a>.</p>
 </LongForm>

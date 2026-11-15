@@ -92,6 +92,9 @@ function cache(me: Me | null): void {
   }
 }
 
+/** What the shell painted: `<html data-auth>`. Signed-out pages show no personal progress. */
+export const signedIn = (): boolean => document.documentElement.dataset["auth"] === "in";
+
 /** Last known account, for painting the shell before `/api/me` answers. */
 export function cachedMe(): Me | null {
   try {
@@ -168,6 +171,26 @@ export function takeReturn(): string | null {
   } catch {
     return null;
   }
+}
+
+/** `GET /api/auth/providers`: the sign-in methods this deployment has set up. */
+export interface Providers {
+  github: boolean;
+  google: boolean;
+  email: boolean;
+}
+
+let providersPromise: Promise<Providers> | undefined;
+
+/** A Worker without the route (or no Worker) offers every method, as before it existed. */
+export function fetchProviders(): Promise<Providers> {
+  providersPromise ??= api<Providers>("/api/auth/providers").catch(() => ({ github: true, google: true, email: true }));
+  return providersPromise;
+}
+
+/** The buttons the sign-in panel shows, in order. */
+export function signInMethods(p: Providers): { oauth: ("github" | "google")[]; email: boolean } {
+  return { oauth: (["github", "google"] as const).filter((k) => p[k] === true), email: p.email === true };
 }
 
 export const listSessions = (): Promise<{ sessions: SessionInfo[] }> => api("/api/sessions");

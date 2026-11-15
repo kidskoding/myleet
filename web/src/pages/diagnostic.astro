@@ -1,0 +1,45 @@
+---
+import "@fontsource-variable/literata/opsz.css";
+import Base from "../layouts/Base.astro";
+import "../components/flow.css";
+---
+
+<Base title="Find your level" shell="focused" description="Eight quick questions and two or three short problems show which interview patterns you know and where to start. Free, about 15 minutes, no account needed">
+  <div class="flow" data-diagnostic>
+    <div class="steps"><span class="count skel" style="width:120px;height:18px"></span></div>
+    <div class="q"><div class="skel" style="height:44px;width:70%"></div><div class="skel" style="height:22px;width:85%;margin-top:16px"></div></div>
+  </div>
+</Base>
+
+<style is:global>
+  .flow .dq-problem { margin-top: var(--space-6); padding: var(--space-5) var(--space-6); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+  .flow .dq-problem .head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+  .flow .dq-problem h2 { font-size: var(--text-lg); letter-spacing: -0.01em; }
+  .flow .dq-problem .statement { margin-top: var(--space-3); font-family: var(--font-read); font-size: var(--text-base); line-height: 1.6; color: var(--ink-2); max-width: 68ch; }
+  .flow .dq-problem .statement p + p { margin-top: var(--space-3); }
+  .flow .dq-problem .statement code { font-size: 0.9em; }
+  .flow .dq-problem .lc { display: inline-block; margin-top: var(--space-3); font-size: var(--text-sm); }
+  .flow .options.dq { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flow .options.dq .opt { grid-template-columns: auto 1fr auto; }
+  .flow .options.dq .opt strong { grid-row: span 2; }
+  .flow .dk { margin-left: auto; }
+  .flow .topics { margin-top: var(--space-8); list-style: none; padding: 0; }
+  .flow .topics li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-1) var(--space-4); align-items: center; padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+  .flow .topics li:last-child { border-bottom: 1px solid var(--line); }
+  .flow .topics .name { font-weight: 600; }
+  .flow .topics .src { grid-column: 1; font-size: var(--text-sm); color: var(--ink-3); }
+  .flow .topics .tag { grid-row: 1 / span 2; grid-column: 2; }
+  .flow .start-at { margin-top: var(--space-8); padding: var(--space-5) var(--space-6); background: var(--surface-sunk); border-radius: var(--radius-md); }
+  .flow .start-at h2 { font-size: var(--text-lg); }
+  .flow .start-at p { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-sm); max-width: 62ch; }
+  .flow .start-at .tech { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+  .flow .start-at ol { margin-top: var(--space-3); padding-left: 1.2em; display: grid; gap: var(--space-1); font-size: var(--text-sm); }
+  @media (max-width: 760px) {
+    .flow .options.dq { grid-template-columns: minmax(0, 1fr); }
+    .flow .dq-problem { padding: var(--space-4); }
+  }
+</style>
+
+<script>
+  import "../scripts/diagnostic";
+</script>

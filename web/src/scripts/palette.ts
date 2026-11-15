@@ -62,7 +62,7 @@ function commands(): Command[] {
     ...appearanceCommands(),
     { key: "cmd:shortcuts", kind: "command", title: "Keyboard shortcuts", icon: "keyboard", keys: ["?"], run: () => import("./shortcuts").then((m) => m.openShortcuts()) },
     { key: "cmd:plan", kind: "command", title: "Edit my plan", hint: "interview date, companies, daily time", icon: "flag", href: ROUTES.onboarding },
-    { key: "cmd:warmup", kind: "command", title: "Take the placement warm-up", icon: "flag", href: `${ROUTES.onboarding}?step=warm-up` },
+    { key: "cmd:warmup", kind: "command", title: "Take the diagnostic", hint: "find your level", icon: "flag", href: ROUTES.diagnostic },
   ];
   if (me) {
     cmds.push(

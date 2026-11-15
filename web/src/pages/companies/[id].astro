@@ -1,4 +1,5 @@
 ---
+import TrackCta from "../../components/TrackCta.astro";
 import { chevronRight } from "../../components/learn/icons";
 import "../../components/companies/companies.css";
 import { setRow, SET_FOLD } from "../../components/companies/rows";
@@ -37,9 +38,10 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}` : "";
       <div>
         <div class="actions">
           <a class="btn btn-secondary" href={`${ROUTES.mock}?company=${slug}`} aria-keyshortcuts="m"><Fragment set:html={icon("timer").value} />{p.title} mock</a>
-          <button class="btn btn-primary" type="button" data-pin aria-pressed="false" aria-keyshortcuts="p">Pin to your plan</button>
+          <button class="btn btn-primary when-in" type="button" data-pin aria-pressed="false" aria-keyshortcuts="p">Pin to your plan</button>
         </div>
         <p class="pinned-note" data-pinned-note hidden></p>
+        <TrackCta detail="Your account shows how ready you are for this set and can add it to your plan" />
       </div>
     </div>
 
@@ -47,7 +49,7 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}` : "";
       <section aria-labelledby="ps">
         <div class="set-tools">
           <h2 id="ps">Practice problems</h2>
-          <div class="seg" role="group" aria-label="Show" data-set-seg>
+          <div class="seg when-in" role="group" aria-label="Show" data-set-seg>
             <button type="button" aria-pressed="true" data-show="all">All<span class="n">{n}</span></button>
             <button type="button" aria-pressed="false" data-show="notready">Not ready<span class="n" data-n="notready"></span></button>
             <button type="button" aria-pressed="false" data-show="due">Due<span class="n" data-n="due"></span></button>
@@ -60,7 +62,7 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}` : "";
         <p class="set-foot" data-set-foot hidden></p>
       </section>
       <aside data-aside>
-        <section class="panel readiness" aria-labelledby="rd" data-readiness>
+        <section class="panel readiness when-in" aria-labelledby="rd" data-readiness>
           <h2 id="rd">Readiness</h2>
           <div class="skel" style="height:44px;width:60%;margin-top:12px"></div>
           <div class="skel" style="height:8px;margin-top:12px"></div>
@@ -70,7 +72,7 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}` : "";
           <p class="text-small text-muted" style="margin-top:var(--space-1)">The techniques covered by this set and your progress in each</p>
           <div class="skel" style="height:80px;margin-top:12px"></div>
         </section>
-        <section class="panel inplan" aria-labelledby="ip" data-inplan hidden></section>
+        <section class="panel inplan when-in" aria-labelledby="ip" data-inplan hidden></section>
       </aside>
     </div>
   </div>

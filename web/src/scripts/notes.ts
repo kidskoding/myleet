@@ -11,7 +11,7 @@ import {
   removeAnnotation,
   type Annotation,
 } from "../lib/annotations";
-import { cachedMe } from "../lib/account";
+import { cachedMe, signedIn } from "../lib/account";
 import { loadCatalog } from "../lib/catalog";
 import { isDue, pstatus, statusTag, tally } from "../lib/learn";
 import { readEvents } from "../lib/progress";
@@ -250,6 +250,7 @@ function selectionRange(): { start: number; end: number; rect: DOMRect } | null 
 }
 
 function onSelection(): void {
+  if (!signedIn()) return;
   const s = selectionRange();
   if (!s) {
     pending = null;
@@ -386,6 +387,8 @@ function progress(): void {
   const summary = hs.find((h) => /summary/i.test(h.id)) ?? hs.at(-1);
   const reached = summary ? summary.getBoundingClientRect().top < innerHeight : pct > 0.95;
   const spent = (Date.now() - openedAt) / 60_000;
+  // Signed out, the note is read-only: nothing is saved about the reading.
+  if (!signedIn()) return;
   if (reached && spent >= minutes * 0.4 && !readState(path())?.read) {
     markProgress(path(), pct, true);
     setReadButton(true);
@@ -403,6 +406,7 @@ function setReadButton(read: boolean): void {
 }
 
 function toggleRead(): void {
+  if (!signedIn()) return;
   const st = readState(path());
   const read = !st?.read;
   markProgress(path(), st?.pct ?? 0, read);
@@ -416,7 +420,7 @@ async function renderPractice(): Promise<void> {
   const data = JSON.parse($("[data-practice-data]")?.textContent ?? "null") as Practice | null;
   if (!list || !data?.ids.length) return;
   let states: Record<string, State> = {};
-  const [cat, events] = await Promise.all([loadCatalog(), readEvents().catch(() => "")]);
+  const [cat, events] = await Promise.all([loadCatalog(), signedIn() ? readEvents().catch(() => "") : ""]);
   try {
     if (events.trim()) states = (await loadTrainer()).states(events);
   } catch {
@@ -492,7 +496,7 @@ function load(): void {
   pending = null;
   failed = new Set();
   lastSaved = -1;
-  anns = annotationsFor(path());
+  anns = signedIn() ? annotationsFor(path()) : [];
   renderMarks();
   setReadButton(!!readState(path())?.read);
   progress();

@@ -536,3 +536,11 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
   .diff2 { grid-template-columns: 1fr; }
   .toast { bottom: calc(var(--space-6) + 56px); }
 }
+
+/* Signed out, the workspace shows the problem and offers sign-up instead of Run and Submit.
+   The diagnostic's problems (placement) run without an account. */
+.signup-cta { display: none; }
+html:not([data-auth="in"]) .wsx:not([data-mode="placement"]) .signup-cta { display: inline-flex; }
+html:not([data-auth="in"]) .wsx:not([data-mode="placement"]) :is([data-act="run"], [data-act="submit"]) { display: none; }
+.signup-cta .short { display: none; }
+@media (max-width: 760px) { .signup-cta .long { display: none; } .signup-cta .short { display: inline; } }

@@ -1,4 +1,5 @@
 ---
+import TrackCta from "../../components/TrackCta.astro";
 import { chevronRight, listFilter } from "../../components/learn/icons";
 import "../../components/learn/learn.css";
 import Base from "../../layouts/Base.astro";
@@ -27,10 +28,11 @@ const count = words[modules.length] ?? String(modules.length);
       <div>
         <h1>Learn</h1>
         <p data-lede data-count={count}>{count} modules by interview pattern, {total} problems. Read the five start-here notes, then begin at module 1</p>
+        <TrackCta detail="Your account shows what you've started, what's due for review and which notes you've read" />
       </div>
       <div class="tools">
         <label class="filter-input"><Fragment set:html={listFilter().value} /><input type="search" placeholder="Filter problems" aria-label="Filter modules and problems" data-filter autocomplete="off" /><kbd>/</kbd></label>
-        <div class="seg" role="group" aria-label="Show" data-seg>
+        <div class="seg when-in" role="group" aria-label="Show" data-seg>
           <button type="button" aria-pressed="true" data-mode="all">All</button>
           <button type="button" aria-pressed="false" data-mode="due">Due<span class="n" data-n="due"></span></button>
           <button type="button" aria-pressed="false" data-mode="weak">Weak<span class="n" data-n="weak"></span></button>

@@ -1,0 +1,93 @@
+/* Step-by-step flows: onboarding and the diagnostic. */
+.flow { max-width: 680px; margin: 0 auto; padding: var(--space-8) var(--gutter) var(--space-16); }
+.flow.wide { max-width: 920px; }
+.flow .steps { display: flex; align-items: center; gap: var(--space-4); min-height: 34px; }
+.flow .steps .back { margin-left: calc(-1 * var(--space-2)); }
+.flow .steps .count { font-size: var(--text-sm); color: var(--ink-3); font-weight: 600; white-space: nowrap; }
+.flow .steps .skip { margin-left: auto; }
+.flow .track { display: grid; grid-template-columns: repeat(var(--n, 5), 1fr); gap: 4px; margin-top: var(--space-3); }
+.flow .track i { height: 4px; border-radius: 2px; background: var(--line); position: relative; overflow: hidden; }
+.flow .track i.on::after { content: ""; position: absolute; inset: 0; background: var(--accent); animation: fill-in var(--dur-base) var(--ease-out); transform-origin: left; }
+@keyframes fill-in { from { transform: scaleX(0); } }
+.flow .q { margin-top: var(--space-10); }
+.flow .q h1 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); }
+.flow .q .sub { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-md); max-width: 54ch; line-height: 1.45; }
+.flow .q .sub strong { color: var(--ink); }
+
+.flow .options { margin-top: var(--space-8); display: grid; gap: var(--space-3); border: 0; padding: 0; }
+.flow .opt { display: grid; grid-template-columns: auto 1fr auto; gap: 2px var(--space-4); align-items: center; padding: var(--space-4) var(--space-5); border: 1px solid var(--line-strong); border-radius: var(--radius-md); background: var(--surface); cursor: pointer; transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out); }
+.flow .opt:hover { border-color: var(--ink-3); }
+.flow .opt input { appearance: none; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--control-edge); grid-row: span 2; margin: 0; display: grid; place-items: center; }
+.flow .opt input:checked { border-color: var(--accent); }
+.flow .opt input:checked::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.flow .opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.flow .opt:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+.flow .opt strong { font-size: var(--text-base); }
+.flow .opt span { grid-column: 2; color: var(--ink-2); font-size: var(--text-sm); }
+.flow .opt kbd { grid-row: 1 / span 2; grid-column: 3; }
+
+.flow .ob-when [data-when-editor] { margin-top: var(--space-6); }
+@media (min-width: 761px) {
+  .flow .ob-when .av-editor { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: var(--space-6) var(--space-8); align-items: start; }
+  .flow .ob-when .av-editor .av-sec { margin: 0; }
+  .flow .ob-when .av-editor .av-sec:first-child { grid-column: 1 / -1; }
+  .flow .ob-when .av-editor .av-sec:last-child { grid-column: 2; grid-row: 2; }
+}
+.flow .next { margin-top: var(--space-8); display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+.flow .next .hint { font-size: var(--text-sm); color: var(--ink-3); }
+
+.flow .search { margin-top: var(--space-8); display: flex; align-items: center; gap: var(--space-3); height: 48px; padding: 0 var(--space-4); background: var(--surface); border: 1px solid var(--control-edge); border-radius: var(--radius-sm); transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
+.flow .search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.flow .search .icon { color: var(--ink-3); }
+.flow .search input { flex: 1; min-width: 0; border: 0; background: none; font-size: var(--text-base); outline: none; }
+.flow .picked { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.flow .picked:empty { display: none; }
+.flow .groups { margin-top: var(--space-6); display: grid; gap: var(--space-5); }
+.flow .groups h2 { font-size: var(--text-sm); color: var(--ink-3); margin-bottom: var(--space-2); font-variation-settings: "wdth" var(--wdth-ui); letter-spacing: 0; }
+.flow .groups .row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.flow .groups .more { color: var(--accent); }
+.flow .empty-note { margin-top: var(--space-5); color: var(--ink-2); font-size: var(--text-sm); }
+
+.flow .date-row { margin-top: var(--space-8); display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-4); }
+.flow .date-row .input { height: 48px; padding: 0 var(--space-4); min-width: 220px; width: auto; font-size: var(--text-base); }
+.flow .quick { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.flow .date-note { margin-top: var(--space-5); font-size: var(--text-sm); color: var(--ink-2); }
+
+.flow .weeks { margin-top: var(--space-8); list-style: none; padding: 0; }
+.flow .week { display: grid; grid-template-columns: 140px minmax(0, 1fr) auto; gap: var(--space-5); align-items: center; padding: var(--space-4) 0; border-top: 1px solid var(--line); }
+.flow .week:last-child { border-bottom: 1px solid var(--line); }
+.flow .week .when { font-weight: 650; font-size: var(--text-sm); }
+.flow .week .when small { display: block; color: var(--ink-3); font-weight: 500; font-size: var(--text-sm); }
+.flow .week .tech { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.flow .week .n { font-size: var(--text-sm); color: var(--ink-3); font-variation-settings: "wdth" var(--wdth-tag); font-weight: 600; white-space: nowrap; }
+.flow .later-list { margin-top: var(--space-5); font-size: var(--text-sm); color: var(--ink-2); max-width: 62ch; }
+.flow .how { margin-top: var(--space-6); padding: var(--space-5) var(--space-6); background: var(--surface-sunk); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--ink-2); display: grid; gap: var(--space-2); }
+.flow .how strong { color: var(--ink); }
+
+.flow .warm { margin-top: var(--space-8); list-style: none; padding: 0; }
+.flow .wrow { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; padding: var(--space-4) var(--space-5); border-top: 1px solid var(--line); border-radius: var(--radius-sm); }
+.flow .wrow:last-child { border-bottom: 1px solid var(--line); }
+.flow .wrow .num { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: var(--text-xs); font-weight: 700; background: var(--surface-sunk); color: var(--ink-2); font-variation-settings: "wdth" var(--wdth-tag); }
+.flow .wrow.done .num { background: var(--ink); color: var(--surface); }
+.flow .wrow.now { background: var(--surface); border-color: transparent; box-shadow: 0 0 0 1px var(--line); }
+.flow .wrow.now .num { background: var(--accent-fill); color: var(--on-accent); }
+.flow .wrow .title { font-weight: 600; }
+.flow .wrow .sub { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; margin-top: 2px; font-size: var(--text-sm); color: var(--ink-3); }
+.flow .wrow.later .title { color: var(--ink-2); }
+.flow .placed-note { margin-top: var(--space-6); display: grid; gap: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); max-width: 62ch; padding-left: 1.1em; }
+
+@media (max-width: 760px) {
+  .flow { padding-top: var(--space-5); padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+  .flow .q { margin-top: var(--space-6); }
+  .flow .q h1 { font-size: var(--text-xl); }
+  .flow .q .sub { font-size: var(--text-base); }
+  .flow .opt kbd, .flow .next .hint { display: none; }
+  .flow .next { position: fixed; inset: auto 0 0 0; margin: 0; padding: var(--space-3) var(--gutter) calc(var(--space-3) + env(safe-area-inset-bottom)); background: color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); z-index: var(--z-sticky); flex-wrap: nowrap; }
+  .flow .next .btn { flex: 1; }
+  .flow .week { grid-template-columns: minmax(0, 1fr) auto; }
+  .flow .week .tech { grid-column: 1 / -1; grid-row: 2; }
+  .flow .wrow { grid-template-columns: 28px minmax(0, 1fr); padding: var(--space-4) var(--space-2); }
+  .flow .wrow > :last-child { grid-column: 2; justify-self: start; }
+  .flow .date-row .input, .flow .date-row .field { width: 100%; }
+}
+html:has(.flow) { scroll-padding-bottom: 96px; }

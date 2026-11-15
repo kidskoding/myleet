@@ -79,7 +79,7 @@
   .btn kbd { display: none; }
   .topbar { gap: var(--space-3); }
   .tabbar {
-    display: grid; grid-template-columns: repeat(5, 1fr);
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
     position: fixed; inset: auto 0 0 0; z-index: var(--z-sticky);
     height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
     padding-bottom: env(safe-area-inset-bottom);
@@ -439,6 +439,8 @@ select.input { appearance: none; padding-right: var(--space-8); background-image
 
 /* Signed-in and signed-out variants, switched by <html data-auth> before first paint */
 html:not([data-auth="in"]) .when-in, html[data-auth="in"] .when-out { display: none !important; }
+/* An account page stays blank while the head script sends a signed-out visit to /signin */
+html[data-gated]:not([data-auth="in"]) body { visibility: hidden; }
 #main:focus { outline: none; }
 
 /* ===== Sign in and merge ===== */
@@ -462,6 +464,7 @@ form.auth-stack { margin-top: 0; }
 .auth-panel .input { height: 46px; padding: 0 var(--space-4); }
 .auth-fine { margin-top: var(--space-6); font-size: var(--text-xs); color: var(--ink-3); line-height: 1.5; }
 .auth-later { margin-top: var(--space-4); display: flex; justify-content: center; }
+.auth-swap { margin-top: var(--space-4); display: flex; justify-content: center; }
 .auth-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 .big-icon { width: 44px; height: 44px; border-radius: var(--radius-md); display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: var(--space-5); }
 .big-icon.bad { background: var(--fail-soft); color: var(--fail); }
@@ -703,3 +706,9 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 }
 .av-editor .seg { display: flex; max-width: 320px; }
 .av-editor .seg button { flex: 1; padding: 0 6px; white-space: nowrap; }
+
+/* Sign-up prompt in place of personal progress (components/TrackCta.astro) */
+/* :root raises it over page lede rules such as `.learn .head p` */
+:root .track-cta.when-out { display: flex; align-items: flex-start; gap: var(--space-2); margin-top: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); max-width: 62ch; }
+.track-cta .icon { width: 16px; height: 16px; margin-top: 2px; color: var(--accent); }
+.track-cta .link { font-weight: 600; }

@@ -1,6 +1,7 @@
 // Learn: the curriculum map (/learn) and module pages (/learn/<NN-slug>), filled from the
 // wasm trainer and local progress. Markup for both comes from the server; this adds progress.
 import { circle } from "../components/learn/icons";
+import { signedIn } from "../lib/account";
 import { allReads, type ReadState } from "../lib/annotations";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { sentenceCase } from "../lib/display";
@@ -332,7 +333,8 @@ async function load(): Promise<void> {
   if (!root) return;
   const minutes = JSON.parse($("[data-minutes]")?.textContent ?? "{}") as Record<string, number>;
   try {
-    const [cat, t, events] = await Promise.all([loadCatalog(), loadTrainer(), readEvents()]);
+    // Signed out, the map is read-only: no progress, even if this browser has some.
+    const [cat, t, events] = await Promise.all([loadCatalog(), loadTrainer(), signedIn() ? readEvents() : ""]);
     const now = Date.now();
     const states = events.trim() ? t.states(events) : {};
     let weak = new Set<string>();
@@ -350,7 +352,7 @@ async function load(): Promise<void> {
     } catch {
       next = null;
     }
-    ctx = { cat, states, weak, next, now, reads: allReads(), minutes };
+    ctx = { cat, states, weak, next, now, reads: signedIn() ? allReads() : {}, minutes };
     $("[data-error]")?.setAttribute("hidden", "");
     if (root.dataset["learn"] === "map") renderMap(ctx);
     else renderModulePage(ctx);

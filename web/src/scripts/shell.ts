@@ -2,6 +2,7 @@
 // reminders. Runs once per full load; `astro:page-load` refreshes per-page state.
 import { navigate } from "astro:transitions/client";
 import { AUTH_ERRORS, cachedMe, fetchMe, initials, takeReturn, type Me } from "../lib/account";
+import { afterSignIn, signinHref } from "../lib/gate";
 import { applyMotionPref, applyTheme, readPrefs, readTheme } from "../lib/prefs";
 import { lastReminder, nextSessionReminder, reminderDelay, reminderSupport, sendReminder, type PlannedSession } from "../lib/reminders";
 import { ROUTES } from "../lib/routes";
@@ -167,6 +168,18 @@ function paintStreak(): void {
   );
 }
 
+/** Sign-in links come back to this page, except from pages that are sign-in steps themselves. */
+function paintSigninLinks(): void {
+  const here = location.pathname + location.search;
+  const back = location.pathname === ROUTES.home || location.pathname.startsWith(ROUTES.signin) ? null : here;
+  for (const a of document.querySelectorAll<HTMLAnchorElement>("[data-signin-link]")) {
+    const q = new URLSearchParams();
+    if (a.dataset.signinLink === "up") q.set("mode", "signup");
+    if (back) q.set("next", back);
+    a.href = `${ROUTES.signin}${q.size ? `?${q}` : ""}`;
+  }
+}
+
 function paintNav(): void {
   const cur = document.body.dataset.nav;
   for (const a of document.querySelectorAll<HTMLAnchorElement>(".nav a, .tabbar a")) {
@@ -318,9 +331,18 @@ async function bootAccount(): Promise<void> {
   }
   const me = await fetchMe();
   paintAccount(me);
-  if (!me) return;
+  const here = location.pathname + location.search;
+  if (!me) {
+    // The head script let this account page paint on a stale cached account.
+    if (document.documentElement.hasAttribute("data-gated")) location.replace(signinHref(here));
+    return;
+  }
+  void import("./auth-ui").then((m) => m.rememberAccount());
   const back = takeReturn();
-  if (back && back !== location.pathname + location.search) await navigate(back);
+  if (back !== null || location.pathname === ROUTES.home) {
+    const dest = afterSignIn(me, back ?? ROUTES.today, readPrefs().plan.onboarded);
+    if (dest !== here) await navigate(dest);
+  }
   void import("./account-sync").then((m) => m.startAccountSync(me));
 }
 
@@ -328,6 +350,7 @@ async function bootAccount(): Promise<void> {
 
 function onPage(): void {
   paintNav();
+  paintSigninLinks();
   paintStreak();
   paintOnline();
   paintUpdate();

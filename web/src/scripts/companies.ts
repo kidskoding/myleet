@@ -9,6 +9,7 @@ import { sentenceCase } from "../lib/display";
 import { isDue, statusTag } from "../lib/learn";
 import { daysUntil, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
+import { signedIn } from "../lib/account";
 import { readEvents } from "../lib/progress";
 import { ROUTES } from "../lib/routes";
 import { recordStats } from "../lib/streak";
@@ -349,7 +350,8 @@ function rerender(): void {
 
 async function load(): Promise<void> {
   if (!root()) return;
-  const [cat, events] = await Promise.all([loadCatalog(), readEvents().catch(() => "")]);
+  // Signed out, the sets are read-only: no progress, even if this browser has some.
+  const [cat, events] = await Promise.all([loadCatalog(), signedIn() ? readEvents().catch(() => "") : ""]);
   let t: TrainerApi | null = null;
   let states: Record<string, State> = {};
   let skills: Skill[] = [];
@@ -441,7 +443,7 @@ document.addEventListener("keydown", (e) => {
     j: () => move(1),
     k: () => move(-1),
     "/": () => $<HTMLInputElement>("[data-find]")?.focus(),
-    p: () => p && togglePin(p),
+    p: () => p && signedIn() && togglePin(p),
     m: () => p && location.assign(`${ROUTES.mock}?company=${companySlug(p.id)}`),
   };
   const n = Number(e.key);

@@ -1,25 +1,24 @@
-// Onboarding (/onboarding?step=...): goal, companies, date, time, plan, then the placement
-// warm-up. Each step is a URL so Back works. Answers save as you go (lib/prefs).
+// Onboarding (/onboarding?step=...): goal, companies, date, time, hours, then the plan.
+// Each step is a URL so Back works. Answers save as you go (lib/prefs). The placement
+// diagnostic lives at /diagnostic.
 import { navigate } from "astro:transitions/client";
-import { parseEvents, placementResults, runProgress } from "../lib/attempts";
 import { companySlug, listedCompany, loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { daysUntil, planWeeks, shortDate, TIME_OPTIONS, timeOption } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs, type Goal } from "../lib/prefs";
 import { DEFAULT_WINDOWS } from "../lib/schedule";
 import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
-import { appendEvent, readEvents } from "../lib/progress";
-import { problemHref, ROUTES } from "../lib/routes";
+import { readEvents } from "../lib/progress";
+import { ROUTES } from "../lib/routes";
 import { addDays, localDay } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
-import type { Level, Playlist, PlaylistGroup } from "../lib/types";
-import { diff, formatDuration, kbd, plural, tag } from "../lib/ui/bits";
+import type { Playlist, PlaylistGroup } from "../lib/types";
+import { kbd, plural, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 
 const STEPS = ["goal", "companies", "date", "time", "when", "plan"] as const;
-type Step = (typeof STEPS)[number] | "warm-up";
-const SINCE_KEY = "myleet:placement-since";
+type Step = (typeof STEPS)[number];
 
 const GOALS: { id: Goal; label: string; detail: string }[] = [
   { id: "internship", label: "Internship", detail: "Mostly easy and medium problems, arrays to trees first" },
@@ -38,7 +37,7 @@ const root = () => document.querySelector<HTMLElement>("[data-onboarding]");
 
 function currentStep(): Step {
   const s = new URLSearchParams(location.search).get("step");
-  return s === "warm-up" || (STEPS as readonly string[]).includes(s ?? "") ? (s as Step) : "goal";
+  return (STEPS as readonly string[]).includes(s ?? "") ? (s as Step) : "goal";
 }
 
 function go(step: Step, replace = false): void {
@@ -49,7 +48,7 @@ function go(step: Step, replace = false): void {
 }
 
 function head(step: Step, opts: { skip?: boolean } = {}): SafeHtml {
-  const i = STEPS.indexOf(step as (typeof STEPS)[number]);
+  const i = STEPS.indexOf(step);
   const back = i > 0 ? html`<button class="icon-btn back" type="button" data-back aria-label="Back">${icon("arrow-left")}</button>` : "";
   return html`<div class="steps">${back}<span class="count">Step ${i + 1} of ${STEPS.length}</span>${
     opts.skip === false ? "" : html`<button class="btn btn-ghost btn-sm skip" type="button" data-skip>Skip setup</button>`
@@ -187,75 +186,8 @@ function planStep(): SafeHtml {
       <p><strong>On track</strong> means a technique is projected to reach the plan's goal by the date</p>
       <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up</p>
     </div>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Start the warm-up</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Go to Today</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
   </section>`;
-}
-
-const LEVEL_TAG: Record<Level, SafeHtml> = {
-  strong: tag("pass", "Strong"),
-  shaky: tag("progress", "Shaky"),
-  "start here": tag("weak", "Start here"),
-};
-
-async function warmStep(): Promise<SafeHtml> {
-  if (!cat || !trainer) return html`<div class="q"><div class="skel" style="height:44px;width:60%"></div></div>`;
-  const t = trainer;
-  const c = cat;
-  const events = await readEvents();
-  const pl = t.placement(events);
-  const titleOf = (id: string) => c.byId.get(id)?.title ?? id;
-  const targetOf = (id: string) => c.byId.get(id)?.time_target_secs ?? 900;
-
-  if (pl.done && pl.result && !pl.result.skipped) {
-    const items = pl.result.items;
-    const strong = items.filter((i) => i.level === "strong").length;
-    const rec = pl.recommend ? c.catalog.modules.find((m) => m.id === pl.recommend)?.title : null;
-    const weak = pl.weak_modules.map((id) => c.catalog.modules.find((m) => m.id === id)?.title).filter(Boolean);
-    return html`<section class="q" aria-labelledby="q7" style="margin-top:var(--space-4)">
-      <h1 id="q7" tabindex="-1">Your starting topics</h1>
-      <p class="sub">${plural(strong, "topic")} solid, ${plural(items.length - strong, "to work on", "to work on")}. Today's new problems are picked from these. The warm-up didn't touch your review schedule</p>
-      <ol class="warm">${items.map(
-        (it, i) =>
-          html`<li class="wrow done"><span class="num">${i + 1}</span><div><div class="title">${titleOf(it.problem)}</div><div class="sub">${it.outcome === "skipped" ? tag("outline", "Skipped") : LEVEL_TAG[it.level]}<span>${it.topic[0]?.toUpperCase()}${it.topic.slice(1)}</span></div></div><span class="text-small text-muted">${
-            it.outcome === "clean" ? "Clean pass" : it.outcome === "hinted" ? "Passed with help" : it.outcome === "skipped" ? "Not tried" : "Missed"
-          }</span></li>`,
-      )}</ol>
-      <ul class="placed-note">
-        ${rec ? html`<li>${rec} comes first in your new problems${weak.includes(rec) ? ", marked weak spot" : ""}</li>` : ""}
-        ${weak.filter((w) => w !== rec).length ? html`<li>Also marked to start early: ${weak.filter((w) => w !== rec).join(", ")}</li>` : ""}
-        <li>Topics marked strong come later, after you have started the core topics</li>
-      </ul>
-      <div class="next"><a class="btn btn-primary btn-lg" href="${ROUTES.today}">Go to Today</a></div>
-    </section>`;
-  }
-
-  const since = Number(localStorage.getItem(SINCE_KEY) ?? 0);
-  const ids = pl.items.map((i) => i.problem);
-  const progress = runProgress(parseEvents(events), ids, "placement", since);
-  const finished = progress.filter((p) => p.finished).length;
-  const nowIdx = progress.findIndex((p) => !p.finished);
-  const allDone = nowIdx < 0;
-  return html`<div class="steps"><span class="count">Warm-up, ${finished} of ${ids.length} done</span><button class="btn btn-ghost btn-sm skip" type="button" data-stop>${finished ? "Stop here, build my queue" : "Skip the warm-up"}</button></div>
-    <div class="track" aria-hidden="true" style="--n:${ids.length}">${progress.map((p) => html`<i class="${p.finished ? "on" : ""}"></i>`)}</div>
-    <section class="q" aria-labelledby="q6">
-      <h1 id="q6">Find your starting point</h1>
-      <p class="sub">${plural(ids.length, "short problem")} across the core patterns. Solve them as you would in an interview: timer on, no notes. They don't touch your review schedule; they tell Today which topics are solid. Stop after any one</p>
-      <ol class="warm">${pl.items.map((it, i) => {
-        const p = progress[i];
-        const m = c.byId.get(it.problem);
-        const a = p?.finished;
-        if (a) {
-          const over = a.elapsedMs !== null && a.elapsedMs > targetOf(it.problem) * 1000;
-          const t2 = !a.passed ? tag("fail", "Missed") : a.hints || a.peeks || over ? tag("progress", a.hints || a.peeks ? "Used a hint" : "Over time") : tag("pass", "Clean pass");
-          return html`<li class="wrow done"><span class="num">${i + 1}</span><div><div class="title">${titleOf(it.problem)}</div><div class="sub">${t2}<span>${a.elapsedMs !== null ? `${formatDuration(a.elapsedMs)}, ` : ""}${m ? c.catalog.modules[m.module]?.title : it.topic}</span></div></div><span></span></li>`;
-        }
-        const now = i === nowIdx;
-        return html`<li class="wrow ${now ? "now" : "later"}"><span class="num">${i + 1}</span><div><div class="title">${titleOf(it.problem)}</div><div class="sub"><span>${m ? c.catalog.modules[m.module]?.title : it.topic}</span>${m ? diff(m.difficulty) : ""}<span>${Math.round(targetOf(it.problem) / 60)} min target</span>${p?.started ? tag("progress", "Started") : ""}</div></div>${
-          now ? html`<a class="btn btn-primary" href="${problemHref(it.problem, "placement")}" data-warm-start>${p?.started ? "Continue" : "Start"} ${kbd("enter")}</a>` : html`<span></span>`
-        }</li>`;
-      })}</ol>
-      ${allDone ? html`<div class="next"><button class="btn btn-primary btn-lg" type="button" data-stop>Build my queue</button></div>` : ""}
-    </section>`;
 }
 
 // ---- paint + events ----
@@ -276,15 +208,13 @@ async function paint(): Promise<void> {
             ? timeStep()
             : step === "when"
               ? whenStep()
-              : step === "plan"
-              ? planStep()
-              : await warmStep();
+              : planStep();
   whenEditor?.destroy();
   whenEditor = null;
   render(el, body);
   const host = el.querySelector<HTMLElement>("[data-when-editor]");
   if (host) whenEditor = mountAvailability(host, { sections: ["presets", "paint", "session"], headings: false, id: "ob-av" });
-  document.title = `${step === "warm-up" ? "Warm-up" : "Set up your plan"} · myleet`;
+  document.title = "Set up your plan · myleet";
   const focus = el.querySelector<HTMLElement>("input:checked, [data-company-search], [data-date]") ?? el.querySelector<HTMLElement>("h1");
   if (focus?.tagName === "H1") focus.setAttribute("tabindex", "-1");
   focus?.focus({ preventScroll: true });
@@ -320,27 +250,9 @@ function advance(): void {
     }
     updatePrefs({ plan: { interviewDate: v || null } });
   }
-  const i = STEPS.indexOf(step as (typeof STEPS)[number]);
+  const i = STEPS.indexOf(step);
   const next = STEPS[i + 1];
   if (next) go(next);
-}
-
-async function finishPlacement(): Promise<void> {
-  if (!trainer || !cat) return;
-  const t = trainer;
-  const c = cat;
-  const events = await readEvents();
-  const pl = t.placement(events);
-  const since = Number(localStorage.getItem(SINCE_KEY) ?? 0);
-  const progress = runProgress(parseEvents(events), pl.items.map((i) => i.problem), "placement", since);
-  const line = progress.some((p) => p.finished)
-    ? t.placementDone(placementResults(pl.items, progress, (id) => c.byId.get(id)?.time_target_secs ?? 900))
-    : t.placementSkip();
-  await appendEvent(line);
-  localStorage.removeItem(SINCE_KEY);
-  updatePrefs({ plan: { onboarded: true } });
-  if (progress.some((p) => p.finished)) await paint();
-  else await navigate(ROUTES.today);
 }
 
 function onClick(e: MouseEvent): void {
@@ -376,13 +288,8 @@ function onClick(e: MouseEvent): void {
   else if (t.closest("[data-finish-plan]")) {
     const opt = timeOption(readPrefs().plan.dailyMinutes);
     updatePrefs({ newPerDay: opt.newPerDay, plan: { dailyMinutes: opt.minutes, startedAt: localDay(), onboarded: true } });
-    void readEvents().then((ev) => {
-      if (!trainer || trainer.placement(ev).needs) go("warm-up");
-      else void navigate(ROUTES.today);
-    });
-  } else if (t.closest("[data-warm-start]")) {
-    if (!localStorage.getItem(SINCE_KEY)) localStorage.setItem(SINCE_KEY, String(Date.now() - 1000));
-  } else if (t.closest("[data-stop]")) void finishPlacement();
+    void navigate(ROUTES.today);
+  }
 }
 
 function onChange(e: Event): void {
@@ -441,19 +348,20 @@ function onKey(e: KeyboardEvent): void {
   } else if (e.key === "Enter") {
     if (a?.tagName === "BUTTON" || a?.tagName === "A") return;
     e.preventDefault();
-    if (step === "warm-up") root()?.querySelector<HTMLAnchorElement>("[data-warm-start]")?.click();
-    else if (step === "plan") root()?.querySelector<HTMLButtonElement>("[data-finish-plan]")?.click();
+    if (step === "plan") root()?.querySelector<HTMLButtonElement>("[data-finish-plan]")?.click();
     else {
       const b = root()?.querySelector<HTMLButtonElement>("[data-continue]");
       if (b && !b.disabled) advance();
     }
-  } else if (e.key === "Escape" && STEPS.indexOf(step as (typeof STEPS)[number]) > 0) {
+  } else if (e.key === "Escape" && STEPS.indexOf(step) > 0) {
     history.back();
   }
 }
 
 async function init(): Promise<void> {
   if (!root()) return;
+  // The old warm-up step is the diagnostic now.
+  if (new URLSearchParams(location.search).get("step") === "warm-up") return location.replace(ROUTES.diagnostic);
   query = "";
   void paint();
   const [c, t] = await Promise.all([loadCatalog(), loadTrainer()]).catch(() => [undefined, undefined] as const);
@@ -476,4 +384,3 @@ document.addEventListener("input", onInput);
 document.addEventListener("keydown", onKey);
 addEventListener("popstate", () => root() && void paint());
 document.addEventListener("astro:page-load", () => void init());
-addEventListener("myleet:progress", () => root() && currentStep() === "warm-up" && void paint());

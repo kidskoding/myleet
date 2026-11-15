@@ -113,6 +113,14 @@ export class Attempt {
     await this.write("gave_up");
   }
 
+  /** The diagnostic's "I don't know this yet": a give-up the core never schedules (placement mode). */
+  async skip(): Promise<void> {
+    if (this.end) return;
+    await this.open();
+    this.end = "gave_up";
+    await this.write("gave_up", { reason: "skipped" });
+  }
+
   /** On leaving the page: only an opened, unfinished practice attempt records `left`. */
   async leave(): Promise<void> {
     if (!this.id || this.end || this.exam) return;

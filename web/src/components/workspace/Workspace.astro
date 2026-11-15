@@ -53,6 +53,8 @@ const data = JSON.stringify({ meta: problem, starter, moduleTitle, techniqueTitl
       <button class="icon-btn hide-m" data-act="focusMode" aria-label="Focus mode (Ctrl Shift F)" aria-pressed="false" set:html={icon("scan")} />
       <button class="icon-btn hide-m hide-t" data-act="palette" aria-label="Search and commands (Ctrl K)" set:html={icon("command")} />
       <span class="sep hide-m"></span>
+      <button class="btn btn-ghost" data-act="dontKnow" hidden>I don't know this yet</button>
+      <a class="btn btn-primary signup-cta" href="/signin?mode=signup" data-signup-cta><span class="long">Sign up free to run your code</span><span class="short">Sign up to run</span></a>
       <button class="btn btn-secondary hide-m" data-act="run" aria-keyshortcuts="Control+Enter"><span class="spin" aria-hidden="true"></span><span data-run-label>Run</span> <kbd data-kbd="⌘↵">Ctrl ↵</kbd></button>
       <button class="btn btn-primary hide-m" data-act="submit" aria-keyshortcuts="Control+Shift+Enter">Submit</button>
       <button class="icon-btn" data-act="more" aria-label="More: restart, give up, editor settings" aria-haspopup="menu" aria-expanded="false" set:html={icon("ellipsis")} />

@@ -96,7 +96,7 @@ export function mountFromPage(personal: Pick<MountOptions, "renderReason" | "ren
   const q = new URLSearchParams(location.search);
   const m = q.get("mode") as Mode | null;
   const mode = m && MODES.includes(m) ? m : "practice";
-  const backHref = mode === "placement" ? `${ROUTES.onboarding}?step=warm-up` : (root.dataset["back"] ?? ROUTES.today);
+  const backHref = mode === "placement" ? ROUTES.diagnostic : (root.dataset["back"] ?? ROUTES.today);
   for (const a of root.querySelectorAll<HTMLAnchorElement>("[data-back]")) a.href = backHref;
   void mountWorkspace(root, { mode, backHref, ...personal });
 }
@@ -114,6 +114,13 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   const backHref = opts.backHref ?? root.dataset["back"] ?? "/";
 
   root.dataset["mode"] = mode;
+  // Solving needs an account; the diagnostic's problems (placement) don't.
+  const locked = () => mode !== "placement" && document.documentElement.dataset["auth"] !== "in";
+  if (mode === "placement") {
+    $(root, '[data-act="dontKnow"]').hidden = false;
+    for (const a of $$<HTMLAnchorElement>(root, "[data-back]")) a.setAttribute("aria-label", "Back to the diagnostic");
+  }
+  for (const a of $$<HTMLAnchorElement>(root, "[data-signup-cta]")) a.href = `${ROUTES.signin}?mode=signup&next=${encodeURIComponent(location.pathname + location.search)}`;
   for (const k of $$(root, "[data-kbd]")) k.textContent = keyLabel(k.dataset["kbd"] ?? "", mac).replace("Ctrl+Enter", "Ctrl ↵").replace("Ctrl+", "Ctrl ");
   if (exam) for (const el of $$(root, "[data-exam-hide]")) el.hidden = true;
   if (interview || !meta.hints.length && !meta.key_idea) for (const el of $$(root, "[data-exam-hide-hints]")) el.hidden = true;
@@ -620,6 +627,8 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     if (exam) {
       await attempt.submit(r.passed, r.total, elapsedMs(timer, Date.now()));
       report("submit", r);
+      // The diagnostic picks the next problem from this result.
+      if (mode === "placement") location.href = backHref;
       return;
     }
     if (!green) {
@@ -1542,8 +1551,19 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   }
 
   // ---- Actions and keys ----
+  async function dontKnow() {
+    await attempt.skip().catch(() => {});
+    location.href = backHref;
+  }
+
   async function act(a: Action | string, source?: HTMLElement) {
+    if ((a === "run" || a === "submit" || a === "runCustom") && locked()) {
+      toast(toastSlot, "Sign up free to run and submit your code");
+      return;
+    }
     switch (a) {
+      case "dontKnow":
+        return dontKnow();
       case "run":
         return run(false);
       case "submit":

@@ -11,11 +11,11 @@ import type { PlaylistGroup } from "../../lib/types";
 const catalog = buildCatalog();
 const c = { ...catalog, playlists: catalog.playlists.filter(listedCompany) };
 const GROUPS: { name: PlaylistGroup; about: string }[] = [
-  { name: "Big tech", about: "Large technology companies with coding interviews" },
-  { name: "Product companies", about: "Software and product companies with coding interviews" },
-  { name: "AI labs & high growth", about: "AI labs and growing technology companies" },
-  { name: "Trading firms", about: "Trading firms and quantitative finance companies" },
-  { name: "Enterprise companies", about: "Technology roles across finance, semiconductors, retail, healthcare, aerospace, defense, telecom, manufacturing, logistics, and other industries" },
+  { name: "Big tech", about: "The largest tech companies" },
+  { name: "Product companies", about: "Companies building the apps you use every day" },
+  { name: "AI labs & high growth", about: "AI labs and fast-growing startups" },
+  { name: "Trading firms", about: "Quant and trading firms" },
+  { name: "Enterprise companies", about: "Tech roles at the biggest companies outside tech" },
 ];
 const groups = GROUPS.map((g) => ({ ...g, sets: c.playlists.filter((p) => p.group === g.name) }));
 const total = c.playlists.length;
@@ -32,7 +32,7 @@ const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       <label class="find"><Fragment set:html={icon("search").value} /><input type="search" aria-label="Find a company" placeholder="Find a company" data-find autocomplete="off" /><kbd>/</kbd></label>
     </div>
 
-    <section class="pinned" aria-labelledby="pn" data-pinned hidden>
+    <section class="pinned when-in" aria-labelledby="pn" data-pinned hidden>
       <div class="section-head"><h2 id="pn">Your companies</h2><span class="meta">Pinned to your plan</span></div>
       <ul class="panel pin-list" data-pin-list></ul>
     </section>
