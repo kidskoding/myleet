@@ -36,6 +36,7 @@ import {
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { LeetcodeImport, Plan, PlanItem, PlanNote, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
 import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
+import { emphasize } from "../lib/ui/emphasis";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
@@ -370,6 +371,11 @@ async function load(): Promise<Ctx> {
 }
 
 /** A guest sees the diagnostic invitation or their results, never a personal Today. */
+/** Titles of the learner's pinned companies, for bolding in the coaching note. */
+function companyNames(c: Ctx): string[] {
+  return readPrefs().plan.companies.flatMap((slug) => c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title ?? []);
+}
+
 function targetCompany(c: Ctx): string | null {
   const slug = readPrefs().plan.companies[0];
   return (slug && c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title) || null;
@@ -536,7 +542,7 @@ function paint(c: Ctx): void {
     const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now, first.problem);
     const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n, readStreak().rests)].filter(Boolean);
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${para}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${emphasize(para, companyNames(c))}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${cardsRow(cards)}
       <div data-mock-card></div>
       ${nextUp(c, first)}

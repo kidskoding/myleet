@@ -13,7 +13,7 @@ import Base from "../layouts/Base.astro";
         </div>
         <div class="panel queue-skel"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
       </div>
-      <aside data-today-aside aria-label="Plan">
+      <aside class="side-notes" data-today-aside aria-label="Plan">
         <section class="panel"><div class="skel" style="height:20px;width:60%"></div><div class="skel" style="height:44px;width:40%;margin-top:16px"></div><div class="skel" style="height:60px;margin-top:16px"></div></section>
         <section class="panel"><div class="skel" style="height:20px;width:55%"></div><div class="skel" style="height:56px;margin-top:16px"></div></section>
         <section class="panel"><div class="skel" style="height:20px;width:40%"></div><div class="skel" style="height:32px;margin-top:16px"></div></section>
@@ -44,6 +44,7 @@ import Base from "../layouts/Base.astro";
   .gate-eg-today .eg-body { padding: var(--space-5) var(--space-6) var(--space-4); display: grid; gap: var(--space-3); }
   .gate-eg-today .eg-hello { font-size: var(--text-md); font-weight: 700; color: var(--ink); }
   .gate-eg-today .eg-note { color: var(--ink-2); font-size: var(--text-sm); line-height: 1.55; }
+  .greet p strong, .gate-eg-today .eg-note strong { color: var(--ink); font-weight: 650; }
   .gate-eg-today .eg-ready-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2); }
   .gate-eg-today .eg-ready-h { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-base); font-weight: 700; color: var(--ink); }
   .gate-eg-today .eg-ready-h .co-logo { width: 20px !important; height: 20px !important; vertical-align: 0 !important; }
@@ -84,8 +85,7 @@ import Base from "../layouts/Base.astro";
   .today .group { margin-top: var(--space-10); }
   .today .group .section-head h2 { font-size: var(--text-sec); }
 
-  .today aside { display: grid; gap: var(--space-5); }
-  .today aside .panel { padding: var(--space-5); }
+  .today aside { padding-top: var(--space-2); }
   .today aside h2 { font-size: var(--text-sec); }
   .today aside .section-head { margin: 0; align-items: center; }
   .today .pace { margin-top: var(--space-4); display: grid; gap: var(--space-3); font-size: var(--text-sm); }
@@ -120,14 +120,14 @@ import Base from "../layouts/Base.astro";
   .today aside .fc-row .fc-bar { grid-column: 1 / -1; grid-row: 2; }
   .today aside .fineprint { margin-top: var(--space-3); }
   .today .ready { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--line); }
-  .today .ready-line { font-size: var(--text-sm); font-weight: 600; color: var(--ink); line-height: var(--leading-snug, 1.4); }
+  .today .ready-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+  .today .ready-head h3 { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-md); font-weight: 680; letter-spacing: var(--track-head); color: var(--ink); }
+  .today .ready-head .ready-logo { width: 20px !important; height: 20px !important; }
+  .today .ready-pct { font-family: var(--font-label); font-size: var(--text-md); font-weight: 650; letter-spacing: var(--track-num); font-variant-numeric: tabular-nums; color: var(--ink); }
+  .today .ready-line { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); line-height: var(--leading-snug, 1.4); }
   .today .ready-bar { margin-top: var(--space-3); height: 8px; border-radius: var(--radius-pill); background: var(--surface-sunk); overflow: hidden; }
   .today .ready-bar > span { display: block; height: 100%; min-width: 4px; border-radius: inherit; background: var(--pass-solid); transition: width var(--dur-base) var(--ease-spring); }
 
-  .today .firstrun { margin-top: var(--space-8); display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-8); padding: var(--space-8); }
-  .today .firstrun h2 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); }
-  .today .firstrun p { margin-top: var(--space-3); color: var(--ink-2); max-width: 46ch; }
-  .today .firstrun-actions { display: grid; gap: var(--space-4); align-content: center; justify-items: start; }
   .today .greet .quiet { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); }
   .today .greet .meta { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-3); }
   .today .foryou { list-style: none; margin: var(--space-8) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--space-4); }
@@ -163,8 +163,6 @@ import Base from "../layouts/Base.astro";
     .today .nextup .why { order: 2; grid-template-columns: 1fr 1fr; }
     .today .nextup .why p { grid-column: 1 / -1; }
     .today .nextup .why .btn { width: 100%; }
-    .today .firstrun { grid-template-columns: 1fr; padding: var(--space-5); }
-    .today .firstrun h2 { font-size: var(--text-xl); }
   }
 </style>
 
