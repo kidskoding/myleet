@@ -38,5 +38,7 @@ export function isFreshAccount(me: Me, onboarded: boolean, now = Date.now()): bo
 }
 
 export function afterSignIn(me: Me, next: string | null | undefined, onboarded: boolean, now = Date.now()): string {
-  return isFreshAccount(me, onboarded, now) ? "/onboarding" : safeNext(next);
+  // Someone sent here from a page (a sign-up prompt) goes straight back to it.
+  const back = safeNext(next, "");
+  return isFreshAccount(me, onboarded, now) && !back ? "/onboarding" : back || "/app";
 }

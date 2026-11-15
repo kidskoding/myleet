@@ -566,6 +566,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     $(root, "[data-console]").textContent = r.output.trim() || "Nothing printed";
     renderTestsStatus();
     showTestsTab("tests");
+    if (green && submit) void import("../../lib/first-solve").then((m) => m.firstSolvePrompt());
     const failing = r.tests.filter((t) => t.outcome !== "passed").map((t) => t.name);
     announce(r.timedOut ? "Stopped after the time limit. Python was restarted" : green ? `All ${r.total} passed` : `${r.passed} of ${r.total} passed. Failing: ${failing.slice(0, 3).join(", ")}`);
   }

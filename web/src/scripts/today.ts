@@ -1,6 +1,8 @@
 // Today (/app): built live from the wasm trainer and local progress.
 import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
+import { signupHref } from "../lib/access";
+import { viewEvents } from "../lib/sample";
 import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { daysUntil, paceRows, shortDate } from "../lib/plan";
@@ -44,6 +46,8 @@ interface Ctx {
   cat: LoadedCatalog;
   events: string;
   now: Date;
+  /** A guest with no practice yet: events are a labelled example. */
+  sample?: boolean;
   /** Computed per paint; null if the planner failed (Today still works without it). */
   plan?: Plan | null;
   skills?: Skill[] | null;
@@ -302,8 +306,8 @@ function firstRun(c: Ctx): SafeHtml {
 let ctx: Ctx | undefined;
 
 async function load(): Promise<Ctx> {
-  const [t, cat, events] = await Promise.all([loadTrainer(), loadCatalog(), readEvents()]);
-  return { t, cat, events, now: new Date() };
+  const [t, cat, real] = await Promise.all([loadTrainer(), loadCatalog(), readEvents()]);
+  return { t, cat, ...viewEvents(t, cat, real), now: new Date() };
 }
 
 function paint(c: Ctx): void {
@@ -316,7 +320,7 @@ function paint(c: Ctx): void {
   const extra = budget === "120" ? EXTRA_NEW_FOR_LONG_DAY : 0;
   const states = c.t.states(c.events);
   const stats = c.t.stats(c.events);
-  recordStats(stats);
+  if (!c.sample) recordStats(stats);
   const done = doneToday(parseEvents(c.events), (id) => meta(c.cat, id)?.time_target_secs ?? 0, c.now);
   const doneIds = new Set(done.map((d) => d.problem));
   let entries = c.t.today(c.events, { newPerDay: prefs.newPerDay + extra }).filter((e) => !doneIds.has(e.problem));
@@ -409,20 +413,30 @@ function paint(c: Ctx): void {
   const nm = next ? meta(c.cat, next) : undefined;
   const skipKey = nm ? `${c.cat.catalog.modules[nm.module]?.id}/${c.cat.catalog.modules[nm.module]?.techniques[nm.technique]?.id}` : null;
   render(aside, first ? html`` : html`${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget)}`);
-  banners(Object.keys(states).length, Object.keys(stats.heatmap).length);
+  banners(Object.keys(states).length, Object.keys(stats.heatmap).length, c.sample === true);
 }
 
 function queueFirst(entries: TodayEntry[], skipped: Set<string>): string | null {
   return entries.find((e) => !skipped.has(e.problem) && e.kind !== "practice")?.problem ?? null;
 }
 
-function banners(practised: number, days: number): void {
-  const nudge = !cachedMe() && practised >= 3 && !bannerDismissed("local");
+function banners(practised: number, days: number, sample: boolean): void {
+  if (sample) {
+    showBanner("sample", {
+      icon: "sunrise",
+      body: html`<strong>This is a sample day.</strong> Sign up free to get yours`,
+      actions: html`<a class="btn btn-primary btn-sm" href="${signupHref()}">Sign up free</a>`,
+    });
+    hideBanner("local");
+    return;
+  }
+  hideBanner("sample");
+  const nudge = !cachedMe() && practised >= 1 && !bannerDismissed("local");
   if (nudge) {
     showBanner("local", {
       icon: "hard-drive",
-      body: html`<strong>Saved on this device</strong> Sign in to keep your progress on every device`,
-      actions: html`<button class="btn btn-secondary btn-sm" type="button" data-signin>Keep my progress</button>`,
+      body: html`<strong>Saved on this device.</strong> Sign up free to keep it`,
+      actions: html`<a class="btn btn-secondary btn-sm" href="${signupHref()}">Sign up free</a>`,
       dismissDays: 7,
     });
   } else hideBanner("local");
@@ -512,7 +526,7 @@ async function init(): Promise<void> {
 
 async function refresh(): Promise<void> {
   if (!$("[data-today]") || !ctx) return;
-  ctx = { ...ctx, events: await readEvents(), now: new Date() };
+  ctx = { ...ctx, ...viewEvents(ctx.t, ctx.cat, await readEvents()), now: new Date() };
   paint(ctx);
 }
 

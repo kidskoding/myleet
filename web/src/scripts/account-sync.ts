@@ -5,11 +5,11 @@ import { DEFAULT_ACCENT, DEFAULT_NIGHT } from "../lib/flavors";
 import { adoptAppearance, onPrefsChange, planSettings, readAccent, readNight, readPrefs, readTheme, updatePrefs } from "../lib/prefs";
 import { apiTransport, readEvents, type SyncTransport } from "../lib/progress";
 import { publicSummary } from "../lib/summary";
-import { createSyncer, firstSync, isLinked } from "../lib/sync";
+import { createSyncer, firstSync, isLinked, mergeIntoAccount } from "../lib/sync";
+import { takePending } from "../lib/access";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import { html } from "../lib/ui/html";
 import { hideBanner, showBanner, toast } from "../lib/ui/overlay";
-import { plural } from "../lib/ui/bits";
 
 let started = false;
 /** The Worker stores night flavor and accent too (older Workers reject unknown fields). */
@@ -94,9 +94,13 @@ export async function startAccountSync(me: Me): Promise<void> {
 
   try {
     const r = await firstSync(t, user);
-    if (r.kind === "uploaded") toast(`Your ${plural(Object.keys(trainer?.states(await readEvents()) ?? {}).length, "problem")} are on your account now`);
-    else if (r.kind === "merge") await import("./auth-ui").then((m) => m.openMerge(me, r.remote, t));
-    else if (r.kind === "synced") window.dispatchEvent(new Event("myleet:synced"));
+    // Guest work moves into the account without a question: merging keeps both histories.
+    if (r.kind === "merge") {
+      await mergeIntoAccount(t, user);
+      window.dispatchEvent(new Event("myleet:synced"));
+    } else if (r.kind === "synced") window.dispatchEvent(new Event("myleet:synced"));
+    const pending = takePending();
+    if (r.kind === "uploaded" || r.kind === "merge" || (pending !== null && pending !== "calendar-sync")) toast("Saved to your account");
     if (r.kind !== "deferred") void uploadPlan().catch(() => undefined);
   } catch {
     syncFailed(() => {

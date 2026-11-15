@@ -54,7 +54,8 @@ describe("next", () => {
 describe("after sign-in", () => {
   it("sends a brand-new account to onboarding", () => {
     expect(isFreshAccount(me(60_000), false, NOW)).toBe(true);
-    expect(afterSignIn(me(60_000), "/app", false, NOW)).toBe("/onboarding");
+    expect(afterSignIn(me(60_000), null, false, NOW)).toBe("/onboarding");
+    expect(afterSignIn(me(60_000), "/plan", false, NOW)).toBe("/plan");
   });
 
   it("sends everyone else to next, or Today", () => {

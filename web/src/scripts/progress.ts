@@ -40,7 +40,9 @@ import { heatmap } from "../lib/ui/heatmap";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder } from "../lib/ui/ladder";
-import { closeDialog, openDialog, toast } from "../lib/ui/overlay";
+import { closeDialog, hideBanner, openDialog, showBanner, toast } from "../lib/ui/overlay";
+import { signupHref } from "../lib/access";
+import { viewEvents } from "../lib/sample";
 
 const WEEKS = 48;
 const MILESTONE_SEEN = "myleet:milestone-seen";
@@ -54,6 +56,7 @@ interface Ctx {
   events: string;
   states: Record<string, State>;
   stats: Stats;
+  sample?: boolean;
   today: string;
   now: Date;
 }
@@ -442,16 +445,27 @@ function momentBand(c: Ctx): SafeHtml {
 // ---- render ----
 
 async function build(): Promise<Ctx> {
-  const [t, cat, events] = await Promise.all([loadTrainer(), loadCatalog(), readEvents()]);
+  const [t, cat, real] = await Promise.all([loadTrainer(), loadCatalog(), readEvents()]);
+  const { events, sample } = viewEvents(t, cat, real);
   const now = new Date();
   const stats = t.stats(events, { now: now.getTime() });
-  recordStats(stats);
-  return { t, cat, events, states: t.states(events), stats, today: localDay(now), now };
+  if (!sample) recordStats(stats);
+  return { t, cat, events, sample, states: t.states(events), stats, today: localDay(now), now };
+}
+
+function sampleBanner(sample: boolean): void {
+  if (!sample) return hideBanner("sample");
+  showBanner("sample", {
+    icon: "trending-up",
+    body: html`<strong>This is an example.</strong> Your own streak, mastery and reviews will show here`,
+    actions: html`<a class="btn btn-primary btn-sm" href="${signupHref()}">Sign up to track your own</a>`,
+  });
 }
 
 function renderAll(c: Ctx): void {
   const root = $("[data-progress]");
   if (!root) return;
+  sampleBanner(c.sample === true);
   root.removeAttribute("aria-busy");
   const k = masteryCounts(c.cat.catalog, c.states);
   const started = k.mastered + k.climbing + k.started;

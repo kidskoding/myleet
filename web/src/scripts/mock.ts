@@ -39,6 +39,7 @@ import { mountCompanyPicker } from "../lib/ui/company-picker";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
 import { closeDialog, openDialog, toast } from "../lib/ui/overlay";
+import { requireAccount, signupHref } from "../lib/access";
 
 interface Ctx {
   t: TrainerApi;
@@ -458,6 +459,8 @@ async function record(): Promise<void> {
   recordStats(c.t.stats(c.events));
   history.replaceState(history.state, "", `/mock?r=${result.id}`);
   paintReveal(result);
+  // Let the score land first, then offer to keep it.
+  setTimeout(() => requireAccount("save-mock"), 900);
 }
 
 // ---- reveal ----
@@ -504,7 +507,8 @@ function paintReveal(m: MockResult): void {
     host,
     html`<div class="reveal-head">
         <div><h1 id="rv-title" tabindex="-1">Round results</h1>
-        <p class="lede">${when}. ${solved} of ${m.problems.length} solved, ${clock(used)} used${m.timeUp ? ", time ran out" : ""}. ${sourceLabel(m) === "mixed" ? "Mixed" : sourceLabel(m)} draw</p></div>
+        <p class="lede">${when}. ${solved} of ${m.problems.length} solved, ${clock(used)} used${m.timeUp ? ", time ran out" : ""}. ${sourceLabel(m) === "mixed" ? "Mixed" : sourceLabel(m)} draw</p>
+        <p class="track-cta when-out"><span><a class="link" href="${signupHref()}">Sign up free</a> to save this score and add your misses to your plan</span></p></div>
         <div class="btns"><a class="btn btn-secondary" href="/mock">Back to mocks</a><a class="btn btn-primary" href="/mock" data-again>Another round</a></div>
       </div>
       <div class="summary">

@@ -9,7 +9,7 @@ import { sentenceCase } from "../lib/display";
 import { isDue, statusTag } from "../lib/learn";
 import { daysUntil, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
-import { signedIn } from "../lib/account";
+import { requireAccount } from "../lib/access";
 import { readEvents } from "../lib/progress";
 import { ROUTES } from "../lib/routes";
 import { recordStats } from "../lib/streak";
@@ -351,7 +351,7 @@ function rerender(): void {
 async function load(): Promise<void> {
   if (!root()) return;
   // Signed out, the sets are read-only: no progress, even if this browser has some.
-  const [cat, events] = await Promise.all([loadCatalog(), signedIn() ? readEvents().catch(() => "") : ""]);
+  const [cat, events] = await Promise.all([loadCatalog(), readEvents().catch(() => "")]);
   let t: TrainerApi | null = null;
   let states: Record<string, State> = {};
   let skills: Skill[] = [];
@@ -395,7 +395,7 @@ document.addEventListener("click", (e) => {
     if (f) f.value = "";
     query = "";
     applyIndexFilter();
-  } else if (t.closest("[data-pin]") && p) togglePin(p);
+  } else if (t.closest("[data-pin]") && p) requireAccount("pin-company") && togglePin(p);
   else if (t.closest("[data-set-seg] button")) {
     show = (t.closest<HTMLElement>("[data-set-seg] button")?.dataset["show"] ?? "all") as typeof show;
     if (ctx && p) renderSet(ctx, p);
@@ -443,7 +443,7 @@ document.addEventListener("keydown", (e) => {
     j: () => move(1),
     k: () => move(-1),
     "/": () => $<HTMLInputElement>("[data-find]")?.focus(),
-    p: () => p && signedIn() && togglePin(p),
+    p: () => p && requireAccount("pin-company") && togglePin(p),
     m: () => p && location.assign(`${ROUTES.mock}?company=${companySlug(p.id)}`),
   };
   const n = Number(e.key);

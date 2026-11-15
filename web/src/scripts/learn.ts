@@ -334,7 +334,7 @@ async function load(): Promise<void> {
   const minutes = JSON.parse($("[data-minutes]")?.textContent ?? "{}") as Record<string, number>;
   try {
     // Signed out, the map is read-only: no progress, even if this browser has some.
-    const [cat, t, events] = await Promise.all([loadCatalog(), loadTrainer(), signedIn() ? readEvents() : ""]);
+    const [cat, t, events] = await Promise.all([loadCatalog(), loadTrainer(), readEvents()]);
     const now = Date.now();
     const states = events.trim() ? t.states(events) : {};
     let weak = new Set<string>();

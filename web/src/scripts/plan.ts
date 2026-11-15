@@ -46,6 +46,8 @@ import { openCalendarSync } from "../lib/ui/calendar-sync";
 import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { toast } from "../lib/ui/overlay";
+import { requireAccount, takePending } from "../lib/access";
+import { signedIn } from "../lib/account";
 import { dismissNote, forecastKey, forecastRows, insightList, mixBar, noteDismissed, reasonLine, replanNote } from "../lib/ui/personal";
 
 interface Ctx {
@@ -467,7 +469,7 @@ function head(c: Ctx): SafeHtml {
       <div><h1>${date ? `Plan to ${short(date)}` : "Your next 4 weeks"}</h1>
         <p class="lede">${date ? html`<b>${who ? `${who} interview` : "Interview"} in ${plural(left ?? 0, "day")}.</b> Sessions use your available hours and usual solving time` : "Sessions use your available hours and usual solving time"}. The plan updates after each solve.</p>
         ${roadmapPicker()}</div>
-      <div class="head-actions"><button type="button" class="btn btn-ghost" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Availability ${kbd("a")}</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
+      <div class="head-actions"><button type="button" class="btn btn-ghost" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Availability ${kbd("a")}</button><button type="button" class="btn btn-secondary when-out" data-act="save">${icon("calendar-check")}Save plan</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
     </header>`;
 }
 
@@ -1097,6 +1099,7 @@ function closeDrawer(): void {
 }
 
 function openSync(): void {
+  if (!requireAccount("calendar-sync")) return;
   const c = ctx;
   void openCalendarSync(() => {
     if (!c) return null;
@@ -1138,6 +1141,7 @@ function onClick(e: MouseEvent): void {
   if (d.roadmap) return pickRoadmap(d.roadmap);
   if (d.act === "avail") return (closeDayMenu(), openDrawer());
   if (d.act === "sync") return openSync();
+  if (d.act === "save") return void requireAccount("save-plan");
   if (a.matches("[data-drawer-close]")) return closeDrawer();
   if (d.step) {
     const p = readPrefs().plan;
@@ -1292,6 +1296,8 @@ async function init(): Promise<void> {
     if (hi >= 0) goTo(hi, true);
     else paint();
     computeFixes(ctx);
+    // Back from sign-up with the calendar dialog still wanted: reopen it.
+    if (signedIn() && takePending("calendar-sync")) openSync();
   } catch (e) {
     errorState(e);
   }
