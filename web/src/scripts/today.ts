@@ -26,7 +26,7 @@ import {
 } from "../lib/today";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Plan, PlanItem, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
-import { diff, formatDuration, formatMinutes, kbd, plural, queueRow, tag } from "../lib/ui/bits";
+import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
@@ -227,14 +227,14 @@ function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
       : e.state.attempts > 0
         ? "Started, not solved yet"
         : "Not started";
-  return html`<article class="panel nextup" aria-labelledby="nu-title">
+  return html`<article class="l2 nextup" aria-labelledby="nu-title">
     <div>
       <div class="tags">${tag(k, label)}</div>
       <h2 id="nu-title"><a href="${problemHref(e.problem, e.kind === "practice" ? "drill" : undefined)}" style="view-transition-name:p-${e.problem}">${m?.title ?? e.problem}</a></h2>
-      <div class="meta"><span>${m ? where(c.cat, m) : ""}</span>${m ? diff(m.difficulty) : ""}<span>${icon("timer")} ${targetMins(m)} min target</span></div>
+      <div class="meta"><span class="mod-name">${m ? html`${modChip(m.module)}${where(c.cat, m)}` : ""}</span>${m ? diff(m.difficulty) : ""}<span>${icon("timer")} <span class="fig">${targetMins(m)}:00</span> target</span></div>
       ${whyChips(item?.chips)}
     </div>
-    <div class="rail">${ladder({ rung, size: "lg", due: e.kind === "review" })}<p class="cap">${cap}</p></div>
+    <div class="rail">${ladder({ rung, size: "xl", due: e.kind === "review", draw: true, w: 340, h: 156 })}<p class="cap">${cap}</p></div>
     <div class="why">
       <p>${item && item.tag !== "review" ? html`<strong class="why-lead">Why this one:</strong> ${item.reason}. ` : e.why ? html`<strong class="why-lead">${sentence(e.why)}</strong> ` : ""}${whyLine(e, targetMins(m))}</p>
       <button class="btn btn-ghost" type="button" data-skip="${e.problem}" aria-keyshortcuts="x">Skip for today ${kbd("x")}</button>
@@ -251,6 +251,7 @@ function entryRow(c: Ctx, e: TodayEntry): SafeHtml {
   return queueRow({
     href: problemHref(e.problem, e.kind === "practice" ? "drill" : undefined),
     title: m?.title ?? e.problem,
+    ...(m ? { mod: m.module } : {}),
     tag: tag(k, label),
     sub: m ? where(c.cat, m) : "",
     ...(why ? { why } : {}),
@@ -272,6 +273,7 @@ function doneRow(c: Ctx, d: DoneItem, states: Record<string, State>): SafeHtml {
   return queueRow({
     href: problemHref(d.problem),
     title: m?.title ?? d.problem,
+    ...(m ? { mod: m.module } : {}),
     tag: t,
     sub,
     ladder: { rung },

@@ -24,7 +24,11 @@
   --text-lg: 1.5rem;      /* 24  section heads */
   --text-xl: 2rem;        /* 32  page titles */
   --text-2xl: 2.75rem;    /* 44  next-problem title, landing heads */
-  --text-display: clamp(2.75rem, 1.6rem + 4.2vw, 4.75rem); /* landing only */
+  --text-display: clamp(3rem, 1.5rem + 5vw, 5.5rem);       /* 88  landing h1 only */
+  --text-page: 2.5rem;                                     /* 40  in-app page h1 */
+  --text-hero: clamp(2.25rem, 1.4rem + 2.4vw, 3.25rem);    /* 52  Today's next-up title */
+  --text-sec: 1.0625rem;                                   /* 17  in-app section heads */
+  --text-num-xl: 3.5rem;                                   /* 56  countdown, result counts */
   --text-timer: 1.75rem;  /* 28  workspace timer */
 
   --leading-tight: 1.08;
@@ -32,12 +36,19 @@
   --leading-ui: 1.45;
   --leading-read: 1.65;
 
-  --track-display: -0.03em;
+  --track-display: -0.035em;
+  --track-hero: -0.03em;
+  --track-num: -0.04em;
   --track-head: -0.015em;
   --track-ui: 0;
   --track-small: 0.01em;
 
   --measure: 68ch;
+
+  /* Numbers and labels speak JetBrains Mono: clocks, counts, rung labels, tags, chips, kbd */
+  --font-label: var(--font-code);
+  --label-size: 0.71875rem; /* 11.5: mono runs wide, so a pixel under the old 12px tag */
+  --label-track: -0.01em;
 
   /* ---- Space (4px base) ---- */
   --space-0: 2px;
@@ -72,6 +83,10 @@
   --dur-base: 240ms;
   --dur-slow: 420ms;
   --dur-climb: 640ms;  /* the rung-climb moment */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-hover: 160ms;
+  --dur-draw: 900ms;   /* the ladder route drawing in, once */
+  --lift: -1px;        /* linked cards and the primary button rise 1px; never more inside the app */
 
   /* ---- Layout ---- */
   --topbar-h: 52px;
@@ -110,6 +125,8 @@
   --dur-base: 120ms;
   --dur-slow: 120ms;
   --dur-climb: 0ms;
+  --dur-draw: 0ms;
+  --lift: 0px;
   --ease-spring: linear;
 }
 
@@ -120,6 +137,8 @@
     --dur-base: 120ms; /* kept for opacity cross-fades only */
     --dur-slow: 120ms;
     --dur-climb: 0ms;
+    --dur-draw: 0ms;
+    --lift: 0px;
     --ease-spring: linear;
   }
 }

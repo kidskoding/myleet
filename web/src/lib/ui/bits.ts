@@ -39,8 +39,16 @@ export function bar(segments: BarSegment[], label?: string): SafeHtml {
 
 export const kbd = (...keys: string[]): SafeHtml => html`${keys.map((k) => html`<kbd>${k}</kbd>`)}`;
 
+/** The module chip: its number in its hue (01-14 have one each; 15 and up share a neutral). Index is 0-based. */
+export const modChip = (index: number): SafeHtml => {
+  const n = String(index + 1).padStart(2, "0");
+  return html`<span class="mod" data-hue="${n}" aria-hidden="true">${n}</span>`;
+};
+
 export interface QueueRowOpts {
   href: string;
+  /** 0-based module index: the row leads with its module chip. */
+  mod?: number;
   title: string;
   tag?: SafeHtml;
   sub: string;
@@ -59,8 +67,8 @@ export interface QueueRowOpts {
 /** Fixed furniture in a fixed order: title / tag + sub / ladder / difficulty / minutes. */
 export function queueRow(o: QueueRowOpts): SafeHtml {
   const extra = Object.entries(o.attrs ?? {}).map(([k, v]) => html` ${k}="${v}"`);
-  return html`<li><a class="qrow${o.done ? " done-row" : ""}" href="${o.href}"${extra}>
-    <div class="qmain"><div class="title"${o.vt ? raw(` style="view-transition-name:${o.vt}"`) : ""}>${o.title}</div><div class="sub">${o.tag ?? ""}<span>${o.sub}</span></div>${o.why ? html`<span class="why">${o.why}</span>` : ""}</div>
+  return html`<li><a class="qrow${o.done ? " done-row" : ""}${o.mod !== undefined ? " has-mod" : ""}" href="${o.href}"${extra}>
+    ${o.mod !== undefined ? modChip(o.mod) : ""}<div class="qmain"><div class="title"${o.vt ? raw(` style="view-transition-name:${o.vt}"`) : ""}>${o.title}</div><div class="sub">${o.tag ?? ""}<span>${o.sub}</span></div>${o.why ? html`<span class="why">${o.why}</span>` : ""}</div>
     <span class="ladder-cell">${o.ladder ? ladder(o.ladder) : ""}</span>${o.difficulty ? diff(o.difficulty, { label: false }) : raw("<span></span>")}<span class="mins">${o.mins ?? ""}</span></a></li>`;
 }
 

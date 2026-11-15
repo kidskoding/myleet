@@ -25,7 +25,7 @@ import { appendEvent, readEvents } from "../lib/progress";
 import { moduleHref, problemHref, ROUTES } from "../lib/routes";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Level } from "../lib/types";
-import { diff, kbd, plural, tag } from "../lib/ui/bits";
+import { diff, kbd, modChip, plural, tag } from "../lib/ui/bits";
 import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { leetcodeSlug } from "../components/workspace/statement";
@@ -169,9 +169,11 @@ function codingView(s: DiagnosticState, grades: (Grade | null)[]): SafeHtml {
 
 const LEVEL: Record<Level, SafeHtml> = {
   strong: tag("pass", "Strong"),
-  shaky: tag("progress", "Shaky"),
-  "start here": tag("weak", "Start here"),
+  shaky: tag("due", "Shaky"),
+  "start here": tag("new", "Start here"),
 };
+
+const topicOf = (topic: string) => TOPICS.find((t) => t.id === topic || t.label.toLowerCase().replace(/[:,]/g, "") === topic);
 
 function resultsView(t: TrainerApi, events: string): SafeHtml {
   const c = cat as LoadedCatalog;
@@ -186,25 +188,45 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
     .slice(0, 3);
   const me = cachedMe();
   const cta = !me
-    ? html`<a class="btn btn-primary btn-lg" href="${signinHref(ROUTES.onboarding)}&amp;mode=signup">Create your free account to save this plan</a>`
+    ? html`<a class="btn btn-primary btn-lg" href="${signinHref(ROUTES.onboarding)}&amp;mode=signup">Create your free account</a>`
     : readPrefs().plan.onboarded
       ? html`<a class="btn btn-primary btn-lg" href="${ROUTES.today}">Go to Today</a>`
       : html`<a class="btn btn-primary btn-lg" href="${ROUTES.onboarding}">Set up your plan</a>`;
-  return html`<section class="q" aria-labelledby="dr-h" style="margin-top:var(--space-4)">
-    <h1 id="dr-h" tabindex="-1">Your starting point</h1>
-    <p class="sub">${plural(count("strong"), "pattern")} strong, ${count("shaky")} shaky and ${count("start here")} to start on. None of this goes on your review schedule; it only sets what you study first</p>
-    <ul class="topics">${items.map((it) => {
-      const how = { skipped: `you chose "I don't know this yet"`, failed: "missed", hinted: "right, but slow or with help", clean: "" }[it.outcome] ?? "";
-      return html`<li><span class="name">${label(it.topic)}</span><span class="src">${title(it.problem)}${how ? `, ${how}` : ""}</span>${LEVEL[it.level]}</li>`;
-    })}</ul>
-    <div class="start-at">
-      <h2>${rec ? `Your first module: ${sentenceCase(rec.title)}` : "Your first module: the core patterns"}</h2>
+  const [strong, shaky, start] = [count("strong"), count("shaky"), count("start here")];
+  // The mesh is the result: each verdict's light pool grows with its count.
+  const pool = (n: number) => `${Math.round(12 + (22 * n) / Math.max(1, items.length))}%`;
+  const split = ([["strong", strong, "Strong"], ["shaky", shaky, "Shaky"], ["start", start, "Start here"]] as const).filter(([, n]) => n > 0);
+  return html`<section class="dres" aria-labelledby="dr-h">
+    <header class="dres-head">
+      <div class="mesh" aria-hidden="true" style="--mesh-1: var(--pass-solid); --mesh-2: var(--due-solid); --mesh-3: var(--ctp-accent); --mesh-a: ${pool(strong)}; --mesh-b: ${pool(shaky)}; --mesh-c: ${pool(start)}"></div>
+      <div class="dres-sum">
+        <h1 id="dr-h" tabindex="-1">Your starting point</h1>
+        <p class="sub">${plural(strong, "pattern")} strong, ${shaky} shaky and ${start} to start on. None of this goes on your review schedule. It only sets what you study first.</p>
+        <div class="split" role="img" aria-label="${strong} strong, ${shaky} shaky, ${start} to start on">${split.map(([k, n]) => html`<span class="${k}" style="flex:${n}"></span>`)}</div>
+        <ul class="split-key">${split.map(([k, n, name]) => html`<li class="${k}"><span class="num">${n}</span>${name}</li>`)}</ul>
+      </div>
+    </header>
+    <section class="dres-sec" aria-labelledby="dr-topics">
+      <h2 class="sec" id="dr-topics">By topic</h2>
+      <ul class="topics">${items.map((it, i) => {
+        const how = { skipped: `you chose "I don't know this yet"`, failed: "missed", hinted: "right, but slow or with help", clean: "" }[it.outcome] ?? "";
+        const mi = c.catalog.modules.findIndex((m) => m.id === topicOf(it.topic)?.module);
+        return html`<li class="rise" style="--i:${i}">${mi >= 0 ? modChip(mi) : html`<span></span>`}<span class="name">${label(it.topic)}</span><span class="src">${title(it.problem)}${how ? `, ${how}` : ""}</span>${LEVEL[it.level]}</li>`;
+      })}</ul>
+    </section>
+    <section class="dres-sec panel start-at" aria-labelledby="dr-week">
+      <h2 class="sec" id="dr-week">${rec ? `Your first module: ${sentenceCase(rec.title)}` : "Your first module: the core patterns"}</h2>
       <p>${rec ? html`It's the first pattern you marked "Start here" or got shaky on. <a class="link" href="${moduleHref(rec)}">Read its notes</a>` : "Everything came out strong, so your plan starts with the patterns asked most often in interviews"}</p>
       ${week ? html`<p>Your first week has ${plural(week.problems, "problem")} at ${plural(readPrefs().plan.dailyMinutes ?? 60, "minute")} a day. You can change the time after you sign up.</p><div class="tech">${week.techniques.slice(0, 5).map((x) => tag("new", x))}</div>` : ""}
       ${firstNew.length ? html`<ol>${firstNew.map((x) => html`<li>${x.title}</li>`)}</ol>` : ""}
-    </div>
-    <div class="next">${cta}<button class="btn btn-ghost" type="button" data-retake>Take it again</button></div>
-    ${me ? "" : html`<p class="sub" style="font-size:var(--text-sm)">Your answers stay in this browser until you sign up. Then they move to your account.</p>`}
+    </section>
+    <div class="next"><button class="btn btn-ghost" type="button" data-retake>Take it again</button></div>
+    <aside class="l2 save" aria-labelledby="dr-save">
+        <h2 id="dr-save">${me ? "Your plan is ready" : "Save this plan"}</h2>
+        <p>${me ? "It starts with the patterns you missed." : "A free account keeps this plan and your progress on every device."}</p>
+        ${cta}
+        ${me ? "" : html`<p class="fine">Until then, your answers stay in this browser.</p>`}
+      </aside>
   </section>`;
 }
 
@@ -227,9 +249,11 @@ async function paint(): Promise<void> {
   const events = await readEvents();
   let body: SafeHtml;
   let focusSel = "h1";
+  let results = false;
   if (!s) {
     const pl = trainer.placement(events);
-    body = pl.done && pl.result && !pl.result.skipped && pl.result.items.length ? resultsView(trainer, events) : intro();
+    results = !!(pl.done && pl.result && !pl.result.skipped && pl.result.items.length);
+    body = results ? resultsView(trainer, events) : intro();
   } else {
     if (!qs.length) qs = questions(cat.catalog, s.seed);
     const i = s.answers.length;
@@ -251,6 +275,7 @@ async function paint(): Promise<void> {
       body = codingView(s, grades);
     }
   }
+  el.classList.toggle("is-results", results);
   render(el, body);
   document.title = "Find your level · myleet";
   el.querySelector<HTMLElement>(focusSel)?.focus({ preventScroll: true });

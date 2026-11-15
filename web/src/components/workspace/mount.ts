@@ -743,7 +743,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       body = `Same day as your last finish, so the ladder holds at the ${rungName}. Next review on ${dueText ?? "schedule"}`;
     } else {
       title = `Clean pass in ${clock}`;
-      body = `No hints, under ${Math.round(targetMs / 60_000)} minutes. Up to the ${rungName}; next review on ${dueText ?? "schedule"}`;
+      body = `No hints, under ${Math.round(targetMs / 60_000)} minutes. It climbs to the ${rungName}, so the next review is ${dueText ?? "on schedule"}`;
     }
     const mastered = to >= 4 && from < 4 && green;
     // "What this changes" (diagnosis update) mounts here when the shared renderer is present.

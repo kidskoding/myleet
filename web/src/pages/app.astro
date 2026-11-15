@@ -26,35 +26,35 @@ import Base from "../layouts/Base.astro";
   .today-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--space-10); align-items: start; }
   .today-layout.is-first-run { grid-template-columns: 1fr; }
   .today-layout.is-first-run aside { display: none; }
-  .today .greet h1 { font-size: var(--text-xl); }
-  .today .greet p { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-md); font-variation-settings: "wdth" 95; }
+  .today .greet p { margin-top: var(--space-3); color: var(--ink-2); font-size: 1.125rem; }
   .today .greet .countdown-inline { display: none; }
 
-  .today .nextup { margin-top: var(--space-8); padding: var(--space-6) var(--space-8); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-6) var(--space-10); }
+  /* The one featured (L2) surface on Today */
+  .today .nextup { margin-top: var(--space-8); padding: var(--space-8) var(--space-8) var(--space-6); display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--space-6) var(--space-8); }
   .today .nextup .tags { display: flex; gap: var(--space-2); flex-wrap: wrap; }
-  .today .nextup h2 { margin-top: var(--space-3); font-size: var(--text-2xl); font-weight: 680; letter-spacing: var(--track-display); line-height: var(--leading-tight); }
+  .today .nextup h2 { margin-top: var(--space-4); font-size: var(--text-hero); font-weight: 720; letter-spacing: var(--track-hero); line-height: 1.02; font-variation-settings: "wdth" 84; }
   .today .nextup h2 a { text-decoration: none; }
-  .today .nextup .meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-sm); align-items: center; }
-  .today .nextup .meta .icon { width: 15px; height: 15px; display: inline; vertical-align: -3px; }
+  .today .nextup .meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-4); color: var(--ink-2); font-size: var(--text-sm); align-items: center; }
+  .today .nextup .meta .icon { width: 16px; height: 16px; display: inline; vertical-align: -3px; color: var(--ink-3); }
   .today .nextup .why { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: var(--space-3) var(--space-4); padding-top: var(--space-5); border-top: 1px solid var(--line); }
   .today .nextup .why p { color: var(--ink-2); font-size: var(--text-sm); max-width: 52ch; }
-  .today .nextup .rail { align-self: center; text-align: right; }
-  .today .nextup .rail .cap { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); }
+  .today .nextup .rail { align-self: center; }
+  .today .nextup .rail .cap { margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-2); }
   .today .nextup-skel { margin-top: var(--space-8); padding: var(--space-6) var(--space-8); display: grid; gap: 12px; }
   .today .queue-skel { margin-top: var(--space-10); padding: var(--space-4); display: grid; gap: 16px; }
   .today .queue-skel .skel { height: 40px; }
 
   .today .group { margin-top: var(--space-10); }
-  .today .group .section-head h2 { font-size: var(--text-lg); }
+  .today .group .section-head h2 { font-size: var(--text-sec); }
 
   .today aside { display: grid; gap: var(--space-5); }
   .today aside .panel { padding: var(--space-5); }
-  .today aside h2 { font-size: var(--text-md); }
+  .today aside h2 { font-size: var(--text-sec); }
   .today aside .section-head { margin: 0; align-items: center; }
   .today .pace { margin-top: var(--space-4); display: grid; gap: var(--space-3); font-size: var(--text-sm); }
   .today .pace-row { display: grid; grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); align-items: center; }
   .today .pace-row .bar { grid-column: 1 / -1; }
-  .today .countdown { margin-top: var(--space-3); display: flex; align-items: baseline; gap: var(--space-2); }
+  .today .countdown { margin-top: var(--space-4); display: flex; align-items: baseline; gap: var(--space-3); }
   .today .pace-cause { grid-column: 1 / -1; font-size: var(--text-xs); color: var(--ink-3); }
   .today .plan-note { margin-top: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
   .today .why-lead { color: var(--ink); font-weight: 600; }
@@ -63,10 +63,11 @@ import Base from "../layouts/Base.astro";
   .today .day { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
   .today .day a { display: grid; justify-items: center; gap: 6px; color: inherit; text-decoration: none; border-radius: var(--radius-sm); }
   .today .day a:hover .n { box-shadow: inset 0 0 0 1px var(--ink-3); }
-  .today .day.is-today a:hover .n { box-shadow: inset 0 0 0 1.5px var(--due-solid); }
-  .today .day .n { width: 100%; height: 40px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--surface-sunk); color: var(--ink); font-size: var(--text-sm); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); }
-  .today .day.is-today .n { background: var(--due-soft); color: var(--due); box-shadow: inset 0 0 0 1.5px var(--due-solid); }
-  .today .day.light .n { color: var(--ink-3); font-weight: 600; }
+  .today .day.is-today a:hover .n { box-shadow: inset 0 0 0 1.5px var(--accent); }
+  .today .day .n { width: 100%; height: 40px; display: grid; place-items: center; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--ctp-text) 5%, transparent); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); font-family: var(--font-label); font-size: var(--text-sm); font-weight: 600; font-variant-numeric: tabular-nums slashed-zero; }
+  .today .day.is-today { color: var(--ink); }
+  .today .day.is-today .n { background: var(--accent-soft); box-shadow: inset 0 0 0 1.5px var(--accent); }
+  .today .day.light .n { color: var(--ink-3); background: transparent; }
   .today .budget { margin-top: var(--space-3); }
   .today .greet .replan { margin-top: var(--space-3); }
   .today .wsmini { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: grid; }
@@ -101,6 +102,8 @@ import Base from "../layouts/Base.astro";
 
   @media (max-width: 1100px) {
     .today-layout { grid-template-columns: 1fr; }
+    .today .nextup { grid-template-columns: 1fr; }
+    .today .nextup .rail { max-width: 320px; }
     .today aside { grid-template-columns: repeat(2, 1fr); align-items: start; }
     .today aside > section:first-child { grid-row: span 2; }
   }
@@ -111,10 +114,14 @@ import Base from "../layouts/Base.astro";
     .today .greet p { font-size: var(--text-base); }
     .today .greet .countdown-inline { display: block; margin-top: var(--space-1); color: var(--ink); font-weight: 600; font-size: var(--text-sm); }
     .today .nextup { grid-template-columns: 1fr; padding: var(--space-5); gap: var(--space-5); }
-    .today .nextup h2 { font-size: var(--text-xl); }
-    .today .nextup .rail { text-align: left; }
-    .today .nextup .why { grid-template-columns: 1fr 1fr; }
+    .today .greet h1 { font-size: 2rem; }
+    .today .nextup h2 { font-size: 2.125rem; }
+    /* Start stays above the fold: the actions come before the ladder */
+    .today .nextup .rail { order: 3; max-width: 220px; }
+    .today .nextup .rail .guide-lbl { display: none; }
+    .today .nextup .why { order: 2; grid-template-columns: 1fr 1fr; }
     .today .nextup .why p { grid-column: 1 / -1; }
+    .today .nextup .why .btn { width: 100%; }
     .today .firstrun { grid-template-columns: 1fr; padding: var(--space-5); }
     .today .firstrun h2 { font-size: var(--text-xl); }
   }

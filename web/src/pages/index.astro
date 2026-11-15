@@ -72,14 +72,17 @@ const ruleIcon = (s: string, cls: string) =>
         </div>
       </section>
 
-      <article class="panel demo" id="demo" data-state="ran" aria-label="Try it: a working problem workspace">
+      <div class="stage">
+      <div class="mesh" aria-hidden="true"></div>
+      <article class="l2 demo" id="demo" data-state="ran" aria-label="Try it: a working problem workspace">
         <div class="demo-bar">
           <h2>Two Sum</h2>
           <span class="diff" data-level="easy"><i aria-hidden="true"><b></b><b></b><b></b></i>Easy</span>
-          <span class="tag tag-outline no-dot">Arrays and hashing</span>
+          <span class="mod-name"><span class="mod" data-hue="01">01</span>Arrays and hashing</span>
           <div class="timer" role="timer" aria-label="6 minutes 40 seconds of 15">
-            <div class="clock">06:40</div>
-            <div><div class="target">of 15:00</div><div class="track"><span style="width:44%"></span></div></div>
+            <div class="clock" data-clock>6:40</div>
+            <div class="target">of 15:00</div>
+            <div class="track"><span data-track style="width:44%"></span></div>
           </div>
         </div>
         <div class="pane statement-pane">
@@ -132,6 +135,7 @@ answer: [0, 1]</code></pre>
           </div>
         </div>
       </article>
+      </div>
       <script is:inline>
         // With JavaScript the demo starts idle; without it the ran state stays.
         (function () {
@@ -155,6 +159,7 @@ answer: [0, 1]</code></pre>
                 <desc id="topo-d">Nov 2 clean pass, due in 1 day. Nov 3 clean, 3 days. Nov 6 used a hint, falls to 1 day. Nov 7 clean, 3 days. Nov 10 clean, 7 days. Nov 17 clean, 14 days: mastered. Next review Dec 1 for the 30-day rung.</desc>
                 <g class="grid"><line x1="60" x2="620" y1="250" y2="250"></line><line x1="60" x2="620" y1="200" y2="200"></line><line x1="60" x2="620" y1="150" y2="150"></line><line x1="60" x2="620" y1="100" y2="100"></line><line x1="60" x2="620" y1="50" y2="50"></line></g>
                 <g class="ax" text-anchor="end"><text x="48" y="254">1 day</text><text x="48" y="204">3 days</text><text x="48" y="154">7 days</text><text x="48" y="104">14 days</text><text x="48" y="54">30 days</text></g>
+                <path class="area" d="M400,150 L500,100 L500,250 L400,250 Z"></path>
                 <polyline class="route" points="80,250 160,200"></polyline>
                 <path class="fall" d="M160,200 L240,200 L240,250"></path>
                 <polyline class="route" points="240,250 320,200 400,150"></polyline>
@@ -162,7 +167,7 @@ answer: [0, 1]</code></pre>
                 <path class="fall next" d="M500,100 L600,50"></path>
                 <circle class="pt" cx="80" cy="250" r="7"></circle><circle class="pt" cx="160" cy="200" r="7"></circle>
                 <circle class="pt hint" cx="240" cy="250" r="7"></circle><circle class="pt" cx="320" cy="200" r="7"></circle>
-                <circle class="pt" cx="400" cy="150" r="7"></circle><circle class="pt m" cx="500" cy="100" r="8"></circle>
+                <circle class="pt" cx="400" cy="150" r="7"></circle><circle class="halo" cx="500" cy="100" r="16"></circle><circle class="pt m" cx="500" cy="100" r="8"></circle>
                 <circle class="pt next" cx="600" cy="50" r="7"></circle>
                 <g text-anchor="middle">
                   <text class="ev" x="80" y="282">Nov 2</text><text class="ev" x="160" y="282">Nov 3</text><text class="ev" x="240" y="282">Nov 6</text>
@@ -171,7 +176,6 @@ answer: [0, 1]</code></pre>
                 </g>
               </svg>
             </div>
-            <figcaption class="topo-cap">One problem's history, Koko Eating Bananas (example). Each dot is a solve; dashed red is a fall.</figcaption>
           </figure>
           <ul class="rules">
             <li><Fragment set:html={ruleIcon(ArrowUpRight, "up")} /><div><strong>Climbs one rung</strong><span>Green tests, no hint or peek, under the time target: 15, 25 or 45 minutes by difficulty</span></div></li>
@@ -255,13 +259,20 @@ answer: [0, 1]</code></pre>
       </section>
 
       <section class="close" aria-labelledby="close-h">
+        <div class="mesh" aria-hidden="true"></div>
         <div>
           <h2 id="close-h">Find out where to start</h2>
           <p class="lede">Eight quick questions and two or three short problems show which patterns you already know. Make a free account afterward to keep the plan it builds</p>
+          <div class="actions">
+            <a class="btn btn-primary btn-lg" href={ROUTES.diagnostic}>Find your level</a>
+            <a class="btn btn-secondary btn-lg" href={ROUTES.signin}>Sign in</a>
+          </div>
         </div>
-        <div class="actions">
-          <a class="btn btn-primary btn-lg" href={ROUTES.diagnostic}>Find your level</a>
-          <a class="btn btn-secondary btn-lg" href={ROUTES.signin}>Sign in</a>
+        <div class="l2 preview" role="img" aria-label="Example result: arrays and hashing strong, sliding window shaky, graphs is where to start">
+          <h3>Your starting point (example)</h3>
+          <div class="vrow"><span class="mod" data-hue="01">01</span><span><span class="name">Arrays and hashing</span><span class="ev">2 of 2 solved, 6:10 average</span></span><span class="tag tag-pass">Strong</span></div>
+          <div class="vrow"><span class="mod" data-hue="04">04</span><span><span class="name">Sliding window</span><span class="ev">1 of 2 correct, missed a shrink case</span></span><span class="tag tag-due">Shaky</span></div>
+          <div class="vrow"><span class="mod" data-hue="10">10</span><span><span class="name">Graphs</span><span class="ev">0 of 1 correct</span></span><span class="tag tag-new">Start here</span></div>
         </div>
       </section>
     </div>
@@ -270,31 +281,38 @@ answer: [0, 1]</code></pre>
 </Base>
 
 <style is:global>
+  .landing { overflow-x: clip; } /* the mesh pools reach past the edges */
   .landing .lwrap { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--gutter); }
   .landing section { scroll-margin-top: var(--topbar-h); }
   .landing h2 { text-wrap: balance; }
 
-  .landing .intro { padding-top: var(--space-10); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: var(--space-4) var(--space-12); align-items: end; }
-  .landing .intro h1 { font-size: var(--text-display); font-weight: 700; letter-spacing: var(--track-display); line-height: 1.02; font-variation-settings: "wdth" 84; }
-  .landing .intro p { color: var(--ink-2); font-size: var(--text-md); line-height: 1.45; max-width: 44ch; font-variation-settings: "wdth" 95; }
+  .landing .intro { padding-top: var(--space-12); display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: var(--space-6) var(--space-12); align-items: start; }
+  .landing .intro h1 { font-size: var(--text-display); font-weight: 760; letter-spacing: var(--track-display); line-height: 0.98; font-variation-settings: "wdth" 82; max-width: 13ch; }
+  .landing .intro > div { padding-top: var(--space-4); }
+  .landing .intro p { color: var(--ink-2); font-size: 1.1875rem; line-height: 1.5; max-width: 44ch; }
   .landing .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
   .landing .intro .actions { margin-top: var(--space-5); }
   .landing .intro .actions small { color: var(--ink-3); width: 100%; }
 
-  .landing .demo { margin-top: var(--space-8); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr) minmax(0, 0.95fr); grid-template-rows: auto 1fr; overflow: hidden; box-shadow: var(--shadow-md); border: 0; }
-  .landing .demo-bar { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-4); padding: 0 var(--space-4); height: 48px; border-bottom: 1px solid var(--line); }
+  /* The product sits in the light: the mesh pools behind the demo window only */
+  .landing .stage { position: relative; isolation: isolate; margin-top: var(--space-16); }
+  .landing .stage .mesh { inset: -120px -8vw -80px; --ax: 14%; --ay: 34%; --bx: 52%; --by: 12%; --cx: 88%; --cy: 58%; }
+  .landing .demo { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr) minmax(0, 0.95fr); grid-template-rows: auto 1fr; overflow: hidden; }
+  .landing .demo-bar { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-4); padding: 0 var(--space-3) 0 var(--space-5); height: 52px; border-bottom: 1px solid var(--line); }
   .landing .demo-bar h2 { font-size: var(--text-base); white-space: nowrap; }
-  .landing .timer { margin-left: auto; display: inline-flex; align-items: center; gap: var(--space-3); }
-  .landing .timer .clock { font-size: var(--text-md); font-weight: 680; font-variation-settings: "wdth" var(--wdth-tag); letter-spacing: -0.01em; line-height: 1; }
-  .landing .timer .target { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; line-height: 1.2; }
-  .landing .timer .track { width: 64px; height: 4px; background: var(--surface-sunk); border-radius: 2px; overflow: hidden; margin-top: 4px; }
-  .landing .timer .track span { display: block; height: 100%; background: var(--ink-2); }
+  .landing .demo-bar .mod-name { font-size: var(--text-sm); color: var(--ink-2); }
+  .landing .timer { position: relative; margin-left: auto; display: inline-flex; align-items: baseline; gap: var(--space-2); padding: 5px var(--space-3) 7px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--hover-wash); overflow: hidden; }
+  .landing .timer .clock { font-family: var(--font-label); font-size: var(--text-base); font-weight: 600; font-variant-numeric: tabular-nums slashed-zero; letter-spacing: -0.03em; line-height: 1; }
+  .landing .timer .target { font-family: var(--font-label); font-size: var(--text-xs); color: var(--ink-2); line-height: 1.2; }
+  .landing .timer .track { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: color-mix(in srgb, var(--ctp-text) 6%, transparent); }
+  .landing .timer .track span { display: block; height: 100%; background: var(--accent); transition: width var(--dur-base) var(--ease-out); }
+  .landing .demo[data-state="ran"] .timer .track span { background: var(--pass-solid); }
   .landing .pane { min-width: 0; padding: var(--space-5); }
   .landing .pane + .pane { border-left: 1px solid var(--line); }
-  .landing .pane-title { font-size: var(--text-xs); font-weight: 650; color: var(--ink-3); margin-bottom: var(--space-3); font-variation-settings: "wdth" var(--wdth-tag); }
+  .landing .pane-title { font-family: var(--font-label); font-size: var(--text-xs); font-weight: 500; color: var(--ink-2); margin-bottom: var(--space-3); }
   .landing .statement { font-size: 0.9375rem; line-height: 1.6; }
   .landing .statement pre { font-size: 0.8125rem; padding: var(--space-3); }
-  .landing .editor { background: var(--code-bg); padding: var(--space-4) 0; font-family: var(--font-code); font-size: 0.8125rem; line-height: 1.75; overflow-x: auto; }
+  .landing .editor { background: color-mix(in srgb, var(--ctp-crust) 18%, var(--code-bg)); padding: var(--space-4) 0; font-family: var(--font-code); font-size: 0.8125rem; line-height: 1.75; overflow-x: auto; }
   .landing .editor ol { list-style: none; padding: 0; counter-reset: ln; }
   .landing .editor li { counter-increment: ln; display: grid; grid-template-columns: 3.2em 1fr; white-space: pre; }
   .landing .editor li::before { content: counter(ln); color: var(--code-gutter); text-align: right; padding-right: 1.2em; user-select: none; }
@@ -312,7 +330,7 @@ answer: [0, 1]</code></pre>
   .landing .tests { list-style: none; padding: 0; font-size: var(--text-sm); }
   .landing .trow-line { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: var(--space-3); align-items: center; padding: 7px var(--space-3); }
   .landing .tname { font-family: var(--font-code); font-size: 0.8125rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .landing .tms { font-size: var(--text-xs); color: var(--ink-3); }
+  .landing .tms { font-family: var(--font-label); font-size: var(--text-xs); color: var(--ink-3); }
   .landing .st { width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; color: var(--pass); }
   .landing .st .icon { width: 16px; height: 16px; }
   .landing .demo:not([data-state="ran"]) .st .icon, .landing .demo:not([data-state="ran"]) .tms { visibility: hidden; }
@@ -321,7 +339,8 @@ answer: [0, 1]</code></pre>
   .landing .demo[data-state="run"] .trow.is-done .st .icon, .landing .demo[data-state="run"] .trow.is-done .tms { visibility: visible; }
   .landing .st { position: relative; }
 
-  .landing .result { margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--line); display: grid; gap: var(--space-2); }
+  .landing .result { margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--line); display: grid; gap: var(--space-3); }
+  .landing .result .lad { max-width: 300px; }
   .landing .result p { font-size: var(--text-sm); color: var(--ink-2); }
   .landing .result strong { color: var(--ink); }
   .landing .demo[data-state="ran"] :is(.lad-before, .msg-before), .landing .demo:not([data-state="ran"]) :is(.lad-after, .msg-after) { display: none; }
@@ -338,7 +357,9 @@ answer: [0, 1]</code></pre>
   .landing .topo { margin-top: var(--space-12); display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--space-12); align-items: start; }
   .landing .topo svg { width: 100%; height: auto; overflow: visible; }
   .landing .topo .grid line { stroke: color-mix(in srgb, var(--wall-ink) 18%, transparent); stroke-width: 1; }
-  .landing .topo .ax { font: 600 12px var(--font-ui); font-variation-settings: "wdth" 75; fill: var(--wall-ink-2); }
+  .landing .topo .ax { font: 500 12px var(--font-label); letter-spacing: -0.02em; fill: var(--wall-ink-2); }
+  .landing .topo .area { fill: color-mix(in srgb, var(--wall-pass) 14%, transparent); }
+  .landing .topo .halo { fill: color-mix(in srgb, var(--wall-pass) 24%, transparent); }
   .landing .topo .route { fill: none; stroke: var(--wall-ink); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
   .landing .topo .route.m { stroke: var(--pass-solid); }
   .landing .topo .fall { fill: none; stroke: var(--fail-solid); stroke-width: 2; stroke-dasharray: 4 4; }
@@ -347,21 +368,20 @@ answer: [0, 1]</code></pre>
   .landing .topo .pt.hint { stroke: var(--fail-solid); }
   .landing .topo .pt.m { fill: var(--pass-solid); stroke: var(--pass-solid); }
   .landing .topo .pt.next { stroke: var(--accent); stroke-dasharray: 3 3; }
-  .landing .topo .ev { font: 600 12px var(--font-ui); fill: var(--wall-ink); }
-  .landing .topo .ev2 { font: 500 11px var(--font-ui); fill: var(--wall-ink-2); }
+  .landing .topo .ev { font: 500 12px var(--font-label); letter-spacing: -0.02em; fill: var(--wall-ink); }
+  .landing .topo .ev2 { font: 500 11px var(--font-label); letter-spacing: -0.02em; fill: var(--wall-ink-2); }
   .landing .rules { list-style: none; padding: 0; display: grid; gap: var(--space-5); }
   .landing .rules li { display: grid; grid-template-columns: 28px 1fr; gap: var(--space-3); }
   .landing .rules strong { display: block; font-size: var(--text-base); color: var(--wall-ink); }
   .landing .rules span { color: var(--wall-ink-2); font-size: var(--text-sm); }
   .landing .rules .icon { width: 22px; height: 22px; margin-top: 1px; }
   .landing .up { color: var(--wall-accent); } .landing .down { color: var(--wall-fail); } .landing .done { color: var(--wall-pass); } .landing .same { color: var(--wall-ink-2); }
-  .landing .topo-cap { margin-top: var(--space-4); font-size: var(--text-xs); color: var(--wall-ink-2); }
 
   .landing .notes { padding-top: var(--space-24); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-12); align-items: start; }
   .landing :is(.notes, .companies, .close) .lede { margin-top: var(--space-4); color: var(--ink-2); font-size: var(--text-md); line-height: 1.5; max-width: 42ch; }
   .landing .notes ul { margin-top: var(--space-6); padding: 0; list-style: none; display: grid; gap: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); }
   .landing .notes ul li { display: flex; gap: var(--space-2); align-items: baseline; }
-  .landing .notes ul b { font-variation-settings: "wdth" var(--wdth-tag); color: var(--ink); min-width: 2ch; }
+  .landing .notes ul b { font-family: var(--font-label); font-weight: 600; font-size: var(--text-xs); color: var(--ink); min-width: 2.5ch; }
   .landing .notes ul a, .landing .groups a { color: inherit; text-decoration: none; }
   .landing .notes ul a:hover, .landing .groups a:hover { color: var(--ink); text-decoration: underline; }
   .landing .notes .btn { margin-top: var(--space-6); }
@@ -379,10 +399,20 @@ answer: [0, 1]</code></pre>
   .landing .groups .more { color: var(--ink-3); }
   .landing .disclaim { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--ink-3); }
 
-  .landing .close { margin-top: var(--space-24); padding: var(--space-16) 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-8); align-items: end; }
+  /* Close: the level check beside a preview of what it hands back, over a verdict-colour mesh */
+  .landing .close { position: relative; isolation: isolate; margin-top: var(--space-24); padding: var(--space-16) 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-12); align-items: center; }
+  .landing .close .mesh { --ax: 70%; --ay: 40%; --bx: 92%; --by: 20%; --cx: 80%; --cy: 85%; --mesh-1: var(--pass-solid); --mesh-2: var(--due-solid); --mesh-3: var(--ctp-accent); }
+  .landing .close .actions { margin-top: var(--space-6); }
+  .landing .preview { padding: var(--space-6); }
+  .landing .preview h3 { font-size: var(--text-sm); color: var(--ink-2); font-weight: 600; margin-bottom: var(--space-2); }
+  .landing .vrow { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-3); align-items: center; padding: var(--space-3) 0; }
+  .landing .vrow + .vrow { border-top: 1px solid var(--line); }
+  .landing .vrow .name { display: block; font-weight: 600; }
+  .landing .vrow .ev { display: block; margin-top: 2px; font-family: var(--font-label); font-size: var(--text-xs); color: var(--ink-3); }
 
   @media (max-width: 1100px) {
-    .landing .intro { grid-template-columns: 1fr; align-items: start; }
+    .landing .intro, .landing .close { grid-template-columns: 1fr; align-items: start; }
+    .landing .intro > div { padding-top: 0; }
     .landing .demo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .landing .demo .statement-pane { display: none; }
     .landing .demo .editor-pane { border-left: 0; }
@@ -392,6 +422,8 @@ answer: [0, 1]</code></pre>
   @media (max-width: 760px) {
     .landing .intro { padding-top: var(--space-6); }
     .landing .intro p { font-size: var(--text-base); }
+    .landing .stage { margin-top: var(--space-10); }
+    .landing .demo-bar .timer .target, .landing .demo-bar .mod-name { display: none; }
     .landing .intro .actions .btn, .landing .close .actions .btn { flex: 1; }
     .landing .demo { grid-template-columns: minmax(0, 1fr); }
     .landing .demo-bar .tag, .landing .demo-bar .diff { display: none; }
@@ -405,7 +437,7 @@ answer: [0, 1]</code></pre>
     .landing .notes, .landing .companies { padding-top: var(--space-16); }
     .landing .page-sheet { padding: var(--space-5); }
     .landing .groups { grid-template-columns: 1fr 1fr; }
-    .landing .close { grid-template-columns: 1fr; margin-top: var(--space-16); padding: var(--space-12) 0; }
+    .landing .close { margin-top: var(--space-16); padding: var(--space-12) 0; }
   }
 </style>
 
