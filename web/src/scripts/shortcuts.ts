@@ -15,6 +15,7 @@ const SECTIONS: [string, Row[]][] = [
       ["Search and commands", [[MOD, "K"]]],
       ["This sheet", [["?"]]],
       ["Go to Today", [["g"], ["t"]]],
+      ["Go to Plan", [["g"], ["s"]]],
       ["Go to Learn", [["g"], ["l"]]],
       ["Go to Companies", [["g"], ["c"]]],
       ["Go to Mock", [["g"], ["m"]]],
@@ -30,6 +31,26 @@ const SECTIONS: [string, Row[]][] = [
       ["Open row", [["enter"]]],
       ["Start next up", [["s"]]],
       ["Skip for today", [["x"]]],
+    ],
+  ],
+  [
+    "Plan",
+    [
+      ["Today / previous / next week", [["t"], ["["], ["]"]]],
+      ["Week / Month", [["w"], ["m"]]],
+      ["Next / previous session", [["j"], ["k"]]],
+      ["Start today's session", [["s"]]],
+      ["Move a session", [["space"], ["arrows"], ["space"]]],
+      ["Day off (on a day header)", [["o"]]],
+      ["Availability / calendar", [["a"], ["c"]]],
+    ],
+  ],
+  [
+    "Skills",
+    [
+      ["Next / previous weak spot", [["j"], ["k"]]],
+      ["Start its next step / details", [["enter"], ["o"]]],
+      ["Move around the skill map", [["arrows"]]],
     ],
   ],
   [
@@ -70,11 +91,11 @@ export function openShortcuts(): void {
     dlg = document.createElement("dialog");
     dlg.className = "dlg shortcuts";
     dlg.setAttribute("aria-labelledby", "sc-title");
-    const [anywhere, lists, mock, workspace] = SECTIONS as [typeof SECTIONS[0], typeof SECTIONS[0], typeof SECTIONS[0], typeof SECTIONS[0]];
+    const [anywhere, lists, plan, skills, mock, workspace] = SECTIONS as [typeof SECTIONS[0], typeof SECTIONS[0], typeof SECTIONS[0], typeof SECTIONS[0], typeof SECTIONS[0], typeof SECTIONS[0]];
     render(
       dlg,
       html`<div class="dlg-head"><h2 id="sc-title">Keyboard shortcuts</h2><button class="icon-btn" type="button" data-close aria-label="Close">${icon("x")}</button></div>
-        <div class="sc-grid"><section>${section(anywhere)}</section><section>${section(lists)}${section(mock)}</section><section>${section(workspace)}</section></div>`,
+        <div class="sc-grid"><section>${section(anywhere)}${section(lists)}</section><section>${section(plan)}${section(skills)}</section><section>${section(workspace)}${section(mock)}</section></div>`,
     );
     dlg.querySelector("[data-close]")?.addEventListener("click", () => closeDialog(dlg ?? null));
     document.body.append(dlg);

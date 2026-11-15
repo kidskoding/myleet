@@ -73,7 +73,8 @@ let fixesKey = "";
 
 const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) => root.querySelector<T>(sel);
 const root = () => $("[data-plan]");
-const cols = () => (matchMedia("(max-width: 1100px)").matches ? 4 : 7);
+/** Days per page: 7, or 4 on tablets; phones show a 7-day agenda. */
+const cols = () => (matchMedia("(max-width: 1100px) and (min-width: 761px)").matches ? 4 : 7);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce";
 const hourPx = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hour")) || 64;
 const say = (m: string) => {
@@ -257,6 +258,21 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
 
 // ---- month and agenda ----
 
+/** A day's load in words, summed across its sessions: "11 reviews, 2 new, mock". */
+function dayHeadline(d: PlanDay): string {
+  const items = d.sessions.flatMap((s) => s.items);
+  const n = (k: string) => items.filter((i) => i.kind === k).length;
+  return [
+    n("review") ? plural(n("review"), "review") : "",
+    n("new") ? `${n("new")} new` : "",
+    n("drill") ? plural(n("drill"), "drill") : "",
+    n("mock") ? "mock" : "",
+    n("checkpoint") ? "check-in" : "",
+  ]
+    .filter(Boolean)
+    .join(", ");
+}
+
 function monthGrid(c: Ctx): SafeHtml {
   const start = dateOf(c.plan.start);
   start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
@@ -280,7 +296,7 @@ function monthGrid(c: Ctx): SafeHtml {
     const [d, idx] = hit;
     const mock = d.sessions.some(isMock);
     const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
-    const what = d.sessions.map((s) => s.title).join("; ");
+    const what = dayHeadline(d);
     cells.push(html`<button type="button" class="mc${day === c.plan.start ? " today" : ""}" data-goto="${idx}" aria-label="${longDay(day)}: ${d.off ? "day off" : d.minutes ? `${fmtM(d.minutes)}, ${what}` : "nothing planned"}">
       <span class="num"><span>${dt.getDate()}</span>${d.minutes ? html`<small>${d.minutes}m</small>` : ""}</span>
       ${d.off ? html`<span class="chip off">Day off</span>` : html`${what ? html`<span class="what">${what}</span>` : ""}${mock ? html`<span class="chip mock">Mock</span>` : ""}${check ? html`<span class="chip check">Check-in</span>` : ""}`}
