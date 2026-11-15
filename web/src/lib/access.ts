@@ -25,7 +25,7 @@ export const ACCESS = {
   "save-mock": { tier: "account", reason: "Sign up to save this score and add your misses to your plan." },
   "first-solve": { tier: "account", reason: "Sign up so this comes back for review in 1 day." },
   "review-history": { tier: "account", reason: "Sign up to schedule reviews and keep your progress history." },
-  "pin-company": { tier: "account", reason: "Sign up to pin companies and keep them on every device." },
+  "pin-company": { tier: "account", reason: "Sign up to add companies to your goals and keep them on every device." },
   "sync-settings": { tier: "account", reason: "Sign up to sync your settings across devices." },
   "leetcode-import": { tier: "account", reason: "Sign up to connect LeetCode and build your plan around what you have already solved." },
   "asked-report": { tier: "account", reason: "Sign up to report that you were asked this problem." },

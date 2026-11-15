@@ -246,7 +246,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
   const pinned = pins().includes(companySlug(p.id));
   el.hidden = false;
   if (!pinned || !c.t) {
-    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">Pin ${p.title} and your plan schedules its problems into your sessions, with a forecast for the techniques it leans on</p>`);
+    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">Add ${p.title} to your goals and your plan schedules its problems into your sessions, with a forecast for the techniques it leans on</p>`);
     return;
   }
   let plan;
