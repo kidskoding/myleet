@@ -90,7 +90,7 @@ const MODES: Mode[] = ["practice", "drill", "interview", "placement", "checkpoin
 const SAVE_DELAY_MS = 400;
 const CASES_KEY = (id: string) => `myleet-cases:${id}`;
 
-export function mountFromPage(): void {
+export function mountFromPage(personal: Pick<MountOptions, "renderReason" | "renderChanges"> = {}): void {
   const root = document.getElementById("workspace");
   if (!root) return;
   const q = new URLSearchParams(location.search);
@@ -98,7 +98,7 @@ export function mountFromPage(): void {
   const mode = m && MODES.includes(m) ? m : "practice";
   const backHref = mode === "placement" ? `${ROUTES.onboarding}?step=warm-up` : (root.dataset["back"] ?? ROUTES.today);
   for (const a of root.querySelectorAll<HTMLAnchorElement>("[data-back]")) a.href = backHref;
-  void mountWorkspace(root, { mode, backHref });
+  void mountWorkspace(root, { mode, backHref, ...personal });
 }
 
 export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {}): Promise<void> {

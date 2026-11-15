@@ -208,5 +208,6 @@ const data = JSON.stringify({ meta: problem, starter, moduleTitle, techniqueTitl
 
 <script>
   import { mountFromPage } from "./mount";
-  mountFromPage();
+  import { renderReason, renderChanges } from "../../lib/ui/workspace-personal";
+  mountFromPage({ renderReason, renderChanges });
 </script>
