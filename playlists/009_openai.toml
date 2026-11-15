@@ -20,16 +20,32 @@ title = "LFU Cache"
 url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
 title = "All O`one Data Structure"
 url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
-title = "Design Browser History"
-url = "https://leetcode.com/problems/design-browser-history/"
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
 title = "Implement Trie (Prefix Tree)"
@@ -40,14 +56,6 @@ title = "Design Add and Search Words Data Structure"
 url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
-title = "Stream of Characters"
-url = "https://leetcode.com/problems/stream-of-characters/"
-
-[[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
-
-[[entries]]
 title = "Serialize and Deserialize Binary Tree"
 url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
@@ -56,24 +64,16 @@ title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
 title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
 title = "Clone Graph"
@@ -84,12 +84,20 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+
+[[entries]]
 title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
 
 [[entries]]
 title = "Snakes and Ladders"
 url = "https://leetcode.com/problems/snakes-and-ladders/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "Open the Lock"
@@ -104,8 +112,8 @@ title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"
 
 [[entries]]
 title = "Game of Life"
@@ -120,37 +128,29 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
 title = "Random Pick with Weight"
 url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
-title = "Implement Rand10() Using Rand7()"
-url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
 
 [[entries]]
 title = "Cheapest Flights Within K Stops"
 url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"

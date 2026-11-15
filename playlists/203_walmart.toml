@@ -8,24 +8,12 @@ title = "Valid Anagram"
 url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
-
-[[entries]]
-title = "Diameter of Binary Tree"
-url = "https://leetcode.com/problems/diameter-of-binary-tree/"
-
-[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Top K Frequent Elements"
@@ -36,20 +24,40 @@ title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
 
 [[entries]]
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
+
+[[entries]]
 title = "Longest Consecutive Sequence"
 url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
+
+[[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+
+[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
 title = "Binary Tree Right Side View"
@@ -60,6 +68,14 @@ title = "Binary Tree Zigzag Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
 
 [[entries]]
+title = "Symmetric Tree"
+url = "https://leetcode.com/problems/symmetric-tree/"
+
+[[entries]]
+title = "Number of Ways to Separate Numbers"
+url = "https://leetcode.com/problems/number-of-ways-to-separate-numbers/"
+
+[[entries]]
 title = "Kth Smallest Element in a BST"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
 
@@ -68,24 +84,48 @@ title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
+title = "Shuffle the Array"
+url = "https://leetcode.com/problems/shuffle-the-array/"
+
+[[entries]]
 title = "Number of Provinces"
 url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Minimum Value to Get Positive Step by Step Sum"
+url = "https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/"
 
 [[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
+title = "Rotate String"
+url = "https://leetcode.com/problems/rotate-string/"
+
+[[entries]]
 title = "Minimum Height Trees"
 url = "https://leetcode.com/problems/minimum-height-trees/"
+
+[[entries]]
+title = "Minimum Number of Operations to Make Arrays Similar"
+url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/"
 
 [[entries]]
 title = "Reorganize String"
 url = "https://leetcode.com/problems/reorganize-string/"
 
 [[entries]]
+title = "Find All Numbers Disappeared in an Array"
+url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
+
+[[entries]]
 title = "Find K Pairs with Smallest Sums"
 url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+
+[[entries]]
+title = "Shortest Word Distance"
+url = "https://leetcode.com/problems/shortest-word-distance/"
 
 [[entries]]
 title = "House Robber"
@@ -96,20 +136,40 @@ title = "Unique Paths"
 url = "https://leetcode.com/problems/unique-paths/"
 
 [[entries]]
+title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
+url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
+
+[[entries]]
 title = "Coin Change II"
 url = "https://leetcode.com/problems/coin-change-ii/"
+
+[[entries]]
+title = "Count Good Triplets in an Array"
+url = "https://leetcode.com/problems/count-good-triplets-in-an-array/"
 
 [[entries]]
 title = "Decode Ways"
 url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
+title = "Length of Last Word"
+url = "https://leetcode.com/problems/length-of-last-word/"
+
+[[entries]]
 title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
+title = "Transpose Matrix"
+url = "https://leetcode.com/problems/transpose-matrix/"
+
+[[entries]]
 title = "Gas Station"
 url = "https://leetcode.com/problems/gas-station/"
+
+[[entries]]
+title = "Create Target Array in the Given Order"
+url = "https://leetcode.com/problems/create-target-array-in-the-given-order/"
 
 [[entries]]
 title = "Jump Game II"
@@ -120,85 +180,25 @@ title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
 
 [[entries]]
+title = "Image Smoother"
+url = "https://leetcode.com/problems/image-smoother/"
+
+[[entries]]
 title = "Maximal Square"
 url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Number of Ways to Separate Numbers"
-url = "https://leetcode.com/problems/number-of-ways-to-separate-numbers/"
-
-[[entries]]
-title = "Minimum Operations to Make Array Equal II"
-url = "https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/"
-
-[[entries]]
-title = "Circular Permutation in Binary Representation"
-url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
-
-[[entries]]
-title = "Find the N-th Value After K Seconds"
-url = "https://leetcode.com/problems/find-the-n-th-value-after-k-seconds/"
-
-[[entries]]
-title = "Advantage Shuffle"
-url = "https://leetcode.com/problems/advantage-shuffle/"
-
-[[entries]]
-title = "Minimum Number of Operations to Make Arrays Similar"
-url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/"
-
-[[entries]]
-title = "Count Good Triplets in an Array"
-url = "https://leetcode.com/problems/count-good-triplets-in-an-array/"
 
 [[entries]]
 title = "Maximum Number of Tasks You Can Assign"
 url = "https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/"
 
 [[entries]]
-title = "Max Stack"
-url = "https://leetcode.com/problems/max-stack/"
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
-title = "Divide Intervals Into Minimum Number of Groups"
-url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
+title = "Monotonic Array"
+url = "https://leetcode.com/problems/monotonic-array/"
 
 [[entries]]
-title = "Sort the Matrix Diagonally"
-url = "https://leetcode.com/problems/sort-the-matrix-diagonally/"
-
-[[entries]]
-title = "Delete and Earn"
-url = "https://leetcode.com/problems/delete-and-earn/"
-
-[[entries]]
-title = "Trapping Rain Water II"
-url = "https://leetcode.com/problems/trapping-rain-water-ii/"
-
-[[entries]]
-title = "Zigzag Conversion"
-url = "https://leetcode.com/problems/zigzag-conversion/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Construct Binary Tree from Inorder and Postorder Traversal"
-url = "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/"
-
-[[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
-
-[[entries]]
-title = "Non-decreasing Array"
-url = "https://leetcode.com/problems/non-decreasing-array/"
+title = "Minimum Operations to Make Array Equal II"
+url = "https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/"

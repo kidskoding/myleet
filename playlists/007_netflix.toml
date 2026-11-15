@@ -4,48 +4,28 @@ focus = "Hash maps, sliding windows, heaps, and small caching and streaming desi
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
 title = "Design Twitter"
 url = "https://leetcode.com/problems/design-twitter/"
-
-[[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Number of Recent Calls"
-url = "https://leetcode.com/problems/number-of-recent-calls/"
 
 [[entries]]
 title = "Stock Price Fluctuation"
 url = "https://leetcode.com/problems/stock-price-fluctuation/"
 
 [[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
 title = "Map Sum Pairs"
 url = "https://leetcode.com/problems/map-sum-pairs/"
 
 [[entries]]
-title = "Stream of Characters"
-url = "https://leetcode.com/problems/stream-of-characters/"
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "Sort Characters By Frequency"
@@ -56,8 +36,8 @@ title = "Find K Pairs with Smallest Sums"
 url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
 
 [[entries]]
-title = "Smallest Range Covering Elements from K Lists"
-url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
 title = "Minimum Cost to Connect Sticks"
@@ -68,24 +48,20 @@ title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"
+
+[[entries]]
 title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
-title = "Find Servers That Handled Most Number of Requests"
-url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
-
-[[entries]]
-title = "Maximum Performance of a Team"
-url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
-
-[[entries]]
-title = "Minimum Cost to Hire K Workers"
-url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
-
-[[entries]]
 title = "Longest Substring with At Most K Distinct Characters"
 url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+
+[[entries]]
+title = "Smallest Range Covering Elements from K Lists"
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
 title = "Fruit Into Baskets"
@@ -96,12 +72,20 @@ title = "Longest Repeating Character Replacement"
 url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
 
 [[entries]]
+title = "Find Servers That Handled Most Number of Requests"
+url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+
+[[entries]]
 title = "Permutation in String"
 url = "https://leetcode.com/problems/permutation-in-string/"
 
 [[entries]]
 title = "Get Equal Substrings Within Budget"
 url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
+
+[[entries]]
+title = "Maximum Performance of a Team"
+url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
 
 [[entries]]
 title = "Maximum Erasure Value"
@@ -112,8 +96,8 @@ title = "Frequency of the Most Frequent Element"
 url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
 
 [[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+title = "Minimum Cost to Hire K Workers"
+url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
 
 [[entries]]
 title = "Count Number of Nice Subarrays"
@@ -124,6 +108,10 @@ title = "Binary Subarrays With Sum"
 url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
 
 [[entries]]
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+
+[[entries]]
 title = "Longest Nice Subarray"
 url = "https://leetcode.com/problems/longest-nice-subarray/"
 
@@ -132,8 +120,8 @@ title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Li
 url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
 
 [[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
+title = "Bus Routes"
+url = "https://leetcode.com/problems/bus-routes/"
 
 [[entries]]
 title = "Longest Consecutive Sequence"
@@ -144,6 +132,10 @@ title = "Path with Maximum Probability"
 url = "https://leetcode.com/problems/path-with-maximum-probability/"
 
 [[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+
+[[entries]]
 title = "Cheapest Flights Within K Stops"
 url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 
@@ -152,9 +144,17 @@ title = "Minimum Genetic Mutation"
 url = "https://leetcode.com/problems/minimum-genetic-mutation/"
 
 [[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
 
 [[entries]]
 title = "Open the Lock"
 url = "https://leetcode.com/problems/open-the-lock/"
+
+[[entries]]
+title = "Replace the Substring for Balanced String"
+url = "https://leetcode.com/problems/replace-the-substring-for-balanced-string/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"

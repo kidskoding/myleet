@@ -8,44 +8,12 @@ title = "First Unique Character in a String"
 url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
 
 [[entries]]
-title = "Robot Return to Origin"
-url = "https://leetcode.com/problems/robot-return-to-origin/"
-
-[[entries]]
-title = "High Five"
-url = "https://leetcode.com/problems/high-five/"
-
-[[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
-title = "Excel Sheet Column Title"
-url = "https://leetcode.com/problems/excel-sheet-column-title/"
-
-[[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Robot Return to Origin"
+url = "https://leetcode.com/problems/robot-return-to-origin/"
 
 [[entries]]
 title = "Fraction to Recurring Decimal"
@@ -56,20 +24,40 @@ title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
+title = "High Five"
+url = "https://leetcode.com/problems/high-five/"
+
+[[entries]]
 title = "Asteroid Collision"
 url = "https://leetcode.com/problems/asteroid-collision/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Daily Temperatures"
 url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
+
+[[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
 title = "Remove All Adjacent Duplicates in String II"
 url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+
+[[entries]]
+title = "Add Strings"
+url = "https://leetcode.com/problems/add-strings/"
 
 [[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
@@ -80,6 +68,14 @@ title = "Subarray Product Less Than K"
 url = "https://leetcode.com/problems/subarray-product-less-than-k/"
 
 [[entries]]
+title = "Excel Sheet Column Title"
+url = "https://leetcode.com/problems/excel-sheet-column-title/"
+
+[[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
 title = "Maximum Size Subarray Sum Equals k"
 url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
 
@@ -88,24 +84,48 @@ title = "Find the Duplicate Number"
 url = "https://leetcode.com/problems/find-the-duplicate-number/"
 
 [[entries]]
+title = "Happy Number"
+url = "https://leetcode.com/problems/happy-number/"
+
+[[entries]]
 title = "Next Permutation"
 url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "Remove Duplicates from Sorted Array"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
+
+[[entries]]
 title = "Unique Paths II"
 url = "https://leetcode.com/problems/unique-paths-ii/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
 
 [[entries]]
 title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
+title = "Fibonacci Number"
+url = "https://leetcode.com/problems/fibonacci-number/"
+
+[[entries]]
 title = "House Robber II"
 url = "https://leetcode.com/problems/house-robber-ii/"
+
+[[entries]]
+title = "Pascal's Triangle"
+url = "https://leetcode.com/problems/pascals-triangle/"
 
 [[entries]]
 title = "Minimum Falling Path Sum"
@@ -116,36 +136,40 @@ title = "Count Square Submatrices with All Ones"
 url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Excel Sheet Column Number"
+url = "https://leetcode.com/problems/excel-sheet-column-number/"
 
 [[entries]]
 title = "Sell Diminishing-Valued Colored Balls"
 url = "https://leetcode.com/problems/sell-diminishing-valued-colored-balls/"
 
 [[entries]]
+title = "Valid Arrangement of Pairs"
+url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
+
+[[entries]]
 title = "Longest Palindromic Subsequence"
 url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+
+[[entries]]
+title = "Divisor Game"
+url = "https://leetcode.com/problems/divisor-game/"
 
 [[entries]]
 title = "Minimum Path Sum"
 url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
+title = "Is Subsequence"
+url = "https://leetcode.com/problems/is-subsequence/"
+
+[[entries]]
 title = "Domino and Tromino Tiling"
 url = "https://leetcode.com/problems/domino-and-tromino-tiling/"
 
 [[entries]]
-title = "Valid Arrangement of Pairs"
-url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
+title = "N-th Tribonacci Number"
+url = "https://leetcode.com/problems/n-th-tribonacci-number/"
 
 [[entries]]
 title = "Permutations III"
@@ -156,49 +180,25 @@ title = "Find the Winner of the Circular Game"
 url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
 
 [[entries]]
-title = "Find All Good Indices"
-url = "https://leetcode.com/problems/find-all-good-indices/"
+title = "Sqrt(x)"
+url = "https://leetcode.com/problems/sqrtx/"
 
 [[entries]]
-title = "Sort the Jumbled Numbers"
-url = "https://leetcode.com/problems/sort-the-jumbled-numbers/"
+title = "Find All Good Indices"
+url = "https://leetcode.com/problems/find-all-good-indices/"
 
 [[entries]]
 title = "Maximize Palindrome Length From Subsequences"
 url = "https://leetcode.com/problems/maximize-palindrome-length-from-subsequences/"
 
 [[entries]]
+title = "Sort the Jumbled Numbers"
+url = "https://leetcode.com/problems/sort-the-jumbled-numbers/"
+
+[[entries]]
+title = "Palindrome Number"
+url = "https://leetcode.com/problems/palindrome-number/"
+
+[[entries]]
 title = "Design Event Manager"
 url = "https://leetcode.com/problems/design-event-manager/"
-
-[[entries]]
-title = "Better Compression of String"
-url = "https://leetcode.com/problems/better-compression-of-string/"
-
-[[entries]]
-title = "Count Paths That Can Form a Palindrome in a Tree"
-url = "https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/"
-
-[[entries]]
-title = "Minimum Moves to Capture The Queen"
-url = "https://leetcode.com/problems/minimum-moves-to-capture-the-queen/"
-
-[[entries]]
-title = "Knight Probability in Chessboard"
-url = "https://leetcode.com/problems/knight-probability-in-chessboard/"
-
-[[entries]]
-title = "Minimum Length of String After Deleting Similar Ends"
-url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
-
-[[entries]]
-title = "Count Number of Texts"
-url = "https://leetcode.com/problems/count-number-of-texts/"
-
-[[entries]]
-title = "Construct Smallest Number From DI String"
-url = "https://leetcode.com/problems/construct-smallest-number-from-di-string/"
-
-[[entries]]
-title = "Count Collisions of Monkeys on a Polygon"
-url = "https://leetcode.com/problems/count-collisions-of-monkeys-on-a-polygon/"

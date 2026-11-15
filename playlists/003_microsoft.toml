@@ -4,44 +4,40 @@ focus = "Linked lists, strings, trees, arrays, and basic DP, written as clean, t
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "14_tries", "17_advanced"]
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
 title = "Reverse Linked List II"
 url = "https://leetcode.com/problems/reverse-linked-list-ii/"
 
 [[entries]]
-title = "Linked List Cycle II"
-url = "https://leetcode.com/problems/linked-list-cycle-ii/"
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Linked List Cycle II"
+url = "https://leetcode.com/problems/linked-list-cycle-ii/"
 
 [[entries]]
 title = "Remove Nth Node From End of List"
 url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
 
 [[entries]]
-title = "Swap Nodes in Pairs"
-url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+title = "Swap Nodes in Pairs"
+url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
 
 [[entries]]
 title = "Sort List"
 url = "https://leetcode.com/problems/sort-list/"
 
 [[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
-
-[[entries]]
-title = "Palindrome Linked List"
-url = "https://leetcode.com/problems/palindrome-linked-list/"
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
 title = "Odd Even Linked List"
@@ -52,12 +48,20 @@ title = "Rotate List"
 url = "https://leetcode.com/problems/rotate-list/"
 
 [[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
 title = "Add Two Numbers II"
 url = "https://leetcode.com/problems/add-two-numbers-ii/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
 title = "Reverse Words in a String"
@@ -68,6 +72,10 @@ title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+
+[[entries]]
 title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
 
@@ -76,8 +84,8 @@ title = "Encode and Decode Strings"
 url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
 
 [[entries]]
 title = "Rotate Image"
@@ -88,6 +96,10 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
 title = "Set Matrix Zeroes"
 url = "https://leetcode.com/problems/set-matrix-zeroes/"
 
@@ -96,16 +108,8 @@ title = "Game of Life"
 url = "https://leetcode.com/problems/game-of-life/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
-
-[[entries]]
-title = "Symmetric Tree"
-url = "https://leetcode.com/problems/symmetric-tree/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"
 
 [[entries]]
 title = "Construct Binary Tree from Preorder and Inorder Traversal"
@@ -120,12 +124,20 @@ title = "Path Sum III"
 url = "https://leetcode.com/problems/path-sum-iii/"
 
 [[entries]]
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
+
+[[entries]]
 title = "Binary Search Tree Iterator"
 url = "https://leetcode.com/problems/binary-search-tree-iterator/"
 
 [[entries]]
 title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"
 
 [[entries]]
 title = "Insert Interval"
@@ -136,12 +148,20 @@ title = "Jump Game II"
 url = "https://leetcode.com/problems/jump-game-ii/"
 
 [[entries]]
+title = "Palindrome Partitioning II"
+url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+
+[[entries]]
 title = "Unique Paths II"
 url = "https://leetcode.com/problems/unique-paths-ii/"
 
 [[entries]]
 title = "Minimum Path Sum"
 url = "https://leetcode.com/problems/minimum-path-sum/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock IV"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
 
 [[entries]]
 title = "Triangle"
@@ -152,6 +172,10 @@ title = "Maximum Product Subarray"
 url = "https://leetcode.com/problems/maximum-product-subarray/"
 
 [[entries]]
+title = "Minimum Cost to Merge Stones"
+url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
+
+[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
@@ -160,29 +184,5 @@ title = "House Robber II"
 url = "https://leetcode.com/problems/house-robber-ii/"
 
 [[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
-
-[[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
-
-[[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
-
-[[entries]]
-title = "Count Primes"
-url = "https://leetcode.com/problems/count-primes/"
-
-[[entries]]
-title = "Excel Sheet Column Number"
-url = "https://leetcode.com/problems/excel-sheet-column-number/"
-
-[[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"

@@ -4,30 +4,6 @@ focus = "Linked lists, arrays and hash maps, number and geometry helpers, and ob
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
 [[entries]]
-title = "First Bad Version"
-url = "https://leetcode.com/problems/first-bad-version/"
-
-[[entries]]
-title = "Guess Number Higher or Lower"
-url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
-
-[[entries]]
-title = "Arranging Coins"
-url = "https://leetcode.com/problems/arranging-coins/"
-
-[[entries]]
-title = "Assign Cookies"
-url = "https://leetcode.com/problems/assign-cookies/"
-
-[[entries]]
-title = "Can Place Flowers"
-url = "https://leetcode.com/problems/can-place-flowers/"
-
-[[entries]]
-title = "Lemonade Change"
-url = "https://leetcode.com/problems/lemonade-change/"
-
-[[entries]]
 title = "Bag of Tokens"
 url = "https://leetcode.com/problems/bag-of-tokens/"
 
@@ -36,56 +12,12 @@ title = "Advantage Shuffle"
 url = "https://leetcode.com/problems/advantage-shuffle/"
 
 [[entries]]
-title = "Maximum Units on a Truck"
-url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
-
-[[entries]]
-title = "Find Center of Star Graph"
-url = "https://leetcode.com/problems/find-center-of-star-graph/"
-
-[[entries]]
-title = "Island Perimeter"
-url = "https://leetcode.com/problems/island-perimeter/"
-
-[[entries]]
-title = "Largest Triangle Area"
-url = "https://leetcode.com/problems/largest-triangle-area/"
-
-[[entries]]
-title = "Rectangle Overlap"
-url = "https://leetcode.com/problems/rectangle-overlap/"
-
-[[entries]]
 title = "Rectangle Area"
 url = "https://leetcode.com/problems/rectangle-area/"
 
 [[entries]]
-title = "Number of Common Factors"
-url = "https://leetcode.com/problems/number-of-common-factors/"
-
-[[entries]]
-title = "Find Greatest Common Divisor of Array"
-url = "https://leetcode.com/problems/find-greatest-common-divisor-of-array/"
-
-[[entries]]
-title = "Smallest Even Multiple"
-url = "https://leetcode.com/problems/smallest-even-multiple/"
-
-[[entries]]
-title = "Greatest Common Divisor of Strings"
-url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
-
-[[entries]]
-title = "Left and Right Sum Differences"
-url = "https://leetcode.com/problems/left-and-right-sum-differences/"
-
-[[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
-
-[[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
 
 [[entries]]
 title = "Range Sum Query - Mutable"
@@ -96,12 +28,12 @@ title = "Minimum Area Rectangle"
 url = "https://leetcode.com/problems/minimum-area-rectangle/"
 
 [[entries]]
-title = "Max Points on a Line"
-url = "https://leetcode.com/problems/max-points-on-a-line/"
-
-[[entries]]
 title = "Water and Jug Problem"
 url = "https://leetcode.com/problems/water-and-jug-problem/"
+
+[[entries]]
+title = "Shortest Palindrome"
+url = "https://leetcode.com/problems/shortest-palindrome/"
 
 [[entries]]
 title = "Repeated String Match"
@@ -112,12 +44,8 @@ title = "Factorial Trailing Zeroes"
 url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
-title = "Nim Game"
-url = "https://leetcode.com/problems/nim-game/"
-
-[[entries]]
-title = "Shortest Palindrome"
-url = "https://leetcode.com/problems/shortest-palindrome/"
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
 
 [[entries]]
 title = "Implement Rand10() Using Rand7()"
@@ -132,6 +60,10 @@ title = "Insertion Sort List"
 url = "https://leetcode.com/problems/insertion-sort-list/"
 
 [[entries]]
+title = "Self Crossing"
+url = "https://leetcode.com/problems/self-crossing/"
+
+[[entries]]
 title = "Merge In Between Linked Lists"
 url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
 
@@ -140,12 +72,12 @@ title = "Delete the Middle Node of a Linked List"
 url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
 
 [[entries]]
-title = "Convert Binary Number in a Linked List to Integer"
-url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
-
-[[entries]]
 title = "Linked List Components"
 url = "https://leetcode.com/problems/linked-list-components/"
+
+[[entries]]
+title = "Perfect Rectangle"
+url = "https://leetcode.com/problems/perfect-rectangle/"
 
 [[entries]]
 title = "Split Linked List in Parts"
@@ -160,12 +92,20 @@ title = "Reverse Nodes in Even Length Groups"
 url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
 
 [[entries]]
+title = "Rectangle Area II"
+url = "https://leetcode.com/problems/rectangle-area-ii/"
+
+[[entries]]
 title = "Maximum Twin Sum of a Linked List"
 url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
 
 [[entries]]
 title = "Plus One Linked List"
 url = "https://leetcode.com/problems/plus-one-linked-list/"
+
+[[entries]]
+title = "Guess Number Higher or Lower"
+url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
 
 [[entries]]
 title = "Flatten a Multilevel Doubly Linked List"
@@ -180,5 +120,65 @@ title = "Delete Nodes From Linked List Present in Array"
 url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+
+[[entries]]
 title = "Next Greater Node In Linked List"
 url = "https://leetcode.com/problems/next-greater-node-in-linked-list/"
+
+[[entries]]
+title = "Remove Duplicates from Sorted List II"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
+
+[[entries]]
+title = "Fraction to Recurring Decimal"
+url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
+
+[[entries]]
+title = "Erect the Fence"
+url = "https://leetcode.com/problems/erect-the-fence/"
+
+[[entries]]
+title = "Valid Square"
+url = "https://leetcode.com/problems/valid-square/"
+
+[[entries]]
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
+
+[[entries]]
+title = "Double a Number Represented as a Linked List"
+url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
+
+[[entries]]
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+
+[[entries]]
+title = "Insert Greatest Common Divisors in Linked List"
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
+
+[[entries]]
+title = "Linked List Cycle II"
+url = "https://leetcode.com/problems/linked-list-cycle-ii/"
+
+[[entries]]
+title = "Arranging Coins"
+url = "https://leetcode.com/problems/arranging-coins/"
+
+[[entries]]
+title = "Circular Array Loop"
+url = "https://leetcode.com/problems/circular-array-loop/"
+
+[[entries]]
+title = "Partition List"
+url = "https://leetcode.com/problems/partition-list/"
+
+[[entries]]
+title = "Remove Zero Sum Consecutive Nodes from Linked List"
+url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+
+[[entries]]
+title = "Minimum Number of Refueling Stops"
+url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"

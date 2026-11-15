@@ -4,10 +4,6 @@ focus = "practical data processing with sorting and two pointers, heaps for top-
 review_modules = ["02_two_pointers", "08_heaps", "10_graphs", "01_arrays_and_hashing", "16_math_geometry"]
 
 [[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
 title = "3Sum Closest"
 url = "https://leetcode.com/problems/3sum-closest/"
 
@@ -20,12 +16,12 @@ title = "Increasing Triplet Subsequence"
 url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
 
 [[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Maximum Performance of a Team"
+url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
 
 [[entries]]
-title = "Find if Path Exists in Graph"
-url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
+title = "Next Permutation"
+url = "https://leetcode.com/problems/next-permutation/"
 
 [[entries]]
 title = "Keys and Rooms"
@@ -36,12 +32,20 @@ title = "Simple Bank System"
 url = "https://leetcode.com/problems/simple-bank-system/"
 
 [[entries]]
+title = "IPO"
+url = "https://leetcode.com/problems/ipo/"
+
+[[entries]]
 title = "Design A Leaderboard"
 url = "https://leetcode.com/problems/design-a-leaderboard/"
 
 [[entries]]
 title = "Find K Closest Elements"
 url = "https://leetcode.com/problems/find-k-closest-elements/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
 title = "K Closest Points to Origin"
@@ -56,6 +60,10 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
+title = "Minimum Cost to Hire K Workers"
+url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
+
+[[entries]]
 title = "Kth Smallest Element in a Sorted Matrix"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 
@@ -66,6 +74,10 @@ url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
 [[entries]]
 title = "Random Pick with Weight"
 url = "https://leetcode.com/problems/random-pick-with-weight/"
+
+[[entries]]
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
 
 [[entries]]
 title = "Implement Rand10() Using Rand7()"
@@ -80,6 +92,10 @@ title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
+title = "Bus Routes"
+url = "https://leetcode.com/problems/bus-routes/"
+
+[[entries]]
 title = "Open the Lock"
 url = "https://leetcode.com/problems/open-the-lock/"
 
@@ -88,40 +104,12 @@ title = "Minimum Genetic Mutation"
 url = "https://leetcode.com/problems/minimum-genetic-mutation/"
 
 [[entries]]
+title = "Find if Path Exists in Graph"
+url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
+
+[[entries]]
 title = "Snakes and Ladders"
 url = "https://leetcode.com/problems/snakes-and-ladders/"
-
-[[entries]]
-title = "Maximum Performance of a Team"
-url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
-
-[[entries]]
-title = "IPO"
-url = "https://leetcode.com/problems/ipo/"
-
-[[entries]]
-title = "Minimum Cost to Hire K Workers"
-url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
-
-[[entries]]
-title = "Parallel Courses III"
-url = "https://leetcode.com/problems/parallel-courses-iii/"
-
-[[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
-
-[[entries]]
-title = "Largest Color Value in a Directed Graph"
-url = "https://leetcode.com/problems/largest-color-value-in-a-directed-graph/"
-
-[[entries]]
-title = "Find the Kth Smallest Sum of a Matrix With Sorted Rows"
-url = "https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/"
-
-[[entries]]
-title = "Shortest Path Visiting All Nodes"
-url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
 
 [[entries]]
 title = "Gas Station"
@@ -130,6 +118,10 @@ url = "https://leetcode.com/problems/gas-station/"
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Largest Color Value in a Directed Graph"
+url = "https://leetcode.com/problems/largest-color-value-in-a-directed-graph/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -144,6 +136,10 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Find the Kth Smallest Sum of a Matrix With Sorted Rows"
+url = "https://leetcode.com/problems/find-the-kth-smallest-sum-of-a-matrix-with-sorted-rows/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
@@ -152,12 +148,12 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Shortest Path Visiting All Nodes"
+url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
 
 [[entries]]
 title = "Container With Most Water"
@@ -166,6 +162,10 @@ url = "https://leetcode.com/problems/container-with-most-water/"
 [[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
 
 [[entries]]
 title = "Top K Frequent Elements"
@@ -180,5 +180,5 @@ title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

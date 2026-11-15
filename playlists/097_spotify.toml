@@ -4,18 +4,6 @@ focus = "playlist-style linked lists and queues, randomized shuffling and sampli
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "06_linked_lists", "08_heaps", "10_graphs", "11_dp", "14_tries"]
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
-
-[[entries]]
-title = "Maximum Average Subarray I"
-url = "https://leetcode.com/problems/maximum-average-subarray-i/"
-
-[[entries]]
 title = "Shuffle an Array"
 url = "https://leetcode.com/problems/shuffle-an-array/"
 
@@ -26,6 +14,10 @@ url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
 [[entries]]
 title = "Design Linked List"
 url = "https://leetcode.com/problems/design-linked-list/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
 
 [[entries]]
 title = "Design Circular Deque"
@@ -40,12 +32,20 @@ title = "Odd Even Linked List"
 url = "https://leetcode.com/problems/odd-even-linked-list/"
 
 [[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
 title = "Swapping Nodes in a Linked List"
 url = "https://leetcode.com/problems/swapping-nodes-in-a-linked-list/"
 
 [[entries]]
 title = "Rotate List"
 url = "https://leetcode.com/problems/rotate-list/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Longest Repeating Character Replacement"
@@ -60,6 +60,10 @@ title = "Maximum Erasure Value"
 url = "https://leetcode.com/problems/maximum-erasure-value/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Longest Substring with At Most K Distinct Characters"
 url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
 
@@ -70,6 +74,10 @@ url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
 [[entries]]
 title = "Longest Word in Dictionary"
 url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
 
 [[entries]]
 title = "Implement Trie II (Prefix Tree)"
@@ -84,12 +92,20 @@ title = "Is Graph Bipartite?"
 url = "https://leetcode.com/problems/is-graph-bipartite/"
 
 [[entries]]
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+
+[[entries]]
 title = "Possible Bipartition"
 url = "https://leetcode.com/problems/possible-bipartition/"
 
 [[entries]]
 title = "Find Eventual Safe States"
 url = "https://leetcode.com/problems/find-eventual-safe-states/"
+
+[[entries]]
+title = "Contains Duplicate II"
+url = "https://leetcode.com/problems/contains-duplicate-ii/"
 
 [[entries]]
 title = "Interleaving String"
@@ -100,32 +116,12 @@ title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
-
-[[entries]]
-title = "Maximum Frequency Stack"
-url = "https://leetcode.com/problems/maximum-frequency-stack/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
-
-[[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+title = "Analyze User Website Visit Pattern"
+url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
 
 [[entries]]
 title = "Stream of Characters"
 url = "https://leetcode.com/problems/stream-of-characters/"
-
-[[entries]]
-title = "Analyze User Website Visit Pattern"
-url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
@@ -140,6 +136,10 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
@@ -152,16 +152,20 @@ title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
+
+[[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Maximum Average Subarray I"
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
 [[entries]]
 title = "Container With Most Water"
@@ -176,9 +180,5 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"

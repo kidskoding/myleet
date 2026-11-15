@@ -4,18 +4,6 @@ focus = "Stacks, queues, small data-structure designs, strings, and binary searc
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Implement Queue using Stacks"
-url = "https://leetcode.com/problems/implement-queue-using-stacks/"
-
-[[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
-
-[[entries]]
 title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
 
@@ -26,6 +14,10 @@ url = "https://leetcode.com/problems/design-circular-deque/"
 [[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
+
+[[entries]]
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"
 
 [[entries]]
 title = "Design Linked List"
@@ -40,12 +32,20 @@ title = "Design Most Recently Used Queue"
 url = "https://leetcode.com/problems/design-most-recently-used-queue/"
 
 [[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
 title = "Design Add and Search Words Data Structure"
 url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
 title = "Implement Trie II (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Encode and Decode TinyURL"
@@ -56,32 +56,28 @@ title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
 
 [[entries]]
 title = "Remove All Adjacent Duplicates in String II"
 url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
 
 [[entries]]
-title = "Backspace String Compare"
-url = "https://leetcode.com/problems/backspace-string-compare/"
-
-[[entries]]
 title = "Remove K Digits"
 url = "https://leetcode.com/problems/remove-k-digits/"
 
 [[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
 
 [[entries]]
-title = "Next Greater Element I"
-url = "https://leetcode.com/problems/next-greater-element-i/"
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
 title = "Online Stock Span"
@@ -92,48 +88,36 @@ title = "Validate Stack Sequences"
 url = "https://leetcode.com/problems/validate-stack-sequences/"
 
 [[entries]]
+title = "Implement Queue using Stacks"
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
+
+[[entries]]
 title = "Minimum Add to Make Parentheses Valid"
 url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
+
+[[entries]]
+title = "IPO"
+url = "https://leetcode.com/problems/ipo/"
 
 [[entries]]
 title = "Ugly Number II"
 url = "https://leetcode.com/problems/ugly-number-ii/"
 
 [[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Excel Sheet Column Title"
-url = "https://leetcode.com/problems/excel-sheet-column-title/"
-
-[[entries]]
 title = "Longest Word in Dictionary"
 url = "https://leetcode.com/problems/longest-word-in-dictionary/"
-
-[[entries]]
-title = "String Matching in an Array"
-url = "https://leetcode.com/problems/string-matching-in-an-array/"
 
 [[entries]]
 title = "Custom Sort String"
 url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
+title = "Course Schedule III"
+url = "https://leetcode.com/problems/course-schedule-iii/"
+
+[[entries]]
 title = "Camelcase Matching"
 url = "https://leetcode.com/problems/camelcase-matching/"
-
-[[entries]]
-title = "Find the Difference"
-url = "https://leetcode.com/problems/find-the-difference/"
-
-[[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
-
-[[entries]]
-title = "Search in a Binary Search Tree"
-url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
 
 [[entries]]
 title = "Insert into a Binary Search Tree"
@@ -148,13 +132,29 @@ title = "Inorder Successor in BST"
 url = "https://leetcode.com/problems/inorder-successor-in-bst/"
 
 [[entries]]
+title = "Minimum Number of Refueling Stops"
+url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
+
+[[entries]]
 title = "N-ary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Binary Tree Paths"
-url = "https://leetcode.com/problems/binary-tree-paths/"
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
+
+[[entries]]
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Sum of Subarray Minimums"
+url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
+
+[[entries]]
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"

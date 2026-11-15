@@ -4,8 +4,8 @@ focus = "sliding window and strings, dp on strings, grid bfs/dfs, hash maps, lin
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
 title = "Longest Common Subsequence"
@@ -16,60 +16,84 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+
+[[entries]]
 title = "Max Area of Island"
 url = "https://leetcode.com/problems/max-area-of-island/"
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
 
 [[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Linked List Cycle"
+url = "https://leetcode.com/problems/linked-list-cycle/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Product of Array Except Self"
@@ -80,8 +104,8 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
@@ -92,52 +116,64 @@ title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
+
+[[entries]]
 title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
 
 [[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
 title = "House Robber"
 url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Convert Binary Number in a Linked List to Integer"
+url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
 
 [[entries]]
 title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Middle of the Linked List"
+url = "https://leetcode.com/problems/middle-of-the-linked-list/"
 
 [[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
+
+[[entries]]
 title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Remove Duplicates from Sorted List"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
@@ -146,39 +182,3 @@ url = "https://leetcode.com/problems/validate-binary-search-tree/"
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Find All Duplicates in an Array"
-url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
-
-[[entries]]
-title = "My Calendar I"
-url = "https://leetcode.com/problems/my-calendar-i/"
-
-[[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"

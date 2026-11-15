@@ -16,6 +16,10 @@ title = "Combinations"
 url = "https://leetcode.com/problems/combinations/"
 
 [[entries]]
+title = "Permutation Sequence"
+url = "https://leetcode.com/problems/permutation-sequence/"
+
+[[entries]]
 title = "Subsets II"
 url = "https://leetcode.com/problems/subsets-ii/"
 
@@ -24,12 +28,16 @@ title = "Permutations II"
 url = "https://leetcode.com/problems/permutations-ii/"
 
 [[entries]]
-title = "Permutation Sequence"
-url = "https://leetcode.com/problems/permutation-sequence/"
+title = "Find the Index of the First Occurrence in a String"
+url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
 
 [[entries]]
 title = "Letter Combinations of a Phone Number"
 url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+
+[[entries]]
+title = "N-Queens II"
+url = "https://leetcode.com/problems/n-queens-ii/"
 
 [[entries]]
 title = "Letter Case Permutation"
@@ -44,6 +52,10 @@ title = "Palindrome Partitioning"
 url = "https://leetcode.com/problems/palindrome-partitioning/"
 
 [[entries]]
+title = "Sudoku Solver"
+url = "https://leetcode.com/problems/sudoku-solver/"
+
+[[entries]]
 title = "Partition to K Equal Sum Subsets"
 url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
 
@@ -56,28 +68,8 @@ title = "Beautiful Arrangement"
 url = "https://leetcode.com/problems/beautiful-arrangement/"
 
 [[entries]]
-title = "N-Queens II"
-url = "https://leetcode.com/problems/n-queens-ii/"
-
-[[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
-
-[[entries]]
 title = "Unique Paths III"
 url = "https://leetcode.com/problems/unique-paths-iii/"
-
-[[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
-
-[[entries]]
-title = "Remove Invalid Parentheses"
-url = "https://leetcode.com/problems/remove-invalid-parentheses/"
-
-[[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
 
 [[entries]]
 title = "Split a String Into the Max Number of Unique Substrings"
@@ -88,65 +80,73 @@ title = "Different Ways to Add Parentheses"
 url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
 
 [[entries]]
-title = "Word Squares"
-url = "https://leetcode.com/problems/word-squares/"
-
-[[entries]]
-title = "Find the Shortest Superstring"
-url = "https://leetcode.com/problems/find-the-shortest-superstring/"
-
-[[entries]]
-title = "Maximum Path Quality of a Graph"
-url = "https://leetcode.com/problems/maximum-path-quality-of-a-graph/"
-
-[[entries]]
 title = "Fair Distribution of Cookies"
 url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
 
 [[entries]]
-title = "Smallest Sufficient Team"
-url = "https://leetcode.com/problems/smallest-sufficient-team/"
-
-[[entries]]
-title = "Number of Ways to Wear Different Hats to Each Other"
-url = "https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/"
-
-[[entries]]
-title = "24 Game"
-url = "https://leetcode.com/problems/24-game/"
-
-[[entries]]
-title = "Palindrome Pairs"
-url = "https://leetcode.com/problems/palindrome-pairs/"
-
-[[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
+title = "Repeated Substring Pattern"
+url = "https://leetcode.com/problems/repeated-substring-pattern/"
 
 [[entries]]
 title = "Interleaving String"
 url = "https://leetcode.com/problems/interleaving-string/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
 
 [[entries]]
 title = "Flatten Nested List Iterator"
 url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
 
 [[entries]]
-title = "Maximum Students Taking Exam"
-url = "https://leetcode.com/problems/maximum-students-taking-exam/"
-
-[[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
-
-[[entries]]
-title = "Minimum Cost to Merge Stones"
-url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
-
-[[entries]]
 title = "Count Sorted Vowel Strings"
 url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
+
+[[entries]]
+title = "Restore IP Addresses"
+url = "https://leetcode.com/problems/restore-ip-addresses/"
+
+[[entries]]
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Sort an Array"
+url = "https://leetcode.com/problems/sort-an-array/"
+
+[[entries]]
+title = "Construct Quad Tree"
+url = "https://leetcode.com/problems/construct-quad-tree/"
+
+[[entries]]
+title = "Word Break II"
+url = "https://leetcode.com/problems/word-break-ii/"
+
+[[entries]]
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
+
+[[entries]]
+title = "Beautiful Array"
+url = "https://leetcode.com/problems/beautiful-array/"
+
+[[entries]]
+title = "String Matching in an Array"
+url = "https://leetcode.com/problems/string-matching-in-an-array/"
+
+[[entries]]
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
+
+[[entries]]
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
+
+[[entries]]
+title = "Word Squares"
+url = "https://leetcode.com/problems/word-squares/"

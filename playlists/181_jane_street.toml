@@ -4,16 +4,16 @@ focus = "Hash tables, sorting and binary search, heaps, BFS and DFS, binary tree
 review_modules = ["16_math_geometry", "11_dp", "08_heaps", "03_stacks_and_queues", "09_backtracking", "10_graphs"]
 
 [[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
-
-[[entries]]
 title = "Find First and Last Position of Element in Sorted Array"
 url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
 
 [[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
 title = "Sort an Array"
@@ -24,10 +24,6 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
 title = "Find Median from Data Stream"
 url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
@@ -36,8 +32,8 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
 title = "LRU Cache"
@@ -48,12 +44,20 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"
+
+[[entries]]
 title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Count of Smaller Numbers After Self"
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
@@ -64,8 +68,8 @@ title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Reverse Pairs"
+url = "https://leetcode.com/problems/reverse-pairs/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
@@ -76,6 +80,10 @@ title = "Kth Smallest Element in a BST"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
 
 [[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
 title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
@@ -84,12 +92,24 @@ title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
+
+[[entries]]
 title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Unique Paths"
@@ -100,32 +120,16 @@ title = "Partition Equal Subset Sum"
 url = "https://leetcode.com/problems/partition-equal-subset-sum/"
 
 [[entries]]
+title = "N-Queens"
+url = "https://leetcode.com/problems/n-queens/"
+
+[[entries]]
 title = "Target Sum"
 url = "https://leetcode.com/problems/target-sum/"
 
 [[entries]]
-title = "Burst Balloons"
-url = "https://leetcode.com/problems/burst-balloons/"
-
-[[entries]]
-title = "Count of Smaller Numbers After Self"
-url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
-
-[[entries]]
-title = "Reverse Pairs"
-url = "https://leetcode.com/problems/reverse-pairs/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Sudoku Solver"
+url = "https://leetcode.com/problems/sudoku-solver/"
 
 [[entries]]
 title = "Min Stack"
@@ -136,12 +140,20 @@ title = "Random Pick with Weight"
 url = "https://leetcode.com/problems/random-pick-with-weight/"
 
 [[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
 title = "Implement Rand10() Using Rand7()"
 url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
 
 [[entries]]
 title = "Game of Life"
@@ -152,17 +164,5 @@ title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
-title = "N-Queens"
-url = "https://leetcode.com/problems/n-queens/"
-
-[[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
-
-[[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
-
-[[entries]]
-title = "Subsets"
-url = "https://leetcode.com/problems/subsets/"
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"

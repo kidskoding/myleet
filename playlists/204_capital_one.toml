@@ -8,64 +8,48 @@ title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
 
 [[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "House Robber"
 url = "https://leetcode.com/problems/house-robber/"
 
 [[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -76,28 +60,32 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
+title = "Linked List Cycle"
+url = "https://leetcode.com/problems/linked-list-cycle/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
-
-[[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
 url = "https://leetcode.com/problems/validate-binary-search-tree/"
 
 [[entries]]
-title = "Same Tree"
-url = "https://leetcode.com/problems/same-tree/"
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
 
 [[entries]]
 title = "Coin Change"
@@ -108,57 +96,69 @@ title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
+
+[[entries]]
 title = "Find Minimum in Rotated Sorted Array"
 url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
 
 [[entries]]
 title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
 
 [[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
-
-[[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Same Tree"
+url = "https://leetcode.com/problems/same-tree/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
+title = "Palindrome Partitioning II"
+url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+
+[[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
