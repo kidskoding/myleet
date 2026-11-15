@@ -2,7 +2,195 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="Progress">
-  <h1>Progress</h1>
-  <p>Placeholder: the screen design lands here.</p>
+<Base title="Progress" nav="progress" noindex description="Your streak, mastery, practice history and what's coming due.">
+  <div class="page progress" data-progress aria-busy="true" aria-label="Loading progress">
+    <h1>Progress</h1>
+    <div class="skel" style="height:20px;width:min(420px,90%);margin-top:12px"></div>
+    <div class="top">
+      <div class="panel" style="display:grid;gap:12px"><div class="skel" style="height:16px;width:80px"></div><div class="skel" style="height:44px;width:140px"></div><div class="skel" style="height:26px"></div></div>
+      <div class="panel" style="display:grid;gap:12px"><div class="skel" style="height:16px;width:80px"></div><div class="skel" style="height:44px;width:140px"></div><div class="skel" style="height:10px"></div></div>
+    </div>
+    <div class="panel" style="margin-top:var(--space-12);height:190px"></div>
+  </div>
 </Base>
+
+<style is:global>
+  .progress .lede { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-md); font-variation-settings: "wdth" 95; }
+  .progress .num { font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); letter-spacing: -0.02em; line-height: 1; }
+  .progress .sec { margin-top: var(--space-12); }
+  .progress .section-head h2 { font-size: var(--text-lg); }
+  .progress .section-head .links { display: flex; gap: var(--space-4); }
+
+  .progress .top { margin-top: var(--space-8); display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-5); }
+  .progress .top .panel { padding: var(--space-5) var(--space-6); }
+  .progress .top h2 { font-size: var(--text-base); }
+  .progress .big { display: flex; align-items: baseline; gap: var(--space-2); margin-top: var(--space-3); }
+  .progress .big .num { font-size: var(--text-2xl); }
+  .progress .big span:last-child { color: var(--ink-2); }
+  .progress .strip { margin-top: var(--space-4); display: grid; grid-template-columns: repeat(14, 1fr); gap: 4px; }
+  .progress .strip i { height: 26px; border-radius: var(--radius-xs); background: var(--heat-0); }
+  .progress .strip i.on { background: var(--accent); }
+  .progress .strip i.today { box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .progress .strip-l { display: flex; justify-content: space-between; margin-top: 6px; font-size: var(--text-xs); color: var(--ink-3); }
+  .progress .next { margin-top: var(--space-4); display: flex; gap: var(--space-1) var(--space-3); align-items: center; flex-wrap: wrap; font-size: var(--text-sm); color: var(--ink-2); }
+  .progress button.link { font-size: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent); text-underline-offset: 0.2em; }
+  .progress .mbar { margin-top: var(--space-4); }
+  .progress .mbar .bar { height: 10px; }
+  .progress .legend { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-3); font-size: var(--text-xs); color: var(--ink-2); }
+  .progress .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .progress .legend i { width: 10px; height: 10px; border-radius: 2px; }
+  .progress .lg-m { background: var(--pass-solid); } .progress .lg-c { background: var(--ink); } .progress .lg-s { background: var(--line-strong); }
+  .progress .lg-n { background: var(--surface-sunk); box-shadow: inset 0 0 0 1px var(--line-strong); }
+
+  .progress .remind { margin-top: var(--space-5); padding: var(--space-4) var(--space-5); display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
+  .progress .remind > .icon { color: var(--accent); }
+  .progress .remind p { font-size: var(--text-sm); color: var(--ink-2); margin-right: auto; flex: 1 1 320px; }
+  .progress .remind p strong { color: var(--ink); }
+  .progress .remind .input { width: auto; height: 34px; }
+
+  .progress .heatwrap { padding: var(--space-5) var(--space-6); }
+  .progress .heatscroll { overflow-x: auto; padding-bottom: var(--space-2); }
+  .progress .heat { grid-template-rows: repeat(7, 15px); gap: 4px; }
+  .progress .heat i { width: 15px; height: 15px; }
+  .progress .months { display: grid; grid-auto-flow: column; grid-template-columns: repeat(48, 19px); font-size: var(--text-2xs); color: var(--ink-3); margin-left: 34px; height: 16px; font-weight: 600; white-space: nowrap; }
+  .progress .heatrow { display: flex; gap: var(--space-2); width: max-content; }
+  .progress .days { display: grid; grid-template-rows: repeat(7, 15px); gap: 4px; font-size: var(--text-2xs); color: var(--ink-3); width: 26px; line-height: 15px; }
+  .progress .heatfoot { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-4); margin-top: var(--space-3); font-size: var(--text-xs); color: var(--ink-3); flex-wrap: wrap; }
+  .progress .heatfoot .scale { display: inline-flex; gap: 3px; align-items: center; }
+  .progress .heatfoot .scale i { width: 11px; height: 11px; border-radius: 2px; }
+  .progress details.alt summary { cursor: pointer; color: var(--accent); font-size: var(--text-xs); font-weight: 600; width: max-content; }
+  .progress .wk-table { max-width: 420px; }
+
+  .progress .cal { padding: var(--space-5) var(--space-6); display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--space-8); }
+  .progress .calhead { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3); }
+  .progress .calhead h3 { font-size: var(--text-base); }
+  .progress .cal-sub { display: block; font-size: var(--text-xs); color: var(--ink-3); font-weight: 500; letter-spacing: 0; }
+  .progress .calgrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+  .progress .calgrid .dow { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; padding-bottom: 4px; text-align: center; }
+  .progress .calgrid button { height: 52px; border-radius: var(--radius-sm); background: var(--surface-sunk); display: grid; grid-template-rows: auto 1fr; padding: 5px 7px; text-align: left; min-width: 0; transition: box-shadow var(--dur-fast) var(--ease-out); }
+  .progress .calgrid button:hover { box-shadow: inset 0 0 0 1px var(--line-strong); }
+  .progress .calgrid button .d { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
+  .progress .calgrid button .c { align-self: end; justify-self: end; font-size: var(--text-md); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); line-height: 1; }
+  .progress .calgrid button.past { background: transparent; }
+  .progress .calgrid button.today { background: var(--due-soft); box-shadow: inset 0 0 0 1.5px var(--due-solid); }
+  .progress .calgrid button.today .c, .progress .calgrid button.today .d { color: var(--due); }
+  .progress .calgrid button[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--accent); }
+  .progress .calgrid button.zero .c { color: var(--ink-3); font-weight: 500; }
+  .progress .calgrid .pad { visibility: hidden; }
+  .progress .dayl h3 { font-size: var(--text-base); }
+  .progress .dayl p { font-size: var(--text-sm); color: var(--ink-3); margin-top: 2px; }
+  .progress .dayl ol { list-style: none; padding: 0; margin-top: var(--space-3); }
+  .progress .dayl li a { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; font-size: var(--text-sm); text-decoration: none; }
+  .progress .dayl li a:hover { color: var(--accent); }
+  .progress .dayl li + li { border-top: 1px solid var(--line); }
+  .progress .dayl li small { display: block; color: var(--ink-3); font-size: var(--text-xs); }
+
+  .progress .two { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--space-5); align-items: start; }
+  .progress .two .col { display: grid; gap: var(--space-8); }
+  .progress .mods { list-style: none; padding: var(--space-2) var(--space-6) var(--space-4); }
+  .progress .mod { display: grid; grid-template-columns: 1fr auto; gap: 6px var(--space-4); padding: var(--space-3) 0; align-items: center; }
+  .progress .mod + .mod { border-top: 1px solid var(--line); }
+  .progress .mod a { text-decoration: none; font-weight: 600; font-size: var(--text-sm); }
+  .progress .mod a:hover { color: var(--accent); }
+  .progress .mod .ct { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; font-variation-settings: "wdth" var(--wdth-tag); }
+  .progress .mod .track { grid-column: 1 / -1; }
+
+  .progress .weak { padding: var(--space-5) var(--space-6); }
+  .progress .weak-lede { font-size: var(--text-sm); color: var(--ink-2); }
+  .progress .weak ol { list-style: none; padding: 0; margin-top: var(--space-3); }
+  .progress .weak li a { display: grid; grid-template-columns: 1fr auto; gap: 2px var(--space-3); padding: var(--space-3) 0; text-decoration: none; }
+  .progress .weak li + li { border-top: 1px solid var(--line); }
+  .progress .weak li strong { font-size: var(--text-sm); font-weight: 600; }
+  .progress .weak li a:hover strong { color: var(--accent); }
+  .progress .weak li span { font-size: var(--text-xs); color: var(--ink-3); }
+  .progress .weak li .rate { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-size: var(--text-sm); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); color: var(--weak); }
+  .progress .weak .btn { margin-top: var(--space-4); width: 100%; white-space: normal; text-align: center; height: auto; min-height: var(--h); padding-block: var(--space-2); line-height: 1.3; }
+  .progress .hist .qrow { grid-template-columns: minmax(0, 1fr) auto auto; }
+
+  .progress .skills { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--space-5); align-items: start; }
+  .progress .spot, .progress .lvls, .progress .ins { padding: var(--space-5) var(--space-6); }
+  .progress .spot-head { display: flex; align-items: center; gap: var(--space-3); }
+  .progress .spot h3 { margin-top: var(--space-3); font-size: var(--text-md); }
+  .progress .spot p { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); max-width: 56ch; }
+  .progress .spot .spot-act { font-family: var(--font-read); font-size: var(--text-base); color: var(--ink); }
+  .progress .spot .btn { margin-top: var(--space-4); }
+  .progress .lvls h3, .progress .ins h3 { font-size: var(--text-base); }
+  .progress .lvls ul { list-style: none; padding: 0; margin-top: var(--space-3); display: grid; gap: var(--space-2); }
+  .progress .lvls li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
+  .progress .lvls li strong { font-variation-settings: "wdth" var(--wdth-tag); color: var(--ink); }
+  .progress .pips { display: inline-flex; gap: 2px; }
+  .progress .pips b { width: 6px; height: 10px; border-radius: 1px; background: var(--line-strong); }
+  .progress .pips b.on { background: var(--ink-2); }
+  .progress .lv-solid .pips b.on, .progress .lv-strong .pips b.on { background: var(--pass-solid); }
+  .progress .ins { margin-top: var(--space-5); }
+  .progress .ins ul { margin-top: var(--space-2); padding-left: 1.2em; font-size: var(--text-sm); color: var(--ink-2); display: grid; gap: var(--space-1); }
+  .progress .ins strong { color: var(--ink); }
+
+  .progress .yn { list-style: none; padding: var(--space-1); }
+  .progress .yn a { display: grid; gap: 2px; padding: var(--space-3) var(--space-4); text-decoration: none; border-radius: var(--radius-sm); }
+  .progress .yn li + li a { box-shadow: 0 -1px 0 var(--line); }
+  .progress .yn a:hover { background: var(--surface-sunk); box-shadow: none; }
+  .progress .yn q { font-family: var(--font-read); quotes: "\201C" "\201D"; background: var(--mark-bg); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .progress .yn-text { font-size: var(--text-sm); }
+  .progress .yn-meta { font-size: var(--text-xs); color: var(--ink-3); }
+
+  .progress .ach { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; list-style: none; }
+  .progress .ach li { display: grid; grid-template-columns: auto 1fr; gap: 2px var(--space-3); padding: var(--space-4) var(--space-5); align-items: start; }
+  .progress .ach li:nth-child(n+4) { border-top: 1px solid var(--line); }
+  .progress .ach li:not(:nth-child(3n+1)) { border-left: 1px solid var(--line); }
+  .progress .ach .tag { grid-row: span 2; margin-top: 1px; }
+  .progress .ach strong { font-size: var(--text-sm); font-weight: 650; }
+  .progress .ach span.w { grid-column: 2; font-size: var(--text-xs); color: var(--ink-3); }
+  .progress .ach li.locked strong { color: var(--ink-3); font-weight: 600; }
+
+  .progress .danger { margin-top: var(--space-24); padding-top: var(--space-6); border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+  .progress .danger h2 { font-size: var(--text-base); }
+  .progress .danger p { font-size: var(--text-sm); color: var(--ink-2); margin-top: 2px; max-width: 60ch; }
+  .progress .danger-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+  .progress .moment { margin-top: var(--space-8); display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-6); align-items: center; padding: var(--space-6) var(--space-8); background: var(--wall); color: var(--wall-ink); border-radius: var(--radius-md); }
+  .progress .moment .num { font-size: 4rem; color: var(--wall-ink); }
+  .progress .moment h2 { font-size: var(--text-lg); color: var(--wall-ink); }
+  .progress .moment p { color: var(--wall-ink-2); margin-top: var(--space-1); max-width: 54ch; }
+  .progress .moment .btn-secondary { background: transparent; color: var(--wall-ink); border-color: color-mix(in srgb, var(--wall-ink) 35%, transparent); }
+  @media (prefers-reduced-motion: no-preference) {
+    :root:not([data-motion="reduce"]) .progress .moment .num { animation: progress-roll var(--dur-slow) var(--ease-out) both; }
+  }
+  @keyframes progress-roll { from { transform: translateY(40%); opacity: 0; } }
+
+  .progress .empty { margin-top: var(--space-8); padding: var(--space-8); }
+  .progress .empty h2 { font-size: var(--text-lg); }
+  .progress .empty p { margin-top: var(--space-2); color: var(--ink-2); max-width: 56ch; }
+  .progress .empty .btn { margin-top: var(--space-5); }
+  .progress .state-note { margin-top: var(--space-8); }
+
+  @media (max-width: 1100px) {
+    .progress .two, .progress .cal, .progress .skills { grid-template-columns: 1fr; }
+    .progress .ach { grid-template-columns: repeat(2, 1fr); }
+    .progress .ach li { border-left: 0 !important; border-top: 1px solid var(--line); }
+    .progress .ach li:nth-child(-n+2) { border-top: 0; }
+    .progress .ach li:nth-child(2n) { border-left: 1px solid var(--line) !important; }
+  }
+  @media (max-width: 760px) {
+    .progress.page { padding-top: var(--space-6); }
+    .progress .lede { font-size: var(--text-base); }
+    .progress .top { grid-template-columns: 1fr; }
+    .progress .heatwrap, .progress .cal, .progress .weak, .progress .top .panel, .progress .spot, .progress .lvls, .progress .ins { padding: var(--space-4); }
+    .progress .mods { padding: var(--space-1) var(--space-4) var(--space-3); }
+    .progress .ach { grid-template-columns: 1fr; }
+    .progress .ach li:nth-child(n) { border-left: 0 !important; border-top: 1px solid var(--line); }
+    .progress .ach li:first-child { border-top: 0; }
+    .progress .calgrid button { height: 44px; padding: 4px 5px; }
+    .progress .calgrid button .c { font-size: var(--text-base); }
+    .progress .moment { grid-template-columns: 1fr; padding: var(--space-5); gap: var(--space-3); }
+    .progress .moment .num { font-size: 3rem; }
+    .progress .hist .qrow { grid-template-columns: minmax(0, 1fr) auto; }
+    .progress .empty { padding: var(--space-5); }
+    .progress .danger-actions { width: 100%; }
+    .progress .danger-actions .btn { flex: 1; }
+  }
+</style>
+
+<script>
+  import "../scripts/progress";
+</script>
