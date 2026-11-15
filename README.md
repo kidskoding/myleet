@@ -6,9 +6,9 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20windows-lightgrey?style=flat-square)](https://github.com/kidskoding/myleet/releases)
 
-**Adaptive LeetCode practice in your terminal.**
+**Adaptive LeetCode practice that schedules your reviews.**
 
-myleet is a teaching-first DSA curriculum and TUI trainer for internship, co-op, and
+myleet is a teaching-first DSA curriculum and trainer for internship, co-op, and
 new-grad interviews. Unlike fixed lists (NeetCode 150, etc.), it builds each day from
 *your* history: weak techniques first, reviews on a spaced ladder, and company playlists
 when you want to drill a target.
@@ -60,42 +60,18 @@ just install && myleet
 | -------------------------------------- | ------------------------------------------------------------------------------ |
 | Same problems, same order for everyone | Recommends reviews and new work from your fails, hints, peeks, and slow solves |
 | “Done” when you AC once                | Mastery means cold redo on a review ladder (1 → 3 → 7 → 14 → 30 days)          |
-| Browser + scattered notes              | Terminal trainer + notes book + 200+ company playlists                         |
+| Browser + scattered notes              | One trainer + notes book + 200+ company playlists                              |
 
 A problem is mastered only when you can explain the pattern, pick the right shape, code
 it cleanly, pass the tests, and state time/space under interview pressure.
 
 Start with [How to prep](guide/01_how_to_prep.md) if you are new to live coding interviews.
 
-## Screens
+## Status
 
-Press `1`-`5` or `tab`. Bottom bar shows keys for the current screen; `?` lists them all.
-
-|     | Screen        |                                                                                                                                                               |
-| --- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `1` | **Today**     | Personalized queue: due reviews, weak spots, then keep-sharp drills when you are caught up. Placement for first-timers; check-ins with `c` / snooze with `n`. |
-| `2` | **Map**       | Guide notes → modules → techniques → problems. `n` opens notes.                                                                                               |
-| `3` | **Timed**     | Mock interview (technique hidden).                                                                                                                            |
-| `4` | **Playlists** | Company sets by recruiting track, with progress.                                                                                                              |
-| `5` | **Stats**     | Streak, mastery, heatmap, weakest techniques; reset at the bottom.                                                                                            |
-
-**Focus** (`enter` on a problem): statement + timer + named tests + say-aloud checklist.
-Edit in your editor (`e`); tests rerun on save or `space`.
-
-| Key      | Action               |
-| -------- | -------------------- |
-| `e`      | edit attempt         |
-| `space`  | rerun tests          |
-| `t`      | hint                 |
-| `s`      | reference solution   |
-| `d`      | diff vs last attempt |
-| `o`      | open LeetCode        |
-| `r`      | reset to starter     |
-| `1`-`3`  | tick say-aloud items |
-| `g`      | give up              |
-| `/`      | filter this list     |
-| `ctrl+k` | search everything    |
-| `esc`    | back                 |
+The terminal UI has been retired. A web app (Rust core in the browser, served from
+Cloudflare) is in progress. Until it ships, the `myleet` CLI below loads the
+curriculum, runs tests, and reports progress.
 
 ## How it recommends practice
 
@@ -120,10 +96,9 @@ you to 1 day. Mastered at the 14-day rung.
 
 | Command                           |                                          |
 | --------------------------------- | ---------------------------------------- |
-| `myleet`                          | open the trainer                         |
-| `myleet open <id>`                | open one problem (`myleet open two-sum`) |
+| `myleet`                          | list commands                            |
 | `myleet doctor`                   | check python, pytest, editor, data dir   |
-| `myleet stats`                    | print progress without the TUI           |
+| `myleet stats`                    | print progress                           |
 | `myleet progress`                 | edit `progress.toml` in `$EDITOR`        |
 | `myleet prompts`                  | cache problem statements for offline use |
 | `myleet update`                   | pull latest curriculum (installed clone) |
@@ -181,7 +156,7 @@ Eighteen modules by interview pattern (not CS textbook order):
 
 ```text
 myleet/
-├── src/                 trainer binary: engine + TUI (Rust)
+├── src/                 trainer core + CLI (Rust)
 ├── guide/               start-here notes
 ├── curriculum/          taught modules (notes, starters, tests)
 ├── bank/                playlist-only problems

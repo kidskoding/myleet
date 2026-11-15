@@ -6,15 +6,13 @@ mod stats;
 mod update;
 mod validate;
 
-use std::io::{IsTerminal, Write};
+use std::io::Write;
 
 use crate::app::{App, Env};
 use crate::version;
 
 const USAGE: &str = "usage: myleet [command]
 
-  myleet                            open today's session
-  myleet open <id>                  open one problem
   myleet check [--solutions] [id]   run tests (attempts, or reference solutions)
   myleet validate                   check the curriculum loads
   myleet validate --lock            record problem ids so a rename cannot orphan saved progress
@@ -102,8 +100,8 @@ pub fn run_with<O: Write, E: Write>(
         "validate" => return validate::run(rest, out, err, env),
         "progress" => return progress::run(out, err, env),
         "update" => return update::run(out, err, env),
-        "check" | "doctor" | "stats" | "prompts" | "" | "open" => {}
-        "-h" | "--help" | "help" => {
+        "check" | "doctor" | "stats" | "prompts" => {}
+        "" | "-h" | "--help" | "help" => {
             out.line(USAGE);
             return 0;
         }
@@ -120,38 +118,11 @@ pub fn run_with<O: Write, E: Write>(
         }
     };
     match cmd {
-        "check" => return check::run(&a, rest, out, err),
-        "doctor" => return doctor::run(&a, out, env),
-        "stats" => return stats::run(&a, out),
-        "prompts" => return prompts::run(&a, out),
-        _ => {}
+        "check" => check::run(&a, rest, out, err),
+        "doctor" => doctor::run(&a, out, env),
+        "stats" => stats::run(&a, out),
+        _ => prompts::run(&a, out),
     }
-    let mut open_id = None;
-    if cmd == "open" {
-        let [id] = rest else {
-            err.line("usage: myleet open <id>");
-            return 2;
-        };
-        if a.catalog.problem(id).is_none() {
-            err.line(&format!("myleet: no problem {id:?}"));
-            return 1;
-        }
-        open_id = Some(id.as_str());
-    }
-    match launch(a, open_id) {
-        Ok(()) => 0,
-        Err(e) => {
-            err.line(&format!("myleet: {e}"));
-            1
-        }
-    }
-}
-
-fn launch(a: App, open_id: Option<&str>) -> Result<(), String> {
-    if !std::io::stdout().is_terminal() {
-        return Err("the trainer needs a terminal".into());
-    }
-    crate::tui::run(crate::tui::Shared::new(a), open_id).map_err(|e| e.to_string())
 }
 
 #[cfg(test)]
@@ -220,24 +191,14 @@ mod tests {
     }
 
     #[test]
-    fn trainer_and_open_need_a_terminal() {
+    fn no_args_prints_usage_and_open_is_gone() {
         let e = TestEnv::new("good");
-        for args in [&[][..], &["open", "p-one"][..]] {
-            let (code, out) = call(&e, args);
-            assert_eq!(code, 1, "{args:?}");
-            assert!(out.contains("needs a terminal"), "{args:?}: {out}");
-        }
-    }
-
-    #[test]
-    fn open_checks_its_argument() {
-        let e = TestEnv::new("good");
-        let (code, out) = call(&e, &["open"]);
+        let (code, out) = call(&e, &[]);
+        assert_eq!(code, 0);
+        assert!(out.starts_with("usage: myleet"), "{out}");
+        assert!(!out.contains("open"), "{out}");
+        let (code, _) = call(&e, &["open", "p-one"]);
         assert_eq!(code, 2);
-        assert!(out.contains("usage: myleet open <id>"), "{out}");
-        let (code, out) = call(&e, &["open", "nope"]);
-        assert_eq!(code, 1);
-        assert!(out.contains("no problem \"nope\""), "{out}");
     }
 
     #[test]
