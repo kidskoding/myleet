@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { milestone, milestoneLine, momentum, onThisDay, personalCards, reviewWhy, todaySummary, wrapUp } from "./coach";
+import { backlogLine, milestone, milestoneLine, momentum, onThisDay, personalCards, reviewWhy, todaySummary, wrapUp } from "./coach";
 import type { Skill, SkillAttempt, State, TodayEntry } from "./types";
 
 const now = new Date(2026, 10, 15, 9);
@@ -127,5 +127,14 @@ describe("reviewWhy", () => {
     const lc = { ...entry("lc", "review", { rung: 0 }, 20), why: "overdue 20d: 1-day review, you solved this on LeetCode 3 weeks ago, so let's see if it stuck" };
     expect(reviewWhy(lc, null, now)).toBe("You solved this on LeetCode 3 weeks ago, so let's see if it stuck, and a clean pass now starts to lock it in");
     expect(reviewWhy(entry("x", "review", { rung: 0 }, 2), null, now)).toBe("It came due 2 days ago, and a clean pass starts to lock it in");
+  });
+});
+
+describe("backlogLine", () => {
+  it("names the whole backlog and the share today's session takes", () => {
+    expect(backlogLine(44, 2)).toBe(
+      "You have 44 reviews waiting, too many for one day. Today's session covers the 2 reviews that have waited longest, and the rest spread over the next few days",
+    );
+    expect(backlogLine(41, 1)).toContain("covers the 1 review that has waited longest");
   });
 });

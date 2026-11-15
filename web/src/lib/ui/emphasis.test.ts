@@ -7,6 +7,9 @@ describe("emphasize", () => {
       "Today we&#39;re focusing on <strong>sliding window</strong>, your weakest spot. Your <strong>Meta</strong> interview is <strong>12 days</strong> away",
     );
   });
+  it("bolds review counts", () => {
+    expect(emphasize("You have 44 reviews waiting and 1 review today").value).toBe("You have <strong>44 reviews</strong> waiting and <strong>1 review</strong> today");
+  });
   it("escapes markup in the text", () => {
     expect(emphasize("<b>x</b>").value).toBe("&lt;b&gt;x&lt;/b&gt;");
   });

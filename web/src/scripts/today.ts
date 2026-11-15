@@ -21,7 +21,7 @@ import { planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
 import { actionHref, inPlanOn } from "../lib/skills-view";
 import { addDays, localDay, readStreak, recordStats, streakNow } from "../lib/streak";
 import { forecastLead, planStatus, spreadDays, weekFocus } from "../lib/plan-copy";
-import { milestone, milestoneLine, momentum, onThisDay, personalCards, reviewWhy, todaySummary, wrapUp, type Card } from "../lib/coach";
+import { backlogLine, milestone, milestoneLine, momentum, onThisDay, personalCards, reviewWhy, todaySummary, wrapUp, type Card } from "../lib/coach";
 import {
   BUDGETS,
   EXTRA_NEW_FOR_LONG_DAY,
@@ -504,11 +504,10 @@ function paint(c: Ctx): void {
   const trackLine = check ? "" : status?.line || "";
 
   const reviews = entries.filter((e) => e.kind === "review");
-  let backlogNote = "";
-  if (reviews.length >= BACKLOG_AT) {
+  const backlog = reviews.length >= BACKLOG_AT;
+  if (backlog) {
     const show = new Set(reviews.slice(0, BACKLOG_SHOW).map((e) => e.problem));
     entries = entries.filter((e) => e.kind !== "review" || show.has(e.problem));
-    backlogNote = `${reviews.length} reviews due. Today shows the ${BACKLOG_SHOW} most overdue; the rest roll to tomorrow`;
   }
   const visible = entries.filter((e) => !skipped.has(e.problem));
   const BUDGET_SECS = budget === "plan" ? planned * 60 : (BUDGETS.find((b) => b.id === budget)?.secs ?? null);
@@ -517,6 +516,8 @@ function paint(c: Ctx): void {
   const work = queue.filter((e) => e.kind !== "practice");
   const nReview = work.filter((e) => e.kind === "review").length;
   const nNew = work.length - nReview;
+  // Counted after the time budget, so it matches the queue below it.
+  const backlogNote = backlog && nReview ? backlogLine(reviews.length, nReview) : "";
 
   try {
     localStorage.setItem("myleet:today", JSON.stringify({ day: localDay(c.now), due: nReview, mins: mins(work) }));
@@ -553,7 +554,7 @@ function paint(c: Ctx): void {
     </section>`;
   } else {
     const [first, ...rest] = queue as [TodayEntry, ...TodayEntry[]];
-    const parts = [nReview ? plural(nReview, "review") + " due" : "", nNew ? plural(nNew, "new problem") : ""].filter(Boolean).join(" and ");
+    const parts = [nReview ? plural(nReview, "review") + (backlog ? " today" : " due") : "", nNew ? plural(nNew, "new problem") : ""].filter(Boolean).join(" and ");
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     const summary = todaySummary({
       // Once today's windows have passed the plan has no items for today; the queue still does.

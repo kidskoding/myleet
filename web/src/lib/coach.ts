@@ -235,6 +235,15 @@ export function wrapUp(
   return { text: parts.join(" ").replace(/\.$/, ""), retake };
 }
 
+/**
+ * The line Today shows when it trims a big review backlog: how many reviews wait in all and how
+ * many today's session takes, so the counts above the queue agree with the queue.
+ */
+export function backlogLine(total: number, today: number): string {
+  const take = today === 1 ? "the 1 review that has waited longest" : `the ${today} reviews that have waited longest`;
+  return `You have ${total} reviews waiting, too many for one day. Today's session covers ${take}, and the rest spread over the next few days`;
+}
+
 /** "Why this one" for a review: the last attempt and where a clean pass puts it. */
 export function reviewWhy(e: Pick<TodayEntry, "problem" | "overdue_days" | "state"> & { why?: string }, skills: Skill[] | null, now: Date): string {
   const r = e.state.rung;
