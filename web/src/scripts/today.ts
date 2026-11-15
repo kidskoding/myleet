@@ -5,6 +5,9 @@ import { signupHref } from "../lib/access";
 import { viewEvents } from "../lib/sample";
 import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
+import { MOCK_LEAD_MIN, mockState } from "../lib/mock-today";
+import { readHistory } from "../lib/mock";
+import { addMove, minuteOf, moveFor } from "../lib/schedule";
 import { daysUntil, paceRows, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
@@ -27,7 +30,7 @@ import {
   type Budget,
 } from "../lib/today";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
-import type { Plan, PlanItem, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
+import type { Plan, PlanItem, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
 import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
@@ -337,7 +340,7 @@ function paint(c: Ctx): void {
   if (c.plan) {
     try {
       const d0 = c.plan.days[0];
-      localStorage.setItem("myleet:sessions", JSON.stringify({ day: d0?.date, sessions: (d0?.sessions ?? []).map((s) => ({ start_ms: s.start_ms, title: s.title, minutes: s.minutes })) }));
+      localStorage.setItem("myleet:sessions", JSON.stringify({ day: d0?.date, sessions: (d0?.sessions ?? []).map((s) => ({ start_ms: s.start_ms, title: s.title, minutes: s.minutes, ...(s.items.some((i) => i.kind === "mock") ? { lead: MOCK_LEAD_MIN } : {}) })) }));
     } catch {
       // Reminders fall back to the daily time.
     }
@@ -396,6 +399,7 @@ function paint(c: Ctx): void {
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     body = html`<section aria-labelledby="greet">
       <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}<p>${backlogNote || `${parts} · About ${formatMinutes(mins(work))}`}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div data-mock-card></div>
       ${nextUp(c, first)}
       ${rest.length
         ? html`<div class="group"><div class="section-head"><h2>Also today</h2><span class="meta">${plural(rest.length, "problem")}, about ${formatMinutes(mins(rest))}</span></div>
@@ -409,6 +413,7 @@ function paint(c: Ctx): void {
   main.removeAttribute("aria-label");
   const first = main.querySelector("#fr-title") !== null;
   main.closest(".today-layout")?.classList.toggle("is-first-run", first);
+  paintMock();
   const next = queueFirst(entries, skipped);
   const nm = next ? meta(c.cat, next) : undefined;
   const skipKey = nm ? `${c.cat.catalog.modules[nm.module]?.id}/${c.cat.catalog.modules[nm.module]?.techniques[nm.technique]?.id}` : null;
@@ -616,8 +621,63 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+/** Today's mock session from the plan, with whether a mock was finished today. */
+function todaysMock(): { s: PlanSession; done: MockResultLite | null } | null {
+  const s = ctx?.plan?.days[0]?.sessions.find((x) => x.items.some((i) => i.kind === "mock"));
+  if (!ctx || !s) return null;
+  const today = localDay(new Date());
+  const m = readHistory().find((r) => localDay(new Date(r.end)) === today);
+  return { s, done: m ? { solved: m.problems.filter((p) => p.green).length, total: m.problems.length } : null };
+}
+type MockResultLite = { solved: number; total: number };
+
+function paintMock(): void {
+  const el = $("[data-mock-card]");
+  const m = todaysMock();
+  if (!el) return;
+  if (!m) return void render(el, html``);
+  const { s, done } = m;
+  const st = mockState(Date.now(), s.start_ms, s.end_ms, done !== null);
+  const at = new Date(s.start_ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  const len = formatMinutes(s.minutes);
+  if (st === "done") {
+    return void render(el, html`<p class="plan-note" style="margin-block:var(--space-4)">Mock done: ${done?.solved} of ${done?.total} solved.</p>`);
+  }
+  const copy =
+    st === "before"
+      ? { h: `Mock interview today at ${at}`, p: `About ${len}.` }
+      : st === "now"
+        ? { h: "Your mock interview starts now", p: `Planned for ${at}, about ${len}.` }
+        : { h: "You missed today's mock interview", p: `It was planned for ${at}.` };
+  const tomorrow = ctx?.plan?.days[1];
+  render(
+    el,
+    html`<article class="l2" aria-live="polite" style="margin-block:var(--space-4)"><div><h2>${copy.h}</h2><p class="text-muted">${copy.p}</p></div>
+      <div style="display:flex;gap:var(--space-2);flex-wrap:wrap"><a class="btn ${st === "now" ? "btn-primary" : "btn-secondary"}" href="${ROUTES.mock}">${st === "now" ? "Start mock" : "Start now"}</a>${
+        st === "missed" ? html`<button class="btn btn-ghost" type="button" data-mock-move ${tomorrow && !tomorrow.rest ? "" : "disabled"}>Move to tomorrow</button>` : ""
+      }</div></article>`,
+  );
+}
+
+function moveMockTomorrow(): void {
+  const c = ctx;
+  const m = todaysMock();
+  const d0 = c?.plan?.days[0];
+  const d1 = c?.plan?.days[1];
+  if (!c?.plan || !m || !d0 || !d1) return;
+  const prev = readPrefs().plan.moves;
+  updatePrefs({ plan: { moves: addMove(prev, moveFor(m.s, d0.date, d1.date, minuteOf(m.s.start_ms)), c.plan.start) } });
+  toast("Moved to tomorrow", { ms: 8000, action: { label: "Undo", run: () => updatePrefs({ plan: { moves: prev } }) } });
+}
+
+document.addEventListener("click", (e) => {
+  if ((e.target as HTMLElement).closest("[data-mock-move]")) moveMockTomorrow();
+});
+setInterval(paintMock, 60_000);
+
 document.addEventListener("astro:page-load", () => void init());
 for (const ev of ["myleet:synced", "myleet:progress", "myleet:prefs"]) addEventListener(ev, () => void refresh());
 document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") paintMock();
   if (document.visibilityState === "visible" && ctx && localDay(ctx.now) !== localDay()) void refresh();
 });

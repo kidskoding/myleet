@@ -57,6 +57,8 @@ export interface PlannedSession {
   start_ms: number;
   title: string;
   minutes: number;
+  /** Overrides the user's lead time, in minutes. */
+  lead?: number;
 }
 
 /** `HH:MM` inside the quiet range, which may wrap past midnight (23:00 to 08:00). */
@@ -81,7 +83,7 @@ export function nextSessionReminder(
 ): { delay: number; key: number; body: string } | null {
   for (const s of [...sessions].sort((a, b) => a.start_ms - b.start_ms)) {
     if (s.start_ms <= now.getTime() || o.sent.includes(s.start_ms)) continue;
-    const at = new Date(s.start_ms - o.lead * 60_000);
+    const at = new Date(s.start_ms - (s.lead ?? o.lead) * 60_000);
     if (inQuiet(at, o.quietFrom, o.quietTo)) continue;
     const time = new Date(s.start_ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }).replace(":00", "");
     const len = s.minutes < 60 ? `${s.minutes} min` : s.minutes % 60 ? `${Math.floor(s.minutes / 60)} h ${s.minutes % 60}` : `${s.minutes / 60} h`;
