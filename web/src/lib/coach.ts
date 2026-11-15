@@ -1,0 +1,193 @@
+// Today's personal copy: the coaching paragraph, the "for you" cards, the on-this-day line,
+// milestones and momentum. Pure, so it is tested; every piece returns null without data.
+import { addDays, localDay } from "./streak";
+import { midSentence } from "./schedule";
+import { RUNG_DAYS } from "./ui/ladder";
+import type { PlanItem, Skill, SkillAttempt, State, TodayEntry } from "./types";
+
+const LEVEL_NEXT: Record<string, string> = { shaky: "building", building: "solid", solid: "strong" };
+const NUM = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+const num = (n: number) => NUM[n] ?? String(n);
+const days = (n: number) => (n === 1 ? "1 day" : `${n} days`);
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+/** "Yesterday", "3 days ago", "Earlier today" for a YYYY-MM-DD against today. */
+export function dayAgo(date: string, now: Date): string {
+  const today = localDay(now);
+  if (date >= today) return "earlier today";
+  if (date === addDays(today, -1)) return "yesterday";
+  const n = Math.round((Date.parse(today) - Date.parse(date)) / 86_400_000);
+  return n === 7 ? "a week ago" : `${n} days ago`;
+}
+
+/** What an attempt shows, as a verb phrase: "passed 5 of 7 tests and missed edge cases". */
+export function attemptPhrase(a: Pick<SkillAttempt, "mark" | "cause" | "detail">): string | null {
+  if (a.mark === "hint") return a.detail.includes("solution") ? "looked at the solution" : "needed a hint";
+  if (a.mark === "over") return `solved it but took ${a.detail}`;
+  if (a.mark !== "missed") return null;
+  if (!a.detail.startsWith("passed")) return "got stuck before a test passed";
+  const why = a.cause === "edge_cases" ? " but missed edge cases" : a.cause === "wrong_approach" ? " after starting down the wrong approach" : "";
+  return `${a.detail}${why}`;
+}
+
+/** The most recent non-clean attempt within `withinDays`. */
+function recentMiss(s: Skill | undefined, now: Date, withinDays = 7): SkillAttempt | undefined {
+  const since = addDays(localDay(now), -withinDays);
+  return [...(s?.history ?? [])].reverse().find((h) => h.mark !== "clean" && h.date >= since);
+}
+
+export interface SummaryInput {
+  items: Pick<PlanItem, "kind" | "tag" | "technique" | "chips">[];
+  skills: Skill[] | null;
+  daysLeft: number | null;
+  now: Date;
+}
+
+/**
+ * The coaching paragraph under the greeting: the day's theme (its most common technique),
+ * why it matters to this learner, and how the day runs. Null with nothing queued.
+ */
+export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): string | null {
+  const counts = new Map<string, number>();
+  for (const i of items) if (i.technique && i.kind !== "review") counts.set(i.technique, (counts.get(i.technique) ?? 0) + 1);
+  const [theme, nTheme = 0] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
+  const reviews = items.filter((i) => i.kind === "review").length;
+  const nNew = items.filter((i) => i.kind !== "review").length;
+  if (!theme) return reviews ? `Today is a review day, with ${num(reviews)} older ${reviews === 1 ? "problem" : "problems"} to keep on schedule.` : null;
+
+  const tech = midSentence(theme);
+  const skill = skills?.find((s) => s.technique_title === theme);
+  const weak = items.some((i) => i.technique === theme && i.tag === "weak") || !!skill?.weak_spot;
+  const company = items
+    .filter((i) => i.technique === theme)
+    .flatMap((i) => i.chips ?? [])
+    .map((c) => /^(.+) leans on /.exec(c.text)?.[1])
+    .find(Boolean);
+  const near = daysLeft !== null && daysLeft > 0 && daysLeft <= 30 ? daysLeft : null;
+  const out: string[] = [];
+
+  out.push(`Today we're ${weak ? "focusing on" : "spending most of our time on"} ${tech}${weak ? ", your weakest spot right now" : ""}.`);
+
+  const miss = recentMiss(skill, now);
+  const did = miss && attemptPhrase(miss);
+  if (miss && did) out.push(`${cap(dayAgo(miss.date, now))} on ${miss.title} you ${did}.`);
+  const stakes = company ? `${company}'s set leans on ${tech}${near ? ` and your interview is ${days(near)} away` : ""}` : near ? `Your interview is ${days(near)} away` : "";
+  if (stakes) out.push(`${stakes}, so it's worth getting solid.`);
+
+  const level = skill?.level;
+  const next = level ? LEVEL_NEXT[level] : undefined;
+  const work = nTheme === 1 ? `one ${tech} problem` : `${num(nTheme)} ${tech} problems`;
+  const extra = nNew > nTheme ? ` and ${nNew - nTheme === 1 ? "one more" : `${num(nNew - nTheme)} more`} after` : "";
+  const lead = reviews ? `After ${reviews === 1 ? "a quick review" : `${num(reviews)} quick reviews`} to keep your older problems on schedule, you'll work through` : "You'll work through";
+  const move = level && next ? `, and if you solve ${nTheme === 1 ? "it" : "them"} cleanly, ${tech} moves up from ${level} toward ${next}` : "";
+  if (reviews || move || extra) out.push(`${lead} ${work}${extra}${move}.`);
+  return out.join(" ");
+}
+
+export interface Card {
+  kind: "resume" | "due" | "weak";
+  label: string;
+  title: string;
+  body: string;
+  problem: string | null;
+}
+
+/**
+ * Up to three cards: an unfinished problem, the most overdue review, and the weakest technique.
+ * `title` maps a problem id to its title.
+ */
+export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title: (id: string) => string, now: Date): Card[] {
+  const cards: Card[] = [];
+  const history = (skills ?? []).flatMap((s) => s.history);
+  const started = queue.find((e) => e.kind === "new" && e.state.attempts > 0 && e.state.clean_passes === 0);
+  if (started) {
+    const last = [...history].reverse().find((h) => h.problem === started.problem);
+    const got = last && attemptPhrase(last);
+    cards.push({
+      kind: "resume",
+      label: "Jump back in",
+      title: title(started.problem),
+      body: got ? `Last time you ${got}, ${dayAgo(last.date, now)}.` : `You've started it ${started.state.attempts === 1 ? "once" : `${started.state.attempts} times`} and haven't passed it yet.`,
+      problem: started.problem,
+    });
+  }
+  const due = queue.filter((e) => e.kind === "review" && e.overdue_days > 0).sort((a, b) => b.overdue_days - a.overdue_days)[0];
+  if (due) {
+    cards.push({
+      kind: "due",
+      label: "Due before it slips",
+      title: title(due.problem),
+      body: `It came due ${due.overdue_days === 1 ? "yesterday" : `${due.overdue_days} days ago`}, so a clean pass today keeps it on schedule.`,
+      problem: due.problem,
+    });
+  }
+  const weak = (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0 && (s.level === "shaky" || s.level === "building")).sort((a, b) => b.need - a.need)[0];
+  if (weak && (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0).length >= 2) {
+    const tech = midSentence(weak.technique_title);
+    const next = LEVEL_NEXT[weak.level];
+    cards.push({
+      kind: "weak",
+      label: "Your weak spot",
+      title: weak.technique_title,
+      body: `${cap(tech)} is still at ${weak.level}${next ? `, and a few clean solves move it toward ${next}` : ""}.`,
+      problem: null,
+    });
+  }
+  return cards;
+}
+
+/** "A week ago you couldn't solve X. It's due today, so try it clean." Null when nothing fits. */
+export function onThisDay(queue: TodayEntry[], skills: Skill[] | null, now: Date): string | null {
+  const due = new Set(queue.filter((e) => e.kind === "review").map((e) => e.problem));
+  const back = new Set([addDays(localDay(now), -7), addDays(localDay(now), -14), addDays(localDay(now), -30)]);
+  const h = (skills ?? []).flatMap((s) => s.history).find((a) => a.mark !== "clean" && back.has(a.date) && due.has(a.problem));
+  if (!h) return null;
+  const when = cap(dayAgo(h.date, now).replace("14 days ago", "two weeks ago").replace("30 days ago", "a month ago"));
+  const what = h.mark === "missed" ? `you couldn't solve ${h.title}` : h.mark === "hint" ? `you needed a hint on ${h.title}` : `${h.title} took you past the time target`;
+  return `${when} ${what}. It's due today, so try it clean.`;
+}
+
+export const CLEAN_MILESTONES = [10, 25, 50, 100, 250, 500, 1000];
+
+/** The newest clean-pass milestone above `seen`, or null. */
+export function milestone(states: Record<string, State>, seen: number): number | null {
+  const total = Object.values(states).reduce((n, s) => n + s.clean_passes, 0);
+  const m = [...CLEAN_MILESTONES].reverse().find((x) => x <= total);
+  return m !== undefined && m > seen ? m : null;
+}
+
+const ORD = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th"}`;
+export const milestoneLine = (n: number) => `That's your ${ORD(n)} clean pass.`;
+
+/** "3 days in a row" from 2 days on; silent otherwise, never a warning. */
+export const momentum = (streak: number): string | null => (streak >= 2 ? `${streak} days in a row` : null);
+
+/**
+ * The wrap-up when nothing is left today. Offers a retake when the last diagnostic is over
+ * 30 days old (`diagnosticMs` null means it was never taken).
+ */
+export function wrapUp(done: { clean: number; total: number; minutes: number }, diagnosticMs: number | null, now: Date): { text: string; retake: boolean } {
+  const parts: string[] = [];
+  if (done.total) {
+    const clean = done.clean === done.total ? (done.total === 1 ? "cleanly" : "all cleanly") : done.clean ? `${num(done.clean)} of them cleanly` : "";
+    parts.push(`You worked through ${num(done.total)} ${done.total === 1 ? "problem" : "problems"} today${clean ? `, ${clean}` : ""}${done.minutes >= 1 ? `${clean ? "," : ""} in about ${Math.round(done.minutes)} minutes` : ""}.`);
+    parts.push("Nothing else is due until tomorrow, so the rest of the day is yours.");
+  } else {
+    parts.push("Nothing is due today, so your reviews are on schedule and the rest of the day is yours.");
+  }
+  const retake = diagnosticMs !== null && now.getTime() - diagnosticMs > 30 * 86_400_000;
+  if (retake) parts.push("Your last diagnostic was over a month ago, so a retake would move your plan to where you are now.");
+  return { text: parts.join(" "), retake };
+}
+
+/** "Why this one" for a review: the last attempt and where a clean pass puts it. */
+export function reviewWhy(e: Pick<TodayEntry, "problem" | "overdue_days" | "state">, skills: Skill[] | null, now: Date): string {
+  const r = e.state.rung;
+  const next = RUNG_DAYS[Math.min(Math.max(r + 1, 0), RUNG_DAYS.length - 1)] ?? 30;
+  const last = [...(skills ?? []).flatMap((s) => s.history)].reverse().find((h) => h.problem === e.problem);
+  const did = last && (attemptPhrase(last) ?? (last.mark === "clean" ? "solved it cleanly" : null));
+  const lead = last && did
+    ? `${cap(dayAgo(last.date, now))} you ${did}, so ${last.mark === "clean" ? "another" : "a"} clean pass now`
+    : `${e.overdue_days <= 0 ? "It's due today" : e.overdue_days === 1 ? "It came due yesterday" : `It came due ${e.overdue_days} days ago`}, and a clean pass`;
+  return `${lead} puts the next review ${days(next)} out.`;
+}

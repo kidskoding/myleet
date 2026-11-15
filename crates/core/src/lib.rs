@@ -10,6 +10,7 @@ pub mod interview;
 pub mod placement;
 pub mod planner;
 pub mod progress;
+pub mod reason;
 pub mod savestate;
 pub mod schedule;
 pub mod session;

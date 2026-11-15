@@ -86,12 +86,15 @@ import Base from "../layouts/Base.astro";
   .today .firstrun { margin-top: var(--space-8); display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-8); padding: var(--space-8); }
   .today .firstrun h2 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); }
   .today .firstrun p { margin-top: var(--space-3); color: var(--ink-2); max-width: 46ch; }
-  .today .choices { display: grid; gap: var(--space-3); align-content: start; }
-  .today .choice { display: grid; grid-template-columns: auto 1fr; gap: var(--space-1) var(--space-4); padding: var(--space-4) var(--space-5); border: 1px solid var(--line-strong); border-radius: var(--radius-md); text-decoration: none; transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out); }
-  .today .choice:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .today .choice strong { font-size: var(--text-base); }
-  .today .choice span { grid-column: 2; font-size: var(--text-sm); color: var(--ink-2); }
-  .today .choice .icon { grid-row: span 2; color: var(--accent); margin-top: 2px; }
+  .today .firstrun-actions { display: grid; gap: var(--space-4); align-content: center; justify-items: start; }
+  .today .greet .quiet { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); }
+  .today .greet .meta { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-3); }
+  .today .foryou { list-style: none; margin: var(--space-8) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--space-4); }
+  .today .foryou li { display: grid; gap: var(--space-2); align-content: start; padding: var(--space-5); }
+  .today .foryou-label { font-size: var(--text-xs); font-weight: 600; color: var(--accent); }
+  .today .foryou-title { font-size: var(--text-base); font-weight: 650; text-decoration: none; }
+  .today .foryou-title:hover { text-decoration: underline; }
+  .today .foryou p { font-size: var(--text-sm); color: var(--ink-2); }
 
   .today .checkin ol { margin-top: var(--space-3); }
   .today .checkin .actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }

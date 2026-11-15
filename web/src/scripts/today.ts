@@ -14,7 +14,8 @@ import { appendEvent, readEvents } from "../lib/progress";
 import { reminderSupport, requestReminderPermission } from "../lib/reminders";
 import { noteHref, planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
 import { actionHref, inPlanOn } from "../lib/skills-view";
-import { localDay, recordStats } from "../lib/streak";
+import { localDay, readStreak, recordStats, streakNow } from "../lib/streak";
+import { milestone, milestoneLine, momentum, onThisDay, personalCards, reviewWhy, todaySummary, wrapUp, type Card } from "../lib/coach";
 import {
   BUDGETS,
   EXTRA_NEW_FOR_LONG_DAY,
@@ -24,7 +25,6 @@ import {
   readSkipped,
   reasonTag,
   weekStrip,
-  whyLine,
   writeBudget,
   writeSkipped,
   type Budget,
@@ -243,7 +243,7 @@ function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
     </div>
     <div class="rail">${ladder({ rung, size: "xl", due: e.kind === "review", draw: true, w: 340, h: 156 })}<p class="cap">${cap}</p></div>
     <div class="why">
-      <p>${item && item.tag !== "review" ? html`<strong class="why-lead">Why this one:</strong> ${item.reason}. ` : e.why ? html`<strong class="why-lead">${sentence(e.why)}</strong> ` : ""}${whyLine(e, targetMins(m))}</p>
+      <p><strong class="why-lead">Why this one:</strong> ${e.kind === "review" ? reviewWhy(e, c.skills ?? null, c.now) : item ? item.reason : e.kind === "practice" ? "Extra practice on a topic you've worked on, and it doesn't change your review schedule." : e.why ? `${sentence(e.why)}.` : "It's next in your curriculum."}</p>
       <button class="btn btn-ghost" type="button" data-skip="${e.problem}" aria-keyshortcuts="x">Skip for today ${kbd("x")}</button>
       <a class="btn btn-primary btn-lg" href="${problemHref(e.problem, e.kind === "practice" ? "drill" : undefined)}" data-start aria-keyshortcuts="s">Start ${kbd("s")}</a>
     </div>
@@ -294,16 +294,40 @@ function firstRun(c: Ctx): SafeHtml {
   const guide = c.cat.catalog.guide[0];
   const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null;
   return html`<section aria-labelledby="fr-title">
-    <div class="greet"><h1>Welcome to myleet${name ? `, ${name}` : ""}</h1><p>Find your level first, or start at the beginning. Your results decide what Today offers next</p></div>
+    <div class="greet"><h1>Welcome to myleet${name ? `, ${name}` : ""}</h1><p>Start with the diagnostic. In about 15 minutes it finds what you already know and builds your plan from there.</p></div>
     <div class="panel firstrun">
       <div><h2 id="fr-title">Take the diagnostic</h2>
-        <p>Eight quick questions about which pattern fits a problem, then two or three short coding problems. It takes about 15 minutes and doesn't change your review schedule</p></div>
-      <div class="choices">
-        <a class="choice" href="${ROUTES.diagnostic}">${icon("flag")}<strong>Take the diagnostic</strong><span>Hashing, two pointers, sliding window, binary search, trees, graphs and two more</span></a>
-        <a class="choice" href="${guide ? noteHref(guide.path) : ROUTES.learn}">${icon("book-open")}<strong>I'm new to DSA, start at the beginning</strong><span>Read ${guide?.title ?? "How to prepare"}, then module 1: ${c.cat.catalog.modules[0]?.title ?? "Arrays and hashing"}</span></a>
-        <a class="choice" href="${ROUTES.companies}">${icon("building-2")}<strong>I have a company in mind</strong><span>Pick a company set; Today will mix it in</span></a>
+        <p>You'll answer eight quick questions about which pattern fits a problem, on topics from hashing to graphs, then solve two or three short ones. It doesn't change your review schedule.</p></div>
+      <div class="firstrun-actions">
+        <a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">${icon("flag")} Take the diagnostic</a>
+        <a class="link fineprint" href="${guide ? noteHref(guide.path) : ROUTES.learn}">Skip and start at module 1${c.cat.catalog.modules[0] ? `, ${c.cat.catalog.modules[0].title}` : ""}</a>
       </div>
     </div></section>`;
+}
+
+/** "For you": up to three cards built from the learner's own data. */
+function cardsRow(cards: Card[]): SafeHtml {
+  if (!cards.length) return html``;
+  return html`<ul class="foryou" aria-label="For you">${cards.map(
+    (k) => html`<li class="panel"><span class="foryou-label">${k.label}</span><a class="foryou-title" href="${k.problem ? problemHref(k.problem) : ROUTES.skills}">${k.title}</a><p>${k.body}</p></li>`,
+  )}</ul>`;
+}
+
+const MILESTONE_KEY = "myleet:milestone";
+
+/** A clean-pass milestone shows on the day it is reached, then never again. */
+function milestoneNote(states: Record<string, State>, now: Date): string | null {
+  try {
+    const v = JSON.parse(localStorage.getItem(MILESTONE_KEY) ?? "null") as { seen: number; day: string } | null;
+    const m = milestone(states, v?.seen ?? 0);
+    if (m !== null) {
+      localStorage.setItem(MILESTONE_KEY, JSON.stringify({ seen: m, day: localDay(now) }));
+      return milestoneLine(m);
+    }
+    return v && v.day === localDay(now) ? milestoneLine(v.seen) : null;
+  } catch {
+    return null;
+  }
 }
 
 let ctx: Ctx | undefined;
@@ -324,7 +348,8 @@ function paint(c: Ctx): void {
   const states = c.t.states(c.events);
   const stats = c.t.stats(c.events);
   if (!c.sample) recordStats(stats);
-  const done = doneToday(parseEvents(c.events), (id) => meta(c.cat, id)?.time_target_secs ?? 0, c.now);
+  const evs = parseEvents(c.events);
+  const done = doneToday(evs, (id) => meta(c.cat, id)?.time_target_secs ?? 0, c.now);
   const doneIds = new Set(done.map((d) => d.problem));
   let entries = c.t.today(c.events, { newPerDay: prefs.newPerDay + extra }).filter((e) => !doneIds.has(e.problem));
   try {
@@ -380,15 +405,15 @@ function paint(c: Ctx): void {
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     const spent = done.reduce((n, d) => n + (d.elapsedMs ?? 0), 0) / 60000;
     const drills = queue.filter((e) => e.kind === "practice");
+    const diagnostic = evs.filter((e) => e.kind === "placement_done").reduce((n, e) => Math.max(n, e.t), 0) || null;
+    const wrap = wrapUp({ clean: cleanCount, total: done.length, minutes: spent }, diagnostic, c.now);
     body = html`<section aria-labelledby="ad-h">
-      <div class="greet">${
-        done.length
-          ? html`<h1 id="ad-h">You finished today's practice</h1><p>${plural(done.length, "problem")}, ${plural(cleanCount, "clean pass", "clean passes")}${spent >= 1 ? `, ${formatMinutes(spent)}` : ""}. Nothing else is due until tomorrow</p>`
-          : html`<h1 id="ad-h">${hello}</h1>${noteHtml}<p>Nothing is due today</p>`
+      <div class="greet"><h1 id="ad-h">${hello}</h1>${noteHtml}<p>${wrap.text}</p>${
+        wrap.retake ? html`<p><a class="btn btn-ghost" href="${ROUTES.diagnostic}">Retake the diagnostic</a></p>` : ""
       }<p class="countdown-inline">${plan.inline}</p></div>
       ${drills.length
         ? html`<div class="panel state-note" style="margin-top:var(--space-8)"><h2>More practice</h2>
-          <p>These problems revisit topics you have practiced, including ones you found difficult. They do not change your review schedule</p>
+          <p>If you'd like more, these revisit topics you've practiced, including ones you found hard, and they don't change your review schedule.</p>
           <ol class="queue" style="margin-top:var(--space-4)" aria-label="Keep sharp drills">${drills.map((e) => entryRow(c, e))}</ol></div>`
         : ""}
       ${done.length ? html`<div class="group"><div class="section-head"><h2>Done today</h2><span class="meta">${plural(cleanCount, "clean pass", "clean passes")}</span></div><ol class="panel queue" aria-label="Done today">${done.map((d) => doneRow(c, d, states))}</ol></div>` : ""}
@@ -397,8 +422,17 @@ function paint(c: Ctx): void {
     const [first, ...rest] = queue as [TodayEntry, ...TodayEntry[]];
     const parts = [nReview ? plural(nReview, "review") + " due" : "", nNew ? plural(nNew, "new problem") : ""].filter(Boolean).join(" and ");
     const cleanCount = done.filter((d) => d.finish === "clean").length;
+    const summary = todaySummary({
+      items: work.map((e) => planItem(c, e.problem)).filter((i): i is PlanItem => !!i),
+      skills: c.skills ?? null,
+      daysLeft: c.plan?.interview_date ? (c.plan.summary.days_left ?? null) : null,
+      now: c.now,
+    });
+    const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now);
+    const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n)].filter(Boolean);
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}<p>${backlogNote || `${parts} · About ${formatMinutes(mins(work))}`}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${backlogNote || summary ? html`<p>${backlogNote || summary}</p>` : ""}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
+      ${cardsRow(cards)}
       <div data-mock-card></div>
       ${nextUp(c, first)}
       ${rest.length
