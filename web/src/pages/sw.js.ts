@@ -9,7 +9,7 @@ const SHELL = "myleet-shell-" + VERSION;
 const STATIC = "myleet-static";
 const DATA = "myleet-data";
 const CDN = "myleet-cdn";
-const PAGES = ["/", "/app", "/onboarding", "/settings", "/signin", "/offline", "/map", "/playlists", "/mock", "/progress"];
+const PAGES = ["/", "/app", "/onboarding", "/settings", "/signin", "/offline", "/learn", "/companies", "/mock", "/progress"];
 const FILES = ["/data/catalog.json", "/palette-index.json", "/manifest.webmanifest", "/favicon.svg", "/icons/icon-192.png"];
 
 async function precache() {

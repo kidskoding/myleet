@@ -1,29 +1,11 @@
 ---
-import Base from "../../layouts/Base.astro";
+// Old playlist URLs (`/playlists/001_google`) go to the company page.
 import { buildCatalog } from "../../lib/build-catalog";
-import type { Playlist } from "../../lib/types";
+import { companyHref } from "../../lib/routes";
 
 export function getStaticPaths() {
-  return buildCatalog().playlists.map((playlist) => ({ params: { id: playlist.id }, props: { playlist } }));
+  return buildCatalog().playlists.map((playlist) => ({ params: { id: playlist.id } }));
 }
 
-interface Props {
-  playlist: Playlist;
-}
-
-const { playlist } = Astro.props;
-const problems = buildCatalog().problems;
+return Astro.redirect(companyHref(Astro.params.id ?? ""), 301);
 ---
-
-<Base title={playlist.title}>
-  <h1>{playlist.title}</h1>
-  <p>{playlist.group} · {playlist.focus}</p>
-  <ol>
-    {
-      playlist.entries.map((e) => {
-        const p = e.problem === null ? undefined : problems[e.problem];
-        return <li>{p ? <a href={`/p/${p.id}`}>{e.title}</a> : <a href={e.url} rel="noopener" target="_blank">{e.title}</a>}</li>;
-      })
-    }
-  </ol>
-</Base>

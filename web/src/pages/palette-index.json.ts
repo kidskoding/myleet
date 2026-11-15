@@ -31,7 +31,7 @@ export const GET: APIRoute = () => {
         kind: "note",
         title: t.title,
         hint: `Technique, ${m.title}, ${t.problems.length} problems`,
-        href: t.note ? noteHref(t.note) : moduleHref(m.id),
+        href: t.note ? noteHref(t.note) : moduleHref(m),
       });
   }
   for (const pl of c.playlists)

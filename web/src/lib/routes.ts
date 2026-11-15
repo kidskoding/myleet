@@ -4,8 +4,8 @@ import { companySlug } from "./catalog";
 export const ROUTES = {
   home: "/",
   today: "/app",
-  learn: "/map",
-  companies: "/playlists",
+  learn: "/learn",
+  companies: "/companies",
   mock: "/mock",
   progress: "/progress",
   review: "/review",
@@ -30,6 +30,9 @@ export const noteHref = (path: string): string => `/notes/${path.replace(/\.md$/
 
 export const companyHref = (playlistId: string): string => `/companies/${companySlug(playlistId)}`;
 
-export const moduleHref = (moduleId: string): string => `${ROUTES.learn}#${moduleId}`;
+/** `/learn/04-sliding-window`: the module's book number and id. */
+export const moduleSlug = (m: { id: string; number: number }): string => `${String(m.number).padStart(2, "0")}-${m.id.replace(/_/g, "-")}`;
+
+export const moduleHref = (m: { id: string; number: number }): string => `${ROUTES.learn}/${moduleSlug(m)}`;
 
 export const profileHref = (username: string): string => `/u/${encodeURIComponent(username)}`;
