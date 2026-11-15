@@ -176,6 +176,6 @@ export const isIcon = (name: string): name is IconName => Object.hasOwn(ICONS, n
 export function icon(name: IconName, opts: { label?: string; cls?: string } = {}): SafeHtml {
   const a11y = opts.label ? `role="img" aria-label="${esc(opts.label)}"` : 'aria-hidden="true"';
   return raw(
-    `<svg class="icon${opts.cls ? ` ${esc(opts.cls)}` : ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" ${a11y}>${body(name)}</svg>`,
+    `<svg class="icon i-${name}${opts.cls ? ` ${esc(opts.cls)}` : ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" ${a11y}>${body(name)}</svg>`,
   );
 }

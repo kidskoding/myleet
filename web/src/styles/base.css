@@ -207,3 +207,8 @@ input, textarea { caret-color: var(--accent); }
 :root[data-motion="reduce"]::view-transition-group(*),
 :root[data-motion="reduce"]::view-transition-old(*),
 :root[data-motion="reduce"]::view-transition-new(*) { animation: none !important; }
+
+/* Every × button (close, dismiss, remove): a square with a hairline edge that turns red on hover,
+   so "get rid of this" reads the same everywhere. */
+button:has(> svg.i-x) { border-radius: var(--radius-sm); box-shadow: inset 0 0 0 1px var(--line); transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
+button:has(> svg.i-x):hover, button:has(> svg.i-x):focus-visible { background: color-mix(in srgb, var(--ctp-red) 14%, transparent); color: var(--ctp-red); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ctp-red) 45%, transparent); }
