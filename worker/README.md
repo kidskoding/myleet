@@ -9,6 +9,7 @@ the Astro site's static files from `../web/dist`, and handles `/api/*`:
 - LeetCode problem statements, fetched once and cached in KV
 - progress sync: one versioned D1 row per user holding `events.jsonl`
 - opt-in public profiles for shareable progress cards
+- the learner's computed plan and a private calendar feed (ICS) of it
 
 It is a separate crate with its own `[workspace]`, so the root workspace does not
 build it. Only `src/api.rs` uses the Workers runtime; everything else is plain Rust
@@ -25,6 +26,7 @@ with native unit tests.
 | `src/session.rs`   | Session tokens, cookies, CSRF origin check                          |
 | `src/statement.rs` | LeetCode GraphQL reply to markdown, premium detection               |
 | `src/sync.rs`      | Progress upload validation and version conflicts                    |
+| `src/calendar.rs`  | Plan upload validation, feed tokens, subscribe links, ICS body      |
 | `migrations/`      | D1 schema, applied with `wrangler d1 migrations apply`              |
 | `wrangler.toml`    | Worker config: bindings, public vars, static assets                 |
 
@@ -209,7 +211,11 @@ limited to 5 emails per address and 20 per IP per hour (`429` beyond that).
   "providers": ["github", "email"],
   "settings": {"theme": "system", "editor_keymap": "vim", "editor_font_size": 14,
                "new_per_day": 3, "interview_date": "2027-02-01",
-               "target_companies": ["google"], "reminders": false, "public_profile": false}
+               "target_companies": ["google"], "reminders": false, "public_profile": false,
+               "daily_minutes": 60, "session_minutes": 45,
+               "availability": [{"days": ["mon", "tue", "wed", "thu", "fri"], "start": "19:00", "end": "20:30"},
+                                {"days": ["sat"], "start": "10:00", "end": "12:00"}],
+               "days_off": ["2026-11-26"], "reminder_minutes": 15}
 }
 ```
 
@@ -223,11 +229,19 @@ body as `GET /api/me`. Validation:
 - `display_name`: up to 60 characters, no control characters; `null` or empty clears.
 - `theme`: `system`, `light` or `dark`. `editor_keymap`: `standard` or `vim`.
   `editor_font_size`: 10-28. `new_per_day`: 0-20. `interview_date`: `YYYY-MM-DD`.
-  `target_companies`: up to 40 playlist slugs.
+  `target_companies`: up to 40 company slugs (a playlist id without its `NNN_` prefix,
+  so `a-z 0-9 - _`).
+- Planner: `daily_minutes` 15-600 (default 60), `session_minutes` 15-240 (default 45),
+  `availability` up to 21 weekly windows (`days` from `mon`...`sun`, `HH:MM` times,
+  start before end, `end` may be `24:00`; empty means "plan around the hour I usually
+  practise"), `days_off` up to 366 dates, `reminder_minutes` 0-1440 or `null` for no
+  calendar alarm (default 15). These names match `myleet-core`'s planner settings, so
+  the client passes `settings` to the wasm `plan()` unchanged.
 - Unknown fields are `400`.
 
 `GET /api/me/export` downloads `myleet-export.json` with the profile, sign-in methods,
-settings, sessions and progress.
+settings, sessions, progress, the stored plan and the calendar feed's creation time
+(never its token).
 
 `DELETE /api/me` deletes the account and every row that belongs to it, then clears
 the cookie: `204`.
@@ -286,9 +300,75 @@ the new `version`:
  "updated_at": 1794700000000}
 ```
 
+### Plan
+
+The client computes the plan in wasm (`Trainer.plan`) and uploads it so the
+calendar feed can serve it while the browser is closed.
+
+`PUT /api/plan` with `{"plan": <plan JSON from Trainer.plan>}` (at most 1 MB; a body
+that is not a valid plan is `400`, larger is `413`) answers
+`200 {"changed": true, "updated_at": ...}`. An identical plan writes nothing
+(`changed: false`). Upload after each sync and whenever the plan changes; once a
+day is plenty for the feed.
+
+`GET /api/plan` returns `{"plan": {...} | null, "updated_at": ... | null}`.
+
+### Calendar feed
+
+| Endpoint                        | What it does                                                                            |
+| ------------------------------- | --------------------------------------------------------------------------------------- |
+| `GET /api/calendar`             | `{"enabled", "created_at", "plan_updated_at"}`                                          |
+| `POST /api/calendar/token`      | Creates the feed, or rotates it (the old URL stops at once): `201` with the links below |
+| `DELETE /api/calendar/token`    | Revokes the feed: `204`                                                                 |
+| `GET /api/calendar/<token>.ics` | The feed. No cookie; the token is the credential                                        |
+
+```json
+{"https_url": "https://myleet.dev/api/calendar/<token>.ics",
+ "webcal_url": "webcal://myleet.dev/api/calendar/<token>.ics",
+ "google_url": "https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2F...",
+ "outlook_url": "https://outlook.live.com/calendar/0/addfromweb?url=...&name=myleet%20plan",
+ "outlook365_url": "https://outlook.office.com/calendar/0/addfromweb?url=...&name=myleet%20plan",
+ "created_at": 1794700000000}
+```
+
+- The token is 32 random bytes; D1 stores only its SHA-256, so the URL is shown once,
+  in the `POST` reply. To see a URL again the learner rotates, which breaks the old
+  subscription. There is no "feed enabled" setting: the feed row is the switch.
+- The feed is `text/calendar` with `Cache-Control: private, max-age=3600`: one
+  VEVENT per planned session (UTC times, UIDs stable per day and slot so updates
+  replace events), a VALARM `reminder_minutes` before each when set, and problem
+  titles, reasons and links. No email, username or account id.
+- Before the first plan upload it is a valid empty calendar, so subscribing first
+  works. Unknown and revoked tokens are `404`.
+- Calendar apps refresh subscriptions on their own schedule, typically: Apple
+  Calendar at the interval the subscriber picks in its settings, Outlook every
+  few hours, Google within 12-24 hours with no manual refresh. `REFRESH-INTERVAL` and
+  `X-PUBLISHED-TTL` ask for hourly, but Google ignores both. Google also ignores
+  VALARMs in subscribed calendars and uses the calendar's own notification setting.
+- No Google Calendar API or OAuth calendar scopes: those are sensitive scopes that
+  need Google verification, and ICS subscription works everywhere.
+
+### Daily email digest (designed, not built)
+
+Not implemented; this is the shape when it is:
+
+- Settings: `digest_email: bool` (default off) and `digest_hour: 0-23` local.
+- A cron trigger (`[triggers] crons = ["0 * * * *"]`) runs hourly. It selects users
+  with the digest on whose local hour (from the plan's `tz`) is `digest_hour` and
+  whose stored plan has sessions today, renders today's sessions from the plan
+  (same reasons as the feed, links to `/p/<id>`), and sends one Resend email each.
+  The query reads `plans` and `user_settings` only; nothing is written except a
+  `last_digest_day` column so a retried cron never double-sends.
+- Resend's free tier is 3,000 emails a month and 100 a day, shared with magic-link
+  sign-in email. That caps the digest at well under 100 daily users; beyond that it
+  needs the paid tier or a per-day budget that skips the digest before sign-in mail
+  is starved. Phone and desktop reminders already come free through the feed's
+  VALARMs.
+
 ## Free-tier limits
 
-- **D1 writes (100,000 rows a day).** A sync writes one row. Sign-in writes one
+- **D1 writes (100,000 rows a day).** A sync writes one row; a plan upload writes
+  one row and an unchanged plan none. Feed reads write nothing. Sign-in writes one
   session row, plus a user and identity row the first time. Settings and profile
   writes skip unchanged rows. Expired sessions are swept at sign-in and expired
   magic links when a new one is requested, so no cron job is needed.

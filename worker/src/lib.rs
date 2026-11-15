@@ -3,6 +3,7 @@
 //! plain Rust tested natively.
 
 pub mod account;
+pub mod calendar;
 pub mod magic;
 pub mod oauth;
 pub mod session;

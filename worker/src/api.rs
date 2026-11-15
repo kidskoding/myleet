@@ -10,6 +10,7 @@ use worker::{
 };
 
 use crate::account::{self, MePatch, PublicSummary, Resolution, Settings, SettingsRow};
+use crate::calendar;
 use crate::magic;
 use crate::oauth::{self, Failure, Profile, Provider};
 use crate::session::{self, SESSION_COOKIE, STATE_COOKIE};
@@ -80,6 +81,14 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
             _ => json_error("method not allowed", 405),
         };
     }
+    if let Some(rest) = path.strip_prefix(calendar::FEED_PREFIX) {
+        return match (method, rest) {
+            (Method::Post, "token") => create_feed(req, app).await,
+            (Method::Delete, "token") => delete_feed(req, app).await,
+            (Method::Get | Method::Head, _) => serve_feed(app, rest).await,
+            _ => json_error("method not allowed", 405),
+        };
+    }
     if let Some(username) = path.strip_prefix("/api/u/") {
         return match method {
             Method::Get => public_profile(app, username).await,
@@ -106,6 +115,9 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
         (Method::Get, "/api/sessions") => list_sessions(req, app).await,
         (Method::Get, "/api/progress") => get_progress(req, app).await,
         (Method::Put, "/api/progress") => put_progress(req, app).await,
+        (Method::Get, "/api/plan") => get_plan(req, app).await,
+        (Method::Put, "/api/plan") => put_plan(req, app).await,
+        (Method::Get, "/api/calendar") => feed_status(req, app).await,
         _ => json_error("not found", 404),
     }
 }
@@ -782,7 +794,8 @@ async fn load_settings(db: &D1Database, user_id: &str) -> Result<Settings> {
     let row: Option<SettingsRow> = db
         .prepare(
             "SELECT theme, editor_keymap, editor_font_size, new_per_day, interview_date, \
-             target_companies, reminders, public_profile FROM user_settings WHERE user_id = ?1",
+             target_companies, reminders, public_profile, daily_minutes, session_minutes, \
+             availability, days_off, reminder_minutes FROM user_settings WHERE user_id = ?1",
         )
         .bind(&[text(user_id)])?
         .first(None)
@@ -831,13 +844,17 @@ fn settings_upsert(
 ) -> Result<D1PreparedStatement> {
     db.prepare(
         "INSERT INTO user_settings (user_id, theme, editor_keymap, editor_font_size, new_per_day, \
-           interview_date, target_companies, reminders, public_profile, updated_at) \
-         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10) \
+           interview_date, target_companies, reminders, public_profile, updated_at, \
+           daily_minutes, session_minutes, availability, days_off, reminder_minutes) \
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15) \
          ON CONFLICT (user_id) DO UPDATE SET theme = excluded.theme, \
            editor_keymap = excluded.editor_keymap, editor_font_size = excluded.editor_font_size, \
            new_per_day = excluded.new_per_day, interview_date = excluded.interview_date, \
            target_companies = excluded.target_companies, reminders = excluded.reminders, \
-           public_profile = excluded.public_profile, updated_at = excluded.updated_at",
+           public_profile = excluded.public_profile, updated_at = excluded.updated_at, \
+           daily_minutes = excluded.daily_minutes, session_minutes = excluded.session_minutes, \
+           availability = excluded.availability, days_off = excluded.days_off, \
+           reminder_minutes = excluded.reminder_minutes",
     )
     .bind(&[
         text(user_id),
@@ -850,6 +867,12 @@ fn settings_upsert(
         num(u64::from(s.reminders)),
         num(u64::from(s.public_profile)),
         num(now),
+        num(u64::from(s.daily_minutes)),
+        num(u64::from(s.session_minutes)),
+        text(&serde_json::to_string(&s.availability)?),
+        text(&serde_json::to_string(&s.days_off)?),
+        s.reminder_minutes
+            .map_or(JsValue::NULL, |m| num(u64::from(m))),
     ])
 }
 
@@ -933,6 +956,8 @@ async fn delete_me(req: &Request, app: &App) -> Result<Response> {
             .bind(std::slice::from_ref(&uid))
     };
     db.batch(vec![
+        by_user("calendar_feeds", "user_id")?,
+        by_user("plans", "user_id")?,
         by_user("progress", "user_id")?,
         by_user("user_settings", "user_id")?,
         by_user("sessions", "user_id")?,
@@ -958,6 +983,8 @@ async fn export_me(req: &Request, app: &App) -> Result<Response> {
         "settings": load_settings(&db, &c.user_id).await?,
         "sessions": sessions_of(app, &c).await?,
         "progress": load_progress(&db, &c.user_id).await?,
+        "plan": load_plan(&db, &c.user_id).await?,
+        "calendar_feed": load_feed(&db, &c.user_id).await?,
     });
     let mut res = json(&body, 200)?;
     res.headers_mut().set(
@@ -1104,4 +1131,180 @@ async fn put_progress(req: &mut Request, app: &App) -> Result<Response> {
             409,
         ),
     }
+}
+
+// ---- plan and calendar feed ----
+
+#[derive(Serialize, Deserialize)]
+struct PlanRow {
+    plan_json: String,
+    updated_at: u64,
+}
+
+async fn load_plan(db: &D1Database, user_id: &str) -> Result<Option<serde_json::Value>> {
+    let row: Option<PlanRow> = db
+        .prepare("SELECT plan_json, updated_at FROM plans WHERE user_id = ?1")
+        .bind(&[text(user_id)])?
+        .first(None)
+        .await?;
+    Ok(row.map(|r| {
+        serde_json::json!({
+            "plan": serde_json::from_str::<serde_json::Value>(&r.plan_json).unwrap_or_default(),
+            "updated_at": r.updated_at,
+        })
+    }))
+}
+
+async fn get_plan(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    match load_plan(&app.db()?, &c.user_id).await? {
+        Some(body) => json(&body, 200),
+        None => json(&serde_json::json!({"plan": null, "updated_at": null}), 200),
+    }
+}
+
+async fn put_plan(req: &mut Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let declared = req
+        .headers()
+        .get("Content-Length")?
+        .and_then(|n| n.parse::<usize>().ok());
+    if declared.is_some_and(|n| n > calendar::MAX_PLAN_BYTES) {
+        return json_error("plan too large", 413);
+    }
+    let plan = match calendar::parse_plan(&req.bytes().await?) {
+        Ok(p) => p,
+        Err((status, message)) => return json_error(&message, status),
+    };
+    let now = now_ms();
+    // The WHERE skips the write when nothing changed: D1 bills rows written.
+    let changes = app
+        .db()?
+        .prepare(
+            "INSERT INTO plans (user_id, plan_json, updated_at) VALUES (?1, ?2, ?3) \
+             ON CONFLICT (user_id) DO UPDATE SET plan_json = excluded.plan_json, \
+               updated_at = excluded.updated_at WHERE plans.plan_json != excluded.plan_json",
+        )
+        .bind(&[
+            text(&c.user_id),
+            text(&serde_json::to_string(&plan)?),
+            num(now),
+        ])?
+        .run()
+        .await?
+        .meta()?
+        .and_then(|m| m.changes)
+        .unwrap_or(0);
+    json(
+        &serde_json::json!({"changed": changes > 0, "updated_at": now}),
+        200,
+    )
+}
+
+#[derive(Serialize, Deserialize)]
+struct FeedRow {
+    created_at: u64,
+}
+
+async fn load_feed(db: &D1Database, user_id: &str) -> Result<Option<FeedRow>> {
+    db.prepare("SELECT created_at FROM calendar_feeds WHERE user_id = ?1")
+        .bind(&[text(user_id)])?
+        .first(None)
+        .await
+}
+
+async fn feed_status(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let db = app.db()?;
+    let feed = load_feed(&db, &c.user_id).await?;
+    let plan: Option<FeedRow> = db
+        .prepare("SELECT updated_at AS created_at FROM plans WHERE user_id = ?1")
+        .bind(&[text(&c.user_id)])?
+        .first(None)
+        .await?;
+    json(
+        &serde_json::json!({
+            "enabled": feed.is_some(),
+            "created_at": feed.map(|f| f.created_at),
+            "plan_updated_at": plan.map(|p| p.created_at),
+        }),
+        200,
+    )
+}
+
+/// Creates the feed, or rotates it: the old URL stops working at once.
+async fn create_feed(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let token = random_hex(session::TOKEN_BYTES)?;
+    let now = now_ms();
+    app.db()?
+        .prepare(
+            "INSERT INTO calendar_feeds (token_hash, user_id, created_at) VALUES (?1, ?2, ?3) \
+             ON CONFLICT (user_id) DO UPDATE SET token_hash = excluded.token_hash, \
+               created_at = excluded.created_at",
+        )
+        .bind(&[
+            text(&session::token_hash(&token)),
+            text(&c.user_id),
+            num(now),
+        ])?
+        .run()
+        .await?;
+    let mut body = serde_json::to_value(calendar::links(&app.site, &token))?;
+    body["created_at"] = serde_json::json!(now);
+    json(&body, 201)
+}
+
+async fn delete_feed(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    app.db()?
+        .prepare("DELETE FROM calendar_feeds WHERE user_id = ?1")
+        .bind(&[text(&c.user_id)])?
+        .run()
+        .await?;
+    no_content(&[])
+}
+
+#[derive(Deserialize)]
+struct FeedLookup {
+    user_id: String,
+    plan_json: Option<String>,
+    settings_user: Option<String>,
+    reminder_minutes: Option<u32>,
+}
+
+/// `GET /api/calendar/<token>.ics`. No cookie: calendar apps fetch it themselves.
+async fn serve_feed(app: &App, rest: &str) -> Result<Response> {
+    let Some(token) = calendar::feed_token(rest) else {
+        return json_error("not found", 404);
+    };
+    let row: Option<FeedLookup> = app
+        .db()?
+        .prepare(
+            "SELECT f.user_id, p.plan_json, s.user_id AS settings_user, s.reminder_minutes \
+             FROM calendar_feeds f LEFT JOIN plans p ON p.user_id = f.user_id \
+             LEFT JOIN user_settings s ON s.user_id = f.user_id WHERE f.token_hash = ?1",
+        )
+        .bind(&[text(&session::token_hash(token))])?
+        .first(None)
+        .await?;
+    let Some(row) = row else {
+        return json_error("not found", 404);
+    };
+    let plan = row.plan_json.as_deref().and_then(|j| {
+        serde_json::from_str(j)
+            .map_err(|e| console_warn!("stored plan unreadable: {e}"))
+            .ok()
+    });
+    let reminder = if row.settings_user.is_some() {
+        row.reminder_minutes
+    } else {
+        Settings::default().reminder_minutes
+    };
+    let ics = calendar::render(plan.as_ref(), &app.site, reminder, &row.user_id);
+    let headers = Headers::new();
+    headers.set("Content-Type", "text/calendar; charset=utf-8")?;
+    headers.set("Cache-Control", calendar::FEED_CACHE)?;
+    headers.set("Content-Disposition", "inline; filename=\"myleet.ics\"")?;
+    Ok(Response::ok(ics)?.with_headers(headers))
 }

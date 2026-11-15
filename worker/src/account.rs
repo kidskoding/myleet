@@ -3,6 +3,7 @@
 
 use std::collections::BTreeMap;
 
+use myleet_core::planner::{self, Window};
 use serde::{Deserialize, Deserializer, Serialize};
 
 pub const USERNAME_MIN: usize = 3;
@@ -159,6 +160,11 @@ const FONT_SIZES: std::ops::RangeInclusive<u32> = 10..=28;
 const NEW_PER_DAY: std::ops::RangeInclusive<u32> = 0..=20;
 const MAX_TARGET_COMPANIES: usize = 40;
 const MAX_COMPANY_SLUG: usize = 40;
+const DAILY_MINUTES: std::ops::RangeInclusive<u32> = 15..=600;
+const SESSION_MINUTES: std::ops::RangeInclusive<u32> = 15..=240;
+const REMINDER_MINUTES: std::ops::RangeInclusive<u32> = 0..=1440;
+const MAX_WINDOWS: usize = 21;
+const MAX_DAYS_OFF: usize = 366;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Settings {
@@ -172,6 +178,16 @@ pub struct Settings {
     pub target_companies: Vec<String>,
     pub reminders: bool,
     pub public_profile: bool,
+    /// Planner budget per day.
+    pub daily_minutes: u32,
+    /// Preferred length of one practice session.
+    pub session_minutes: u32,
+    /// Weekly practice windows; empty means "plan around my usual hour".
+    pub availability: Vec<Window>,
+    /// YYYY-MM-DD dates with no practice.
+    pub days_off: Vec<String>,
+    /// Calendar-feed reminder lead time; `None` for no alarm.
+    pub reminder_minutes: Option<u32>,
 }
 
 impl Default for Settings {
@@ -185,6 +201,11 @@ impl Default for Settings {
             target_companies: Vec::new(),
             reminders: false,
             public_profile: false,
+            daily_minutes: 60,
+            session_minutes: 45,
+            availability: Vec::new(),
+            days_off: Vec::new(),
+            reminder_minutes: Some(15),
         }
     }
 }
@@ -206,6 +227,12 @@ pub struct SettingsPatch {
     pub target_companies: Option<Vec<String>>,
     pub reminders: Option<bool>,
     pub public_profile: Option<bool>,
+    pub daily_minutes: Option<u32>,
+    pub session_minutes: Option<u32>,
+    pub availability: Option<Vec<Window>>,
+    pub days_off: Option<Vec<String>>,
+    #[serde(default, deserialize_with = "present")]
+    pub reminder_minutes: Option<Option<u32>>,
 }
 
 impl Settings {
@@ -252,15 +279,53 @@ impl Settings {
         if let Some(v) = patch.public_profile {
             s.public_profile = v;
         }
+        if let Some(v) = patch.daily_minutes {
+            if !DAILY_MINUTES.contains(&v) {
+                return Err(format!("daily_minutes must be in {DAILY_MINUTES:?}"));
+            }
+            s.daily_minutes = v;
+        }
+        if let Some(v) = patch.session_minutes {
+            if !SESSION_MINUTES.contains(&v) {
+                return Err(format!("session_minutes must be in {SESSION_MINUTES:?}"));
+            }
+            s.session_minutes = v;
+        }
+        if let Some(v) = patch.availability {
+            if v.len() > MAX_WINDOWS {
+                return Err(format!("at most {MAX_WINDOWS} availability windows"));
+            }
+            planner::validate_windows(&v)?;
+            s.availability = v;
+        }
+        if let Some(v) = patch.days_off {
+            if v.len() > MAX_DAYS_OFF {
+                return Err(format!("at most {MAX_DAYS_OFF} days_off"));
+            }
+            if !v.iter().all(|d| valid_date(d)) {
+                return Err("days_off must be YYYY-MM-DD".to_string());
+            }
+            s.days_off = v;
+        }
+        if let Some(v) = patch.reminder_minutes {
+            if v.is_some_and(|m| !REMINDER_MINUTES.contains(&m)) {
+                return Err(format!(
+                    "reminder_minutes must be in {REMINDER_MINUTES:?} or null"
+                ));
+            }
+            s.reminder_minutes = v;
+        }
         Ok(s)
     }
 }
 
+/// Company slugs are playlist ids without the `NNN_` prefix, so `_` is allowed
+/// (`salesforce_slack`).
 fn valid_slug(s: &str, max: usize) -> bool {
     !s.is_empty()
         && s.len() <= max
         && s.bytes()
-            .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-')
+            .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-' || b == b'_')
 }
 
 /// A real calendar date in YYYY-MM-DD.
@@ -322,6 +387,13 @@ pub struct SettingsRow {
     pub target_companies: String,
     pub reminders: i64,
     pub public_profile: i64,
+    pub daily_minutes: u32,
+    pub session_minutes: u32,
+    /// JSON array of windows.
+    pub availability: String,
+    /// JSON array of dates.
+    pub days_off: String,
+    pub reminder_minutes: Option<u32>,
 }
 
 impl SettingsRow {
@@ -335,6 +407,11 @@ impl SettingsRow {
             target_companies: serde_json::from_str(&self.target_companies).unwrap_or_default(),
             reminders: self.reminders != 0,
             public_profile: self.public_profile != 0,
+            daily_minutes: self.daily_minutes,
+            session_minutes: self.session_minutes,
+            availability: serde_json::from_str(&self.availability).unwrap_or_default(),
+            days_off: serde_json::from_str(&self.days_off).unwrap_or_default(),
+            reminder_minutes: self.reminder_minutes,
         }
     }
 }
@@ -490,6 +567,26 @@ mod tests {
         assert_eq!(cleared.interview_date, None);
         let kept = s.apply(patch("{}")).unwrap();
         assert_eq!(kept.interview_date.as_deref(), Some("2027-02-28"));
+        let planned = s
+            .apply(patch(
+                r#"{"daily_minutes":90,"session_minutes":30,"reminder_minutes":null,
+                    "availability":[{"days":["mon","tue"],"start":"19:00","end":"20:30"}],
+                    "days_off":["2027-01-01"],"target_companies":["salesforce_slack"]}"#,
+            ))
+            .unwrap();
+        assert_eq!(
+            (planned.daily_minutes, planned.reminder_minutes),
+            (90, None)
+        );
+        assert_eq!(planned.availability.len(), 1);
+        assert_eq!(s.reminder_minutes, Some(15), "default lead time");
+        // The client passes these settings straight to the planner.
+        let p: myleet_core::planner::Settings =
+            serde_json::from_value(serde_json::to_value(&planned).unwrap()).unwrap();
+        assert_eq!(
+            (p.daily_minutes, p.session_minutes, p.new_per_day),
+            (90, 30, 5)
+        );
     }
 
     #[test]
@@ -500,6 +597,12 @@ mod tests {
             r#"{"editor_font_size":4}"#,
             r#"{"interview_date":"2027-02-30"}"#,
             r#"{"target_companies":["Google"]}"#,
+            r#"{"daily_minutes":5}"#,
+            r#"{"session_minutes":500}"#,
+            r#"{"reminder_minutes":2000}"#,
+            r#"{"days_off":["2027-02-30"]}"#,
+            r#"{"availability":[{"days":["mon"],"start":"20:00","end":"19:00"}]}"#,
+            r#"{"availability":[{"days":["funday"],"start":"19:00","end":"20:00"}]}"#,
         ] {
             assert!(base.apply(patch(bad)).is_err(), "{bad}");
         }
@@ -511,7 +614,10 @@ mod tests {
     fn settings_row_maps() {
         let row: SettingsRow = serde_json::from_str(
             r#"{"theme":"dark","editor_keymap":"vim","editor_font_size":16,"new_per_day":2,
-                "interview_date":null,"target_companies":"[\"google\"]","reminders":1,"public_profile":0}"#,
+                "interview_date":null,"target_companies":"[\"google\"]","reminders":1,"public_profile":0,
+                "daily_minutes":90,"session_minutes":30,
+                "availability":"[{\"days\":[\"sat\"],\"start\":\"10:00\",\"end\":\"12:00\"}]",
+                "days_off":"[]","reminder_minutes":null}"#,
         )
         .unwrap();
         let s = row.into_settings();
@@ -519,6 +625,11 @@ mod tests {
         assert_eq!(s.editor_keymap.as_str(), "vim");
         assert_eq!(s.target_companies, vec!["google".to_string()]);
         assert!(s.reminders && !s.public_profile);
+        assert_eq!(
+            (s.daily_minutes, s.session_minutes, s.reminder_minutes),
+            (90, 30, None)
+        );
+        assert_eq!(s.availability[0].days, vec!["sat".to_string()]);
     }
 
     #[test]
