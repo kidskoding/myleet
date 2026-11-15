@@ -1,177 +1,150 @@
-# myleet
+<div align="center">
 
-[![CI](https://img.shields.io/github/actions/workflow/status/kidskoding/myleet/ci.yml?branch=master&style=flat-square&label=CI)](https://github.com/kidskoding/myleet/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/kidskoding/myleet?style=flat-square&sort=semver)](https://github.com/kidskoding/myleet/releases)
-[![Rust](https://img.shields.io/badge/rust-1.85%2B-orange?style=flat-square)](Cargo.toml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20windows-lightgrey?style=flat-square)](https://github.com/kidskoding/myleet/releases)
+# myleet
 
 **Personalized technical interview prep.**
 
-myleet is a teaching-first DSA curriculum and trainer for internship, co-op, and
-new-grad interviews. Unlike fixed lists (NeetCode 150, etc.), it builds each day from
-*your* history: weak techniques first, reviews on a spaced ladder, and company playlists
-when you want to drill a target.
+A LeetCode trainer that learns how you solve, plans each day around your interview, and
+brings every problem back until you can solve it cold.
+
+[**Try it live**](https://myleet.anirudhkonidala.workers.dev) ·
+[How it works](https://myleet.anirudhkonidala.workers.dev/how-it-works) ·
+[Start here](guide/01_how_to_prep.md) ·
+[Report a bug](https://github.com/kidskoding/myleet/issues)
+
+[![CI](https://img.shields.io/github/actions/workflow/status/kidskoding/myleet/ci.yml?branch=master&style=flat-square&label=CI)](https://github.com/kidskoding/myleet/actions/workflows/ci.yml)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/kidskoding/myleet/deploy.yml?branch=master&style=flat-square&label=deploy)](https://github.com/kidskoding/myleet/actions/workflows/deploy.yml)
+[![Rust](https://img.shields.io/badge/rust-1.85%2B-orange?style=flat-square)](Cargo.toml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+
+</div>
+
+______________________________________________________________________
+
+## Why myleet
+
+Fixed lists like the NeetCode 150 give everyone the same problems in the same order.
+myleet starts with a 15-minute diagnostic, then builds each day from your own history:
+the techniques you are weakest at, the reviews that are about to slip, and the companies
+you are interviewing with.
+
+| Fixed lists                            | myleet                                                                     |
+| -------------------------------------- | -------------------------------------------------------------------------- |
+| Same problems, same order for everyone | A daily plan built from your misses, hints, slow solves and interview date |
+| "Done" after one accepted submission   | Mastered only after cold re-solves at 1, 3, 7, 14 and 30 days              |
+| Browser tabs and scattered notes       | One place for the editor, tests, notes and 285 company practice sets       |
+
+## Features
+
+- **Solve in the browser.** Write Python in a real editor and run it against the tests
+  with Pyodide. Nothing to install.
+- **A diagnostic first.** About 15 minutes of pattern questions and real coding finds
+  where you stand, topic by topic.
+- **A plan that adapts.** Pick an interview date and companies, or a 15, 30 or 90-day
+  roadmap. The plan reshapes after every solve and syncs to Google, Apple or Outlook
+  calendars.
+- **Spaced review.** Every problem climbs a 1, 3, 7, 14 and 30-day ladder. A clean pass
+  climbs one rung, and a hint, a peek or going over time sends it back to 1 day.
+- **Personal coaching.** Today, Plan and the result screen explain each choice from your
+  data, for example which edge case tripped you up last week and why a problem is due
+  today.
+- **Company sets.** 285 practice sets across Big Tech, AI & Startups, Consumer and
+  Business Tech, Trading Firms and the Fortune 500. Each lists its sources from recent
+  candidate reports, and learners can report where they were asked a problem.
+- **A notes book.** Eighteen modules of notes that teach each pattern before the drills.
+
+## How the review ladder works
 
 ```text
-learn a pattern → solve timed → review misses → mix topics
+1 day → 3 days → 7 days → 14 days (mastered) → 30 days
 ```
 
-## Install
+Every problem has a 25-minute target, about what one problem gets in a live interview.
+Passing the tests with no hint, no peek at the solution and under the target climbs one
+rung. Solving it again the same day does not count. A hint, a peek, running over time or
+giving up drops it back to 1 day. The full rules are on the
+[How it works](https://myleet.anirudhkonidala.workers.dev/how-it-works) page.
 
-Needs [git](https://git-scm.com/) and [uv](https://docs.astral.sh/uv/) on your `PATH`
-(for curriculum clone and problem tests). First launch sets those up automatically.
+## Curriculum
 
-**Recommended** (one line):
+720 problems in eighteen modules, ordered by interview pattern rather than textbook
+chapter, plus 909 playlist-only problems in `bank/` that company sets can open.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh | sh
-myleet
+|     | Module                   | Focus                             |
+| --- | ------------------------ | --------------------------------- |
+| 01  | Arrays and hashing       | maps, sets, prefix sums, Kadane   |
+| 02  | Two pointers             | converging and fast-slow pointers |
+| 03  | Stacks and queues        | LIFO, monotonic stack and deque   |
+| 04  | Sliding window           | contiguous constraints            |
+| 05  | Binary search            | sorted space, search on answer    |
+| 06  | Linked lists             | pointers, reverse, merge          |
+| 07  | Trees                    | DFS and BFS, BST, serialize       |
+| 08  | Heaps                    | top K, two heaps, k-way merge     |
+| 09  | Backtracking             | search with pruning               |
+| 10  | Graphs                   | BFS and DFS, topo sort, paths     |
+| 11  | Dynamic programming      | overlapping subproblems           |
+| 12  | Greedy algorithms        | exchange arguments                |
+| 13  | Intervals                | merge, sweep, difference arrays   |
+| 14  | Tries                    | prefix queries                    |
+| 15  | Bit manipulation         | masks, XOR                        |
+| 16  | Math and geometry        | number theory, grids              |
+| 17  | Advanced                 | union-find, Fenwick, string algos |
+| 18  | Mixed interview practice | timed mixed drills                |
+
+## Architecture
+
+| Part    | Stack                                                    | Path                   |
+| ------- | -------------------------------------------------------- | ---------------------- |
+| Core    | Rust: scheduling, planning, skills, catalog (no I/O)     | `crates/core`          |
+| Browser | The core compiled to WebAssembly with wasm-bindgen       | `crates/wasm`          |
+| Web app | Astro, TypeScript, CodeMirror 6, Pyodide, Catppuccin     | `web/`                 |
+| Backend | Cloudflare Workers in Rust (workers-rs), D1 and KV       | `worker/`              |
+| Content | Problems, tests, notes and company sets as TOML + Python | `curriculum/`, `bank/` |
+| CLI     | Validates content, runs reference tests, exports data    | `src/`                 |
+
+```text
+myleet/
+├── crates/core/     trainer core (Rust, builds for wasm32)
+├── crates/wasm/     browser bindings
+├── web/             the web app (Astro)
+├── worker/          API, accounts and sync (Cloudflare Workers)
+├── curriculum/      18 taught modules: notes, starters, tests, solutions
+├── bank/            playlist-only problems
+├── playlists/       company practice sets with sources
+├── guide/           start-here notes
+└── src/             the myleet CLI
 ```
 
-Installs into `~/.local/bin`. Add that directory to your `PATH` if the shell cannot
-find `myleet`.
+## Run it locally
 
-| Channel            | Command                                                                                               |
-| ------------------ | ----------------------------------------------------------------------------------------------------- |
-| Install script     | `curl -fsSL https://raw.githubusercontent.com/kidskoding/myleet/master/scripts/install.sh \| sh`      |
-| GitHub Releases    | [download a binary](https://github.com/kidskoding/myleet/releases)                                    |
-| Cargo (developers) | `cargo install --git https://github.com/kidskoding/myleet --locked` then put `~/.cargo/bin` on `PATH` |
-
-**From a clone** (contributors):
+You need Rust, [Bun](https://bun.sh), [uv](https://docs.astral.sh/uv/) and
+[just](https://github.com/casey/just). The repo's `devenv.nix` provides all of them,
+plus wasm-pack, with `devenv shell`.
 
 ```bash
 git clone https://github.com/kidskoding/myleet.git && cd myleet
 uv sync --group dev
-just install && myleet
+just web-dev        # exports the catalog, builds the wasm core, starts the dev server
 ```
 
-| Tip         |                                                                             |
-| ----------- | --------------------------------------------------------------------------- |
-| Updates     | `myleet update` pulls the installed curriculum and refreshes the python env |
-| Doctor      | `myleet doctor` checks python, pytest, editor, data dir                     |
-| Version     | `myleet version`                                                            |
-| Custom root | `export MYLEET_ROOT=/path/to/checkout`                                      |
+The dev server watches `playlists/`, `curriculum/`, `bank/` and `guide/` and reloads
+when content changes.
 
-## Why myleet
+## Contributing
 
-| Fixed lists                            | myleet                                                                         |
-| -------------------------------------- | ------------------------------------------------------------------------------ |
-| Same problems, same order for everyone | Recommends reviews and new work from your fails, hints, peeks, and slow solves |
-| “Done” when you AC once                | Mastery means cold redo on a review ladder (1 → 3 → 7 → 14 → 30 days)          |
-| Browser + scattered notes              | One trainer + notes book + 200+ company playlists                              |
-
-A problem is mastered only when you can explain the pattern, pick the right shape, code
-it cleanly, pass the tests, and state time/space under interview pressure.
-
-Start with [How to prep](guide/01_how_to_prep.md) if you are new to live coding interviews.
-
-## Status
-
-The terminal UI has been retired. A web app (Rust core in the browser, served from
-Cloudflare) is in progress. Until it ships, the `myleet` CLI below loads the
-curriculum, runs tests, and reports progress.
-
-## How it recommends practice
-
-Today is your daily plan. It ranks work from *your* history, not a fixed list:
-
-1. **Reviews** due today (most overdue first).
-2. **New problems** (default 3, `new_per_day` in config), labelled why they were chosen:
-   - **weak spot**: techniques you have started but mostly not clean-passed
-   - **in progress**: started, not finished
-   - **new topic**: untouched, in curriculum order
-3. **Keep sharp** when nothing is due: interview drills across techniques (cold redos
-   and shaky spots first). Drills do not climb or drop your review schedule.
-
-New work rotates across techniques. Playlist-only problems (`bank/`) are trackable in
-playlists but never appear as new on Today or on the Map.
-
-**Review ladder:** clean pass (green tests, no hint/peek, under time: 15m / 25m / 45m)
-climbs one rung. Same-day pass does not climb. Hint, peek, overtime, or give-up drops
-you to 1 day. Mastered at the 14-day rung.
-
-## Commands
-
-| Command                           |                                          |
-| --------------------------------- | ---------------------------------------- |
-| `myleet`                          | list commands                            |
-| `myleet doctor`                   | check python, pytest, editor, data dir   |
-| `myleet stats`                    | print progress                           |
-| `myleet progress`                 | edit `progress.toml` in `$EDITOR`        |
-| `myleet prompts`                  | cache problem statements for offline use |
-| `myleet update`                   | pull latest curriculum (installed clone) |
-| `myleet version`                  | print build version                      |
-| `myleet validate`                 | load-check the curriculum                |
-| `myleet check [--solutions] [id]` | run attempt or reference tests           |
-
-## Progress & config
-
-State lives outside the repo (like lazygit / Charm apps):
-
-| Path                                  |                                          |
-| ------------------------------------- | ---------------------------------------- |
-| `~/.local/share/myleet/progress.toml` | editable save file (rung, due, attempts) |
-| `~/.local/share/myleet/events.jsonl`  | history for stats / heatmap              |
-| `~/.local/share/myleet/content/`      | curriculum clone (install path)          |
-| `~/.config/myleet/config.toml`        | optional settings                        |
-
-```toml
-# ~/.config/myleet/config.toml
-python = "/path/to/python3"    # default: content .venv, then uv, then python3
-editor = "nvim"                # default: $VISUAL / $EDITOR, then nvim/vim/vi/nano
-timeout = "10s"
-new_per_day = 3
-state_dir = "~/Dropbox/myleet" # optional: sync progress.toml + events.jsonl
-```
-
-`myleet progress` validates on close and rolls back a broken edit. Sync attempts stay
-under `~/.local/share/myleet/` even if `state_dir` points elsewhere.
-
-## Curriculum
-
-Eighteen modules by interview pattern (not CS textbook order):
-
-|     | Module                   | Focus                             |
-| --- | ------------------------ | --------------------------------- |
-| 01  | Arrays And Hashing       | maps, sets, prefix sums, Kadane   |
-| 02  | Two Pointers             | converging / fast-slow            |
-| 03  | Sliding Window           | contiguous constraint             |
-| 04  | Stack                    | LIFO, monotonic stack/deque       |
-| 05  | Binary Search            | sorted space + search-on-answer   |
-| 06  | Linked Lists             | pointers, reverse, merge          |
-| 07  | Trees                    | DFS/BFS, BST, serialize           |
-| 08  | Heaps                    | top-K, two heaps, k-way merge     |
-| 09  | Backtracking             | search with prune                 |
-| 10  | Graphs                   | BFS/DFS, topo, shortest paths     |
-| 11  | Dynamic Programming      | overlapping subproblems           |
-| 12  | Greedy                   | exchange argument                 |
-| 13  | Intervals                | merge, sweep, difference arrays   |
-| 14  | Tries                    | prefix queries                    |
-| 15  | Bit Manipulation         | masks, XOR                        |
-| 16  | Math And Geometry        | number theory, grids              |
-| 17  | Advanced                 | union-find, fenwick, string algos |
-| 18  | Mixed Interview Practice | timed mixed drills                |
-
-```text
-myleet/
-├── src/                 trainer core + CLI (Rust)
-├── guide/               start-here notes
-├── curriculum/          taught modules (notes, starters, tests)
-├── bank/                playlist-only problems
-├── playlists/           company sets
-└── mock-interviews/
-```
-
-## Develop
+Pull requests are welcome. Run the same checks CI runs before you push:
 
 ```bash
-just test validate       # what CI runs for Rust + curriculum load
-just check               # all reference solutions (slow)
-uv run ruff check . && uv run ruff format --check .
-uv run ty check && uv run pytest
+just ci             # Rust, web, content and Python checks
+just cd-check       # the deploy build, without deploying
 ```
+
+After adding or editing problems, run `myleet validate` and
+`myleet check --solutions <id>`. New problems also need `myleet validate --lock`, with
+`problem-ids.lock` committed. [CLAUDE.md](CLAUDE.md) has the full content and writing
+rules.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Problem statements belong to their original sources, such as LeetCode,
+and link back to them.
