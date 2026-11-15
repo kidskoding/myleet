@@ -17,19 +17,19 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "myleet"
-database_id = "00000000-0000-0000-0000-000000000000" # replace: `bunx wrangler d1 create myleet`
+database_id = "5e69beb7-e7d8-466f-b2e9-90140c5b8aa8"
 migrations_dir = "migrations"
 
 # Statement cache and magic-link rate-limit counters.
 [[kv_namespaces]]
 binding = "STATEMENTS"
-id = "00000000000000000000000000000000" # replace: `bunx wrangler kv namespace create STATEMENTS`
+id = "39c7aef4210a474fa881da6d0cd499f3"
 
 # Public values only. Secrets are set with `bunx wrangler secret put <NAME>`:
 #   GITHUB_CLIENT_SECRET, GOOGLE_CLIENT_SECRET, RESEND_API_KEY
 # Local dev reads both from .dev.vars (gitignored; see .dev.vars.example).
 [vars]
-SITE_ORIGIN = "https://myleet.example.com"
+SITE_ORIGIN = "https://myleet.anirudhkonidala.workers.dev"
 GITHUB_CLIENT_ID = "replace-with-github-oauth-client-id"
 GOOGLE_CLIENT_ID = "replace-with-google-oauth-client-id.apps.googleusercontent.com"
 EMAIL_FROM = "myleet <login@myleet.example.com>"
