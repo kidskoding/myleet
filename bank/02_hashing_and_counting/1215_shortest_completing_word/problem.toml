@@ -1,0 +1,7 @@
+id = "shortest-completing-word"
+title = "Shortest Completing Word"
+difficulty = "easy"
+leetcode = 748
+url = "https://leetcode.com/problems/shortest-completing-word/"
+key_idea = "Count the plate's letters once, ignoring case, digits and spaces; a word completes it when its own letter counts cover every plate count. Keep the first shortest one."
+hints = ["Which characters of the license plate matter, and does case matter?", "Compare two letter-count maps instead of rescanning the plate for every word."]

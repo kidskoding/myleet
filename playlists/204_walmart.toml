@@ -1,205 +1,97 @@
+# Sources (checked 2026-11-15):
+# Estimate from 6 candidate reports, all search snippets except one (low confidence)
+# - Glassdoor Walmart reviews describing a directed-graph cycle question, US (search snippets): https://www.glassdoor.ca/Interview/Walmart-Software-Engineer-Interview-Questions-EI_IE715.0,7_KO8,25.htm
+# - Glassdoor Walmart Global Tech reviews, Sunnyvale CA 2025 (search snippets; review pages not identified)
+# - Jul 2026 Chennai (non-US) report: https://prachub.com/interview-experiences/walmart-global-tech-software-engineer-interview-java-design-and-a-virtual-onsite-df194eaa3a
 title = "Walmart"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, sliding window, trees and graphs"
-review_modules = ["01_arrays_and_hashing", "04_sliding_window", "07_trees", "08_heaps", "10_graphs", "11_dp", "12_greedy_algorithms"]
-
+focus = "Live coding focuses on arrays and strings, graphs, sliding window and dynamic programming"
+review_modules = ["01_arrays_and_hashing", "04_sliding_window", "10_graphs", "11_dp"]
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Shortest Completing Word"
+url = "https://leetcode.com/problems/shortest-completing-word/"
+
+[[entries]]
+title = "Maximum Length of Repeated Subarray"
+url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
 title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
 
 [[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Diameter of Binary Tree"
-url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+title = "Longest Repeating Character Replacement"
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "Binary Tree Right Side View"
-url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
-title = "Binary Tree Zigzag Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+title = "Permutation in String"
+url = "https://leetcode.com/problems/permutation-in-string/"
 
 [[entries]]
-title = "Symmetric Tree"
-url = "https://leetcode.com/problems/symmetric-tree/"
-
-[[entries]]
-title = "Number of Ways to Separate Numbers"
-url = "https://leetcode.com/problems/number-of-ways-to-separate-numbers/"
-
-[[entries]]
-title = "Kth Smallest Element in a BST"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "Shuffle the Array"
-url = "https://leetcode.com/problems/shuffle-the-array/"
-
-[[entries]]
-title = "Number of Provinces"
-url = "https://leetcode.com/problems/number-of-provinces/"
-
-[[entries]]
-title = "Minimum Value to Get Positive Step by Step Sum"
-url = "https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/"
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
-title = "Rotate String"
-url = "https://leetcode.com/problems/rotate-string/"
-
-[[entries]]
-title = "Minimum Height Trees"
-url = "https://leetcode.com/problems/minimum-height-trees/"
-
-[[entries]]
-title = "Minimum Number of Operations to Make Arrays Similar"
-url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/"
-
-[[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
-
-[[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
-
-[[entries]]
-title = "Find K Pairs with Smallest Sums"
-url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
-
-[[entries]]
-title = "Shortest Word Distance"
-url = "https://leetcode.com/problems/shortest-word-distance/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
-
-[[entries]]
-title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
-url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
-
-[[entries]]
-title = "Coin Change II"
-url = "https://leetcode.com/problems/coin-change-ii/"
-
-[[entries]]
-title = "Count Good Triplets in an Array"
-url = "https://leetcode.com/problems/count-good-triplets-in-an-array/"
-
-[[entries]]
-title = "Decode Ways"
-url = "https://leetcode.com/problems/decode-ways/"
-
-[[entries]]
-title = "Length of Last Word"
-url = "https://leetcode.com/problems/length-of-last-word/"
-
-[[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
-
-[[entries]]
-title = "Transpose Matrix"
-url = "https://leetcode.com/problems/transpose-matrix/"
-
-[[entries]]
-title = "Gas Station"
-url = "https://leetcode.com/problems/gas-station/"
-
-[[entries]]
-title = "Create Target Array in the Given Order"
-url = "https://leetcode.com/problems/create-target-array-in-the-given-order/"
-
-[[entries]]
-title = "Jump Game II"
-url = "https://leetcode.com/problems/jump-game-ii/"
-
-[[entries]]
-title = "Jump Game"
-url = "https://leetcode.com/problems/jump-game/"
-
-[[entries]]
-title = "Image Smoother"
-url = "https://leetcode.com/problems/image-smoother/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Maximum Number of Tasks You Can Assign"
-url = "https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/"
-
-[[entries]]
 title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
-title = "Monotonic Array"
-url = "https://leetcode.com/problems/monotonic-array/"
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
-title = "Minimum Operations to Make Array Equal II"
-url = "https://leetcode.com/problems/minimum-operations-to-make-array-equal-ii/"
+title = "Walls and Gates"
+url = "https://leetcode.com/problems/walls-and-gates/"

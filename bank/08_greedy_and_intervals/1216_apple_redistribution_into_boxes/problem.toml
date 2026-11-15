@@ -1,0 +1,7 @@
+id = "apple-redistribution-into-boxes"
+title = "Apple Redistribution into Boxes"
+difficulty = "easy"
+leetcode = 3074
+url = "https://leetcode.com/problems/apple-redistribution-into-boxes/"
+key_idea = "Only the total number of apples matters, so fill the biggest boxes first and stop as soon as their capacity covers the total."
+hints = ["Apples from one pack may go into different boxes. What single number describes all the apples?", "To use the fewest boxes, which boxes would you pick first?"]

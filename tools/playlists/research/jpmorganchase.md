@@ -30,4 +30,4 @@ HackerRank online assessment questions (anagram removal, minimum swaps, minimum 
 
 ## Conclusion
 
-Design has the highest raw count, but none of those three reports is clearly from the US, while both US reports point at plain array problems. The set leads with arrays and strings and keeps design second, followed by greedy and heaps. LC 3074 (Apple Redistribution into Boxes) stands in for the reported partition question and opens in the browser.
+Design has the highest raw count, but none of those three reports is clearly from the US, while both US reports point at plain array problems. The set leads with arrays and strings and keeps design second, followed by greedy and heaps. LC 3074 (Apple Redistribution into Boxes) stands in for the reported partition question; it was added to the bank so it opens on the site.
