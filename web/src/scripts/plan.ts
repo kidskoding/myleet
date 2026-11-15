@@ -128,7 +128,7 @@ function currentNote(c: Ctx): PlanNote | null {
     pool.push({
       kind: "no_date" as PlanNote["kind"],
       title: "No interview date yet",
-      body: "Until you set one, the plan covers the next 4 weeks. Pick a 15, 30 or 60-day roadmap to pace the curriculum toward your target companies, or toward general big-tech readiness if you haven't picked any. You can also add your own date. Mocks get closer together near the end.",
+      body: "Until you set one, the plan covers the next 4 weeks. Pick a 15, 30 or 90-day roadmap to pace the curriculum toward your target companies, or toward general big-tech readiness if you haven't picked any. You can also add your own date. Mocks get closer together near the end.",
       actions: [
         ...ROADMAPS.map((r) => ({ kind: "roadmap" as const, label: r.label, value: r.days })),
         { kind: "set_date", label: "Pick a date" },
@@ -143,7 +143,7 @@ const STICKY_NOTES = new Set(["offline", "date_passed", "over_budget"]);
 export const ROADMAPS = [
   { days: 15, label: "15-day sprint", weekday: 180, weekend: 240 },
   { days: 30, label: "30-day plan", weekday: 120, weekend: 180 },
-  { days: 60, label: "60-day plan", weekday: 60, weekend: 120 },
+  { days: 90, label: "90-day plan", weekday: 60, weekend: 120 },
 ] as const;
 
 // shortcut: the chosen roadmap is a per-device hint; the dates and budgets it sets do sync with the account.
