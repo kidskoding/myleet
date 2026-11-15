@@ -1,8 +1,13 @@
 pub mod catalog;
 pub mod cli;
 pub mod config;
+pub mod editor;
 pub mod godur;
 pub mod progress;
+pub mod prompt;
+pub mod runner;
 pub mod savestate;
 pub mod schedule;
 pub mod version;
+pub mod watch;
+pub mod workspace;
