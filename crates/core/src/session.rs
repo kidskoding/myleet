@@ -6,7 +6,8 @@ use jiff::tz::TimeZone;
 
 use crate::catalog::{Catalog, Difficulty, Problem};
 use crate::progress::Event;
-use crate::schedule::{State, Status, local_day};
+use crate::schedule::{RUNGS, State, Status, local_day};
+use crate::skills::{self, ActionKind, Report};
 use crate::{checkpoint, placement};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -58,6 +59,8 @@ pub struct Item<'a> {
     pub overdue_days: i64,
     /// `None` for reviews.
     pub reason: Option<Reason>,
+    /// One plain sentence on why this item is here, from the skill model.
+    pub why: String,
 }
 
 /// Share of non-clean attempts above which a technique is a weak spot.
@@ -112,6 +115,7 @@ pub fn today<'a>(
                 state: st.clone(),
                 overdue_days: st.due.map_or(0, |d| days_between(local_day(d, tz), today)),
                 reason: None,
+                why: String::new(),
             });
         }
     }
@@ -120,22 +124,70 @@ pub fn today<'a>(
             .cmp(&a.overdue_days)
             .then(a.problem.order.cmp(&b.problem.order))
     });
+    let report = skills::assess(c, events, states, now, tz);
     let mut out = reviews;
     out.extend(pick_new(
         c,
         states,
         new_per_day.saturating_sub(started_today),
         &weak_modules(events),
+        &report,
     ));
-    if !out.is_empty() {
-        return out;
+    if out.is_empty() {
+        let slots = if new_per_day == 0 {
+            DEFAULT_KEEP_SHARP_SLOTS
+        } else {
+            new_per_day
+        };
+        out = pick_keep_sharp(c, states, today, tz, slots as usize);
     }
-    let slots = if new_per_day == 0 {
-        DEFAULT_KEEP_SHARP_SLOTS
-    } else {
-        new_per_day
-    };
-    pick_keep_sharp(c, states, today, tz, slots as usize)
+    for it in &mut out {
+        it.why = why(c, it, &report, today, tz);
+    }
+    out
+}
+
+/// The reason line shown on a queue row.
+pub fn why(c: &Catalog, it: &Item, report: &Report, today: Date, tz: &TimeZone) -> String {
+    let tech = &c.technique_of(it.problem).title;
+    let skill = report.of(it.problem);
+    if it.kind == Kind::Review {
+        let gap = RUNGS[it.state.rung.clamp(0, RUNGS.len() as i32 - 1) as usize];
+        return if it.overdue_days > 0 {
+            format!("overdue {}d: {gap}-day review", it.overdue_days)
+        } else {
+            format!("due: {gap}-day review")
+        };
+    }
+    if let Some(a) = skill.and_then(|s| {
+        s.actions
+            .iter()
+            .find(|a| a.problem == Some(it.problem.order) && a.kind != ActionKind::Next)
+    }) {
+        return a.reason.clone();
+    }
+    let days_ago = it
+        .state
+        .last_finished
+        .map_or(0, |t| days_between(local_day(t, tz), today));
+    match it.reason {
+        Some(Reason::Weak) => match skill.filter(|s| s.evidence.attempts > 0) {
+            Some(s) => format!("weak spot: {tech}, {}", s.struggle_text()),
+            None => format!(
+                "weak spot: your check-in flagged {}",
+                c.module_of(it.problem).title
+            ),
+        },
+        Some(Reason::InProgress) => match skill {
+            Some(s) => format!("in progress: {tech}, {}/{} started", s.seen, s.total),
+            None => format!("in progress: {tech}"),
+        },
+        Some(Reason::NewTopic) => format!("new topic: {tech}"),
+        Some(Reason::ColdRedo) => format!("cold redo: last solved {days_ago} days ago"),
+        Some(Reason::KeepSharp) => format!("keep sharp: {tech} has been shaky"),
+        Some(Reason::InterviewMix) => format!("interview mix: {tech}"),
+        None => String::new(),
+    }
 }
 
 fn weak_modules(events: &[Event]) -> HashSet<String> {
@@ -160,10 +212,12 @@ fn pick_new<'a>(
     states: &HashMap<String, State>,
     slots: u32,
     weak_mods: &HashSet<String>,
+    report: &Report,
 ) -> Vec<Item<'a>> {
     let (mut started, mut untouched, mut placed) = (Vec::new(), Vec::new(), Vec::new());
-    for m in c.modules.iter().filter(|m| !m.bank) {
-        for t in &m.techniques {
+    for (mi, m) in c.modules.iter().enumerate().filter(|(_, m)| !m.bank) {
+        for (ti, t) in m.techniques.iter().enumerate() {
+            let skill = report.get(mi, ti);
             let mut cand = Candidate {
                 unseen: vec![],
                 reason: Reason::NewTopic,
@@ -197,7 +251,15 @@ fn pick_new<'a>(
             if attempts > 0 {
                 cand.struggle = f64::from(attempts.saturating_sub(clean)) / f64::from(attempts);
             }
-            cand.reason = if cand.struggle >= WEAK_SHARE {
+            // The skill model knows recency, help and speed; the raw ratio is the fallback.
+            let mut weak = cand.struggle >= WEAK_SHARE;
+            if let Some(s) = skill.filter(|s| s.evidence.attempts > 0) {
+                cand.struggle = 1.0 - s.mastery;
+                weak = s.weak();
+                // Easier problems first while warming up.
+                cand.unseen = s.unseen.iter().map(|&i| &c.problems()[i]).collect();
+            }
+            cand.reason = if weak {
                 Reason::Weak
             } else {
                 Reason::InProgress
@@ -226,6 +288,7 @@ fn pick_new<'a>(
                     state: State::default(),
                     overdue_days: 0,
                     reason: Some(cand.reason),
+                    why: String::new(),
                 });
                 added = true;
             }
@@ -314,6 +377,7 @@ fn pick_keep_sharp<'a>(
                 state: cand.st.clone(),
                 overdue_days: 0,
                 reason: Some(cand.reason),
+                why: String::new(),
             });
         }
     };
