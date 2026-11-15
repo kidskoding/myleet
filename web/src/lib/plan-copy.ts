@@ -1,10 +1,10 @@
 // The Plan page's sentences, built only from the learner's own data. Kept pure so the
 // wording can be tested without a page.
 import { addDays } from "./streak";
-import { daysUntil, shortDate } from "./plan";
+import { daysUntil, paceRows, shortDate } from "./plan";
 import { attempts, parseEvents } from "./attempts";
 import { missedMinutes, recordPlanned, standing, type Standing } from "./plan-progress";
-import { fmtM, isoDay } from "./schedule";
+import { fmtM, isoDay, midSentence } from "./schedule";
 import type { Prefs } from "./prefs";
 import type { Availability, Forecast, Habits, Plan } from "./types";
 
@@ -126,11 +126,13 @@ export function onTrackLine(s: Standing, date: string | null, company: string | 
   if (!s.of) return "";
   const goal = date ? `${company ? `${company} on ` : ""}${shortDate(date)}` : "";
   const pace = s.onPace ? (date ? `you're right on pace for ${goal}` : "you're on pace for the next four weeks") : date ? `a few topics are running behind for ${goal}` : "a few topics are running behind";
-  const run = s.run >= 2 ? ` That's ${count(s.run)} days in a row.` : "";
-  if (!s.kept) return `Your last ${s.of === 1 ? "session" : `${count(s.of)} sessions`} slipped by, so the work moved forward. Right now ${pace}.${run}`;
+  if (!s.kept) return `Your last ${s.of === 1 ? "session" : `${count(s.of)} sessions`} slipped by, so the work moved forward. Right now ${pace}.`;
   const kept = s.kept === s.of ? `You've kept ${s.of === 1 ? "your first session" : `all ${count(s.of)} of your last sessions`}` : `You've kept ${count(s.kept)} of your last ${count(s.of)} sessions`;
-  return `${kept}, and ${pace}.${run}`;
+  return `${kept}, and ${pace}.`;
 }
+
+/** "68 minutes", "about 3 hours": minutes inside a sentence. */
+export const proseMinutes = (m: number): string => (Math.round(m) < 120 ? `${Math.round(m)} ${Math.round(m) === 1 ? "minute" : "minutes"}` : `about ${Math.round(m / 60)} hours`);
 
 const WEEKDAY = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const dayWord = (d: string) => WEEKDAY[new Date(`${d}T12:00:00`).getDay()] ?? d;
@@ -152,7 +154,7 @@ export function catchUp(s: Standing): CatchUp | null {
   return {
     key: last.date,
     title,
-    body: `${days.length === 1 ? "Its" : "Their"} reviews moved into your next free windows, so nothing is lost. To catch up a little sooner, spread the ${fmtM(minutes)} over the next few days or add some time on weekdays.`,
+    body: `${days.length === 1 ? "Its" : "Their"} reviews moved into your next free windows, so nothing is lost. To catch up a little sooner, spread those ${proseMinutes(minutes)} over the next few days or add some time on weekdays.`,
     minutes,
   };
 }
@@ -171,22 +173,55 @@ export interface Checkin {
   body: string;
 }
 
-/** "Last week you kept 4 of 5 sessions and moved forward on graphs and heaps." */
-export function weeklyCheckin(o: { standing: Standing; today: string; windows: Availability[]; topics: string[]; date: string | null }): Checkin | null {
+export interface WeekRecap {
+  solved: number;
+  clean: number;
+  /** A clean pass this week on a problem missed or hinted earlier. */
+  best: { title: string; days: number } | null;
+}
+
+/** The last seven days before `today`: problems passed, how many cleanly, and the best comeback. */
+export function weekRecap(events: string, today: string, titleOf: (problem: string) => string | null): WeekRecap {
+  const from = addDays(today, -7);
+  const all = attempts(parseEvents(events)).filter((a) => a.mode === "practice" && a.end !== null);
+  const inWeek = (a: (typeof all)[number]) => { const d = isoDay(new Date(a.end ?? 0)); return d >= from && d < today; };
+  const passes = all.filter((a) => a.passed && inWeek(a));
+  const clean = passes.filter((a) => !a.hints && !a.peeks);
+  let best: WeekRecap["best"] = null;
+  for (const a of clean) {
+    const miss = all.filter((b) => b.problem === a.problem && (b.end ?? 0) < a.start && (!b.passed || b.hints || b.peeks)).at(-1);
+    const title = miss ? titleOf(a.problem) : null;
+    if (miss && title) best = { title, days: Math.max(1, Math.round((a.start - (miss.end ?? a.start)) / 86_400_000)) };
+  }
+  return { solved: passes.length, clean: clean.length, best };
+}
+
+/** Next week's focus: the started topic furthest behind, the same one Today's interview card leads with. */
+export const weekFocus = (plan: Plan): string | null => paceRows(plan.forecast).find((f) => f.status === "behind")?.title ?? null;
+
+/** The Sunday recap: sessions kept, problems solved, the best comeback, what moved, and next week's focus. */
+export function weeklyCheckin(o: { standing: Standing; today: string; windows: Availability[]; topics: string[]; date: string | null; recap?: WeekRecap | undefined; focus?: string | null }): Checkin | null {
   if (new Date(`${o.today}T12:00:00`).getDay() !== checkinDay(o.windows)) return null;
   const weekAgo = addDays(o.today, -7);
   const week = o.standing.days.filter((d) => d.date >= weekAgo);
   if (!week.length) return null;
   const planned = week.reduce((n, d) => n + d.sessions, 0);
   const kept = week.reduce((n, d) => n + d.kept, 0);
-  const topics = o.topics.slice(0, 3);
+  const topics = o.topics.slice(0, 3).map(midSentence);
   const list = topics.length > 1 ? `${topics.slice(0, -1).join(", ")} and ${topics.at(-1)}` : (topics[0] ?? "");
-  const moved = topics.length ? ` and moved forward on ${list}` : "";
-  const pace = o.standing.onPace ? `You're on pace${o.date ? ` for ${shortDate(o.date)}` : ""}.` : `A few topics are behind${o.date ? ` for ${shortDate(o.date)}` : ""}.`;
+  const r = o.recap;
+  const solved = r?.solved ? ` and solved ${plural(r.solved, "problem")}${r.clean === r.solved ? `, all of them clean` : r.clean ? `, ${count(r.clean)} of them clean` : ""}` : "";
+  const lead = kept
+    ? `This week you kept ${count(kept)} of ${count(planned)} ${planned === 1 ? "session" : "sessions"}${solved}.`
+    : `This week's ${planned === 1 ? "session" : `${count(planned)} sessions`} slipped by, and their work moved forward${solved ? `. You still${solved.replace(" and", "")}` : ""}.`;
+  const best = r?.best ? ` Your best moment: ${r.best.title}, clean ${r.best.days === 1 ? "a day" : `${count(r.best.days)} days`} after it got the better of you!` : "";
+  const moved = list ? ` You moved forward on ${list}.` : "";
+  const pace = o.standing.onPace ? ` You're on pace${o.date ? ` for ${shortDate(o.date)}` : ""}.` : ` A few topics are behind${o.date ? ` for ${shortDate(o.date)}` : ""}.`;
+  const focus = o.focus ? ` Next week leans on ${midSentence(o.focus)}, the topic furthest behind.` : "";
   return {
     key: o.today,
     title: "Your weekly check-in",
-    body: `${kept ? `Last week you kept ${count(kept)} of ${count(planned)} sessions${moved}.` : `Last week's ${planned === 1 ? "session" : `${count(planned)} sessions`} slipped by, and their work moved forward${moved ? `. You still${moved}` : ""}.`} ${pace} Keep this pace, add a little time, or shift the date if your interview moved.`,
+    body: `${lead}${best}${moved}${pace}${focus} Keep this pace, add a little time, or shift the date if your interview moved.`,
   };
 }
 
@@ -223,7 +258,7 @@ export function spreadDays(plan: Plan, p: Pick<Prefs["plan"], "dayMinutes" | "we
 export function planStatus(
   plan: Plan,
   events: string,
-  o: { windows: Availability[]; topicOf?: (problem: string) => string | null; now?: Date; company?: string | null } = { windows: [] },
+  o: { windows: Availability[]; topicOf?: (problem: string) => string | null; titleOf?: (problem: string) => string | null; now?: Date; company?: string | null } = { windows: [] },
 ): { line: string; standing: Standing; checkin: Checkin | null; catchUp: CatchUp | null } {
   const now = o.now ?? new Date();
   recordPlanned(plan);
@@ -233,7 +268,7 @@ export function planStatus(
   return {
     line: onTrackLine(s, plan.interview_date, o.company ?? null),
     standing: s,
-    checkin: weeklyCheckin({ standing: s, today, windows: o.windows, topics, date: plan.interview_date }),
+    checkin: weeklyCheckin({ standing: s, today, windows: o.windows, topics, date: plan.interview_date, recap: o.titleOf ? weekRecap(events, today, o.titleOf) : undefined, focus: weekFocus(plan) }),
     catchUp: catchUp(s),
   };
 }

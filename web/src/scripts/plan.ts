@@ -4,8 +4,8 @@
 import { attempts, parseEvents } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { nextInterview, onPrefsChange, planSettings, readPrefs, updatePrefs, type Prefs } from "../lib/prefs";
-import { catchUp, changePreview, drawerLede, forecastLead, headCopy, INSIGHTS_EMPTY, onTrackLine, paceLine, progressLine, spreadDays, topicsMoved, weeklyCheckin } from "../lib/plan-copy";
-import { recordPlanned, standing, type DayStatus, type PastDay } from "../lib/plan-progress";
+import { catchUp, changePreview, drawerLede, forecastLead, headCopy, INSIGHTS_EMPTY, onTrackLine, paceLine, progressLine, spreadDays, topicsMoved, weekFocus, weekRecap, weeklyCheckin } from "../lib/plan-copy";
+import { readLedger, recordPlanned, standing, type DayStatus, type PastDay } from "../lib/plan-progress";
 import { companyLogo } from "../lib/company-logos";
 import { addDays } from "../lib/streak";
 import { companyTitle, mountInterviews } from "../lib/ui/interviews";
@@ -58,6 +58,8 @@ import { featureGate } from "../lib/ui/guest-gate";
 import { requireAccount, takePending } from "../lib/access";
 import { signedIn } from "../lib/account";
 import { dismissNote, forecastKey, forecastRows, insightList, mixBar, noteDismissed, reasonLine, replanNote } from "../lib/ui/personal";
+import { toPlanned } from "../lib/reminders";
+import { MOCK_LEAD_MIN } from "../lib/mock-today";
 
 interface Ctx {
   t: TrainerApi;
@@ -150,6 +152,9 @@ const flag = (iv: Interview): SafeHtml => html`<span class="chip interview">${iv
 const isMock = (s: PlanSession) => s.items.some((i) => i.kind === "mock");
 
 /** Problem id to its technique's title, for "moved forward on" lines. */
+/** The pace line and the habit sentence after it, each ending in a period. */
+const withHabit = (line: string, habit: string | null | undefined): string => (habit ? `${line.endsWith(".") ? line : `${line}.`} ${habit}` : line);
+
 const topicOf = (c: Ctx) => (id: string): string | null => {
   const p = c.cat.catalog.problems.find((x) => x.id === id);
   return p ? (c.cat.catalog.modules[p.module]?.techniques[p.technique]?.title ?? null) : null;
@@ -194,7 +199,7 @@ function currentNote(c: Ctx): PlanNote | null {
   const today = isoDay(c.now);
   const wd = readPrefs().plan.dailyMinutes ?? 60;
   const more = step(WEEKDAY_STEPS, wd, 1);
-  const check = weeklyCheckin({ standing: st, today, windows: readPrefs().plan.availability, topics: topicsMoved(c.events, today, topicOf(c)), date: p.interview_date });
+  const check = weeklyCheckin({ standing: st, today, windows: readPrefs().plan.availability, topics: topicsMoved(c.events, today, topicOf(c)), date: p.interview_date, recap: weekRecap(c.events, today, (id) => c.cat.byId.get(id)?.title ?? null), focus: weekFocus(p) });
   if (check)
     pool.push({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body, actions: [{ kind: "keep_pace", label: "Keep this pace" }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: "Shift the date" }] } as PlanNote);
   const slip = catchUp(st);
@@ -620,7 +625,7 @@ function you(c: Ctx): SafeHtml {
     <section class="panel" aria-labelledby="pc-h">
       <div class="section-head" style="margin:0"><h2 id="pc-h">Your pace</h2><span class="meta">${own ? `Last ${sample} solves` : "Targets for now"}</span></div>
       <div class="pace-tbl">${cell(p.review_minutes ?? Math.round((p.new_minutes.medium ?? 25) * 0.6), "Reviews")}${cell(p.new_minutes.easy, "Easy")}${cell(p.new_minutes.medium, "Medium")}${cell(p.new_minutes.hard, "Hard")}</div>
-      <p class="fineprint">${paceLine(p, readPrefs().timeTargets)}${own && p.habit ? ` ${p.habit}` : ""}</p>
+      <p class="fineprint">${withHabit(paceLine(p, readPrefs().timeTargets), own ? p.habit : null)}</p>
     </section>
     <section class="panel" aria-labelledby="in-h">
       <div class="section-head" style="margin:0"><h2 id="in-h">Practice insights</h2><a class="link text-small" href="${ROUTES.progress}#insights">All insights</a></div>
@@ -641,7 +646,9 @@ function head(c: Ctx): SafeHtml {
   const date = c.plan.interview_date;
   const later = (c.plan.interviews ?? []).find((i) => date && i.date > date);
   const copy = headCopy({ plan: c.plan, company: company(c), name: firstName(), windows: p.availability, weekday: p.dailyMinutes ?? undefined, weekend: p.weekendMinutes ?? p.dailyMinutes ?? undefined, today: c.plan.start, nextAfter: later ? { company: later.name ?? null, date: later.date } : null });
-  const prog = date ? progressLine(p.startedAt && p.startedAt <= c.plan.start ? p.startedAt : c.plan.start, date, c.plan.start) : null;
+  // startedAt is per device; the synced ledger's first day keeps "Day N" right on a new one.
+  const first = [p.startedAt, Object.keys(readLedger()).sort()[0]].filter((d): d is string => !!d && d <= c.plan.start).sort()[0];
+  const prog = date ? progressLine(first ?? c.plan.start, date, c.plan.start) : null;
   const track = onTrackLine(standing(c.plan, c.events, c.now), date, company(c));
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
     <header class="plan-head">
@@ -922,7 +929,7 @@ function rememberSessions(p: Plan): void {
   try {
     localStorage.setItem(
       "myleet:sessions",
-      JSON.stringify({ day: day?.date, sessions: (day?.sessions ?? []).map((s) => ({ start_ms: s.start_ms, title: s.title, minutes: s.minutes })) }),
+      JSON.stringify({ day: day?.date, sessions: (day?.sessions ?? []).map((s) => toPlanned(s, MOCK_LEAD_MIN)) }),
     );
   } catch {
     // Reminders fall back to the daily time.

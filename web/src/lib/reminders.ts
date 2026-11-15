@@ -1,6 +1,8 @@
 // Opt-in daily reminder, scheduled locally while a myleet tab (or the installed app) is
 // open. Never fires on a day with a solve, and at most once a day.
 import { localDay } from "./streak";
+import { midSentence } from "./schedule";
+import type { PlanSession } from "./types";
 
 const LAST = "myleet:reminded";
 
@@ -59,6 +61,16 @@ export interface PlannedSession {
   minutes: number;
   /** Overrides the user's lead time, in minutes. */
   lead?: number;
+  /** The session's main new technique, mid-sentence ("two pointers"). */
+  focus?: string;
+}
+
+/** A plan session as the shell stores it for reminders; a mock gets `mockLead` minutes of warning. */
+export function toPlanned(s: Pick<PlanSession, "start_ms" | "title" | "minutes" | "items">, mockLead: number): PlannedSession {
+  const n = new Map<string, number>();
+  for (const i of s.items) if (i.kind !== "review" && i.technique) n.set(i.technique, (n.get(i.technique) ?? 0) + 1);
+  const focus = [...n.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+  return { start_ms: s.start_ms, title: s.title, minutes: s.minutes, ...(focus ? { focus: midSentence(focus) } : {}), ...(s.items.some((i) => i.kind === "mock") ? { lead: mockLead } : {}) };
 }
 
 /** `HH:MM` inside the quiet range, which may wrap past midnight (23:00 to 08:00). */
@@ -87,7 +99,7 @@ export function nextSessionReminder(
     if (inQuiet(at, o.quietFrom, o.quietTo)) continue;
     const time = new Date(s.start_ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }).replace(":00", "");
     const len = s.minutes < 60 ? `${s.minutes} min` : s.minutes % 60 ? `${Math.floor(s.minutes / 60)} h ${s.minutes % 60}` : `${s.minutes / 60} h`;
-    return { delay: Math.max(0, at.getTime() - now.getTime()), key: s.start_ms, body: `Session at ${time}: ${s.title}. About ${len}` };
+    return { delay: Math.max(0, at.getTime() - now.getTime()), key: s.start_ms, body: `${time} session${s.focus ? ` on ${s.focus}` : ""}: ${s.title}. About ${len}` };
   }
   return null;
 }

@@ -2,6 +2,8 @@
 // calendar, milestones and insights. The wasm core owns scheduling; this only reports.
 import type { Attempt } from "./attempts";
 import { addDays, localDay } from "./streak";
+import { weekdayOf } from "./coach";
+import { span } from "./schedule";
 import type { Catalog, Module, Skill, State } from "./types";
 
 export type Standing = "mastered" | "climbing" | "started" | "unseen";
@@ -319,9 +321,15 @@ export function insights(atts: (Attempt & { clean: boolean })[], now: Date): Ins
     }
     const best = [...by.entries()].filter(([, v]) => v.all >= 3).sort((x, y) => y[1].clean - x[1].clean || pct(y[1].clean, y[1].all) - pct(x[1].clean, x[1].all))[0];
     if (best && best[1].clean > 0) {
-      const fmt = (h: number) => new Date(2000, 0, 1, h).toLocaleTimeString(undefined, { hour: "numeric" });
-      out.push({ text: `Your cleanest hour is **${fmt(best[0])} to ${fmt((best[0] + 1) % 24)}**: ${best[1].clean} of ${best[1].all} clean passes in the last four weeks` });
+      out.push({ text: `Your cleanest hour is **${span(best[0] * 60, best[0] * 60 + 60)}**: ${best[1].clean} of ${best[1].all} clean passes in the last four weeks` });
     }
   }
   return out;
+}
+
+/** The line under the streak: the next milestone and how the rest day works. */
+export function streakNext(n: number, next: number | null | undefined, rests: string[]): string {
+  if (n === 0) return "No streak yet. Practice one problem today to start one. After that, one rest day a week won't break it.";
+  const rest = rests[0] ? `${weekdayOf(rests[0])} was your rest day` : "one rest day a week won't break it";
+  return `${next ? `Next milestone: ${next} days, ${next - n} to go. ` : ""}Any practice counts, and ${rest}.`;
 }

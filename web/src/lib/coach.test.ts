@@ -26,8 +26,12 @@ describe("todaySummary", () => {
   });
   it("folds a short why and the plan into one paragraph", () => {
     const items = [item("new", "Hashing"), item("new", "Trees"), item("new", "Graphs")];
-    expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe(
-      "Today we're spending most of our time on hashing. Your interview is 30 days away, so we'll start with one hashing problem and then work through two more from other topics!",
+    expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe("Today spreads three new problems across hashing, trees and graphs, with your interview 30 days away.");
+    expect(todaySummary({ items: [item("review", "Arrays"), item("review", "Arrays"), ...items], skills: null, daysLeft: null, now })).toBe(
+      "Today starts with two reviews to keep on schedule, then three new problems in hashing, trees and graphs.",
+    );
+    expect(todaySummary({ items: [item("new", "Hashing"), item("new", "Hashing"), item("new", "Trees")], skills: null, daysLeft: 30, now })).toBe(
+      "Today we're spending most of our time on hashing. Your interview is 30 days away, so we'll start with two hashing problems and then work through one more from another topic!",
     );
     expect(todaySummary({ items: [item("review", "Trees"), item("new", "Hashing")], skills: null, daysLeft: null, now })).toBe(
       "Today we're spending most of our time on hashing. We'll warm up with a quick review, then work through one hashing problem!",
@@ -42,13 +46,20 @@ describe("todaySummary", () => {
 
 describe("personal cards", () => {
   const title = (id: string) => id.toUpperCase();
-  it("shows jump back in, due and weak spot from real data", () => {
-    const q = [entry("a", "new", { rung: -1, attempts: 2 }), entry("r", "review", {}, 3)];
+  it("shows jump back in, due and still building from real data", () => {
+    const q = [entry("a", "new", { rung: -1, attempts: 2 }), entry("r", "review", {}, 3), entry("s", "review", {}, 1)];
     const skills = [skill({ history: [attempt({ problem: "a", date: "2026-11-13" })] }), skill({ technique_title: "Hashing", level: "solid", need: 0.1 })];
     expect(personalCards(q, skills, title, now)).toEqual([
       { kind: "resume", label: "Jump back in", title: "A", body: "Last time you passed 5 of 7 tests, 2 days ago", problem: "a" },
-      { kind: "due", label: "Due before it slips", title: "R", body: "It came due 3 days ago, so a clean pass today keeps it on schedule", problem: "r" },
-      { kind: "weak", label: "Your weak spot", title: "Sliding Window", body: "Sliding window is still shaky. A few clean solves and you'll stop needing hints on it.", problem: null },
+      { kind: "due", label: "Waiting the longest", title: "R", body: "It's been waiting 3 days, and one clean pass puts it back on schedule", problem: "r" },
+      { kind: "weak", label: "Still building", title: "Sliding Window", body: "It's still shaky. A few clean solves and you'll stop needing hints on it.", problem: null },
+    ]);
+  });
+  it("leaves the hero's problem and a flagged weak spot to their own cards", () => {
+    const q = [entry("r", "review", {}, 3), entry("s", "review", {}, 1)];
+    const skills = [skill({ weak_spot: true }), skill({ technique_title: "Hashing", level: "building", need: 0.9 })];
+    expect(personalCards(q, skills, title, now, "r")).toEqual([
+      { kind: "due", label: "Due before it slips", title: "S", body: "It came due yesterday, so a clean pass today keeps it on schedule", problem: "s" },
     ]);
   });
   it("renders nothing without data", () => {
@@ -59,7 +70,7 @@ describe("personal cards", () => {
 describe("on this day, milestones and momentum", () => {
   it("recalls a miss from a week ago that is due today", () => {
     const skills = [skill({ history: [attempt({ problem: "r", title: "Two Sum", date: "2026-11-08" })] })];
-    expect(onThisDay([entry("r", "review")], skills, now)).toBe("A week ago you couldn't solve Two Sum. It's due today, so try it clean.");
+    expect(onThisDay([entry("r", "review")], skills, now)).toBe("A week ago you couldn't solve Two Sum. It's back in today's reviews, so try it clean.");
     expect(onThisDay([], skills, now)).toBeNull();
   });
   it("fires each milestone once", () => {
@@ -71,6 +82,8 @@ describe("on this day, milestones and momentum", () => {
   });
   it("only shows momentum when true", () => {
     expect(momentum(3)).toBe("3 days in a row");
+    expect(momentum(12, ["2026-11-15"])).toBe("12 days, with your rest day on Sunday");
+    expect(momentum(20, ["2026-11-15", "2026-11-06"])).toBe("20 days, with a rest day each week");
     expect(momentum(1)).toBeNull();
   });
 });
@@ -82,6 +95,9 @@ describe("empty Today", () => {
       text: "You worked through three problems today, two of them cleanly, in about 52 minutes. Nothing else is due until tomorrow, so the rest of the day is yours. Your last diagnostic was over a month ago, so a retake would move your plan to where you are now.",
       retake: true,
     });
+    expect(wrapUp({ clean: 2, total: 2, minutes: 40 }, now.getTime(), now, { technique: "Opposite-End Pointers", reviews: 2 }).text).toBe(
+      "You worked through two problems today, all cleanly, in about 40 minutes! Nothing else is due until tomorrow, so the rest of the day is yours. Tomorrow we'll pick up opposite-end pointers, after two quick reviews.",
+    );
     expect(wrapUp({ clean: 0, total: 0, minutes: 0 }, now.getTime(), now)).toEqual({
       text: "Nothing is due today, so your reviews are on schedule and the rest of the day is yours.",
       retake: false,
@@ -92,7 +108,7 @@ describe("empty Today", () => {
 describe("reviewWhy", () => {
   it("uses the last attempt, else the due date", () => {
     const skills = [skill({ history: [attempt({ problem: "r", mark: "hint", detail: "used a hint", date: "2026-11-09" })] })];
-    expect(reviewWhy(entry("r", "review", { rung: 1 }), skills, now)).toBe("6 days ago you needed a hint, so a clean pass now puts the next review 7 days out");
-    expect(reviewWhy(entry("x", "review", { rung: 0 }, 2), null, now)).toBe("It came due 2 days ago, and a clean pass puts the next review 3 days out");
+    expect(reviewWhy(entry("r", "review", { rung: 1 }), skills, now)).toBe("6 days ago you needed a hint, so a clean pass now puts the next review in a week");
+    expect(reviewWhy(entry("x", "review", { rung: 0 }, 2), null, now)).toBe("It came due 2 days ago, and a clean pass puts the next review on Wednesday");
   });
 });

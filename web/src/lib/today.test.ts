@@ -114,10 +114,14 @@ describe("exam attempts", () => {
 
 describe("streak and reminders", () => {
   const now = new Date(2026, 10, 14, 21);
-  it("lapses after a missed day and is at risk after 8 pm", () => {
+  it("keeps one rest day a week, lapses after that, and is at risk after 8 pm", () => {
+    const day = (n: number) => addDays(localDay(now), n);
     expect(streakNow({ n: 5, best: 5, last: localDay(now) }, now)).toEqual({ n: 5, solvedToday: true, atRisk: false });
-    expect(streakNow({ n: 5, best: 5, last: addDays(localDay(now), -1) }, now)).toEqual({ n: 5, solvedToday: false, atRisk: true });
-    expect(streakNow({ n: 5, best: 5, last: addDays(localDay(now), -2) }, now).n).toBe(0);
+    expect(streakNow({ n: 5, best: 5, last: day(-1) }, now)).toEqual({ n: 5, solvedToday: false, atRisk: true });
+    expect(streakNow({ n: 5, best: 5, last: day(-2) }, now).n).toBe(5);
+    expect(streakNow({ n: 5, best: 5, last: day(-2), rests: [day(-5)] }, now).n).toBe(0);
+    expect(streakNow({ n: 5, best: 5, last: day(-2), rests: [day(-8)] }, now).n).toBe(5);
+    expect(streakNow({ n: 5, best: 5, last: day(-3) }, now).n).toBe(0);
   });
   it("fires once a day, never after a solve", () => {
     const at = new Date(2026, 10, 14, 18);

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { memoryStorage } from "./memory-storage";
-import { catchUp, checkinDay, drawerLede, forecastLead, headCopy, onTrackLine, paceLine, progressLine } from "./plan-copy";
+import { catchUp, checkinDay, drawerLede, forecastLead, headCopy, onTrackLine, paceLine, proseMinutes, progressLine, weekRecap, weeklyCheckin } from "./plan-copy";
 import { recordPlanned, standing } from "./plan-progress";
 import type { Availability, Forecast, Plan } from "./types";
 
@@ -91,6 +91,49 @@ describe("Plan copy", () => {
     expect(onTrackLine(s, "2026-12-15")).toBe("You've kept one of your last two sessions, and you're right on pace for Dec 15.");
     expect(onTrackLine(s, "2026-12-15", "Meta")).toBe("You've kept one of your last two sessions, and you're right on pace for Meta on Dec 15.");
     expect(catchUp(s)?.title).toBe("Saturday's session didn't happen");
+  });
+
+  it("never counts a slipped day as kept, so the check-in and catch-up agree", () => {
+    localStorage.setItem("myleet:plan-ledger", JSON.stringify({ "2026-11-12": { minutes: 60, sessions: 1 }, "2026-11-13": { minutes: 60, sessions: 1 } }));
+    // Ten minutes on the 13th: under half the hour, so slipped and not kept.
+    const t = (d: number, h: number, m = 0) => new Date(2026, 10, d, h, m).toISOString();
+    const events = [
+      { t: t(12, 19), kind: "opened", problem: "a", attempt: "x", mode: "practice" },
+      { t: t(12, 19, 50), kind: "passed", problem: "a", attempt: "x", mode: "practice" },
+      { t: t(13, 19), kind: "opened", problem: "b", attempt: "y", mode: "practice" },
+      { t: t(13, 19, 5), kind: "gave_up", problem: "b", attempt: "y", mode: "practice" },
+    ]
+      .map((e) => JSON.stringify(e))
+      .join("\n");
+    const s = standing(plan(), events, new Date("2026-11-15T12:00:00"));
+    expect([s.kept, s.of, s.slipped.length]).toEqual([1, 2, 1]);
+    expect(onTrackLine(s, null)).toBe("You've kept one of your last two sessions, and you're on pace for the next four weeks.");
+    expect(weeklyCheckin({ standing: s, today: "2026-11-15", windows: [], topics: ["Opposite-End Pointers"], date: "2026-11-27", focus: "Stack Fundamentals" })?.body).toBe(
+      "This week you kept one of two sessions. You moved forward on opposite-end pointers. You're on pace for Nov 27. Next week leans on stack fundamentals, the topic furthest behind. Keep this pace, add a little time, or shift the date if your interview moved.",
+    );
+    expect(catchUp(s)?.body).toContain("spread those 50 minutes");
+  });
+
+  it("recaps the week with solves, clean passes and the best comeback", () => {
+    const t = (d: number, h: number) => new Date(2026, 10, d, h).getTime();
+    const line = (ms: number, kind: string, problem: string, attempt: string) => JSON.stringify({ t: new Date(ms).toISOString(), kind, problem, attempt, mode: "practice" });
+    const events = [
+      line(t(10, 19), "opened", "lswr", "a1"),
+      line(t(10, 20), "gave_up", "lswr", "a1"),
+      line(t(12, 19), "opened", "two", "a2"),
+      line(t(12, 19) + 600_000, "passed", "two", "a2"),
+      line(t(13, 19), "opened", "lswr", "a3"),
+      line(t(13, 19) + 1_200_000, "passed", "lswr", "a3"),
+    ].join("\n");
+    const titles: Record<string, string> = { lswr: "Longest Substring", two: "Two Sum" };
+    const r = weekRecap(events, "2026-11-15", (id) => titles[id] ?? null);
+    expect(r).toEqual({ solved: 2, clean: 2, best: { title: "Longest Substring", days: 3 } });
+    const s = { kept: 3, of: 4, run: 0, onPace: false, slipped: [], days: [{ date: "2026-11-13", status: "done", planned: 60, practised: 60, sessions: 4, kept: 3 }] } as never;
+    expect(weeklyCheckin({ standing: s, today: "2026-11-15", windows: [], topics: [], date: null, recap: r })?.body).toBe(
+      "This week you kept three of four sessions and solved two problems, all of them clean. Your best moment: Longest Substring, clean three days after it got the better of you! A few topics are behind. Keep this pace, add a little time, or shift the date if your interview moved.",
+    );
+    expect(proseMinutes(1)).toBe("1 minute");
+    expect(proseMinutes(150)).toBe("about 3 hours");
   });
 
   it("checks in on Sunday unless you never practice then", () => {

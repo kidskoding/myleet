@@ -10,15 +10,15 @@ import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem }
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { MOCK_LEAD_MIN, mockState } from "../lib/mock-today";
 import { mockHref, readHistory } from "../lib/mock";
-import { addMove, minuteOf, moveFor } from "../lib/schedule";
+import { addMove, midSentence, minuteOf, moveFor } from "../lib/schedule";
 import { daysUntil, paceRows, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
-import { reminderSupport, requestReminderPermission } from "../lib/reminders";
+import { reminderSupport, requestReminderPermission, toPlanned } from "../lib/reminders";
 import { noteHref, planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
 import { actionHref, inPlanOn } from "../lib/skills-view";
-import { localDay, readStreak, recordStats, streakNow } from "../lib/streak";
-import { planStatus, spreadDays } from "../lib/plan-copy";
+import { addDays, localDay, readStreak, recordStats, streakNow } from "../lib/streak";
+import { forecastLead, planStatus, spreadDays, weekFocus } from "../lib/plan-copy";
 import { milestone, milestoneLine, momentum, onThisDay, personalCards, reviewWhy, todaySummary, wrapUp, type Card } from "../lib/coach";
 import {
   BUDGETS,
@@ -63,6 +63,13 @@ interface Ctx {
 /** Today's plan item for a problem: its reason, tag and why chips. */
 function planItem(c: Ctx, problem: string): PlanItem | undefined {
   return c.plan?.days[0]?.sessions.flatMap((s) => s.items).find((i) => i.problem === problem);
+}
+
+/** A queue entry in the plan's item shape, for when the plan has nothing left today. */
+function queueItem(c: Ctx, e: TodayEntry): Pick<PlanItem, "kind" | "tag" | "technique" | "chips"> | undefined {
+  const p = meta(c.cat, e.problem);
+  if (!p) return undefined;
+  return { kind: e.kind === "review" ? "review" : "new", tag: e.kind === "review" ? "review" : "new", technique: c.cat.catalog.modules[p.module]?.techniques[p.technique]?.title ?? null, chips: [] };
 }
 
 const $ = <T extends HTMLElement = HTMLElement>(sel: string) => document.querySelector<T>(sel);
@@ -173,11 +180,24 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
     panel: html`<section class="panel" aria-labelledby="cd">
       <div class="section-head"><h2 id="cd">${title}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
       <p class="countdown"><span class="count-num">${left}</span><span class="text-secondary">${left === 1 ? "day" : "days"} left, ${shortDate(p.interviewDate)}</span></p>
+      ${readiness(c, p.interviewDate)}
       ${rows.length ? html`<div class="fc">${forecastRows(rows, { date: p.interviewDate })}</div>` : ""}
       <p class="fineprint">${rows.length ? "If you keep to the plan. Behind by N means N problems short on the date" : (c.plan?.summary.headline ?? "")}</p>
     </section>`,
     inline,
   };
+}
+
+/** How many of the plan's core topics are on pace for the date: the Plan page's forecast sentence and a meter. */
+function readiness(c: Ctx, date: string): SafeHtml {
+  const fc = c.plan?.forecast ?? [];
+  if (!fc.length || !c.plan) return html``;
+  const ready = fc.filter((f) => f.behind_by === 0).length;
+  const lead = forecastLead({ forecast: fc, date, companies: [...new Set(fc.flatMap((f) => f.companies))], weekday: readPrefs().plan.dailyMinutes ?? 60, closeAll: null });
+  const focus = weekFocus(c.plan);
+  return html`<div class="ready"><p class="ready-line">${lead}</p>
+    <div class="ready-bar" role="meter" aria-label="Core topics on pace" aria-valuemin="0" aria-valuemax="${fc.length}" aria-valuenow="${ready}"><span style="width:${((ready / fc.length) * 100).toFixed(0)}%"></span></div>
+    ${focus && ready < fc.length ? html`<p class="fineprint">Clean passes in ${midSentence(focus)} move this the most</p>` : ""}</div>`;
 }
 
 /** Up to two weak spots, never the one next-up already drills. */
@@ -222,7 +242,7 @@ function budgetPanel(b: Budget): SafeHtml {
     <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${BUDGETS.map(
       (o) => html`<button type="button" data-budget="${o.id}" aria-pressed="${o.id === b ? "true" : "false"}">${o.label}</button>`,
     )}</div></div>
-    <p class="fineprint">Reducing your time removes new problems before reviews. Solving one problem counts toward your streak</p></section>`;
+    <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts toward your streak.</p></section>`;
 }
 
 // ---- main column ----
@@ -304,7 +324,7 @@ function firstRun(c: Ctx): SafeHtml {
         <p>You'll answer eight quick questions about which pattern fits a problem, on topics from hashing to graphs, then solve two or three short ones. It doesn't change your review schedule.</p></div>
       <div class="firstrun-actions">
         <a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">${icon("flag")} Take the diagnostic</a>
-        <a class="link fineprint" href="${guide ? noteHref(guide.path) : ROUTES.learn}">Skip and start at module 1${c.cat.catalog.modules[0] ? `, ${c.cat.catalog.modules[0].title}` : ""}</a>
+        <a class="link fineprint" href="${guide ? noteHref(guide.path) : ROUTES.learn}">Skip and start at module 1${c.cat.catalog.modules[0] ? `, ${midSentence(c.cat.catalog.modules[0].title)}` : ""}</a>
       </div>
     </div></section>`;
 }
@@ -419,7 +439,7 @@ function paint(c: Ctx): void {
   if (c.plan) {
     try {
       const d0 = c.plan.days[0];
-      localStorage.setItem("myleet:sessions", JSON.stringify({ day: d0?.date, sessions: (d0?.sessions ?? []).map((s) => ({ start_ms: s.start_ms, title: s.title, minutes: s.minutes, ...(s.items.some((i) => i.kind === "mock") ? { lead: MOCK_LEAD_MIN } : {}) })) }));
+      localStorage.setItem("myleet:sessions", JSON.stringify({ day: d0?.date, sessions: (d0?.sessions ?? []).map((s) => toPlanned(s, MOCK_LEAD_MIN)) }));
     } catch {
       // Reminders fall back to the daily time.
     }
@@ -433,7 +453,7 @@ function paint(c: Ctx): void {
   if (c.plan && !c.sample) {
     try {
       const next = (c.plan.interviews ?? []).find((i) => i.date === c.plan?.interview_date);
-      status = planStatus(c.plan, c.events, { windows: readPrefs().plan.availability, now: c.now, company: next?.name ?? null, topicOf: (id) => { const p = c.cat.catalog.problems.find((x) => x.id === id); return p ? (c.cat.catalog.modules[p.module]?.techniques[p.technique]?.title ?? null) : null; } });
+      status = planStatus(c.plan, c.events, { windows: readPrefs().plan.availability, now: c.now, company: next?.name ?? null, titleOf: (id) => meta(c.cat, id)?.title ?? null, topicOf: (id) => { const p = c.cat.catalog.problems.find((x) => x.id === id); return p ? (c.cat.catalog.modules[p.module]?.techniques[p.technique]?.title ?? null) : null; } });
     } catch {
       status = null;
     }
@@ -441,7 +461,8 @@ function paint(c: Ctx): void {
   const slip = status?.catchUp && !noteDismissed({ kind: "catch_up" as PlanNote["kind"], title: status.catchUp.title }) ? status.catchUp : null;
   const check = status?.checkin && !noteDismissed({ kind: "checkin" as PlanNote["kind"], title: status.checkin.title }) ? status.checkin : null;
   const statusHtml = html`${check ? replanNote({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body }, { link: html`<a class="link" href="${ROUTES.plan}">Open check-in</a>` }) : ""}${slip ? replanNote({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }] }, { link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : ""}`;
-  const trackLine = status?.line || "";
+  // The check-in already says how the week went, so the on-track line waits for another day.
+  const trackLine = check ? "" : status?.line || "";
 
   const reviews = entries.filter((e) => e.kind === "review");
   let backlogNote = "";
@@ -475,7 +496,11 @@ function paint(c: Ctx): void {
     const spent = done.reduce((n, d) => n + (d.elapsedMs ?? 0), 0) / 60000;
     const drills = queue.filter((e) => e.kind === "practice");
     const diagnostic = evs.filter((e) => e.kind === "placement_done").reduce((n, e) => Math.max(n, e.t), 0) || null;
-    const wrap = wrapUp({ clean: cleanCount, total: done.length, minutes: spent }, diagnostic, c.now);
+    const next = c.plan?.days.find((d) => d.date > localDay(c.now) && d.sessions.length);
+    const items = next?.sessions.flatMap((s) => s.items) ?? [];
+    const techs = items.filter((i) => i.kind === "new" && i.technique).map((i) => i.technique as string);
+    const tomorrow = next && next.date === addDays(localDay(c.now), 1) ? { technique: techs.sort((a, b) => techs.filter((x) => x === b).length - techs.filter((x) => x === a).length)[0] ?? null, reviews: items.filter((i) => i.kind === "review").length } : null;
+    const wrap = wrapUp({ clean: cleanCount, total: done.length, minutes: spent }, diagnostic, c.now, tomorrow);
     body = html`<section aria-labelledby="ad-h">
       <div class="greet"><h1 id="ad-h">${hello}</h1>${noteHtml}${statusHtml}<p>${wrap.text}</p>${trackLine ? html`<p>${trackLine}</p>` : ""}${
         wrap.retake ? html`<p><a class="btn btn-ghost" href="${ROUTES.diagnostic}">Retake the diagnostic</a></p>` : ""
@@ -492,13 +517,14 @@ function paint(c: Ctx): void {
     const parts = [nReview ? plural(nReview, "review") + " due" : "", nNew ? plural(nNew, "new problem") : ""].filter(Boolean).join(" and ");
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     const summary = todaySummary({
-      items: work.map((e) => planItem(c, e.problem)).filter((i): i is PlanItem => !!i),
+      // Once today's windows have passed the plan has no items for today; the queue still does.
+      items: work.map((e) => planItem(c, e.problem) ?? queueItem(c, e)).filter((i) => i !== undefined),
       skills: c.skills ?? null,
       daysLeft: c.plan?.interview_date ? (c.plan.summary.days_left ?? null) : null,
       now: c.now,
     });
-    const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now);
-    const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n)].filter(Boolean);
+    const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now, first.problem);
+    const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n, readStreak().rests)].filter(Boolean);
     body = html`<section aria-labelledby="greet">
       <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${para}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${cardsRow(cards)}
@@ -554,14 +580,14 @@ function banners(practised: number, days: number, sample: boolean): void {
   if (!nudge && days >= 3 && !prefs.reminders.on && reminderSupport() !== "unsupported" && reminderSupport() !== "denied") {
     const el = showBanner("remind", {
       icon: "bell",
-      body: html`Want a reminder at 7 pm on days you haven't practised?`,
+      body: html`Want a reminder at 7 pm on days you haven't practiced?`,
       actions: html`<button class="btn btn-secondary btn-sm" type="button" data-remind-on>Turn on</button><button class="btn btn-ghost btn-sm" type="button" data-remind-no>No thanks</button>`,
     });
     el?.querySelector("[data-remind-on]")?.addEventListener("click", async () => {
       const r = await requestReminderPermission();
       if (r === "granted") {
         updatePrefs({ reminders: { on: true, time: "19:00" } });
-        toast("Reminder on: 7 pm on days you haven't practised. Change it in Settings");
+        toast("Reminder on: 7 pm on days you haven't practiced. Change it in Settings");
       } else toast("The browser blocked notifications. You can allow them in its site settings");
       hideBanner("remind");
       dismiss("remind");
@@ -600,7 +626,7 @@ function errorState(err: unknown): void {
     html`<div class="greet"><h1>${greeting(new Date(), cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null)}</h1></div>
     <div class="panel state-note" style="margin-top:var(--space-8)" role="alert">
       <h2>Couldn't load the curriculum</h2>
-      <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practised; those work offline</p>
+      <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practiced; those work offline</p>
       <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
     </div>`,
   );

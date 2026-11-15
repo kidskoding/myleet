@@ -149,6 +149,7 @@ export function mountCompanyPicker(onChange: () => void): void {
   }
 
   caption();
+  value.addEventListener("change", caption);
   trigger.addEventListener("click", () => {
     search.value = "";
     openDialog(dialog);

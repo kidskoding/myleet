@@ -132,7 +132,11 @@ export interface Weak {
 export interface Stats {
   counts: Record<Status, number>;
   mastery: [number, number];
+  /** Practice days in a row, with one rest day a week forgiven. */
   streak: number;
+  /** Rest days inside the streak, newest first. */
+  rest_days: string[];
+  last_practiced: string | null;
   heatmap: Record<string, number>;
   weakest: Weak[];
   median_secs: Partial<Record<Difficulty, number>>;

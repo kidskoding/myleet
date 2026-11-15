@@ -159,6 +159,7 @@ function paintSetup(c: Ctx): void {
   if (sel && pl) {
     const slugs = q ? [q] : readPrefs().plan.companies.slice(0, 3);
     sel.value = JSON.stringify(slugs.flatMap((slug) => c.cat.catalog.playlists.filter((p) => companySlug(p.id) === slug).map((p) => p.id)));
+    sel.dispatchEvent(new Event("change"));
   }
   if (q && pl) {
     const r = document.querySelector<HTMLInputElement>('[data-setup] input[value="company"]');
@@ -685,6 +686,13 @@ document.addEventListener("submit", (e) => {
 });
 
 document.addEventListener("astro:page-load", () => void init());
+// On a new device the account's history and pins arrive after the first paint; redraw the setup with them.
+for (const ev of ["myleet:auth", "myleet:synced"])
+  addEventListener(ev, async () => {
+    if (!root() || !ctx || $("[data-view=setup]")?.hidden || round) return;
+    ctx.events = await readEvents();
+    paintSetup(ctx);
+  });
 document.addEventListener("astro:before-swap", () => {
   clearInterval(tickTimer);
   document.body.classList.remove("mock-focus");

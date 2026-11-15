@@ -109,7 +109,8 @@ export function standing(plan: Plan, events: string, now: Date = new Date(), led
       const sits = sittings(byDay.get(date) ?? []);
       const practised = Math.round(sits.reduce((m, s) => m + Math.max(10, (s.end - s.start) / 60_000), 0));
       const status: DayStatus = practised >= p.minutes * DONE_SHARE ? "done" : practised > 0 ? "partial" : "missed";
-      return { date, status, planned: p.minutes, practised, sessions: p.sessions, kept: Math.min(p.sessions, sits.length) };
+      // Under half the planned time counts as slipped, never as kept, so the two notes agree.
+      return { date, status, planned: p.minutes, practised, sessions: p.sessions, kept: practised >= p.minutes / 2 ? Math.min(p.sessions, sits.length) : 0 };
     });
   let kept = 0;
   let of = 0;

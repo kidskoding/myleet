@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   bestStreak,
+  streakNext,
   dueByDay,
   dueWithin,
   firstWhere,
@@ -140,5 +141,13 @@ describe("insights", () => {
     const out = insights(atts, now);
     expect(out[0]?.text).toBe("Not clean: **1 of 5 attempts** this week, down from 3 of 5 last week");
     expect(insights(atts.slice(0, 3), now)).toEqual([]);
+  });
+});
+
+describe("streakNext", () => {
+  it("names the rest day and the next milestone", () => {
+    expect(streakNext(13, 30, ["2026-11-06"])).toBe("Next milestone: 30 days, 17 to go. Any practice counts, and Friday was your rest day.");
+    expect(streakNext(3, 7, [])).toBe("Next milestone: 7 days, 4 to go. Any practice counts, and one rest day a week won't break it.");
+    expect(streakNext(0, 7, [])).toContain("Practice one problem today to start one.");
   });
 });

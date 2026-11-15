@@ -272,12 +272,12 @@ const ago = (ms: number | null, other: boolean): string => {
   const today = new Date();
   const same = d.toDateString() === today.toDateString();
   const when = same ? "today" : d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-  return `Last practised ${when}${other ? ", on another device" : ""}`;
+  return `Last practiced ${when}${other ? ", on another device" : ""}`;
 };
 
 const side = (id: string, ic: "laptop" | "cloud", title: string, s: SideSummary, other: boolean) =>
   html`<section class="merge-side" aria-labelledby="${id}"><h3 id="${id}">${icon(ic)}${title}</h3>
-    <dl><dt>${s.practised}</dt><dd>problems practised</dd><dt>${s.mastered}</dt><dd>mastered</dd><dt>${s.streak}</dt><dd>day streak</dd></dl>
+    <dl><dt>${s.practised}</dt><dd>problems practiced</dd><dt>${s.mastered}</dt><dd>mastered</dd><dt>${s.streak}</dt><dd>day streak</dd></dl>
     <p class="when">${ago(s.lastMs, other)}</p></section>`;
 
 export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncTransport): Promise<void> {
@@ -304,9 +304,9 @@ export async function openMerge(me: Me, remote: RemoteProgress, transport: SyncT
   const body = (error?: string) =>
     html`<div class="auth-panel">
       <h2 id="mg-h" tabindex="-1">Keep your progress</h2>
-      <p class="auth-sub" id="mg-d">You practised on this device before signing in, and your account already has progress from another device. Merging keeps both</p>
+      <p class="auth-sub" id="mg-d">You practiced on this device before signing in, and your account already has progress from another device. Merging keeps both</p>
       <div class="sides">${side("dev-h", "laptop", "This device", dev, false)}<div class="plus" aria-hidden="true">${icon("plus")}</div>${side("acc-h", "cloud", me.user.email, acc, true)}</div>
-      <p class="result-line">After merging: <strong>${plural(after.practised, "problem")}, ${after.mastered} mastered</strong> Where both have the same problem, the higher rung wins and both histories are kept. The streak counts every day you practised on either</p>
+      <p class="result-line">After merging: <strong>${plural(after.practised, "problem")}, ${after.mastered} mastered</strong> Where both have the same problem, the higher rung wins and both histories are kept. The streak counts every day you practiced on either</p>
       ${both.length
         ? html`<details class="overlap"><summary>See the ${plural(both.length, "problem")} on both</summary>
           <table class="otable"><thead><tr><th scope="col">Problem</th><th scope="col">This device</th><th scope="col">Account</th><th scope="col">Kept</th></tr></thead>

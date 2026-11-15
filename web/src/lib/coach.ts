@@ -59,6 +59,14 @@ export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): st
   const reviews = items.filter((i) => i.kind === "review").length;
   const nNew = items.filter((i) => i.kind !== "review").length;
   if (!theme) return reviews ? `Today is a review day, with ${num(reviews)} older ${reviews === 1 ? "problem" : "problems"} to keep on schedule.` : null;
+  const near = daysLeft !== null && daysLeft > 0 && daysLeft <= 30 ? daysLeft : null;
+  // One problem each from several techniques: no theme to claim, so say what the day holds.
+  if (nTheme === 1 && counts.size > 1) {
+    const techs = [...counts.keys()].map(midSentence);
+    const topics = `${techs.slice(0, -1).join(", ")} and ${techs.at(-1)}`;
+    const lead = reviews ? `Today starts with ${num(reviews)} ${reviews === 1 ? "review" : "reviews"} to keep on schedule, then ${num(nNew)} new problems in ${topics}` : `Today spreads ${num(nNew)} new problems across ${topics}`;
+    return `${lead}${near ? `, with your interview ${days(near)} away` : ""}.`;
+  }
 
   const tech = midSentence(theme);
   const skill = skills?.find((s) => s.technique_title === theme);
@@ -68,7 +76,6 @@ export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): st
     .flatMap((i) => i.chips ?? [])
     .map((c) => /^(.+) leans on /.exec(c.text)?.[1])
     .find(Boolean);
-  const near = daysLeft !== null && daysLeft > 0 && daysLeft <= 30 ? daysLeft : null;
   const out: string[] = [];
 
   out.push(`Today we're ${weak ? "focusing on" : "spending most of our time on"} ${tech}${weak ? ", your weakest spot right now" : ""}.`);
@@ -106,10 +113,10 @@ export interface Card {
  * Up to three cards: an unfinished problem, the most overdue review, and the weakest technique.
  * `title` maps a problem id to its title.
  */
-export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title: (id: string) => string, now: Date): Card[] {
+export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title: (id: string) => string, now: Date, next: string | null = null): Card[] {
   const cards: Card[] = [];
   const history = (skills ?? []).flatMap((s) => s.history);
-  const started = queue.find((e) => e.kind === "new" && e.state.attempts > 0 && e.state.clean_passes === 0);
+  const started = queue.find((e) => e.kind === "new" && e.state.attempts > 0 && e.state.clean_passes === 0 && e.problem !== next);
   if (started) {
     const last = [...history].reverse().find((h) => h.problem === started.problem);
     const got = last && attemptPhrase(last);
@@ -121,32 +128,35 @@ export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title
       problem: started.problem,
     });
   }
-  const due = queue.filter((e) => e.kind === "review" && e.overdue_days > 0).sort((a, b) => b.overdue_days - a.overdue_days)[0];
+  // The hero card already shows `next`, so this card picks the next most overdue review.
+  const due = queue.filter((e) => e.kind === "review" && e.overdue_days > 0 && e.problem !== next).sort((a, b) => b.overdue_days - a.overdue_days)[0];
   if (due) {
+    const n = due.overdue_days;
     cards.push({
       kind: "due",
-      label: "Due before it slips",
+      label: n <= 2 ? "Due before it slips" : "Waiting the longest",
       title: title(due.problem),
-      body: `It came due ${due.overdue_days === 1 ? "yesterday" : `${due.overdue_days} days ago`}, so a clean pass today keeps it on schedule`,
+      body: n <= 2 ? `It came due ${n === 1 ? "yesterday" : "2 days ago"}, so a clean pass today keeps it on schedule` : `It's been waiting ${n} days, and one clean pass puts it back on schedule`,
       problem: due.problem,
     });
   }
-  const weak = (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0 && (s.level === "shaky" || s.level === "building")).sort((a, b) => b.need - a.need)[0];
-  if (weak && (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0).length >= 2) {
-    const tech = midSentence(weak.technique_title);
+  // A flagged weak spot has its own panel beside Today, so this card only speaks when there is none.
+  const tried = (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0);
+  const weak = tried.filter((s) => s.level === "shaky" || s.level === "building").sort((a, b) => b.need - a.need)[0];
+  if (weak && tried.length >= 2 && !tried.some((s) => s.weak_spot)) {
     const outcome = LEVEL_OUTCOME[weak.level]?.("it");
     cards.push({
       kind: "weak",
-      label: "Your weak spot",
+      label: "Still building",
       title: weak.technique_title,
-      body: `${cap(tech)} is still ${weak.level}${outcome ? `. A few clean solves and ${outcome}` : ""}.`,
+      body: `It's still ${weak.level}${outcome ? `. A few clean solves and ${outcome}` : ""}.`,
       problem: null,
     });
   }
   return cards;
 }
 
-/** "A week ago you couldn't solve X. It's due today, so try it clean." Null when nothing fits. */
+/** "A week ago you couldn't solve X. It's back in today's reviews, so try it clean." Null when nothing fits. */
 export function onThisDay(queue: TodayEntry[], skills: Skill[] | null, now: Date): string | null {
   const due = new Set(queue.filter((e) => e.kind === "review").map((e) => e.problem));
   const back = new Set([addDays(localDay(now), -7), addDays(localDay(now), -14), addDays(localDay(now), -30)]);
@@ -154,7 +164,7 @@ export function onThisDay(queue: TodayEntry[], skills: Skill[] | null, now: Date
   if (!h) return null;
   const when = cap(dayAgo(h.date, now).replace("14 days ago", "two weeks ago").replace("30 days ago", "a month ago"));
   const what = h.mark === "missed" ? `you couldn't solve ${h.title}` : h.mark === "hint" ? `you needed a hint on ${h.title}` : `${h.title} took you past the time target`;
-  return `${when} ${what}. It's due today, so try it clean.`;
+  return `${when} ${what}. It's back in today's reviews, so try it clean.`;
 }
 
 export const CLEAN_MILESTONES = [10, 25, 50, 100, 250, 500, 1000];
@@ -169,19 +179,34 @@ export function milestone(states: Record<string, State>, seen: number): number |
 const ORD = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th"}`;
 export const milestoneLine = (n: number) => `That's your ${ORD(n)} clean pass`;
 
-/** "3 days in a row" from 2 days on; silent otherwise, never a warning. */
-export const momentum = (streak: number): string | null => (streak >= 2 ? `${streak} days in a row` : null);
+/** "Friday" for a `YYYY-MM-DD`. */
+export const weekdayOf = (day: string): string => new Date(`${day}T12:00:00`).toLocaleDateString("en-US", { weekday: "long" });
+
+/** "3 days in a row", or "12 days, with your rest day on Sunday", from 2 days on; silent otherwise, never a warning. */
+export function momentum(streak: number, rests: string[] = []): string | null {
+  if (streak < 2) return null;
+  if (!rests.length) return `${streak} days in a row`;
+  return rests.length === 1 ? `${streak} days, with your rest day on ${weekdayOf(rests[0] ?? "")}` : `${streak} days, with a rest day each week`;
+}
 
 /**
  * The wrap-up when nothing is left today. Offers a retake when the last diagnostic is over
  * 30 days old (`diagnosticMs` null means it was never taken).
  */
-export function wrapUp(done: { clean: number; total: number; minutes: number }, diagnosticMs: number | null, now: Date): { text: string; retake: boolean } {
+export function wrapUp(
+  done: { clean: number; total: number; minutes: number },
+  diagnosticMs: number | null,
+  now: Date,
+  tomorrow: { technique: string | null; reviews: number } | null = null,
+): { text: string; retake: boolean } {
   const parts: string[] = [];
   if (done.total) {
     const clean = done.clean === done.total ? (done.total === 1 ? "cleanly" : "all cleanly") : done.clean ? `${num(done.clean)} of them cleanly` : "";
-    parts.push(`You worked through ${num(done.total)} ${done.total === 1 ? "problem" : "problems"} today${clean ? `, ${clean}` : ""}${done.minutes >= 1 ? `${clean ? "," : ""} in about ${Math.round(done.minutes)} minutes` : ""}.`);
+    parts.push(`You worked through ${num(done.total)} ${done.total === 1 ? "problem" : "problems"} today${clean ? `, ${clean}` : ""}${done.minutes >= 1 ? `${clean ? "," : ""} in about ${Math.round(done.minutes)} minutes` : ""}${done.clean === done.total ? "!" : "."}`);
     parts.push("Nothing else is due until tomorrow, so the rest of the day is yours.");
+    const t = tomorrow;
+    if (t?.technique) parts.push(`Tomorrow we'll pick up ${midSentence(t.technique)}${t.reviews ? `, after ${t.reviews === 1 ? "a quick review" : `${num(t.reviews)} quick reviews`}` : ""}.`);
+    else if (t?.reviews) parts.push(`Tomorrow starts with ${t.reviews === 1 ? "one review" : `${num(t.reviews)} reviews`}.`);
   } else {
     parts.push("Nothing is due today, so your reviews are on schedule and the rest of the day is yours.");
   }
@@ -199,5 +224,12 @@ export function reviewWhy(e: Pick<TodayEntry, "problem" | "overdue_days" | "stat
   const lead = last && did
     ? `${cap(dayAgo(last.date, now))} you ${did}, so ${last.mark === "clean" ? "another" : "a"} clean pass now`
     : `${e.overdue_days <= 0 ? "It's due today" : e.overdue_days === 1 ? "It came due yesterday" : `It came due ${e.overdue_days} days ago`}, and a clean pass`;
-  return `${lead} puts the next review ${days(next)} out`;
+  return `${lead} puts the next review ${whenFrom(now, next)}`;
+}
+
+/** "tomorrow", "on Wednesday" within a week, "in 2 weeks", "in 30 days". */
+export function whenFrom(now: Date, n: number): string {
+  if (n === 1) return "tomorrow";
+  if (n < 7) return `on ${weekdayOf(addDays(localDay(now), n))}`;
+  return n % 7 === 0 ? `in ${n === 7 ? "a week" : `${n / 7} weeks`}` : `in ${n} days`;
 }

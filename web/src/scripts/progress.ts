@@ -22,6 +22,7 @@ import {
   nextMilestone,
   orderMilestones,
   skillLevel,
+  streakNext,
   stripDays,
   topWeakSpot,
   weeklyTable,
@@ -98,11 +99,11 @@ function streakPanel(c: Ctx, best: number): SafeHtml {
     ${n > 0
       ? html`<p class="big"><span class="num">${n}</span><span>${n === 1 ? "day" : "days"}, ${n >= best ? "your best" : `best ${best}`}</span></p>`
       : html`<p class="big"><span class="num">0</span><span>days${best ? `, best ${best}` : ""}</span></p>`}
-    <div class="strip" role="img" aria-label="Last 14 days: practised on ${on} of 14">${strip.map((d) => html`<i class="${d.on ? "on" : ""}${d.day === c.today ? " today" : ""}" title="${shortDay(d.day)}${d.on ? ", practised" : ""}"></i>`)}</div>
+    <div class="strip" role="img" aria-label="Last 14 days: practiced on ${on} of 14">${strip.map((d) => html`<i class="${d.on ? "on" : ""}${d.day === c.today ? " today" : ""}" title="${shortDay(d.day)}${d.on ? ", practiced" : ""}"></i>`)}</div>
     <div class="strip-l"><span>${shortDay(strip[0]?.day ?? c.today)}</span><span>Today</span></div>
-    <p class="next">${n === 0 ? "No streak yet. Solve one problem today to start one" : next ? `Next milestone: ${next} days, ${next - n} to go. Any one solve counts` : "Any one solve counts"}
+    <p class="next">${streakNext(n, next, c.stats.rest_days ?? [])}
       ${r.on
-        ? html`<span>Reminder at ${time} on days you haven't practised. <button class="link" type="button" data-remind-open>Change</button></span>`
+        ? html`<span>Reminder at ${time} on days you haven't practiced. <button class="link" type="button" data-remind-open>Change</button></span>`
         : html`<button class="link" type="button" data-remind-open>Set a reminder</button>`}</p>
   </section>`;
 }
@@ -134,7 +135,7 @@ function remindPanel(): SafeHtml {
   if (remindState === "unsupported")
     return html`<section class="panel remind" role="status">${icon("bell")}<p><strong>This browser can't show notifications here</strong> On iPhone and iPad, add myleet to your Home Screen (Share, then Add to Home Screen) and open it from there</p><button class="btn btn-ghost btn-sm" type="button" data-remind-close>Close</button></section>`;
   return html`<section class="panel remind" aria-labelledby="rm">${icon("bell")}
-    <p id="rm"><strong>Want a nudge on days you haven't practised?</strong> One browser notification at the time you pick. Nothing on days you've already solved</p>
+    <p id="rm"><strong>Want a nudge on days you haven't practiced?</strong> One browser notification at the time you pick. Nothing on days you've already solved</p>
     <label class="visually-hidden" for="rt">Reminder time</label><input class="input" id="rt" type="time" value="${time}" />
     <button class="btn btn-ghost btn-sm" type="button" data-remind-close>Not now</button>
     <button class="btn btn-primary btn-sm" type="button" data-remind-on>Turn on reminders</button>
@@ -157,7 +158,7 @@ function heatSection(c: Ctx): SafeHtml {
       <div class="heatfoot">
         <details class="alt"><summary>Show as a table</summary>
           ${rows.length
-            ? html`<table class="otable wk-table"><thead><tr><th scope="col">Week of</th><th scope="col">Solves</th><th scope="col">Days practised</th></tr></thead><tbody>${rows.map((w) => html`<tr><td>${shortDay(w.from)}</td><td>${w.solves}</td><td>${w.days}</td></tr>`)}</tbody></table>`
+            ? html`<table class="otable wk-table"><thead><tr><th scope="col">Week of</th><th scope="col">Solves</th><th scope="col">Days practiced</th></tr></thead><tbody>${rows.map((w) => html`<tr><td>${shortDay(w.from)}</td><td>${w.solves}</td><td>${w.days}</td></tr>`)}</tbody></table>`
             : html`<p>No solves in the last ${WEEKS} weeks</p>`}
         </details>
         <span class="scale" aria-hidden="true">Less <i style="background:var(--heat-0)"></i><i style="background:var(--heat-1)"></i><i style="background:var(--heat-2)"></i><i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i> More</span>
@@ -435,11 +436,13 @@ function momentBand(c: Ctx): SafeHtml {
   } catch {
     // Shown again next visit; harmless.
   }
-  const since = addDays(c.today, -(n - 1));
+  const rests = c.stats.rest_days ?? [];
+  const since = addDays(c.today, -(n - 1 + rests.length));
   const solves = Object.entries(c.stats.heatmap).reduce((s, [d, v]) => (d >= since ? s + v : s), 0);
+  const days = rests.length ? `You've practiced ${n} of the ${n + rests.length} days since ${shortDay(since)}` : `You've practiced every day since ${shortDay(since)}`;
   return html`<section class="moment on-wall" aria-live="polite">
     <span class="num">${n}</span>
-    <div><h2>${n} days in a row</h2><p>You've practiced every day since ${shortDay(since)}: ${plural(solves, "solve")} in that time</p></div>
+    <div><h2>${rests.length ? `A ${n}-day streak` : `${n} days in a row`}</h2><p>${days}: ${plural(solves, "solve")} in that time</p></div>
     <button class="btn btn-secondary" type="button" data-share>Share progress card</button>
   </section>`;
 }
@@ -482,8 +485,8 @@ function renderAll(c: Ctx): void {
       root,
       html`<h1>Progress</h1><p class="lede">Your practice history and review schedule will appear here</p>
       <section class="panel empty"><h2>Start tracking your progress</h2>
-        <p>As you solve problems, this page tracks your streak and mastery, shows your activity on a heatmap, and lists upcoming reviews. Start with a warm-up of about 40 minutes to find the right topics for you</p>
-        <a class="btn btn-primary" href="${ROUTES.onboarding}?step=warm-up">Take the warm-up</a></section>`,
+        <p>As you solve problems, this page tracks your streak and mastery, shows your activity on a heatmap, and lists upcoming reviews. Start with the diagnostic. In about 15 minutes it finds what you already know and where to begin.</p>
+        <a class="btn btn-primary" href="${ROUTES.diagnostic}">Take the diagnostic</a></section>`,
     );
     return;
   }
