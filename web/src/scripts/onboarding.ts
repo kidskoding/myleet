@@ -1,66 +1,45 @@
-// Onboarding (/onboarding?step=...): goal, what you are working toward, then companies, dates
-// and topics for the aims picked, LeetCode, time, hours and the plan.
+// Onboarding (/onboarding?step=...): role, your goals (the shared goals editor, filled here the
+// first time), LeetCode, hours and the plan.
 // Each step is a URL so Back works. Answers save as you go (lib/prefs). The placement
 // diagnostic lives at /diagnostic.
 import { navigate } from "astro:transitions/client";
-import { companySlug, listedCompany, loadCatalog, type LoadedCatalog } from "../lib/catalog";
-import { daysUntil, planWeeks, shortDate, TIME_OPTIONS, timeOption } from "../lib/plan";
-import { focusModules } from "../lib/goals";
-import { planSettings, readPrefs, updatePrefs, type Aim, type Goal } from "../lib/prefs";
+import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
+import { daysUntil, planWeeks, shortDate, TIME_OPTIONS } from "../lib/plan";
+import { aimsOf } from "../lib/goals";
+import { planSettings, readPrefs, updatePrefs, type Goal } from "../lib/prefs";
 import { DEFAULT_WINDOWS } from "../lib/schedule";
 import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
 import { readEvents } from "../lib/progress";
 import { ROUTES } from "../lib/routes";
-import { addDays, localDay } from "../lib/streak";
+import { localDay } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
-import type { Playlist, PlaylistGroup } from "../lib/types";
-import { sentenceCase } from "../lib/display";
 import { kbd, plural, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
-import { mountInterviews } from "../lib/ui/interviews";
+import { goalsOf, mountGoalsEditor, planPatch } from "../lib/ui/goals-editor";
 import { mountLeetcodePanel } from "../lib/ui/leetcode-connect";
 
-const STEPS = ["goal", "aims", "companies", "date", "topics", "leetcode", "time", "when", "plan"] as const;
+const STEPS = ["goal", "goals", "leetcode", "when", "plan"] as const;
 type Step = (typeof STEPS)[number];
-/** Steps that only follow when their aim is picked. */
-const AIM_STEP: Partial<Record<Step, Aim>> = { companies: "companies", date: "interview", topics: "topics" };
-
-const AIMS: { id: Aim; label: string; detail: string }[] = [
-  { id: "interview", label: "An interview date", detail: "The plan counts down to it and leans on that company's problems" },
-  { id: "companies", label: "Target companies", detail: "No date yet. The plan works through their practice sets" },
-  { id: "topics", label: "Topics to focus on", detail: "Extra time on the patterns you want to get better at" },
-  { id: "sharp", label: "Staying sharp", detail: "A steady routine of new patterns and reviews" },
-];
-
-/** The steps for the aims picked so far; with none picked yet, every step. */
-function steps(): Step[] {
-  const aims = readPrefs().plan.aims;
-  return STEPS.filter((s) => {
-    const aim = AIM_STEP[s];
-    return !aims.length || !aim || aims.includes(aim);
-  });
-}
+/** Steps from before the goals editor, folded into it. */
+const OLD_STEPS = ["aims", "companies", "date", "topics", "time"];
+const steps = (): Step[] => [...STEPS];
 
 const GOALS: { id: Goal; label: string; detail: string }[] = [
   { id: "internship", label: "Internship", detail: "Mostly easy and medium problems, arrays to trees first" },
   { id: "coop", label: "Co-op", detail: "The same core topics as internships, often with more interview rounds" },
   { id: "newgrad", label: "New grad", detail: "Medium and some hard problems, with more graphs and dynamic programming" },
 ];
-const GROUPS: PlaylistGroup[] = ["Big Tech", "AI & Startups", "Trading Firms", "Consumer and Business Tech", "Fortune 500"];
-const GROUP_SHOWN = 10;
-
 let cat: LoadedCatalog | undefined;
 let trainer: TrainerApi | undefined;
-const expanded = new Set<PlaylistGroup>();
-let query = "";
 
 const root = () => document.querySelector<HTMLElement>("[data-onboarding]");
 
 function currentStep(): Step {
-  const s = new URLSearchParams(location.search).get("step");
-  return (STEPS as readonly string[]).includes(s ?? "") ? (s as Step) : "goal";
+  const s = new URLSearchParams(location.search).get("step") ?? "";
+  if (OLD_STEPS.includes(s)) return "goals";
+  return (STEPS as readonly string[]).includes(s) ? (s as Step) : "goal";
 }
 
 function go(step: Step, replace = false): void {
@@ -93,99 +72,20 @@ function goalStep(): SafeHtml {
   const g = readPrefs().plan.goal;
   return html`${head("goal")}<section class="q" aria-labelledby="q1">
     <h1 id="q1">What are you preparing for?</h1>
-    <p class="sub">Your goal helps set time targets and the order of topics. You can change it in Settings</p>
+    <p class="sub">This sets your time targets and the order of topics</p>
     ${radios("goal", "q1", GOALS, g)}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("3")} to pick, ${kbd("enter")} to continue</span></div>
   </section>`;
 }
 
-function aimsStep(): SafeHtml {
-  const aims = readPrefs().plan.aims;
-  return html`${head("aims")}<section class="q" aria-labelledby="q1b">
-    <h1 id="q1b">What are you working toward?</h1>
-    <p class="sub">Pick as many as fit. Your plan blends them, and you can change them in Settings</p>
-    <fieldset class="options" aria-labelledby="q1b">${AIMS.map(
-      (o, i) =>
-        html`<label class="opt"><input type="checkbox" name="aim" value="${o.id}" ${aims.includes(o.id) ? "checked" : ""} /><strong>${o.label}</strong><span>${o.detail}</span>${kbd(String(i + 1))}</label>`,
-    )}</fieldset>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${aims.length ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("4")} to pick, ${kbd("enter")} to continue</span></div>
-  </section>`;
-}
-
-function topicsStep(): SafeHtml {
-  const picked = readPrefs().plan.focusTopics;
-  const mods = cat ? focusModules(cat.catalog) : [];
-  return html`${head("topics")}<section class="q" aria-labelledby="q3t">
-    <h1 id="q3t">Which topics do you want to focus on?</h1>
-    <p class="sub">Your plan gives them extra time and still covers the rest</p>
-    <div class="row topic-row" role="group" aria-labelledby="q3t">${
-      mods.length
-        ? mods.map((m) => html`<button class="chip" type="button" data-topic="${m.id}" aria-pressed="${picked.includes(m.id) ? "true" : "false"}">${sentenceCase(m.title)}</button>`)
-        : [1, 2, 3, 4].map(() => html`<span class="skel" style="width:110px;height:34px"></span>`)
-    }</div>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>${picked.length ? `Continue with ${picked.length}` : "Continue"}</button></div>
-  </section>`;
-}
-
-function companyChip(p: Playlist, picked: boolean): SafeHtml {
-  return html`<button class="chip" type="button" data-company="${companySlug(p.id)}" aria-pressed="${picked ? "true" : "false"}">${p.title}${picked ? icon("x") : ""}</button>`;
-}
-
-function companiesBody(): SafeHtml {
-  const c = cat?.catalog;
-  if (!c) return html`<div class="picked">${[1, 2, 3].map(() => html`<span class="skel" style="width:90px;height:34px"></span>`)}</div>`;
-  const picked = readPrefs().plan.companies;
-  const bySlug = new Map(c.playlists.map((p) => [companySlug(p.id), p]));
-  const chosen = picked.map((s) => bySlug.get(s)).filter((p): p is Playlist => !!p);
-  const q = query.trim().toLowerCase();
-  let groups: SafeHtml;
-  if (q) {
-    const hits = c.playlists.filter(listedCompany).filter((p) => p.title.toLowerCase().includes(q) && !picked.includes(companySlug(p.id))).slice(0, 24);
-    groups = hits.length
-      ? html`<div class="groups"><div><h2>Matches</h2><div class="row" data-results>${hits.map((p) => companyChip(p, false))}</div></div></div>`
-      : html`<p class="empty-note" role="status">No company called "${query.trim()}". Try the group lists below, or skip</p>`;
-  } else {
-    groups = html`<div class="groups">${GROUPS.map((g) => {
-      const all = c.playlists.filter(listedCompany).filter((p) => p.group === g && !picked.includes(companySlug(p.id)));
-      if (!all.length) return "";
-      const shown = expanded.has(g) ? all : all.slice(0, GROUP_SHOWN);
-      return html`<div><h2>${g === "AI & Startups" ? "AI labs and high growth" : g}</h2><div class="row">${shown.map((p) => companyChip(p, false))}${
-        all.length > shown.length ? html`<button class="chip more" type="button" data-more="${g}">${all.length - shown.length} more</button>` : ""
-      }</div></div>`;
-    })}</div>`;
-  }
-  return html`<div class="picked" aria-label="Selected companies">${chosen.map((p) => companyChip(p, true))}</div>${groups}`;
-}
-
-function companiesStep(): SafeHtml {
-  const n = readPrefs().plan.companies.length;
-  return html`${head("companies")}<section class="q" aria-labelledby="q2">
-    <h1 id="q2">Which companies are you preparing for?</h1>
-    <p class="sub">This is optional. Your plan will include their practice sets after you have started the core topics. Each company page shows your progress</p>
-    <div class="search">${icon("search")}<input type="search" placeholder="Search ${cat?.catalog.playlists.filter(listedCompany).length ?? ""} companies" aria-label="Search companies" value="${query}" data-company-search autocomplete="off" /></div>
-    <div data-company-body>${companiesBody()}</div>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>${n ? `Continue with ${n}` : "Continue"}</button>${n ? "" : html`<button class="btn btn-ghost" type="button" data-continue>No company yet</button>`}</div>
-  </section>`;
-}
-
-function dateStep(error?: string): SafeHtml {
-  const d = readPrefs().plan.interviewDate;
-  const today = localDay();
-  const left = d ? daysUntil(d, today) : null;
-  return html`${head("date")}<section class="q" aria-labelledby="q3">
-    <h1 id="q3">When are your interviews?</h1>
-    <p class="sub">Add each one you have lined up, with the company if you know it. The plan paces toward the nearest and leans on that company's problems before it. No date yet is fine too: the plan then covers the next four weeks.</p>
-    <div class="date-row">
-      <div class="field" data-iv-host aria-describedby="iv-err"></div>
-      <div class="quick" role="group" aria-label="Quick picks">${[
-        [14, "In 2 weeks"],
-        [30, "In a month"],
-        [90, "In 3 months"],
-      ].map(([n, l]) => html`<button class="chip" type="button" data-quick="${n}" aria-pressed="${d === addDays(today, n as number) ? "true" : "false"}">${l}</button>`)}</div>
-    </div>
-    <p class="err field" id="iv-err" role="alert" ${error ? "" : "hidden"} style="margin-top:var(--space-2)">${error ?? ""}</p>
-    ${d && left !== null && left > 0 ? html`<p class="date-note">${shortDate(d)} is ${plural(left, "day")} away.${left < 7 ? " That's close: the plan becomes a short cram plan of reviews and the most common patterns" : " You can change it any time from Today"}</p>` : ""}
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Continue</button><button class="btn btn-ghost" type="button" data-no-date>No date yet</button></div>
+function goalsStep(error?: string): SafeHtml {
+  const any = aimsOf(readPrefs().plan).length > 0;
+  return html`${head("goals")}<section class="q ob-goals" aria-labelledby="q2">
+    <h1 id="q2">What are you working toward?</h1>
+    <p class="sub">Turn on as many as fit. Your plan blends them, and you can edit your goals any time</p>
+    <div class="panel ob-goals-panel" data-goals-host></div>
+    <p class="err field" id="ge-err" role="alert" ${error ? "" : "hidden"} style="margin-top:var(--space-3)">${error ?? ""}</p>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${any ? "" : "disabled"}>Continue</button><span class="hint" data-goals-hint>${any ? html`${kbd("1")}–${kbd("4")} to turn goals on or off` : "Turn on at least one goal"}</span></div>
   </section>`;
 }
 
@@ -195,16 +95,6 @@ function leetcodeStep(): SafeHtml {
     <p class="sub">This is optional. If you already practice on LeetCode, your plan can skip what you know and start with the topics you've done least</p>
     <div data-lc-host></div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Continue</button></div>
-  </section>`;
-}
-
-function timeStep(): SafeHtml {
-  const m = readPrefs().plan.dailyMinutes;
-  return html`${head("time")}<section class="q" aria-labelledby="q4">
-    <h1 id="q4">How much time do you have on most days?</h1>
-    <p class="sub">Your plan schedules reviews first, then new problems. You can reduce the time for a single day on Today</p>
-    ${radios("time", "q4", TIME_OPTIONS.map((o) => ({ id: String(o.minutes), label: o.label, detail: o.detail })), m === null ? null : String(m))}
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${m ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("4")} to pick, ${kbd("esc")} to go back</span></div>
   </section>`;
 }
 
@@ -220,29 +110,6 @@ function whenStep(): SafeHtml {
     <div data-when-editor></div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Build my plan ${kbd("enter")}</button><span class="hint">You can add days off in Settings</span></div>
   </section>`;
-}
-
-function mountDateEditor(): void {
-  const host = root()?.querySelector<HTMLElement>("[data-iv-host]");
-  if (host) mountInterviews(host, cat?.catalog.playlists ?? [], { id: "ob-iv", get: () => readPrefs().plan.interviews, set: (interviews) => (updatePrefs({ plan: { interviews } }), refreshDateNote()) });
-}
-
-function renderDate(error?: string): void {
-  render(root(), dateStep(error));
-  mountDateEditor();
-}
-
-/** The quick picks and the "N days away" line follow the editor without re-rendering it. */
-function refreshDateNote(): void {
-  const fresh = document.createElement("div");
-  render(fresh, dateStep());
-  for (const sel of [".quick", ".date-note"]) {
-    const cur = root()?.querySelector(sel);
-    const next = fresh.querySelector(sel);
-    if (cur && next) cur.replaceWith(next);
-    else if (next) root()?.querySelector(".date-row")?.after(next);
-    else cur?.remove();
-  }
 }
 
 function planStep(): SafeHtml {
@@ -281,86 +148,62 @@ async function paint(): Promise<void> {
   if (!el) return;
   const step = currentStep();
   el.classList.toggle("wide", step === "plan" || step === "when");
-  const body =
-    step === "goal"
-      ? goalStep()
-      : step === "aims"
-        ? aimsStep()
-      : step === "topics"
-        ? topicsStep()
-      : step === "companies"
-        ? companiesStep()
-        : step === "date"
-          ? dateStep()
-          : step === "leetcode"
-            ? leetcodeStep()
-          : step === "time"
-            ? timeStep()
-            : step === "when"
-              ? whenStep()
-              : planStep();
+  const body = step === "goal" ? goalStep() : step === "goals" ? goalsStep() : step === "leetcode" ? leetcodeStep() : step === "when" ? whenStep() : planStep();
   whenEditor?.destroy();
   whenEditor = null;
   render(el, body);
-  mountDateEditor();
+  mountGoals();
   const lc = el.querySelector<HTMLElement>("[data-lc-host]");
-  if (lc) mountLeetcodePanel(lc, { onSkip: () => go("time") });
+  if (lc) mountLeetcodePanel(lc, { onSkip: () => go("when") });
   const host = el.querySelector<HTMLElement>("[data-when-editor]");
   if (host) whenEditor = mountAvailability(host, { sections: ["presets", "paint", "session"], headings: false, id: "ob-av" });
   document.title = "Set up your plan · myleet";
-  const focus = el.querySelector<HTMLElement>("input:checked, [data-company-search], [data-iv-date]") ?? el.querySelector<HTMLElement>("h1");
+  const focus = el.querySelector<HTMLElement>(".options input:checked, [data-ge-aim]") ?? el.querySelector<HTMLElement>("h1");
   if (focus?.tagName === "H1") focus.setAttribute("tabindex", "-1");
   focus?.focus({ preventScroll: true });
 }
 
-function refreshCompanies(): void {
-  const body = root()?.querySelector("[data-company-body]");
-  if (body) render(body, companiesBody());
-  const n = readPrefs().plan.companies.length;
-  const next = root()?.querySelector(".next");
-  if (next)
-    render(
-      next,
-      html`<button class="btn btn-primary btn-lg" type="button" data-continue>${n ? `Continue with ${n}` : "Continue"}</button>${n ? "" : html`<button class="btn btn-ghost" type="button" data-continue>No company yet</button>`}`,
-    );
-}
-
-function toggleCompany(slug: string): void {
-  const cur = readPrefs().plan.companies;
-  updatePrefs({ plan: { companies: cur.includes(slug) ? cur.filter((s) => s !== slug) : [...cur, slug] } });
-  refreshCompanies();
+/** The goals step: the same editor as Settings and Plan, saving as you go. */
+function mountGoals(): void {
+  const host = root()?.querySelector<HTMLElement>("[data-goals-host]");
+  if (!host || !cat) return;
+  // The editor starts from an hour a day, the planner's default.
+  if (readPrefs().plan.dailyMinutes === null) updatePrefs({ plan: { dailyMinutes: 60 } }, { silent: true });
+  mountGoalsEditor(host, {
+    id: "ob-goals",
+    catalog: cat.catalog,
+    get: () => goalsOf(readPrefs().plan),
+    set: (g) => {
+      updatePrefs({ plan: planPatch(g) });
+      const any = aimsOf(readPrefs().plan).length > 0;
+      const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
+      if (btn) btn.disabled = !any;
+      const hint = root()?.querySelector<HTMLElement>("[data-goals-hint]");
+      if (hint) render(hint, any ? html`${kbd("1")}–${kbd("4")} to turn goals on or off` : html`Turn on at least one goal`);
+    },
+    availability: () => go("when"),
+  });
 }
 
 function advance(): void {
   const step = currentStep();
-  if (step === "date" && readPrefs().plan.interviews.some((i) => i.date <= localDay())) {
-    renderDate("Each interview needs a date after today");
+  if (step === "goals" && readPrefs().plan.interviews.some((i) => i.date <= localDay())) {
+    render(root(), goalsStep("Each interview needs a date after today"));
+    mountGoals();
     root()?.querySelector<HTMLElement>("[data-iv-date]")?.focus();
     return;
-  }
-  if (step === "aims") {
-    // A goal left unpicked is dropped, so the plan follows what was just answered.
-    const aims = readPrefs().plan.aims;
-    updatePrefs({
-      plan: {
-        ...(aims.includes("companies") ? {} : { companies: [] }),
-        ...(aims.includes("interview") ? {} : { interviews: [] }),
-        ...(aims.includes("topics") ? {} : { focusTopics: [] }),
-      },
-    });
   }
   const all = steps();
   const next = all[all.indexOf(step) + 1];
   if (next) go(next);
 }
 
+/** New problems a day for the daily time picked: the nearest of the usual budgets. */
+const newPerDayFor = (m: number) => TIME_OPTIONS.reduce((a, b) => (Math.abs(b.minutes - m) < Math.abs(a.minutes - m) ? b : a)).newPerDay;
+
 function onClick(e: MouseEvent): void {
   if (!root()) return;
   const t = e.target as Element;
-  const company = t.closest<HTMLElement>("[data-company]");
-  const quick = t.closest<HTMLElement>("[data-quick]");
-  const more = t.closest<HTMLElement>("[data-more]");
-  const topic = t.closest<HTMLElement>("[data-topic]");
   if (t.closest("[data-continue]")) advance();
   if (t.closest("[data-add-cal]") && trainer) {
     const tr = trainer;
@@ -369,89 +212,30 @@ function onClick(e: MouseEvent): void {
       const next = plan.days.find((d) => d.sessions.length);
       return next ? tr.planIcs({ ...plan, days: [{ ...next, sessions: next.sessions.slice(0, 1) }] }, { site: location.origin, alarm_minutes: readPrefs().plan.reminderMinutes }) : null;
     });
-  }
-  else if (t.closest("[data-back]")) history.back();
+  } else if (t.closest("[data-back]")) history.back();
   else if (t.closest("[data-skip]")) {
     updatePrefs({ plan: { onboarded: true } });
     void navigate(ROUTES.today);
-  } else if (company?.dataset.company) toggleCompany(company.dataset.company);
-  else if (topic?.dataset.topic) {
-    const id = topic.dataset.topic;
-    const cur = readPrefs().plan.focusTopics;
-    const on = !cur.includes(id);
-    updatePrefs({ plan: { focusTopics: on ? [...cur, id] : cur.filter((x) => x !== id) } });
-    topic.setAttribute("aria-pressed", String(on));
-    const n = readPrefs().plan.focusTopics.length;
-    const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
-    if (btn) btn.textContent = n ? `Continue with ${n}` : "Continue";
-  }
-  else if (more) {
-    expanded.add(more.dataset.more as PlaylistGroup);
-    refreshCompanies();
-  } else if (quick) {
-    updatePrefs({ plan: { interviewDate: addDays(localDay(), Number(quick.dataset.quick)) } });
-    renderDate();
-  } else if (t.closest("[data-no-date]")) {
-    updatePrefs({ plan: { interviewDate: null } });
-    const all = steps();
-    go(all[all.indexOf("date") + 1] ?? "leetcode");
   } else if (t.closest("[data-change]")) go("goal");
   else if (t.closest("[data-finish-plan]")) {
-    const opt = timeOption(readPrefs().plan.dailyMinutes);
-    updatePrefs({ newPerDay: opt.newPerDay, plan: { dailyMinutes: opt.minutes, startedAt: localDay(), onboarded: true } });
+    const minutes = readPrefs().plan.dailyMinutes ?? 60;
+    updatePrefs({ newPerDay: newPerDayFor(minutes), plan: { dailyMinutes: minutes, startedAt: localDay(), onboarded: true } });
     void navigate(ROUTES.today);
   }
 }
 
 function onChange(e: Event): void {
   const input = e.target as HTMLInputElement;
-  if (input.name === "goal") updatePrefs({ plan: { goal: input.value as Goal } });
-  else if (input.name === "aim") {
-    const picked = [...(root()?.querySelectorAll<HTMLInputElement>('input[name="aim"]:checked') ?? [])].map((x) => x.value as Aim);
-    updatePrefs({ plan: { aims: AIMS.map((a) => a.id).filter((a) => picked.includes(a)) } });
-    const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
-    if (btn) btn.disabled = picked.length === 0;
-    // The step count follows the aims picked.
-    const fresh = document.createElement("div");
-    render(fresh, head("aims"));
-    for (const sel of [".steps", ".track"]) root()?.querySelector(sel)?.replaceWith(fresh.querySelector(sel) ?? "");
-    return;
-  }
-  else if (input.name === "time") updatePrefs({ plan: { dailyMinutes: Number(input.value) }, newPerDay: timeOption(Number(input.value)).newPerDay });
-  else return;
+  if (input.name !== "goal") return;
+  updatePrefs({ plan: { goal: input.value as Goal } });
   const btn = root()?.querySelector<HTMLButtonElement>("[data-continue]");
   if (btn) btn.disabled = false;
-}
-
-function onInput(e: Event): void {
-  const input = e.target as HTMLInputElement;
-  if (!input.matches("[data-company-search]")) return;
-  query = input.value;
-  const body = root()?.querySelector("[data-company-body]");
-  if (body) render(body, companiesBody());
 }
 
 function onKey(e: KeyboardEvent): void {
   if (!root() || e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || document.querySelector("dialog[open]")) return;
   const a = document.activeElement as HTMLElement | null;
   const step = currentStep();
-  if (a?.matches("[data-company-search]")) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const first = root()?.querySelector<HTMLElement>("[data-results] [data-company]");
-      if (first?.dataset.company) {
-        toggleCompany(first.dataset.company);
-        query = "";
-        const s = root()?.querySelector<HTMLInputElement>("[data-company-search]");
-        if (s) s.value = "";
-        refreshCompanies();
-      }
-    } else if (e.key === "Backspace" && !a.matches("[value]:not([value=''])") && !(a as HTMLInputElement).value) {
-      const last = readPrefs().plan.companies.at(-1);
-      if (last) toggleCompany(last);
-    }
-    return;
-  }
   const typing = a && (/^(TEXTAREA|SELECT)$/.test(a.tagName) || (a.tagName === "INPUT" && !["radio", "checkbox"].includes((a as HTMLInputElement).type)));
   if (typing && e.key !== "Enter") return;
   const radiosEl = [...(root()?.querySelectorAll<HTMLInputElement>('input[type="radio"], input[type="checkbox"]') ?? [])];
@@ -481,7 +265,6 @@ async function init(): Promise<void> {
   if (!root()) return;
   // The old warm-up step is the diagnostic now.
   if (new URLSearchParams(location.search).get("step") === "warm-up") return location.replace(ROUTES.diagnostic);
-  query = "";
   void paint();
   const [c, t] = await Promise.all([loadCatalog(), loadTrainer()]).catch(() => [undefined, undefined] as const);
   cat = c;
@@ -499,7 +282,6 @@ async function init(): Promise<void> {
 
 document.addEventListener("click", onClick);
 document.addEventListener("change", onChange);
-document.addEventListener("input", onInput);
 document.addEventListener("keydown", onKey);
 addEventListener("popstate", () => root() && void paint());
 document.addEventListener("astro:page-load", () => void init());

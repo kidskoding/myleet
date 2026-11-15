@@ -29,6 +29,10 @@
 .flow .opt kbd { grid-row: 1 / span 2; grid-column: 3; }
 
 .flow .ob-when [data-when-editor] { margin-top: var(--space-6); }
+.flow .ob-goals-panel { margin-top: var(--space-8); padding: var(--space-5) var(--space-6); }
+/* The hours step comes next, so the editor's link to availability isn't needed here. */
+.flow .ob-goals-panel .ge-foot { display: none; }
+@media (max-width: 760px) { .flow .ob-goals-panel { padding: var(--space-4); } }
 @media (min-width: 761px) {
   .flow .ob-when .av-editor { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: var(--space-6) var(--space-8); align-items: start; }
   .flow .ob-when .av-editor .av-sec { margin: 0; }
