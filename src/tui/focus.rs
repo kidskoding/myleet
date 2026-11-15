@@ -16,6 +16,7 @@ use ratatui::text::{Line, Span};
 
 use super::app::{Cmd, Kind, Msg, Screen, Shared};
 use super::markdown::render_markdown;
+use super::placement::FocusStatus;
 use super::ui::{self, Key, Lines, Tone};
 use super::widgets::{date_label, difficulty_badge, indent, mmss, status_of};
 use crate::catalog::Problem;
@@ -196,6 +197,19 @@ impl Focus {
     fn record(&self, sh: &mut Shared, kind: &str, data: BTreeMap<String, String>) {
         let e = self.event(sh, kind, data);
         record(sh, e);
+    }
+
+    /// Exam parents record outcomes themselves, so they need the attempt's state.
+    fn report(&self, sh: &Shared) {
+        if !self.exam_mode() {
+            return;
+        }
+        let _ = sh.sender().send(Msg::Custom(Box::new(FocusStatus {
+            problem_id: self.p.id.clone(),
+            attempt: self.attempt.clone(),
+            green: self.green,
+            hints: self.hints as u32,
+        })));
     }
 
     fn snapshot(&self, sh: &Shared) {
@@ -403,6 +417,7 @@ impl Focus {
         if self.green {
             self.snapshot(sh);
         }
+        self.report(sh);
         if self.green && logged && !self.passed && !self.time_up && !self.exam_mode() {
             self.record_pass(sh);
         }
@@ -538,6 +553,7 @@ impl Focus {
                         );
                     }
                     self.record(sh, kind::HINT_REVEALED, d);
+                    self.report(sh);
                 }
             }
             "s" => {
@@ -1192,6 +1208,7 @@ impl Screen for Focus {
         self.fn_name = solved_name(&self.p.starter_path());
         self.path = Some(path.clone());
         self.record(sh, kind::OPENED, BTreeMap::new());
+        self.report(sh);
         self.run(sh, false);
         self.fetch_prompt(sh);
         self.watch(sh, &path);

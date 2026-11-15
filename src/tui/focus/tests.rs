@@ -113,6 +113,7 @@ struct H {
     popped: bool,
     copied: Option<String>,
     exec: bool,
+    statuses: Vec<(String, bool, u32)>,
 }
 
 impl H {
@@ -127,6 +128,7 @@ impl H {
             popped: false,
             copied: None,
             exec: false,
+            statuses: Vec::new(),
         };
         let c = h.f.init(&mut h.sh);
         h.apply(c);
@@ -169,6 +171,16 @@ impl H {
                 return;
             }
             for m in msgs {
+                if let Msg::Custom(b) = &m
+                    && let Some(s) = b.downcast_ref::<FocusStatus>()
+                {
+                    assert_eq!(
+                        (s.problem_id.as_str(), &s.attempt),
+                        ("p-one", &self.f.attempt)
+                    );
+                    self.statuses
+                        .push((self.kinds().join(","), s.green, s.hints));
+                }
                 let c = self.f.update(&mut self.sh, &m);
                 self.apply(c);
             }
@@ -1274,4 +1286,25 @@ fn fits_all_sizes() {
     for (w, hgt) in [(60, 20), (100, 25), (160, 40)] {
         assert_eq!(rows(&mut a, w, hgt).len(), hgt as usize);
     }
+}
+
+// ---- placement contract ----
+
+#[test]
+fn exam_modes_report_status_and_record_no_outcome() {
+    let (sh, runner, clock) = shared(vec![red(), green()], FakePrompts::default());
+    let mut h = H::new(sh, runner, clock, "p-one", mode::PLACEMENT);
+    h.touch();
+    h.keys(&["t", "space", "esc"]);
+    let got: Vec<(bool, u32)> = h.statuses.iter().map(|s| (s.1, s.2)).collect();
+    // opened, the silent first run (red), the hint, then the green rerun.
+    assert_eq!(got, [(false, 0), (false, 0), (false, 1), (true, 1)]);
+    assert!(h.statuses[0].0.starts_with("opened"));
+    assert!(h.popped);
+    for k in [kind::PASSED, kind::GAVE_UP, kind::LEFT] {
+        assert_eq!(h.count(k), 0, "the parent records {k}");
+    }
+    let mut p = H::open("p-one", vec![red()]);
+    p.keys(&["t"]);
+    assert!(p.statuses.is_empty(), "practice sends no status");
 }
