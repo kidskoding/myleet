@@ -67,8 +67,10 @@
 
 .tabbar { display: none; }
 @media (max-width: 1040px) {
-  .search-trigger { min-width: 0; } .search-trigger .label { display: none; }
+  .search-trigger { min-width: 0; width: 34px; padding: 0; justify-content: center; } .search-trigger :is(.label, kbd) { display: none; }
   .streak .unit { display: none; }
+  /* Tablet widths: six nav links plus the guest buttons must fit without a sideways scroll */
+  .topbar { gap: var(--space-3); } .nav a { padding: 0 var(--space-2); }
 }
 @media (max-width: 760px) {
   .nav, .search-trigger .label, .search-trigger kbd { display: none; }
@@ -823,8 +825,8 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
 @keyframes sheet-in { from { opacity: 0; transform: translateY(16px) scale(0.985); } }
 
-/* Phone: 44px targets in the top bar and on small buttons */
-@media (max-width: 480px) {
+/* Phones and touch screens: 44px targets in the top bar and on small buttons */
+@media (max-width: 480px), (pointer: coarse) {
   .topbar :is(.icon-btn, .search-trigger, .streak, .avatar) { min-width: 44px; min-height: 44px; }
   .btn-sm { --h: 44px; }
 }
