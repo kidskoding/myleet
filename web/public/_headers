@@ -1,0 +1,5 @@
+# Logo URLs carry ?v=<revision> and Astro assets are content-hashed, so both are safe to cache for a year.
+/company-marks/*
+  Cache-Control: public, max-age=31536000, immutable
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

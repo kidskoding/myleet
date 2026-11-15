@@ -11,7 +11,7 @@ export const LOGO_SPRITE = `/company-logos.svg?v=${revision}`;
 export const companyLogo = (slug: string, cls = ""): SafeHtml =>
   // Inline size so every page (palette, landing) gets it without extra CSS; a consistent 24px box on the baseline.
   raw(
-    `<img class="co-logo${cls ? ` ${esc(cls)}` : ""}" src="/company-marks/${esc(slug)}.svg?v=${revision}" width="24" height="24" style="width:24px;height:24px;object-fit:contain;flex:none;display:inline-block;vertical-align:-0.2em" alt="" aria-hidden="true" decoding="async"/>`,
+    `<img class="co-logo${cls ? ` ${esc(cls)}` : ""}" src="/company-marks/${esc(slug)}.svg?v=${revision}" width="24" height="24" style="width:24px;height:24px;object-fit:contain;flex:none;display:inline-block;vertical-align:-0.2em" alt="" aria-hidden="true" loading="lazy" decoding="async"/>`,
   );
 
 /** "Jane Street" -> "JS", "Ramp" -> "R", "Susquehanna (SIG)" -> "SIG", "IMC Trading" -> "IMC". */

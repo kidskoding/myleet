@@ -109,7 +109,7 @@ self.addEventListener("fetch", (e) => {
   if (url.origin === location.origin) {
     if (url.pathname.startsWith("/api/")) return;
     if (req.mode === "navigate") return e.respondWith(page(req));
-    if (url.pathname.startsWith("/_astro/")) return e.respondWith(cacheFirst(req, STATIC));
+    if (url.pathname.startsWith("/_astro/") || url.pathname.startsWith("/company-marks/")) return e.respondWith(cacheFirst(req, STATIC));
     if (url.pathname.startsWith("/data/") || url.pathname === "/palette-index.json" || url.pathname === "/runner-lib.json")
       return e.respondWith(networkFirst(req, DATA));
     return e.respondWith(staleWhileRevalidate(req, SHELL, e));
