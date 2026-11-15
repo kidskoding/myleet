@@ -40,9 +40,19 @@ for (const e of p.entries) {
   const t = e.problem === null ? null : topicOf(e.problem);
   if (t) counts.set(t, (counts.get(t) ?? 0) + 1);
 }
-const counted = [...counts.values()].reduce((a, b) => a + b, 0);
-const top = [...counts].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([t, k]) => `${midSentence(t)} (${Math.round((k / counted) * 100)}%)`);
-const lead = top.length ? `Mostly ${new Intl.ListFormat("en", { type: "conjunction" }).format(top)}` : "";
+// The curated focus names what the company is known for; the counted set is the fallback.
+const fromFocus = (p.focus ?? "")
+  .replace(/\.$/, "")
+  .split(/,\s*(?:and\s+)?/)
+  .map((t) => t.trim())
+  .filter((t) => t && !/^(a few|with|plus|solved|written|kept)\b/i.test(t))
+  .slice(0, 3)
+  .map((t) => t.charAt(0).toLowerCase() + t.slice(1));
+const topics = fromFocus.length >= 2 ? fromFocus : [...counts].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([t]) => midSentence(t));
+// Keep the serial comma when an item has its own "and" (sorting and binary search), drop it otherwise.
+const list0 = new Intl.ListFormat("en", { type: "conjunction" }).format(topics);
+const list = topics.some((t) => t.includes(" and ")) ? list0 : list0.replace(", and ", " and ");
+const lead = topics.length ? `${p.title}'s interviews lean on ${list}` : "";
 ---
 
 <Base title={`${p.title} prep`} nav="companies" description={`A curated ${p.title} practice set of ${n} problems, most asked first, with the techniques it leans on. Not a list of actual interview questions.`}>
