@@ -47,6 +47,10 @@ export interface Plan {
 
 export interface Prefs {
   reduceMotion: boolean;
+  /** Interface font: Archivo, or JetBrains Mono everywhere (<html data-font="mono">). */
+  font: "archivo" | "mono";
+  /** Notes and problem statements: Literata, or JetBrains Mono (<html data-read-font="mono">). */
+  readFont: "literata" | "mono";
   editor: EditorPrefs;
   newPerDay: number;
   /** Minutes per difficulty. */
@@ -67,6 +71,8 @@ const PREFS_KEY = "myleet-prefs";
 
 export const DEFAULT_PREFS: Prefs = {
   reduceMotion: false,
+  font: "archivo",
+  readFont: "literata",
   editor: { keymap: "standard", fontSize: 14, ligatures: true, minimap: false, indent: 4, formatOnSave: true, runOnSave: false },
   newPerDay: 3,
   timeTargets: { easy: 15, medium: 25, hard: 40 },
@@ -239,6 +245,16 @@ export function applyTheme(pref: ThemePref = readTheme(), ease = false): void {
 export function toggleTheme(): Flavor {
   setTheme("mocha");
   return "mocha";
+}
+
+/** Sets data-font and data-read-font; the head script in lib/flavors.ts does the same before first paint. */
+export function applyFontPrefs(p: Prefs = readPrefs()): void {
+  if (typeof document === "undefined") return;
+  const r = document.documentElement;
+  if (p.font === "mono") r.dataset.font = "mono";
+  else delete r.dataset.font;
+  if (p.readFont === "mono") r.dataset.readFont = "mono";
+  else delete r.dataset.readFont;
 }
 
 export function applyMotionPref(p: Prefs = readPrefs()): void {

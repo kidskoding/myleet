@@ -42,7 +42,9 @@ h1, h2, h3, h4 {
   letter-spacing: var(--track-head);
   text-wrap: balance;
 }
-h1 { font-size: var(--text-xl); line-height: var(--leading-tight); }
+h1 { font-size: var(--text-page); font-weight: 720; letter-spacing: var(--track-hero); font-variation-settings: "wdth" 86; line-height: var(--leading-tight); }
+:root[data-font="mono"] :is(h1, h2, h3, h4) { font-weight: 700; }
+:root[data-font="mono"] body { font-weight: 450; }
 h2 { font-size: var(--text-lg); }
 h3 { font-size: var(--text-md); }
 h4 { font-size: var(--text-base); letter-spacing: 0; }

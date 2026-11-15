@@ -3,7 +3,7 @@ import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
 import { highlight, KIND_ORDER, search, type Hit, type PaletteItem, type PaletteKind } from "../lib/palette-search";
 import { ACCENT_NAMES, ACCENTS } from "../lib/flavors";
-import { setAccent } from "../lib/prefs";
+import { setAccent, updatePrefs } from "../lib/prefs";
 import { companyLogo } from "../lib/company-logos";
 import { ROUTES } from "../lib/routes";
 import { kbd } from "../lib/ui/bits";
@@ -31,9 +31,12 @@ interface Command extends PaletteItem {
 }
 
 const APPEARANCE = "theme flavor catppuccin accent colour color";
+const FONT = "font typeface monospace mono appearance";
 
 function appearanceCommands(): Command[] {
   return [
+    { key: "cmd:font-mono", kind: "command", title: "Interface font: JetBrains Mono", hint: "appearance", keywords: FONT, icon: "settings", run: () => void updatePrefs({ font: "mono" }) },
+    { key: "cmd:font-archivo", kind: "command", title: "Interface font: Archivo", hint: "appearance", keywords: FONT, icon: "settings", run: () => void updatePrefs({ font: "archivo" }) },
     ...ACCENTS.map(
       (a): Command => ({
         key: `cmd:accent-${a}`,

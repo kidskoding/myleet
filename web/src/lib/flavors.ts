@@ -59,6 +59,8 @@ export const THEME_BOOT = `(function () {
       if (${JSON.stringify(ACCENTS)}.indexOf(a) >= 0) r.dataset.accent = a;
       var p = JSON.parse(localStorage.getItem("myleet-prefs") || "{}");
       if (p.reduceMotion) r.dataset.motion = "reduce";
+      if (p.font === "mono") r.dataset.font = "mono";
+      if (p.readFont === "mono") r.dataset.readFont = "mono";
       r.dataset.auth = localStorage.getItem("myleet:me") ? "in" : "out";
     } catch (e) { r.dataset.auth = "out"; }
     document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.content = ${JSON.stringify(DATA.mocha.ground)}; });

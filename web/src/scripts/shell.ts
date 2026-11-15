@@ -3,7 +3,7 @@
 import { navigate } from "astro:transitions/client";
 import { AUTH_ERRORS, cachedMe, fetchMe, initials, takeReturn, type Me } from "../lib/account";
 import { afterSignIn, signinHref } from "../lib/gate";
-import { applyMotionPref, applyTheme, readPrefs, readTheme } from "../lib/prefs";
+import { applyFontPrefs, applyMotionPref, applyTheme, readPrefs, readTheme } from "../lib/prefs";
 import { lastReminder, nextSessionReminder, reminderDelay, reminderSupport, sendReminder, type PlannedSession } from "../lib/reminders";
 import { ROUTES } from "../lib/routes";
 import { localDay, readStreak, STREAK_MILESTONES, streakNow } from "../lib/streak";
@@ -361,12 +361,14 @@ function onPage(): void {
 
 applyTheme();
 applyMotionPref();
+applyFontPrefs();
 paintAccount(cachedMe());
 document.addEventListener("astro:page-load", onPage);
 addEventListener("scroll", () => $(".topbar")?.classList.toggle("is-scrolled", scrollY > 4), { passive: true });
 addEventListener("myleet:streak", paintStreak);
 addEventListener("myleet:prefs", () => {
   applyMotionPref();
+  applyFontPrefs();
   scheduleReminder();
 });
 addEventListener("myleet:progress", () => {

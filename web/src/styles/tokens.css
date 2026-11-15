@@ -105,6 +105,32 @@
   :root { --hour: 96px; }
 }
 
+/* Settings > Appearance: JetBrains Mono for the interface (<html data-font="mono">) and for reading
+   (<html data-read-font="mono">). Mono runs about 18% wider than Archivo and has no width axis,
+   so sizes step down and tracking tightens. */
+:root[data-font="mono"] {
+  --font-ui: var(--font-code);
+  --text-base: 0.9375rem;   /* 15 */
+  --text-sm: 0.8125rem;     /* 13 */
+  --text-xs: 0.6875rem;     /* 11 */
+  --text-md: 1.125rem;      /* 18 */
+  --text-sec: 0.9375rem;    /* 15 */
+  --text-page: 2.125rem;    /* 34 */
+  --text-hero: clamp(1.875rem, 1.25rem + 1.8vw, 2.75rem);  /* 44 */
+  --text-display: clamp(2.5rem, 1.4rem + 3.8vw, 4.25rem);  /* 68 */
+  --text-num-xl: 3rem;      /* 48 */
+  --track-display: -0.045em;
+  --track-hero: -0.04em;
+  --track-head: -0.03em;
+  --leading-ui: 1.5;
+}
+:root[data-read-font="mono"] {
+  --font-read: var(--font-code);
+  --text-read: 0.9375rem;   /* 15 */
+  --leading-read: 1.75;
+  --measure: 72ch;
+}
+
 /* Same specificity as the flavor blocks (0,2,0) and later, so it wins over them. */
 @media (prefers-contrast: more) {
   :root[data-flavor] {
