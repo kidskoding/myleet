@@ -1,205 +1,104 @@
+# Sources (checked 2026-11-15):
+# Estimate from 6 candidate reports (medium confidence); the CoderPad screen and most Super Day technical rounds are live coding
+# - Feb 2025 New York NY associate report: https://leetcode.com/discuss/post/6408670/
+# - Sep 2024 location not shown CoderPad report: https://leetcode.com/discuss/post/5827455/
+# - Apr 2025 location not shown Super Day report: https://leetcode.com/discuss/post/6653312/
+# - 2025 Dallas TX associate report (search snippet): https://www.jointaro.com/interviews/companies/goldman-sachs/experiences/
+# - 2018 Irving TX senior report: https://www.jointaro.com/interviews/companies/goldman-sachs/experiences/senior-software-engineer-irving-tx-april-1-2018-no-offer-positive-19d310f5/
+# - 2018 Chicago IL report: https://www.jointaro.com/interviews/companies/goldman-sachs/experiences/software-engineer-chicago-il-july-24-2018-no-offer-neutral-c4c0c481/
 title = "Goldman Sachs"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, stacks, graphs and dynamic programming"
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "11_dp"]
-
-
-[[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
-
-[[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
-
-[[entries]]
-title = "Robot Return to Origin"
-url = "https://leetcode.com/problems/robot-return-to-origin/"
-
-[[entries]]
-title = "Fraction to Recurring Decimal"
-url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
-
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
+focus = "Live coding focuses on arrays and strings, dynamic programming and backtracking"
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "11_dp", "09_backtracking"]
 
 [[entries]]
 title = "High Five"
 url = "https://leetcode.com/problems/high-five/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Daily Temperatures"
-url = "https://leetcode.com/problems/daily-temperatures/"
-
-[[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
-
-[[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
-
-[[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
-
-[[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
-title = "Excel Sheet Column Title"
-url = "https://leetcode.com/problems/excel-sheet-column-title/"
-
-[[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
-
-[[entries]]
-title = "Maximum Size Subarray Sum Equals k"
-url = "https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/"
-
-[[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
-
-[[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
-
-[[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
-
-[[entries]]
-title = "Jump Game VI"
-url = "https://leetcode.com/problems/jump-game-vi/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
-
-[[entries]]
-title = "Fibonacci Number"
-url = "https://leetcode.com/problems/fibonacci-number/"
-
-[[entries]]
-title = "House Robber II"
-url = "https://leetcode.com/problems/house-robber-ii/"
-
-[[entries]]
-title = "Pascal's Triangle"
-url = "https://leetcode.com/problems/pascals-triangle/"
-
-[[entries]]
-title = "Minimum Falling Path Sum"
-url = "https://leetcode.com/problems/minimum-falling-path-sum/"
-
-[[entries]]
-title = "Count Square Submatrices with All Ones"
-url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
-
-[[entries]]
-title = "Excel Sheet Column Number"
-url = "https://leetcode.com/problems/excel-sheet-column-number/"
-
-[[entries]]
-title = "Sell Diminishing-Valued Colored Balls"
-url = "https://leetcode.com/problems/sell-diminishing-valued-colored-balls/"
-
-[[entries]]
-title = "Valid Arrangement of Pairs"
-url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
-
-[[entries]]
-title = "Longest Palindromic Subsequence"
-url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
-
-[[entries]]
-title = "Divisor Game"
-url = "https://leetcode.com/problems/divisor-game/"
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
 title = "Minimum Path Sum"
 url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
-title = "Is Subsequence"
-url = "https://leetcode.com/problems/is-subsequence/"
+title = "First Unique Character in a String"
+url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
 
 [[entries]]
-title = "Domino and Tromino Tiling"
-url = "https://leetcode.com/problems/domino-and-tromino-tiling/"
+title = "Subsets"
+url = "https://leetcode.com/problems/subsets/"
 
 [[entries]]
-title = "N-th Tribonacci Number"
-url = "https://leetcode.com/problems/n-th-tribonacci-number/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Permutations III"
-url = "https://leetcode.com/problems/permutations-iii/"
+title = "Unique Paths II"
+url = "https://leetcode.com/problems/unique-paths-ii/"
 
 [[entries]]
-title = "Find the Winner of the Circular Game"
-url = "https://leetcode.com/problems/find-the-winner-of-the-circular-game/"
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
-title = "Find All Good Indices"
-url = "https://leetcode.com/problems/find-all-good-indices/"
+title = "Rotate Image"
+url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
-title = "Maximize Palindrome Length From Subsequences"
-url = "https://leetcode.com/problems/maximize-palindrome-length-from-subsequences/"
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
-title = "Sort the Jumbled Numbers"
-url = "https://leetcode.com/problems/sort-the-jumbled-numbers/"
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
 
 [[entries]]
-title = "Find if Path Exists in Graph"
-url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Time Needed to Inform All Employees"
-url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Subsets II"
+url = "https://leetcode.com/problems/subsets-ii/"
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Dungeon Game"
+url = "https://leetcode.com/problems/dungeon-game/"
+
+[[entries]]
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
+
+[[entries]]
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"

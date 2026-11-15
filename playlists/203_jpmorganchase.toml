@@ -1,185 +1,104 @@
+# Sources (checked 2026-11-15):
+# Estimate from 7 candidate reports (low confidence); coding is one block of a three-round Super Day and few posts name the problem
+# - Jul 2026 Palo Alto CA report: https://prachub.com/interview-experiences/jpmorgan-chase-and-software-engineer-interview-timed-super-day-b339304888
+# - Jul 2026 New York NY report: https://prachub.com/interview-experiences/jp-morgan-chase-software-engineer-interview-hackerrank-and-super-day-f6553dc4ed
+# - Jul 2026 Bengaluru (non-US) report: https://prachub.com/interview-experiences/jpmorganchase-software-engineer-interview-precise-coding-and-a-same-day-superday-a72007310b
+# - Q4 2025 location not shown SE3 report: https://leetcode.com/discuss/post/7488400/
+# - Jun 2026 location not shown SDE-2 report: https://leetcode.com/discuss/post/8306752/
+# - Aug 2026 location not shown SDE II report: https://leetcode.com/discuss/post/8462953/
 title = "JPMorganChase"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, stacks, parsing and dynamic programming"
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "04_sliding_window", "11_dp", "12_greedy_algorithms"]
-
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+focus = "Live coding focuses on arrays and strings, data-structure design, greedy and heaps"
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "08_heaps", "12_greedy_algorithms", "06_linked_lists"]
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
+title = "Design a Food Rating System"
+url = "https://leetcode.com/problems/design-a-food-rating-system/"
 
 [[entries]]
-title = "Reverse Words in a String"
-url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+title = "Apple Redistribution into Boxes"
+url = "https://leetcode.com/problems/apple-redistribution-into-boxes/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Merge In Between Linked Lists"
+url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Largest Rectangle in Histogram"
-url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+title = "Seat Reservation Manager"
+url = "https://leetcode.com/problems/seat-reservation-manager/"
 
 [[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Spiral Matrix II"
-url = "https://leetcode.com/problems/spiral-matrix-ii/"
-
-[[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
-
-[[entries]]
-title = "Find the Difference"
-url = "https://leetcode.com/problems/find-the-difference/"
-
-[[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
-
-[[entries]]
-title = "Remove Element"
-url = "https://leetcode.com/problems/remove-element/"
-
-[[entries]]
-title = "Online Stock Span"
-url = "https://leetcode.com/problems/online-stock-span/"
-
-[[entries]]
-title = "Maximum Average Subarray I"
-url = "https://leetcode.com/problems/maximum-average-subarray-i/"
-
-[[entries]]
-title = "Remove K Digits"
-url = "https://leetcode.com/problems/remove-k-digits/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
 
 [[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
 title = "Gas Station"
 url = "https://leetcode.com/problems/gas-station/"
 
 [[entries]]
-title = "Backspace String Compare"
-url = "https://leetcode.com/problems/backspace-string-compare/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
-
-[[entries]]
-title = "Perfect Squares"
-url = "https://leetcode.com/problems/perfect-squares/"
-
-[[entries]]
-title = "Partition Equal Subset Sum"
-url = "https://leetcode.com/problems/partition-equal-subset-sum/"
-
-[[entries]]
-title = "Next Greater Element I"
-url = "https://leetcode.com/problems/next-greater-element-i/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock with Cooldown"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Shortest Word Distance"
-url = "https://leetcode.com/problems/shortest-word-distance/"
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Sort Colors"
+url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Partition Labels"
+url = "https://leetcode.com/problems/partition-labels/"
 
 [[entries]]
-title = "Reshape the Matrix"
-url = "https://leetcode.com/problems/reshape-the-matrix/"
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Minimum Number of Arrows to Burst Balloons"
+url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"

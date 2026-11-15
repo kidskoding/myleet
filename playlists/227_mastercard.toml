@@ -1,185 +1,74 @@
+# Sources (checked 2026-11-15):
+# Estimate from 5 candidate reports (low confidence); every report that names a problem is from outside the US
+# - Jul 2026 Pune (non-US) report: https://prachub.com/interview-experiences/mastercard-software-engineer-interview-a-rushed-ev-design-and-bfs-coding-round-e272076713
+# - Sep 2026 Pune (non-US) AI engineer report: https://leetcode.com/discuss/post/8539984/
+# - May 2024 India (non-US) SDE-II report: https://leetcode.com/discuss/post/5175448/
+# - Glassdoor software engineer reports (location not shown): https://clear.glassdoor.nl/Interview/Mastercard-Software-Engineer-Interview-Questions-EI_IE3677.0,10_KO11,28_IP6.htm
 title = "Mastercard"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, linked lists and dynamic programming"
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "11_dp", "16_math_geometry"]
-
-
-[[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
+focus = "Live coding focuses on data-structure design, arrays and strings, graphs and linked lists"
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "10_graphs"]
 
 [[entries]]
-title = "Minimum Time to Complete Trips"
-url = "https://leetcode.com/problems/minimum-time-to-complete-trips/"
+title = "Integer to English Words"
+url = "https://leetcode.com/problems/integer-to-english-words/"
 
 [[entries]]
-title = "House Robber II"
-url = "https://leetcode.com/problems/house-robber-ii/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Double a Number Represented as a Linked List"
-url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
+title = "Middle of the Linked List"
+url = "https://leetcode.com/problems/middle-of-the-linked-list/"
 
 [[entries]]
-title = "Minimum Falling Path Sum"
-url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Design Tic-Tac-Toe"
+url = "https://leetcode.com/problems/design-tic-tac-toe/"
 
 [[entries]]
-title = "Gas Station"
-url = "https://leetcode.com/problems/gas-station/"
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
-title = "Strange Printer"
-url = "https://leetcode.com/problems/strange-printer/"
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
-title = "Minimum Number of Steps to Make Two Strings Anagram"
-url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Number of Pairs of Strings With Concatenation Equal to Target"
-url = "https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/"
+title = "Open the Lock"
+url = "https://leetcode.com/problems/open-the-lock/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Remove Nth Node From End of List"
+url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
 
 [[entries]]
-title = "3Sum Smaller"
-url = "https://leetcode.com/problems/3sum-smaller/"
+title = "Design Snake Game"
+url = "https://leetcode.com/problems/design-snake-game/"
 
 [[entries]]
-title = "Invalid Transactions"
-url = "https://leetcode.com/problems/invalid-transactions/"
+title = "String to Integer (atoi)"
+url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Minimum Time to Collect All Apples in a Tree"
-url = "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/"
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
-title = "3Sum With Multiplicity"
-url = "https://leetcode.com/problems/3sum-with-multiplicity/"
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
-title = "Minimum Time to Visit All Houses"
-url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
-title = "Most Popular Video Creator"
-url = "https://leetcode.com/problems/most-popular-video-creator/"
-
-[[entries]]
-title = "Find Peak Element"
-url = "https://leetcode.com/problems/find-peak-element/"
-
-[[entries]]
-title = "N-Queens"
-url = "https://leetcode.com/problems/n-queens/"
-
-[[entries]]
-title = "Remove K Digits"
-url = "https://leetcode.com/problems/remove-k-digits/"
-
-[[entries]]
-title = "Non-decreasing Array"
-url = "https://leetcode.com/problems/non-decreasing-array/"
-
-[[entries]]
-title = "Shortest Word Distance II"
-url = "https://leetcode.com/problems/shortest-word-distance-ii/"
-
-[[entries]]
-title = "Insert Greatest Common Divisors in Linked List"
-url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
-
-[[entries]]
-title = "Number of Substrings Containing All Three Characters"
-url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
-
-[[entries]]
-title = "Most Profitable Path in a Tree"
-url = "https://leetcode.com/problems/most-profitable-path-in-a-tree/"
-
-[[entries]]
-title = "Linked List Components"
-url = "https://leetcode.com/problems/linked-list-components/"
-
-[[entries]]
-title = "Number of Adjacent Elements With the Same Color"
-url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
-
-[[entries]]
-title = "4Sum"
-url = "https://leetcode.com/problems/4sum/"
-
-[[entries]]
-title = "Remove One Element to Make the Array Strictly Increasing"
-url = "https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/"
-
-[[entries]]
-title = "Corporate Flight Bookings"
-url = "https://leetcode.com/problems/corporate-flight-bookings/"
-
-[[entries]]
-title = "Find Minimum Diameter After Merging Two Trees"
-url = "https://leetcode.com/problems/find-minimum-diameter-after-merging-two-trees/"
-
-[[entries]]
-title = "Check if Binary String Has at Most One Segment of Ones"
-url = "https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/"
-
-[[entries]]
-title = "Number of Distinct Substrings in a String"
-url = "https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/"
-
-[[entries]]
-title = "Number of Good Leaf Nodes Pairs"
-url = "https://leetcode.com/problems/number-of-good-leaf-nodes-pairs/"
-
-[[entries]]
-title = "Find the Maximum Divisibility Score"
-url = "https://leetcode.com/problems/find-the-maximum-divisibility-score/"
-
-[[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
-
-[[entries]]
-title = "Reshape the Matrix"
-url = "https://leetcode.com/problems/reshape-the-matrix/"
-
-[[entries]]
-title = "Bag of Tokens"
-url = "https://leetcode.com/problems/bag-of-tokens/"
-
-[[entries]]
-title = "Number of Orders in the Backlog"
-url = "https://leetcode.com/problems/number-of-orders-in-the-backlog/"
-
-[[entries]]
-title = "Take Gifts From the Richest Pile"
-url = "https://leetcode.com/problems/take-gifts-from-the-richest-pile/"
-
-[[entries]]
-title = "Walls and Gates"
-url = "https://leetcode.com/problems/walls-and-gates/"
-
-[[entries]]
-title = "Find the Last Marked Nodes in Tree"
-url = "https://leetcode.com/problems/find-the-last-marked-nodes-in-tree/"
-
-[[entries]]
-title = "Valid Word"
-url = "https://leetcode.com/problems/valid-word/"
-
-[[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
-
-[[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
+title = "Roman to Integer"
+url = "https://leetcode.com/problems/roman-to-integer/"

@@ -1,205 +1,94 @@
+# Sources (checked 2026-11-15):
+# Estimate from 6 candidate reports, half of them search snippets (low confidence); most posts name topics, not problems, and several are from outside the US
+# - Nov 2025 Austin TX intern report: https://www.jointaro.com/interviews/companies/visa/experiences/software-engineer-internship-austin-texas-november-4-2025-no-offer-positive-3e93422c
+# - Apr 2025 Austin TX staff report: https://www.jointaro.com/interviews/companies/visa/experiences/staff-software-engineer-austin-tx-april-1-2025-no-offer-positive-9c18460a/
+# - Feb 2026 location not shown staff report: https://leetcode.com/discuss/post/7564195/
+# - Nov 2026 location not shown report: https://leetcode.com/discuss/post/8606869/
 title = "Visa"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, two pointers and sliding window"
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "05_binary_search", "16_math_geometry"]
-
-
-[[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
+focus = "Live coding focuses on arrays and strings, graphs and dynamic programming"
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "10_graphs", "11_dp", "12_greedy_algorithms"]
 
 [[entries]]
-title = "Count Primes"
-url = "https://leetcode.com/problems/count-primes/"
+title = "Hand of Straights"
+url = "https://leetcode.com/problems/hand-of-straights/"
 
 [[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
 
 [[entries]]
-title = "Factorial Trailing Zeroes"
-url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
 
 [[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Remove Element"
-url = "https://leetcode.com/problems/remove-element/"
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"
 
 [[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
+title = "Reverse Words in a String"
+url = "https://leetcode.com/problems/reverse-words-in-a-string/"
 
 [[entries]]
-title = "Max Points on a Line"
-url = "https://leetcode.com/problems/max-points-on-a-line/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Remove Duplicates from Sorted Array II"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/"
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array II"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
-title = "Excel Sheet Column Number"
-url = "https://leetcode.com/problems/excel-sheet-column-number/"
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
-title = "Length of Longest V-Shaped Diagonal Segment"
-url = "https://leetcode.com/problems/length-of-longest-v-shaped-diagonal-segment/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Pow(x, n)"
-url = "https://leetcode.com/problems/powx-n/"
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Divide Two Integers"
-url = "https://leetcode.com/problems/divide-two-integers/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Arranging Coins"
-url = "https://leetcode.com/problems/arranging-coins/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
-
-[[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
-
-[[entries]]
-title = "Multiply Strings"
-url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
-title = "Rearrange Array Elements by Sign"
-url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
-
-[[entries]]
-title = "Earliest Possible Day of Full Bloom"
-url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
-
-[[entries]]
-title = "Longest Mountain in Array"
-url = "https://leetcode.com/problems/longest-mountain-in-array/"
-
-[[entries]]
-title = "Excel Sheet Column Title"
-url = "https://leetcode.com/problems/excel-sheet-column-title/"
-
-[[entries]]
-title = "3Sum Closest"
-url = "https://leetcode.com/problems/3sum-closest/"
-
-[[entries]]
-title = "Nim Game"
-url = "https://leetcode.com/problems/nim-game/"
-
-[[entries]]
-title = "Sort Colors"
-url = "https://leetcode.com/problems/sort-colors/"
-
-[[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
-title = "Happy Number"
-url = "https://leetcode.com/problems/happy-number/"
-
-[[entries]]
-title = "Minimum Size Subarray Sum"
-url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
-
-[[entries]]
-title = "Maximum Sum of Alternating Subsequence With Distance at Least K"
-url = "https://leetcode.com/problems/maximum-sum-of-alternating-subsequence-with-distance-at-least-k/"
-
-[[entries]]
-title = "Permutation in String"
-url = "https://leetcode.com/problems/permutation-in-string/"
-
-[[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
-
-[[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
-
-[[entries]]
-title = "Minimum Index Sum of Two Lists"
-url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
-
-[[entries]]
-title = "Get Equal Substrings Within Budget"
-url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
-
-[[entries]]
-title = "Verifying an Alien Dictionary"
-url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
-
-[[entries]]
-title = "Number of Divisible Triplet Sums"
-url = "https://leetcode.com/problems/number-of-divisible-triplet-sums/"
-
-[[entries]]
-title = "Beautiful Arrangement"
-url = "https://leetcode.com/problems/beautiful-arrangement/"
-
-[[entries]]
-title = "Buddy Strings"
-url = "https://leetcode.com/problems/buddy-strings/"
-
-[[entries]]
-title = "Match Alphanumerical Pattern in Matrix I"
-url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
-
-[[entries]]
-title = "Count Palindromic Subsequences"
-url = "https://leetcode.com/problems/count-palindromic-subsequences/"
-
-[[entries]]
-title = "Minimum Operations to Write the Letter Y on a Grid"
-url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
-
-[[entries]]
-title = "Maximum Number of Balloons"
-url = "https://leetcode.com/problems/maximum-number-of-balloons/"
-
-[[entries]]
-title = "Rotating the Box"
-url = "https://leetcode.com/problems/rotating-the-box/"
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"

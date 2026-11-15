@@ -1,165 +1,107 @@
+# Sources (checked 2026-11-15):
+# Estimate from 9 candidate reports (medium confidence); the Power Day coding round is one of four rounds
+# - Sep 2024 Plano TX senior report: https://leetcode.com/discuss/post/6667919/
+# - Sep 2025 location not shown report: https://leetcode.com/discuss/post/7203408/
+# - Jul 2026 McLean VA lead report: https://leetcode.com/discuss/post/8429221/
+# - Apr 2024 US senior backend report: https://leetcode.com/discuss/post/5033011/
+# - Aug 2026 location not shown lead report: https://prachub.com/interview-experiences/capital-one-lead-software-engineer-interview-experience-power-day-across-two-days
+# - Sep 2026 location not shown report: https://prachub.com/interview-experiences/capital-one-software-engineer-interview-experience-power-day-with-case-behavioral-coding-and-system-design
+# - Oct 2026 location not shown new grad report: https://prachub.com/interview-experiences/capital-one-new-grad-software-engineer-interview-experience-power-day-with-behavioral-case-study-and-agentic-coding
+# - Jun 2021 location not shown report: https://leetcode.com/discuss/interview-question/1277236/capital-one-power-day-questions/
+# - Mar 2024 McLean VA new grad report: https://leetcode.com/discuss/post/4875572/
 title = "Capital One"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, linked lists, trees and dynamic programming"
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "07_trees", "10_graphs"]
+focus = "Live coding focuses on data-structure design, arrays and strings and heaps"
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "02_two_pointers"]
 
+[[entries]]
+title = "Simple Bank System"
+url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
+title = "Design A Leaderboard"
+url = "https://leetcode.com/problems/design-a-leaderboard/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
 title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
-
-[[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
-
-[[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "3Sum Closest"
+url = "https://leetcode.com/problems/3sum-closest/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
-title = "Regular Expression Matching"
-url = "https://leetcode.com/problems/regular-expression-matching/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Find Minimum in Rotated Sorted Array"
-url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
+title = "Design Task Manager"
+url = "https://leetcode.com/problems/design-task-manager/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Design Browser History"
+url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
-
-[[entries]]
-title = "Integer to Roman"
-url = "https://leetcode.com/problems/integer-to-roman/"
+title = "Two Sum II - Input Array Is Sorted"
+url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Same Tree"
-url = "https://leetcode.com/problems/same-tree/"
+title = "Design Authentication Manager"
+url = "https://leetcode.com/problems/design-authentication-manager/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Palindrome Partitioning II"
-url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+title = "Design File System"
+url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Design Parking System"
+url = "https://leetcode.com/problems/design-parking-system/"
