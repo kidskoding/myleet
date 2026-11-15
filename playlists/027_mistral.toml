@@ -8,18 +8,6 @@ title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
-title = "Fibonacci Number"
-url = "https://leetcode.com/problems/fibonacci-number/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
@@ -28,32 +16,32 @@ title = "Find All Duplicates in an Array"
 url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
 
 [[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
-
-[[entries]]
 title = "Basic Calculator"
 url = "https://leetcode.com/problems/basic-calculator/"
 
 [[entries]]
-title = "Basic Calculator III"
-url = "https://leetcode.com/problems/basic-calculator-iii/"
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
 title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
 [[entries]]
+title = "Fibonacci Number"
+url = "https://leetcode.com/problems/fibonacci-number/"
+
+[[entries]]
 title = "Different Ways to Add Parentheses"
 url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
 
 [[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
-
-[[entries]]
 title = "House Robber"
 url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
 
 [[entries]]
 title = "Coin Change"
@@ -64,6 +52,10 @@ title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
+
+[[entries]]
 title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
@@ -72,12 +64,20 @@ title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
 title = "Find K Closest Elements"
 url = "https://leetcode.com/problems/find-k-closest-elements/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Top K Frequent Elements"
@@ -92,10 +92,6 @@ title = "Sparse Matrix Multiplication"
 url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
 title = "Sliding Window Maximum"
 url = "https://leetcode.com/problems/sliding-window-maximum/"
 
@@ -108,8 +104,8 @@ title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -118,6 +114,10 @@ url = "https://leetcode.com/problems/meeting-rooms-ii/"
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
 
 [[entries]]
 title = "LRU Cache"
@@ -132,8 +132,16 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -148,6 +156,10 @@ title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
 title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
@@ -156,29 +168,17 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"

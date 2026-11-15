@@ -4,38 +4,6 @@ focus = "bit manipulation, matrix and in-place array transforms, linked lists, c
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "08_heaps", "13_intervals"]
 
 [[entries]]
-title = "Power of Four"
-url = "https://leetcode.com/problems/power-of-four/"
-
-[[entries]]
-title = "Complement of Base 10 Integer"
-url = "https://leetcode.com/problems/complement-of-base-10-integer/"
-
-[[entries]]
-title = "Find the Difference"
-url = "https://leetcode.com/problems/find-the-difference/"
-
-[[entries]]
-title = "Convert Binary Number in a Linked List to Integer"
-url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
-
-[[entries]]
-title = "Minimum Bit Flips to Convert Number"
-url = "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/"
-
-[[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
 title = "Single Number III"
 url = "https://leetcode.com/problems/single-number-iii/"
 
@@ -48,12 +16,20 @@ title = "Total Hamming Distance"
 url = "https://leetcode.com/problems/total-hamming-distance/"
 
 [[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
 title = "Minimum Flips to Make a OR b Equal to c"
 url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
 
 [[entries]]
 title = "Divide Two Integers"
 url = "https://leetcode.com/problems/divide-two-integers/"
+
+[[entries]]
+title = "Power of Four"
+url = "https://leetcode.com/problems/power-of-four/"
 
 [[entries]]
 title = "Sort Colors"
@@ -64,12 +40,20 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
+title = "Maximum XOR With an Element From Array"
+url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
+
+[[entries]]
 title = "Spiral Matrix II"
 url = "https://leetcode.com/problems/spiral-matrix-ii/"
 
 [[entries]]
 title = "Game of Life"
 url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Product of Array Except Self"
@@ -80,20 +64,20 @@ title = "Odd Even Linked List"
 url = "https://leetcode.com/problems/odd-even-linked-list/"
 
 [[entries]]
-title = "Palindrome Linked List"
-url = "https://leetcode.com/problems/palindrome-linked-list/"
+title = "Complement of Base 10 Integer"
+url = "https://leetcode.com/problems/complement-of-base-10-integer/"
 
 [[entries]]
 title = "Add Two Numbers"
 url = "https://leetcode.com/problems/add-two-numbers/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
 title = "Design Circular Deque"
 url = "https://leetcode.com/problems/design-circular-deque/"
+
+[[entries]]
+title = "Shortest Path Visiting All Nodes"
+url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -108,6 +92,10 @@ title = "Sort List"
 url = "https://leetcode.com/problems/sort-list/"
 
 [[entries]]
+title = "Self Crossing"
+url = "https://leetcode.com/problems/self-crossing/"
+
+[[entries]]
 title = "Find the Duplicate Number"
 url = "https://leetcode.com/problems/find-the-duplicate-number/"
 
@@ -116,20 +104,20 @@ title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
+title = "Find the Difference"
+url = "https://leetcode.com/problems/find-the-difference/"
+
+[[entries]]
 title = "Longest Nice Subarray"
 url = "https://leetcode.com/problems/longest-nice-subarray/"
 
 [[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
-
-[[entries]]
-title = "Maximum XOR With an Element From Array"
-url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
-
-[[entries]]
 title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "Perfect Rectangle"
+url = "https://leetcode.com/problems/perfect-rectangle/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -144,8 +132,16 @@ title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
+title = "Convert Binary Number in a Linked List to Integer"
+url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Rectangle Area II"
+url = "https://leetcode.com/problems/rectangle-area-ii/"
 
 [[entries]]
 title = "Number of Islands"
@@ -160,6 +156,10 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Count of Range Sum"
+url = "https://leetcode.com/problems/count-of-range-sum/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
@@ -168,8 +168,8 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Minimum Bit Flips to Convert Number"
+url = "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -180,5 +180,5 @@ title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Max Sum of Rectangle No Larger Than K"
+url = "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/"

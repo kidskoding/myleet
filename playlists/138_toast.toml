@@ -4,20 +4,8 @@ focus = "arrays, hash maps, strings, stock profit variants, scheduling"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "12_greedy_algorithms", "13_intervals"]
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
 title = "Best Time to Buy and Sell Stock II"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock III"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock with Transaction Fee"
@@ -28,8 +16,8 @@ title = "Best Time to Buy and Sell Stock with Cooldown"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
 
 [[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
+title = "Best Time to Buy and Sell Stock III"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -40,12 +28,20 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
+
+[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Two Sum II - Input Array Is Sorted"
 url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "3Sum"
@@ -56,6 +52,10 @@ title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
 title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
 
@@ -64,12 +64,20 @@ title = "Gas Station"
 url = "https://leetcode.com/problems/gas-station/"
 
 [[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -84,6 +92,10 @@ title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
+title = "Design Excel Sum Formula"
+url = "https://leetcode.com/problems/design-excel-sum-formula/"
+
+[[entries]]
 title = "Mini Parser"
 url = "https://leetcode.com/problems/mini-parser/"
 
@@ -92,12 +104,20 @@ title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
+
+[[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
 title = "Palindromic Substrings"
 url = "https://leetcode.com/problems/palindromic-substrings/"
+
+[[entries]]
+title = "Online Majority Element In Subarray"
+url = "https://leetcode.com/problems/online-majority-element-in-subarray/"
 
 [[entries]]
 title = "Average Waiting Time"
@@ -112,8 +132,16 @@ title = "Design a Food Rating System"
 url = "https://leetcode.com/problems/design-a-food-rating-system/"
 
 [[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
+
+[[entries]]
 title = "Seat Reservation Manager"
 url = "https://leetcode.com/problems/seat-reservation-manager/"
+
+[[entries]]
+title = "Design an Array Statistics Tracker"
+url = "https://leetcode.com/problems/design-an-array-statistics-tracker/"
 
 [[entries]]
 title = "My Calendar I"
@@ -128,12 +156,20 @@ title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
+title = "Count Integers in Intervals"
+url = "https://leetcode.com/problems/count-integers-in-intervals/"
+
+[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
 title = "Design Underground System"
@@ -144,41 +180,5 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Read N Characters Given read4 II - Call Multiple Times"
+url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"

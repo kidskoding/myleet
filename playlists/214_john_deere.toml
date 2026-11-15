@@ -8,10 +8,6 @@ title = "Contains Duplicate"
 url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Maximum Subarray Sum with One Deletion"
 url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
 
@@ -20,16 +16,24 @@ title = "Maximum Sum Circular Subarray"
 url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
 
 [[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
 title = "Maximum Sum of Two Non-Overlapping Subarrays"
 url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Maximum Swap"
 url = "https://leetcode.com/problems/maximum-swap/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
 title = "Design Front Middle Back Queue"
@@ -44,6 +48,10 @@ title = "Count Number of Nice Subarrays"
 url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
 
 [[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
 title = "Frequency of the Most Frequent Element"
 url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
 
@@ -52,36 +60,52 @@ title = "Kth Smallest Element in a Sorted Matrix"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 
 [[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
 title = "Magnetic Force Between Two Balls"
 url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
 
 [[entries]]
 title = "Minimum Number of Days to Make m Bouquets"
 url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
 
 [[entries]]
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+
+[[entries]]
 title = "Minimum Speed to Arrive on Time"
 url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
+
+[[entries]]
+title = "Binary Tree Paths"
+url = "https://leetcode.com/problems/binary-tree-paths/"
 
 [[entries]]
 title = "Search a 2D Matrix II"
 url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
 title = "Insert Greatest Common Divisors in Linked List"
 url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
 
 [[entries]]
+title = "Binary Tree Postorder Traversal"
+url = "https://leetcode.com/problems/binary-tree-postorder-traversal/"
+
+[[entries]]
 title = "Maximum Twin Sum of a Linked List"
 url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
+
+[[entries]]
+title = "Binary Tree Preorder Traversal"
+url = "https://leetcode.com/problems/binary-tree-preorder-traversal/"
 
 [[entries]]
 title = "Merge In Between Linked Lists"
@@ -92,24 +116,20 @@ title = "Next Greater Node In Linked List"
 url = "https://leetcode.com/problems/next-greater-node-in-linked-list/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
-
-[[entries]]
-title = "Binary Tree Paths"
-url = "https://leetcode.com/problems/binary-tree-paths/"
-
-[[entries]]
-title = "Binary Tree Postorder Traversal"
-url = "https://leetcode.com/problems/binary-tree-postorder-traversal/"
-
-[[entries]]
-title = "Binary Tree Preorder Traversal"
-url = "https://leetcode.com/problems/binary-tree-preorder-traversal/"
+title = "Find Center of Star Graph"
+url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
 title = "Course Schedule IV"
 url = "https://leetcode.com/problems/course-schedule-iv/"
+
+[[entries]]
+title = "Kth Smallest Number in Multiplication Table"
+url = "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/"
+
+[[entries]]
+title = "Largest Triangle Area"
+url = "https://leetcode.com/problems/largest-triangle-area/"
 
 [[entries]]
 title = "Detect Cycles in 2D Grid"
@@ -118,23 +138,3 @@ url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
 [[entries]]
 title = "Employee Importance"
 url = "https://leetcode.com/problems/employee-importance/"
-
-[[entries]]
-title = "Find Center of Star Graph"
-url = "https://leetcode.com/problems/find-center-of-star-graph/"
-
-[[entries]]
-title = "Find Closest Node to Given Two Nodes"
-url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
-
-[[entries]]
-title = "Largest Triangle Area"
-url = "https://leetcode.com/problems/largest-triangle-area/"
-
-[[entries]]
-title = "Minimum Area Rectangle"
-url = "https://leetcode.com/problems/minimum-area-rectangle/"
-
-[[entries]]
-title = "Nim Game"
-url = "https://leetcode.com/problems/nim-game/"

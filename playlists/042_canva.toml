@@ -8,10 +8,6 @@ title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
@@ -32,6 +28,10 @@ title = "Implement Magic Dictionary"
 url = "https://leetcode.com/problems/implement-magic-dictionary/"
 
 [[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
 title = "Map Sum Pairs"
 url = "https://leetcode.com/problems/map-sum-pairs/"
 
@@ -48,12 +48,12 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
 title = "Snapshot Array"
@@ -64,20 +64,20 @@ title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
-
-[[entries]]
 title = "Design File System"
 url = "https://leetcode.com/problems/design-file-system/"
+
+[[entries]]
+title = "Design a Text Editor"
+url = "https://leetcode.com/problems/design-a-text-editor/"
 
 [[entries]]
 title = "Design Spreadsheet"
@@ -92,16 +92,20 @@ title = "Design Log Storage System"
 url = "https://leetcode.com/problems/design-log-storage-system/"
 
 [[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
-
-[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Rectangle Overlap"
+url = "https://leetcode.com/problems/rectangle-overlap/"
 
 [[entries]]
 title = "Max Area of Island"
@@ -110,6 +114,10 @@ url = "https://leetcode.com/problems/max-area-of-island/"
 [[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Spiral Matrix"
@@ -124,12 +132,16 @@ title = "Set Matrix Zeroes"
 url = "https://leetcode.com/problems/set-matrix-zeroes/"
 
 [[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
 title = "Range Sum Query 2D - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
 
 [[entries]]
-title = "Rectangle Overlap"
-url = "https://leetcode.com/problems/rectangle-overlap/"
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
 title = "Rectangle Area"
@@ -144,12 +156,20 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
+title = "Max Stack"
+url = "https://leetcode.com/problems/max-stack/"
+
+[[entries]]
 title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
 title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Valid Sudoku"
@@ -160,25 +180,5 @@ title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
-
-[[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Design Skiplist"
+url = "https://leetcode.com/problems/design-skiplist/"

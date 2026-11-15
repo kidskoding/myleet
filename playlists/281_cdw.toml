@@ -8,26 +8,6 @@ title = "Find All Numbers Disappeared in an Array"
 url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
 
 [[entries]]
-title = "Maximum Distance Between Unequal Words in Array I"
-url = "https://leetcode.com/problems/maximum-distance-between-unequal-words-in-array-i/"
-
-[[entries]]
-title = "Verifying an Alien Dictionary"
-url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
-
-[[entries]]
-title = "Find Valid Pair of Adjacent Digits in String"
-url = "https://leetcode.com/problems/find-valid-pair-of-adjacent-digits-in-string/"
-
-[[entries]]
-title = "Count Negative Numbers in a Sorted Matrix"
-url = "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/"
-
-[[entries]]
-title = "Widest Vertical Area Between Two Points Containing No Points"
-url = "https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/"
-
-[[entries]]
 title = "Compare Version Numbers"
 url = "https://leetcode.com/problems/compare-version-numbers/"
 
@@ -36,16 +16,32 @@ title = "Average Waiting Time"
 url = "https://leetcode.com/problems/average-waiting-time/"
 
 [[entries]]
+title = "Maximum Distance Between Unequal Words in Array I"
+url = "https://leetcode.com/problems/maximum-distance-between-unequal-words-in-array-i/"
+
+[[entries]]
 title = "Sum of Even Numbers After Queries"
 url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
+
+[[entries]]
+title = "Verifying an Alien Dictionary"
+url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
 
 [[entries]]
 title = "Longest Balanced Subarray I"
 url = "https://leetcode.com/problems/longest-balanced-subarray-i/"
 
 [[entries]]
+title = "Parse Lisp Expression"
+url = "https://leetcode.com/problems/parse-lisp-expression/"
+
+[[entries]]
 title = "Identify the Largest Outlier in an Array"
 url = "https://leetcode.com/problems/identify-the-largest-outlier-in-an-array/"
+
+[[entries]]
+title = "Find Valid Pair of Adjacent Digits in String"
+url = "https://leetcode.com/problems/find-valid-pair-of-adjacent-digits-in-string/"
 
 [[entries]]
 title = "Word Pattern II"
@@ -56,20 +52,40 @@ title = "Campus Bikes"
 url = "https://leetcode.com/problems/campus-bikes/"
 
 [[entries]]
+title = "Count Negative Numbers in a Sorted Matrix"
+url = "https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/"
+
+[[entries]]
 title = "Swap For Longest Repeated Character Substring"
 url = "https://leetcode.com/problems/swap-for-longest-repeated-character-substring/"
+
+[[entries]]
+title = "Widest Vertical Area Between Two Points Containing No Points"
+url = "https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/"
 
 [[entries]]
 title = "Longest Substring Of All Vowels in Order"
 url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
 
 [[entries]]
+title = "Basic Calculator IV"
+url = "https://leetcode.com/problems/basic-calculator-iv/"
+
+[[entries]]
 title = "Minimum Insertions to Balance a Parentheses String"
 url = "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/"
 
 [[entries]]
+title = "Ransom Note"
+url = "https://leetcode.com/problems/ransom-note/"
+
+[[entries]]
 title = "Find Leaves of Binary Tree"
 url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
+
+[[entries]]
+title = "Word Pattern"
+url = "https://leetcode.com/problems/word-pattern/"
 
 [[entries]]
 title = "Print Binary Tree"
@@ -80,53 +96,37 @@ title = "Sort Integers by The Power Value"
 url = "https://leetcode.com/problems/sort-integers-by-the-power-value/"
 
 [[entries]]
+title = "Find Words That Can Be Formed by Characters"
+url = "https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/"
+
+[[entries]]
 title = "Knight Dialer"
 url = "https://leetcode.com/problems/knight-dialer/"
-
-[[entries]]
-title = "Parse Lisp Expression"
-url = "https://leetcode.com/problems/parse-lisp-expression/"
-
-[[entries]]
-title = "Basic Calculator IV"
-url = "https://leetcode.com/problems/basic-calculator-iv/"
-
-[[entries]]
-title = "Recover a Tree From Preorder Traversal"
-url = "https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/"
-
-[[entries]]
-title = "Number of Music Playlists"
-url = "https://leetcode.com/problems/number-of-music-playlists/"
-
-[[entries]]
-title = "Paint House II"
-url = "https://leetcode.com/problems/paint-house-ii/"
-
-[[entries]]
-title = "Paint House III"
-url = "https://leetcode.com/problems/paint-house-iii/"
-
-[[entries]]
-title = "Partition Array Into Two Arrays to Minimize Sum Difference"
-url = "https://leetcode.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/"
 
 [[entries]]
 title = "Delete Node in a Linked List"
 url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
 
 [[entries]]
+title = "Minimum Index Sum of Two Lists"
+url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
+
+[[entries]]
 title = "Apply Substitutions"
 url = "https://leetcode.com/problems/apply-substitutions/"
+
+[[entries]]
+title = "Recover a Tree From Preorder Traversal"
+url = "https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/"
+
+[[entries]]
+title = "Most Common Word"
+url = "https://leetcode.com/problems/most-common-word/"
 
 [[entries]]
 title = "Power Grid Maintenance"
 url = "https://leetcode.com/problems/power-grid-maintenance/"
 
 [[entries]]
-title = "Minimize Malware Spread II"
-url = "https://leetcode.com/problems/minimize-malware-spread-ii/"
-
-[[entries]]
-title = "Minimum Cost to Convert String II"
-url = "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/"
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"

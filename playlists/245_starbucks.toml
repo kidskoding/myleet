@@ -8,46 +8,6 @@ title = "Length of Last Word"
 url = "https://leetcode.com/problems/length-of-last-word/"
 
 [[entries]]
-title = "Valid Word"
-url = "https://leetcode.com/problems/valid-word/"
-
-[[entries]]
-title = "Find Winner on a Tic Tac Toe Game"
-url = "https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/"
-
-[[entries]]
-title = "Find the Town Judge"
-url = "https://leetcode.com/problems/find-the-town-judge/"
-
-[[entries]]
-title = "Divide an Array Into Subarrays With Minimum Cost I"
-url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-i/"
-
-[[entries]]
-title = "Maximum Nesting Depth of the Parentheses"
-url = "https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/"
-
-[[entries]]
-title = "Maximum Length Substring With Two Occurrences"
-url = "https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/"
-
-[[entries]]
-title = "Merge Two Binary Trees"
-url = "https://leetcode.com/problems/merge-two-binary-trees/"
-
-[[entries]]
-title = "Evaluate Boolean Binary Tree"
-url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
-
-[[entries]]
-title = "Pascal's Triangle"
-url = "https://leetcode.com/problems/pascals-triangle/"
-
-[[entries]]
-title = "Maximum Repeating Substring"
-url = "https://leetcode.com/problems/maximum-repeating-substring/"
-
-[[entries]]
 title = "Encode and Decode Strings"
 url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
@@ -56,16 +16,32 @@ title = "Count Unhappy Friends"
 url = "https://leetcode.com/problems/count-unhappy-friends/"
 
 [[entries]]
+title = "Valid Word"
+url = "https://leetcode.com/problems/valid-word/"
+
+[[entries]]
 title = "Remove Comments"
 url = "https://leetcode.com/problems/remove-comments/"
+
+[[entries]]
+title = "Find Winner on a Tic Tac Toe Game"
+url = "https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/"
 
 [[entries]]
 title = "Destroy Sequential Targets"
 url = "https://leetcode.com/problems/destroy-sequential-targets/"
 
 [[entries]]
+title = "Maximize Subarray Sum After Removing All Occurrences of One Element"
+url = "https://leetcode.com/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element/"
+
+[[entries]]
 title = "Prison Cells After N Days"
 url = "https://leetcode.com/problems/prison-cells-after-n-days/"
+
+[[entries]]
+title = "Find the Town Judge"
+url = "https://leetcode.com/problems/find-the-town-judge/"
 
 [[entries]]
 title = "Median of a Row Wise Sorted Matrix"
@@ -76,20 +52,40 @@ title = "Sort Transformed Array"
 url = "https://leetcode.com/problems/sort-transformed-array/"
 
 [[entries]]
+title = "Divide an Array Into Subarrays With Minimum Cost I"
+url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-i/"
+
+[[entries]]
 title = "Reach a Number"
 url = "https://leetcode.com/problems/reach-a-number/"
+
+[[entries]]
+title = "Maximum Nesting Depth of the Parentheses"
+url = "https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/"
 
 [[entries]]
 title = "Plates Between Candles"
 url = "https://leetcode.com/problems/plates-between-candles/"
 
 [[entries]]
+title = "Dice Roll Simulation"
+url = "https://leetcode.com/problems/dice-roll-simulation/"
+
+[[entries]]
 title = "Longest Substring with At Most Two Distinct Characters"
 url = "https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/"
 
 [[entries]]
+title = "Maximum Length Substring With Two Occurrences"
+url = "https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/"
+
+[[entries]]
 title = "Minimum Swaps to Group All 1's Together II"
 url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/"
+
+[[entries]]
+title = "Merge Two Binary Trees"
+url = "https://leetcode.com/problems/merge-two-binary-trees/"
 
 [[entries]]
 title = "Score of Parentheses"
@@ -100,6 +96,10 @@ title = "Smallest Subtree with all the Deepest Nodes"
 url = "https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/"
 
 [[entries]]
+title = "Evaluate Boolean Binary Tree"
+url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
+
+[[entries]]
 title = "Number of Self-Divisible Permutations"
 url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
@@ -108,20 +108,20 @@ title = "Longest Non-Decreasing Subarray After Replacing at Most One Element"
 url = "https://leetcode.com/problems/longest-non-decreasing-subarray-after-replacing-at-most-one-element/"
 
 [[entries]]
-title = "Maximize Subarray Sum After Removing All Occurrences of One Element"
-url = "https://leetcode.com/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element/"
-
-[[entries]]
-title = "Remove Duplicates from Sorted List"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list/"
-
-[[entries]]
-title = "Middle of the Linked List"
-url = "https://leetcode.com/problems/middle-of-the-linked-list/"
+title = "Pascal's Triangle"
+url = "https://leetcode.com/problems/pascals-triangle/"
 
 [[entries]]
 title = "Find All Possible Recipes from Given Supplies"
 url = "https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/"
+
+[[entries]]
+title = "Minimum Difficulty of a Job Schedule"
+url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
+
+[[entries]]
+title = "Maximum Repeating Substring"
+url = "https://leetcode.com/problems/maximum-repeating-substring/"
 
 [[entries]]
 title = "Minimum Cost Path with Edge Reversals"

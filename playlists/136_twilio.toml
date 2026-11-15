@@ -4,18 +4,6 @@ focus = "string building and parsing, stack-based expression evaluation, input v
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "09_backtracking", "11_dp"]
 
 [[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
-title = "Find the Index of the First Occurrence in a String"
-url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
-
-[[entries]]
-title = "Repeated Substring Pattern"
-url = "https://leetcode.com/problems/repeated-substring-pattern/"
-
-[[entries]]
 title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
 
@@ -28,12 +16,20 @@ title = "Encode and Decode Strings"
 url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"
+
+[[entries]]
 title = "Encode and Decode TinyURL"
 url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 
 [[entries]]
 title = "Remove All Adjacent Duplicates in String II"
 url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+
+[[entries]]
+title = "Add Strings"
+url = "https://leetcode.com/problems/add-strings/"
 
 [[entries]]
 title = "Simplify Path"
@@ -44,12 +40,20 @@ title = "Minimum Remove to Make Valid Parentheses"
 url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
 [[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
 title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
 [[entries]]
 title = "Permutation in String"
 url = "https://leetcode.com/problems/permutation-in-string/"
+
+[[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
 
 [[entries]]
 title = "Find All Anagrams in a String"
@@ -60,12 +64,20 @@ title = "Number of Substrings Containing All Three Characters"
 url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
 
 [[entries]]
+title = "Find the Index of the First Occurrence in a String"
+url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
+
+[[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
 title = "UTF-8 Validation"
 url = "https://leetcode.com/problems/utf-8-validation/"
+
+[[entries]]
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"
 
 [[entries]]
 title = "Restore IP Addresses"
@@ -80,40 +92,20 @@ title = "Design Authentication Manager"
 url = "https://leetcode.com/problems/design-authentication-manager/"
 
 [[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Valid Number"
-url = "https://leetcode.com/problems/valid-number/"
-
-[[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
-
-[[entries]]
-title = "Number of Atoms"
-url = "https://leetcode.com/problems/number-of-atoms/"
-
-[[entries]]
 title = "Basic Calculator"
 url = "https://leetcode.com/problems/basic-calculator/"
 
 [[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
-
-[[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
 title = "Maximize Greatness of an Array"
 url = "https://leetcode.com/problems/maximize-greatness-of-an-array/"
+
+[[entries]]
+title = "Repeated Substring Pattern"
+url = "https://leetcode.com/problems/repeated-substring-pattern/"
 
 [[entries]]
 title = "Count Vowel Strings in Ranges"
@@ -122,6 +114,10 @@ url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
 [[entries]]
 title = "Ways to Make a Fair Array"
 url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
+
+[[entries]]
+title = "Word Break II"
+url = "https://leetcode.com/problems/word-break-ii/"
 
 [[entries]]
 title = "Furthest Building You Can Reach"
@@ -136,8 +132,16 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -152,6 +156,10 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
@@ -160,8 +168,8 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Create Target Array in the Given Order"
+url = "https://leetcode.com/problems/create-target-array-in-the-given-order/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -172,13 +180,5 @@ title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"

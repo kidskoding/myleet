@@ -4,18 +4,6 @@ focus = "strings, graphs, trees, heaps, backtracking, and clean implementation."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "10_graphs", "07_trees"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
@@ -24,24 +12,12 @@ title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
 
 [[entries]]
-title = "Contains Duplicate III"
-url = "https://leetcode.com/problems/contains-duplicate-iii/"
-
-[[entries]]
-title = "Guess the Word"
-url = "https://leetcode.com/problems/guess-the-word/"
-
-[[entries]]
-title = "Data Stream as Disjoint Intervals"
-url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
-
-[[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Contains Duplicate III"
+url = "https://leetcode.com/problems/contains-duplicate-iii/"
 
 [[entries]]
 title = "Sort Colors"
@@ -52,12 +28,8 @@ title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Trim a Binary Search Tree"
@@ -68,6 +40,10 @@ title = "Combination Sum III"
 url = "https://leetcode.com/problems/combination-sum-iii/"
 
 [[entries]]
+title = "Guess the Word"
+url = "https://leetcode.com/problems/guess-the-word/"
+
+[[entries]]
 title = "Set Matrix Zeroes"
 url = "https://leetcode.com/problems/set-matrix-zeroes/"
 
@@ -76,8 +52,8 @@ title = "Best Time to Buy and Sell Stock with Cooldown"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
 
 [[entries]]
-title = "Maximum Performance of a Team"
-url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
 
 [[entries]]
 title = "Find Eventual Safe States"
@@ -88,12 +64,20 @@ title = "Jump Game II"
 url = "https://leetcode.com/problems/jump-game-ii/"
 
 [[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
+
+[[entries]]
 title = "Design Phone Directory"
 url = "https://leetcode.com/problems/design-phone-directory/"
 
 [[entries]]
 title = "01 Matrix"
 url = "https://leetcode.com/problems/01-matrix/"
+
+[[entries]]
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock II"
@@ -108,8 +92,8 @@ title = "Number of Ways to Buy Pens and Pencils"
 url = "https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "LRU Cache"
@@ -120,12 +104,20 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -136,16 +128,20 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+
+[[entries]]
 title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Maximum Performance of a Team"
+url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
 
 [[entries]]
 title = "Rotting Oranges"
@@ -160,6 +156,10 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
+
+[[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
@@ -168,17 +168,17 @@ title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

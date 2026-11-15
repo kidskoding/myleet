@@ -4,6 +4,10 @@ focus = "string manipulation, arrays and hash maps, sliding window, intervals an
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "11_dp", "13_intervals"]
 
 [[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
@@ -12,60 +16,84 @@ title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
+title = "First Unique Character in a String"
+url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
+
+[[entries]]
 title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
 title = "Reverse Words in a String"
 url = "https://leetcode.com/problems/reverse-words-in-a-string/"
 
 [[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
 url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
 title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+
+[[entries]]
+title = "Move Zeroes"
+url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
 title = "Longest Repeating Character Replacement"
 url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
 
 [[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Sort Characters By Frequency"
 url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -76,6 +104,10 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "High Five"
+url = "https://leetcode.com/problems/high-five/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
@@ -84,40 +116,40 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
 
 [[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
+
+[[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
 title = "Validate Binary Search Tree"
 url = "https://leetcode.com/problems/validate-binary-search-tree/"
+
+[[entries]]
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
 
 [[entries]]
 title = "Number of Islands"
@@ -128,8 +160,20 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
+title = "Backspace String Compare"
+url = "https://leetcode.com/problems/backspace-string-compare/"
+
+[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+
+[[entries]]
+title = "Next Greater Element I"
+url = "https://leetcode.com/problems/next-greater-element-i/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -138,47 +182,3 @@ url = "https://leetcode.com/problems/time-based-key-value-store/"
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
-title = "Invalid Transactions"
-url = "https://leetcode.com/problems/invalid-transactions/"
-
-[[entries]]
-title = "Find All Duplicates in an Array"
-url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
-
-[[entries]]
-title = "High Five"
-url = "https://leetcode.com/problems/high-five/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"

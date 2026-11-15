@@ -4,10 +4,6 @@ focus = "search/ranking, heaps, strings, graphs, intervals, tries, trees, and DP
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "16_math_geometry"]
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
 title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
@@ -20,16 +16,20 @@ title = "Find K Closest Elements"
 url = "https://leetcode.com/problems/find-k-closest-elements/"
 
 [[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -40,12 +40,20 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Accounts Merge"
@@ -56,6 +64,10 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
+url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
+
+[[entries]]
 title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
@@ -64,16 +76,12 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
 
 [[entries]]
 title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -92,16 +100,12 @@ title = "Binary Tree Vertical Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-vertical-order-traversal/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
 title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "Minimum Index Sum of Two Lists"
+url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
 
 [[entries]]
 title = "Coin Change"
@@ -112,12 +116,8 @@ title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
 title = "Random Pick with Weight"
@@ -132,24 +132,16 @@ title = "Remove Colored Pieces if Both Neighbors are the Same Color"
 url = "https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/"
 
 [[entries]]
-title = "Find the Closest Palindrome"
-url = "https://leetcode.com/problems/find-the-closest-palindrome/"
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
 
 [[entries]]
 title = "Letter Case Permutation"
 url = "https://leetcode.com/problems/letter-case-permutation/"
 
 [[entries]]
-title = "The Skyline Problem"
-url = "https://leetcode.com/problems/the-skyline-problem/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1) - Duplicates allowed"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
-
-[[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
 title = "Shortest and Lexicographically Smallest Beautiful String"
@@ -164,6 +156,10 @@ title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
@@ -172,13 +168,17 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
-url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
-
-[[entries]]
-title = "Minimum Index Sum of Two Lists"
-url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
+title = "Minimum Absolute Difference Between Two Values"
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-two-values/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
+
+[[entries]]
+title = "Find the Closest Palindrome"
+url = "https://leetcode.com/problems/find-the-closest-palindrome/"

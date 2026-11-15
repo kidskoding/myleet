@@ -12,36 +12,44 @@ title = "Sort an Array"
 url = "https://leetcode.com/problems/sort-an-array/"
 
 [[entries]]
-title = "Fruit Into Baskets"
-url = "https://leetcode.com/problems/fruit-into-baskets/"
-
-[[entries]]
 title = "Valid Palindrome"
 url = "https://leetcode.com/problems/valid-palindrome/"
+
+[[entries]]
+title = "Fruit Into Baskets"
+url = "https://leetcode.com/problems/fruit-into-baskets/"
 
 [[entries]]
 title = "Maximum Area of Two Non-Overlapping Square Submatrices"
 url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
 
 [[entries]]
-title = "Maximum Equal Frequency"
-url = "https://leetcode.com/problems/maximum-equal-frequency/"
-
-[[entries]]
-title = "Find a Value of a Mysterious Function Closest to Target"
-url = "https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Maximize the Topmost Element After K Moves"
 url = "https://leetcode.com/problems/maximize-the-topmost-element-after-k-moves/"
 
 [[entries]]
+title = "Maximum Equal Frequency"
+url = "https://leetcode.com/problems/maximum-equal-frequency/"
+
+[[entries]]
 title = "Equal Sum Arrays With Minimum Number of Operations"
 url = "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/"
 
 [[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
 title = "Ugly Number III"
 url = "https://leetcode.com/problems/ugly-number-iii/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Maximum XOR After Operations"
@@ -52,16 +60,20 @@ title = "Minimum Moves to Spread Stones Over Grid"
 url = "https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid/"
 
 [[entries]]
-title = "Divide an Array Into Subarrays With Minimum Cost II"
-url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-ii/"
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
+
+[[entries]]
+title = "Find a Value of a Mysterious Function Closest to Target"
+url = "https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target/"
 
 [[entries]]
 title = "Minimum Deletions to Make Character Frequencies Unique"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
 
 [[entries]]
-title = "Check If It Is a Good Array"
-url = "https://leetcode.com/problems/check-if-it-is-a-good-array/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Linked List Cycle II"
@@ -72,20 +84,32 @@ title = "Permutations"
 url = "https://leetcode.com/problems/permutations/"
 
 [[entries]]
+title = "Isomorphic Strings"
+url = "https://leetcode.com/problems/isomorphic-strings/"
+
+[[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
+title = "Divide an Array Into Subarrays With Minimum Cost II"
+url = "https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-ii/"
+
+[[entries]]
 title = "Minimum Size Subarray Sum"
 url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Longest Repeating Character Replacement"
@@ -96,28 +120,40 @@ title = "Permutation in String"
 url = "https://leetcode.com/problems/permutation-in-string/"
 
 [[entries]]
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
+
+[[entries]]
 title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+
+[[entries]]
+title = "Maximum Average Subarray I"
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
 [[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Check If It Is a Good Array"
+url = "https://leetcode.com/problems/check-if-it-is-a-good-array/"
 
 [[entries]]
 title = "Contiguous Array"
 url = "https://leetcode.com/problems/contiguous-array/"
 
 [[entries]]
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+
+[[entries]]
 title = "Continuous Subarray Sum"
 url = "https://leetcode.com/problems/continuous-subarray-sum/"
+
+[[entries]]
+title = "Add Binary"
+url = "https://leetcode.com/problems/add-binary/"
 
 [[entries]]
 title = "Product of Array Except Self"
@@ -128,61 +164,25 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
+title = "Binary Number with Alternating Bits"
+url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
+title = "Contains Duplicate II"
+url = "https://leetcode.com/problems/contains-duplicate-ii/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Isomorphic Strings"
-url = "https://leetcode.com/problems/isomorphic-strings/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"

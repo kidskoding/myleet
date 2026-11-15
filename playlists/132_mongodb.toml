@@ -4,10 +4,6 @@ focus = "trees, tries, range queries, hash maps, design data structures, graph t
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "09_backtracking", "10_graphs", "11_dp", "13_intervals", "14_tries", "17_advanced"]
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
-
-[[entries]]
 title = "Design File System"
 url = "https://leetcode.com/problems/design-file-system/"
 
@@ -20,12 +16,8 @@ title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "Prefix and Suffix Search"
-url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -36,12 +28,20 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
 title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -52,12 +52,20 @@ title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
+title = "Prefix and Suffix Search"
+url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+
+[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
 title = "Range Sum Query - Mutable"
 url = "https://leetcode.com/problems/range-sum-query-mutable/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Range Sum Query 2D - Immutable"
@@ -68,6 +76,10 @@ title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
 title = "Validate Binary Search Tree"
 url = "https://leetcode.com/problems/validate-binary-search-tree/"
 
@@ -76,12 +88,12 @@ title = "Kth Smallest Element in a BST"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
 title = "Binary Search Tree Iterator"
 url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
 
 [[entries]]
 title = "Clone Graph"
@@ -92,20 +104,20 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Search in a Binary Search Tree"
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
 
 [[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -120,12 +132,16 @@ title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Convert Sorted Array to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
 
 [[entries]]
 title = "Snapshot Array"
 url = "https://leetcode.com/problems/snapshot-array/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Stock Price Fluctuation"
@@ -140,32 +156,20 @@ title = "Compare Version Numbers"
 url = "https://leetcode.com/problems/compare-version-numbers/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree III"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
-
-[[entries]]
 title = "Design Search Autocomplete System"
 url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
-title = "Word Break II"
-url = "https://leetcode.com/problems/word-break-ii/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Lowest Common Ancestor of a Binary Tree III"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/"
 
 [[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Transpose Matrix"
+url = "https://leetcode.com/problems/transpose-matrix/"
 
 [[entries]]
 title = "String Compression"
@@ -176,9 +180,5 @@ title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"

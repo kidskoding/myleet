@@ -4,6 +4,10 @@ focus = "sorting and complexity analysis, arrays and hash maps, binary search on
 review_modules = ["02_two_pointers", "06_linked_lists", "08_heaps", "10_graphs", "12_greedy_algorithms"]
 
 [[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
+
+[[entries]]
 title = "Sort List"
 url = "https://leetcode.com/problems/sort-list/"
 
@@ -12,24 +16,40 @@ title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Bus Routes"
+url = "https://leetcode.com/problems/bus-routes/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
+title = "Merge Sorted Array"
+url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -40,22 +60,6 @@ title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
-
-[[entries]]
 title = "Binary Search"
 url = "https://leetcode.com/problems/binary-search/"
 
@@ -64,20 +68,32 @@ title = "Capacity To Ship Packages Within D Days"
 url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
 
 [[entries]]
+title = "Maximum Units on a Truck"
+url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
+
+[[entries]]
 title = "Koko Eating Bananas"
 url = "https://leetcode.com/problems/koko-eating-bananas/"
 
 [[entries]]
-title = "Maximum Units on a Truck"
-url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Two City Scheduling"
 url = "https://leetcode.com/problems/two-city-scheduling/"
 
 [[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
 title = "Boats to Save People"
 url = "https://leetcode.com/problems/boats-to-save-people/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
 title = "Car Pooling"
@@ -88,6 +104,10 @@ title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
 title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
@@ -96,8 +116,20 @@ title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
+title = "Can Place Flowers"
+url = "https://leetcode.com/problems/can-place-flowers/"
+
+[[entries]]
 title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Course Schedule III"
+url = "https://leetcode.com/problems/course-schedule-iii/"
+
+[[entries]]
+title = "Assign Cookies"
+url = "https://leetcode.com/problems/assign-cookies/"
 
 [[entries]]
 title = "Cheapest Flights Within K Stops"
@@ -108,12 +140,16 @@ title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
 
 [[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
+title = "Lemonade Change"
+url = "https://leetcode.com/problems/lemonade-change/"
 
 [[entries]]
 title = "Min Cost to Connect All Points"
 url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+
+[[entries]]
+title = "Arranging Coins"
+url = "https://leetcode.com/problems/arranging-coins/"
 
 [[entries]]
 title = "Number of Islands"
@@ -124,16 +160,20 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "String Matching in an Array"
+url = "https://leetcode.com/problems/string-matching-in-an-array/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "IPO"
+url = "https://leetcode.com/problems/ipo/"
+
+[[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
 title = "Design Underground System"
@@ -142,43 +182,3 @@ url = "https://leetcode.com/problems/design-underground-system/"
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Minimum Cost to Connect Sticks"
-url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"

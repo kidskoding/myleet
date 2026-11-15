@@ -8,52 +8,48 @@ title = "Contains Duplicate"
 url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Subarray Sums Divisible by K"
 url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
 
 [[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Number of Ways to Split Array"
 url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
 
 [[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
-
-[[entries]]
 title = "Brick Wall"
 url = "https://leetcode.com/problems/brick-wall/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
 title = "Sum of Subarray Ranges"
 url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
 
 [[entries]]
+title = "Max Value of Equation"
+url = "https://leetcode.com/problems/max-value-of-equation/"
+
+[[entries]]
 title = "Validate Stack Sequences"
 url = "https://leetcode.com/problems/validate-stack-sequences/"
 
 [[entries]]
-title = "Substrings of Size Three with Distinct Characters"
-url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
-
-[[entries]]
-title = "Valid Palindrome II"
-url = "https://leetcode.com/problems/valid-palindrome-ii/"
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
 [[entries]]
 title = "Wiggle Sort II"
 url = "https://leetcode.com/problems/wiggle-sort-ii/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "4Sum"
@@ -64,12 +60,20 @@ title = "Binary Subarrays With Sum"
 url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
 
 [[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
+title = "Substrings of Size Three with Distinct Characters"
+url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
 
 [[entries]]
 title = "Continuous Subarrays"
 url = "https://leetcode.com/problems/continuous-subarrays/"
+
+[[entries]]
+title = "Subarrays with K Different Integers"
+url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
+
+[[entries]]
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
 
 [[entries]]
 title = "Single Element in a Sorted Array"
@@ -80,49 +84,45 @@ title = "Successful Pairs of Spells and Potions"
 url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
 
 [[entries]]
-title = "Kth Missing Positive Number"
-url = "https://leetcode.com/problems/kth-missing-positive-number/"
-
-[[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
-
-[[entries]]
-title = "Path Sum"
-url = "https://leetcode.com/problems/path-sum/"
+title = "Contains Duplicate II"
+url = "https://leetcode.com/problems/contains-duplicate-ii/"
 
 [[entries]]
 title = "Path Sum II"
 url = "https://leetcode.com/problems/path-sum-ii/"
 
 [[entries]]
-title = "Path Sum III"
-url = "https://leetcode.com/problems/path-sum-iii/"
+title = "Kth Missing Positive Number"
+url = "https://leetcode.com/problems/kth-missing-positive-number/"
 
 [[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Path Sum III"
+url = "https://leetcode.com/problems/path-sum-iii/"
 
 [[entries]]
 title = "Ones and Zeroes"
 url = "https://leetcode.com/problems/ones-and-zeroes/"
 
 [[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
 title = "Target Sum"
 url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
 
 [[entries]]
 title = "Triangle"
 url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
-title = "Wiggle Subsequence"
-url = "https://leetcode.com/problems/wiggle-subsequence/"
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"

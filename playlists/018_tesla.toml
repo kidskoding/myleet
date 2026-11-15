@@ -12,36 +12,36 @@ title = "Path With Minimum Effort"
 url = "https://leetcode.com/problems/path-with-minimum-effort/"
 
 [[entries]]
-title = "Swim in Rising Water"
-url = "https://leetcode.com/problems/swim-in-rising-water/"
-
-[[entries]]
 title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
 
 [[entries]]
 title = "Cheapest Flights Within K Stops"
 url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 
 [[entries]]
-title = "Min Cost to Connect All Points"
-url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+title = "Min Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
 
 [[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Course Schedule"
@@ -52,12 +52,20 @@ title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
 title = "Koko Eating Bananas"
 url = "https://leetcode.com/problems/koko-eating-bananas/"
 
 [[entries]]
 title = "Capacity To Ship Packages Within D Days"
 url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+
+[[entries]]
+title = "Minimum Changes To Make Alternating Binary String"
+url = "https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/"
 
 [[entries]]
 title = "Find Peak Element"
@@ -68,16 +76,20 @@ title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
 
 [[entries]]
 title = "Car Pooling"
@@ -86,6 +98,10 @@ url = "https://leetcode.com/problems/car-pooling/"
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -100,8 +116,16 @@ title = "Validate Binary Search Tree"
 url = "https://leetcode.com/problems/validate-binary-search-tree/"
 
 [[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Find if Path Exists in Graph"
+url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
 
 [[entries]]
 title = "Longest Increasing Subsequence"
@@ -112,12 +136,12 @@ title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
 title = "LRU Cache"
@@ -128,12 +152,20 @@ title = "Rectangle Area"
 url = "https://leetcode.com/problems/rectangle-area/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Snakes and Ladders"
 url = "https://leetcode.com/problems/snakes-and-ladders/"
 
 [[entries]]
 title = "Reorganize String"
 url = "https://leetcode.com/problems/reorganize-string/"
+
+[[entries]]
+title = "Find Center of Star Graph"
+url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
 title = "Find All Possible Recipes from Given Supplies"
@@ -144,12 +176,20 @@ title = "UTF-8 Validation"
 url = "https://leetcode.com/problems/utf-8-validation/"
 
 [[entries]]
+title = "Minimum Moves to Reach Target with Rotations"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
+
+[[entries]]
 title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
 title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
 
 [[entries]]
 title = "Design Memory Allocator"
@@ -160,45 +200,5 @@ title = "Shortest Bridge"
 url = "https://leetcode.com/problems/shortest-bridge/"
 
 [[entries]]
-title = "Design Tic-Tac-Toe"
-url = "https://leetcode.com/problems/design-tic-tac-toe/"
-
-[[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
-
-[[entries]]
-title = "Letter Combinations of a Phone Number"
-url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
-
-[[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
-
-[[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
-
-[[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
-
-[[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Minimum Changes To Make Alternating Binary String"
-url = "https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/"
+title = "Shortest Path to Get All Keys"
+url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"

@@ -8,18 +8,6 @@ title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
-title = "Add Binary"
-url = "https://leetcode.com/problems/add-binary/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
-
-[[entries]]
 title = "Continuous Subarray Sum"
 url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
@@ -36,12 +24,20 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
+title = "Add Binary"
+url = "https://leetcode.com/problems/add-binary/"
+
+[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
+
+[[entries]]
+title = "Reverse Pairs"
+url = "https://leetcode.com/problems/reverse-pairs/"
 
 [[entries]]
 title = "Rotate Array"
@@ -56,6 +52,10 @@ title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
+title = "Checking Existence of Edge Length Limited Paths"
+url = "https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths/"
+
+[[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
@@ -64,8 +64,8 @@ title = "Best Time to Buy and Sell Stock with Transaction Fee"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
 
 [[entries]]
-title = "Reverse Pairs"
-url = "https://leetcode.com/problems/reverse-pairs/"
+title = "Move Zeroes"
+url = "https://leetcode.com/problems/move-zeroes/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -76,24 +76,20 @@ title = "Valid Parenthesis String"
 url = "https://leetcode.com/problems/valid-parenthesis-string/"
 
 [[entries]]
-title = "Checking Existence of Edge Length Limited Paths"
-url = "https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths/"
+title = "Best Time to Buy and Sell Stock IV"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
 
 [[entries]]
 title = "The Maze II"
 url = "https://leetcode.com/problems/the-maze-ii/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock IV"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
-
-[[entries]]
 title = "Stone Game II"
 url = "https://leetcode.com/problems/stone-game-ii/"
 
 [[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
 
 [[entries]]
 title = "Next Greater Element III"
@@ -102,6 +98,10 @@ url = "https://leetcode.com/problems/next-greater-element-iii/"
 [[entries]]
 title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
 title = "Rank Teams by Votes"
@@ -124,40 +124,24 @@ title = "Design Snake Game"
 url = "https://leetcode.com/problems/design-snake-game/"
 
 [[entries]]
-title = "Number of Possible Sets of Closing Branches"
-url = "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/"
-
-[[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Maximum 69 Number"
+url = "https://leetcode.com/problems/maximum-69-number/"
 
 [[entries]]
 title = "Minimum Cost to Convert String I"
 url = "https://leetcode.com/problems/minimum-cost-to-convert-string-i/"
 
 [[entries]]
-title = "Verbal Arithmetic Puzzle"
-url = "https://leetcode.com/problems/verbal-arithmetic-puzzle/"
-
-[[entries]]
 title = "Lowest Common Ancestor of a Binary Tree IV"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
 
 [[entries]]
+title = "Number of Possible Sets of Closing Branches"
+url = "https://leetcode.com/problems/number-of-possible-sets-of-closing-branches/"
+
+[[entries]]
 title = "The Time When the Network Becomes Idle"
 url = "https://leetcode.com/problems/the-time-when-the-network-becomes-idle/"
-
-[[entries]]
-title = "Minimum Cost to Convert String II"
-url = "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/"
-
-[[entries]]
-title = "Minimum Time to Visit a Cell In a Grid"
-url = "https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/"
-
-[[entries]]
-title = "Maximum Score with Co-Prime Element"
-url = "https://leetcode.com/problems/maximum-score-with-co-prime-element/"
 
 [[entries]]
 title = "Maximum Good Subarray Sum"
@@ -168,6 +152,10 @@ title = "Make Lexicographically Smallest Array by Swapping Elements"
 url = "https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements/"
 
 [[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+
+[[entries]]
 title = "Smallest Missing Non-negative Integer After Operations"
 url = "https://leetcode.com/problems/smallest-missing-non-negative-integer-after-operations/"
 
@@ -176,8 +164,8 @@ title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
-title = "Last Day Where You Can Still Cross"
-url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
+title = "How Many Apples Can You Put into the Basket"
+url = "https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/"
 
 [[entries]]
 title = "Maximum Xor Product"
@@ -188,6 +176,10 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Verbal Arithmetic Puzzle"
+url = "https://leetcode.com/problems/verbal-arithmetic-puzzle/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
@@ -196,9 +188,17 @@ title = "Pairs of Songs With Total Durations Divisible by 60"
 url = "https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/"
 
 [[entries]]
+title = "Longest Palindrome"
+url = "https://leetcode.com/problems/longest-palindrome/"
+
+[[entries]]
 title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
-title = "Rearranging Fruits"
-url = "https://leetcode.com/problems/rearranging-fruits/"
+title = "Sentence Similarity II"
+url = "https://leetcode.com/problems/sentence-similarity-ii/"
+
+[[entries]]
+title = "Minimum Cost to Convert String II"
+url = "https://leetcode.com/problems/minimum-cost-to-convert-string-ii/"

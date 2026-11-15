@@ -8,44 +8,40 @@ title = "Contains Duplicate"
 url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
-
-[[entries]]
 title = "Number of Ways to Split Array"
 url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
-
-[[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
 title = "Design Front Middle Back Queue"
 url = "https://leetcode.com/problems/design-front-middle-back-queue/"
 
 [[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
 title = "Remove Duplicate Letters"
 url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+
+[[entries]]
 title = "Partition Labels"
 url = "https://leetcode.com/problems/partition-labels/"
+
+[[entries]]
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
 [[entries]]
 title = "Rearrange Array Elements by Sign"
@@ -56,40 +52,40 @@ title = "Single Element in a Sorted Array"
 url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
 
 [[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
 title = "Successful Pairs of Spells and Potions"
 url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
+
+[[entries]]
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
 
 [[entries]]
 title = "Find a Peak Element II"
 url = "https://leetcode.com/problems/find-a-peak-element-ii/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 
 [[entries]]
 title = "Convert Sorted List to Binary Search Tree"
 url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
-title = "Delete N Nodes After M Nodes of a Linked List"
-url = "https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/"
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Delete Nodes From Linked List Present in Array"
 url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
-
-[[entries]]
-title = "Cousins in Binary Tree"
-url = "https://leetcode.com/problems/cousins-in-binary-tree/"
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
 title = "Delete Node in a BST"
@@ -100,6 +96,10 @@ title = "Find Bottom Left Tree Value"
 url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
 
 [[entries]]
+title = "Delete N Nodes After M Nodes of a Linked List"
+url = "https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/"
+
+[[entries]]
 title = "Count Sub Islands"
 url = "https://leetcode.com/problems/count-sub-islands/"
 
@@ -108,8 +108,20 @@ title = "Find Eventual Safe States"
 url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
 title = "Minimum Number of Vertices to Reach All Nodes"
 url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
+
+[[entries]]
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
+
+[[entries]]
+title = "Cousins in Binary Tree"
+url = "https://leetcode.com/problems/cousins-in-binary-tree/"
 
 [[entries]]
 title = "Ugly Number II"
@@ -118,15 +130,3 @@ url = "https://leetcode.com/problems/ugly-number-ii/"
 [[entries]]
 title = "Valid Square"
 url = "https://leetcode.com/problems/valid-square/"
-
-[[entries]]
-title = "Water and Jug Problem"
-url = "https://leetcode.com/problems/water-and-jug-problem/"
-
-[[entries]]
-title = "Number of Common Factors"
-url = "https://leetcode.com/problems/number-of-common-factors/"
-
-[[entries]]
-title = "Partition to K Equal Sum Subsets"
-url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"

@@ -4,28 +4,20 @@ focus = "binary search, grid flood fill and islands, sparse vectors and matrices
 review_modules = ["05_binary_search", "10_graphs", "11_dp", "16_math_geometry", "17_advanced"]
 
 [[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
-
-[[entries]]
 title = "Dot Product of Two Sparse Vectors"
 url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
-
-[[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
 
 [[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
-
-[[entries]]
 title = "Sparse Matrix Multiplication"
 url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
+
+[[entries]]
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"
 
 [[entries]]
 title = "Number of Provinces"
@@ -36,6 +28,10 @@ title = "Number of Connected Components in an Undirected Graph"
 url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
 
 [[entries]]
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
+
+[[entries]]
 title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
 
@@ -44,20 +40,20 @@ title = "Redundant Connection"
 url = "https://leetcode.com/problems/redundant-connection/"
 
 [[entries]]
-title = "Burst Balloons"
-url = "https://leetcode.com/problems/burst-balloons/"
+title = "Minimum Cost to Merge Stones"
+url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
 
 [[entries]]
 title = "Minimum Score Triangulation of Polygon"
 url = "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/"
 
 [[entries]]
-title = "Minimum Cost to Merge Stones"
-url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
-
-[[entries]]
 title = "Max Area of Island"
 url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Surrounded Regions"
@@ -68,12 +64,20 @@ title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
+
+[[entries]]
 title = "Number of Matching Subsequences"
 url = "https://leetcode.com/problems/number-of-matching-subsequences/"
 
 [[entries]]
 title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
 title = "Integer to Roman"
@@ -88,6 +92,10 @@ title = "Search a 2D Matrix"
 url = "https://leetcode.com/problems/search-a-2d-matrix/"
 
 [[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
@@ -96,12 +104,20 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
+title = "Roman to Integer"
+url = "https://leetcode.com/problems/roman-to-integer/"
+
+[[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
 title = "Range Sum Query 2D - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+
+[[entries]]
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
 title = "Set Matrix Zeroes"
@@ -116,8 +132,16 @@ title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
 
 [[entries]]
+title = "Plus One"
+url = "https://leetcode.com/problems/plus-one/"
+
+[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Making A Large Island"
+url = "https://leetcode.com/problems/making-a-large-island/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -132,12 +156,20 @@ title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
 
 [[entries]]
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
+
+[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
+
+[[entries]]
+title = "Palindrome Number"
+url = "https://leetcode.com/problems/palindrome-number/"
 
 [[entries]]
 title = "Pow(x, n)"
@@ -148,37 +180,5 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"

@@ -4,22 +4,6 @@ focus = "Conversation-style parsing and lookup problems with hash maps, stacks, 
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "14_tries", "06_linked_lists", "18_mixed_interview_practice", "05_binary_search"]
 
 [[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
-
-[[entries]]
-title = "Final Array State After K Multiplication Operations I"
-url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
-
-[[entries]]
-title = "Alternating Groups I"
-url = "https://leetcode.com/problems/alternating-groups-i/"
-
-[[entries]]
-title = "Second Minimum Node In a Binary Tree"
-url = "https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/"
-
-[[entries]]
 title = "Array With Elements Not Equal to Average of Neighbors"
 url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
 
@@ -32,8 +16,16 @@ title = "Count Vowel Strings in Ranges"
 url = "https://leetcode.com/problems/count-vowel-strings-in-ranges/"
 
 [[entries]]
+title = "Split Array with Equal Sum"
+url = "https://leetcode.com/problems/split-array-with-equal-sum/"
+
+[[entries]]
 title = "Swap Adjacent in LR String"
 url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
+
+[[entries]]
+title = "Find All Numbers Disappeared in an Array"
+url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
 
 [[entries]]
 title = "Apply Operations to Make All Array Elements Equal to Zero"
@@ -42,6 +34,10 @@ url = "https://leetcode.com/problems/apply-operations-to-make-all-array-elements
 [[entries]]
 title = "Alternating Groups II"
 url = "https://leetcode.com/problems/alternating-groups-ii/"
+
+[[entries]]
+title = "Count Good Subarrays"
+url = "https://leetcode.com/problems/count-good-subarrays/"
 
 [[entries]]
 title = "Find the Winner of the Circular Game"
@@ -56,28 +52,20 @@ title = "Delete Nodes And Return Forest"
 url = "https://leetcode.com/problems/delete-nodes-and-return-forest/"
 
 [[entries]]
-title = "Check Completeness of a Binary Tree"
-url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
-
-[[entries]]
-title = "Single Element in a Sorted Array"
-url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
-
-[[entries]]
-title = "Split Array with Equal Sum"
-url = "https://leetcode.com/problems/split-array-with-equal-sum/"
-
-[[entries]]
-title = "Count Good Subarrays"
-url = "https://leetcode.com/problems/count-good-subarrays/"
-
-[[entries]]
 title = "Basic Calculator IV"
 url = "https://leetcode.com/problems/basic-calculator-iv/"
 
 [[entries]]
-title = "Palindrome Linked List"
-url = "https://leetcode.com/problems/palindrome-linked-list/"
+title = "Check Completeness of a Binary Tree"
+url = "https://leetcode.com/problems/check-completeness-of-a-binary-tree/"
+
+[[entries]]
+title = "Final Array State After K Multiplication Operations I"
+url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
+
+[[entries]]
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
 
 [[entries]]
 title = "Sort List"
@@ -88,24 +76,28 @@ title = "Delete Nodes From Linked List Present in Array"
 url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
-title = "Power Grid Maintenance"
-url = "https://leetcode.com/problems/power-grid-maintenance/"
-
-[[entries]]
 title = "Number of Ways to Reach Destination in the Grid"
 url = "https://leetcode.com/problems/number-of-ways-to-reach-destination-in-the-grid/"
 
 [[entries]]
-title = "Index Pairs of a String"
-url = "https://leetcode.com/problems/index-pairs-of-a-string/"
+title = "Power Grid Maintenance"
+url = "https://leetcode.com/problems/power-grid-maintenance/"
 
 [[entries]]
 title = "Implement Trie II (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
 
 [[entries]]
+title = "Alternating Groups I"
+url = "https://leetcode.com/problems/alternating-groups-i/"
+
+[[entries]]
 title = "Extra Characters in a String"
 url = "https://leetcode.com/problems/extra-characters-in-a-string/"
+
+[[entries]]
+title = "Maximum XOR With an Element From Array"
+url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
 
 [[entries]]
 title = "Longest Word in Dictionary"
@@ -120,21 +112,29 @@ title = "Replace Words"
 url = "https://leetcode.com/problems/replace-words/"
 
 [[entries]]
-title = "Jump Game VI"
-url = "https://leetcode.com/problems/jump-game-vi/"
-
-[[entries]]
-title = "Maximum XOR With an Element From Array"
-url = "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/"
-
-[[entries]]
 title = "Binary Tree Cameras"
 url = "https://leetcode.com/problems/binary-tree-cameras/"
 
 [[entries]]
-title = "Maximum Number of Events That Can Be Attended II"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/"
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"
 
 [[entries]]
-title = "Count Subtrees With Max Distance Between Cities"
-url = "https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities/"
+title = "Count and Say"
+url = "https://leetcode.com/problems/count-and-say/"
+
+[[entries]]
+title = "Second Minimum Node In a Binary Tree"
+url = "https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/"
+
+[[entries]]
+title = "Zigzag Conversion"
+url = "https://leetcode.com/problems/zigzag-conversion/"
+
+[[entries]]
+title = "Expressive Words"
+url = "https://leetcode.com/problems/expressive-words/"
+
+[[entries]]
+title = "Maximum Number of Events That Can Be Attended II"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/"

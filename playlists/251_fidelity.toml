@@ -4,12 +4,12 @@ focus = "strings, arrays, math, hashing"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "11_dp", "16_math_geometry"]
 
 [[entries]]
-title = "Palindromic Substrings"
-url = "https://leetcode.com/problems/palindromic-substrings/"
-
-[[entries]]
 title = "Merge Sorted Array"
 url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
 
 [[entries]]
 title = "Angle Between Hands of a Clock"
@@ -20,52 +20,36 @@ title = "Modify the Matrix"
 url = "https://leetcode.com/problems/modify-the-matrix/"
 
 [[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
-
-[[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
-
-[[entries]]
 title = "Count Primes"
 url = "https://leetcode.com/problems/count-primes/"
 
 [[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Roman to Integer"
-url = "https://leetcode.com/problems/roman-to-integer/"
+title = "First Unique Character in a String"
+url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
 
 [[entries]]
 title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Reverse Words in a String"
@@ -76,20 +60,40 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
+
+[[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
 
 [[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
+title = "Roman to Integer"
+url = "https://leetcode.com/problems/roman-to-integer/"
+
+[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Min Stack"
@@ -100,6 +104,10 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
@@ -108,8 +116,20 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Detect Pattern of Length M Repeated K or More Times"
+url = "https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/"
+
+[[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Find the Width of Columns of a Grid"
+url = "https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/"
 
 [[entries]]
 title = "House Robber"
@@ -120,8 +140,16 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Largest Local Values in a Matrix"
+url = "https://leetcode.com/problems/largest-local-values-in-a-matrix/"
+
+[[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Maximum Distance Between Unequal Words in Array I"
+url = "https://leetcode.com/problems/maximum-distance-between-unequal-words-in-array-i/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
@@ -132,53 +160,25 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
+title = "Merge Strings Alternately"
+url = "https://leetcode.com/problems/merge-strings-alternately/"
+
+[[entries]]
 title = "Set Matrix Zeroes"
 url = "https://leetcode.com/problems/set-matrix-zeroes/"
-
-[[entries]]
-title = "Count and Say"
-url = "https://leetcode.com/problems/count-and-say/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Median of Two Sorted Arrays"
 url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Minimum Changes To Make Alternating Binary String"
+url = "https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Count and Say"
+url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"

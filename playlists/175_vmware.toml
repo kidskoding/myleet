@@ -16,6 +16,10 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
@@ -24,24 +28,20 @@ title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Accounts Merge"
@@ -52,24 +52,20 @@ title = "Pacific Atlantic Water Flow"
 url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Find Palindrome With Fixed Length"
 url = "https://leetcode.com/problems/find-palindrome-with-fixed-length/"
 
 [[entries]]
-title = "Make Array Non-decreasing or Non-increasing"
-url = "https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing/"
-
-[[entries]]
 title = "Break a Palindrome"
 url = "https://leetcode.com/problems/break-a-palindrome/"
 
 [[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Binary Tree Paths"
+url = "https://leetcode.com/problems/binary-tree-paths/"
 
 [[entries]]
 title = "Top K Frequent Elements"
@@ -80,8 +76,8 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Coin Change"
@@ -96,6 +92,10 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
+title = "Make Array Non-decreasing or Non-increasing"
+url = "https://leetcode.com/problems/make-array-non-decreasing-or-non-increasing/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
@@ -104,12 +104,20 @@ title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
+title = "Search in a Binary Search Tree"
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
 
 [[entries]]
 title = "Validate Binary Search Tree"
@@ -124,8 +132,16 @@ title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
+title = "Range Sum of BST"
+url = "https://leetcode.com/problems/range-sum-of-bst/"
+
+[[entries]]
 title = "Generate Parentheses"
 url = "https://leetcode.com/problems/generate-parentheses/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
 title = "Combination Sum"
@@ -140,12 +156,20 @@ title = "Daily Temperatures"
 url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
+title = "Paint House II"
+url = "https://leetcode.com/problems/paint-house-ii/"
+
+[[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
 title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
+
+[[entries]]
+title = "Binary Tree Preorder Traversal"
+url = "https://leetcode.com/problems/binary-tree-preorder-traversal/"
 
 [[entries]]
 title = "Task Scheduler"
@@ -156,29 +180,5 @@ title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
-
-[[entries]]
-title = "Jump Game"
-url = "https://leetcode.com/problems/jump-game/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Race Car"
+url = "https://leetcode.com/problems/race-car/"

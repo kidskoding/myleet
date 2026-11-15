@@ -8,26 +8,6 @@ title = "Sum of Squares of Special Elements"
 url = "https://leetcode.com/problems/sum-of-squares-of-special-elements/"
 
 [[entries]]
-title = "Distribute Elements Into Two Arrays I"
-url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-i/"
-
-[[entries]]
-title = "Count Pairs Of Similar Strings"
-url = "https://leetcode.com/problems/count-pairs-of-similar-strings/"
-
-[[entries]]
-title = "Count the Number of Vowel Strings in Range"
-url = "https://leetcode.com/problems/count-the-number-of-vowel-strings-in-range/"
-
-[[entries]]
-title = "Sum of Left Leaves"
-url = "https://leetcode.com/problems/sum-of-left-leaves/"
-
-[[entries]]
-title = "Binary Tree Tilt"
-url = "https://leetcode.com/problems/binary-tree-tilt/"
-
-[[entries]]
 title = "Find Players With Zero or One Losses"
 url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
 
@@ -36,20 +16,40 @@ title = "Find the Score of All Prefixes of an Array"
 url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
 
 [[entries]]
+title = "Distribute Elements Into Two Arrays I"
+url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-i/"
+
+[[entries]]
 title = "Shortest Word Distance III"
 url = "https://leetcode.com/problems/shortest-word-distance-iii/"
+
+[[entries]]
+title = "Count Pairs Of Similar Strings"
+url = "https://leetcode.com/problems/count-pairs-of-similar-strings/"
 
 [[entries]]
 title = "Largest Magic Square"
 url = "https://leetcode.com/problems/largest-magic-square/"
 
 [[entries]]
+title = "Maximum Frequency Stack"
+url = "https://leetcode.com/problems/maximum-frequency-stack/"
+
+[[entries]]
 title = "Group Shifted Strings"
 url = "https://leetcode.com/problems/group-shifted-strings/"
 
 [[entries]]
+title = "Count the Number of Vowel Strings in Range"
+url = "https://leetcode.com/problems/count-the-number-of-vowel-strings-in-range/"
+
+[[entries]]
 title = "Strings Differ by One Character"
 url = "https://leetcode.com/problems/strings-differ-by-one-character/"
+
+[[entries]]
+title = "Sum of Left Leaves"
+url = "https://leetcode.com/problems/sum-of-left-leaves/"
 
 [[entries]]
 title = "Count the Hidden Sequences"
@@ -60,64 +60,76 @@ title = "Minimum Size Subarray in Infinite Array"
 url = "https://leetcode.com/problems/minimum-size-subarray-in-infinite-array/"
 
 [[entries]]
+title = "Binary Tree Tilt"
+url = "https://leetcode.com/problems/binary-tree-tilt/"
+
+[[entries]]
 title = "Number of Equal Count Substrings"
 url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
-
-[[entries]]
-title = "Maximum Sum of Distinct Subarrays With Length K"
-url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
-
-[[entries]]
-title = "Ternary Expression Parser"
-url = "https://leetcode.com/problems/ternary-expression-parser/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree IV"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
-
-[[entries]]
-title = "Maximum Frequency Stack"
-url = "https://leetcode.com/problems/maximum-frequency-stack/"
-
-[[entries]]
-title = "Number of Distinct Islands"
-url = "https://leetcode.com/problems/number-of-distinct-islands/"
-
-[[entries]]
-title = "Rotate List"
-url = "https://leetcode.com/problems/rotate-list/"
-
-[[entries]]
-title = "Parallel Courses"
-url = "https://leetcode.com/problems/parallel-courses/"
-
-[[entries]]
-title = "Last Day Where You Can Still Cross"
-url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
-
-[[entries]]
-title = "The Maze III"
-url = "https://leetcode.com/problems/the-maze-iii/"
 
 [[entries]]
 title = "Palindrome Number"
 url = "https://leetcode.com/problems/palindrome-number/"
 
 [[entries]]
+title = "Maximum Sum of Distinct Subarrays With Length K"
+url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/"
+
+[[entries]]
+title = "Last Day Where You Can Still Cross"
+url = "https://leetcode.com/problems/last-day-where-you-can-still-cross/"
+
+[[entries]]
+title = "Ternary Expression Parser"
+url = "https://leetcode.com/problems/ternary-expression-parser/"
+
+[[entries]]
 title = "Reverse Bits"
 url = "https://leetcode.com/problems/reverse-bits/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Tree IV"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
+
+[[entries]]
+title = "Number of Distinct Islands"
+url = "https://leetcode.com/problems/number-of-distinct-islands/"
 
 [[entries]]
 title = "Single Number"
 url = "https://leetcode.com/problems/single-number/"
 
 [[entries]]
+title = "Rotate List"
+url = "https://leetcode.com/problems/rotate-list/"
+
+[[entries]]
+title = "Rotate String"
+url = "https://leetcode.com/problems/rotate-string/"
+
+[[entries]]
+title = "Parallel Courses"
+url = "https://leetcode.com/problems/parallel-courses/"
+
+[[entries]]
 title = "Game of Life"
 url = "https://leetcode.com/problems/game-of-life/"
 
 [[entries]]
+title = "Find All Numbers Disappeared in an Array"
+url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
+
+[[entries]]
 title = "Sum of Two Integers"
 url = "https://leetcode.com/problems/sum-of-two-integers/"
+
+[[entries]]
+title = "The Maze III"
+url = "https://leetcode.com/problems/the-maze-iii/"
+
+[[entries]]
+title = "Check If a Word Occurs As a Prefix of Any Word in a Sentence"
+url = "https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/"
 
 [[entries]]
 title = "Single Number II"
@@ -126,15 +138,3 @@ url = "https://leetcode.com/problems/single-number-ii/"
 [[entries]]
 title = "Minimum Flips to Make a OR b Equal to c"
 url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
-
-[[entries]]
-title = "Perfect Rectangle"
-url = "https://leetcode.com/problems/perfect-rectangle/"
-
-[[entries]]
-title = "Self Crossing"
-url = "https://leetcode.com/problems/self-crossing/"
-
-[[entries]]
-title = "Erect the Fence"
-url = "https://leetcode.com/problems/erect-the-fence/"

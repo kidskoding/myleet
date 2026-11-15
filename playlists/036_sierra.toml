@@ -24,24 +24,12 @@ title = "Find Eventual Safe States"
 url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
-title = "Redundant Connection II"
-url = "https://leetcode.com/problems/redundant-connection-ii/"
-
-[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
 title = "Missing Ranges"
 url = "https://leetcode.com/problems/missing-ranges/"
-
-[[entries]]
-title = "Summary Ranges"
-url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
 title = "Insert Interval"
@@ -52,6 +40,10 @@ title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
+title = "Redundant Connection II"
+url = "https://leetcode.com/problems/redundant-connection-ii/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
@@ -60,40 +52,32 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
 title = "Sentence Screen Fitting"
 url = "https://leetcode.com/problems/sentence-screen-fitting/"
 
 [[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
-
-[[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
+
+[[entries]]
+title = "Summary Ranges"
+url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
-title = "Max Stack"
-url = "https://leetcode.com/problems/max-stack/"
-
-[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -108,6 +92,10 @@ title = "Flatten Nested List Iterator"
 url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
 
 [[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
 title = "Peeking Iterator"
 url = "https://leetcode.com/problems/peeking-iterator/"
 
@@ -116,12 +104,20 @@ title = "Zigzag Iterator"
 url = "https://leetcode.com/problems/zigzag-iterator/"
 
 [[entries]]
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+
+[[entries]]
 title = "Binary Search Tree Iterator"
 url = "https://leetcode.com/problems/binary-search-tree-iterator/"
 
 [[entries]]
 title = "Copy List with Random Pointer"
 url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+
+[[entries]]
+title = "Design a Text Editor"
+url = "https://leetcode.com/problems/design-a-text-editor/"
 
 [[entries]]
 title = "Linked List Cycle II"
@@ -136,8 +132,16 @@ title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
+title = "Design an Ordered Stream"
+url = "https://leetcode.com/problems/design-an-ordered-stream/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Max Stack"
+url = "https://leetcode.com/problems/max-stack/"
 
 [[entries]]
 title = "Evaluate Division"
@@ -152,6 +156,10 @@ title = "Simplify Path"
 url = "https://leetcode.com/problems/simplify-path/"
 
 [[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
@@ -160,25 +168,17 @@ title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Design Parking System"
+url = "https://leetcode.com/problems/design-parking-system/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

@@ -4,18 +4,6 @@ focus = "string comparison and edit-distance DP, palindromes, word-list hashing 
 review_modules = ["01_arrays_and_hashing", "11_dp", "09_backtracking", "14_tries", "12_greedy_algorithms", "10_graphs"]
 
 [[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Assign Cookies"
-url = "https://leetcode.com/problems/assign-cookies/"
-
-[[entries]]
 title = "Letter Case Permutation"
 url = "https://leetcode.com/problems/letter-case-permutation/"
 
@@ -28,12 +16,20 @@ title = "Minimum Deletions to Make Character Frequencies Unique"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
 
 [[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
 title = "Count Sorted Vowel Strings"
 url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
 
 [[entries]]
 title = "Letter Tile Possibilities"
 url = "https://leetcode.com/problems/letter-tile-possibilities/"
+
+[[entries]]
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
 title = "Split a String Into the Max Number of Unique Substrings"
@@ -44,12 +40,20 @@ title = "Palindromic Substrings"
 url = "https://leetcode.com/problems/palindromic-substrings/"
 
 [[entries]]
+title = "Palindrome Partitioning II"
+url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+
+[[entries]]
 title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
 title = "Delete Operation for Two Strings"
 url = "https://leetcode.com/problems/delete-operation-for-two-strings/"
+
+[[entries]]
+title = "Palindrome Pairs"
+url = "https://leetcode.com/problems/palindrome-pairs/"
 
 [[entries]]
 title = "Longest Palindromic Subsequence"
@@ -60,12 +64,20 @@ title = "Longest String Chain"
 url = "https://leetcode.com/problems/longest-string-chain/"
 
 [[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
+
+[[entries]]
 title = "Decode Ways"
 url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
 title = "Palindrome Partitioning"
 url = "https://leetcode.com/problems/palindrome-partitioning/"
+
+[[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
 
 [[entries]]
 title = "Word Break"
@@ -80,40 +92,20 @@ title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
-title = "Ones and Zeroes"
-url = "https://leetcode.com/problems/ones-and-zeroes/"
-
-[[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
-
-[[entries]]
-title = "Palindrome Partitioning II"
-url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
-
-[[entries]]
-title = "Palindrome Pairs"
-url = "https://leetcode.com/problems/palindrome-pairs/"
-
-[[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
-
-[[entries]]
 title = "Wildcard Matching"
 url = "https://leetcode.com/problems/wildcard-matching/"
 
 [[entries]]
-title = "Regular Expression Matching"
-url = "https://leetcode.com/problems/regular-expression-matching/"
-
-[[entries]]
-title = "Encrypt and Decrypt Strings"
-url = "https://leetcode.com/problems/encrypt-and-decrypt-strings/"
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
 
 [[entries]]
 title = "K Radius Subarray Averages"
 url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+
+[[entries]]
+title = "Assign Cookies"
+url = "https://leetcode.com/problems/assign-cookies/"
 
 [[entries]]
 title = "Minimum Number of People to Teach"
@@ -124,8 +116,8 @@ title = "Task Scheduler II"
 url = "https://leetcode.com/problems/task-scheduler-ii/"
 
 [[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
 title = "LRU Cache"
@@ -140,8 +132,16 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Encrypt and Decrypt Strings"
+url = "https://leetcode.com/problems/encrypt-and-decrypt-strings/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -152,12 +152,12 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
 
 [[entries]]
 title = "Container With Most Water"
@@ -168,6 +168,10 @@ title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
+title = "Backspace String Compare"
+url = "https://leetcode.com/problems/backspace-string-compare/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
@@ -176,9 +180,5 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

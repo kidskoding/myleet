@@ -8,16 +8,16 @@ title = "Best Time to Buy and Sell Stock with Transaction Fee"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
-
-[[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
 title = "House Robber II"
 url = "https://leetcode.com/problems/house-robber-ii/"
+
+[[entries]]
+title = "Maximum Profit in Job Scheduling"
+url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
 
 [[entries]]
 title = "Word Break"
@@ -28,12 +28,20 @@ title = "Decode Ways"
 url = "https://leetcode.com/problems/decode-ways/"
 
 [[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
 title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
 title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -44,12 +52,20 @@ title = "Continuous Subarray Sum"
 url = "https://leetcode.com/problems/continuous-subarray-sum/"
 
 [[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -60,6 +76,10 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
@@ -68,12 +88,12 @@ title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Parse Lisp Expression"
+url = "https://leetcode.com/problems/parse-lisp-expression/"
 
 [[entries]]
 title = "Evaluate Division"
@@ -84,12 +104,20 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Left and Right Sum Differences"
+url = "https://leetcode.com/problems/left-and-right-sum-differences/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1) - Duplicates allowed"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
 
 [[entries]]
 title = "Course Schedule"
@@ -104,20 +132,16 @@ title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
+
+[[entries]]
 title = "Validate Binary Search Tree"
 url = "https://leetcode.com/problems/validate-binary-search-tree/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Optimal Account Balancing"
+url = "https://leetcode.com/problems/optimal-account-balancing/"
 
 [[entries]]
 title = "Random Pick with Weight"
@@ -128,57 +152,33 @@ title = "Shortest Uncommon Substring in an Array"
 url = "https://leetcode.com/problems/shortest-uncommon-substring-in-an-array/"
 
 [[entries]]
-title = "Parse Lisp Expression"
-url = "https://leetcode.com/problems/parse-lisp-expression/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1) - Duplicates allowed"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
-
-[[entries]]
-title = "Optimal Account Balancing"
-url = "https://leetcode.com/problems/optimal-account-balancing/"
-
-[[entries]]
 title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
 title = "Trapping Rain Water"
 url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
+
+[[entries]]
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
+
+[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"

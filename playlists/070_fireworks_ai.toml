@@ -4,16 +4,8 @@ focus = "intervals and GPU idle-time merging, graph validation, tree paths, sche
 review_modules = ["07_trees", "08_heaps", "10_graphs", "13_intervals", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
 title = "Graph Valid Tree"
 url = "https://leetcode.com/problems/graph-valid-tree/"
-
-[[entries]]
-title = "Binary Tree Paths"
-url = "https://leetcode.com/problems/binary-tree-paths/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -24,20 +16,20 @@ title = "Interval List Intersections"
 url = "https://leetcode.com/problems/interval-list-intersections/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
-title = "Data Stream as Disjoint Intervals"
-url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
+title = "Binary Tree Paths"
+url = "https://leetcode.com/problems/binary-tree-paths/"
 
 [[entries]]
 title = "Count Days Without Meetings"
@@ -48,6 +40,10 @@ title = "Non-overlapping Intervals"
 url = "https://leetcode.com/problems/non-overlapping-intervals/"
 
 [[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
 title = "My Calendar I"
 url = "https://leetcode.com/problems/my-calendar-i/"
 
@@ -56,12 +52,8 @@ title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Verifying an Alien Dictionary"
-url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
+title = "Meeting Rooms III"
+url = "https://leetcode.com/problems/meeting-rooms-iii/"
 
 [[entries]]
 title = "Custom Sort String"
@@ -72,12 +64,20 @@ title = "Minimum Swaps to Group All 1's Together II"
 url = "https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/"
 
 [[entries]]
+title = "Verifying an Alien Dictionary"
+url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
+
+[[entries]]
 title = "Minimum Swaps to Make Strings Equal"
 url = "https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/"
 
 [[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
 
 [[entries]]
 title = "Single-Threaded CPU"
@@ -92,6 +92,10 @@ title = "Number of Connected Components in an Undirected Graph"
 url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Redundant Connection"
 url = "https://leetcode.com/problems/redundant-connection/"
 
@@ -100,12 +104,20 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
 title = "Is Graph Bipartite?"
 url = "https://leetcode.com/problems/is-graph-bipartite/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
 title = "Clone Graph"
@@ -120,8 +132,16 @@ title = "All Paths From Source to Target"
 url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
+
+[[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Lowest Common Ancestor of a Binary Tree"
@@ -132,12 +152,12 @@ title = "Invalid Transactions"
 url = "https://leetcode.com/problems/invalid-transactions/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Minimum Interval to Include Each Query"
+url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -148,37 +168,17 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Relative Sort Array"
+url = "https://leetcode.com/problems/relative-sort-array/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
 title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
-title = "Minimum Interval to Include Each Query"
-url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
-
-[[entries]]
 title = "Maximum Profit in Job Scheduling"
 url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
-
-[[entries]]
-title = "Find Right Interval"
-url = "https://leetcode.com/problems/find-right-interval/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"

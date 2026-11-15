@@ -4,26 +4,6 @@ focus = "arrays, hash maps, design data structures, heaps, graphs, intervals, tr
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
-
-[[entries]]
-title = "Contains Duplicate III"
-url = "https://leetcode.com/problems/contains-duplicate-iii/"
-
-[[entries]]
-title = "Summary Ranges"
-url = "https://leetcode.com/problems/summary-ranges/"
-
-[[entries]]
-title = "Read N Characters Given read4 II - Call Multiple Times"
-url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
-
-[[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
@@ -36,12 +16,20 @@ title = "Design Authentication Manager"
 url = "https://leetcode.com/problems/design-authentication-manager/"
 
 [[entries]]
+title = "Contains Duplicate III"
+url = "https://leetcode.com/problems/contains-duplicate-iii/"
+
+[[entries]]
 title = "Jump Game"
 url = "https://leetcode.com/problems/jump-game/"
 
 [[entries]]
 title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Possible Bipartition"
@@ -52,12 +40,20 @@ title = "Swap Nodes in Pairs"
 url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
 
 [[entries]]
+title = "Read N Characters Given read4 II - Call Multiple Times"
+url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
+
+[[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
 
 [[entries]]
 title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
 title = "Design Hit Counter"
@@ -68,12 +64,20 @@ title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
 title = "Delete Node in a BST"
 url = "https://leetcode.com/problems/delete-node-in-a-bst/"
 
 [[entries]]
 title = "Combination Sum II"
 url = "https://leetcode.com/problems/combination-sum-ii/"
+
+[[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
 title = "Set Matrix Zeroes"
@@ -88,12 +92,20 @@ title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Walls and Gates"
 url = "https://leetcode.com/problems/walls-and-gates/"
 
 [[entries]]
 title = "House Robber"
 url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Summary Ranges"
+url = "https://leetcode.com/problems/summary-ranges/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock II"
@@ -104,12 +116,12 @@ title = "Permutation in String"
 url = "https://leetcode.com/problems/permutation-in-string/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Minimum Cost to Merge Stones"
+url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
 
 [[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
 title = "Ways to Split Array Into Three Subarrays"
@@ -120,8 +132,16 @@ title = "Check if There is a Valid Path in a Grid"
 url = "https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid/"
 
 [[entries]]
+title = "First Unique Character in a String"
+url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
+
+[[entries]]
 title = "Count Good Meals"
 url = "https://leetcode.com/problems/count-good-meals/"
+
+[[entries]]
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
 
 [[entries]]
 title = "Number of Orders in the Backlog"
@@ -136,6 +156,10 @@ title = "Restore the Array From Adjacent Pairs"
 url = "https://leetcode.com/problems/restore-the-array-from-adjacent-pairs/"
 
 [[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
 title = "Employee Importance"
 url = "https://leetcode.com/problems/employee-importance/"
 
@@ -144,41 +168,17 @@ title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
-title = "Minesweeper"
-url = "https://leetcode.com/problems/minesweeper/"
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Minesweeper"
+url = "https://leetcode.com/problems/minesweeper/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Burst Balloons"
+url = "https://leetcode.com/problems/burst-balloons/"

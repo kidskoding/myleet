@@ -8,64 +8,48 @@ title = "Two Sum"
 url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "First Unique Character in a String"
-url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Ransom Note"
-url = "https://leetcode.com/problems/ransom-note/"
-
-[[entries]]
-title = "Isomorphic Strings"
-url = "https://leetcode.com/problems/isomorphic-strings/"
-
-[[entries]]
-title = "Word Pattern"
-url = "https://leetcode.com/problems/word-pattern/"
-
-[[entries]]
-title = "Intersection of Two Arrays"
-url = "https://leetcode.com/problems/intersection-of-two-arrays/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "First Unique Character in a String"
+url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
 
 [[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
@@ -76,20 +60,40 @@ title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
+title = "Ransom Note"
+url = "https://leetcode.com/problems/ransom-note/"
+
+[[entries]]
 title = "Reverse Words in a String"
 url = "https://leetcode.com/problems/reverse-words-in-a-string/"
+
+[[entries]]
+title = "Isomorphic Strings"
+url = "https://leetcode.com/problems/isomorphic-strings/"
 
 [[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Word Pattern"
+url = "https://leetcode.com/problems/word-pattern/"
+
+[[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Intersection of Two Arrays"
+url = "https://leetcode.com/problems/intersection-of-two-arrays/"
 
 [[entries]]
 title = "LRU Cache"
@@ -100,6 +104,10 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
 title = "Sort Characters By Frequency"
 url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
@@ -108,24 +116,40 @@ title = "Find All Duplicates in an Array"
 url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
 
 [[entries]]
+title = "Degree of an Array"
+url = "https://leetcode.com/problems/degree-of-an-array/"
+
+[[entries]]
 title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Destination City"
+url = "https://leetcode.com/problems/destination-city/"
 
 [[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
+title = "Find the Town Judge"
+url = "https://leetcode.com/problems/find-the-town-judge/"
+
+[[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Find Winner on a Tic Tac Toe Game"
+url = "https://leetcode.com/problems/find-winner-on-a-tic-tac-toe-game/"
 
 [[entries]]
 title = "Spiral Matrix"
@@ -136,20 +160,20 @@ title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
+title = "Check if Every Row and Column Contains All Numbers"
+url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
+
+[[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
 title = "Median of Two Sorted Arrays"
 url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Existence of a Substring in a String and Its Reverse"
+url = "https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse/"
 
 [[entries]]
 title = "Course Schedule"
@@ -158,27 +182,3 @@ url = "https://leetcode.com/problems/course-schedule/"
 [[entries]]
 title = "Koko Eating Bananas"
 url = "https://leetcode.com/problems/koko-eating-bananas/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"

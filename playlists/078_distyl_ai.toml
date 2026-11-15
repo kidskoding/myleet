@@ -4,18 +4,6 @@ focus = "Hash maps, stacks, graph search and linked lists, with mixed problems t
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "06_linked_lists", "18_mixed_interview_practice", "08_heaps"]
 
 [[entries]]
-title = "Find the Original Typed String I"
-url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
-
-[[entries]]
-title = "Concatenation of Array"
-url = "https://leetcode.com/problems/concatenation-of-array/"
-
-[[entries]]
-title = "Next Greater Element I"
-url = "https://leetcode.com/problems/next-greater-element-i/"
-
-[[entries]]
 title = "Rotating the Box"
 url = "https://leetcode.com/problems/rotating-the-box/"
 
@@ -28,8 +16,16 @@ title = "Find Players With Zero or One Losses"
 url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
 
 [[entries]]
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+
+[[entries]]
 title = "Validate Stack Sequences"
 url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "Find the Original Typed String I"
+url = "https://leetcode.com/problems/find-the-original-typed-string-i/"
 
 [[entries]]
 title = "Design Front Middle Back Queue"
@@ -38,6 +34,10 @@ url = "https://leetcode.com/problems/design-front-middle-back-queue/"
 [[entries]]
 title = "Design Most Recently Used Queue"
 url = "https://leetcode.com/problems/design-most-recently-used-queue/"
+
+[[entries]]
+title = "Minimum Initial Energy to Finish Tasks"
+url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
 
 [[entries]]
 title = "Reverse Substrings Between Each Pair of Parentheses"
@@ -52,20 +52,16 @@ title = "Boundary of Binary Tree"
 url = "https://leetcode.com/problems/boundary-of-binary-tree/"
 
 [[entries]]
+title = "Maximum Number of Ones"
+url = "https://leetcode.com/problems/maximum-number-of-ones/"
+
+[[entries]]
 title = "Peak Index in a Mountain Array"
 url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
 
 [[entries]]
-title = "Time to Cross a Bridge"
-url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
-
-[[entries]]
-title = "Binary Number with Alternating Bits"
-url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
-
-[[entries]]
-title = "Convert Binary Number in a Linked List to Integer"
-url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
+title = "Concatenation of Array"
+url = "https://leetcode.com/problems/concatenation-of-array/"
 
 [[entries]]
 title = "Maximize Greatness of an Array"
@@ -80,6 +76,10 @@ title = "Beautiful Towers I"
 url = "https://leetcode.com/problems/beautiful-towers-i/"
 
 [[entries]]
+title = "Find X Value of Array II"
+url = "https://leetcode.com/problems/find-x-value-of-array-ii/"
+
+[[entries]]
 title = "Count Collisions of Monkeys on a Polygon"
 url = "https://leetcode.com/problems/count-collisions-of-monkeys-on-a-polygon/"
 
@@ -88,8 +88,16 @@ title = "Elimination Game"
 url = "https://leetcode.com/problems/elimination-game/"
 
 [[entries]]
+title = "Next Greater Element I"
+url = "https://leetcode.com/problems/next-greater-element-i/"
+
+[[entries]]
 title = "Remove Nth Node From End of List"
 url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+
+[[entries]]
+title = "Count Array Pairs Divisible by K"
+url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
 
 [[entries]]
 title = "Minimum Cost Path with Edge Reversals"
@@ -100,41 +108,33 @@ title = "Find Minimum Time to Reach Last Room I"
 url = "https://leetcode.com/problems/find-minimum-time-to-reach-last-room-i/"
 
 [[entries]]
-title = "Minimum Initial Energy to Finish Tasks"
-url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
-
-[[entries]]
-title = "Maximum Number of Ones"
-url = "https://leetcode.com/problems/maximum-number-of-ones/"
-
-[[entries]]
-title = "Find X Value of Array II"
-url = "https://leetcode.com/problems/find-x-value-of-array-ii/"
-
-[[entries]]
-title = "Count Array Pairs Divisible by K"
-url = "https://leetcode.com/problems/count-array-pairs-divisible-by-k/"
+title = "Swap Adjacent in LR String"
+url = "https://leetcode.com/problems/swap-adjacent-in-lr-string/"
 
 [[entries]]
 title = "Distance to a Cycle in Undirected Graph"
 url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
 
 [[entries]]
+title = "Can I Win"
+url = "https://leetcode.com/problems/can-i-win/"
+
+[[entries]]
+title = "Pour Water"
+url = "https://leetcode.com/problems/pour-water/"
+
+[[entries]]
+title = "Binary Number with Alternating Bits"
+url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
+
+[[entries]]
+title = "Maximize Distance to Closest Person"
+url = "https://leetcode.com/problems/maximize-distance-to-closest-person/"
+
+[[entries]]
+title = "Count Unhappy Friends"
+url = "https://leetcode.com/problems/count-unhappy-friends/"
+
+[[entries]]
 title = "Create Maximum Number"
 url = "https://leetcode.com/problems/create-maximum-number/"
-
-[[entries]]
-title = "Odd Even Jump"
-url = "https://leetcode.com/problems/odd-even-jump/"
-
-[[entries]]
-title = "Max Sum of Rectangle No Larger Than K"
-url = "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/"
-
-[[entries]]
-title = "Constrained Subsequence Sum"
-url = "https://leetcode.com/problems/constrained-subsequence-sum/"
-
-[[entries]]
-title = "Russian Doll Envelopes"
-url = "https://leetcode.com/problems/russian-doll-envelopes/"

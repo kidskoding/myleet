@@ -4,16 +4,8 @@ focus = "practical simulation, hashing and aggregation, time-versioned key-value
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "12_greedy_algorithms", "13_intervals", "16_math_geometry"]
 
 [[entries]]
-title = "Calculate Amount Paid in Taxes"
-url = "https://leetcode.com/problems/calculate-amount-paid-in-taxes/"
-
-[[entries]]
 title = "Add Bold Tag in String"
 url = "https://leetcode.com/problems/add-bold-tag-in-string/"
-
-[[entries]]
-title = "Integer to English Words"
-url = "https://leetcode.com/problems/integer-to-english-words/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -24,8 +16,8 @@ title = "House Robber"
 url = "https://leetcode.com/problems/house-robber/"
 
 [[entries]]
-title = "Distribute Money to Maximum Children"
-url = "https://leetcode.com/problems/distribute-money-to-maximum-children/"
+title = "Integer to English Words"
+url = "https://leetcode.com/problems/integer-to-english-words/"
 
 [[entries]]
 title = "Simple Bank System"
@@ -36,16 +28,20 @@ title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
 
 [[entries]]
+title = "Calculate Amount Paid in Taxes"
+url = "https://leetcode.com/problems/calculate-amount-paid-in-taxes/"
+
+[[entries]]
 title = "Snapshot Array"
 url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Candy"
+url = "https://leetcode.com/problems/candy/"
 
 [[entries]]
 title = "LRU Cache"
@@ -56,20 +52,20 @@ title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
-title = "Candy"
-url = "https://leetcode.com/problems/candy/"
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
 title = "Gas Station"
 url = "https://leetcode.com/problems/gas-station/"
 
 [[entries]]
-title = "Split Array Largest Sum"
-url = "https://leetcode.com/problems/split-array-largest-sum/"
-
-[[entries]]
 title = "Koko Eating Bananas"
 url = "https://leetcode.com/problems/koko-eating-bananas/"
+
+[[entries]]
+title = "Distribute Money to Maximum Children"
+url = "https://leetcode.com/problems/distribute-money-to-maximum-children/"
 
 [[entries]]
 title = "Capacity To Ship Packages Within D Days"
@@ -80,12 +76,12 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
-
-[[entries]]
 title = "Employee Free Time"
 url = "https://leetcode.com/problems/employee-free-time/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -96,6 +92,10 @@ title = "My Calendar I"
 url = "https://leetcode.com/problems/my-calendar-i/"
 
 [[entries]]
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
+
+[[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
 
@@ -104,12 +104,20 @@ title = "Subdomain Visit Count"
 url = "https://leetcode.com/problems/subdomain-visit-count/"
 
 [[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
 title = "Analyze User Website Visit Pattern"
 url = "https://leetcode.com/problems/analyze-user-website-visit-pattern/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Find the Minimum Area to Cover All Ones II"
+url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
 
 [[entries]]
 title = "Top K Frequent Words"
@@ -124,12 +132,16 @@ title = "Find Duplicate File in System"
 url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Minimum Value to Get Positive Step by Step Sum"
+url = "https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/"
 
 [[entries]]
 title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
+
+[[entries]]
+title = "Maximum Profitable Triplets With Increasing Prices II"
+url = "https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-ii/"
 
 [[entries]]
 title = "Decode String"
@@ -144,12 +156,20 @@ title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
+title = "Number of Subarrays That Match a Pattern II"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii/"
+
+[[entries]]
 title = "Fraction to Recurring Decimal"
 url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
 
 [[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
+
+[[entries]]
+title = "Rotate String"
+url = "https://leetcode.com/problems/rotate-string/"
 
 [[entries]]
 title = "Integer to Roman"
@@ -160,25 +180,5 @@ title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Exclusive Time of Functions"
-url = "https://leetcode.com/problems/exclusive-time-of-functions/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
-
-[[entries]]
-title = "String to Integer (atoi)"
-url = "https://leetcode.com/problems/string-to-integer-atoi/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"

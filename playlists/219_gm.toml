@@ -4,6 +4,10 @@ focus = "graphs/union-find, design-style data structures, intervals, DP, arrays/
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "18_mixed_interview_practice"]
 
 [[entries]]
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
+
+[[entries]]
 title = "Number of Connected Components in an Undirected Graph"
 url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
 
@@ -12,32 +16,40 @@ title = "Number of Steps to Reduce a Number in Binary Representation to One"
 url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/"
 
 [[entries]]
-title = "Maximum Sum of 3 Non-Overlapping Subarrays"
-url = "https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Minimum Deletions to Make Character Frequencies Unique"
 url = "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
 
 [[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
 title = "Dot Product of Two Sparse Vectors"
 url = "https://leetcode.com/problems/dot-product-of-two-sparse-vectors/"
+
+[[entries]]
+title = "Maximum Sum of 3 Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/"
 
 [[entries]]
 title = "Minimum Path Sum"
 url = "https://leetcode.com/problems/minimum-path-sum/"
 
 [[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
+
+[[entries]]
 title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "First Missing Positive"
-url = "https://leetcode.com/problems/first-missing-positive/"
+title = "Index Pairs of a String"
+url = "https://leetcode.com/problems/index-pairs-of-a-string/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -48,16 +60,32 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
+
+[[entries]]
 title = "Number of Provinces"
 url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
 title = "Graph Valid Tree"
 url = "https://leetcode.com/problems/graph-valid-tree/"
 
 [[entries]]
+title = "Count Prefix and Suffix Pairs I"
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
+
+[[entries]]
 title = "Redundant Connection"
 url = "https://leetcode.com/problems/redundant-connection/"
+
+[[entries]]
+title = "Number of Recent Calls"
+url = "https://leetcode.com/problems/number-of-recent-calls/"
 
 [[entries]]
 title = "Course Schedule"
@@ -68,40 +96,68 @@ title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
+
+[[entries]]
 title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
 
 [[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
+title = "Counting Words With a Given Prefix"
+url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
+
+[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Implement Queue using Stacks"
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
 
 [[entries]]
 title = "Design Add and Search Words Data Structure"
 url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
 title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "String Matching in an Array"
+url = "https://leetcode.com/problems/string-matching-in-an-array/"
 
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
 title = "Non-overlapping Intervals"
 url = "https://leetcode.com/problems/non-overlapping-intervals/"
 
 [[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
+title = "Cousins in Binary Tree"
+url = "https://leetcode.com/problems/cousins-in-binary-tree/"
 
 [[entries]]
 title = "Unique Paths"
@@ -112,8 +168,20 @@ title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
+title = "Find the Index of the First Occurrence in a String"
+url = "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/"
+
+[[entries]]
 title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Repeated Substring Pattern"
+url = "https://leetcode.com/problems/repeated-substring-pattern/"
 
 [[entries]]
 title = "House Robber"
@@ -122,71 +190,3 @@ url = "https://leetcode.com/problems/house-robber/"
 [[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
-
-[[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"

@@ -12,36 +12,20 @@ title = "Binary Search Tree to Greater Sum Tree"
 url = "https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/"
 
 [[entries]]
-title = "Maximum Subtree of the Same Color"
-url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
-
-[[entries]]
 title = "Count Increasing Quadruplets"
 url = "https://leetcode.com/problems/count-increasing-quadruplets/"
 
 [[entries]]
-title = "Minimum Moves to Equal Array Elements III"
-url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-iii/"
-
-[[entries]]
-title = "Count the Number of Consistent Strings"
-url = "https://leetcode.com/problems/count-the-number-of-consistent-strings/"
-
-[[entries]]
-title = "Add Digits"
-url = "https://leetcode.com/problems/add-digits/"
-
-[[entries]]
-title = "Maximum Population Year"
-url = "https://leetcode.com/problems/maximum-population-year/"
-
-[[entries]]
-title = "Summary Ranges"
-url = "https://leetcode.com/problems/summary-ranges/"
+title = "Maximum Subtree of the Same Color"
+url = "https://leetcode.com/problems/maximum-subtree-of-the-same-color/"
 
 [[entries]]
 title = "Minimum Suffix Flips"
 url = "https://leetcode.com/problems/minimum-suffix-flips/"
+
+[[entries]]
+title = "Minimum Moves to Equal Array Elements III"
+url = "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-iii/"
 
 [[entries]]
 title = "Stone Game IX"
@@ -52,12 +36,20 @@ title = "Maximum Total Importance of Roads"
 url = "https://leetcode.com/problems/maximum-total-importance-of-roads/"
 
 [[entries]]
+title = "Minimum Number of Operations to Make Arrays Similar"
+url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/"
+
+[[entries]]
 title = "Sum Game"
 url = "https://leetcode.com/problems/sum-game/"
 
 [[entries]]
 title = "Minimum Operations to Make Array Non Decreasing"
 url = "https://leetcode.com/problems/minimum-operations-to-make-array-non-decreasing/"
+
+[[entries]]
+title = "Consecutive Numbers Sum"
+url = "https://leetcode.com/problems/consecutive-numbers-sum/"
 
 [[entries]]
 title = "Sort Characters By Frequency"
@@ -68,12 +60,20 @@ title = "Maximum Alternating Sum of Squares"
 url = "https://leetcode.com/problems/maximum-alternating-sum-of-squares/"
 
 [[entries]]
+title = "Count the Number of Consistent Strings"
+url = "https://leetcode.com/problems/count-the-number-of-consistent-strings/"
+
+[[entries]]
 title = "Alice and Bob Playing Flower Game"
 url = "https://leetcode.com/problems/alice-and-bob-playing-flower-game/"
 
 [[entries]]
 title = "Count the Number of Good Subsequences"
 url = "https://leetcode.com/problems/count-the-number-of-good-subsequences/"
+
+[[entries]]
+title = "Falling Squares"
+url = "https://leetcode.com/problems/falling-squares/"
 
 [[entries]]
 title = "Corporate Flight Bookings"
@@ -84,12 +84,20 @@ title = "Minimum Number of Arrows to Burst Balloons"
 url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
 
 [[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
+
+[[entries]]
 title = "Describe the Painting"
 url = "https://leetcode.com/problems/describe-the-painting/"
 
 [[entries]]
 title = "Minimum Falling Path Sum"
 url = "https://leetcode.com/problems/minimum-falling-path-sum/"
+
+[[entries]]
+title = "Add Digits"
+url = "https://leetcode.com/problems/add-digits/"
 
 [[entries]]
 title = "Maximum Product Subarray"
@@ -100,36 +108,8 @@ title = "Triangle"
 url = "https://leetcode.com/problems/triangle/"
 
 [[entries]]
-title = "Minimum Number of Operations to Make Arrays Similar"
-url = "https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/"
-
-[[entries]]
-title = "Consecutive Numbers Sum"
-url = "https://leetcode.com/problems/consecutive-numbers-sum/"
-
-[[entries]]
-title = "Falling Squares"
-url = "https://leetcode.com/problems/falling-squares/"
-
-[[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
-
-[[entries]]
 title = "Wildcard Matching"
 url = "https://leetcode.com/problems/wildcard-matching/"
-
-[[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
-
-[[entries]]
-title = "Greatest Common Divisor of Strings"
-url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
-
-[[entries]]
-title = "Largest Triangle Area"
-url = "https://leetcode.com/problems/largest-triangle-area/"
 
 [[entries]]
 title = "Valid Square"
@@ -140,9 +120,29 @@ title = "Reverse Integer"
 url = "https://leetcode.com/problems/reverse-integer/"
 
 [[entries]]
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
+
+[[entries]]
 title = "Spiral Matrix II"
 url = "https://leetcode.com/problems/spiral-matrix-ii/"
 
 [[entries]]
 title = "Factorial Trailing Zeroes"
 url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
+
+[[entries]]
+title = "Maximum Population Year"
+url = "https://leetcode.com/problems/maximum-population-year/"
+
+[[entries]]
+title = "Maximum Product of Word Lengths"
+url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
+
+[[entries]]
+title = "Random Pick Index"
+url = "https://leetcode.com/problems/random-pick-index/"
+
+[[entries]]
+title = "Maximum Score with Co-Prime Element"
+url = "https://leetcode.com/problems/maximum-score-with-co-prime-element/"

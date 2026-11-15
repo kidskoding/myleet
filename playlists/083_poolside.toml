@@ -24,16 +24,20 @@ title = "Find Duplicate File in System"
 url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
 [[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
 title = "Remove Comments"
 url = "https://leetcode.com/problems/remove-comments/"
 
 [[entries]]
-title = "Tag Validator"
-url = "https://leetcode.com/problems/tag-validator/"
-
-[[entries]]
 title = "Mini Parser"
 url = "https://leetcode.com/problems/mini-parser/"
+
+[[entries]]
+title = "Tag Validator"
+url = "https://leetcode.com/problems/tag-validator/"
 
 [[entries]]
 title = "Decode String"
@@ -52,28 +56,24 @@ title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
 
 [[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
 url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
 
 [[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
-
-[[entries]]
 title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
-title = "Longest Common Subsequence"
-url = "https://leetcode.com/problems/longest-common-subsequence/"
+title = "Longest Valid Parentheses"
+url = "https://leetcode.com/problems/longest-valid-parentheses/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
 title = "Word Break"
@@ -84,24 +84,28 @@ title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
+title = "Final Array State After K Multiplication Operations I"
+url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
+
+[[entries]]
 title = "Search Suggestions System"
 url = "https://leetcode.com/problems/search-suggestions-system/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
 title = "Parallel Courses"
 url = "https://leetcode.com/problems/parallel-courses/"
+
+[[entries]]
+title = "Design Search Autocomplete System"
+url = "https://leetcode.com/problems/design-search-autocomplete-system/"
 
 [[entries]]
 title = "Find Eventual Safe States"
@@ -112,12 +116,20 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Alternating Groups I"
+url = "https://leetcode.com/problems/alternating-groups-i/"
+
+[[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
 
 [[entries]]
 title = "Task Scheduler"
@@ -128,8 +140,16 @@ title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
+
+[[entries]]
+title = "Minimum Recolors to Get K Consecutive Black Blocks"
+url = "https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -140,6 +160,10 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
@@ -148,41 +172,17 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
 title = "Flatten Nested List Iterator"
 url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+
+[[entries]]
+title = "Final Prices With a Special Discount in a Shop"
+url = "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/"
 
 [[entries]]
 title = "Nested List Weight Sum"
 url = "https://leetcode.com/problems/nested-list-weight-sum/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"

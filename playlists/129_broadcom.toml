@@ -4,52 +4,20 @@ focus = "C fundamentals, linked lists, bit manipulation, memory/buffer design, h
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "08_heaps", "15_bit_manipulation"]
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Middle of the Linked List"
-url = "https://leetcode.com/problems/middle-of-the-linked-list/"
-
-[[entries]]
 title = "Design Linked List"
 url = "https://leetcode.com/problems/design-linked-list/"
-
-[[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
-title = "Number of 1 Bits"
-url = "https://leetcode.com/problems/number-of-1-bits/"
-
-[[entries]]
-title = "Reverse Bits"
-url = "https://leetcode.com/problems/reverse-bits/"
-
-[[entries]]
-title = "Single Number"
-url = "https://leetcode.com/problems/single-number/"
-
-[[entries]]
-title = "Power of Two"
-url = "https://leetcode.com/problems/power-of-two/"
 
 [[entries]]
 title = "Sum of Two Integers"
 url = "https://leetcode.com/problems/sum-of-two-integers/"
 
 [[entries]]
-title = "Counting Bits"
-url = "https://leetcode.com/problems/counting-bits/"
-
-[[entries]]
-title = "Hamming Distance"
-url = "https://leetcode.com/problems/hamming-distance/"
-
-[[entries]]
 title = "Bitwise AND of Numbers Range"
 url = "https://leetcode.com/problems/bitwise-and-of-numbers-range/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
 title = "UTF-8 Validation"
@@ -60,20 +28,20 @@ title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
 
 [[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
 title = "Remove Nth Node From End of List"
@@ -84,16 +52,20 @@ title = "Sort List"
 url = "https://leetcode.com/problems/sort-list/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Copy List with Random Pointer"
 url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
 title = "Reorder List"
 url = "https://leetcode.com/problems/reorder-list/"
+
+[[entries]]
+title = "Middle of the Linked List"
+url = "https://leetcode.com/problems/middle-of-the-linked-list/"
 
 [[entries]]
 title = "Add Two Numbers"
@@ -102,6 +74,10 @@ url = "https://leetcode.com/problems/add-two-numbers/"
 [[entries]]
 title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
+
+[[entries]]
+title = "Guess the Word"
+url = "https://leetcode.com/problems/guess-the-word/"
 
 [[entries]]
 title = "Reverse Integer"
@@ -116,6 +92,10 @@ title = "Compare Version Numbers"
 url = "https://leetcode.com/problems/compare-version-numbers/"
 
 [[entries]]
+title = "Last Substring in Lexicographical Order"
+url = "https://leetcode.com/problems/last-substring-in-lexicographical-order/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
@@ -124,12 +104,20 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
+title = "Merge Sorted Array"
+url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Valid Arrangement of Pairs"
+url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -144,8 +132,16 @@ title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
+title = "Number of 1 Bits"
+url = "https://leetcode.com/problems/number-of-1-bits/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
 title = "Course Schedule"
@@ -160,12 +156,20 @@ title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
+title = "Number of Subarrays That Match a Pattern II"
+url = "https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-ii/"
+
+[[entries]]
 title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
 title = "Design Memory Allocator"
 url = "https://leetcode.com/problems/design-memory-allocator/"
+
+[[entries]]
+title = "Reverse Bits"
+url = "https://leetcode.com/problems/reverse-bits/"
 
 [[entries]]
 title = "Insert Delete GetRandom O(1)"
@@ -176,9 +180,5 @@ title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"

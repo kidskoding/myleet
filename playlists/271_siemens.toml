@@ -8,16 +8,16 @@ title = "Contains Duplicate"
 url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
 title = "Maximum Sum Circular Subarray"
 url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
 
 [[entries]]
 title = "Maximum Sum of Two Non-Overlapping Subarrays"
 url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Maximum Swap"
@@ -28,56 +28,64 @@ title = "Valid Parentheses"
 url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
-
-[[entries]]
 title = "Remove Duplicate Letters"
 url = "https://leetcode.com/problems/remove-duplicate-letters/"
+
+[[entries]]
+title = "Self Crossing"
+url = "https://leetcode.com/problems/self-crossing/"
 
 [[entries]]
 title = "Minimum Speed to Arrive on Time"
 url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
 
 [[entries]]
-title = "Search a 2D Matrix II"
-url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
 
 [[entries]]
-title = "Single Element in a Sorted Array"
-url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
 
 [[entries]]
 title = "Reverse Linked List"
 url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
 
 [[entries]]
 title = "Convert Sorted List to Binary Search Tree"
 url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
 
 [[entries]]
-title = "Double a Number Represented as a Linked List"
-url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
 
 [[entries]]
-title = "Insert Greatest Common Divisors in Linked List"
-url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
+title = "Double a Number Represented as a Linked List"
+url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
 
 [[entries]]
 title = "Invert Binary Tree"
 url = "https://leetcode.com/problems/invert-binary-tree/"
 
 [[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+title = "Insert Greatest Common Divisors in Linked List"
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
+
+[[entries]]
+title = "Erect the Fence"
+url = "https://leetcode.com/problems/erect-the-fence/"
 
 [[entries]]
 title = "Path Sum II"
 url = "https://leetcode.com/problems/path-sum-ii/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Path Sum III"
@@ -88,8 +96,16 @@ title = "Populating Next Right Pointers in Each Node"
 url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
 
 [[entries]]
+title = "Largest Triangle Area"
+url = "https://leetcode.com/problems/largest-triangle-area/"
+
+[[entries]]
 title = "As Far from Land as Possible"
 url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+
+[[entries]]
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
 
 [[entries]]
 title = "Count Sub Islands"
@@ -100,8 +116,20 @@ title = "Course Schedule IV"
 url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
+title = "Number of Common Factors"
+url = "https://leetcode.com/problems/number-of-common-factors/"
+
+[[entries]]
 title = "Detect Cycles in 2D Grid"
 url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
+
+[[entries]]
+title = "Perfect Rectangle"
+url = "https://leetcode.com/problems/perfect-rectangle/"
+
+[[entries]]
+title = "Binary Tree Paths"
+url = "https://leetcode.com/problems/binary-tree-paths/"
 
 [[entries]]
 title = "Minimum Number of Vertices to Reach All Nodes"
@@ -110,31 +138,3 @@ url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nod
 [[entries]]
 title = "Letter Case Permutation"
 url = "https://leetcode.com/problems/letter-case-permutation/"
-
-[[entries]]
-title = "Letter Tile Possibilities"
-url = "https://leetcode.com/problems/letter-tile-possibilities/"
-
-[[entries]]
-title = "Matchsticks to Square"
-url = "https://leetcode.com/problems/matchsticks-to-square/"
-
-[[entries]]
-title = "Largest Triangle Area"
-url = "https://leetcode.com/problems/largest-triangle-area/"
-
-[[entries]]
-title = "Minimum Area Rectangle"
-url = "https://leetcode.com/problems/minimum-area-rectangle/"
-
-[[entries]]
-title = "Nim Game"
-url = "https://leetcode.com/problems/nim-game/"
-
-[[entries]]
-title = "Number of Common Factors"
-url = "https://leetcode.com/problems/number-of-common-factors/"
-
-[[entries]]
-title = "Partition to K Equal Sum Subsets"
-url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"

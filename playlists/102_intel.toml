@@ -4,48 +4,8 @@ focus = "bit tricks, string and number conversion, binary search, two-pointer ar
 review_modules = ["15_bit_manipulation", "16_math_geometry", "05_binary_search", "02_two_pointers", "06_linked_lists", "03_stacks_and_queues"]
 
 [[entries]]
-title = "Number of Steps to Reduce a Number to Zero"
-url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/"
-
-[[entries]]
-title = "Binary Number with Alternating Bits"
-url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
-
-[[entries]]
-title = "Decode XORed Array"
-url = "https://leetcode.com/problems/decode-xored-array/"
-
-[[entries]]
-title = "Reverse String"
-url = "https://leetcode.com/problems/reverse-string/"
-
-[[entries]]
-title = "Palindrome Number"
-url = "https://leetcode.com/problems/palindrome-number/"
-
-[[entries]]
-title = "Valid Palindrome"
-url = "https://leetcode.com/problems/valid-palindrome/"
-
-[[entries]]
-title = "Excel Sheet Column Number"
-url = "https://leetcode.com/problems/excel-sheet-column-number/"
-
-[[entries]]
 title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
-
-[[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
-
-[[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
-
-[[entries]]
-title = "Remove Duplicates from Sorted List"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list/"
 
 [[entries]]
 title = "Two Sum II - Input Array Is Sorted"
@@ -56,12 +16,20 @@ title = "Count Primes"
 url = "https://leetcode.com/problems/count-primes/"
 
 [[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
 title = "Pow(x, n)"
 url = "https://leetcode.com/problems/powx-n/"
 
 [[entries]]
 title = "Min Stack"
 url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Number of Steps to Reduce a Number to Zero"
+url = "https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/"
 
 [[entries]]
 title = "Swap Nodes in Pairs"
@@ -72,12 +40,20 @@ title = "Rotate List"
 url = "https://leetcode.com/problems/rotate-list/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Find Peak Element"
 url = "https://leetcode.com/problems/find-peak-element/"
 
 [[entries]]
 title = "Find Minimum in Rotated Sorted Array"
 url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Transform to Chessboard"
+url = "https://leetcode.com/problems/transform-to-chessboard/"
 
 [[entries]]
 title = "Search a 2D Matrix"
@@ -88,12 +64,20 @@ title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
+title = "Binary Number with Alternating Bits"
+url = "https://leetcode.com/problems/binary-number-with-alternating-bits/"
+
+[[entries]]
 title = "Maximum Product Subarray"
 url = "https://leetcode.com/problems/maximum-product-subarray/"
 
 [[entries]]
 title = "Next Permutation"
 url = "https://leetcode.com/problems/next-permutation/"
+
+[[entries]]
+title = "Consecutive Numbers Sum"
+url = "https://leetcode.com/problems/consecutive-numbers-sum/"
 
 [[entries]]
 title = "Multiply Strings"
@@ -108,6 +92,10 @@ title = "Reorder List"
 url = "https://leetcode.com/problems/reorder-list/"
 
 [[entries]]
+title = "Verbal Arithmetic Puzzle"
+url = "https://leetcode.com/problems/verbal-arithmetic-puzzle/"
+
+[[entries]]
 title = "XOR Queries of a Subarray"
 url = "https://leetcode.com/problems/xor-queries-of-a-subarray/"
 
@@ -116,20 +104,20 @@ title = "Maximum Product of Word Lengths"
 url = "https://leetcode.com/problems/maximum-product-of-word-lengths/"
 
 [[entries]]
+title = "Decode XORed Array"
+url = "https://leetcode.com/problems/decode-xored-array/"
+
+[[entries]]
 title = "Fraction to Recurring Decimal"
 url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Find Consecutive Integers from a Data Stream"
 url = "https://leetcode.com/problems/find-consecutive-integers-from-a-data-stream/"
+
+[[entries]]
+title = "Check If It Is a Good Array"
+url = "https://leetcode.com/problems/check-if-it-is-a-good-array/"
 
 [[entries]]
 title = "Copy List with Random Pointer"
@@ -144,8 +132,16 @@ title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
+
+[[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
+
+[[entries]]
+title = "Find the Closest Palindrome"
+url = "https://leetcode.com/problems/find-the-closest-palindrome/"
 
 [[entries]]
 title = "Product of Array Except Self"
@@ -160,12 +156,20 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
+title = "Number of Valid Words for Each Puzzle"
+url = "https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/"
+
+[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Palindrome Number"
+url = "https://leetcode.com/problems/palindrome-number/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -176,9 +180,5 @@ title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
+title = "Largest Palindrome Product"
+url = "https://leetcode.com/problems/largest-palindrome-product/"

@@ -4,10 +4,6 @@ focus = "design data structures, heaps and streams, hashing, graphs and topologi
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "08_heaps", "10_graphs", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
-
-[[entries]]
 title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
@@ -20,12 +16,20 @@ title = "Validate IP Address"
 url = "https://leetcode.com/problems/validate-ip-address/"
 
 [[entries]]
+title = "Insert Delete GetRandom O(1) - Duplicates allowed"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
+
+[[entries]]
 title = "Making File Names Unique"
 url = "https://leetcode.com/problems/making-file-names-unique/"
 
 [[entries]]
 title = "Simple Bank System"
 url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
+title = "Sqrt(x)"
+url = "https://leetcode.com/problems/sqrtx/"
 
 [[entries]]
 title = "Reverse Substrings Between Each Pair of Parentheses"
@@ -36,6 +40,10 @@ title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
+title = "Word Ladder II"
+url = "https://leetcode.com/problems/word-ladder-ii/"
+
+[[entries]]
 title = "All Nodes Distance K in Binary Tree"
 url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
 
@@ -44,40 +52,32 @@ title = "Range Sum Query 2D - Immutable"
 url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1) - Duplicates allowed"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
-
-[[entries]]
-title = "Word Ladder II"
-url = "https://leetcode.com/problems/word-ladder-ii/"
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
 title = "Longest Consecutive Sequence"
 url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Container With Most Water"
@@ -92,8 +92,8 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
 
 [[entries]]
 title = "Design Hit Counter"
@@ -104,8 +104,8 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Accounts Merge"
@@ -114,6 +114,10 @@ url = "https://leetcode.com/problems/accounts-merge/"
 [[entries]]
 title = "Employee Importance"
 url = "https://leetcode.com/problems/employee-importance/"
+
+[[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
 title = "Path With Minimum Effort"
@@ -128,16 +132,20 @@ title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
+title = "Design Parking System"
+url = "https://leetcode.com/problems/design-parking-system/"
+
+[[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
@@ -148,20 +156,20 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
 title = "Minimum Window Substring"
 url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
 title = "Clone Graph"
@@ -172,13 +180,5 @@ title = "Design Authentication Manager"
 url = "https://leetcode.com/problems/design-authentication-manager/"
 
 [[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"

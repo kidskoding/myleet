@@ -4,10 +4,6 @@ focus = "spreadsheet dependency graphs, interval merging over text, file systems
 review_modules = ["03_stacks_and_queues", "11_dp", "13_intervals", "14_tries", "18_mixed_interview_practice"]
 
 [[entries]]
-title = "Design Excel Sum Formula"
-url = "https://leetcode.com/problems/design-excel-sum-formula/"
-
-[[entries]]
 title = "Add Bold Tag in String"
 url = "https://leetcode.com/problems/add-bold-tag-in-string/"
 
@@ -16,20 +12,20 @@ title = "Making File Names Unique"
 url = "https://leetcode.com/problems/making-file-names-unique/"
 
 [[entries]]
+title = "Design Excel Sum Formula"
+url = "https://leetcode.com/problems/design-excel-sum-formula/"
+
+[[entries]]
 title = "Find Duplicate File in System"
 url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
 [[entries]]
-title = "Design a Text Editor"
-url = "https://leetcode.com/problems/design-a-text-editor/"
-
-[[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
-
-[[entries]]
 title = "Design Spreadsheet"
 url = "https://leetcode.com/problems/design-spreadsheet/"
+
+[[entries]]
+title = "First Unique Character in a String"
+url = "https://leetcode.com/problems/first-unique-character-in-a-string/"
 
 [[entries]]
 title = "Bold Words in String"
@@ -40,6 +36,10 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
+title = "Design a Text Editor"
+url = "https://leetcode.com/problems/design-a-text-editor/"
+
+[[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
@@ -48,16 +48,16 @@ title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
 title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
-title = "Basic Calculator III"
-url = "https://leetcode.com/problems/basic-calculator-iii/"
+title = "Isomorphic Strings"
+url = "https://leetcode.com/problems/isomorphic-strings/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -68,6 +68,10 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
+title = "Basic Calculator"
+url = "https://leetcode.com/problems/basic-calculator/"
+
+[[entries]]
 title = "Interval List Intersections"
 url = "https://leetcode.com/problems/interval-list-intersections/"
 
@@ -76,56 +80,44 @@ title = "Find And Replace in String"
 url = "https://leetcode.com/problems/find-and-replace-in-string/"
 
 [[entries]]
-title = "Parse Lisp Expression"
-url = "https://leetcode.com/problems/parse-lisp-expression/"
-
-[[entries]]
 title = "Design File System"
 url = "https://leetcode.com/problems/design-file-system/"
+
+[[entries]]
+title = "Design an Ordered Stream"
+url = "https://leetcode.com/problems/design-an-ordered-stream/"
 
 [[entries]]
 title = "Simplify Path"
 url = "https://leetcode.com/problems/simplify-path/"
 
 [[entries]]
-title = "Longest Absolute File Path"
-url = "https://leetcode.com/problems/longest-absolute-file-path/"
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
 
 [[entries]]
-title = "Delete Duplicate Folders in System"
-url = "https://leetcode.com/problems/delete-duplicate-folders-in-system/"
+title = "Longest Absolute File Path"
+url = "https://leetcode.com/problems/longest-absolute-file-path/"
 
 [[entries]]
 title = "Implement Trie (Prefix Tree)"
 url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
 
 [[entries]]
-title = "Stream of Characters"
-url = "https://leetcode.com/problems/stream-of-characters/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Parse Lisp Expression"
+url = "https://leetcode.com/problems/parse-lisp-expression/"
 
 [[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Number of Atoms"
-url = "https://leetcode.com/problems/number-of-atoms/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Design Parking System"
+url = "https://leetcode.com/problems/design-parking-system/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -136,6 +128,10 @@ title = "Snapshot Array"
 url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
+title = "Delete Duplicate Folders in System"
+url = "https://leetcode.com/problems/delete-duplicate-folders-in-system/"
+
+[[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
 
@@ -144,12 +140,16 @@ title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
+title = "Stream of Characters"
+url = "https://leetcode.com/problems/stream-of-characters/"
+
+[[entries]]
 title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "High Five"
+url = "https://leetcode.com/problems/high-five/"
 
 [[entries]]
 title = "Find All Anagrams in a String"
@@ -158,6 +158,10 @@ url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
 title = "Word Break"
@@ -172,17 +176,13 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
+title = "Ransom Note"
+url = "https://leetcode.com/problems/ransom-note/"
+
+[[entries]]
 title = "Design Log Storage System"
 url = "https://leetcode.com/problems/design-log-storage-system/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"

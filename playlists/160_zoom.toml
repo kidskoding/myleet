@@ -4,18 +4,6 @@ focus = "meeting and interval scheduling, heaps for servers and tasks, sliding w
 review_modules = ["13_intervals", "08_heaps", "04_sliding_window", "03_stacks_and_queues", "10_graphs"]
 
 [[entries]]
-title = "Maximum Average Subarray I"
-url = "https://leetcode.com/problems/maximum-average-subarray-i/"
-
-[[entries]]
-title = "Number of Recent Calls"
-url = "https://leetcode.com/problems/number-of-recent-calls/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
 title = "K Radius Subarray Averages"
 url = "https://leetcode.com/problems/k-radius-subarray-averages/"
 
@@ -28,12 +16,20 @@ title = "Grumpy Bookstore Owner"
 url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
 
 [[entries]]
+title = "Find Servers That Handled Most Number of Requests"
+url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+
+[[entries]]
 title = "Longest Repeating Character Replacement"
 url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
 
 [[entries]]
 title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
+
+[[entries]]
+title = "Maximum Average Subarray I"
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
 
 [[entries]]
 title = "Design Front Middle Back Queue"
@@ -44,12 +40,20 @@ title = "Seat Reservation Manager"
 url = "https://leetcode.com/problems/seat-reservation-manager/"
 
 [[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
 title = "Meeting Scheduler"
 url = "https://leetcode.com/problems/meeting-scheduler/"
+
+[[entries]]
+title = "Meeting Rooms III"
+url = "https://leetcode.com/problems/meeting-rooms-iii/"
 
 [[entries]]
 title = "Non-overlapping Intervals"
@@ -60,12 +64,20 @@ title = "Interval List Intersections"
 url = "https://leetcode.com/problems/interval-list-intersections/"
 
 [[entries]]
+title = "Number of Recent Calls"
+url = "https://leetcode.com/problems/number-of-recent-calls/"
+
+[[entries]]
 title = "Remove Covered Intervals"
 url = "https://leetcode.com/problems/remove-covered-intervals/"
 
 [[entries]]
 title = "My Calendar II"
 url = "https://leetcode.com/problems/my-calendar-ii/"
+
+[[entries]]
+title = "Course Schedule III"
+url = "https://leetcode.com/problems/course-schedule-iii/"
 
 [[entries]]
 title = "Exclusive Time of Functions"
@@ -80,40 +92,20 @@ title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
 
 [[entries]]
-title = "Find Servers That Handled Most Number of Requests"
-url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
 title = "Path with Maximum Probability"
 url = "https://leetcode.com/problems/path-with-maximum-probability/"
 
 [[entries]]
-title = "Data Stream as Disjoint Intervals"
-url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
-
-[[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
-
-[[entries]]
-title = "Course Schedule III"
-url = "https://leetcode.com/problems/course-schedule-iii/"
-
-[[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
-
-[[entries]]
-title = "Minimum Interval to Include Each Query"
-url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 
 [[entries]]
 title = "LRU Cache"
@@ -122,6 +114,10 @@ url = "https://leetcode.com/problems/lru-cache/"
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Minimum Interval to Include Each Query"
+url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -136,12 +132,16 @@ title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
+title = "Substrings of Size Three with Distinct Characters"
+url = "https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/"
+
+[[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -156,12 +156,20 @@ title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Contains Duplicate II"
+url = "https://leetcode.com/problems/contains-duplicate-ii/"
 
 [[entries]]
 title = "3Sum"
@@ -174,11 +182,3 @@ url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 [[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"

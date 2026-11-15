@@ -4,18 +4,6 @@ focus = "Bit manipulation, stack parsing, trie matching, graph traversal and has
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "03_stacks_and_queues", "10_graphs", "14_tries", "16_math_geometry"]
 
 [[entries]]
-title = "Reshape the Matrix"
-url = "https://leetcode.com/problems/reshape-the-matrix/"
-
-[[entries]]
-title = "Final Array State After K Multiplication Operations I"
-url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
-
-[[entries]]
-title = "Evaluate Boolean Binary Tree"
-url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
-
-[[entries]]
 title = "Minimum Length of String After Deleting Similar Ends"
 url = "https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/"
 
@@ -28,8 +16,16 @@ title = "Shortest Word Distance III"
 url = "https://leetcode.com/problems/shortest-word-distance-iii/"
 
 [[entries]]
+title = "Time to Cross a Bridge"
+url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+
+[[entries]]
 title = "Can I Win"
 url = "https://leetcode.com/problems/can-i-win/"
+
+[[entries]]
+title = "Reshape the Matrix"
+url = "https://leetcode.com/problems/reshape-the-matrix/"
 
 [[entries]]
 title = "Longest Substring Of All Vowels in Order"
@@ -38,6 +34,10 @@ url = "https://leetcode.com/problems/longest-substring-of-all-vowels-in-order/"
 [[entries]]
 title = "Maximum Nesting Depth of Two Valid Parentheses Strings"
 url = "https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/"
+
+[[entries]]
+title = "Count Number of Trapezoids II"
+url = "https://leetcode.com/problems/count-number-of-trapezoids-ii/"
 
 [[entries]]
 title = "Sum of Subarray Minimums"
@@ -52,12 +52,16 @@ title = "Find Duplicate Subtrees"
 url = "https://leetcode.com/problems/find-duplicate-subtrees/"
 
 [[entries]]
+title = "Best Position for a Service Centre"
+url = "https://leetcode.com/problems/best-position-for-a-service-centre/"
+
+[[entries]]
 title = "Print Binary Tree"
 url = "https://leetcode.com/problems/print-binary-tree/"
 
 [[entries]]
-title = "Time to Cross a Bridge"
-url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+title = "Final Array State After K Multiplication Operations I"
+url = "https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/"
 
 [[entries]]
 title = "Pyramid Transition Matrix"
@@ -72,24 +76,8 @@ title = "Closest Prime Numbers in Range"
 url = "https://leetcode.com/problems/closest-prime-numbers-in-range/"
 
 [[entries]]
-title = "Count Number of Trapezoids II"
-url = "https://leetcode.com/problems/count-number-of-trapezoids-ii/"
-
-[[entries]]
-title = "Best Position for a Service Centre"
-url = "https://leetcode.com/problems/best-position-for-a-service-centre/"
-
-[[entries]]
-title = "Counting Words With a Given Prefix"
-url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
-
-[[entries]]
-title = "Count Prefix and Suffix Pairs I"
-url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
-
-[[entries]]
-title = "Decode XORed Array"
-url = "https://leetcode.com/problems/decode-xored-array/"
+title = "K-th Smallest in Lexicographical Order"
+url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
 
 [[entries]]
 title = "Number of Matching Subsequences"
@@ -100,8 +88,16 @@ title = "Extra Characters in a String"
 url = "https://leetcode.com/problems/extra-characters-in-a-string/"
 
 [[entries]]
+title = "Evaluate Boolean Binary Tree"
+url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
+
+[[entries]]
 title = "Valid Square"
 url = "https://leetcode.com/problems/valid-square/"
+
+[[entries]]
+title = "Self Crossing"
+url = "https://leetcode.com/problems/self-crossing/"
 
 [[entries]]
 title = "Ugly Number II"
@@ -116,6 +112,10 @@ title = "Gray Code"
 url = "https://leetcode.com/problems/gray-code/"
 
 [[entries]]
+title = "Erect the Fence"
+url = "https://leetcode.com/problems/erect-the-fence/"
+
+[[entries]]
 title = "Maximum XOR of Two Numbers in an Array"
 url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
 
@@ -124,16 +124,16 @@ title = "Minimum Flips to Make a OR b Equal to c"
 url = "https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/"
 
 [[entries]]
-title = "K-th Smallest in Lexicographical Order"
-url = "https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/"
+title = "Counting Words With a Given Prefix"
+url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
 
 [[entries]]
-title = "Self Crossing"
-url = "https://leetcode.com/problems/self-crossing/"
+title = "Pour Water"
+url = "https://leetcode.com/problems/pour-water/"
 
 [[entries]]
-title = "Erect the Fence"
-url = "https://leetcode.com/problems/erect-the-fence/"
+title = "Expressive Words"
+url = "https://leetcode.com/problems/expressive-words/"
 
 [[entries]]
 title = "Shortest Path Visiting All Nodes"

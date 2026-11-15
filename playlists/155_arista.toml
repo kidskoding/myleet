@@ -4,14 +4,6 @@ focus = "linked lists, strings and stacks, sliding windows, hashing, binary sear
 review_modules = ["03_stacks_and_queues", "04_sliding_window", "06_linked_lists", "07_trees", "09_backtracking"]
 
 [[entries]]
-title = "Maximum Depth of N-ary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
 title = "Find Minimum in Rotated Sorted Array"
 url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 
@@ -24,10 +16,6 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Maximum Average Subarray I"
-url = "https://leetcode.com/problems/maximum-average-subarray-i/"
-
-[[entries]]
 title = "Word Ladder"
 url = "https://leetcode.com/problems/word-ladder/"
 
@@ -38,6 +26,10 @@ url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
 [[entries]]
 title = "Longest Word in Dictionary"
 url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+
+[[entries]]
+title = "Maximum Depth of N-ary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
 
 [[entries]]
 title = "Merge Operations to Turn Array Into a Palindrome"
@@ -60,12 +52,20 @@ title = "Inorder Successor in BST II"
 url = "https://leetcode.com/problems/inorder-successor-in-bst-ii/"
 
 [[entries]]
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
 title = "Restore IP Addresses"
 url = "https://leetcode.com/problems/restore-ip-addresses/"
 
 [[entries]]
 title = "Rotated Digits"
 url = "https://leetcode.com/problems/rotated-digits/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Reorder List"
@@ -76,16 +76,12 @@ title = "Reverse Linked List II"
 url = "https://leetcode.com/problems/reverse-linked-list-ii/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
 
 [[entries]]
 title = "Remove Duplicates from Sorted List II"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
 
 [[entries]]
 title = "Copy List with Random Pointer"
@@ -96,6 +92,10 @@ title = "Maximum Number of Occurrences of a Substring"
 url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
 
 [[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
 title = "Path Sum II"
 url = "https://leetcode.com/problems/path-sum-ii/"
 
@@ -104,12 +104,20 @@ title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
+title = "Maximum Average Subarray I"
+url = "https://leetcode.com/problems/maximum-average-subarray-i/"
+
+[[entries]]
 title = "Simplify Path"
 url = "https://leetcode.com/problems/simplify-path/"
 
 [[entries]]
 title = "Remove All Occurrences of a Substring"
 url = "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/"
+
+[[entries]]
+title = "Basic Calculator III"
+url = "https://leetcode.com/problems/basic-calculator-iii/"
 
 [[entries]]
 title = "Swap Nodes in Pairs"
@@ -124,8 +132,16 @@ title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
+title = "Delete N Nodes After M Nodes of a Linked List"
+url = "https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/"
+
+[[entries]]
 title = "Palindromic Substrings"
 url = "https://leetcode.com/problems/palindromic-substrings/"
+
+[[entries]]
+title = "Parse Lisp Expression"
+url = "https://leetcode.com/problems/parse-lisp-expression/"
 
 [[entries]]
 title = "Word Break"
@@ -140,12 +156,20 @@ title = "Add Two Numbers"
 url = "https://leetcode.com/problems/add-two-numbers/"
 
 [[entries]]
+title = "Parsing A Boolean Expression"
+url = "https://leetcode.com/problems/parsing-a-boolean-expression/"
+
+[[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Convert Binary Number in a Linked List to Integer"
+url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -156,29 +180,5 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"

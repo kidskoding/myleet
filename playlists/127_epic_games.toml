@@ -4,14 +4,6 @@ focus = "grid traversal with BFS and DFS, matrix simulation, computational geome
 review_modules = ["10_graphs", "16_math_geometry", "11_dp", "09_backtracking", "17_advanced"]
 
 [[entries]]
-title = "Flood Fill"
-url = "https://leetcode.com/problems/flood-fill/"
-
-[[entries]]
-title = "Island Perimeter"
-url = "https://leetcode.com/problems/island-perimeter/"
-
-[[entries]]
 title = "Spiral Matrix II"
 url = "https://leetcode.com/problems/spiral-matrix-ii/"
 
@@ -20,12 +12,12 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
-title = "Rectangle Overlap"
-url = "https://leetcode.com/problems/rectangle-overlap/"
-
-[[entries]]
 title = "Valid Square"
 url = "https://leetcode.com/problems/valid-square/"
+
+[[entries]]
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
 
 [[entries]]
 title = "Robot Bounded In Circle"
@@ -36,12 +28,20 @@ title = "Walking Robot Simulation"
 url = "https://leetcode.com/problems/walking-robot-simulation/"
 
 [[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
+
+[[entries]]
 title = "Game of Life"
 url = "https://leetcode.com/problems/game-of-life/"
 
 [[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Swim in Rising Water"
+url = "https://leetcode.com/problems/swim-in-rising-water/"
 
 [[entries]]
 title = "Max Area of Island"
@@ -52,6 +52,10 @@ title = "Number of Closed Islands"
 url = "https://leetcode.com/problems/number-of-closed-islands/"
 
 [[entries]]
+title = "Minimum Moves to Reach Target with Rotations"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
+
+[[entries]]
 title = "Number of Enclaves"
 url = "https://leetcode.com/problems/number-of-enclaves/"
 
@@ -60,12 +64,20 @@ title = "Count Sub Islands"
 url = "https://leetcode.com/problems/count-sub-islands/"
 
 [[entries]]
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
+
+[[entries]]
 title = "Detect Cycles in 2D Grid"
 url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
 
 [[entries]]
 title = "01 Matrix"
 url = "https://leetcode.com/problems/01-matrix/"
+
+[[entries]]
+title = "Unique Paths III"
+url = "https://leetcode.com/problems/unique-paths-iii/"
 
 [[entries]]
 title = "As Far from Land as Possible"
@@ -80,6 +92,10 @@ title = "The Maze"
 url = "https://leetcode.com/problems/the-maze/"
 
 [[entries]]
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+
+[[entries]]
 title = "Shortest Bridge"
 url = "https://leetcode.com/problems/shortest-bridge/"
 
@@ -88,44 +104,20 @@ title = "Rectangle Area"
 url = "https://leetcode.com/problems/rectangle-area/"
 
 [[entries]]
-title = "Minimum Area Rectangle"
-url = "https://leetcode.com/problems/minimum-area-rectangle/"
+title = "Rectangle Overlap"
+url = "https://leetcode.com/problems/rectangle-overlap/"
 
 [[entries]]
-title = "Max Points on a Line"
-url = "https://leetcode.com/problems/max-points-on-a-line/"
+title = "Minimum Area Rectangle"
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
 
 [[entries]]
 title = "Path With Minimum Effort"
 url = "https://leetcode.com/problems/path-with-minimum-effort/"
 
 [[entries]]
-title = "Swim in Rising Water"
-url = "https://leetcode.com/problems/swim-in-rising-water/"
-
-[[entries]]
-title = "Minimum Moves to Reach Target with Rotations"
-url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
-
-[[entries]]
-title = "Unique Paths III"
-url = "https://leetcode.com/problems/unique-paths-iii/"
-
-[[entries]]
-title = "Trapping Rain Water II"
-url = "https://leetcode.com/problems/trapping-rain-water-ii/"
-
-[[entries]]
 title = "Perfect Rectangle"
 url = "https://leetcode.com/problems/perfect-rectangle/"
-
-[[entries]]
-title = "Rectangle Area II"
-url = "https://leetcode.com/problems/rectangle-area-ii/"
-
-[[entries]]
-title = "Erect the Fence"
-url = "https://leetcode.com/problems/erect-the-fence/"
 
 [[entries]]
 title = "LRU Cache"
@@ -140,16 +132,20 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
+title = "Largest Triangle Area"
+url = "https://leetcode.com/problems/largest-triangle-area/"
+
+[[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Rectangle Area II"
+url = "https://leetcode.com/problems/rectangle-area-ii/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Longest Palindromic Substring"
+url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -160,12 +156,20 @@ title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
+title = "Erect the Fence"
+url = "https://leetcode.com/problems/erect-the-fence/"
+
+[[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
 
 [[entries]]
 title = "Spiral Matrix"
@@ -176,9 +180,5 @@ title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"

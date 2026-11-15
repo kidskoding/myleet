@@ -4,18 +4,6 @@ focus = "Graph and grid search, trees, geometry helpers, heaps and dynamic progr
 review_modules = ["10_graphs", "16_math_geometry", "07_trees", "08_heaps", "11_dp", "05_binary_search"]
 
 [[entries]]
-title = "Univalued Binary Tree"
-url = "https://leetcode.com/problems/univalued-binary-tree/"
-
-[[entries]]
-title = "Symmetric Tree"
-url = "https://leetcode.com/problems/symmetric-tree/"
-
-[[entries]]
-title = "Cousins in Binary Tree"
-url = "https://leetcode.com/problems/cousins-in-binary-tree/"
-
-[[entries]]
 title = "Lowest Common Ancestor of a Binary Tree IV"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/"
 
@@ -28,24 +16,16 @@ title = "Optimal Partition of String"
 url = "https://leetcode.com/problems/optimal-partition-of-string/"
 
 [[entries]]
-title = "Sum Root to Leaf Numbers"
-url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
-
-[[entries]]
 title = "Collect Coins in a Tree"
 url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
 
 [[entries]]
-title = "Frog Jump"
-url = "https://leetcode.com/problems/frog-jump/"
+title = "Sum Root to Leaf Numbers"
+url = "https://leetcode.com/problems/sum-root-to-leaf-numbers/"
 
 [[entries]]
-title = "Smallest Divisible Digit Product I"
-url = "https://leetcode.com/problems/smallest-divisible-digit-product-i/"
-
-[[entries]]
-title = "Climbing Stairs"
-url = "https://leetcode.com/problems/climbing-stairs/"
+title = "Univalued Binary Tree"
+url = "https://leetcode.com/problems/univalued-binary-tree/"
 
 [[entries]]
 title = "Maximum Sum Obtained of Any Permutation"
@@ -54,6 +34,10 @@ url = "https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation/"
 [[entries]]
 title = "Maximum Value at a Given Index in a Bounded Array"
 url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
+
+[[entries]]
+title = "Frog Jump"
+url = "https://leetcode.com/problems/frog-jump/"
 
 [[entries]]
 title = "Maximum Product After K Increments"
@@ -68,8 +52,16 @@ title = "Put Boxes Into the Warehouse I"
 url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-i/"
 
 [[entries]]
+title = "Sum of k-Mirror Numbers"
+url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
+
+[[entries]]
 title = "Minimum Sum of Squared Difference"
 url = "https://leetcode.com/problems/minimum-sum-of-squared-difference/"
+
+[[entries]]
+title = "Symmetric Tree"
+url = "https://leetcode.com/problems/symmetric-tree/"
 
 [[entries]]
 title = "Closest Prime Numbers in Range"
@@ -84,6 +76,10 @@ title = "Map of Highest Peak"
 url = "https://leetcode.com/problems/map-of-highest-peak/"
 
 [[entries]]
+title = "Permutation Sequence"
+url = "https://leetcode.com/problems/permutation-sequence/"
+
+[[entries]]
 title = "Circular Permutation in Binary Representation"
 url = "https://leetcode.com/problems/circular-permutation-in-binary-representation/"
 
@@ -92,8 +88,16 @@ title = "Design a Food Rating System"
 url = "https://leetcode.com/problems/design-a-food-rating-system/"
 
 [[entries]]
+title = "Cousins in Binary Tree"
+url = "https://leetcode.com/problems/cousins-in-binary-tree/"
+
+[[entries]]
 title = "Split a String Into the Max Number of Unique Substrings"
 url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
+
+[[entries]]
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
 
 [[entries]]
 title = "Ones and Zeroes"
@@ -108,32 +112,28 @@ title = "House Robber II"
 url = "https://leetcode.com/problems/house-robber-ii/"
 
 [[entries]]
-title = "Sum of k-Mirror Numbers"
-url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
-
-[[entries]]
-title = "Permutation Sequence"
-url = "https://leetcode.com/problems/permutation-sequence/"
-
-[[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
-
-[[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
-
-[[entries]]
-title = "Add Strings"
-url = "https://leetcode.com/problems/add-strings/"
-
-[[entries]]
-title = "Number of Common Factors"
-url = "https://leetcode.com/problems/number-of-common-factors/"
-
-[[entries]]
 title = "Rectangle Area II"
 url = "https://leetcode.com/problems/rectangle-area-ii/"
+
+[[entries]]
+title = "Four Divisors"
+url = "https://leetcode.com/problems/four-divisors/"
+
+[[entries]]
+title = "Check If a String Contains All Binary Codes of Size K"
+url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
+
+[[entries]]
+title = "Smallest Divisible Digit Product I"
+url = "https://leetcode.com/problems/smallest-divisible-digit-product-i/"
+
+[[entries]]
+title = "Elimination Game"
+url = "https://leetcode.com/problems/elimination-game/"
+
+[[entries]]
+title = "Non-decreasing Subsequences"
+url = "https://leetcode.com/problems/non-decreasing-subsequences/"
 
 [[entries]]
 title = "Perfect Rectangle"

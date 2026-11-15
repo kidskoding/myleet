@@ -4,22 +4,6 @@ focus = "Streaming-flavored heap, interval and graph problems, plus linked lists
 review_modules = ["08_heaps", "01_arrays_and_hashing", "10_graphs", "13_intervals", "06_linked_lists", "07_trees"]
 
 [[entries]]
-title = "The Employee That Worked on the Longest Task"
-url = "https://leetcode.com/problems/the-employee-that-worked-on-the-longest-task/"
-
-[[entries]]
-title = "Distribute Elements Into Two Arrays I"
-url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-i/"
-
-[[entries]]
-title = "Maximum Product of Two Elements in an Array"
-url = "https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/"
-
-[[entries]]
-title = "Fibonacci Number"
-url = "https://leetcode.com/problems/fibonacci-number/"
-
-[[entries]]
 title = "Minimum Time to Visit All Houses"
 url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
 
@@ -32,6 +16,10 @@ title = "Array With Elements Not Equal to Average of Neighbors"
 url = "https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors/"
 
 [[entries]]
+title = "Valid Arrangement of Pairs"
+url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
+
+[[entries]]
 title = "Maximize Win From Two Segments"
 url = "https://leetcode.com/problems/maximize-win-from-two-segments/"
 
@@ -40,8 +28,16 @@ title = "Query Kth Smallest Trimmed Number"
 url = "https://leetcode.com/problems/query-kth-smallest-trimmed-number/"
 
 [[entries]]
+title = "The Employee That Worked on the Longest Task"
+url = "https://leetcode.com/problems/the-employee-that-worked-on-the-longest-task/"
+
+[[entries]]
 title = "Minimum Score Triangulation of Polygon"
 url = "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/"
+
+[[entries]]
+title = "Valid Palindrome III"
+url = "https://leetcode.com/problems/valid-palindrome-iii/"
 
 [[entries]]
 title = "Maximum Length of Repeated Subarray"
@@ -52,32 +48,12 @@ title = "Champagne Tower"
 url = "https://leetcode.com/problems/champagne-tower/"
 
 [[entries]]
-title = "Valid Arrangement of Pairs"
-url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
-
-[[entries]]
-title = "Valid Palindrome III"
-url = "https://leetcode.com/problems/valid-palindrome-iii/"
-
-[[entries]]
-title = "How Many Apples Can You Put into the Basket"
-url = "https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/"
-
-[[entries]]
-title = "Average Value of Even Numbers That Are Divisible by Three"
-url = "https://leetcode.com/problems/average-value-of-even-numbers-that-are-divisible-by-three/"
-
-[[entries]]
-title = "Remove Linked List Elements"
-url = "https://leetcode.com/problems/remove-linked-list-elements/"
-
-[[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
-
-[[entries]]
 title = "Maximum Number of Eaten Apples"
 url = "https://leetcode.com/problems/maximum-number-of-eaten-apples/"
+
+[[entries]]
+title = "Earliest Possible Day of Full Bloom"
+url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
 
 [[entries]]
 title = "Minimum Operations to Make Array Equal II"
@@ -88,12 +64,20 @@ title = "Equal Sum Arrays With Minimum Number of Operations"
 url = "https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations/"
 
 [[entries]]
+title = "Distribute Elements Into Two Arrays I"
+url = "https://leetcode.com/problems/distribute-elements-into-two-arrays-i/"
+
+[[entries]]
 title = "Mice and Cheese"
 url = "https://leetcode.com/problems/mice-and-cheese/"
 
 [[entries]]
 title = "Count Number of Homogenous Substrings"
 url = "https://leetcode.com/problems/count-number-of-homogenous-substrings/"
+
+[[entries]]
+title = "Amount of New Area Painted Each Day"
+url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
 
 [[entries]]
 title = "Number of Unique XOR Triplets I"
@@ -108,8 +92,16 @@ title = "Largest Combination With Bitwise AND Greater Than Zero"
 url = "https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero/"
 
 [[entries]]
+title = "Maximum Product of Two Elements in an Array"
+url = "https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/"
+
+[[entries]]
 title = "Describe the Painting"
 url = "https://leetcode.com/problems/describe-the-painting/"
+
+[[entries]]
+title = "Range Module"
+url = "https://leetcode.com/problems/range-module/"
 
 [[entries]]
 title = "Partition Labels"
@@ -124,21 +116,29 @@ title = "Path Sum IV"
 url = "https://leetcode.com/problems/path-sum-iv/"
 
 [[entries]]
+title = "Distance to a Cycle in Undirected Graph"
+url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
+
+[[entries]]
 title = "Grid Teleportation Traversal"
 url = "https://leetcode.com/problems/grid-teleportation-traversal/"
 
 [[entries]]
-title = "Earliest Possible Day of Full Bloom"
-url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
+title = "Divide Array in Sets of K Consecutive Numbers"
+url = "https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/"
 
 [[entries]]
-title = "Amount of New Area Painted Each Day"
-url = "https://leetcode.com/problems/amount-of-new-area-painted-each-day/"
+title = "Fibonacci Number"
+url = "https://leetcode.com/problems/fibonacci-number/"
 
 [[entries]]
-title = "Range Module"
-url = "https://leetcode.com/problems/range-module/"
+title = "Most Profit Assigning Work"
+url = "https://leetcode.com/problems/most-profit-assigning-work/"
 
 [[entries]]
-title = "Distance to a Cycle in Undirected Graph"
-url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
+title = "Video Stitching"
+url = "https://leetcode.com/problems/video-stitching/"
+
+[[entries]]
+title = "Minimum Number of Taps to Open to Water a Garden"
+url = "https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/"

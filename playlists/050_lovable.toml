@@ -4,22 +4,6 @@ focus = "Tree and nested-structure traversal, stack-based parsing, backtracking,
 review_modules = ["07_trees", "03_stacks_and_queues", "09_backtracking", "01_arrays_and_hashing", "14_tries", "10_graphs"]
 
 [[entries]]
-title = "Reverse Vowels of a String"
-url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
-
-[[entries]]
-title = "Minimum Absolute Difference Between Two Values"
-url = "https://leetcode.com/problems/minimum-absolute-difference-between-two-values/"
-
-[[entries]]
-title = "Implement Stack using Queues"
-url = "https://leetcode.com/problems/implement-stack-using-queues/"
-
-[[entries]]
-title = "Search in a Binary Search Tree"
-url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
-
-[[entries]]
 title = "Brick Wall"
 url = "https://leetcode.com/problems/brick-wall/"
 
@@ -32,8 +16,16 @@ title = "Number of Adjacent Elements With the Same Color"
 url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
 
 [[entries]]
+title = "Number of Valid Move Combinations On Chessboard"
+url = "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/"
+
+[[entries]]
 title = "132 Pattern"
 url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Reverse Vowels of a String"
+url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
 
 [[entries]]
 title = "Find Longest Special Substring That Occurs Thrice II"
@@ -42,6 +34,10 @@ url = "https://leetcode.com/problems/find-longest-special-substring-that-occurs-
 [[entries]]
 title = "Remove All Adjacent Duplicates in String II"
 url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+
+[[entries]]
+title = "Maximum Frequency Score of a Subarray"
+url = "https://leetcode.com/problems/maximum-frequency-score-of-a-subarray/"
 
 [[entries]]
 title = "Minimum Number of Swaps to Make the String Balanced"
@@ -56,36 +52,20 @@ title = "Predict the Winner"
 url = "https://leetcode.com/problems/predict-the-winner/"
 
 [[entries]]
-title = "Maximum Area of Two Non-Overlapping Square Submatrices"
-url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
-
-[[entries]]
-title = "Number of Self-Divisible Permutations"
-url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
-
-[[entries]]
-title = "Number of Valid Move Combinations On Chessboard"
-url = "https://leetcode.com/problems/number-of-valid-move-combinations-on-chessboard/"
-
-[[entries]]
-title = "Maximum Frequency Score of a Subarray"
-url = "https://leetcode.com/problems/maximum-frequency-score-of-a-subarray/"
-
-[[entries]]
 title = "Count the Number of Inversions"
 url = "https://leetcode.com/problems/count-the-number-of-inversions/"
 
 [[entries]]
-title = "Valid Palindrome III"
-url = "https://leetcode.com/problems/valid-palindrome-iii/"
+title = "Maximum Area of Two Non-Overlapping Square Submatrices"
+url = "https://leetcode.com/problems/maximum-area-of-two-non-overlapping-square-submatrices/"
 
 [[entries]]
-title = "Convert Integer to the Sum of Two No-Zero Integers"
-url = "https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/"
+title = "Minimum Absolute Difference Between Two Values"
+url = "https://leetcode.com/problems/minimum-absolute-difference-between-two-values/"
 
 [[entries]]
-title = "Design Parking System"
-url = "https://leetcode.com/problems/design-parking-system/"
+title = "Number of Self-Divisible Permutations"
+url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
 
 [[entries]]
 title = "Minimum Number of Vertices to Reach All Nodes"
@@ -96,6 +76,10 @@ title = "Count Lattice Points Inside a Circle"
 url = "https://leetcode.com/problems/count-lattice-points-inside-a-circle/"
 
 [[entries]]
+title = "Valid Palindrome III"
+url = "https://leetcode.com/problems/valid-palindrome-iii/"
+
+[[entries]]
 title = "Possible Bipartition"
 url = "https://leetcode.com/problems/possible-bipartition/"
 
@@ -104,8 +88,16 @@ title = "Design Phone Directory"
 url = "https://leetcode.com/problems/design-phone-directory/"
 
 [[entries]]
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
+
+[[entries]]
 title = "Design Event Manager"
 url = "https://leetcode.com/problems/design-event-manager/"
+
+[[entries]]
+title = "Kth Ancestor of a Tree Node"
+url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
 
 [[entries]]
 title = "Matchsticks to Square"
@@ -116,24 +108,32 @@ title = "Apply Discount Every n Orders"
 url = "https://leetcode.com/problems/apply-discount-every-n-orders/"
 
 [[entries]]
-title = "Kth Ancestor of a Tree Node"
-url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
-
-[[entries]]
-title = "Counting Words With a Given Prefix"
-url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
-
-[[entries]]
-title = "Count Prefix and Suffix Pairs I"
-url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
-
-[[entries]]
 title = "Camelcase Matching"
 url = "https://leetcode.com/problems/camelcase-matching/"
 
 [[entries]]
 title = "Prefix and Suffix Search"
 url = "https://leetcode.com/problems/prefix-and-suffix-search/"
+
+[[entries]]
+title = "Flip String to Monotone Increasing"
+url = "https://leetcode.com/problems/flip-string-to-monotone-increasing/"
+
+[[entries]]
+title = "Longest String Chain"
+url = "https://leetcode.com/problems/longest-string-chain/"
+
+[[entries]]
+title = "Search in a Binary Search Tree"
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
+
+[[entries]]
+title = "Domino and Tromino Tiling"
+url = "https://leetcode.com/problems/domino-and-tromino-tiling/"
+
+[[entries]]
+title = "Rotated Digits"
+url = "https://leetcode.com/problems/rotated-digits/"
 
 [[entries]]
 title = "Sum of Prefix Scores of Strings"

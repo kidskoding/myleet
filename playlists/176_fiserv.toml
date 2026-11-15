@@ -4,26 +4,6 @@ focus = "Payments-style array, interval, greedy and dynamic programming problems
 review_modules = ["01_arrays_and_hashing", "13_intervals", "12_greedy_algorithms", "11_dp", "03_stacks_and_queues", "07_trees"]
 
 [[entries]]
-title = "Find All Numbers Disappeared in an Array"
-url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
-
-[[entries]]
-title = "Maximum Difference Between Increasing Elements"
-url = "https://leetcode.com/problems/maximum-difference-between-increasing-elements/"
-
-[[entries]]
-title = "Destination City"
-url = "https://leetcode.com/problems/destination-city/"
-
-[[entries]]
-title = "Maximum Length Substring With Two Occurrences"
-url = "https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/"
-
-[[entries]]
-title = "Range Sum of BST"
-url = "https://leetcode.com/problems/range-sum-of-bst/"
-
-[[entries]]
 title = "Most Popular Video Creator"
 url = "https://leetcode.com/problems/most-popular-video-creator/"
 
@@ -36,8 +16,16 @@ title = "Array Nesting"
 url = "https://leetcode.com/problems/array-nesting/"
 
 [[entries]]
+title = "Tag Validator"
+url = "https://leetcode.com/problems/tag-validator/"
+
+[[entries]]
 title = "Minimum Time to Complete Trips"
 url = "https://leetcode.com/problems/minimum-time-to-complete-trips/"
+
+[[entries]]
+title = "Find All Numbers Disappeared in an Array"
+url = "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/"
 
 [[entries]]
 title = "Calculate Score After Performing Instructions"
@@ -46,6 +34,10 @@ url = "https://leetcode.com/problems/calculate-score-after-performing-instructio
 [[entries]]
 title = "Find All Lonely Numbers in the Array"
 url = "https://leetcode.com/problems/find-all-lonely-numbers-in-the-array/"
+
+[[entries]]
+title = "Maximum Deletions on a String"
+url = "https://leetcode.com/problems/maximum-deletions-on-a-string/"
 
 [[entries]]
 title = "Longest Absolute File Path"
@@ -60,8 +52,16 @@ title = "Minimum Removals to Balance Array"
 url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
 
 [[entries]]
+title = "Set Intersection Size At Least Two"
+url = "https://leetcode.com/problems/set-intersection-size-at-least-two/"
+
+[[entries]]
 title = "Predict the Winner"
 url = "https://leetcode.com/problems/predict-the-winner/"
+
+[[entries]]
+title = "Maximum Difference Between Increasing Elements"
+url = "https://leetcode.com/problems/maximum-difference-between-increasing-elements/"
 
 [[entries]]
 title = "Knight Dialer"
@@ -72,56 +72,12 @@ title = "Domino and Tromino Tiling"
 url = "https://leetcode.com/problems/domino-and-tromino-tiling/"
 
 [[entries]]
-title = "Tag Validator"
-url = "https://leetcode.com/problems/tag-validator/"
-
-[[entries]]
-title = "Maximum Deletions on a String"
-url = "https://leetcode.com/problems/maximum-deletions-on-a-string/"
-
-[[entries]]
-title = "Points That Intersect With Cars"
-url = "https://leetcode.com/problems/points-that-intersect-with-cars/"
-
-[[entries]]
-title = "Determine if Two Events Have Conflict"
-url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
-
-[[entries]]
-title = "Maximum Population Year"
-url = "https://leetcode.com/problems/maximum-population-year/"
-
-[[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
-
-[[entries]]
-title = "Min Cost Climbing Stairs"
-url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
-
-[[entries]]
-title = "Set Intersection Size At Least Two"
-url = "https://leetcode.com/problems/set-intersection-size-at-least-two/"
+title = "Minimum Jumps to Reach Home"
+url = "https://leetcode.com/problems/minimum-jumps-to-reach-home/"
 
 [[entries]]
 title = "Minimum Cost to Merge Stones"
 url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
-
-[[entries]]
-title = "Maximal Rectangle"
-url = "https://leetcode.com/problems/maximal-rectangle/"
-
-[[entries]]
-title = "Regular Expression Matching"
-url = "https://leetcode.com/problems/regular-expression-matching/"
-
-[[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"
-
-[[entries]]
-title = "Minimum Jumps to Reach Home"
-url = "https://leetcode.com/problems/minimum-jumps-to-reach-home/"
 
 [[entries]]
 title = "Eliminate Maximum Number of Monsters"
@@ -132,9 +88,53 @@ title = "Jump Game III"
 url = "https://leetcode.com/problems/jump-game-iii/"
 
 [[entries]]
+title = "Destination City"
+url = "https://leetcode.com/problems/destination-city/"
+
+[[entries]]
 title = "Bag of Tokens"
 url = "https://leetcode.com/problems/bag-of-tokens/"
 
 [[entries]]
-title = "Minimum Number of Refueling Stops"
-url = "https://leetcode.com/problems/minimum-number-of-refueling-stops/"
+title = "Maximal Rectangle"
+url = "https://leetcode.com/problems/maximal-rectangle/"
+
+[[entries]]
+title = "Non-decreasing Array"
+url = "https://leetcode.com/problems/non-decreasing-array/"
+
+[[entries]]
+title = "Split Concatenated Strings"
+url = "https://leetcode.com/problems/split-concatenated-strings/"
+
+[[entries]]
+title = "Minimum Factorization"
+url = "https://leetcode.com/problems/minimum-factorization/"
+
+[[entries]]
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
+
+[[entries]]
+title = "Sum of Even Numbers After Queries"
+url = "https://leetcode.com/problems/sum-of-even-numbers-after-queries/"
+
+[[entries]]
+title = "Diagonal Traverse"
+url = "https://leetcode.com/problems/diagonal-traverse/"
+
+[[entries]]
+title = "Maximum Length Substring With Two Occurrences"
+url = "https://leetcode.com/problems/maximum-length-substring-with-two-occurrences/"
+
+[[entries]]
+title = "Masking Personal Information"
+url = "https://leetcode.com/problems/masking-personal-information/"
+
+[[entries]]
+title = "Find the Score of All Prefixes of an Array"
+url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
+
+[[entries]]
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"

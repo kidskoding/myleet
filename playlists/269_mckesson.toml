@@ -8,14 +8,6 @@ title = "Contains Duplicate"
 url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
-
-[[entries]]
-title = "Intersection of Two Arrays II"
-url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
-
-[[entries]]
 title = "Matrix Block Sum"
 url = "https://leetcode.com/problems/matrix-block-sum/"
 
@@ -24,60 +16,76 @@ title = "Maximum Absolute Sum of Any Subarray"
 url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
 
 [[entries]]
-title = "Maximum Score After Splitting a String"
-url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Remove Duplicate Letters"
 url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+
+[[entries]]
 title = "Sum of Subarray Ranges"
 url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+
+[[entries]]
+title = "Smallest Range Covering Elements from K Lists"
+url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
 
 [[entries]]
 title = "Magnetic Force Between Two Balls"
 url = "https://leetcode.com/problems/magnetic-force-between-two-balls/"
 
 [[entries]]
-title = "Minimum Number of Days to Make m Bouquets"
-url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
+title = "Minimum Number of Days to Make m Bouquets"
+url = "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
 
 [[entries]]
 title = "Delete Nodes From Linked List Present in Array"
 url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
 title = "Delete the Middle Node of a Linked List"
 url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
 
 [[entries]]
-title = "Invert Binary Tree"
-url = "https://leetcode.com/problems/invert-binary-tree/"
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
 
 [[entries]]
 title = "Count Good Nodes in Binary Tree"
 url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
 
 [[entries]]
-title = "Cousins in Binary Tree"
-url = "https://leetcode.com/problems/cousins-in-binary-tree/"
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
 
 [[entries]]
 title = "Time Needed to Inform All Employees"
 url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
 
 [[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
 title = "Walls and Gates"
 url = "https://leetcode.com/problems/walls-and-gates/"
+
+[[entries]]
+title = "Cousins in Binary Tree"
+url = "https://leetcode.com/problems/cousins-in-binary-tree/"
 
 [[entries]]
 title = "Find Closest Node to Given Two Nodes"
@@ -100,12 +108,20 @@ title = "Remove Stones to Minimize the Total"
 url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
 
 [[entries]]
+title = "Last Stone Weight"
+url = "https://leetcode.com/problems/last-stone-weight/"
+
+[[entries]]
 title = "Super Ugly Number"
 url = "https://leetcode.com/problems/super-ugly-number/"
 
 [[entries]]
-title = "Last Stone Weight"
-url = "https://leetcode.com/problems/last-stone-weight/"
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
 
 [[entries]]
 title = "Kth Smallest Element in a Sorted Matrix"
@@ -114,19 +130,3 @@ url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
-
-[[entries]]
-title = "Minimum Jumps to Reach Home"
-url = "https://leetcode.com/problems/minimum-jumps-to-reach-home/"
-
-[[entries]]
-title = "Minimum Number of Arrows to Burst Balloons"
-url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
-
-[[entries]]
-title = "Minimum Number of Arrows to Burst Balloons"
-url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"

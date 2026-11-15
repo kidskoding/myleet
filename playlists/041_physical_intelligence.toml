@@ -8,10 +8,6 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
@@ -20,12 +16,12 @@ title = "Snapshot Array"
 url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+title = "LFU Cache"
+url = "https://leetcode.com/problems/lfu-cache/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
 title = "Design Hit Counter"
@@ -36,32 +32,16 @@ title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Kth Largest Element in a Stream"
-url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
-
-[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
 title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+
+[[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
 title = "Find K Pairs with Smallest Sums"
@@ -72,8 +52,8 @@ title = "Kth Smallest Element in a Sorted Matrix"
 url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -84,20 +64,20 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 
 [[entries]]
-title = "Data Stream as Disjoint Intervals"
-url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
 
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
-title = "Minimum Interval to Include Each Query"
-url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
 
 [[entries]]
 title = "Task Scheduler"
@@ -112,6 +92,10 @@ title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Design Circular Queue"
 url = "https://leetcode.com/problems/design-circular-queue/"
 
@@ -120,12 +104,20 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
+title = "Kth Largest Element in a Stream"
+url = "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+
+[[entries]]
 title = "Sparse Matrix Multiplication"
 url = "https://leetcode.com/problems/sparse-matrix-multiplication/"
 
 [[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
 title = "Range Sum Query 2D - Immutable"
@@ -140,8 +132,16 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
+
+[[entries]]
 title = "Random Pick with Weight"
 url = "https://leetcode.com/problems/random-pick-with-weight/"
+
+[[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
 
 [[entries]]
 title = "Flatten Nested List Iterator"
@@ -156,12 +156,20 @@ title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
+title = "Minimum Interval to Include Each Query"
+url = "https://leetcode.com/problems/minimum-interval-to-include-each-query/"
+
+[[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
 
 [[entries]]
 title = "Number of Islands"
@@ -172,13 +180,5 @@ title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
 title = "Trapping Rain Water"
 url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"

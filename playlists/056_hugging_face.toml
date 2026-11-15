@@ -4,10 +4,6 @@ focus = "string processing and tokenization, hashing, matrices, heaps, intervals
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "04_sliding_window", "08_heaps", "11_dp"]
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
-
-[[entries]]
 title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
@@ -20,8 +16,8 @@ title = "Design Add and Search Words Data Structure"
 url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -32,12 +28,20 @@ title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
+
+[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
 title = "Encode and Decode Strings"
@@ -48,20 +52,20 @@ title = "String Compression"
 url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Valid Anagram"
-url = "https://leetcode.com/problems/valid-anagram/"
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
 title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Edit Distance"
@@ -72,8 +76,8 @@ title = "Longest Common Subsequence"
 url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
-title = "Reshape the Matrix"
-url = "https://leetcode.com/problems/reshape-the-matrix/"
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Spiral Matrix"
@@ -88,6 +92,10 @@ title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
@@ -96,12 +104,20 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Reshape the Matrix"
+url = "https://leetcode.com/problems/reshape-the-matrix/"
+
+[[entries]]
 title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"
 
 [[entries]]
 title = "Task Scheduler"
@@ -116,20 +132,20 @@ title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
+title = "Count Binary Substrings"
+url = "https://leetcode.com/problems/count-binary-substrings/"
+
+[[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
+title = "Palindrome Partitioning II"
+url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
+
+[[entries]]
 title = "K Closest Points to Origin"
 url = "https://leetcode.com/problems/k-closest-points-to-origin/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "LRU Cache"
@@ -140,6 +156,10 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
+title = "Best Time to Buy and Sell Stock IV"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
+
+[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
@@ -148,8 +168,8 @@ title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Lucky Numbers in a Matrix"
+url = "https://leetcode.com/problems/lucky-numbers-in-a-matrix/"
 
 [[entries]]
 title = "Clone Graph"
@@ -160,25 +180,5 @@ title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
-
-[[entries]]
-title = "Find Duplicate File in System"
-url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Minimum Cost to Merge Stones"
+url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"

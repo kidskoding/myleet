@@ -12,10 +12,6 @@ title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
-title = "Alternating Groups I"
-url = "https://leetcode.com/problems/alternating-groups-i/"
-
-[[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
@@ -30,6 +26,10 @@ url = "https://leetcode.com/problems/basic-calculator-ii/"
 [[entries]]
 title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Alternating Groups I"
+url = "https://leetcode.com/problems/alternating-groups-i/"
 
 [[entries]]
 title = "Simplify Path"
@@ -48,12 +48,12 @@ title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
 title = "Minimum Remove to Make Valid Parentheses"
 url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+
+[[entries]]
+title = "Integer to English Words"
+url = "https://leetcode.com/problems/integer-to-english-words/"
 
 [[entries]]
 title = "String Compression"
@@ -64,6 +64,10 @@ title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
 title = "Zigzag Conversion"
 url = "https://leetcode.com/problems/zigzag-conversion/"
 
@@ -72,12 +76,12 @@ title = "Reverse Words in a String"
 url = "https://leetcode.com/problems/reverse-words-in-a-string/"
 
 [[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
-title = "Integer to English Words"
-url = "https://leetcode.com/problems/integer-to-english-words/"
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
 title = "Validate IP Address"
@@ -88,8 +92,8 @@ title = "Restore IP Addresses"
 url = "https://leetcode.com/problems/restore-ip-addresses/"
 
 [[entries]]
-title = "Longest Common Prefix"
-url = "https://leetcode.com/problems/longest-common-prefix/"
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Multiply Strings"
@@ -100,8 +104,8 @@ title = "Design File System"
 url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
 
 [[entries]]
 title = "Flatten Nested List Iterator"
@@ -112,6 +116,10 @@ title = "Exclusive Time of Functions"
 url = "https://leetcode.com/problems/exclusive-time-of-functions/"
 
 [[entries]]
+title = "Sudoku Solver"
+url = "https://leetcode.com/problems/sudoku-solver/"
+
+[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
@@ -120,16 +128,20 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
+title = "Monotonic Array"
+url = "https://leetcode.com/problems/monotonic-array/"
+
+[[entries]]
 title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "LRU Cache"
@@ -144,6 +156,10 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
+title = "Minimum Deletions to Make Array Divisible"
+url = "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/"
+
+[[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
@@ -152,33 +168,17 @@ title = "Robot Bounded In Circle"
 url = "https://leetcode.com/problems/robot-bounded-in-circle/"
 
 [[entries]]
-title = "Walking Robot Simulation"
-url = "https://leetcode.com/problems/walking-robot-simulation/"
+title = "Array Transformation"
+url = "https://leetcode.com/problems/array-transformation/"
 
 [[entries]]
-title = "Sudoku Solver"
-url = "https://leetcode.com/problems/sudoku-solver/"
+title = "Walking Robot Simulation"
+url = "https://leetcode.com/problems/walking-robot-simulation/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Design Snake Game"
-url = "https://leetcode.com/problems/design-snake-game/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Minimum Cost to Split an Array"
+url = "https://leetcode.com/problems/minimum-cost-to-split-an-array/"

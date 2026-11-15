@@ -12,12 +12,12 @@ title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
@@ -28,12 +28,20 @@ title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
+title = "Teemo Attacking"
+url = "https://leetcode.com/problems/teemo-attacking/"
+
+[[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
 title = "Network Delay Time"
 url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Cheapest Flights Within K Stops"
@@ -44,8 +52,8 @@ title = "Design Twitter"
 url = "https://leetcode.com/problems/design-twitter/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Bus Routes"
+url = "https://leetcode.com/problems/bus-routes/"
 
 [[entries]]
 title = "Pacific Atlantic Water Flow"
@@ -56,20 +64,20 @@ title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Subtree of Another Tree"
+url = "https://leetcode.com/problems/subtree-of-another-tree/"
 
 [[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Better Compression of String"
 url = "https://leetcode.com/problems/better-compression-of-string/"
 
 [[entries]]
-title = "Teemo Attacking"
-url = "https://leetcode.com/problems/teemo-attacking/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Game of Life"
@@ -84,16 +92,8 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Serialize and Deserialize Binary Tree"
 url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
 title = "Coin Change"
@@ -104,12 +104,20 @@ title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
+title = "Same Tree"
+url = "https://leetcode.com/problems/same-tree/"
+
+[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
 title = "Maximum Subarray"
@@ -124,8 +132,16 @@ title = "Validate Binary Search Tree"
 url = "https://leetcode.com/problems/validate-binary-search-tree/"
 
 [[entries]]
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+
+[[entries]]
 title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "Making A Large Island"
+url = "https://leetcode.com/problems/making-a-large-island/"
 
 [[entries]]
 title = "Word Search"
@@ -140,12 +156,20 @@ title = "Combination Sum"
 url = "https://leetcode.com/problems/combination-sum/"
 
 [[entries]]
+title = "Shortest Path to Get All Keys"
+url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"
+
+[[entries]]
 title = "Subsets"
 url = "https://leetcode.com/problems/subsets/"
 
 [[entries]]
 title = "Daily Temperatures"
 url = "https://leetcode.com/problems/daily-temperatures/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Min Stack"
@@ -156,29 +180,5 @@ title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Implement Trie (Prefix Tree)"
-url = "https://leetcode.com/problems/implement-trie-prefix-tree/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
-
-[[entries]]
-title = "Jump Game"
-url = "https://leetcode.com/problems/jump-game/"
+title = "Minimum Moves to Reach Target with Rotations"
+url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"

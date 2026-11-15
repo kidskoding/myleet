@@ -12,28 +12,32 @@ title = "Cheapest Flights Within K Stops"
 url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
 
 [[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
-
-[[entries]]
 title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
 
 [[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
 title = "Evaluate Division"
 url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
 
 [[entries]]
 title = "Accounts Merge"
@@ -48,44 +52,44 @@ title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
-
-[[entries]]
 title = "Word Ladder"
 url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
+title = "Shortest Path in Binary Matrix"
+url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Reconstruct Itinerary"
+url = "https://leetcode.com/problems/reconstruct-itinerary/"
+
+[[entries]]
 title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Find if Path Exists in Graph"
+url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -96,6 +100,10 @@ title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
@@ -104,20 +112,20 @@ title = "Validate Binary Search Tree"
 url = "https://leetcode.com/problems/validate-binary-search-tree/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Fizz Buzz"
+url = "https://leetcode.com/problems/fizz-buzz/"
 
 [[entries]]
 title = "Word Break"
@@ -128,8 +136,8 @@ title = "Number of Equal Count Substrings"
 url = "https://leetcode.com/problems/number-of-equal-count-substrings/"
 
 [[entries]]
-title = "Collect Coins in a Tree"
-url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
 
 [[entries]]
 title = "Implement Router"
@@ -140,40 +148,36 @@ title = "Minimum Sensors to Cover Grid"
 url = "https://leetcode.com/problems/minimum-sensors-to-cover-grid/"
 
 [[entries]]
-title = "Sum of k-Mirror Numbers"
-url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
-
-[[entries]]
 title = "Power Grid Maintenance"
 url = "https://leetcode.com/problems/power-grid-maintenance/"
+
+[[entries]]
+title = "Collect Coins in a Tree"
+url = "https://leetcode.com/problems/collect-coins-in-a-tree/"
 
 [[entries]]
 title = "Find the Largest Area of Square Inside Two Rectangles"
 url = "https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/"
 
 [[entries]]
-title = "Minimum Cost to Make Array Equal"
-url = "https://leetcode.com/problems/minimum-cost-to-make-array-equal/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
 title = "Minimum Time to Collect All Apples in a Tree"
 url = "https://leetcode.com/problems/minimum-time-to-collect-all-apples-in-a-tree/"
+
+[[entries]]
+title = "Find Center of Star Graph"
+url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
 title = "House Robber"
 url = "https://leetcode.com/problems/house-robber/"
 
 [[entries]]
-title = "Shortest Path in a Grid with Obstacles Elimination"
-url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
-
-[[entries]]
 title = "Contiguous Array"
 url = "https://leetcode.com/problems/contiguous-array/"
+
+[[entries]]
+title = "Sum of k-Mirror Numbers"
+url = "https://leetcode.com/problems/sum-of-k-mirror-numbers/"
 
 [[entries]]
 title = "Diagonal Traverse"
@@ -184,8 +188,8 @@ title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
 
 [[entries]]
-title = "Count of Integers"
-url = "https://leetcode.com/problems/count-of-integers/"
+title = "Smallest Range I"
+url = "https://leetcode.com/problems/smallest-range-i/"
 
 [[entries]]
 title = "Expressive Words"
@@ -196,9 +200,5 @@ title = "Edit Distance"
 url = "https://leetcode.com/problems/edit-distance/"
 
 [[entries]]
-title = "Max Points on a Line"
-url = "https://leetcode.com/problems/max-points-on-a-line/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Minimum Cost to Make Array Equal"
+url = "https://leetcode.com/problems/minimum-cost-to-make-array-equal/"

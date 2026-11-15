@@ -4,18 +4,6 @@ focus = "Practical matching and ranking problems with hash maps, heaps and inter
 review_modules = ["01_arrays_and_hashing", "08_heaps", "13_intervals", "10_graphs", "05_binary_search", "03_stacks_and_queues"]
 
 [[entries]]
-title = "Left and Right Sum Differences"
-url = "https://leetcode.com/problems/left-and-right-sum-differences/"
-
-[[entries]]
-title = "Reverse Prefix of Word"
-url = "https://leetcode.com/problems/reverse-prefix-of-word/"
-
-[[entries]]
-title = "First Bad Version"
-url = "https://leetcode.com/problems/first-bad-version/"
-
-[[entries]]
 title = "Shortest Word Distance III"
 url = "https://leetcode.com/problems/shortest-word-distance-iii/"
 
@@ -28,8 +16,16 @@ title = "Minimum Penalty for a Shop"
 url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
 
 [[entries]]
+title = "Longest Substring of One Repeating Character"
+url = "https://leetcode.com/problems/longest-substring-of-one-repeating-character/"
+
+[[entries]]
 title = "Non-decreasing Array"
 url = "https://leetcode.com/problems/non-decreasing-array/"
+
+[[entries]]
+title = "Left and Right Sum Differences"
+url = "https://leetcode.com/problems/left-and-right-sum-differences/"
 
 [[entries]]
 title = "Maximum Sum of Distinct Subarrays With Length K"
@@ -38,6 +34,10 @@ url = "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-leng
 [[entries]]
 title = "Find the Longest Equal Subarray"
 url = "https://leetcode.com/problems/find-the-longest-equal-subarray/"
+
+[[entries]]
+title = "Valid Arrangement of Pairs"
+url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
 
 [[entries]]
 title = "Shortest and Lexicographically Smallest Beautiful String"
@@ -52,36 +52,16 @@ title = "Search in Rotated Sorted Array II"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
 
 [[entries]]
-title = "Validate Binary Tree Nodes"
-url = "https://leetcode.com/problems/validate-binary-tree-nodes/"
-
-[[entries]]
-title = "Longest Substring of One Repeating Character"
-url = "https://leetcode.com/problems/longest-substring-of-one-repeating-character/"
-
-[[entries]]
-title = "Valid Arrangement of Pairs"
-url = "https://leetcode.com/problems/valid-arrangement-of-pairs/"
-
-[[entries]]
 title = "Random Pick with Blacklist"
 url = "https://leetcode.com/problems/random-pick-with-blacklist/"
 
 [[entries]]
-title = "How Many Apples Can You Put into the Basket"
-url = "https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/"
+title = "Validate Binary Tree Nodes"
+url = "https://leetcode.com/problems/validate-binary-tree-nodes/"
 
 [[entries]]
-title = "Distribute Candies Among Children I"
-url = "https://leetcode.com/problems/distribute-candies-among-children-i/"
-
-[[entries]]
-title = "Count Operations to Obtain Zero"
-url = "https://leetcode.com/problems/count-operations-to-obtain-zero/"
-
-[[entries]]
-title = "Determine if Two Events Have Conflict"
-url = "https://leetcode.com/problems/determine-if-two-events-have-conflict/"
+title = "Reverse Prefix of Word"
+url = "https://leetcode.com/problems/reverse-prefix-of-word/"
 
 [[entries]]
 title = "Maximum Number of Integers to Choose From a Range II"
@@ -96,6 +76,10 @@ title = "Put Boxes Into the Warehouse II"
 url = "https://leetcode.com/problems/put-boxes-into-the-warehouse-ii/"
 
 [[entries]]
+title = "Minimum Cost to Equalize Array"
+url = "https://leetcode.com/problems/minimum-cost-to-equalize-array/"
+
+[[entries]]
 title = "Minimum Cost to Equalize Arrays Using Swaps"
 url = "https://leetcode.com/problems/minimum-cost-to-equalize-arrays-using-swaps/"
 
@@ -104,8 +88,16 @@ title = "Check If a String Contains All Binary Codes of Size K"
 url = "https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/"
 
 [[entries]]
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
+
+[[entries]]
 title = "K-th Symbol in Grammar"
 url = "https://leetcode.com/problems/k-th-symbol-in-grammar/"
+
+[[entries]]
+title = "Manhattan Distances of All Arrangements of Pieces"
+url = "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/"
 
 [[entries]]
 title = "Reorder Routes to Make All Paths Lead to the City Zero"
@@ -120,6 +112,10 @@ title = "Corporate Flight Bookings"
 url = "https://leetcode.com/problems/corporate-flight-bookings/"
 
 [[entries]]
+title = "Number of Flowers in Full Bloom"
+url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
+
+[[entries]]
 title = "Partition Labels"
 url = "https://leetcode.com/problems/partition-labels/"
 
@@ -128,13 +124,17 @@ title = "Divide Intervals Into Minimum Number of Groups"
 url = "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/"
 
 [[entries]]
-title = "Minimum Cost to Equalize Array"
-url = "https://leetcode.com/problems/minimum-cost-to-equalize-array/"
+title = "How Many Apples Can You Put into the Basket"
+url = "https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/"
 
 [[entries]]
-title = "Manhattan Distances of All Arrangements of Pieces"
-url = "https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces/"
+title = "One Edit Distance"
+url = "https://leetcode.com/problems/one-edit-distance/"
 
 [[entries]]
-title = "Number of Flowers in Full Bloom"
-url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
+title = "Compare Version Numbers"
+url = "https://leetcode.com/problems/compare-version-numbers/"
+
+[[entries]]
+title = "Valid Number"
+url = "https://leetcode.com/problems/valid-number/"

@@ -28,12 +28,20 @@ title = "Time Based Key-Value Store"
 url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
+title = "Check if Every Row and Column Contains All Numbers"
+url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
+
+[[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
 
 [[entries]]
 title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
+
+[[entries]]
+title = "Employee Free Time"
+url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
 title = "Gas Station"
@@ -44,16 +52,20 @@ title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
 title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Squares of a Sorted Array"
+url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
 title = "Rotting Oranges"
@@ -62,6 +74,10 @@ url = "https://leetcode.com/problems/rotting-oranges/"
 [[entries]]
 title = "Shortest Path in Binary Matrix"
 url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
 title = "Network Delay Time"
@@ -76,12 +92,20 @@ title = "Path With Minimum Effort"
 url = "https://leetcode.com/problems/path-with-minimum-effort/"
 
 [[entries]]
+title = "Wildcard Matching"
+url = "https://leetcode.com/problems/wildcard-matching/"
+
+[[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Clone Graph"
 url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Backspace String Compare"
+url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
 title = "Product of Array Except Self"
@@ -92,12 +116,12 @@ title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Minimum Size Subarray Sum"
-url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
+title = "Minimum Size Subarray Sum"
+url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
 
 [[entries]]
 title = "Merge Intervals"
@@ -108,16 +132,20 @@ title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+
+[[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
+title = "Regular Expression Matching"
+url = "https://leetcode.com/problems/regular-expression-matching/"
 
 [[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
 title = "LRU Cache"
@@ -128,57 +156,29 @@ title = "Average Waiting Time"
 url = "https://leetcode.com/problems/average-waiting-time/"
 
 [[entries]]
-title = "Find First and Last Position of Element in Sorted Array"
-url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+title = "Palindrome Partitioning II"
+url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
 
 [[entries]]
-title = "Wildcard Matching"
-url = "https://leetcode.com/problems/wildcard-matching/"
+title = "Find First and Last Position of Element in Sorted Array"
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
 
 [[entries]]
 title = "Find the Length of the Longest Common Prefix"
 url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
 
 [[entries]]
+title = "Valid Palindrome II"
+url = "https://leetcode.com/problems/valid-palindrome-ii/"
+
+[[entries]]
 title = "Simple Bank System"
 url = "https://leetcode.com/problems/simple-bank-system/"
-
-[[entries]]
-title = "Check if Every Row and Column Contains All Numbers"
-url = "https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers/"
-
-[[entries]]
-title = "Squares of a Sorted Array"
-url = "https://leetcode.com/problems/squares-of-a-sorted-array/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Minimum Cost to Merge Stones"
+url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"

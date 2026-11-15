@@ -8,40 +8,12 @@ title = "Plus One"
 url = "https://leetcode.com/problems/plus-one/"
 
 [[entries]]
-title = "Remove Duplicates from Sorted Array"
-url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
-
-[[entries]]
-title = "Remove Element"
-url = "https://leetcode.com/problems/remove-element/"
-
-[[entries]]
-title = "Move Zeroes"
-url = "https://leetcode.com/problems/move-zeroes/"
-
-[[entries]]
-title = "Majority Element"
-url = "https://leetcode.com/problems/majority-element/"
-
-[[entries]]
-title = "Missing Number"
-url = "https://leetcode.com/problems/missing-number/"
-
-[[entries]]
-title = "Excel Sheet Column Number"
-url = "https://leetcode.com/problems/excel-sheet-column-number/"
-
-[[entries]]
-title = "Arranging Coins"
-url = "https://leetcode.com/problems/arranging-coins/"
-
-[[entries]]
-title = "Sqrt(x)"
-url = "https://leetcode.com/problems/sqrtx/"
-
-[[entries]]
 title = "Count Primes"
 url = "https://leetcode.com/problems/count-primes/"
+
+[[entries]]
+title = "Remove Duplicates from Sorted Array"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
 
 [[entries]]
 title = "Factorial Trailing Zeroes"
@@ -52,20 +24,40 @@ title = "Product of Array Except Self"
 url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
+title = "Remove Element"
+url = "https://leetcode.com/problems/remove-element/"
+
+[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
 
 [[entries]]
 title = "Longest Consecutive Sequence"
 url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
+title = "Move Zeroes"
+url = "https://leetcode.com/problems/move-zeroes/"
+
+[[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
 [[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
+
+[[entries]]
 title = "Remove Duplicates from Sorted Array II"
 url = "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/"
+
+[[entries]]
+title = "Missing Number"
+url = "https://leetcode.com/problems/missing-number/"
 
 [[entries]]
 title = "Find the Duplicate Number"
@@ -76,6 +68,14 @@ title = "Search in Rotated Sorted Array II"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
 
 [[entries]]
+title = "Excel Sheet Column Number"
+url = "https://leetcode.com/problems/excel-sheet-column-number/"
+
+[[entries]]
+title = "Length of Longest V-Shaped Diagonal Segment"
+url = "https://leetcode.com/problems/length-of-longest-v-shaped-diagonal-segment/"
+
+[[entries]]
 title = "Pow(x, n)"
 url = "https://leetcode.com/problems/powx-n/"
 
@@ -84,24 +84,48 @@ title = "Divide Two Integers"
 url = "https://leetcode.com/problems/divide-two-integers/"
 
 [[entries]]
+title = "Arranging Coins"
+url = "https://leetcode.com/problems/arranging-coins/"
+
+[[entries]]
 title = "Integer to Roman"
 url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "Sqrt(x)"
+url = "https://leetcode.com/problems/sqrtx/"
 
 [[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
+title = "Add Strings"
+url = "https://leetcode.com/problems/add-strings/"
+
+[[entries]]
 title = "Container With Most Water"
 url = "https://leetcode.com/problems/container-with-most-water/"
+
+[[entries]]
+title = "Earliest Possible Day of Full Bloom"
+url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
 
 [[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
+title = "Excel Sheet Column Title"
+url = "https://leetcode.com/problems/excel-sheet-column-title/"
+
+[[entries]]
 title = "3Sum Closest"
 url = "https://leetcode.com/problems/3sum-closest/"
+
+[[entries]]
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
 
 [[entries]]
 title = "4Sum II"
@@ -112,36 +136,40 @@ title = "Subarray Product Less Than K"
 url = "https://leetcode.com/problems/subarray-product-less-than-k/"
 
 [[entries]]
+title = "Happy Number"
+url = "https://leetcode.com/problems/happy-number/"
+
+[[entries]]
 title = "Minimum Size Subarray Sum"
 url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+
+[[entries]]
+title = "Maximum Sum of Alternating Subsequence With Distance at Least K"
+url = "https://leetcode.com/problems/maximum-sum-of-alternating-subsequence-with-distance-at-least-k/"
 
 [[entries]]
 title = "Permutation in String"
 url = "https://leetcode.com/problems/permutation-in-string/"
 
 [[entries]]
+title = "Palindrome Number"
+url = "https://leetcode.com/problems/palindrome-number/"
+
+[[entries]]
 title = "Find All Anagrams in a String"
 url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+
+[[entries]]
+title = "Minimum Index Sum of Two Lists"
+url = "https://leetcode.com/problems/minimum-index-sum-of-two-lists/"
 
 [[entries]]
 title = "Get Equal Substrings Within Budget"
 url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
 
 [[entries]]
-title = "Max Points on a Line"
-url = "https://leetcode.com/problems/max-points-on-a-line/"
-
-[[entries]]
-title = "Length of Longest V-Shaped Diagonal Segment"
-url = "https://leetcode.com/problems/length-of-longest-v-shaped-diagonal-segment/"
-
-[[entries]]
-title = "Earliest Possible Day of Full Bloom"
-url = "https://leetcode.com/problems/earliest-possible-day-of-full-bloom/"
-
-[[entries]]
-title = "Maximum Sum of Alternating Subsequence With Distance at Least K"
-url = "https://leetcode.com/problems/maximum-sum-of-alternating-subsequence-with-distance-at-least-k/"
+title = "Verifying an Alien Dictionary"
+url = "https://leetcode.com/problems/verifying-an-alien-dictionary/"
 
 [[entries]]
 title = "Number of Divisible Triplet Sums"
@@ -152,53 +180,25 @@ title = "Beautiful Arrangement"
 url = "https://leetcode.com/problems/beautiful-arrangement/"
 
 [[entries]]
+title = "Buddy Strings"
+url = "https://leetcode.com/problems/buddy-strings/"
+
+[[entries]]
 title = "Match Alphanumerical Pattern in Matrix I"
 url = "https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i/"
-
-[[entries]]
-title = "Minimum Operations to Write the Letter Y on a Grid"
-url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
-
-[[entries]]
-title = "Rotating the Box"
-url = "https://leetcode.com/problems/rotating-the-box/"
-
-[[entries]]
-title = "Count Nodes With the Highest Score"
-url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
 
 [[entries]]
 title = "Count Palindromic Subsequences"
 url = "https://leetcode.com/problems/count-palindromic-subsequences/"
 
 [[entries]]
-title = "Find the Length of the Longest Common Prefix"
-url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
+title = "Minimum Operations to Write the Letter Y on a Grid"
+url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid/"
 
 [[entries]]
-title = "Divide Players Into Teams of Equal Skill"
-url = "https://leetcode.com/problems/divide-players-into-teams-of-equal-skill/"
+title = "Maximum Number of Balloons"
+url = "https://leetcode.com/problems/maximum-number-of-balloons/"
 
 [[entries]]
-title = "Maximum OR"
-url = "https://leetcode.com/problems/maximum-or/"
-
-[[entries]]
-title = "Exclusive Time of Functions"
-url = "https://leetcode.com/problems/exclusive-time-of-functions/"
-
-[[entries]]
-title = "Number of Adjacent Elements With the Same Color"
-url = "https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color/"
-
-[[entries]]
-title = "Number of Black Blocks"
-url = "https://leetcode.com/problems/number-of-black-blocks/"
-
-[[entries]]
-title = "Count Ways To Build Good Strings"
-url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
-
-[[entries]]
-title = "Grid Teleportation Traversal"
-url = "https://leetcode.com/problems/grid-teleportation-traversal/"
+title = "Rotating the Box"
+url = "https://leetcode.com/problems/rotating-the-box/"

@@ -16,6 +16,10 @@ title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
 title = "Detonate the Maximum Bombs"
 url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
 
@@ -24,12 +28,12 @@ title = "Daily Temperatures"
 url = "https://leetcode.com/problems/daily-temperatures/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Parallel Courses"
@@ -48,6 +52,10 @@ title = "Game of Life"
 url = "https://leetcode.com/problems/game-of-life/"
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Candy Crush"
 url = "https://leetcode.com/problems/candy-crush/"
 
@@ -56,12 +64,20 @@ title = "Minesweeper"
 url = "https://leetcode.com/problems/minesweeper/"
 
 [[entries]]
+title = "Next Greater Element I"
+url = "https://leetcode.com/problems/next-greater-element-i/"
+
+[[entries]]
 title = "Design Snake Game"
 url = "https://leetcode.com/problems/design-snake-game/"
 
 [[entries]]
 title = "Simple Bank System"
 url = "https://leetcode.com/problems/simple-bank-system/"
+
+[[entries]]
+title = "Design Excel Sum Formula"
+url = "https://leetcode.com/problems/design-excel-sum-formula/"
 
 [[entries]]
 title = "Design Underground System"
@@ -76,16 +92,20 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"
+
+[[entries]]
 title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Insert Delete GetRandom O(1)"
 url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "Min Stack"
@@ -96,12 +116,12 @@ title = "Online Stock Span"
 url = "https://leetcode.com/problems/online-stock-span/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Largest Rectangle in Histogram"
+url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
 
 [[entries]]
-title = "Next Greater Element I"
-url = "https://leetcode.com/problems/next-greater-element-i/"
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
 
 [[entries]]
 title = "Decode String"
@@ -112,12 +132,16 @@ title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
+
+[[entries]]
 title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Read N Characters Given read4 II - Call Multiple Times"
+url = "https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times/"
 
 [[entries]]
 title = "Restore IP Addresses"
@@ -132,12 +156,20 @@ title = "Reorganize String"
 url = "https://leetcode.com/problems/reorganize-string/"
 
 [[entries]]
+title = "Kth Ancestor of a Tree Node"
+url = "https://leetcode.com/problems/kth-ancestor-of-a-tree-node/"
+
+[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Read N Characters Given Read4"
+url = "https://leetcode.com/problems/read-n-characters-given-read4/"
 
 [[entries]]
 title = "Top K Frequent Elements"
@@ -148,37 +180,5 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Exclusive Time of Functions"
-url = "https://leetcode.com/problems/exclusive-time-of-functions/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Keys and Rooms"
-url = "https://leetcode.com/problems/keys-and-rooms/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Design a Text Editor"
+url = "https://leetcode.com/problems/design-a-text-editor/"

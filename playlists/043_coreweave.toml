@@ -4,20 +4,8 @@ focus = "practical parsing and expression evaluation, tree DFS/BFS, hash maps, s
 review_modules = ["03_stacks_and_queues", "07_trees", "08_heaps", "10_graphs", "13_intervals"]
 
 [[entries]]
-title = "Parsing A Boolean Expression"
-url = "https://leetcode.com/problems/parsing-a-boolean-expression/"
-
-[[entries]]
-title = "Evaluate Boolean Binary Tree"
-url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
-
-[[entries]]
 title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Maximum Depth of Binary Tree"
-url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Binary Tree Right Side View"
@@ -28,8 +16,8 @@ title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Parsing A Boolean Expression"
+url = "https://leetcode.com/problems/parsing-a-boolean-expression/"
 
 [[entries]]
 title = "Mini Parser"
@@ -40,12 +28,20 @@ title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
+title = "Evaluate Boolean Binary Tree"
+url = "https://leetcode.com/problems/evaluate-boolean-binary-tree/"
+
+[[entries]]
 title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
 title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
 
 [[entries]]
 title = "Simplify Path"
@@ -56,6 +52,10 @@ title = "Design File System"
 url = "https://leetcode.com/problems/design-file-system/"
 
 [[entries]]
+title = "Find Servers That Handled Most Number of Requests"
+url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+
+[[entries]]
 title = "Find Duplicate File in System"
 url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
 
@@ -64,12 +64,20 @@ title = "Validate IP Address"
 url = "https://leetcode.com/problems/validate-ip-address/"
 
 [[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
 title = "Subdomain Visit Count"
 url = "https://leetcode.com/problems/subdomain-visit-count/"
 
 [[entries]]
 title = "Invalid Transactions"
 url = "https://leetcode.com/problems/invalid-transactions/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -84,8 +92,8 @@ title = "Design Hit Counter"
 url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Time Based Key-Value Store"
@@ -96,12 +104,20 @@ title = "Snapshot Array"
 url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
 title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
 
 [[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
+
+[[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
 
 [[entries]]
 title = "Design Circular Queue"
@@ -116,12 +132,16 @@ title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
 [[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
 title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
-title = "Find Servers That Handled Most Number of Requests"
-url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
+title = "Contains Duplicate III"
+url = "https://leetcode.com/problems/contains-duplicate-iii/"
 
 [[entries]]
 title = "Meeting Rooms II"
@@ -136,12 +156,20 @@ title = "Car Pooling"
 url = "https://leetcode.com/problems/car-pooling/"
 
 [[entries]]
+title = "Count of Range Sum"
+url = "https://leetcode.com/problems/count-of-range-sum/"
+
+[[entries]]
 title = "My Calendar I"
 url = "https://leetcode.com/problems/my-calendar-i/"
 
 [[entries]]
 title = "Capacity To Ship Packages Within D Days"
 url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+
+[[entries]]
+title = "Minimum Depth of Binary Tree"
+url = "https://leetcode.com/problems/minimum-depth-of-binary-tree/"
 
 [[entries]]
 title = "Koko Eating Bananas"
@@ -152,33 +180,5 @@ title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Number of Atoms"
+url = "https://leetcode.com/problems/number-of-atoms/"

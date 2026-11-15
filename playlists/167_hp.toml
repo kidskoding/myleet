@@ -4,14 +4,6 @@ focus = "arrays/strings, linked lists, stacks, hashing, trees, and C/OOP fundame
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Linked List Cycle"
-url = "https://leetcode.com/problems/linked-list-cycle/"
-
-[[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
@@ -20,24 +12,12 @@ title = "String to Integer (atoi)"
 url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Reverse Linked List"
-url = "https://leetcode.com/problems/reverse-linked-list/"
-
-[[entries]]
-title = "Diameter of Binary Tree"
-url = "https://leetcode.com/problems/diameter-of-binary-tree/"
-
-[[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Set Mismatch"
-url = "https://leetcode.com/problems/set-mismatch/"
-
-[[entries]]
-title = "Remove Element"
-url = "https://leetcode.com/problems/remove-element/"
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Minimum Cost Homecoming of a Robot in a Grid"
@@ -48,20 +28,8 @@ title = "Valid Parenthesis String"
 url = "https://leetcode.com/problems/valid-parenthesis-string/"
 
 [[entries]]
-title = "Minimum Recolors to Get K Consecutive Black Blocks"
-url = "https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/"
-
-[[entries]]
-title = "Longest Palindrome"
-url = "https://leetcode.com/problems/longest-palindrome/"
-
-[[entries]]
-title = "Merge Two Sorted Lists"
-url = "https://leetcode.com/problems/merge-two-sorted-lists/"
-
-[[entries]]
-title = "Middle of the Linked List"
-url = "https://leetcode.com/problems/middle-of-the-linked-list/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Remove Nth Node From End of List"
@@ -72,12 +40,20 @@ title = "Add Two Numbers"
 url = "https://leetcode.com/problems/add-two-numbers/"
 
 [[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
 title = "Design Linked List"
 url = "https://leetcode.com/problems/design-linked-list/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -88,12 +64,20 @@ title = "Reverse Integer"
 url = "https://leetcode.com/problems/reverse-integer/"
 
 [[entries]]
+title = "Linked List Cycle"
+url = "https://leetcode.com/problems/linked-list-cycle/"
+
+[[entries]]
 title = "Maximum Subarray"
 url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
 title = "Find the Duplicate Number"
 url = "https://leetcode.com/problems/find-the-duplicate-number/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
 
 [[entries]]
 title = "Product of Array Except Self"
@@ -108,6 +92,10 @@ title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
+title = "Find K-th Smallest Pair Distance"
+url = "https://leetcode.com/problems/find-k-th-smallest-pair-distance/"
+
+[[entries]]
 title = "Sort Colors"
 url = "https://leetcode.com/problems/sort-colors/"
 
@@ -116,12 +104,20 @@ title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
 title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
 title = "Coin Change"
 url = "https://leetcode.com/problems/coin-change/"
+
+[[entries]]
+title = "Minimum Initial Energy to Finish Tasks"
+url = "https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/"
 
 [[entries]]
 title = "Number of Islands"
@@ -136,12 +132,16 @@ title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Diameter of Binary Tree"
+url = "https://leetcode.com/problems/diameter-of-binary-tree/"
+
+[[entries]]
 title = "Longest Palindromic Substring"
 url = "https://leetcode.com/problems/longest-palindromic-substring/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Put Marbles in Bags"
+url = "https://leetcode.com/problems/put-marbles-in-bags/"
 
 [[entries]]
 title = "Container With Most Water"
@@ -156,6 +156,10 @@ title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
+title = "Make String Anti-palindrome"
+url = "https://leetcode.com/problems/make-string-anti-palindrome/"
+
+[[entries]]
 title = "3Sum"
 url = "https://leetcode.com/problems/3sum/"
 
@@ -164,16 +168,8 @@ title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+title = "Set Mismatch"
+url = "https://leetcode.com/problems/set-mismatch/"
 
 [[entries]]
 title = "Course Schedule"
@@ -182,3 +178,7 @@ url = "https://leetcode.com/problems/course-schedule/"
 [[entries]]
 title = "Koko Eating Bananas"
 url = "https://leetcode.com/problems/koko-eating-bananas/"
+
+[[entries]]
+title = "Maximum Total Beauty of the Gardens"
+url = "https://leetcode.com/problems/maximum-total-beauty-of-the-gardens/"
