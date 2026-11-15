@@ -15,13 +15,13 @@ describe("todaySummary", () => {
     const items = [item("review", "Hashing"), item("review", "Trees"), ...[1, 2, 3].map(() => item("new", "Sliding Window", "weak", [{ icon: "b", text: "Meta leans on sliding window" }]))];
     const skills = [skill({ weak_spot: true, history: [attempt({ cause: "edge_cases" })] })];
     expect(todaySummary({ items, skills, daysLeft: 12, now })).toBe(
-      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's worth getting solid. After two quick reviews to keep your older problems on schedule, you'll work through three sliding window problems, and if you solve them cleanly, sliding window moves up from shaky toward building.",
+      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's worth getting solid.\n\nAfter two quick reviews to keep your older problems on schedule, you'll work through three sliding window problems, and if you solve them cleanly, sliding window moves up from shaky toward building.",
     );
   });
   it("names a hint without a company", () => {
     const skills = [skill({ level: "building", history: [attempt({ mark: "hint", detail: "used a hint", date: "2026-11-12" })] })];
     expect(todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now })).toBe(
-      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint. You'll work through one sliding window problem, and if you solve it cleanly, sliding window moves up from building toward solid.",
+      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nYou'll work through one sliding window problem, and if you solve it cleanly, sliding window moves up from building toward solid.",
     );
   });
   it("stays short with no history and leaves clauses out without data", () => {

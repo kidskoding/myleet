@@ -80,8 +80,9 @@ export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): st
   const extra = nNew > nTheme ? ` and ${nNew - nTheme === 1 ? "one more" : `${num(nNew - nTheme)} more`} after` : "";
   const lead = reviews ? `After ${reviews === 1 ? "a quick review" : `${num(reviews)} quick reviews`} to keep your older problems on schedule, you'll work through` : "You'll work through";
   const move = level && next ? `, and if you solve ${nTheme === 1 ? "it" : "them"} cleanly, ${tech} moves up from ${level} toward ${next}` : "";
-  if (reviews || move || extra) out.push(`${lead} ${work}${extra}${move}.`);
-  return out.join(" ");
+  // The why and the day's run read as two paragraphs, joined by a blank line for the renderer to split.
+  const why = out.join(" ");
+  return reviews || move || extra ? `${why}\n\n${lead} ${work}${extra}${move}.` : why;
 }
 
 export interface Card {

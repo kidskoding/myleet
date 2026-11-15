@@ -7,10 +7,10 @@ import type { State, TodayEntry } from "./types";
 export function greeting(now: Date, name?: string | null): string {
   const h = now.getHours();
   const who = name ? `, ${name}` : "";
-  if (h >= 23 || h < 4) return `Welcome back${who}`;
-  if (h < 12) return `Good morning${who}`;
-  if (h < 17) return `Good afternoon${who}`;
-  return `Good evening${who}`;
+  if (h >= 23 || h < 4) return `Welcome back${who}!`;
+  if (h < 12) return `Good morning${who}!`;
+  if (h < 17) return `Good afternoon${who}!`;
+  return `Good evening${who}!`;
 }
 
 export function dueLabel(overdueDays: number): string {
