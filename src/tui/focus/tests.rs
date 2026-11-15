@@ -290,7 +290,7 @@ fn press(a: &mut App, keys: &[&str]) {
 
 fn golden(name: &str) -> Vec<String> {
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("internal/tui/testdata")
+        .join("src/testdata/golden")
         .join(format!("{name}.golden"));
     fs::read_to_string(path)
         .unwrap()

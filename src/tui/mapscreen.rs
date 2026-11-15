@@ -749,7 +749,7 @@ mod tests {
     fn golden_80x24() {
         let view = map_view(Vec::new(), &["l"], 80);
         assert_fits(&view, 80, 24);
-        assert_golden(&go_golden("map"), &view);
+        assert_golden(&golden("map"), &view);
         assert!(view.contains("╭─ map › alpha"), "breadcrumb title:\n{view}");
     }
 
@@ -766,7 +766,7 @@ mod tests {
                 && l.contains("alpha")),
             "three titled cards:\n{view}"
         );
-        assert_golden(&rust_golden("map_wide"), &view);
+        assert_golden(&golden("map_wide"), &view);
     }
 
     #[test]

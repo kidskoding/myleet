@@ -381,7 +381,7 @@ mod tests {
         let view = render(&mut a, 80, 24);
         assert!(view.contains("2 days") && view.contains("1 / 4"), "{view}");
         assert_fits(&view, 80, 24);
-        assert_golden(&go_golden("settings"), &view);
+        assert_golden(&golden("settings"), &view);
     }
 
     #[test]
@@ -398,7 +398,7 @@ mod tests {
         ] {
             assert!(view.contains(want), "{want}:\n{view}");
         }
-        assert_golden(&go_golden("settings_wide"), &view);
+        assert_golden(&golden("settings_wide"), &view);
     }
 
     #[test]

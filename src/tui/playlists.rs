@@ -387,11 +387,11 @@ mod tests {
     }
 
     #[test]
-    fn golden() {
+    fn golden_80x24() {
         let mut a = app_with(Vec::new());
         send(&mut a, &["4"]);
         let view = render(&mut a, 80, 24);
-        assert_golden(&go_golden("playlists"), &view);
+        assert_golden(&golden("playlists"), &view);
         assert!(view.contains("│ ▸ Meta"), "{view}");
     }
 

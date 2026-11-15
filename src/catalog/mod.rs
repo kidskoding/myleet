@@ -191,6 +191,6 @@ impl Catalog {
 #[cfg(test)]
 pub(crate) fn testdata(name: &str) -> PathBuf {
     std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("internal/catalog/testdata")
+        .join("src/testdata/catalog")
         .join(name)
 }

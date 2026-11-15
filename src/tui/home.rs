@@ -962,7 +962,7 @@ mod tests {
         let mut f = home(reviews_two());
         assert_golden(
             &rows(&mut f, 80, 24),
-            include_str!("../../internal/tui/testdata/home.golden"),
+            include_str!("../testdata/golden/home.golden"),
         );
     }
 
@@ -971,7 +971,7 @@ mod tests {
         let mut f = home(reviews_two());
         assert_golden(
             &rows(&mut f, 120, 32),
-            include_str!("../../internal/tui/testdata/home_wide.golden"),
+            include_str!("../testdata/golden/home_wide.golden"),
         );
     }
 

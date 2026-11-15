@@ -191,7 +191,7 @@ mod tests {
     use crate::config::Config;
 
     fn fixtures() -> PathBuf {
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("internal/runner/testdata")
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("src/testdata/runner")
     }
 
     /// `None` means no python here; the test is skipped like Go's t.Skipf.

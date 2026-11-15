@@ -216,7 +216,7 @@ fn wide_rows(f: &mut Frame, w: u16, h: u16) -> Vec<String> {
 
 fn assert_golden(name: &str, got: &[String]) {
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("internal/tui/testdata")
+        .join("src/testdata/golden")
         .join(format!("{name}.golden"));
     let want: Vec<String> = fs::read_to_string(path)
         .unwrap()

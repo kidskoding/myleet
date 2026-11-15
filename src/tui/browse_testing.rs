@@ -97,7 +97,7 @@ pub fn typed(a: &mut App, s: &str) {
 }
 
 /// The frame as plain text, one row per line with trailing spaces trimmed (the
-/// Go goldens do not pad blank cells).
+/// goldens do not pad blank cells).
 pub fn render(a: &mut App, w: u16, h: u16) -> String {
     a.resize(w.into(), h.into());
     let mut term = Terminal::new(TestBackend::new(w, h)).unwrap();
@@ -119,9 +119,9 @@ pub fn key_bar(view: &str) -> String {
 }
 
 /// Compares against a golden file with trailing spaces trimmed per line.
-/// `UPDATE_GOLDEN=1 cargo test` rewrites the Rust-owned goldens.
+/// `UPDATE_GOLDEN=1 cargo test` rewrites it.
 pub fn assert_golden(path: &Path, got: &str) {
-    if std::env::var_os("UPDATE_GOLDEN").is_some() && path.starts_with(rust_goldens()) {
+    if std::env::var_os("UPDATE_GOLDEN").is_some() {
         std::fs::write(path, format!("{got}\n")).unwrap();
     }
     let want = std::fs::read_to_string(path)
@@ -136,18 +136,8 @@ pub fn assert_golden(path: &Path, got: &str) {
     );
 }
 
-/// Goldens shared with the Go tests.
-pub fn go_golden(name: &str) -> std::path::PathBuf {
-    Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("internal/tui/testdata/{name}.golden"))
-}
-
-fn rust_goldens() -> std::path::PathBuf {
-    Path::new(env!("CARGO_MANIFEST_DIR")).join("src/tui/testdata")
-}
-
-/// Goldens for intended differences from the Go screens.
-pub fn rust_golden(name: &str) -> std::path::PathBuf {
-    rust_goldens().join(format!("{name}.golden"))
+pub fn golden(name: &str) -> std::path::PathBuf {
+    Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("src/testdata/golden/{name}.golden"))
 }
 
 /// Every line fits w columns and the view has at most h lines.

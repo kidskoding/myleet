@@ -753,11 +753,11 @@ mod tests {
     }
 
     #[test]
-    fn golden() {
+    fn golden_80x24() {
         let mut a = app_with(Vec::new());
         send(&mut a, &["/"]);
         typed(&mut a, "p");
-        assert_golden(&go_golden("search"), &render(&mut a, 80, 24));
+        assert_golden(&golden("search"), &render(&mut a, 80, 24));
     }
 
     #[test]
