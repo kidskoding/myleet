@@ -17,8 +17,8 @@ import {
   type Grade,
   type Question,
 } from "../lib/diagnostic";
+import { signupToToday } from "../lib/ui/guest-gate";
 import { sentenceCase } from "../lib/display";
-import { signinHref } from "../lib/gate";
 import { planWeeks } from "../lib/plan";
 import { planSettings, readPrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
@@ -188,7 +188,7 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
     .slice(0, 3);
   const me = cachedMe();
   const cta = !me
-    ? html`<a class="btn btn-primary btn-lg" href="${signinHref(ROUTES.onboarding)}&amp;mode=signup">Create your free account</a>`
+    ? html`<a class="btn btn-primary btn-lg" href="${signupToToday()}">Create your free account to start your plan</a>`
     : readPrefs().plan.onboarded
       ? html`<a class="btn btn-primary btn-lg" href="${ROUTES.today}">Go to Today</a>`
       : html`<a class="btn btn-primary btn-lg" href="${ROUTES.onboarding}">Set up your plan</a>`;

@@ -1,7 +1,10 @@
 // Today (/app): built live from the wasm trainer and local progress.
 import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
+import { signedIn } from "../lib/account";
 import { signupHref } from "../lib/access";
+import { topicById } from "../lib/diagnostic";
+import { guestMode, resultsLine, todayInvite, todayResults, WELCOME_KEY } from "../lib/ui/guest-gate";
 import { viewEvents } from "../lib/sample";
 import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
@@ -343,10 +346,50 @@ async function load(): Promise<Ctx> {
   return { t, cat, ...viewEvents(t, cat, real), now: new Date() };
 }
 
+/** A guest sees the diagnostic invitation or their results, never a personal Today. */
+function paintGuest(c: Ctx, main: HTMLElement, aside: HTMLElement): void {
+  const pl = c.t.placement(c.events);
+  const items = pl.result && !pl.result.skipped ? pl.result.items : [];
+  const greet = greeting(c.now, null);
+  const mode = guestMode(false, pl.done && items.length > 0);
+  if (mode === "results") {
+    try {
+      localStorage.setItem(WELCOME_KEY, "1");
+    } catch {
+      // The welcome line is a nicety.
+    }
+  }
+  render(main, mode === "results" ? todayResults(greet, resultsLine(items, (t) => topicById(t)?.label ?? t)) : todayInvite(greet));
+  main.removeAttribute("aria-busy");
+  main.removeAttribute("aria-label");
+  main.closest(".today-layout")?.classList.add("is-first-run");
+  render(aside, html``);
+  hideBanner("sample");
+  hideBanner("local");
+}
+
+/** One welcome line, the first time a guest who took the diagnostic lands here signed in. */
+function welcome(main: HTMLElement, hasDiagnostic: boolean): void {
+  let flag: string | null = null;
+  try {
+    flag = localStorage.getItem(WELCOME_KEY);
+    if (flag) localStorage.removeItem(WELCOME_KEY);
+  } catch {
+    // Nothing to show.
+  }
+  if (!flag || !hasDiagnostic) return;
+  const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0];
+  const p = document.createElement("p");
+  p.className = "plan-note";
+  p.textContent = `Welcome${name ? `, ${name}` : ""}! Your diagnostic is saved and your plan is ready.`;
+  main.querySelector(".greet")?.append(p);
+}
+
 function paint(c: Ctx): void {
   const main = $("[data-today-main]");
   const aside = $("[data-today-aside]");
   if (!main || !aside) return;
+  if (!signedIn()) return paintGuest(c, main, aside);
   const prefs = readPrefs();
   const budget = readBudget(c.now);
   const skipped = new Set(readSkipped(c.now));
@@ -469,6 +512,7 @@ function paint(c: Ctx): void {
   const first = main.querySelector("#fr-title") !== null;
   main.closest(".today-layout")?.classList.toggle("is-first-run", first);
   paintMock();
+  welcome(main, placement.done);
   const next = queueFirst(entries, skipped);
   const nm = next ? meta(c.cat, next) : undefined;
   const skipKey = nm ? `${c.cat.catalog.modules[nm.module]?.id}/${c.cat.catalog.modules[nm.module]?.techniques[nm.technique]?.id}` : null;

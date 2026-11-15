@@ -37,6 +37,8 @@ import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { ProblemMeta, Skill, State, Stats } from "../lib/types";
 import { bar, formatDuration, formatMinutes, plural, tag } from "../lib/ui/bits";
 import { heatmap } from "../lib/ui/heatmap";
+import { signedIn } from "../lib/account";
+import { featureGate } from "../lib/ui/guest-gate";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder } from "../lib/ui/ladder";
@@ -465,6 +467,12 @@ function sampleBanner(sample: boolean): void {
 function renderAll(c: Ctx): void {
   const root = $("[data-progress]");
   if (!root) return;
+  if (!signedIn()) {
+    root.removeAttribute("aria-busy");
+    root.removeAttribute("aria-label");
+    hideBanner("sample");
+    return render(root, featureGate("progress", c.t.placement(c.events).done));
+  }
   sampleBanner(c.sample === true);
   root.removeAttribute("aria-busy");
   const k = masteryCounts(c.cat.catalog, c.states);

@@ -2,9 +2,9 @@ import { describe, expect, it } from "vitest";
 import { ACCESS, canUse, promptMode } from "./access";
 
 describe("access", () => {
-  it("lets guests use the core loop and keeps saving behind an account", () => {
-    for (const f of ["learn", "companies", "solve", "diagnostic", "today", "build-plan", "mock", "progress"] as const) expect(canUse(f, false)).toBe(true);
-    for (const f of ["save-plan", "calendar-sync", "save-mock", "pin-company", "asked-report"] as const) {
+  it("lets guests use the core loop and keeps personal views and saving behind an account", () => {
+    for (const f of ["learn", "companies", "solve", "notes", "diagnostic", "mock"] as const) expect(canUse(f, false)).toBe(true);
+    for (const f of ["today", "build-plan", "progress", "save-plan", "calendar-sync", "save-mock", "pin-company", "asked-report"] as const) {
       expect(canUse(f, false)).toBe(false);
       expect(canUse(f, true)).toBe(true);
     }

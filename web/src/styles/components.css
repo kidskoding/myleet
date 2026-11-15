@@ -854,3 +854,14 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .iv-co { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 36px; min-width: 200px; padding: 0 var(--space-3); border: 1px solid var(--control-edge); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); cursor: pointer; text-align: left; }
 .iv-co > span[aria-hidden] { margin-left: auto; color: var(--ink-3); }
 .iv-co:hover { border-color: var(--line-strong); }
+
+/* Signed-out Today, Plan and Progress: one invitation instead of personal content */
+.gate { max-width: 640px; margin-top: var(--space-6); }
+.gate .lede { margin-top: var(--space-3); color: var(--ink-2); font-size: 1.125rem; line-height: 1.55; }
+.gate p + p { margin-top: var(--space-3); color: var(--ink-2); }
+.gate-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }
+.gate-eg { margin-top: var(--space-6); padding: var(--space-4) var(--space-5); display: grid; gap: var(--space-3); opacity: 0.85; }
+.gate-eg ul { display: grid; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }
+.gate-eg li { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); font-size: var(--text-sm); }
+.gate-eg li b { min-width: 7rem; }
+.gate-eg > .tag { justify-self: start; }

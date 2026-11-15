@@ -54,6 +54,7 @@ import { openCalendarSync } from "../lib/ui/calendar-sync";
 import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { toast } from "../lib/ui/overlay";
+import { featureGate } from "../lib/ui/guest-gate";
 import { requireAccount, takePending } from "../lib/access";
 import { signedIn } from "../lib/account";
 import { dismissNote, forecastKey, forecastRows, insightList, mixBar, noteDismissed, reasonLine, replanNote } from "../lib/ui/personal";
@@ -1811,6 +1812,11 @@ async function init(): Promise<void> {
   liveText = "";
   try {
     const [t, cat, events] = await Promise.all([loadTrainer(), loadCatalog(), readEvents()]);
+    if (!signedIn()) {
+      const el = root();
+      if (el) render(el, featureGate("plan", t.placement(events).done));
+      return;
+    }
     const now = new Date();
     const plan = t.plan(events, planSettings(), { now: now.getTime() });
     let habits: Habits | null = null;
