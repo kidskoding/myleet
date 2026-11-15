@@ -4,7 +4,7 @@
 # - AlgoMonster Netflix guide (2025): https://algo.monster/interview-guides/netflix
 title = "Netflix"
 group = "Big Tech"
-focus = "Live coding focuses on data-structure design, intervals and greedy; the online assessment leans on data-structure design"
+focus = "Live coding focuses on data-structure design, intervals and greedy"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "08_heaps", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
@@ -40,6 +40,74 @@ title = "Design Twitter"
 url = "https://leetcode.com/problems/design-twitter/"
 
 [[entries]]
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
+
+[[entries]]
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+
+[[entries]]
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
+
+[[entries]]
+title = "Number of Islands II"
+url = "https://leetcode.com/problems/number-of-islands-ii/"
+
+[[entries]]
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Remove Covered Intervals"
+url = "https://leetcode.com/problems/remove-covered-intervals/"
+
+[[entries]]
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
+
+[[entries]]
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
+
+[[entries]]
+title = "Data Stream as Disjoint Intervals"
+url = "https://leetcode.com/problems/data-stream-as-disjoint-intervals/"
+
+[[entries]]
+title = "My Calendar III"
+url = "https://leetcode.com/problems/my-calendar-iii/"
+
+[[entries]]
+title = "Minimum Cost to Connect Sticks"
+url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
+
+[[entries]]
+title = "Wiggle Subsequence"
+url = "https://leetcode.com/problems/wiggle-subsequence/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+
+[[entries]]
+title = "Gas Station"
+url = "https://leetcode.com/problems/gas-station/"
+
+[[entries]]
+title = "Jump Game IV"
+url = "https://leetcode.com/problems/jump-game-iv/"
+
+[[entries]]
+title = "Candy"
+url = "https://leetcode.com/problems/candy/"
+
+[[entries]]
 title = "Stock Price Fluctuation"
 url = "https://leetcode.com/problems/stock-price-fluctuation/"
 
@@ -72,10 +140,6 @@ title = "All O`one Data Structure"
 url = "https://leetcode.com/problems/all-oone-data-structure/"
 
 [[entries]]
-title = "Minimum Cost to Connect Sticks"
-url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
-
-[[entries]]
 title = "Process Tasks Using Servers"
 url = "https://leetcode.com/problems/process-tasks-using-servers/"
 
@@ -98,67 +162,3 @@ url = "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lis
 [[entries]]
 title = "Fruit Into Baskets"
 url = "https://leetcode.com/problems/fruit-into-baskets/"
-
-[[entries]]
-title = "Longest Repeating Character Replacement"
-url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
-
-[[entries]]
-title = "Find Servers That Handled Most Number of Requests"
-url = "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/"
-
-[[entries]]
-title = "Permutation in String"
-url = "https://leetcode.com/problems/permutation-in-string/"
-
-[[entries]]
-title = "Get Equal Substrings Within Budget"
-url = "https://leetcode.com/problems/get-equal-substrings-within-budget/"
-
-[[entries]]
-title = "Maximum Performance of a Team"
-url = "https://leetcode.com/problems/maximum-performance-of-a-team/"
-
-[[entries]]
-title = "Maximum Erasure Value"
-url = "https://leetcode.com/problems/maximum-erasure-value/"
-
-[[entries]]
-title = "Frequency of the Most Frequent Element"
-url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
-
-[[entries]]
-title = "Minimum Cost to Hire K Workers"
-url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
-
-[[entries]]
-title = "Count Number of Nice Subarrays"
-url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
-
-[[entries]]
-title = "Binary Subarrays With Sum"
-url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
-
-[[entries]]
-title = "Subarrays with K Different Integers"
-url = "https://leetcode.com/problems/subarrays-with-k-different-integers/"
-
-[[entries]]
-title = "Longest Nice Subarray"
-url = "https://leetcode.com/problems/longest-nice-subarray/"
-
-[[entries]]
-title = "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit"
-url = "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/"
-
-[[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
-
-[[entries]]
-title = "Wiggle Subsequence"
-url = "https://leetcode.com/problems/wiggle-subsequence/"
-
-[[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"

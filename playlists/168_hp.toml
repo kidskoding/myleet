@@ -3,7 +3,7 @@
 # - HP Glassdoor software developer intern reports: https://www.glassdoor.co.uk/Interview/HP-Inc-Software-Developer-Intern-Interview-Questions-EI_IE1093161.0,6_KO7,32.htm
 title = "HP"
 group = "Consumer and Business Tech"
-focus = "Live coding focuses on graphs and arrays and strings"
+focus = "Live coding focuses on graphs, arrays and strings"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
 [[entries]]

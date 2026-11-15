@@ -4,7 +4,7 @@
 # - Duolingo PracHub report (2025): https://prachub.com/interview-experiences/duolingo-software-engineer-interview-with-codesignal-and-pair-coding-4966297374
 title = "Duolingo"
 group = "Consumer and Business Tech"
-focus = "Live coding focuses on arrays and strings and graphs; the online assessment leans on data-structure design"
+focus = "Live coding focuses on arrays and strings and graphs"
 review_modules = ["01_arrays_and_hashing", "11_dp", "09_backtracking", "14_tries", "12_greedy_algorithms", "10_graphs"]
 
 [[entries]]

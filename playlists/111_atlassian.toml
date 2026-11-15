@@ -3,7 +3,7 @@
 # - Atlassian Jointaro Australia report (Aug 2025): https://www.jointaro.com/interviews/companies/atlassian/experiences/software-engineer-australia-august-21-2025-declined-offer-positive-b1ff8f41
 title = "Atlassian"
 group = "Consumer and Business Tech"
-focus = "Live coding and the online assessment focus on data-structure design at medium to hard difficulty"
+focus = "Live coding focuses on data-structure design at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]

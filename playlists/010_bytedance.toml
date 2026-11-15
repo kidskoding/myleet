@@ -40,12 +40,108 @@ title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
-title = "Minimum Height Trees"
-url = "https://leetcode.com/problems/minimum-height-trees/"
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
+
+[[entries]]
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+
+[[entries]]
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
+
+[[entries]]
+title = "Regions Cut By Slashes"
+url = "https://leetcode.com/problems/regions-cut-by-slashes/"
+
+[[entries]]
+title = "Number of Islands II"
+url = "https://leetcode.com/problems/number-of-islands-ii/"
+
+[[entries]]
+title = "Search a 2D Matrix"
+url = "https://leetcode.com/problems/search-a-2d-matrix/"
+
+[[entries]]
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+
+[[entries]]
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+
+[[entries]]
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
+
+[[entries]]
+title = "Search in a Sorted Array of Unknown Size"
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+
+[[entries]]
+title = "Find First and Last Position of Element in Sorted Array"
+url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+
+[[entries]]
+title = "Find in Mountain Array"
+url = "https://leetcode.com/problems/find-in-mountain-array/"
+
+[[entries]]
+title = "Find Minimum in Rotated Sorted Array II"
+url = "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/"
+
+[[entries]]
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
 title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+
+[[entries]]
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+
+[[entries]]
+title = "Binary Search Tree Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Count Complete Tree Nodes"
+url = "https://leetcode.com/problems/count-complete-tree-nodes/"
+
+[[entries]]
+title = "Binary Tree Pruning"
+url = "https://leetcode.com/problems/binary-tree-pruning/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+
+[[entries]]
+title = "Minimum Height Trees"
+url = "https://leetcode.com/problems/minimum-height-trees/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
 
 [[entries]]
 title = "Making A Large Island"
@@ -56,36 +152,12 @@ title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Block Placement Queries"
-url = "https://leetcode.com/problems/block-placement-queries/"
-
-[[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
 title = "Course Schedule III"
 url = "https://leetcode.com/problems/course-schedule-iii/"
-
-[[entries]]
-title = "All Nodes Distance K in Binary Tree"
-url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
-
-[[entries]]
-title = "Number of Distinct Islands"
-url = "https://leetcode.com/problems/number-of-distinct-islands/"
-
-[[entries]]
-title = "Minimum Operations to Make Character Frequencies Equal"
-url = "https://leetcode.com/problems/minimum-operations-to-make-character-frequencies-equal/"
 
 [[entries]]
 title = "Single-Threaded CPU"
@@ -96,10 +168,6 @@ title = "Meeting Rooms II"
 url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
-title = "Minimum Cost Good Caption"
-url = "https://leetcode.com/problems/minimum-cost-good-caption/"
-
-[[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
@@ -108,20 +176,12 @@ title = "Remove Duplicate Letters"
 url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
-title = "Minimum Moves to Pick K Ones"
-url = "https://leetcode.com/problems/minimum-moves-to-pick-k-ones/"
-
-[[entries]]
 title = "Rotate Array"
 url = "https://leetcode.com/problems/rotate-array/"
 
 [[entries]]
 title = "Spiral Matrix"
 url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Lexicographically Smallest Generated String"
-url = "https://leetcode.com/problems/lexicographically-smallest-generated-string/"
 
 [[entries]]
 title = "Longest Substring with At Most K Distinct Characters"
@@ -134,75 +194,3 @@ url = "https://leetcode.com/problems/basic-calculator-ii/"
 [[entries]]
 title = "N-Queens"
 url = "https://leetcode.com/problems/n-queens/"
-
-[[entries]]
-title = "First Day Where You Have Been in All the Rooms"
-url = "https://leetcode.com/problems/first-day-where-you-have-been-in-all-the-rooms/"
-
-[[entries]]
-title = "Find the Score of All Prefixes of an Array"
-url = "https://leetcode.com/problems/find-the-score-of-all-prefixes-of-an-array/"
-
-[[entries]]
-title = "Basic Calculator III"
-url = "https://leetcode.com/problems/basic-calculator-iii/"
-
-[[entries]]
-title = "Incremental Memory Leak"
-url = "https://leetcode.com/problems/incremental-memory-leak/"
-
-[[entries]]
-title = "Smallest Subsequence of Distinct Characters"
-url = "https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/"
-
-[[entries]]
-title = "Split Message Based on Limit"
-url = "https://leetcode.com/problems/split-message-based-on-limit/"
-
-[[entries]]
-title = "Length of the Longest Alphabetical Continuous Substring"
-url = "https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring/"
-
-[[entries]]
-title = "Most Popular Video Creator"
-url = "https://leetcode.com/problems/most-popular-video-creator/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock III"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/"
-
-[[entries]]
-title = "Longest Happy String"
-url = "https://leetcode.com/problems/longest-happy-string/"
-
-[[entries]]
-title = "Maximum Value at a Given Index in a Bounded Array"
-url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
-
-[[entries]]
-title = "Brightest Position on Street"
-url = "https://leetcode.com/problems/brightest-position-on-street/"
-
-[[entries]]
-title = "Optimal Account Balancing"
-url = "https://leetcode.com/problems/optimal-account-balancing/"
-
-[[entries]]
-title = "Make Costs of Paths Equal in a Binary Tree"
-url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
-
-[[entries]]
-title = "Dice Roll Simulation"
-url = "https://leetcode.com/problems/dice-roll-simulation/"
-
-[[entries]]
-title = "Count the Hidden Sequences"
-url = "https://leetcode.com/problems/count-the-hidden-sequences/"
-
-[[entries]]
-title = "Count Complete Subarrays in an Array"
-url = "https://leetcode.com/problems/count-complete-subarrays-in-an-array/"
-
-[[entries]]
-title = "Minimum Difficulty of a Job Schedule"
-url = "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"

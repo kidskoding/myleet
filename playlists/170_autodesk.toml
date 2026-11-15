@@ -3,7 +3,7 @@
 # - Autodesk Glassdoor intern report (Feb 2025): https://www.glassdoor.es/Interview/Autodesk-Intern-Software-Engineer-Interview-Questions-EI_IE1155.0,8_KO9,33_IP2.htm
 title = "Autodesk"
 group = "Consumer and Business Tech"
-focus = "Live coding focuses on intervals and trees; the online assessment leans on data-structure design"
+focus = "Live coding focuses on intervals and trees"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "16_math_geometry"]
 
 [[entries]]

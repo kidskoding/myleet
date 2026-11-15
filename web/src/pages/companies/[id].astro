@@ -31,7 +31,8 @@ const TOPICS: [RegExp, string][] = [
   [/greedy/i, "greedy problems"], [/\bbit/i, "bit manipulation"], [/two pointer/i, "two pointers"], [/design/i, "data-structure design"],
   [/simulat/i, "simulation"], [/pars/i, "parsing"], [/hash|array|string/i, "arrays and strings"],
 ];
-const focus = p.focus ?? "";
+// Only the live-coding half (before ";") feeds the lead; the online-assessment half is secondary.
+const focus = (p.focus ?? "").split(";")[0] ?? "";
 const topics = TOPICS.map(([re, label]) => ({ label, at: focus.search(re) }))
   .filter((t) => t.at >= 0)
   .sort((a, b) => a.at - b.at)

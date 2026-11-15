@@ -4,7 +4,7 @@
 # - Jointaro Adobe internship report (Oct 2025): https://www.jointaro.com/interviews/companies/adobe/experiences/software-engineerinternship-united-states-october-21-2025-no-offer-positive-9367e156
 title = "Adobe"
 group = "Big Tech"
-focus = "Live coding focuses on linked lists and heaps at medium to hard difficulty; the online assessment leans on graphs, trees and stacks"
+focus = "Live coding focuses on linked lists and heaps at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "10_graphs", "11_dp", "16_math_geometry"]
 
 [[entries]]
@@ -40,6 +40,74 @@ title = "Count and Say"
 url = "https://leetcode.com/problems/count-and-say/"
 
 [[entries]]
+title = "Remove Zero Sum Consecutive Nodes from Linked List"
+url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+
+[[entries]]
+title = "Insertion Sort List"
+url = "https://leetcode.com/problems/insertion-sort-list/"
+
+[[entries]]
+title = "Delete Node in a Linked List"
+url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+
+[[entries]]
+title = "Design Linked List"
+url = "https://leetcode.com/problems/design-linked-list/"
+
+[[entries]]
+title = "Linked List Cycle II"
+url = "https://leetcode.com/problems/linked-list-cycle-ii/"
+
+[[entries]]
+title = "Remove Nth Node From End of List"
+url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+
+[[entries]]
+title = "Delete the Middle Node of a Linked List"
+url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
+
+[[entries]]
+title = "Reverse Nodes in k-Group"
+url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "All O`one Data Structure"
+url = "https://leetcode.com/problems/all-oone-data-structure/"
+
+[[entries]]
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+
+[[entries]]
+title = "Trapping Rain Water II"
+url = "https://leetcode.com/problems/trapping-rain-water-ii/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "Count Sub Islands"
 url = "https://leetcode.com/problems/count-sub-islands/"
 
@@ -64,32 +132,12 @@ title = "Minimum Moves to Reach Target with Rotations"
 url = "https://leetcode.com/problems/minimum-moves-to-reach-target-with-rotations/"
 
 [[entries]]
-title = "Remove Zero Sum Consecutive Nodes from Linked List"
-url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
-
-[[entries]]
-title = "Insertion Sort List"
-url = "https://leetcode.com/problems/insertion-sort-list/"
-
-[[entries]]
-title = "Maximum Product After K Increments"
-url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
-
-[[entries]]
-title = "Trapping Rain Water II"
-url = "https://leetcode.com/problems/trapping-rain-water-ii/"
-
-[[entries]]
 title = "Populating Next Right Pointers in Each Node"
 url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
 
 [[entries]]
 title = "Lowest Common Ancestor of Deepest Leaves"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
-
-[[entries]]
-title = "Count Unguarded Cells in the Grid"
-url = "https://leetcode.com/problems/count-unguarded-cells-in-the-grid/"
 
 [[entries]]
 title = "4Sum II"
@@ -102,51 +150,3 @@ url = "https://leetcode.com/problems/wildcard-matching/"
 [[entries]]
 title = "Brick Wall"
 url = "https://leetcode.com/problems/brick-wall/"
-
-[[entries]]
-title = "Zigzag Conversion"
-url = "https://leetcode.com/problems/zigzag-conversion/"
-
-[[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
-
-[[entries]]
-title = "Palindrome Partitioning II"
-url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
-
-[[entries]]
-title = "Maximum Frequency Stack"
-url = "https://leetcode.com/problems/maximum-frequency-stack/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
-
-[[entries]]
-title = "01 Matrix"
-url = "https://leetcode.com/problems/01-matrix/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"

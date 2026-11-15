@@ -3,7 +3,7 @@
 # - Pinterest PracHub onsite report (2025): https://prachub.com/interview-experiences/pinterest-software-engineer-interview-experience-three-coding-rounds-one-rough-system-design
 title = "Pinterest"
 group = "Consumer and Business Tech"
-focus = "Live coding and the online assessment focus on data-structure design, intervals and graphs at medium to hard difficulty"
+focus = "Live coding focuses on data-structure design, intervals and graphs at medium to hard difficulty"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]

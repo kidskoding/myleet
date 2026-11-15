@@ -4,7 +4,7 @@
 # - Palo Alto Networks Jointaro report (May 2025): https://www.jointaro.com/interviews/companies/palo-alto-networks/experiences/software-engineer-united-states-may-8-2025-no-offer-positive-932809d8
 title = "Palo Alto Networks"
 group = "Consumer and Business Tech"
-focus = "Live coding and the online assessment focus on arrays and strings, dynamic programming and data-structure design"
+focus = "Live coding focuses on arrays and strings, dynamic programming and data-structure design"
 review_modules = ["15_bit_manipulation", "01_arrays_and_hashing", "14_tries", "13_intervals", "10_graphs", "17_advanced"]
 
 [[entries]]

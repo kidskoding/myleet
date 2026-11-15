@@ -4,7 +4,7 @@
 # - Oracle Jointaro Hyderabad report (Apr 2025): https://www.jointaro.com/interviews/companies/oracle/experiences/software-engineer-hyderabad-april-1-2025-no-offer-positive-81336417/
 title = "Oracle"
 group = "Consumer and Business Tech"
-focus = "Live coding and the online assessment focus on data-structure design, trees and dynamic programming"
+focus = "Live coding focuses on data-structure design, trees and dynamic programming"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
 [[entries]]

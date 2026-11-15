@@ -3,7 +3,7 @@
 # - Zscaler coding questions (2025): https://www.ccbp.in/blog/articles/zscaler-coding-questions
 title = "Zscaler"
 group = "Consumer and Business Tech"
-focus = "Live coding focuses on graphs, dynamic programming, trees and arrays and strings at medium to hard difficulty"
+focus = "Live coding focuses on graphs, dynamic programming, trees, arrays and strings at medium to hard difficulty"
 review_modules = ["03_stacks_and_queues", "01_arrays_and_hashing", "10_graphs", "07_trees", "14_tries", "05_binary_search"]
 
 [[entries]]

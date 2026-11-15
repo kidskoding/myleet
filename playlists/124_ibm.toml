@@ -4,7 +4,7 @@
 # - IBM Jointaro entry level report (Nov 2025): https://www.jointaro.com/interviews/companies/ibm/experiences/entry-level-software-engineer-united-states-november-13-2025-no-offer-neutral-c87c00eb
 title = "IBM"
 group = "Consumer and Business Tech"
-focus = "Live coding and the online assessment focus on arrays and strings, sliding window and graphs"
+focus = "Live coding focuses on arrays and strings, sliding window and graphs"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "07_trees", "10_graphs", "11_dp"]
 
 [[entries]]
