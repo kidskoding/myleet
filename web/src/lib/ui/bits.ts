@@ -44,6 +44,8 @@ export interface QueueRowOpts {
   title: string;
   tag?: SafeHtml;
   sub: string;
+  /** The reason line under the sub line (Plan's `.why`), from the planner. */
+  why?: string;
   ladder?: LadderOpts;
   difficulty?: Difficulty;
   /** Right column text, e.g. "25m". */
@@ -58,7 +60,7 @@ export interface QueueRowOpts {
 export function queueRow(o: QueueRowOpts): SafeHtml {
   const extra = Object.entries(o.attrs ?? {}).map(([k, v]) => html` ${k}="${v}"`);
   return html`<li><a class="qrow${o.done ? " done-row" : ""}" href="${o.href}"${extra}>
-    <div class="qmain"><div class="title"${o.vt ? raw(` style="view-transition-name:${o.vt}"`) : ""}>${o.title}</div><div class="sub">${o.tag ?? ""}<span>${o.sub}</span></div></div>
+    <div class="qmain"><div class="title"${o.vt ? raw(` style="view-transition-name:${o.vt}"`) : ""}>${o.title}</div><div class="sub">${o.tag ?? ""}<span>${o.sub}</span></div>${o.why ? html`<span class="why">${o.why}</span>` : ""}</div>
     <span class="ladder-cell">${o.ladder ? ladder(o.ladder) : ""}</span>${o.difficulty ? diff(o.difficulty, { label: false }) : raw("<span></span>")}<span class="mins">${o.mins ?? ""}</span></a></li>`;
 }
 

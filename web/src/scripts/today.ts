@@ -3,11 +3,12 @@ import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
 import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
-import { CAUSE_TEXT, daysUntil, paceRows, shortDate } from "../lib/plan";
+import { daysUntil, paceRows, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
 import { reminderSupport, requestReminderPermission } from "../lib/reminders";
-import { noteHref, problemHref, ROUTES } from "../lib/routes";
+import { noteHref, planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
+import { actionHref, inPlanOn } from "../lib/skills-view";
 import { localDay, recordStats } from "../lib/streak";
 import {
   BUDGETS,
@@ -24,12 +25,13 @@ import {
   type Budget,
 } from "../lib/today";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
-import type { Forecast, ProblemMeta, State, TodayEntry } from "../lib/types";
-import { bar, diff, formatDuration, formatMinutes, kbd, plural, queueRow, tag } from "../lib/ui/bits";
+import type { Plan, PlanItem, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
+import { diff, formatDuration, formatMinutes, kbd, plural, queueRow, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
 import { bannerDismissed, hideBanner, showBanner, toast } from "../lib/ui/overlay";
+import { dismissNote, forecastRows, noteDismissed, replanNote, trend, whyChips } from "../lib/ui/personal";
 
 const CHECKIN_KEY = "myleet:checkin";
 /** Above this many due reviews, Today shows only the most overdue ones. */
@@ -42,6 +44,14 @@ interface Ctx {
   cat: LoadedCatalog;
   events: string;
   now: Date;
+  /** Computed per paint; null if the planner failed (Today still works without it). */
+  plan?: Plan | null;
+  skills?: Skill[] | null;
+}
+
+/** Today's plan item for a problem: its reason, tag and why chips. */
+function planItem(c: Ctx, problem: string): PlanItem | undefined {
+  return c.plan?.days[0]?.sessions.flatMap((s) => s.items).find((i) => i.problem === problem);
 }
 
 const $ = <T extends HTMLElement = HTMLElement>(sel: string) => document.querySelector<T>(sel);
@@ -130,9 +140,9 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   const today = localDay(c.now);
   if (!p.interviewDate) {
     return {
-      panel: html`<section class="panel" aria-labelledby="cd"><h2 id="cd">Interview date</h2>
-        <p class="plan-note">Add an interview date to get a pacing plan: which techniques to start each week, and whether you're on track.</p>
-        <a class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)" href="${ROUTES.onboarding}?step=date">Set date</a></section>`,
+      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">Your next 4 weeks</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
+        <p class="plan-note">Add an interview date and the plan builds toward it: which techniques to start, a forecast for the date, and mocks closer together near the end.</p>
+        <a class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)" href="${ROUTES.settings}#plan">Set date</a></section>`,
       inline: "",
     };
   }
@@ -141,47 +151,58 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
     return {
       panel: html`<section class="panel" aria-labelledby="cd"><h2 id="cd">${title}</h2>
         <p class="plan-note">Your ${who ? `${who} ` : ""}interview was ${shortDate(p.interviewDate)}. How did it go? Keep practising, or plan for the next one.</p>
-        <div style="display:flex;gap:var(--space-2);margin-top:var(--space-4);flex-wrap:wrap"><a class="btn btn-secondary btn-sm" href="${ROUTES.onboarding}?step=date">Set a new date</a><button class="btn btn-ghost btn-sm" type="button" data-remove-date>Remove</button></div></section>`,
+        <div style="display:flex;gap:var(--space-2);margin-top:var(--space-4);flex-wrap:wrap"><a class="btn btn-secondary btn-sm" href="${ROUTES.settings}#plan">Set a new date</a><button class="btn btn-ghost btn-sm" type="button" data-remove-date>Keep practising without a date</button></div></section>`,
       inline: "",
     };
   }
-  const plan = c.t.plan(c.events, planSettings(), { now: c.now.getTime() });
-  const rows = paceRows(plan.forecast);
+  const rows = c.plan ? paceRows(c.plan.forecast) : [];
   const behind = rows.find((r) => r.status === "behind") ?? null;
-  const row = (f: Forecast) => {
-    const goal = f.goal || 1;
-    return html`<div class="pace-row"><span>${f.title}</span>${
-      f.status === "behind"
-        ? html`<span class="pace-st behind">${icon("trending-down")}Behind by ${f.behind_by}</span>`
-        : html`<span class="pace-st">${icon("circle-check")}On track</span>`
-    }${bar(
-      [
-        { value: Math.min(f.started_now, goal) / goal, kind: "c" },
-        { value: Math.max(0, Math.min(f.projected, goal) - Math.min(f.started_now, goal)) / goal, kind: "s" },
-      ],
-      `${f.title}: ${f.started_now} started of ${f.goal} planned, ${f.projected} projected by the interview${f.status === "behind" ? `, behind by ${f.behind_by}` : ", on track"}`,
-    )}${f.cause ? html`<span class="pace-cause">Misses look like ${CAUSE_TEXT[f.cause]}</span>` : ""}</div>`;
-  };
-  const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${behind.title} is behind by ${behind.behind_by}.` : plan.summary.on_track ? " On track." : ""}`;
+  const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${behind.title} is behind by ${behind.behind_by}.` : c.plan?.summary.on_track ? " On track." : ""}`;
   return {
     panel: html`<section class="panel" aria-labelledby="cd">
-      <div class="section-head"><h2 id="cd">${title}</h2><a class="link text-small" href="${ROUTES.onboarding}?step=plan">Edit plan</a></div>
+      <div class="section-head"><h2 id="cd">${title}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
       <p class="countdown"><span class="count-num">${left}</span><span class="text-secondary">${left === 1 ? "day" : "days"} left, ${shortDate(p.interviewDate)}</span></p>
-      ${rows.length ? html`<div class="pace">${rows.map(row)}</div>` : ""}
-      <p class="fineprint">${plan.summary.headline}${rows.length ? " Bars: started, then what the plan reaches by the date." : ""}</p>
+      ${rows.length ? html`<div class="fc">${forecastRows(rows, { date: p.interviewDate })}</div>` : ""}
+      <p class="fineprint">${rows.length ? "If you keep to the plan. Behind by N means N problems short on the date." : (c.plan?.summary.headline ?? "")}</p>
     </section>`,
     inline,
   };
+}
+
+/** Up to two weak spots, never the one next-up already drills. */
+function weakPanel(c: Ctx, skip: string | null): SafeHtml {
+  const list = (c.skills ?? [])
+    .filter((s) => s.weak_spot && `${s.module}/${s.technique}` !== skip)
+    .sort((a, b) => b.priority - a.priority)
+    .slice(0, 2);
+  if (!list.length) return html``;
+  const line = (s: Skill) => {
+    const parts = s.diagnosis.split(/(?<=\.) /);
+    return parts[1] ?? parts[0] ?? "";
+  };
+  return html`<section class="panel" aria-labelledby="tws">
+    <div class="section-head"><h2 id="tws">Weak spots</h2><a class="link text-small" href="${ROUTES.skills}">All skills</a></div>
+    <ul class="wsmini">${list.map((s) => {
+      const step = s.actions[0];
+      const planned = step && inPlanOn(c.plan ?? null, step.problem) === localDay(c.now);
+      return html`<li><span class="t"><a href="${skillHref(s.module, s.technique)}">${s.technique_title}</a>${trend(s.trend, s.recent)}</span><p>${line(s)}</p>${
+        planned
+          ? html`<span class="text-muted text-small">The next step is in today's plan.</span>`
+          : step
+            ? html`<a class="btn btn-secondary btn-sm" href="${actionHref(s, step)}">${step.title}, ${step.minutes} min</a>`
+            : ""
+      }</li>`;
+    })}</ul></section>`;
 }
 
 function weekPanel(c: Ctx): SafeHtml {
   const days = weekStrip(c.t.states(c.events), c.now);
   const fmt = (d: string, long: boolean) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { weekday: long ? "long" : "short" });
   return html`<section class="panel" aria-labelledby="wk">
-    <div class="section-head"><h2 id="wk">Reviews this week</h2><a class="link text-small" href="${ROUTES.calendar}">Calendar</a></div>
+    <div class="section-head"><h2 id="wk">Reviews this week</h2><a class="link text-small" href="${ROUTES.plan}">Plan</a></div>
     <ol class="week">${days.map(
       (d) =>
-        html`<li class="day${d.today ? " is-today" : ""}${d.count <= 1 && !d.today ? " light" : ""}" aria-label="${fmt(d.day, true)}${d.today ? ", today" : ""}, ${d.count ? `${d.count} due` : "none due"}"><span class="n" aria-hidden="true">${d.count}</span><span aria-hidden="true">${fmt(d.day, false)}</span></li>`,
+        html`<li class="day${d.today ? " is-today" : ""}${d.count <= 1 && !d.today ? " light" : ""}"><a href="${planDayHref(d.day)}" aria-label="${fmt(d.day, true)}${d.today ? ", today" : ""}, ${d.count ? `${d.count} due` : "none due"}. Open in the plan"><span class="n" aria-hidden="true">${d.count}</span><span aria-hidden="true">${fmt(d.day, false)}</span></a></li>`,
     )}</ol></section>`;
 }
 
@@ -197,6 +218,7 @@ function budgetPanel(b: Budget): SafeHtml {
 
 function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
   const m = meta(c.cat, e.problem);
+  const item = planItem(c, e.problem);
   const [k, label] = reasonTag(e, true);
   const rung = displayRung(e.state.rung);
   const cap =
@@ -210,10 +232,11 @@ function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
       <div class="tags">${tag(k, label)}</div>
       <h2 id="nu-title"><a href="${problemHref(e.problem, e.kind === "practice" ? "drill" : undefined)}" style="view-transition-name:p-${e.problem}">${m?.title ?? e.problem}</a></h2>
       <div class="meta"><span>${m ? where(c.cat, m) : ""}</span>${m ? diff(m.difficulty) : ""}<span>${icon("timer")} ${targetMins(m)} min target</span></div>
+      ${whyChips(item?.chips)}
     </div>
     <div class="rail">${ladder({ rung, size: "lg", due: e.kind === "review" })}<p class="cap">${cap}</p></div>
     <div class="why">
-      <p>${e.why ? html`<strong class="why-lead">${sentence(e.why)}.</strong> ` : ""}${whyLine(e, targetMins(m))}</p>
+      <p>${item && item.tag !== "review" ? html`<strong class="why-lead">Why this one:</strong> ${item.reason}. ` : e.why ? html`<strong class="why-lead">${sentence(e.why)}.</strong> ` : ""}${whyLine(e, targetMins(m))}</p>
       <button class="btn btn-ghost" type="button" data-skip="${e.problem}" aria-keyshortcuts="x">Skip for today ${kbd("x")}</button>
       <a class="btn btn-primary btn-lg" href="${problemHref(e.problem, e.kind === "practice" ? "drill" : undefined)}" data-start aria-keyshortcuts="s">Start ${kbd("s")}</a>
     </div>
@@ -223,11 +246,14 @@ function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
 function entryRow(c: Ctx, e: TodayEntry): SafeHtml {
   const m = meta(c.cat, e.problem);
   const [k, label] = reasonTag(e);
+  const item = planItem(c, e.problem);
+  const why = item?.reason ?? (e.why ? sentence(e.why) : "");
   return queueRow({
     href: problemHref(e.problem, e.kind === "practice" ? "drill" : undefined),
     title: m?.title ?? e.problem,
     tag: tag(k, label),
-    sub: e.why ? sentence(e.why) : m ? where(c.cat, m) : "",
+    sub: m ? where(c.cat, m) : "",
+    ...(why ? { why } : {}),
     ladder: { rung: displayRung(e.state.rung), due: e.kind === "review" },
     ...(m ? { difficulty: m.difficulty } : {}),
     mins: `${targetMins(m)}m`,
@@ -293,7 +319,19 @@ function paint(c: Ctx): void {
   const done = doneToday(parseEvents(c.events), (id) => meta(c.cat, id)?.time_target_secs ?? 0, c.now);
   const doneIds = new Set(done.map((d) => d.problem));
   let entries = c.t.today(c.events, { newPerDay: prefs.newPerDay + extra }).filter((e) => !doneIds.has(e.problem));
+  try {
+    c.plan = c.t.plan(c.events, planSettings(), { now: c.now.getTime() });
+  } catch {
+    c.plan = null;
+  }
+  try {
+    c.skills = c.t.skills(c.events, planSettings(), { now: c.now.getTime() }).techniques;
+  } catch {
+    c.skills = null;
+  }
   const plan = planInfo(c);
+  const note = (c.plan?.notes ?? []).find((n) => n.kind !== "date_passed" && !noteDismissed(n));
+  const noteHtml = note ? replanNote(note, { dismiss: true, link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : html``;
 
   const reviews = entries.filter((e) => e.kind === "review");
   let backlogNote = "";
@@ -330,7 +368,7 @@ function paint(c: Ctx): void {
       <div class="greet">${
         done.length
           ? html`<h1 id="ad-h">Today's queue is done.</h1><p>${plural(done.length, "problem")}, ${plural(cleanCount, "clean pass", "clean passes")}${spent >= 1 ? `, ${formatMinutes(spent)}` : ""}. Nothing else is due until tomorrow.</p>`
-          : html`<h1 id="ad-h">${hello}</h1><p>Nothing is due today.</p>`
+          : html`<h1 id="ad-h">${hello}</h1>${noteHtml}<p>Nothing is due today.</p>`
       }<p class="countdown-inline">${plan.inline}</p></div>
       ${drills.length
         ? html`<div class="panel state-note" style="margin-top:var(--space-8)"><h2>Keep sharp, if you have more in you</h2>
@@ -344,7 +382,7 @@ function paint(c: Ctx): void {
     const parts = [nReview ? plural(nReview, "review") + " due" : "", nNew ? plural(nNew, "new problem") : ""].filter(Boolean).join(" and ");
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1><p>${backlogNote || `${parts}. About ${formatMinutes(mins(work))}.`}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}<p>${backlogNote || `${parts}. About ${formatMinutes(mins(work))}.`}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${nextUp(c, first)}
       ${rest.length
         ? html`<div class="group"><div class="section-head"><h2>Also today</h2><span class="meta">${plural(rest.length, "problem")}, about ${formatMinutes(mins(rest))}</span></div>
@@ -358,8 +396,15 @@ function paint(c: Ctx): void {
   main.removeAttribute("aria-label");
   const first = main.querySelector("#fr-title") !== null;
   main.closest(".today-layout")?.classList.toggle("is-first-run", first);
-  render(aside, first ? html`` : html`${plan.panel}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget)}`);
+  const next = queueFirst(entries, skipped);
+  const nm = next ? meta(c.cat, next) : undefined;
+  const skipKey = nm ? `${c.cat.catalog.modules[nm.module]?.id}/${c.cat.catalog.modules[nm.module]?.techniques[nm.technique]?.id}` : null;
+  render(aside, first ? html`` : html`${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget)}`);
   banners(Object.keys(states).length, Object.keys(stats.heatmap).length);
+}
+
+function queueFirst(entries: TodayEntry[], skipped: Set<string>): string | null {
+  return entries.find((e) => !skipped.has(e.problem) && e.kind !== "practice")?.problem ?? null;
 }
 
 function banners(practised: number, days: number): void {
@@ -494,6 +539,12 @@ document.addEventListener("click", async (e) => {
   const t = e.target as Element;
   const skipBtn = t.closest<HTMLElement>("[data-skip]");
   const budgetBtn = t.closest<HTMLElement>("[data-budget]");
+  if (t.closest("[data-note-dismiss]") && ctx?.plan) {
+    const n = (ctx.plan.notes ?? []).find((x) => x.kind !== "date_passed" && !noteDismissed(x));
+    if (n) dismissNote(n);
+    void refresh();
+    return;
+  }
   if (skipBtn?.dataset.skip) skip(skipBtn.dataset.skip);
   else if (budgetBtn) {
     writeBudget(budgetBtn.dataset.budget as Budget);

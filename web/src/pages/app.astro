@@ -60,11 +60,26 @@ import Base from "../layouts/Base.astro";
   .today .why-lead { color: var(--ink); font-weight: 600; }
 
   .today .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: var(--space-4); list-style: none; padding: 0; }
-  .today .day { display: grid; justify-items: center; gap: 6px; font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
+  .today .day { font-size: var(--text-xs); color: var(--ink-3); font-weight: 600; }
+  .today .day a { display: grid; justify-items: center; gap: 6px; color: inherit; text-decoration: none; border-radius: var(--radius-sm); }
+  .today .day a:hover .n { box-shadow: inset 0 0 0 1px var(--ink-3); }
+  .today .day.is-today a:hover .n { box-shadow: inset 0 0 0 1.5px var(--due-solid); }
   .today .day .n { width: 100%; height: 40px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--surface-sunk); color: var(--ink); font-size: var(--text-sm); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); }
   .today .day.is-today .n { background: var(--due-soft); color: var(--due); box-shadow: inset 0 0 0 1.5px var(--due-solid); }
   .today .day.light .n { color: var(--ink-3); font-weight: 600; }
   .today .budget { margin-top: var(--space-3); }
+  .today .greet .replan { margin-top: var(--space-3); }
+  .today .wsmini { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: grid; }
+  .today .wsmini li { display: grid; gap: var(--space-2); padding: var(--space-3) 0; }
+  .today .wsmini li + li { border-top: 1px solid var(--line); }
+  .today .wsmini .t { display: flex; justify-content: space-between; gap: var(--space-2); align-items: center; font-weight: 650; font-size: var(--text-sm); }
+  .today .wsmini .t a { color: var(--ink); text-decoration: none; }
+  .today .wsmini .t a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .today .wsmini p { font-size: var(--text-sm); color: var(--ink-2); }
+  .today .wsmini .btn { justify-self: start; height: auto; min-height: 32px; white-space: normal; text-align: left; }
+  .today aside .fc { margin-top: var(--space-4); }
+  .today aside .fc-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .today aside .fc-row .fc-bar { grid-column: 1 / -1; grid-row: 2; }
   .today aside .fineprint { margin-top: var(--space-3); }
 
   .today .firstrun { margin-top: var(--space-8); display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-8); padding: var(--space-8); }

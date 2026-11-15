@@ -551,8 +551,11 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .replan .acts .btn { margin-block: -4px; }
 .replan .acts .icon-btn { width: 28px; height: 28px; margin-block: -4px; }
 @media (max-width: 760px) {
-  .replan { grid-template-columns: auto minmax(0, 1fr); }
-  .replan .acts { grid-column: 1 / -1; }
+  .replan:has(.acts .btn) { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .replan .acts:has(.btn) { grid-column: 1 / -1; grid-row: 2; }
+  .replan .acts:has(.btn) .x { position: absolute; top: 8px; right: 8px; }
+  .replan:has(.acts .btn):has(.x) { padding-right: var(--space-10); }
+  .replan { position: relative; }
 }
 
 .ins { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: grid; }
