@@ -2,11 +2,16 @@ use std::io::Write;
 use std::path::Path;
 
 use super::{Term, Tone};
+use crate::app::Env;
 use crate::catalog::{self, LOCK_FILE};
 
-pub fn run<O: Write, E: Write>(args: &[String], out: &mut Term<O>, err: &mut Term<E>) -> u8 {
-    let cwd = std::env::current_dir().unwrap_or_default();
-    let root = match catalog::find_root(&cwd) {
+pub fn run<O: Write, E: Write>(
+    args: &[String],
+    out: &mut Term<O>,
+    err: &mut Term<E>,
+    env: &Env,
+) -> u8 {
+    let root = match env.ensure_root(&mut err.w) {
         Ok(root) => root,
         Err(e) => {
             err.line(&format!("myleet: {e}"));
@@ -81,6 +86,7 @@ fn validate<O: Write, E: Write>(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::app::testenv::copy_dir;
     use crate::catalog::testdata;
     use std::fs;
 
@@ -91,19 +97,6 @@ mod tests {
         "p-two",
         "two-sum",
     ];
-
-    fn copy_dir(src: &Path, dst: &Path) {
-        fs::create_dir_all(dst).unwrap();
-        for entry in fs::read_dir(src).unwrap() {
-            let entry = entry.unwrap();
-            let to = dst.join(entry.file_name());
-            if entry.file_type().unwrap().is_dir() {
-                copy_dir(&entry.path(), &to);
-            } else {
-                fs::copy(entry.path(), to).unwrap();
-            }
-        }
-    }
 
     /// A temp copy of a fixture tree, so lock writes never touch the fixtures.
     fn fixture(name: &str) -> tempfile::TempDir {
