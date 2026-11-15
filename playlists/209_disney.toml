@@ -1,201 +1,67 @@
+# Sources (checked 2026-11-15):
+# Estimate from 5 candidate reports, three of them search snippets (low confidence); SQL and design come up more often than algorithms
+# - Jun 2026 Bengaluru (non-US) SDE 2 report: https://leetcode.com/discuss/post/8327362/
+# - Nov 2025 location not shown senior lead report: https://prachub.com/interview-experiences/disney-seniorplus-lead-software-engineer-interview-experience-four-part-onsite-with-a-code-review-and-whiteboard-system-design
+# - Glassdoor Walt Disney Company review, Seattle WA, date not shown (search snippet): https://static.glassdoor.be/Interview/Walt-Disney-Company-Interview-E717-RVW1806931.htm
+# - Prepfully Disney software engineer questions (search snippet): https://prepfully.com/interview-questions/disney/software-engineer?page=2
+# - Interview Query Disney software engineer guide (search snippet): https://www.interviewquery.com/interview-guides/disney-software-engineer
 title = "Disney"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, heaps, intervals and linked lists"
-review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "08_heaps", "11_dp", "13_intervals"]
-
-
-[[entries]]
-title = "Merge In Between Linked Lists"
-url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
-
-[[entries]]
-title = "Maximum Value at a Given Index in a Bounded Array"
-url = "https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/"
-
-[[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
-
-[[entries]]
-title = "Flatten a Multilevel Doubly Linked List"
-url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
-
-[[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
-
-[[entries]]
-title = "Maximum Twin Sum of a Linked List"
-url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
-
-[[entries]]
-title = "Continuous Subarray Sum"
-url = "https://leetcode.com/problems/continuous-subarray-sum/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Custom Sort String"
-url = "https://leetcode.com/problems/custom-sort-string/"
-
-[[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
-
-[[entries]]
-title = "Interleaving String"
-url = "https://leetcode.com/problems/interleaving-string/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Encode and Decode TinyURL"
-url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
-
-[[entries]]
-title = "Remove Covered Intervals"
-url = "https://leetcode.com/problems/remove-covered-intervals/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
-
-[[entries]]
-title = "Copy List with Random Pointer"
-url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
-
-[[entries]]
-title = "Remove All Adjacent Duplicates In String"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
-
-[[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
-
-[[entries]]
-title = "Construct String from Binary Tree"
-url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
-
-[[entries]]
-title = "Find Players With Zero or One Losses"
-url = "https://leetcode.com/problems/find-players-with-zero-or-one-losses/"
-
-[[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Non-overlapping Intervals"
-url = "https://leetcode.com/problems/non-overlapping-intervals/"
+focus = "Live coding focuses on arrays and strings and heaps"
+review_modules = ["01_arrays_and_hashing", "08_heaps", "02_two_pointers"]
 
 [[entries]]
 title = "Top K Frequent Words"
 url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
 title = "Kth Largest Element in an Array"
 url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Implement Queue using Stacks"
-url = "https://leetcode.com/problems/implement-queue-using-stacks/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
+title = "Design A Leaderboard"
+url = "https://leetcode.com/problems/design-a-leaderboard/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Remove Linked List Elements"
-url = "https://leetcode.com/problems/remove-linked-list-elements/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Minimum Genetic Mutation"
-url = "https://leetcode.com/problems/minimum-genetic-mutation/"
-
-[[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
-
-[[entries]]
-title = "Open the Lock"
-url = "https://leetcode.com/problems/open-the-lock/"
-
-[[entries]]
-title = "Convert Binary Number in a Linked List to Integer"
-url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Palindrome Linked List"
-url = "https://leetcode.com/problems/palindrome-linked-list/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "Flatten Binary Tree to Linked List"
-url = "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/"
+title = "Sort Characters By Frequency"
+url = "https://leetcode.com/problems/sort-characters-by-frequency/"
 
 [[entries]]
 title = "Longest Consecutive Sequence"
 url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
-title = "Number of Atoms"
-url = "https://leetcode.com/problems/number-of-atoms/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Find Pivot Index"
-url = "https://leetcode.com/problems/find-pivot-index/"
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
 
 [[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
-title = "Longest Palindromic Subsequence"
-url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"

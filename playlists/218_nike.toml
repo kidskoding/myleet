@@ -1,185 +1,112 @@
+# Sources (checked 2026-11-15):
+# Estimate from 12 candidate reports (medium confidence for the topics, low for US loops); most named problems come from Nike's Bengaluru office
+# - May 2025 location not shown SDE 1 report: https://leetcode.com/discuss/post/6739533/
+# - Oct 2025 Bengaluru (non-US) SDE 2 report: https://leetcode.com/discuss/post/7284017/
+# - Nov 2025 Bengaluru (non-US) SDE 3 report: https://leetcode.com/discuss/post/7318007/
+# - Nov 2025 location not shown report: https://leetcode.com/discuss/post/7349349/
+# - Feb 2026 location not shown SE-2 report: https://leetcode.com/discuss/post/7546131/
+# - Feb 2026 location not shown SWE-1 report: https://leetcode.com/discuss/post/7562425/
+# - Mar 2026 location not shown SDE-2 report: https://leetcode.com/discuss/post/7650496/
+# - Aug 2026 location not shown SDE 3 report: https://leetcode.com/discuss/post/8445593/
+# - Oct 2026 location not shown SDE 3 report: https://leetcode.com/discuss/post/8586321/
+# - Glassdoor NIKE reviews including New York NY (search snippets; review pages not identified)
 title = "Nike"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, greedy, stacks and sliding window"
-review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "11_dp", "12_greedy_algorithms", "16_math_geometry"]
-
-
-[[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
+focus = "Live coding focuses on arrays and strings, binary search and data-structure design"
+review_modules = ["01_arrays_and_hashing", "05_binary_search", "03_stacks_and_queues", "11_dp", "09_backtracking"]
 
 [[entries]]
-title = "Diagonal Traverse"
-url = "https://leetcode.com/problems/diagonal-traverse/"
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
-title = "Find the Duplicate Number"
-url = "https://leetcode.com/problems/find-the-duplicate-number/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Can Place Flowers"
-url = "https://leetcode.com/problems/can-place-flowers/"
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+title = "Sqrt(x)"
+url = "https://leetcode.com/problems/sqrtx/"
 
 [[entries]]
-title = "Wiggle Sort II"
-url = "https://leetcode.com/problems/wiggle-sort-ii/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
-title = "Design Graph With Shortest Path Calculator"
-url = "https://leetcode.com/problems/design-graph-with-shortest-path-calculator/"
+title = "Koko Eating Bananas"
+url = "https://leetcode.com/problems/koko-eating-bananas/"
 
 [[entries]]
-title = "Advantage Shuffle"
-url = "https://leetcode.com/problems/advantage-shuffle/"
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
-title = "Delete Node in a Linked List"
-url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
 
 [[entries]]
-title = "Sum of Subarray Ranges"
-url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Design Linked List"
-url = "https://leetcode.com/problems/design-linked-list/"
+title = "Nested List Weight Sum"
+url = "https://leetcode.com/problems/nested-list-weight-sum/"
 
 [[entries]]
-title = "Subarray Sums Divisible by K"
-url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+title = "Most Common Word"
+url = "https://leetcode.com/problems/most-common-word/"
 
 [[entries]]
-title = "K-Concatenation Maximum Sum"
-url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+title = "Capacity To Ship Packages Within D Days"
+url = "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
 
 [[entries]]
-title = "Add Two Numbers II"
-url = "https://leetcode.com/problems/add-two-numbers-ii/"
-
-[[entries]]
-title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
-url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
-
-[[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
 
 [[entries]]
 title = "Flatten Nested List Iterator"
 url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
 
 [[entries]]
-title = "Longest Valid Parentheses"
-url = "https://leetcode.com/problems/longest-valid-parentheses/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Jump Game II"
-url = "https://leetcode.com/problems/jump-game-ii/"
+title = "Binary Search"
+url = "https://leetcode.com/problems/binary-search/"
 
 [[entries]]
-title = "Number of Ways to Split Array"
-url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
-title = "Range Sum Query 2D - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-2d-immutable/"
+title = "String Compression"
+url = "https://leetcode.com/problems/string-compression/"
 
 [[entries]]
-title = "Combination Sum IV"
-url = "https://leetcode.com/problems/combination-sum-iv/"
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
-title = "Brick Wall"
-url = "https://leetcode.com/problems/brick-wall/"
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
-title = "Maximum Product Subarray"
-url = "https://leetcode.com/problems/maximum-product-subarray/"
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Delete and Earn"
-url = "https://leetcode.com/problems/delete-and-earn/"
-
-[[entries]]
-title = "Minimum Remove to Make Valid Parentheses"
-url = "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
-
-[[entries]]
-title = "Assign Cookies"
-url = "https://leetcode.com/problems/assign-cookies/"
-
-[[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
-
-[[entries]]
-title = "Count Subarrays With Score Less Than K"
-url = "https://leetcode.com/problems/count-subarrays-with-score-less-than-k/"
-
-[[entries]]
-title = "Lemonade Change"
-url = "https://leetcode.com/problems/lemonade-change/"
-
-[[entries]]
-title = "Maximum Subarray Sum with One Deletion"
-url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
-
-[[entries]]
-title = "Rotate Image"
-url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Maximum Units on a Truck"
-url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
-
-[[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
-
-[[entries]]
-title = "Validate Stack Sequences"
-url = "https://leetcode.com/problems/validate-stack-sequences/"
-
-[[entries]]
-title = "01 Matrix"
-url = "https://leetcode.com/problems/01-matrix/"
-
-[[entries]]
-title = "Remove Stones to Minimize the Total"
-url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
-
-[[entries]]
-title = "Plus One"
-url = "https://leetcode.com/problems/plus-one/"
-
-[[entries]]
-title = "Construct Binary Search Tree from Preorder Traversal"
-url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
-
-[[entries]]
-title = "IPO"
-url = "https://leetcode.com/problems/ipo/"
-
-[[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
-
-[[entries]]
-title = "Number of Substrings Containing All Three Characters"
-url = "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/"
-
-[[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"

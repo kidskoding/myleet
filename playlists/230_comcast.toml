@@ -1,185 +1,63 @@
+# Sources (checked 2026-11-15):
+# Estimate from 2 candidate reports, both search snippets (low confidence); kept small and general
+# - Glassdoor Comcast reviews, Philadelphia PA, Oct 2025 and Nov 2026 (search snippets; review pages not identified)
 title = "Comcast"
 group = "Fortune 500"
-focus = "Live coding focuses on arrays and strings, two pointers, binary search and linked lists"
-review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "11_dp"]
-
-
-[[entries]]
-title = "Pancake Sorting"
-url = "https://leetcode.com/problems/pancake-sorting/"
+focus = "Live coding focuses on arrays and strings and two pointers"
+review_modules = ["01_arrays_and_hashing", "02_two_pointers"]
 
 [[entries]]
-title = "Count Sub Islands"
-url = "https://leetcode.com/problems/count-sub-islands/"
+title = "Reverse Vowels of a String"
+url = "https://leetcode.com/problems/reverse-vowels-of-a-string/"
 
 [[entries]]
-title = "Binary Subarrays With Sum"
-url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
+title = "Valid Palindrome"
+url = "https://leetcode.com/problems/valid-palindrome/"
 
 [[entries]]
-title = "Sort Transformed Array"
-url = "https://leetcode.com/problems/sort-transformed-array/"
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
 
 [[entries]]
-title = "Sort List"
-url = "https://leetcode.com/problems/sort-list/"
+title = "Reverse String"
+url = "https://leetcode.com/problems/reverse-string/"
 
 [[entries]]
-title = "Minimum Operations to Make Binary Array Elements Equal to One II"
-url = "https://leetcode.com/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
-title = "Flatten Nested List Iterator"
-url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+title = "Most Common Word"
+url = "https://leetcode.com/problems/most-common-word/"
 
 [[entries]]
-title = "Smallest Substring With Identical Characters I"
-url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-i/"
+title = "String to Integer (atoi)"
+url = "https://leetcode.com/problems/string-to-integer-atoi/"
 
 [[entries]]
-title = "Peak Index in a Mountain Array"
-url = "https://leetcode.com/problems/peak-index-in-a-mountain-array/"
-
-[[entries]]
-title = "Number of Perfect Pairs"
-url = "https://leetcode.com/problems/number-of-perfect-pairs/"
-
-[[entries]]
-title = "Find First and Last Position of Element in Sorted Array"
-url = "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
-
-[[entries]]
-title = "Binary Search"
-url = "https://leetcode.com/problems/binary-search/"
-
-[[entries]]
-title = "Ways to Split Array Into Three Subarrays"
-url = "https://leetcode.com/problems/ways-to-split-array-into-three-subarrays/"
-
-[[entries]]
-title = "Count the Number of Fair Pairs"
-url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
-
-[[entries]]
-title = "Partition Labels"
-url = "https://leetcode.com/problems/partition-labels/"
-
-[[entries]]
-title = "Max Number of K-Sum Pairs"
-url = "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
-
-[[entries]]
-title = "Merge Sorted Array"
-url = "https://leetcode.com/problems/merge-sorted-array/"
-
-[[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
-
-[[entries]]
-title = "Smallest Substring With Identical Characters II"
-url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
 
 [[entries]]
 title = "Two Sum II - Input Array Is Sorted"
 url = "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
 
 [[entries]]
-title = "Maximum Number of Integers to Choose From a Range II"
-url = "https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii/"
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
-title = "3Sum Closest"
-url = "https://leetcode.com/problems/3sum-closest/"
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
-title = "Maximum Side Length of a Square with Sum Less than or Equal to Threshold"
-url = "https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/"
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
 
 [[entries]]
-title = "Binary Search Tree Iterator"
-url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+title = "Container With Most Water"
+url = "https://leetcode.com/problems/container-with-most-water/"
 
 [[entries]]
-title = "Map of Highest Peak"
-url = "https://leetcode.com/problems/map-of-highest-peak/"
-
-[[entries]]
-title = "3Sum Smaller"
-url = "https://leetcode.com/problems/3sum-smaller/"
-
-[[entries]]
-title = "Max Area of Island"
-url = "https://leetcode.com/problems/max-area-of-island/"
-
-[[entries]]
-title = "Nearest Exit from Entrance in Maze"
-url = "https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/"
-
-[[entries]]
-title = "3Sum With Multiplicity"
-url = "https://leetcode.com/problems/3sum-with-multiplicity/"
-
-[[entries]]
-title = "Count Square Submatrices with All Ones"
-url = "https://leetcode.com/problems/count-square-submatrices-with-all-ones/"
-
-[[entries]]
-title = "Count Subarrays With Fixed Bounds"
-url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
-
-[[entries]]
-title = "Arranging Coins"
-url = "https://leetcode.com/problems/arranging-coins/"
-
-[[entries]]
-title = "Minimum Falling Path Sum"
-url = "https://leetcode.com/problems/minimum-falling-path-sum/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Median of a Row Wise Sorted Matrix"
-url = "https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix/"
-
-[[entries]]
-title = "Meeting Scheduler"
-url = "https://leetcode.com/problems/meeting-scheduler/"
-
-[[entries]]
-title = "Minimize Connected Groups by Inserting Interval"
-url = "https://leetcode.com/problems/minimize-connected-groups-by-inserting-interval/"
-
-[[entries]]
-title = "Minimum Absolute Difference Between Elements With Constraint"
-url = "https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint/"
-
-[[entries]]
-title = "Minimum Limit of Balls in a Bag"
-url = "https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/"
-
-[[entries]]
-title = "Bag of Tokens"
-url = "https://leetcode.com/problems/bag-of-tokens/"
-
-[[entries]]
-title = "Partition List"
-url = "https://leetcode.com/problems/partition-list/"
-
-[[entries]]
-title = "Find K-th Smallest Pair Distance"
-url = "https://leetcode.com/problems/find-k-th-smallest-pair-distance/"
-
-[[entries]]
-title = "Number of Subsequences That Satisfy the Given Sum Condition"
-url = "https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/"
-
-[[entries]]
-title = "Minimum Operations to Make All Array Elements Equal"
-url = "https://leetcode.com/problems/minimum-operations-to-make-all-array-elements-equal/"
-
-[[entries]]
-title = "Validate IP Address"
-url = "https://leetcode.com/problems/validate-ip-address/"
+title = "Longest Common Prefix"
+url = "https://leetcode.com/problems/longest-common-prefix/"
