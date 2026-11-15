@@ -1,0 +1,30 @@
+[package]
+name = "myleet-worker"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.91"
+license = "MIT"
+description = "myleet backend on Cloudflare Workers: accounts, statements, progress sync"
+publish = false
+
+# Its own workspace: this crate targets wasm32 and stays out of the root workspace.
+[workspace]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+htmd = "0.5.6"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sha2 = "0.11.0"
+
+# The runtime glue only builds for wasm32, so `cargo test` stays native and fast.
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.4.3", features = ["wasm_js"] }
+worker = { version = "0.9.0", features = ["d1"] }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
