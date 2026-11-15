@@ -6,6 +6,7 @@ import { setRow, SET_FOLD } from "../../components/companies/rows";
 import Base from "../../layouts/Base.astro";
 import { buildCatalog } from "../../lib/build-catalog";
 import { companySlug } from "../../lib/catalog";
+import { midSentence } from "../../lib/schedule";
 import { companyLogo } from "../../lib/company-logos";
 import { ROUTES } from "../../lib/routes";
 import { icon } from "../../lib/ui/icons";
@@ -23,7 +24,25 @@ const { playlist: p } = Astro.props;
 const c = buildCatalog();
 const slug = companySlug(p.id);
 const n = p.entries.length;
-const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}` : "";
+// The set's real top three topics, so each company reads differently. Problem-bank entries
+// map onto the curriculum topic they belong to; mixed practice says nothing about a topic.
+const BANK: [RegExp, string][] = [[/graph/i, "Graphs"], [/dynamic/i, "Dynamic Programming"], [/tree|linked/i, "Trees"], [/search|sort/i, "Binary Search"], [/stack|queue|window/i, "Stacks And Queues"], [/hash|count|array|string/i, "Arrays And Hashing"]];
+const topicOf = (i: number): string | null => {
+  const q = c.problems[i];
+  const m = q && c.modules[q.module];
+  if (!q || !m || m.title === "Mixed Interview Practice") return null;
+  if (!m.bank) return m.title;
+  const t = m.techniques[q.technique]?.title ?? "";
+  return BANK.find(([re]) => re.test(t))?.[1] ?? null;
+};
+const counts = new Map<string, number>();
+for (const e of p.entries) {
+  const t = e.problem === null ? null : topicOf(e.problem);
+  if (t) counts.set(t, (counts.get(t) ?? 0) + 1);
+}
+const counted = [...counts.values()].reduce((a, b) => a + b, 0);
+const top = [...counts].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([t, k]) => `${midSentence(t)} (${Math.round((k / counted) * 100)}%)`);
+const lead = top.length ? `Mostly ${new Intl.ListFormat("en", { type: "conjunction" }).format(top)}` : "";
 ---
 
 <Base title={`${p.title} prep`} nav="companies" description={`A curated ${p.title} practice set of ${n} problems, most asked first, with the techniques it leans on. Not a list of actual interview questions.`}>
