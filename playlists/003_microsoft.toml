@@ -1,10 +1,35 @@
 # Sources (checked 2026-11-15):
 # - Glassdoor Microsoft SDE interview reports (2025): https://static.glassdoor.com.br/Interview/Microsoft-Software-Development-Engineer-Interview-Questions-EI_IE1651.0,9_KO10,39_IP163.htm
 # - Glassdoor Microsoft software engineer reports (2025): https://static.glassdoor.it/Interview/Microsoft--Software-Engineer-Interview-Questions-EI_IE1651.0,9_KO10,28_IP21.htm
+# - Jun 2026 location not shown report: https://prachub.com/interview-experiences/microsoft-senior-software-engineer-interview-experience-coreai-loop-with-an-ai-coding-round-after-11-loops-in-a-year
+# - Sep 2026 location not shown report: https://prachub.com/interview-experiences/microsoft-software-engineer-interview-experience-sde-2-loop-with-an-ai-assisted-design-round-and-a-linux-cp-deep-dive
+# - Apr 2026 location not shown report: https://prachub.com/interview-experiences/microsoft-software-engineer-interview-experience-four-rounds-best-vibe-i-had-all-year
+# - Jul 2026 Cairo (non-US) report: https://prachub.com/interview-experiences/microsoft-software-engineer-interview-experience-binary-search-first-then-graph-problems-b49aeafff0
+# - Jun 2026 Hyderabad (non-US) report: https://prachub.com/interview-experiences/microsoft-software-engineer-interview-experience-lru-cache-and-cplusplus-vector-implementation-871798d261
 title = "Microsoft"
 group = "Big Tech"
-focus = "Live coding focuses on arrays and strings, trees, dynamic programming and graphs"
+focus = "Live coding focuses on arrays and strings, graphs and trees"
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "14_tries", "17_advanced"]
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Palindrome Linked List"
+url = "https://leetcode.com/problems/palindrome-linked-list/"
+
+[[entries]]
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+
+[[entries]]
+title = "Longest Repeating Character Replacement"
+url = "https://leetcode.com/problems/longest-repeating-character-replacement/"
 
 [[entries]]
 title = "Valid Sudoku"
@@ -19,36 +44,12 @@ title = "Single-Threaded CPU"
 url = "https://leetcode.com/problems/single-threaded-cpu/"
 
 [[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Letter Combinations of a Phone Number"
-url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
 title = "Encode and Decode Strings"
 url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
 
 [[entries]]
 title = "Set Matrix Zeroes"
@@ -83,8 +84,52 @@ title = "Custom Sort String"
 url = "https://leetcode.com/problems/custom-sort-string/"
 
 [[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
 title = "First Missing Positive"
 url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
+
+[[entries]]
+title = "Keys and Rooms"
+url = "https://leetcode.com/problems/keys-and-rooms/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Making A Large Island"
+url = "https://leetcode.com/problems/making-a-large-island/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Bricks Falling When Hit"
+url = "https://leetcode.com/problems/bricks-falling-when-hit/"
 
 [[entries]]
 title = "Binary Tree Right Side View"
@@ -103,20 +148,24 @@ title = "Path Sum III"
 url = "https://leetcode.com/problems/path-sum-iii/"
 
 [[entries]]
-title = "Binary Search Tree Iterator"
-url = "https://leetcode.com/problems/binary-search-tree-iterator/"
-
-[[entries]]
-title = "N-ary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
-
-[[entries]]
 title = "Binary Tree Maximum Path Sum"
 url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
 title = "Vertical Order Traversal of a Binary Tree"
 url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+
+[[entries]]
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+
+[[entries]]
+title = "Binary Search Tree Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
 
 [[entries]]
 title = "Serialize and Deserialize Binary Tree"
@@ -151,41 +200,9 @@ title = "Burst Balloons"
 url = "https://leetcode.com/problems/burst-balloons/"
 
 [[entries]]
-title = "Employee Importance"
-url = "https://leetcode.com/problems/employee-importance/"
-
-[[entries]]
-title = "Making A Large Island"
-url = "https://leetcode.com/problems/making-a-large-island/"
-
-[[entries]]
 title = "Word Search"
 url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Reverse Linked List II"
-url = "https://leetcode.com/problems/reverse-linked-list-ii/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
-
-[[entries]]
-title = "Linked List Cycle II"
-url = "https://leetcode.com/problems/linked-list-cycle-ii/"
-
-[[entries]]
-title = "Remove Nth Node From End of List"
-url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
-
-[[entries]]
-title = "Swap Nodes in Pairs"
-url = "https://leetcode.com/problems/swap-nodes-in-pairs/"
-
-[[entries]]
-title = "Sort List"
-url = "https://leetcode.com/problems/sort-list/"

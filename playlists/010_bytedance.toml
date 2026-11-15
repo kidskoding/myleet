@@ -2,14 +2,155 @@
 # - 1point3acres ByteDance onsite 2025 (2025): https://www.1point3acres.com/interview/thread/1146853
 # - 1point3acres ByteDance OA (Sep 2025): https://www.1point3acres.com/interview/thread/1085020
 # - Jointaro TikTok report (Jun 2025): https://www.jointaro.com/interviews/companies/tiktok/experiences/software-engineer-san-jose-ca-june-20-2025-accepted-offer-positive-eb4d3d6f/
+# - Apr 2026 location not shown report: https://prachub.com/interview-experiences/bytedance-seniorplus-software-engineer-interview-experience-three-onsite-rounds-then-ghosted
+# - Sep 2026 location not shown report: https://prachub.com/interview-experiences/bytedance-software-engineer-interview-experience-three-rounds-and-an-hr-call-then-silence
+# - Jan 2026 location not shown report: https://prachub.com/interview-experiences/bytedance-software-engineer-interview-experience-merge-intervals-then-course-schedule
+# - Apr 2026 Bay Area interviewers report: https://prachub.com/interview-experiences/bytedance-seniorplus-software-engineer-interview-experience-two-easy-rounds-then-a-camera-off-grilling-in-chinese
+# - May 2026 location not shown report: https://prachub.com/interview-experiences/bytedance-software-engineer-interview-experience-five-onsite-rounds-in-two-days-two-hards-and-a-last-minute-add-on-round
 title = "ByteDance"
 group = "Big Tech"
-focus = "Live coding focuses on data-structure design, binary search, trees and graphs"
+focus = "Live coding focuses on graphs, sliding window and data-structure design"
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "10_graphs", "11_dp", "13_intervals"]
+
+[[entries]]
+title = "Word Search II"
+url = "https://leetcode.com/problems/word-search-ii/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+
+[[entries]]
+title = "Course Schedule II"
+url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Minimum Height Trees"
+url = "https://leetcode.com/problems/minimum-height-trees/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
+
+[[entries]]
+title = "Keys and Rooms"
+url = "https://leetcode.com/problems/keys-and-rooms/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Surrounded Regions"
+url = "https://leetcode.com/problems/surrounded-regions/"
+
+[[entries]]
+title = "Making A Large Island"
+url = "https://leetcode.com/problems/making-a-large-island/"
+
+[[entries]]
+title = "Critical Connections in a Network"
+url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+
+[[entries]]
+title = "Bricks Falling When Hit"
+url = "https://leetcode.com/problems/bricks-falling-when-hit/"
+
+[[entries]]
+title = "Redundant Connection II"
+url = "https://leetcode.com/problems/redundant-connection-ii/"
+
+[[entries]]
+title = "Longest Substring with At Most K Distinct Characters"
+url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
+
+[[entries]]
+title = "Maximum Number of Vowels in a Substring of Given Length"
+url = "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
+
+[[entries]]
+title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
+url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
+
+[[entries]]
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
+
+[[entries]]
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
+
+[[entries]]
+title = "K Radius Subarray Averages"
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+
+[[entries]]
+title = "Substring with Concatenation of All Words"
+url = "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
+
+[[entries]]
+title = "Minimum Window Subsequence"
+url = "https://leetcode.com/problems/minimum-window-subsequence/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
+
+[[entries]]
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+
+[[entries]]
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
+
+[[entries]]
+title = "Regions Cut By Slashes"
+url = "https://leetcode.com/problems/regions-cut-by-slashes/"
+
+[[entries]]
+title = "Number of Islands II"
+url = "https://leetcode.com/problems/number-of-islands-ii/"
 
 [[entries]]
 title = "Koko Eating Bananas"
@@ -34,30 +175,6 @@ url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 [[entries]]
 title = "House Robber III"
 url = "https://leetcode.com/problems/house-robber-iii/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Satisfiability of Equality Equations"
-url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
-
-[[entries]]
-title = "Smallest String With Swaps"
-url = "https://leetcode.com/problems/smallest-string-with-swaps/"
-
-[[entries]]
-title = "Most Stones Removed with Same Row or Column"
-url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
-
-[[entries]]
-title = "Regions Cut By Slashes"
-url = "https://leetcode.com/problems/regions-cut-by-slashes/"
-
-[[entries]]
-title = "Number of Islands II"
-url = "https://leetcode.com/problems/number-of-islands-ii/"
 
 [[entries]]
 title = "Search a 2D Matrix"
@@ -106,91 +223,3 @@ url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
 [[entries]]
 title = "Binary Search Tree Iterator"
 url = "https://leetcode.com/problems/binary-search-tree-iterator/"
-
-[[entries]]
-title = "N-ary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Count Complete Tree Nodes"
-url = "https://leetcode.com/problems/count-complete-tree-nodes/"
-
-[[entries]]
-title = "Binary Tree Pruning"
-url = "https://leetcode.com/problems/binary-tree-pruning/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
-
-[[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
-
-[[entries]]
-title = "Minimum Height Trees"
-url = "https://leetcode.com/problems/minimum-height-trees/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Employee Importance"
-url = "https://leetcode.com/problems/employee-importance/"
-
-[[entries]]
-title = "Making A Large Island"
-url = "https://leetcode.com/problems/making-a-large-island/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Course Schedule III"
-url = "https://leetcode.com/problems/course-schedule-iii/"
-
-[[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
-
-[[entries]]
-title = "Remove Duplicate Letters"
-url = "https://leetcode.com/problems/remove-duplicate-letters/"
-
-[[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Longest Substring with At Most K Distinct Characters"
-url = "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "N-Queens"
-url = "https://leetcode.com/problems/n-queens/"

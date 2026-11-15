@@ -2,10 +2,32 @@
 # - Jointaro Apple report (Aug 2025): https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-singapore-august-18-2025-no-offer-positive-bf14b825/
 # - Jointaro Apple report (Jun 2025): https://www.jointaro.com/interviews/companies/apple/experiences/software-engineer-cupertino-ca-june-23-2025-no-offer-neutral-1179c538
 # - PracHub Apple report (2025): https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-three-day-onsite-full-of-behavioral-questions-then-ghosted
+# - Nov 2025 New York NY report: https://prachub.com/interview-experiences/apple-new-grad-software-engineer-interview-experience-aced-every-round-rejected-at-hiring-committee
+# - Jun 2026 location not shown report: https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-six-onsite-rounds-that-felt-like-six-different-companies
+# - Aug 2026 location not shown report: https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-three-phone-rounds-three-virtual-onsite-rounds-rejected
+# - Aug 2026 location not shown report: https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-two-phone-screens-then-a-four-round-onsite
+# - Jul 2026 Austin TX report: https://prachub.com/interview-experiences/apple-software-engineer-interview-timing-circuits-and-coding-under-pressure-f1f32c3524
+# - Sep 2025 location not shown report: https://prachub.com/interview-experiences/apple-software-engineer-interview-experience-poker-system-design-ood-rock-paper-scissors-and-two-hiring-manager-rounds
 title = "Apple"
 group = "Big Tech"
-focus = "Live coding focuses on data-structure design, arrays and strings, graphs and trees at medium to hard difficulty"
+focus = "Live coding focuses on arrays and strings, data-structure design and trees"
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
+
+[[entries]]
+title = "Copy List with Random Pointer"
+url = "https://leetcode.com/problems/copy-list-with-random-pointer/"
+
+[[entries]]
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
 title = "LRU Cache"
@@ -22,42 +44,6 @@ url = "https://leetcode.com/problems/spiral-matrix/"
 [[entries]]
 title = "Rotate Image"
 url = "https://leetcode.com/problems/rotate-image/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Binary Tree Right Side View"
-url = "https://leetcode.com/problems/binary-tree-right-side-view/"
-
-[[entries]]
-title = "Satisfiability of Equality Equations"
-url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
-
-[[entries]]
-title = "Smallest String With Swaps"
-url = "https://leetcode.com/problems/smallest-string-with-swaps/"
-
-[[entries]]
-title = "Most Stones Removed with Same Row or Column"
-url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
-
-[[entries]]
-title = "Regions Cut By Slashes"
-url = "https://leetcode.com/problems/regions-cut-by-slashes/"
-
-[[entries]]
-title = "Shortest Palindrome"
-url = "https://leetcode.com/problems/shortest-palindrome/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -84,8 +70,84 @@ title = "Encode and Decode Strings"
 url = "https://leetcode.com/problems/encode-and-decode-strings/"
 
 [[entries]]
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
+
+[[entries]]
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
+
+[[entries]]
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
 title = "First Missing Positive"
 url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
+
+[[entries]]
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
+
+[[entries]]
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
+
+[[entries]]
+title = "Regions Cut By Slashes"
+url = "https://leetcode.com/problems/regions-cut-by-slashes/"
+
+[[entries]]
+title = "Shortest Palindrome"
+url = "https://leetcode.com/problems/shortest-palindrome/"
+
+[[entries]]
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+
+[[entries]]
+title = "Trim a Binary Search Tree"
+url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
+
+[[entries]]
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
+
+[[entries]]
+title = "Binary Search Tree Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
 title = "Surrounded Regions"
@@ -106,22 +168,6 @@ url = "https://leetcode.com/problems/course-schedule-ii/"
 [[entries]]
 title = "Making A Large Island"
 url = "https://leetcode.com/problems/making-a-large-island/"
-
-[[entries]]
-title = "Trim a Binary Search Tree"
-url = "https://leetcode.com/problems/trim-a-binary-search-tree/"
-
-[[entries]]
-title = "Recover Binary Search Tree"
-url = "https://leetcode.com/problems/recover-binary-search-tree/"
-
-[[entries]]
-title = "Binary Search Tree Iterator"
-url = "https://leetcode.com/problems/binary-search-tree-iterator/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
 title = "Design Hit Counter"
@@ -166,27 +212,3 @@ url = "https://leetcode.com/problems/swim-in-rising-water/"
 [[entries]]
 title = "Search a 2D Matrix"
 url = "https://leetcode.com/problems/search-a-2d-matrix/"
-
-[[entries]]
-title = "Search a 2D Matrix II"
-url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
-
-[[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
-
-[[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
-
-[[entries]]
-title = "Fraction to Recurring Decimal"
-url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
-
-[[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
-
-[[entries]]
-title = "Divide Two Integers"
-url = "https://leetcode.com/problems/divide-two-integers/"

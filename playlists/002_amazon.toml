@@ -4,10 +4,26 @@
 # - Jointaro Amazon new grad report (Oct 2025): https://www.jointaro.com/interviews/companies/amazon/experiences/software-engineer-new-grad-seattle-wa-october-5-2025-no-offer-positive-378a7a91
 # - Glassdoor Amazon SDE reviews (2025, graphs, DP, greedy, trees, arrays): https://www.glassdoor.com/Interview/Amazon-Interview-E6036-RVW96994011.htm
 # - Amazon's own prep topics (graphs, trees, hash tables, heaps): https://amazon.jobs/content/en/how-we-hire/interview-prep/software-development-topics
+# - Aug 2025 Austin TX report: https://www.jointaro.com/interviews/companies/amazon/experiences/software-development-engineer-sde-austin-tx-august-26-2025-no-offer-neutral-221d173d
+# - Sep 2025 Seattle WA report: https://www.jointaro.com/interviews/companies/amazon/experiences/software-development-engineer-sde1-seattle-wa-september-1-2025-no-offer-positive-e3be8df8
+# - Jul 2026 United States report: https://prachub.com/interview-experiences/amazon-software-engineer-interview-four-round-onsite-loop-with-bar-raiser-5ecf83b769
+# - Jul 2026 United States report: https://prachub.com/interview-experiences/amazon-development-center-u-s-software-engineer-interview-consecutive-loop-with-bar-raiser-0a7badc8de
 title = "Amazon"
 group = "Big Tech"
-focus = "Live coding focuses on graphs, trees and heaps"
+focus = "Live coding focuses on arrays and strings, heaps and trees"
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
 title = "Merge k Sorted Lists"
@@ -30,16 +46,116 @@ title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
+
+[[entries]]
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
+
+[[entries]]
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
+
+[[entries]]
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "IPO"
+url = "https://leetcode.com/problems/ipo/"
+
+[[entries]]
+title = "Sliding Window Median"
+url = "https://leetcode.com/problems/sliding-window-median/"
+
+[[entries]]
+title = "Binary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Binary Tree Zigzag Level Order Traversal"
+url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+
+[[entries]]
+title = "Lowest Common Ancestor of a Binary Search Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
+
+[[entries]]
+title = "Populating Next Right Pointers in Each Node"
+url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
+
+[[entries]]
+title = "Vertical Order Traversal of a Binary Tree"
+url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Maximum Path Sum"
+url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+
+[[entries]]
 title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
 
 [[entries]]
 title = "Rotting Oranges"
@@ -68,115 +184,3 @@ url = "https://leetcode.com/problems/max-area-of-island/"
 [[entries]]
 title = "Surrounded Regions"
 url = "https://leetcode.com/problems/surrounded-regions/"
-
-[[entries]]
-title = "Making A Large Island"
-url = "https://leetcode.com/problems/making-a-large-island/"
-
-[[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
-
-[[entries]]
-title = "Bricks Falling When Hit"
-url = "https://leetcode.com/problems/bricks-falling-when-hit/"
-
-[[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Binary Tree Zigzag Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
-
-[[entries]]
-title = "Lowest Common Ancestor of a Binary Search Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
-
-[[entries]]
-title = "Populating Next Right Pointers in Each Node"
-url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
-
-[[entries]]
-title = "Binary Search Tree Iterator"
-url = "https://leetcode.com/problems/binary-search-tree-iterator/"
-
-[[entries]]
-title = "N-ary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
-
-[[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
-
-[[entries]]
-title = "Binary Tree Maximum Path Sum"
-url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "K Closest Points to Origin"
-url = "https://leetcode.com/problems/k-closest-points-to-origin/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Top K Frequent Words"
-url = "https://leetcode.com/problems/top-k-frequent-words/"
-
-[[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
-
-[[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
-
-[[entries]]
-title = "Number of Atoms"
-url = "https://leetcode.com/problems/number-of-atoms/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Maximum Frequency Stack"
-url = "https://leetcode.com/problems/maximum-frequency-stack/"
-
-[[entries]]
-title = "Reorder List"
-url = "https://leetcode.com/problems/reorder-list/"
-
-[[entries]]
-title = "Copy List with Random Pointer"
-url = "https://leetcode.com/problems/copy-list-with-random-pointer/"

@@ -2,10 +2,22 @@
 # - Jointaro Uber report (Nov 2025): https://www.jointaro.com/interviews/companies/uber/experiences/software-engineer-bellevue-washington-november-7-2025-no-offer-neutral-1eac8562
 # - Jointaro Uber report (Aug 2025): https://www.jointaro.com/interviews/companies/uber/experiences/software-engineer-new-york-ny-august-16-2025-no-offer-positive-473da68d
 # - Glassdoor Uber reports (2025): https://static.glassdoor.nl/Interview/Uber-Software-Engineer-Interview-Questions-EI_IE575263.0,4_KO5,22_IP3.htm
+# - Aug 2026 location not shown report: https://prachub.com/interview-experiences/uber-software-engineer-interview-experience-four-onsite-rounds-all-about-the-follow-ups
+# - Feb 2026 location not shown report: https://prachub.com/interview-experiences/uber-software-engineer-interview-experience-four-onsite-rounds-rejected-after-system-design
+# - Sep 2026 location not shown report: https://prachub.com/interview-experiences/uber-seniorplus-software-engineer-interview-experience-matrix-swaps-and-infrastructure-design
+# - Sep 2025 location not shown report: https://prachub.com/interview-experiences/uber-software-engineer-interview-experience-meeting-scheduler-follow-ups-paxos-raft-bq-and-a-driver-heatmap-system-design
 title = "Uber"
 group = "Big Tech"
-focus = "Live coding focuses on graphs, trees and linked lists at medium to hard difficulty"
+focus = "Live coding focuses on graphs, arrays and strings, and heaps"
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "08_heaps", "10_graphs", "13_intervals"]
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
 title = "Alien Dictionary"
@@ -30,14 +42,6 @@ url = "https://leetcode.com/problems/non-overlapping-intervals/"
 [[entries]]
 title = "Employee Free Time"
 url = "https://leetcode.com/problems/employee-free-time/"
-
-[[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
-
-[[entries]]
-title = "Maximum Number of Events That Can Be Attended"
-url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
 
 [[entries]]
 title = "The Maze II"
@@ -84,6 +88,58 @@ title = "Bricks Falling When Hit"
 url = "https://leetcode.com/problems/bricks-falling-when-hit/"
 
 [[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Encode and Decode Strings"
+url = "https://leetcode.com/problems/encode-and-decode-strings/"
+
+[[entries]]
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
+
+[[entries]]
+title = "4Sum II"
+url = "https://leetcode.com/problems/4sum-ii/"
+
+[[entries]]
+title = "First Missing Positive"
+url = "https://leetcode.com/problems/first-missing-positive/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
+
+[[entries]]
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
+
+[[entries]]
 title = "Count Complete Tree Nodes"
 url = "https://leetcode.com/problems/count-complete-tree-nodes/"
 
@@ -114,47 +170,3 @@ url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 [[entries]]
 title = "Vertical Order Traversal of a Binary Tree"
 url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
-
-[[entries]]
-title = "Partition List"
-url = "https://leetcode.com/problems/partition-list/"
-
-[[entries]]
-title = "Maximum Twin Sum of a Linked List"
-url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
-
-[[entries]]
-title = "Delete Node in a Linked List"
-url = "https://leetcode.com/problems/delete-node-in-a-linked-list/"
-
-[[entries]]
-title = "Design Linked List"
-url = "https://leetcode.com/problems/design-linked-list/"
-
-[[entries]]
-title = "Reverse Nodes in k-Group"
-url = "https://leetcode.com/problems/reverse-nodes-in-k-group/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
-
-[[entries]]
-title = "Meeting Rooms III"
-url = "https://leetcode.com/problems/meeting-rooms-iii/"
-
-[[entries]]
-title = "Furthest Building You Can Reach"
-url = "https://leetcode.com/problems/furthest-building-you-can-reach/"
-
-[[entries]]
-title = "Partition Array into Disjoint Intervals"
-url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
-
-[[entries]]
-title = "Number of Ways to Arrive at Destination"
-url = "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/"
