@@ -116,7 +116,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
     const ranges = dayRanges(readPrefs().plan.daysOff.filter((d) => d >= today));
     return html`<ul class="offlist">${ranges.map(
       ([a, b]) =>
-        html`<li><span>${a === b ? fmtDay(a) : `${fmtDay(a)} to ${fmtDay(b)}`}</span><button type="button" class="btn btn-ghost btn-sm" data-off-remove="${a}|${b}">Remove</button></li>`,
+        html`<li><span>${a === b ? fmtDay(a) : a.slice(0, 7) === b.slice(0, 7) ? `${fmtDay(a)} to ${Number(b.slice(8))}` : `${fmtDay(a)} to ${fmtDay(b)}`}</span><button type="button" class="btn btn-ghost btn-sm" data-off-remove="${a}|${b}">Remove</button></li>`,
     )}</ul>
     ${addingOff
       ? html`<div class="off-add"><label class="field"><span>From</span><input class="input" type="date" min="${today}" data-off-from /></label><label class="field"><span>To</span><input class="input" type="date" min="${today}" data-off-to /></label><button type="button" class="btn btn-secondary btn-sm" data-off-save>Add</button><button type="button" class="btn btn-ghost btn-sm" data-off-cancel>Cancel</button></div>`
@@ -148,7 +148,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
             (m) => html`<button type="button" data-session="${m}" aria-pressed="${p.sessionMinutes === m ? "true" : "false"}">${fmtM(m)}</button>`,
           )}</div><p class="help" style="margin-top:var(--space-2)">The longest single sitting. Longer days split into two.</p></div>`
         : ""}
-      ${sections.includes("daysoff") ? html`<div class="av-sec">${head("Days off")}<p class="help">Nothing is planned on these days, and nothing piles up after them.</p><div data-off-host>${daysOff()}</div></div>` : ""}`,
+      ${sections.includes("daysoff") ? html`<div class="av-sec">${head("Days off")}${opts.headings === false ? "" : html`<p class="help">Nothing is planned on these days, and nothing piles up after them.</p>`}<div data-off-host>${daysOff()}</div></div>` : ""}`,
     );
   }
 

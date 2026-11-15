@@ -38,6 +38,13 @@ import Base from "../layouts/Base.astro";
   .flow .opt span { grid-column: 2; color: var(--ink-2); font-size: var(--text-sm); }
   .flow .opt kbd { grid-row: 1 / span 2; grid-column: 3; }
 
+  .flow .ob-when [data-when-editor] { margin-top: var(--space-6); }
+  @media (min-width: 761px) {
+    .flow .ob-when .av-editor { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: var(--space-6) var(--space-8); align-items: start; }
+    .flow .ob-when .av-editor .av-sec { margin: 0; }
+    .flow .ob-when .av-editor .av-sec:first-child { grid-column: 1 / -1; }
+    .flow .ob-when .av-editor .av-sec:last-child { grid-column: 2; grid-row: 2; }
+  }
   .flow .next { margin-top: var(--space-8); display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
   .flow .next .hint { font-size: var(--text-sm); color: var(--ink-3); }
 

@@ -5,6 +5,9 @@ import { parseEvents, placementResults, runProgress } from "../lib/attempts";
 import { companySlug, loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { daysUntil, planWeeks, shortDate, TIME_OPTIONS, timeOption } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs, type Goal } from "../lib/prefs";
+import { DEFAULT_WINDOWS } from "../lib/schedule";
+import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
+import { openCalendarSync } from "../lib/ui/calendar-sync";
 import { appendEvent, readEvents } from "../lib/progress";
 import { problemHref, ROUTES } from "../lib/routes";
 import { addDays, localDay } from "../lib/streak";
@@ -14,7 +17,7 @@ import { diff, formatDuration, kbd, plural, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 
-const STEPS = ["goal", "companies", "date", "time", "plan"] as const;
+const STEPS = ["goal", "companies", "date", "time", "when", "plan"] as const;
 type Step = (typeof STEPS)[number] | "warm-up";
 const SINCE_KEY = "myleet:placement-since";
 
@@ -51,7 +54,7 @@ function head(step: Step, opts: { skip?: boolean } = {}): SafeHtml {
   return html`<div class="steps">${back}<span class="count">Step ${i + 1} of ${STEPS.length}</span>${
     opts.skip === false ? "" : html`<button class="btn btn-ghost btn-sm skip" type="button" data-skip>Skip setup</button>`
   }</div>
-  <div class="track" aria-hidden="true">${STEPS.map((_, j) => html`<i class="${j <= i ? "on" : ""}"></i>`)}</div>`;
+  <div class="track" style="--n:${STEPS.length}" aria-hidden="true">${STEPS.map((_, j) => html`<i class="${j <= i ? "on" : ""}"></i>`)}</div>`;
 }
 
 function radios(name: string, label: string, opts: { id: string; label: string; detail: string }[], value: string | null): SafeHtml {
@@ -141,11 +144,23 @@ function timeStep(): SafeHtml {
     <h1 id="q4">How much time do you have on most days?</h1>
     <p class="sub">Reviews always come first. The rest of the time goes to new problems. Today lets you shrink a single day without changing this.</p>
     ${radios("time", "q4", TIME_OPTIONS.map((o) => ({ id: String(o.minutes), label: o.label, detail: o.detail })), m === null ? null : String(m))}
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${m ? "" : "disabled"}>Build my plan</button><span class="hint">${kbd("1")}–${kbd("4")} to pick, ${kbd("esc")} to go back</span></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${m ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("4")} to pick, ${kbd("esc")} to go back</span></div>
   </section>`;
 }
 
 let planEvents = "";
+let whenEditor: AvailabilityEditor | null = null;
+
+function whenStep(): SafeHtml {
+  // First run starts from two common patterns, already pressed; painting adjusts them.
+  if (!readPrefs().plan.availability.length) updatePrefs({ plan: { availability: DEFAULT_WINDOWS } }, { silent: true });
+  return html`${head("when")}<section class="q ob-when" aria-labelledby="q5w">
+    <h1 id="q5w">When can you practise?</h1>
+    <p class="sub">Pick a pattern, then drag on the week to adjust it. Sessions only go inside these windows. You can change them any time.</p>
+    <div data-when-editor></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Build my plan ${kbd("enter")}</button><span class="hint">Days off and holidays can wait for Settings.</span></div>
+  </section>`;
+}
 
 function planStep(): SafeHtml {
   const c = cat?.catalog;
@@ -172,7 +187,7 @@ function planStep(): SafeHtml {
       <p><strong>On track</strong> means a technique is projected to reach the plan's goal by the date.</p>
       <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up.</p>
     </div>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Start the warm-up</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Start the warm-up</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
   </section>`;
 }
 
@@ -249,7 +264,7 @@ async function paint(): Promise<void> {
   const el = root();
   if (!el) return;
   const step = currentStep();
-  el.classList.toggle("wide", step === "plan");
+  el.classList.toggle("wide", step === "plan" || step === "when");
   const body =
     step === "goal"
       ? goalStep()
@@ -259,10 +274,16 @@ async function paint(): Promise<void> {
           ? dateStep()
           : step === "time"
             ? timeStep()
-            : step === "plan"
+            : step === "when"
+              ? whenStep()
+              : step === "plan"
               ? planStep()
               : await warmStep();
+  whenEditor?.destroy();
+  whenEditor = null;
   render(el, body);
+  const host = el.querySelector<HTMLElement>("[data-when-editor]");
+  if (host) whenEditor = mountAvailability(host, { sections: ["presets", "paint", "session"], headings: false, id: "ob-av" });
   document.title = `${step === "warm-up" ? "Warm-up" : "Set up your plan"} · myleet`;
   const focus = el.querySelector<HTMLElement>("input:checked, [data-company-search], [data-date]") ?? el.querySelector<HTMLElement>("h1");
   if (focus?.tagName === "H1") focus.setAttribute("tabindex", "-1");
@@ -329,6 +350,14 @@ function onClick(e: MouseEvent): void {
   const quick = t.closest<HTMLElement>("[data-quick]");
   const more = t.closest<HTMLElement>("[data-more]");
   if (t.closest("[data-continue]")) advance();
+  if (t.closest("[data-add-cal]") && trainer) {
+    const tr = trainer;
+    void openCalendarSync(() => {
+      const plan = tr.plan(planEvents, planSettings());
+      const next = plan.days.find((d) => d.sessions.length);
+      return next ? tr.planIcs({ ...plan, days: [{ ...next, sessions: next.sessions.slice(0, 1) }] }, { site: location.origin, alarm_minutes: readPrefs().plan.reminderMinutes }) : null;
+    });
+  }
   else if (t.closest("[data-back]")) history.back();
   else if (t.closest("[data-skip]")) {
     updatePrefs({ plan: { onboarded: true } });
@@ -377,7 +406,7 @@ function onInput(e: Event): void {
 }
 
 function onKey(e: KeyboardEvent): void {
-  if (!root() || e.metaKey || e.ctrlKey || e.altKey || document.querySelector("dialog[open]")) return;
+  if (!root() || e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || document.querySelector("dialog[open]")) return;
   const a = document.activeElement as HTMLElement | null;
   const step = currentStep();
   if (a?.matches("[data-company-search]")) {

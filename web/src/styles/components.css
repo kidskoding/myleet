@@ -697,3 +697,5 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
   .sync-foot { margin-inline: var(--space-5); }
   .prov { grid-template-columns: 1fr; }
 }
+.av-editor .seg { display: flex; max-width: 320px; }
+.av-editor .seg button { flex: 1; padding: 0 6px; white-space: nowrap; }
