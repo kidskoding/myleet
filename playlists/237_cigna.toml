@@ -1,6 +1,6 @@
 title = "Cigna"
 group = "Enterprise companies"
-focus = "arrays, strings, hash maps, linked lists, and trees, kept to easy and medium problems."
+focus = "Arrays, strings, hash maps, linked lists, and trees, kept to easy and medium problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "11_dp"]
 
 [[entries]]

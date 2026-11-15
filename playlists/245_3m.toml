@@ -1,6 +1,6 @@
 title = "3M"
 group = "Enterprise companies"
-focus = "arrays and strings, hash maps, stacks, binary search, and a few tree and backtracking problems."
+focus = "Arrays and strings, hash maps, stacks, binary search, and a few tree and backtracking problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "07_trees", "09_backtracking"]
 
 [[entries]]

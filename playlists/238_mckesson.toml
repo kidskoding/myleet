@@ -1,6 +1,6 @@
 title = "McKesson"
 group = "Enterprise companies"
-focus = "arrays and hash maps, strings, intervals, heaps, and basic graph traversal."
+focus = "Arrays and hash maps, strings, intervals, heaps, and basic graph traversal."
 review_modules = ["01_arrays_and_hashing", "08_heaps", "10_graphs", "12_greedy_algorithms", "07_trees"]
 
 [[entries]]

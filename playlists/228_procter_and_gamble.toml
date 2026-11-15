@@ -1,6 +1,6 @@
 title = "Procter & Gamble"
 group = "Enterprise companies"
-focus = "arrays and strings, hash maps, two pointers, sliding window, and basic trees and dynamic programming."
+focus = "Arrays and strings, hash maps, two pointers, sliding window, and basic trees and dynamic programming."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "07_trees", "11_dp"]
 
 [[entries]]

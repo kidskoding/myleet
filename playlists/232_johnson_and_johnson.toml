@@ -1,6 +1,6 @@
 title = "Johnson & Johnson"
 group = "Enterprise companies"
-focus = "array and string manipulation, hash maps, sliding window, binary search, and a few easy tree problems."
+focus = "Array and string manipulation, hash maps, sliding window, binary search, and a few easy tree problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "05_binary_search", "07_trees"]
 
 [[entries]]

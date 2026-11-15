@@ -1,6 +1,6 @@
 title = "ExxonMobil"
 group = "Enterprise companies"
-focus = "arrays and hash maps, strings, sorting and intervals, linked lists, binary search, and grid traversal."
+focus = "Arrays and hash maps, strings, sorting and intervals, linked lists, binary search, and grid traversal."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "06_linked_lists", "10_graphs"]
 
 [[entries]]

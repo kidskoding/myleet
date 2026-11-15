@@ -1,6 +1,6 @@
 title = "Coca-Cola"
 group = "Enterprise companies"
-focus = "array and string fundamentals, hash maps, sliding window, linked lists, and easy tree problems."
+focus = "Array and string fundamentals, hash maps, sliding window, linked lists, and easy tree problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "06_linked_lists", "07_trees"]
 
 [[entries]]

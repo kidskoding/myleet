@@ -1,6 +1,6 @@
 title = "Walgreens"
 group = "Enterprise companies"
-focus = "arrays and strings, hash maps, sliding window, linked lists, and simple trees."
+focus = "Arrays and strings, hash maps, sliding window, linked lists, and simple trees."
 review_modules = ["01_arrays_and_hashing", "04_sliding_window", "06_linked_lists", "07_trees", "03_stacks_and_queues"]
 
 [[entries]]

@@ -1,6 +1,6 @@
 title = "Fannie Mae"
 group = "Enterprise companies"
-focus = "arrays, hash maps, intervals, dynamic programming, binary search, and clean tree traversal."
+focus = "Arrays, hash maps, intervals, dynamic programming, binary search, and clean tree traversal."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "11_dp", "12_greedy_algorithms", "07_trees"]
 
 [[entries]]

@@ -1,6 +1,6 @@
 title = "John Deere"
 group = "Enterprise companies"
-focus = "arrays, strings, hash maps, linked lists, binary search, and breadth-first search on grids."
+focus = "Arrays, strings, hash maps, linked lists, binary search, and breadth-first search on grids."
 review_modules = ["01_arrays_and_hashing", "05_binary_search", "06_linked_lists", "07_trees", "10_graphs"]
 
 [[entries]]

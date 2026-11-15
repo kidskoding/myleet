@@ -1,6 +1,6 @@
 title = "PepsiCo"
 group = "Enterprise companies"
-focus = "array and string fundamentals, hash maps, stacks, linked lists, and easy tree problems."
+focus = "Array and string fundamentals, hash maps, stacks, linked lists, and easy tree problems."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
 
 [[entries]]

@@ -1,6 +1,6 @@
 title = "Siemens"
 group = "Enterprise companies"
-focus = "arrays, strings, bit manipulation, linked lists, trees, and graph traversal."
+focus = "Arrays, strings, bit manipulation, linked lists, trees, and graph traversal."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs"]
 
 [[entries]]
