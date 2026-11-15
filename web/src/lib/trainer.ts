@@ -1,0 +1,83 @@
+import init, * as wasm from "../wasm/myleet_wasm.js";
+import { loadCatalog } from "./catalog";
+import type {
+  Checkpoint,
+  CheckpointResult,
+  EventKind,
+  InterviewRules,
+  Mode,
+  Placement,
+  PlacementResult,
+  State,
+  Stats,
+  TodayEntry,
+} from "./types";
+
+export const DEFAULT_NEW_PER_DAY = 3;
+
+/** Clock and zone for one call; defaults are `Date.now()` and the browser's zone. */
+export interface When {
+  now?: number;
+  tz?: string;
+}
+
+export interface TrainerApi {
+  today(events: string, opts?: When & { newPerDay?: number }): TodayEntry[];
+  states(events: string, tz?: string): Record<string, State>;
+  /** `progress.toml` text, the same file the CLI writes. */
+  saveFile(events: string, tz?: string): string;
+  stats(events: string, opts?: When): Stats;
+  placement(events: string): Placement;
+  /** Returns one `events.jsonl` line. */
+  placementDone(results: PlacementResult[], now?: number): string;
+  checkpoint(events: string): Checkpoint;
+  checkpointPick(events: string, through: number, seed: number, tz?: string): string[];
+  /** Returns one `events.jsonl` line. */
+  checkpointDone(through: number, results: CheckpointResult[], now?: number): string;
+  interviewPick(events: string, n: number, seed: number, opts?: When): string[];
+  /** Returns one `events.jsonl` line; `data` values are strings, as the core stores them. */
+  eventLine(e: { kind: EventKind; problem: string; attempt: string; mode: Mode; data?: Record<string, string>; now?: number }): string;
+  newAttemptId(): string;
+  placementSkip(now?: number): string;
+  checkpointSnooze(through: number, now?: number): string;
+  formatSecs(secs: number): string;
+  interviewRules(): InterviewRules;
+}
+
+type WasmInput = Parameters<typeof wasm.initSync>[0];
+
+/** Synchronous build from already-loaded parts; `module` is the wasm bytes when not fetched by `init()`. */
+export function createTrainer(catalogText: string, module?: WasmInput): TrainerApi {
+  if (module) wasm.initSync(module);
+  const t = new wasm.Trainer(catalogText);
+  const parse = <T>(s: string): T => JSON.parse(s) as T;
+  const now = (n?: number) => n ?? Date.now();
+  return {
+    today: (ev, o = {}) => parse(t.today(ev, now(o.now), o.tz ?? "", o.newPerDay ?? DEFAULT_NEW_PER_DAY)),
+    states: (ev, tz = "") => parse(t.states(ev, tz)),
+    saveFile: (ev, tz = "") => t.save_file(ev, tz),
+    stats: (ev, o = {}) => parse(t.stats(ev, now(o.now), o.tz ?? "")),
+    placement: (ev) => parse(t.placement(ev)),
+    placementDone: (results, n) => t.placement_done(JSON.stringify(results), now(n)),
+    checkpoint: (ev) => parse(t.checkpoint(ev)),
+    checkpointPick: (ev, through, seed, tz = "") => parse(t.checkpoint_pick(ev, tz, through, seed)),
+    checkpointDone: (through, results, n) => t.checkpoint_done(through, JSON.stringify(results), now(n)),
+    interviewPick: (ev, n, seed, o = {}) => parse(t.interview_pick(ev, o.tz ?? "", n, now(o.now), seed)),
+    eventLine: (e) =>
+      wasm.event_line(e.kind, e.problem, e.attempt, e.mode, e.data ? JSON.stringify(e.data) : "", now(e.now)),
+    newAttemptId: () => wasm.new_attempt_id(),
+    placementSkip: (n) => wasm.placement_skip(now(n)),
+    checkpointSnooze: (through, n) => wasm.checkpoint_snooze(through, now(n)),
+    formatSecs: (secs) => wasm.format_secs(secs),
+    interviewRules: () => parse(wasm.interview_rules()),
+  };
+}
+
+let trainerPromise: Promise<TrainerApi> | undefined;
+
+/** Fetches the wasm module and the catalog once per page. */
+export function loadTrainer(): Promise<TrainerApi> {
+  trainerPromise ??= Promise.all([init(), loadCatalog()]).then(([, c]) => createTrainer(c.text));
+  trainerPromise.catch(() => (trainerPromise = undefined));
+  return trainerPromise;
+}
