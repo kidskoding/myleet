@@ -1,23 +1,121 @@
 ---
 import Base from "../../layouts/Base.astro";
 
-// One client-rendered shell; the Worker serves it for every /u/<name> (see the report).
+// One client-rendered shell; the Worker serves it for every /u/<name> (public/_redirects).
 export function getStaticPaths() {
   return [{ params: { username: "_" } }];
 }
 ---
 
-<Base title="Profile">
-  <h1 data-username>Profile</h1>
-  <p>Placeholder: the public profile loads from /api/u/&lt;username&gt;.</p>
+<Base title="Profile" shell="public" description="Practice streak, mastery and heatmap on myleet." ogType="profile" ogImage="/og/profile.png">
+  <div class="page profile" data-profile>
+    <div class="head">
+      <span class="pic skel" style="border-radius:50%"></span>
+      <div><div class="skel" style="height:32px;width:220px"></div><div class="skel" style="height:18px;width:300px;margin-top:8px"></div></div>
+      <span></span>
+    </div>
+    <div class="stats" aria-hidden="true">
+      {[1, 2, 3, 4].map(() => <div><div class="skel" style="height:44px;width:60px"></div><div class="skel" style="height:16px;width:110px;margin-top:10px"></div></div>)}
+    </div>
+    <div class="sec"><div class="skel" style="height:24px;width:240px"></div><div class="panel heatwrap" style="margin-top:12px"><div class="skel" style="height:96px"></div></div></div>
+  </div>
 </Base>
 
+<style is:global>
+  .profile .head { display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-5); align-items: center; }
+  .profile .pic { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: var(--text-lg); font-weight: 700; font-variation-settings: "wdth" 88; overflow: hidden; }
+  .profile .pic img { width: 100%; height: 100%; object-fit: cover; }
+  .profile .head h1 { font-size: var(--text-xl); overflow-wrap: anywhere; }
+  .profile .head p { color: var(--ink-2); margin-top: 2px; }
+  .profile .stats { margin-top: var(--space-8); display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+  .profile .stats > div { padding: var(--space-5) var(--space-6); }
+  .profile .stats > div + div { border-left: 1px solid var(--line); }
+  .profile .stats .v { font-size: var(--text-2xl); font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); line-height: 1; letter-spacing: -0.02em; }
+  .profile .stats .l { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); }
+  .profile .sec { margin-top: var(--space-10); }
+  .profile .sec .section-head h2 { font-size: var(--text-lg); }
+  .profile .heatwrap { padding: var(--space-5) var(--space-6); overflow-x: auto; }
+  .profile .heat { width: 100%; min-width: max-content; justify-content: space-between; }
+  .profile .foot { margin-top: var(--space-12); padding-top: var(--space-5); border-top: 1px solid var(--line); display: flex; gap: var(--space-4); align-items: center; justify-content: space-between; flex-wrap: wrap; font-size: var(--text-sm); color: var(--ink-3); }
+  .profile .private { margin: var(--space-12) auto 0; max-width: 560px; padding: var(--space-8); }
+  .profile .private h1 { font-size: var(--text-xl); }
+  .profile .private p { margin-top: var(--space-2); color: var(--ink-2); }
+  .profile .private ul { margin-top: var(--space-3); padding-left: 1.2em; color: var(--ink-2); font-size: var(--text-sm); display: grid; gap: 4px; }
+  .profile .private .btn { margin-top: var(--space-5); }
+  @media (max-width: 1100px) {
+    .profile .stats { grid-template-columns: repeat(2, 1fr); }
+    .profile .stats > div:nth-child(3) { border-left: 0; }
+    .profile .stats > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  }
+  @media (max-width: 760px) {
+    .profile .head { grid-template-columns: auto 1fr; }
+    .profile .head > :last-child { grid-column: 1 / -1; }
+    .profile .head > :last-child .btn { width: 100%; }
+    .profile .pic { width: 56px; height: 56px; font-size: var(--text-md); }
+    .profile .stats > div { padding: var(--space-4); }
+    .profile .heatwrap { padding: var(--space-4); }
+    .profile .private { padding: var(--space-5); }
+  }
+</style>
+
 <script>
-  const show = () => {
-    const name = decodeURIComponent(location.pathname.split("/")[2] ?? "");
-    const h = document.querySelector("[data-username]");
-    if (h && name && name !== "_") h.textContent = `@${name}`;
-  };
-  show();
-  document.addEventListener("astro:page-load", show);
+  import { cachedMe, fetchProfile, initials, ApiError, type PublicProfile } from "../../lib/account";
+  import { ROUTES } from "../../lib/routes";
+  import { plural } from "../../lib/ui/bits";
+  import { heatmap } from "../../lib/ui/heatmap";
+  import { html, render } from "../../lib/ui/html";
+  import { icon } from "../../lib/ui/icons";
+
+  const usernameFromUrl = () => decodeURIComponent(location.pathname.split("/")[2] ?? "").toLowerCase();
+
+  function profileView(p: PublicProfile): ReturnType<typeof html> {
+    const s = p.summary ?? { streak: 0, mastered: 0, solved: 0, heatmap: {} };
+    const days = Object.values(s.heatmap).filter((n) => n > 0).length;
+    const name = p.display_name || p.username;
+    const since = days === 0 ? "Practising since today" : `${plural(s.solved, "problem")} practised on myleet`;
+    return html`<div class="head">
+        <span class="pic">${p.avatar_url ? html`<img src="${p.avatar_url}" alt="" referrerpolicy="no-referrer" />` : initials({ display_name: p.display_name, username: p.username, email: p.username })}</span>
+        <div><h1>${name}</h1><p>@${p.username}. ${since}.</p></div>
+        <div><button class="btn btn-secondary" type="button" data-share-profile>${icon("share")}Share</button></div>
+      </div>
+      <div class="stats">
+        <div><div class="v">${s.streak}</div><div class="l">Day streak</div></div>
+        <div><div class="v">${s.mastered}</div><div class="l">Problems mastered</div></div>
+        <div><div class="v">${s.solved}</div><div class="l">Problems started</div></div>
+        <div><div class="v">${days}</div><div class="l">Days practised</div></div>
+      </div>
+      <section class="sec" aria-labelledby="heat-h"><div class="section-head"><h2 id="heat-h">Practice, last 48 weeks</h2></div>
+        <div class="panel heatwrap" data-heatwrap>${heatmap(s.heatmap, { label: `${name} practised on ${plural(days, "day")} in the last 48 weeks.` })}</div></section>
+      <footer class="foot"><span>Mastered on myleet means a clean, cold redo on the 14-day review rung.</span><a class="btn btn-primary btn-sm" href="${ROUTES.home}">Practise with myleet</a></footer>`;
+  }
+
+  async function init(): Promise<void> {
+    const el = document.querySelector<HTMLElement>("[data-profile]");
+    if (!el) return;
+    const name = usernameFromUrl();
+    const mine = cachedMe()?.user.username === name;
+    try {
+      const p = await fetchProfile(name);
+      document.title = `${p.display_name || p.username} on myleet`;
+      render(el, profileView(p));
+      const wrap = el.querySelector<HTMLElement>("[data-heatwrap]");
+      if (wrap) wrap.scrollLeft = wrap.scrollWidth;
+      el.querySelector("[data-share-profile]")?.addEventListener("click", () => void import("../../scripts/share").then((m) => m.openShare(mine ? {} : { profile: p })));
+    } catch (e) {
+      const missing = e instanceof ApiError && e.status === 404;
+      document.title = "Profile · myleet";
+      render(
+        el,
+        mine && missing
+          ? html`<section class="panel private"><h1>Your profile is private</h1><p>Turn it on to share a link. This becomes public:</p>
+              <ul><li>Your name, streak and mastered and practised counts</li><li>The practice heatmap</li></ul>
+              <p>Never your code, attempts, notes, hints, weak spots or interview date.</p>
+              <a class="btn btn-primary" href="${ROUTES.settings}#privacy">Make my profile public</a></section>`
+          : missing
+            ? html`<section class="panel private"><h1>No public profile here</h1><p>Either no one uses the name "${name}", or they haven't made their progress public. Usernames are lowercase.</p><a class="btn btn-secondary" href="${ROUTES.home}">What is myleet?</a></section>`
+            : html`<section class="panel private" role="alert"><h1>Couldn't load this profile</h1><p>${navigator.onLine ? "The server didn't answer." : "You're offline."} Try again in a moment.</p><button class="btn btn-secondary" type="button" onclick="location.reload()">Try again</button></section>`,
+      );
+    }
+  }
+  document.addEventListener("astro:page-load", () => void init());
 </script>
