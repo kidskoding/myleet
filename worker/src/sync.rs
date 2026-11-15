@@ -1,13 +1,22 @@
-//! Progress sync: one D1 row per user holding the whole `events.jsonl`, guarded by a
-//! version number so two devices never overwrite each other silently.
+//! Progress sync: one D1 row per user holding the whole `events.jsonl` and the Notes
+//! reader's highlights, guarded by a version number so two devices never overwrite
+//! each other silently. Notes ride on the same row so a sync is still one row write.
+
+use std::collections::BTreeMap;
 
 use serde::Deserialize;
 use serde::de::IgnoredAny;
 
 use crate::account::PublicSummary;
 
-/// D1 caps a row at 2,000,000 bytes; leave room for the other columns.
-pub const MAX_EVENTS_BYTES: usize = 1_900_000;
+/// D1 caps a row at 2,000,000 bytes; events and notes share it, with room for the
+/// other columns.
+pub const MAX_EVENTS_BYTES: usize = 1_750_000;
+pub const MAX_NOTES_BYTES: usize = 150_000;
+const MAX_ANNOTATIONS: usize = 2000;
+const MAX_READS: usize = 2000;
+const MAX_ID: usize = 64;
+const MAX_NOTE_PATH: usize = 300;
 /// JSON string escaping inflates the events (every `"` becomes `\"`).
 pub const MAX_BODY_BYTES: usize = 4 * 1024 * 1024;
 
@@ -20,6 +29,53 @@ pub struct PutBody {
     /// Streak, mastery and heatmap for the opt-in public profile.
     #[serde(default)]
     pub summary: Option<PublicSummary>,
+    /// The reader's highlights, notes and reading progress as one JSON object (the
+    /// client merges by id and `updated`). Absent keeps the stored copy.
+    #[serde(default)]
+    pub notes_json: Option<String>,
+}
+
+/// The parts of the notes blob the Worker checks; everything else round-trips opaque.
+#[derive(Deserialize)]
+struct NotesBlob {
+    #[serde(default)]
+    annotations: Vec<AnnotationRef>,
+    #[serde(default)]
+    reads: BTreeMap<String, IgnoredAny>,
+}
+
+#[derive(Deserialize)]
+struct AnnotationRef {
+    id: String,
+    note: String,
+    /// Checked to be a number; the client merges on it.
+    #[allow(dead_code)]
+    updated: u64,
+}
+
+pub fn validate_notes(json: &str) -> Result<(), String> {
+    if json.len() > MAX_NOTES_BYTES {
+        return Err(format!("notes_json is over {MAX_NOTES_BYTES} bytes"));
+    }
+    if !json.trim_start().starts_with('{') {
+        return Err("notes_json must be a JSON object".to_string());
+    }
+    let blob: NotesBlob = serde_json::from_str(json).map_err(|e| e.to_string())?;
+    if blob.annotations.len() > MAX_ANNOTATIONS {
+        return Err(format!("at most {MAX_ANNOTATIONS} annotations"));
+    }
+    if blob.reads.len() > MAX_READS {
+        return Err(format!("at most {MAX_READS} reads"));
+    }
+    let ok = |a: &AnnotationRef| {
+        (1..=MAX_ID).contains(&a.id.len()) && (1..=MAX_NOTE_PATH).contains(&a.note.len())
+    };
+    if !blob.annotations.iter().all(ok) || !blob.reads.keys().all(|k| k.len() <= MAX_NOTE_PATH) {
+        return Err(format!(
+            "annotation ids are 1-{MAX_ID} characters and note paths 1-{MAX_NOTE_PATH}"
+        ));
+    }
+    Ok(())
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -30,12 +86,14 @@ pub enum PutError {
     /// 1-based line number of an event that is not a JSON object.
     BadLine(usize),
     BadSummary(String),
+    NotesTooLarge,
+    BadNotes(String),
 }
 
 impl PutError {
     pub fn status(&self) -> u16 {
         match self {
-            PutError::TooLarge => 413,
+            PutError::TooLarge | PutError::NotesTooLarge => 413,
             _ => 400,
         }
     }
@@ -47,6 +105,8 @@ impl PutError {
             PutError::BadVersion => "base_version must be >= 0".to_string(),
             PutError::BadLine(n) => format!("events_jsonl line {n} is not a JSON object"),
             PutError::BadSummary(e) => format!("summary: {e}"),
+            PutError::NotesTooLarge => format!("notes_json is over {MAX_NOTES_BYTES} bytes"),
+            PutError::BadNotes(e) => format!("notes_json: {e}"),
         }
     }
 }
@@ -75,6 +135,12 @@ pub fn parse_put(body: &[u8]) -> Result<PutBody, PutError> {
     }
     if let Some(summary) = &put.summary {
         summary.validate().map_err(PutError::BadSummary)?;
+    }
+    if let Some(notes) = &put.notes_json {
+        if notes.len() > MAX_NOTES_BYTES {
+            return Err(PutError::NotesTooLarge);
+        }
+        validate_notes(notes).map_err(PutError::BadNotes)?;
     }
     Ok(put)
 }
@@ -160,6 +226,46 @@ mod tests {
         assert_eq!(PutError::TooLarge.status(), 413);
         let huge = vec![b' '; MAX_BODY_BYTES + 1];
         assert_eq!(parse_put(&huge).unwrap_err(), PutError::TooLarge);
+    }
+
+    #[test]
+    fn notes_ride_along() {
+        let notes = r#"{"v":1,"annotations":[{"id":"m1abc","note":"curriculum/01/notes/01.md","quote":"x","updated":5,"deleted":true}],"reads":{"curriculum/01/notes/01.md":{"pct":0.5,"read":false,"at":5}}}"#;
+        let with_notes =
+            serde_json::json!({"base_version": 2, "events_jsonl": "", "notes_json": notes});
+        let put = parse_put(with_notes.to_string().as_bytes()).unwrap();
+        assert_eq!(put.notes_json.as_deref(), Some(notes), "stored unchanged");
+        assert_eq!(parse_put(&body(1, "")).unwrap().notes_json, None);
+        for bad in [
+            "[]",
+            "{\"annotations\":[{\"id\":\"\",\"note\":\"n\",\"updated\":1}]}",
+            "{\"annotations\":[{\"id\":\"a\",\"updated\":1}]}",
+            "{\"annotations\":{}}",
+            "{nope",
+        ] {
+            assert!(validate_notes(bad).is_err(), "{bad}");
+            let b = serde_json::json!({"base_version": 1, "events_jsonl": "", "notes_json": bad});
+            assert!(
+                matches!(
+                    parse_put(b.to_string().as_bytes()),
+                    Err(PutError::BadNotes(_))
+                ),
+                "{bad}"
+            );
+        }
+        assert!(validate_notes("{}").is_ok());
+        let many = format!(
+            r#"{{"annotations":[{}]}}"#,
+            vec![r#"{"id":"a","note":"n","updated":1}"#; MAX_ANNOTATIONS + 1].join(",")
+        );
+        assert!(validate_notes(&many).is_err());
+        let huge = format!(r#"{{"pad":"{}"}}"#, "x".repeat(MAX_NOTES_BYTES));
+        let b = serde_json::json!({"base_version": 1, "events_jsonl": "", "notes_json": huge});
+        assert_eq!(
+            parse_put(b.to_string().as_bytes()).unwrap_err(),
+            PutError::NotesTooLarge
+        );
+        assert_eq!(PutError::NotesTooLarge.status(), 413);
     }
 
     #[test]

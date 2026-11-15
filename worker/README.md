@@ -7,7 +7,8 @@ the Astro site's static files from `../web/dist`, and handles `/api/*`:
   linked into one account by verified email
 - sessions you can list and revoke, settings, account export and deletion
 - LeetCode problem statements, fetched once and cached in KV
-- progress sync: one versioned D1 row per user holding `events.jsonl`
+- progress sync: one versioned D1 row per user holding `events.jsonl` and the Notes
+  reader's highlights
 - opt-in public profiles for shareable progress cards
 - the learner's computed plan and a private calendar feed (ICS) of it
 
@@ -209,15 +210,30 @@ limited to 5 emails per address and 20 per IP per hour (`429` beyond that).
   "user": {"id": "9f2c...", "email": "ann@example.com", "username": "ann",
            "display_name": "Ann", "avatar_url": "https://...", "created_at": 1794700000000},
   "providers": ["github", "email"],
-  "settings": {"theme": "system", "editor_keymap": "vim", "editor_font_size": 14,
+  "settings": {"theme": "system", "night_flavor": "mocha", "accent": "mauve",
+               "editor_keymap": "vim", "editor_font_size": 14,
                "new_per_day": 3, "interview_date": "2027-02-01",
                "target_companies": ["google"], "reminders": false, "public_profile": false,
                "daily_minutes": 60, "session_minutes": 45,
                "availability": [{"days": ["mon", "tue", "wed", "thu", "fri"], "start": "19:00", "end": "20:30"},
                                 {"days": ["sat"], "start": "10:00", "end": "12:00"}],
-               "days_off": ["2026-11-26"], "reminder_minutes": 15}
+               "days_off": ["2026-11-26"], "reminder_minutes": 15,
+               "weekend_minutes": 120, "day_minutes": {"2026-11-20": 30},
+               "moves": [{"from": "2026-11-17", "from_start": "19:00", "to": "2026-11-19",
+                          "to_start": "07:00", "minutes": 60}],
+               "reminder_time": "19:00", "reminder_lead": 15,
+               "quiet_from": "23:00", "quiet_to": "08:00",
+               "time_targets": {"easy": 15, "medium": 25, "hard": 40},
+               "reduce_motion": false, "editor_ligatures": true, "editor_minimap": false,
+               "editor_indent": 4, "editor_format_on_save": true, "editor_run_on_save": false,
+               "goal": "newgrad", "plan_started_at": "2026-11-01", "onboarded": true}
 }
 ```
+
+Everything after `reminder_minutes` except `night_flavor` and `accent` is absent until
+it is first set, so a device that already has a value keeps it (and uploads it) instead
+of taking a default. They are stored in one JSON column (`user_settings.extra`), so
+adding another needs no migration.
 
 `PATCH /api/me` takes any subset of
 `{"username": "...", "display_name": "..." | null, "settings": {...}}` (settings
@@ -227,7 +243,11 @@ body as `GET /api/me`. Validation:
 - `username`: 3-30 characters of `a-z 0-9 - _`, starting with a letter or digit,
   not a reserved word (`admin`, `api`, `u`, ...). Taken is `409`.
 - `display_name`: up to 60 characters, no control characters; `null` or empty clears.
-- `theme`: `system`, `light` or `dark`. `editor_keymap`: `standard` or `vim`.
+- `theme`: `system`, `latte`, `frappe`, `macchiato` or `mocha` (Catppuccin; legacy
+  `light` and `dark` are accepted and read as `latte` and `mocha`). `night_flavor`, the
+  dark flavor `system` uses: `frappe`, `macchiato` or `mocha` (default). `accent`: one
+  of `rosewater flamingo pink mauve red maroon peach yellow green teal sky sapphire blue
+  lavender` (default `mauve`). `editor_keymap`: `standard` or `vim`.
   `editor_font_size`: 10-28. `new_per_day`: 0-20. `interview_date`: `YYYY-MM-DD`.
   `target_companies`: up to 40 company slugs (a playlist id without its `NNN_` prefix,
   so `a-z 0-9 - _`).
@@ -237,10 +257,20 @@ body as `GET /api/me`. Validation:
   practise"), `days_off` up to 366 dates, `reminder_minutes` 0-1440 or `null` for no
   calendar alarm (default 15). These names match `myleet-core`'s planner settings, so
   the client passes `settings` to the wasm `plan()` unchanged.
-- Unknown fields are `400`.
+- Plan overrides: `weekend_minutes` 15-600 or `null` (same as weekdays),
+  `day_minutes` up to 100 `YYYY-MM-DD` to 0-600 one-day budgets, `moves` up to 100
+  dragged sessions (`from`/`to` dates, `from_start`/`to_start` `HH:MM`, `minutes` 1-1440).
+- Browser reminders: `reminders` (on/off), `reminder_time`, `quiet_from`, `quiet_to`
+  (`HH:MM`; quiet hours may wrap midnight), `reminder_lead` 0-1440. The calendar alarm
+  is `reminder_minutes`.
+- Device prefs: `time_targets` (`easy`, `medium`, `hard`, each 1-240 minutes),
+  `reduce_motion`, `editor_ligatures`, `editor_minimap`, `editor_indent` (2 or 4),
+  `editor_format_on_save`, `editor_run_on_save`; onboarding: `goal` (`internship`,
+  `coop`, `newgrad` or `null`), `plan_started_at` (`YYYY-MM-DD` or `null`), `onboarded`.
+- The body is at most 64 KB. Unknown fields are `400`.
 
 `GET /api/me/export` downloads `myleet-export.json` with the profile, sign-in methods,
-settings, sessions, progress, the stored plan and the calendar feed's creation time
+settings (all of the above), sessions, progress (with `notes_json`), the stored plan and the calendar feed's creation time
 (never its token).
 
 `DELETE /api/me` deletes the account and every row that belongs to it, then clears
@@ -263,30 +293,41 @@ not yours. Revoking the current one also clears the cookie.
 `GET /api/progress`
 
 ```json
-{"events_jsonl": "{\"t\":...}\n...", "version": 4, "updated_at": 1794700000000}
+{"events_jsonl": "{\"t\":...}\n...", "version": 4, "updated_at": 1794700000000,
+ "notes_json": "{\"v\":1,\"annotations\":[...],\"reads\":{...}}"}
 ```
 
 Before the first sync it returns `version: 0`, empty events and `updated_at: null`.
+`notes_json` is `null` until a client sends one.
 
 `PUT /api/progress`
 
 ```json
-{"base_version": 4, "events_jsonl": "...", "summary": {"streak": 5, "mastered": 12, "solved": 40, "heatmap": {"2026-11-14": 3}}}
+{"base_version": 4, "events_jsonl": "...", "notes_json": "{...}",
+ "summary": {"streak": 5, "mastered": 12, "solved": 40, "heatmap": {"2026-11-14": 3}}}
 ```
 
 - `base_version` is the version the client last saw (0 if it has never synced).
 - `events_jsonl` replaces the stored events; each non-blank line must be a JSON
-  object. At most 1,900,000 bytes (D1 caps a row at 2 MB); larger is `413`.
+  object. At most 1,750,000 bytes (D1 caps a row at 2 MB); larger is `413`.
+- `notes_json` is optional: the Notes reader's highlights, margin notes and reading
+  progress as one JSON object, `{"v": 1, "annotations": [{"id", "note", "updated",
+  ...}], "reads": {"<note path>": {...}}}`. It shares the row and its version, so a
+  sync that carries it is still one row write. The Worker checks the shape (at most
+  2,000 annotations with 1-64 character ids and note paths up to 300 characters,
+  2,000 reads) and stores it unchanged; at most 150,000 bytes, larger is `413`.
+  Leaving it out keeps the stored copy. Deletions are tombstones
+  (`"deleted": true`) so a merge never brings a removed highlight back.
 - `summary` is optional and powers the public profile. The client computes it
   because it owns the scheduler. Leaving it out keeps the stored summary.
 
 Success is `200 {"version": 5, "updated_at": ...}`. If another device synced first,
-the response is `409` with the stored copy, so the client can merge and retry with
-the new `version`:
+the response is `409` with the stored copy, so the client can merge (events by
+union, annotations by id keeping the newer `updated`) and retry with the new `version`:
 
 ```json
 {"error": "stale base_version: merge with current and retry",
- "current": {"events_jsonl": "...", "version": 5, "updated_at": 1794700000000}}
+ "current": {"events_jsonl": "...", "version": 5, "updated_at": 1794700000000, "notes_json": "..."}}
 ```
 
 ### Public profile

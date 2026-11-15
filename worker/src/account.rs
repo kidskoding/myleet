@@ -3,7 +3,7 @@
 
 use std::collections::BTreeMap;
 
-use myleet_core::planner::{self, Window};
+use myleet_core::planner::{self, Move, Window};
 use serde::{Deserialize, Deserializer, Serialize};
 
 pub const USERNAME_MIN: usize = 3;
@@ -141,12 +141,65 @@ pub fn resolve(identity_user: Option<String>, email_user: Option<String>) -> Res
     }
 }
 
+/// `system` follows the OS between `latte` and the night flavor. Rows written before
+/// the Catppuccin themes hold `light` and `dark`, read as `latte` and `mocha`.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Theme {
     System,
-    Light,
-    Dark,
+    #[serde(alias = "light")]
+    Latte,
+    Frappe,
+    Macchiato,
+    #[serde(alias = "dark")]
+    Mocha,
+}
+
+/// The dark flavor `system` uses at night.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum NightFlavor {
+    Frappe,
+    Macchiato,
+    #[default]
+    Mocha,
+}
+
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum Accent {
+    Rosewater,
+    Flamingo,
+    Pink,
+    #[default]
+    Mauve,
+    Red,
+    Maroon,
+    Peach,
+    Yellow,
+    Green,
+    Teal,
+    Sky,
+    Sapphire,
+    Blue,
+    Lavender,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum Goal {
+    Internship,
+    Coop,
+    Newgrad,
+}
+
+/// Minutes per difficulty.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct TimeTargets {
+    pub easy: u32,
+    pub medium: u32,
+    pub hard: u32,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -165,6 +218,67 @@ const SESSION_MINUTES: std::ops::RangeInclusive<u32> = 15..=240;
 const REMINDER_MINUTES: std::ops::RangeInclusive<u32> = 0..=1440;
 const MAX_WINDOWS: usize = 21;
 const MAX_DAYS_OFF: usize = 366;
+const DAY_BUDGET_MINUTES: std::ops::RangeInclusive<u32> = 0..=600;
+const MOVE_MINUTES: std::ops::RangeInclusive<u32> = 1..=1440;
+const MAX_DAY_BUDGETS: usize = 100;
+const MAX_MOVES: usize = 100;
+const TIME_TARGET_MINUTES: std::ops::RangeInclusive<u32> = 1..=240;
+/// The `extra` column; the caps above keep it far below this.
+pub const MAX_EXTRA_BYTES: usize = 32 * 1024;
+
+/// Settings added after migration 0002, stored as one JSON object (`user_settings.extra`)
+/// so new fields need no migration. Flattened into [`Settings`] on the wire. Optional
+/// fields are absent until first set, so a device that already has a value keeps it and
+/// uploads it instead of taking a default; `Some(None)` is an explicit `null`.
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(default)]
+pub struct Extra {
+    pub night_flavor: NightFlavor,
+    pub accent: Accent,
+    /// Saturday and Sunday budget; `null` means the same as `daily_minutes`.
+    #[serde(deserialize_with = "present", skip_serializing_if = "Option::is_none")]
+    pub weekend_minutes: Option<Option<u32>>,
+    /// One-day budgets ("Shorter day", skipped sessions), YYYY-MM-DD to minutes.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub day_minutes: Option<BTreeMap<String, u32>>,
+    /// Sessions dragged to another window or day.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub moves: Option<Vec<Move>>,
+    /// Browser reminders: `HH:MM` on a day with no planned session.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub reminder_time: Option<String>,
+    /// Browser reminders: minutes before a planned session.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub reminder_lead: Option<u32>,
+    /// No browser reminders from `quiet_from` to `quiet_to` (`HH:MM`, may wrap midnight).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub quiet_from: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub quiet_to: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub time_targets: Option<TimeTargets>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub reduce_motion: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub editor_ligatures: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub editor_minimap: Option<bool>,
+    /// 2 or 4 spaces.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub editor_indent: Option<u32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub editor_format_on_save: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub editor_run_on_save: Option<bool>,
+    #[serde(deserialize_with = "present", skip_serializing_if = "Option::is_none")]
+    pub goal: Option<Option<Goal>>,
+    /// YYYY-MM-DD the plan was made.
+    #[serde(deserialize_with = "present", skip_serializing_if = "Option::is_none")]
+    pub plan_started_at: Option<Option<String>>,
+    /// Finished or skipped onboarding.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub onboarded: Option<bool>,
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Settings {
@@ -188,6 +302,8 @@ pub struct Settings {
     pub days_off: Vec<String>,
     /// Calendar-feed reminder lead time; `None` for no alarm.
     pub reminder_minutes: Option<u32>,
+    #[serde(flatten)]
+    pub extra: Extra,
 }
 
 impl Default for Settings {
@@ -206,6 +322,7 @@ impl Default for Settings {
             availability: Vec::new(),
             days_off: Vec::new(),
             reminder_minutes: Some(15),
+            extra: Extra::default(),
         }
     }
 }
@@ -233,11 +350,34 @@ pub struct SettingsPatch {
     pub days_off: Option<Vec<String>>,
     #[serde(default, deserialize_with = "present")]
     pub reminder_minutes: Option<Option<u32>>,
+    pub night_flavor: Option<NightFlavor>,
+    pub accent: Option<Accent>,
+    #[serde(default, deserialize_with = "present")]
+    pub weekend_minutes: Option<Option<u32>>,
+    pub day_minutes: Option<BTreeMap<String, u32>>,
+    pub moves: Option<Vec<Move>>,
+    pub reminder_time: Option<String>,
+    pub reminder_lead: Option<u32>,
+    pub quiet_from: Option<String>,
+    pub quiet_to: Option<String>,
+    pub time_targets: Option<TimeTargets>,
+    pub reduce_motion: Option<bool>,
+    pub editor_ligatures: Option<bool>,
+    pub editor_minimap: Option<bool>,
+    pub editor_indent: Option<u32>,
+    pub editor_format_on_save: Option<bool>,
+    pub editor_run_on_save: Option<bool>,
+    #[serde(default, deserialize_with = "present")]
+    pub goal: Option<Option<Goal>>,
+    #[serde(default, deserialize_with = "present")]
+    pub plan_started_at: Option<Option<String>>,
+    pub onboarded: Option<bool>,
 }
 
 impl Settings {
     pub fn apply(&self, patch: SettingsPatch) -> Result<Settings, String> {
         let mut s = self.clone();
+        s.extra = self.extra.apply(&patch)?;
         if let Some(v) = patch.theme {
             s.theme = v;
         }
@@ -319,6 +459,126 @@ impl Settings {
     }
 }
 
+fn valid_clock(s: &str) -> bool {
+    planner::parse_hhmm(s, false).is_some()
+}
+
+impl Extra {
+    fn apply(&self, p: &SettingsPatch) -> Result<Extra, String> {
+        let mut x = self.clone();
+        if let Some(v) = p.night_flavor {
+            x.night_flavor = v;
+        }
+        if let Some(v) = p.accent {
+            x.accent = v;
+        }
+        if let Some(v) = p.weekend_minutes {
+            if v.is_some_and(|m| !DAILY_MINUTES.contains(&m)) {
+                return Err(format!(
+                    "weekend_minutes must be in {DAILY_MINUTES:?} or null"
+                ));
+            }
+            x.weekend_minutes = Some(v);
+        }
+        if let Some(v) = p.day_minutes.clone() {
+            if v.len() > MAX_DAY_BUDGETS {
+                return Err(format!("at most {MAX_DAY_BUDGETS} day_minutes"));
+            }
+            if !v
+                .iter()
+                .all(|(d, m)| valid_date(d) && DAY_BUDGET_MINUTES.contains(m))
+            {
+                return Err(format!(
+                    "day_minutes must map YYYY-MM-DD to minutes in {DAY_BUDGET_MINUTES:?}"
+                ));
+            }
+            x.day_minutes = Some(v);
+        }
+        if let Some(v) = p.moves.clone() {
+            if v.len() > MAX_MOVES {
+                return Err(format!("at most {MAX_MOVES} moves"));
+            }
+            let ok = |m: &Move| {
+                valid_date(&m.from)
+                    && valid_date(&m.to)
+                    && valid_clock(&m.from_start)
+                    && valid_clock(&m.to_start)
+                    && MOVE_MINUTES.contains(&m.minutes)
+            };
+            if !v.iter().all(ok) {
+                return Err(format!(
+                    "moves need YYYY-MM-DD dates, HH:MM starts and minutes in {MOVE_MINUTES:?}"
+                ));
+            }
+            x.moves = Some(v);
+        }
+        for (name, v, slot) in [
+            (
+                "reminder_time",
+                p.reminder_time.clone(),
+                &mut x.reminder_time,
+            ),
+            ("quiet_from", p.quiet_from.clone(), &mut x.quiet_from),
+            ("quiet_to", p.quiet_to.clone(), &mut x.quiet_to),
+        ] {
+            if let Some(v) = v {
+                if !valid_clock(&v) {
+                    return Err(format!("{name} must be HH:MM"));
+                }
+                *slot = Some(v);
+            }
+        }
+        if let Some(v) = p.reminder_lead {
+            if !REMINDER_MINUTES.contains(&v) {
+                return Err(format!("reminder_lead must be in {REMINDER_MINUTES:?}"));
+            }
+            x.reminder_lead = Some(v);
+        }
+        if let Some(v) = p.time_targets {
+            if ![v.easy, v.medium, v.hard]
+                .iter()
+                .all(|m| TIME_TARGET_MINUTES.contains(m))
+            {
+                return Err(format!(
+                    "time_targets must be minutes in {TIME_TARGET_MINUTES:?}"
+                ));
+            }
+            x.time_targets = Some(v);
+        }
+        if let Some(v) = p.editor_indent {
+            if v != 2 && v != 4 {
+                return Err("editor_indent must be 2 or 4".to_string());
+            }
+            x.editor_indent = Some(v);
+        }
+        if let Some(v) = p.plan_started_at.clone() {
+            if v.as_deref().is_some_and(|d| !valid_date(d)) {
+                return Err("plan_started_at must be YYYY-MM-DD or null".to_string());
+            }
+            x.plan_started_at = Some(v);
+        }
+        for (v, slot) in [
+            (p.reduce_motion, &mut x.reduce_motion),
+            (p.editor_ligatures, &mut x.editor_ligatures),
+            (p.editor_minimap, &mut x.editor_minimap),
+            (p.editor_format_on_save, &mut x.editor_format_on_save),
+            (p.editor_run_on_save, &mut x.editor_run_on_save),
+            (p.onboarded, &mut x.onboarded),
+        ] {
+            if v.is_some() {
+                *slot = v;
+            }
+        }
+        if let Some(v) = p.goal {
+            x.goal = Some(v);
+        }
+        if serde_json::to_string(&x).map_or(usize::MAX, |j| j.len()) > MAX_EXTRA_BYTES {
+            return Err(format!("settings are over {MAX_EXTRA_BYTES} bytes"));
+        }
+        Ok(x)
+    }
+}
+
 /// Company slugs are playlist ids without the `NNN_` prefix, so `_` is allowed
 /// (`salesforce_slack`).
 fn valid_slug(s: &str, max: usize) -> bool {
@@ -360,8 +620,10 @@ impl Theme {
     pub fn as_str(self) -> &'static str {
         match self {
             Theme::System => "system",
-            Theme::Light => "light",
-            Theme::Dark => "dark",
+            Theme::Latte => "latte",
+            Theme::Frappe => "frappe",
+            Theme::Macchiato => "macchiato",
+            Theme::Mocha => "mocha",
         }
     }
 }
@@ -394,6 +656,8 @@ pub struct SettingsRow {
     /// JSON array of dates.
     pub days_off: String,
     pub reminder_minutes: Option<u32>,
+    /// JSON object of [`Extra`].
+    pub extra: String,
 }
 
 impl SettingsRow {
@@ -412,6 +676,7 @@ impl SettingsRow {
             availability: serde_json::from_str(&self.availability).unwrap_or_default(),
             days_off: serde_json::from_str(&self.days_off).unwrap_or_default(),
             reminder_minutes: self.reminder_minutes,
+            extra: serde_json::from_str(&self.extra).unwrap_or_default(),
         }
     }
 }
@@ -617,11 +882,17 @@ mod tests {
                 "interview_date":null,"target_companies":"[\"google\"]","reminders":1,"public_profile":0,
                 "daily_minutes":90,"session_minutes":30,
                 "availability":"[{\"days\":[\"sat\"],\"start\":\"10:00\",\"end\":\"12:00\"}]",
-                "days_off":"[]","reminder_minutes":null}"#,
+                "days_off":"[]","reminder_minutes":null,
+                "extra":"{\"accent\":\"teal\",\"weekend_minutes\":null,\"moves\":[]}"}"#,
         )
         .unwrap();
         let s = row.into_settings();
-        assert_eq!(s.theme.as_str(), "dark");
+        assert_eq!(s.theme.as_str(), "mocha", "legacy dark reads as mocha");
+        assert_eq!(s.extra.accent, Accent::Teal);
+        assert_eq!(s.extra.night_flavor, NightFlavor::Mocha);
+        assert_eq!(s.extra.weekend_minutes, Some(None));
+        assert_eq!(s.extra.moves, Some(Vec::new()));
+        assert_eq!(s.extra.day_minutes, None);
         assert_eq!(s.editor_keymap.as_str(), "vim");
         assert_eq!(s.target_companies, vec!["google".to_string()]);
         assert!(s.reminders && !s.public_profile);
@@ -630,6 +901,120 @@ mod tests {
             (90, 30, None)
         );
         assert_eq!(s.availability[0].days, vec!["sat".to_string()]);
+    }
+
+    #[test]
+    fn themes() {
+        let t = |j: &str| serde_json::from_str::<Theme>(j).unwrap();
+        assert_eq!(t(r#""light""#), Theme::Latte);
+        assert_eq!(t(r#""dark""#), Theme::Mocha);
+        for name in ["system", "latte", "frappe", "macchiato", "mocha"] {
+            assert_eq!(t(&format!("\"{name}\"")).as_str(), name);
+        }
+        let base = Settings::default();
+        let s = base
+            .apply(patch(
+                r#"{"theme":"frappe","night_flavor":"macchiato","accent":"lavender"}"#,
+            ))
+            .unwrap();
+        assert_eq!(
+            (s.theme, s.extra.night_flavor, s.extra.accent),
+            (Theme::Frappe, NightFlavor::Macchiato, Accent::Lavender)
+        );
+        for bad in [
+            r#"{"night_flavor":"latte"}"#,
+            r#"{"accent":"purple"}"#,
+            r#"{"theme":"neon"}"#,
+        ] {
+            assert!(serde_json::from_str::<SettingsPatch>(bad).is_err(), "{bad}");
+        }
+        let v = serde_json::to_value(&base).unwrap();
+        assert_eq!(
+            (v["night_flavor"].as_str(), v["accent"].as_str()),
+            (Some("mocha"), Some("mauve"))
+        );
+    }
+
+    #[test]
+    fn extra_settings_merge_and_round_trip() {
+        let base = Settings::default();
+        let fresh = serde_json::to_value(&base).unwrap();
+        assert!(
+            fresh.get("weekend_minutes").is_none() && fresh.get("moves").is_none(),
+            "unset fields are absent so a device keeps its own value"
+        );
+        let s = base
+            .apply(patch(
+                r#"{"weekend_minutes":120,"day_minutes":{"2026-11-16":30},
+                    "moves":[{"from":"2026-11-17","from_start":"19:00","to":"2026-11-19","to_start":"07:00","minutes":60}],
+                    "reminder_time":"19:00","reminder_lead":10,"quiet_from":"23:00","quiet_to":"08:00",
+                    "time_targets":{"easy":15,"medium":25,"hard":40},"reduce_motion":true,
+                    "editor_ligatures":false,"editor_minimap":true,"editor_indent":2,
+                    "editor_format_on_save":false,"editor_run_on_save":true,
+                    "goal":"coop","plan_started_at":"2026-11-01","onboarded":true}"#,
+            ))
+            .unwrap();
+        assert_eq!(s.extra.weekend_minutes, Some(Some(120)));
+        assert_eq!(s.extra.goal, Some(Some(Goal::Coop)));
+        let cleared = s
+            .apply(patch(r#"{"weekend_minutes":null,"goal":null}"#))
+            .unwrap();
+        assert_eq!(
+            (cleared.extra.weekend_minutes, cleared.extra.goal),
+            (Some(None), Some(None))
+        );
+        assert_eq!(cleared.extra.moves, s.extra.moves, "untouched fields kept");
+        // Stored as the `extra` column and read back unchanged.
+        let stored = serde_json::to_string(&s.extra).unwrap();
+        assert_eq!(serde_json::from_str::<Extra>(&stored).unwrap(), s.extra);
+        // The planner reads the flattened settings as they are.
+        let p: myleet_core::planner::Settings =
+            serde_json::from_value(serde_json::to_value(&s).unwrap()).unwrap();
+        assert_eq!(p.weekend_minutes, Some(120));
+        assert_eq!(p.day_minutes.get("2026-11-16"), Some(&30));
+        assert_eq!(p.moves.len(), 1);
+    }
+
+    #[test]
+    fn extra_settings_validate() {
+        let base = Settings::default();
+        let mv = |from_start: &str, minutes: u32| {
+            format!(
+                r#"{{"moves":[{{"from":"2026-11-17","from_start":"{from_start}","to":"2026-11-19","to_start":"07:00","minutes":{minutes}}}]}}"#
+            )
+        };
+        let many_days: BTreeMap<String, u32> = (0..=MAX_DAY_BUDGETS)
+            .map(|i| (format!("2027-{:02}-{:02}", i / 28 + 1, i % 28 + 1), 30))
+            .collect();
+        let many_moves = format!(
+            r#"{{"moves":[{}]}}"#,
+            vec![r#"{"from":"2026-11-17","from_start":"19:00","to":"2026-11-19","to_start":"07:00","minutes":60}"#; MAX_MOVES + 1].join(",")
+        );
+        for bad in [
+            r#"{"weekend_minutes":5}"#.to_string(),
+            r#"{"day_minutes":{"2026-02-30":30}}"#.to_string(),
+            r#"{"day_minutes":{"2026-11-16":601}}"#.to_string(),
+            serde_json::json!({ "day_minutes": many_days }).to_string(),
+            mv("25:00", 60),
+            mv("19:00", 0),
+            many_moves,
+            r#"{"reminder_time":"7pm"}"#.to_string(),
+            r#"{"quiet_to":"24:00"}"#.to_string(),
+            r#"{"reminder_lead":2000}"#.to_string(),
+            r#"{"time_targets":{"easy":0,"medium":25,"hard":40}}"#.to_string(),
+            r#"{"editor_indent":3}"#.to_string(),
+            r#"{"plan_started_at":"soon"}"#.to_string(),
+        ] {
+            assert!(base.apply(patch(&bad)).is_err(), "{bad}");
+        }
+        for bad in [
+            r#"{"goal":"phd"}"#,
+            r#"{"time_targets":{"easy":1,"medium":2}}"#,
+            r#"{"moves":[{"from":"2026-11-17"}]}"#,
+        ] {
+            assert!(serde_json::from_str::<SettingsPatch>(bad).is_err(), "{bad}");
+        }
+        assert!(base.apply(patch(&mv("19:00", 45))).is_ok());
     }
 
     #[test]

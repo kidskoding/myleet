@@ -21,6 +21,8 @@ const STATEMENT_KEY_PREFIX: &str = "stmt:v1:";
 const USER_AGENT: &str = "myleet (personal study tool)";
 const USER_ID_BYTES: usize = 16;
 const SMALL_BODY_BYTES: usize = 16 * 1024;
+/// Settings carry plan overrides (moves, one-day budgets) on top of the profile.
+const ME_BODY_BYTES: usize = 64 * 1024;
 const PUBLIC_PROFILE_MAX_AGE: &str = "public, max-age=300";
 
 struct App {
@@ -795,7 +797,7 @@ async fn load_settings(db: &D1Database, user_id: &str) -> Result<Settings> {
         .prepare(
             "SELECT theme, editor_keymap, editor_font_size, new_per_day, interview_date, \
              target_companies, reminders, public_profile, daily_minutes, session_minutes, \
-             availability, days_off, reminder_minutes FROM user_settings WHERE user_id = ?1",
+             availability, days_off, reminder_minutes, extra FROM user_settings WHERE user_id = ?1",
         )
         .bind(&[text(user_id)])?
         .first(None)
@@ -845,8 +847,8 @@ fn settings_upsert(
     db.prepare(
         "INSERT INTO user_settings (user_id, theme, editor_keymap, editor_font_size, new_per_day, \
            interview_date, target_companies, reminders, public_profile, updated_at, \
-           daily_minutes, session_minutes, availability, days_off, reminder_minutes) \
-         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15) \
+           daily_minutes, session_minutes, availability, days_off, reminder_minutes, extra) \
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16) \
          ON CONFLICT (user_id) DO UPDATE SET theme = excluded.theme, \
            editor_keymap = excluded.editor_keymap, editor_font_size = excluded.editor_font_size, \
            new_per_day = excluded.new_per_day, interview_date = excluded.interview_date, \
@@ -854,7 +856,7 @@ fn settings_upsert(
            public_profile = excluded.public_profile, updated_at = excluded.updated_at, \
            daily_minutes = excluded.daily_minutes, session_minutes = excluded.session_minutes, \
            availability = excluded.availability, days_off = excluded.days_off, \
-           reminder_minutes = excluded.reminder_minutes",
+           reminder_minutes = excluded.reminder_minutes, extra = excluded.extra",
     )
     .bind(&[
         text(user_id),
@@ -873,12 +875,13 @@ fn settings_upsert(
         text(&serde_json::to_string(&s.days_off)?),
         s.reminder_minutes
             .map_or(JsValue::NULL, |m| num(u64::from(m))),
+        text(&serde_json::to_string(&s.extra)?),
     ])
 }
 
 async fn patch_me(req: &mut Request, app: &App) -> Result<Response> {
     let c = signed_in!(req, app);
-    let patch: MePatch = match read_json(req, SMALL_BODY_BYTES).await? {
+    let patch: MePatch = match read_json(req, ME_BODY_BYTES).await? {
         Ok(p) => p,
         Err(res) => return Ok(res),
     };
@@ -1048,13 +1051,16 @@ struct ProgressRow {
     events_jsonl: String,
     version: i64,
     updated_at: u64,
+    notes_json: Option<String>,
 }
 
 async fn load_progress(db: &D1Database, user_id: &str) -> Result<Option<ProgressRow>> {
-    db.prepare("SELECT events_jsonl, version, updated_at FROM progress WHERE user_id = ?1")
-        .bind(&[text(user_id)])?
-        .first(None)
-        .await
+    db.prepare(
+        "SELECT events_jsonl, version, updated_at, notes_json FROM progress WHERE user_id = ?1",
+    )
+    .bind(&[text(user_id)])?
+    .first(None)
+    .await
 }
 
 async fn get_progress(req: &Request, app: &App) -> Result<Response> {
@@ -1062,7 +1068,7 @@ async fn get_progress(req: &Request, app: &App) -> Result<Response> {
     match load_progress(&app.db()?, &c.user_id).await? {
         Some(row) => json(&row, 200),
         None => json(
-            &serde_json::json!({"events_jsonl": "", "version": 0, "updated_at": null}),
+            &serde_json::json!({"events_jsonl": "", "version": 0, "updated_at": null, "notes_json": null}),
             200,
         ),
     }
@@ -1093,12 +1099,14 @@ async fn put_progress(req: &mut Request, app: &App) -> Result<Response> {
         text(&put.events_jsonl),
         num(now),
         opt_text(summary.as_deref()),
+        opt_text(put.notes_json.as_deref()),
     ];
     let statement = match sync::plan(put.base_version) {
         Write::Insert => db
             .prepare(
-                "INSERT INTO progress (user_id, events_jsonl, version, updated_at, summary_json) \
-                 VALUES (?1, ?2, 1, ?3, ?4) ON CONFLICT (user_id) DO NOTHING",
+                "INSERT INTO progress (user_id, events_jsonl, version, updated_at, summary_json, \
+                   notes_json) \
+                 VALUES (?1, ?2, 1, ?3, ?4, ?5) ON CONFLICT (user_id) DO NOTHING",
             )
             .bind(&binds)?,
         Write::Update { expected } => {
@@ -1106,8 +1114,8 @@ async fn put_progress(req: &mut Request, app: &App) -> Result<Response> {
             binds.push(JsValue::from_f64(expected as f64));
             db.prepare(
                 "UPDATE progress SET events_jsonl = ?2, version = version + 1, updated_at = ?3, \
-                   summary_json = COALESCE(?4, summary_json) \
-                 WHERE user_id = ?1 AND version = ?5",
+                   summary_json = COALESCE(?4, summary_json), notes_json = COALESCE(?5, notes_json) \
+                 WHERE user_id = ?1 AND version = ?6",
             )
             .bind(&binds)?
         }
