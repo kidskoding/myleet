@@ -1,5 +1,5 @@
 //! The placement warm-up: one easy problem per core topic, timed, then a
-//! reveal of where to start. Ported from internal/tui/placement.go.
+//! reveal of where to start.
 //!
 //! Go embeds every problem's `*Focus` and reads its fields. Here the round
 //! opens one problem at a time through `screens::new_focus` (the round is

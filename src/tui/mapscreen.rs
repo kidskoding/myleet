@@ -1,5 +1,5 @@
 //! The map tab (guide notes, then modules, techniques and problems in drill-down
-//! columns) and the notes reader it opens. Ported from internal/tui/mapscreen.go.
+//! columns) and the notes reader it opens.
 
 use std::cell::{Cell, RefCell};
 use std::collections::HashMap;

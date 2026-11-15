@@ -1,4 +1,4 @@
-//! Test fixtures mirroring `internal/testutil`.
+//! Shared test fixtures.
 
 use std::collections::BTreeMap;
 use std::io::{BufRead, BufReader, Read, Write};

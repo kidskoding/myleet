@@ -1,6 +1,5 @@
 //! The timed tab's mock interview and Today's module check-in: a setup card,
 //! a round over several embedded Focus screens, then a self-check and reveal.
-//! Ported from internal/tui/interview.go.
 //!
 //! Unlike placement, the round keeps every problem open at once (the learner
 //! switches between them), so it owns concrete `Focus` values and reads their

@@ -1,6 +1,5 @@
 //! The playlists tab: company playlists under their group headers with progress;
-//! tracked entries open the problem, the rest open in the browser. Ported from
-//! internal/tui/playlists.go.
+//! tracked entries open the problem, the rest open in the browser.
 
 use std::cell::Cell;
 use std::collections::HashMap;

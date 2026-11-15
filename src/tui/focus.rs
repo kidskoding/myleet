@@ -1,5 +1,4 @@
 //! The problem screen: statement, timer, tests, hints and the attempt's events.
-//! Ported from internal/tui/focus.go.
 
 use std::cell::{Cell, RefCell};
 use std::collections::BTreeMap;

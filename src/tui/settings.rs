@@ -1,6 +1,5 @@
 //! The stats tab: overview, a heatmap of passes, the weakest techniques, a
 //! getting-started note for new learners, and a reset behind two confirms.
-//! Ported from internal/tui/settings.go.
 
 use std::cell::Cell;
 

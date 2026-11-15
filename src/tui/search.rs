@@ -1,5 +1,5 @@
 //! Search over problems, companies, topics and notes, pushed by `/` and
-//! `ctrl+k`. Ported from internal/tui/search.go.
+//! `ctrl+k`.
 
 use std::cell::{Cell, RefCell};
 use std::collections::{HashMap, HashSet};

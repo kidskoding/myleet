@@ -1,5 +1,5 @@
 //! The Today tab: the personalized queue, progress, check-ins, and the
-//! first-run placement gate. Ported from internal/tui/home.go.
+//! first-run placement gate.
 
 use std::cell::Cell;
 use std::collections::HashMap;

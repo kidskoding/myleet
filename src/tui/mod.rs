@@ -1,4 +1,4 @@
-//! The interactive trainer: ratatui + crossterm port of internal/tui.
+//! The interactive trainer, drawn with ratatui on crossterm.
 
 pub mod app;
 #[cfg(test)]

@@ -1,5 +1,5 @@
-//! The `/` list filter and the fuzzy matcher behind it and search. Ported from
-//! internal/tui/filter.go; `find` is a port of github.com/sahilm/fuzzy so ranks
+//! The `/` list filter and the fuzzy matcher behind it and search. `find` is a
+//! port of github.com/sahilm/fuzzy so ranks
 //! and matched indexes (which search's `compact` check reads) stay the same.
 
 use ratatui::text::{Line, Span};

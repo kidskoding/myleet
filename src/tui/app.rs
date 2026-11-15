@@ -1,5 +1,5 @@
 //! The app frame: a stack of screens under a tab bar, with a key bar, toast,
-//! status line and help modal. Ported from internal/tui/app.go.
+//! status line and help modal.
 
 use std::any::Any;
 use std::path::Path;
