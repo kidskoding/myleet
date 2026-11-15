@@ -13,6 +13,7 @@ pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
     match i {
         1 => return Box::new(super::mapscreen::MapScreen::new()),
         3 => return Box::new(super::playlists::Playlists::new()),
+        4 => return Box::new(super::settings::Settings::new()),
         _ => {}
     }
     Box::new(Placeholder {

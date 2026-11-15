@@ -10,6 +10,7 @@ pub mod markdown;
 pub mod playlists;
 pub mod screens;
 pub mod search;
+pub mod settings;
 pub mod theme;
 pub mod ui;
 pub mod widgets;
