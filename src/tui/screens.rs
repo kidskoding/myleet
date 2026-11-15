@@ -10,11 +10,14 @@ use super::widgets::indent;
 /// The root screen for tab i (0 today, 1 map, 2 timed, 3 playlists, 4 stats).
 pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
     let i = if i < TAB_NAMES.len() { i } else { 0 };
-    Box::new(Placeholder {
-        title: TAB_NAMES[i].into(),
-        tab: Some(i),
-        kind: if i == 0 { Kind::Home } else { Kind::Other },
-    })
+    match i {
+        0 => Box::new(super::home::Home::new()),
+        _ => Box::new(Placeholder {
+            title: TAB_NAMES[i].into(),
+            tab: Some(i),
+            kind: Kind::Other,
+        }),
+    }
 }
 
 /// The screen `/` and `ctrl+k` push.

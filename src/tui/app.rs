@@ -625,7 +625,8 @@ mod tests {
     }
 
     fn app() -> App {
-        App::new(test_shared())
+        // Past the placement gate, which hides search, like Go's homeModel.
+        App::new(crate::tui::home::fixtures::home_shared(Vec::new()))
     }
 
     fn send(app: &mut App, keys: &[&str]) {

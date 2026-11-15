@@ -2,7 +2,9 @@
 
 pub mod app;
 mod help;
+pub mod home;
 pub mod markdown;
+pub mod placement;
 pub mod screens;
 pub mod theme;
 pub mod ui;
