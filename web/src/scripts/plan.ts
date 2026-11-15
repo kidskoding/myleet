@@ -1123,11 +1123,12 @@ function applyMove(id: string, to: string, start: number): void {
   updatePrefs({ plan: { moves: next } });
   replan();
   // The inspector follows the session to where it landed.
-  const landed = ctx?.plan.days.find((x) => x.date === to)?.sessions.find((x) => minuteOf(x.start_ms) === start);
+  const toDay = ctx?.plan.days.find((x) => x.date === to);
+  const landed = toDay?.sessions.find((x) => minuteOf(x.start_ms) === start) ?? toDay?.sessions.find((x) => x.moved_from);
   if (openPopId && landed) openPop(landed.id, { focus: false });
   const after = ctx?.plan.days.find((x) => x.date === to)?.sessions.flatMap((x) => x.items).filter((i) => i.kind === "review").length ?? 0;
   const fit = after >= reviewsBefore ? "Reviews due that day still fit" : `${plural(reviewsBefore - after, "review")} moved to the next day`;
-  const msg = `Moved to ${dayName(to)}, ${clock(start)}. ${fit}`;
+  const msg = `Moved to ${dayName(to)}, ${clock(landed ? minuteOf(landed.start_ms) : start)}. ${fit}`;
   say(msg);
   toast(msg, { ms: 8000, action: { label: "Undo", run: () => updatePrefs({ plan: { moves: prev } }) } });
 }

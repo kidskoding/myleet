@@ -1206,45 +1206,64 @@ fn build(
     while day < end {
         let off = days_off.contains(&day);
         let mut windows: Vec<(u32, u32)> = Vec::new();
+        // Moved blocks, packed apart from the usual windows.
+        let mut moved_wins: Vec<(u32, u32)> = Vec::new();
         let mut moved_in: Vec<(u32, u32, Date)> = Vec::new();
         let mut cap = edits
             .caps
             .get(&day)
             .copied()
             .unwrap_or(settings.budget_on(day).min(DAY_MINUTES));
+        let mut full_windows = Vec::new();
         if !off {
+            let mut moved = Vec::new();
             for &(_, s, e, from) in edits.added.iter().filter(|a| a.0 == day) {
                 moved_in.push((s, e, from));
-                windows.push((s, e));
+                moved.push((s, e));
                 cap += e - s;
             }
+            let moved = merge(moved);
             let mut base = week[day.weekday().to_monday_zero_offset() as usize].clone();
+            let mut gaps = Vec::new();
             for &(_, s, e) in edits.removed.iter().filter(|r| r.0 == day) {
                 base = subtract(&base, s, e);
                 cap = cap.saturating_sub(e - s);
+                gaps.push((e, e + BREAK_MINUTES));
             }
-            windows.extend(base);
-            windows = merge(windows);
+            full_windows = merge(moved.iter().copied().chain(base.iter().copied()).collect());
+            full_windows.sort();
+            // A moved block keeps the time it was dropped on: it packs on its own, and the usual
+            // windows give way around it (a break each side) and after a vacated block, so
+            // sessions that don't overlap either keep their times.
+            gaps.extend(
+                moved
+                    .iter()
+                    .map(|&(s, e)| (s.saturating_sub(BREAK_MINUTES), e + BREAK_MINUTES)),
+            );
+            for (s, e) in gaps {
+                base = subtract(&base, s, e.min(DAY_MINUTES));
+            }
+            moved_wins = moved;
+            windows = merge(base);
         } else {
             cap = 0;
         }
-        let full_windows = {
-            let mut w = windows.clone();
-            w.sort();
-            w
-        };
         let day_cap = cap;
         if day == today {
-            windows = windows
-                .into_iter()
-                .filter_map(|(s, e)| (s.max(now_minute) < e).then_some((s.max(now_minute), e)))
-                .collect();
+            let clip = |ws: Vec<(u32, u32)>| -> Vec<(u32, u32)> {
+                ws.into_iter()
+                    .filter_map(|(s, e)| (s.max(now_minute) < e).then_some((s.max(now_minute), e)))
+                    .collect()
+            };
+            windows = clip(windows);
+            moved_wins = clip(moved_wins);
             cap = cap.saturating_sub(used_today);
         }
-        cap = cap.min(windows.iter().map(|(s, e)| e - s).sum());
+        let moved_room: u32 = moved_wins.iter().map(|(s, e)| e - s).sum();
+        let room: u32 = windows.iter().map(|(s, e)| e - s).sum::<u32>() + moved_room;
+        cap = cap.min(room);
         let mut chosen: Vec<Chosen> = Vec::new();
         let mut used = 0;
-        let room: u32 = windows.iter().map(|(s, e)| e - s).sum();
         // The first item of a day may run past the budget, or a long problem could
         // never be planned on a short budget.
         let fits = |used: u32, m: u32| used + m <= cap || (used == 0 && cap > 0 && m <= room);
@@ -1498,7 +1517,24 @@ fn build(
 
         // Pack into sessions; only what fits takes effect, the rest rolls forward.
         let minutes: Vec<u32> = chosen.iter().map(|ch| ch.item.minutes).collect();
-        let (slots, fitted) = pack(&windows, &minutes, session_minutes);
+        // The moved blocks hold the trailing items that fit them (at least one), and the usual
+        // windows the leading ones, as they would without the move, so their sessions keep their times.
+        let mut split = minutes.len();
+        if !moved_wins.is_empty() {
+            let mut tail = 0;
+            while split > 0 && (split == minutes.len() || tail + minutes[split - 1] <= moved_room) {
+                tail += minutes[split - 1];
+                split -= 1;
+            }
+        }
+        let (mut slots, fitted) = pack(&windows, &minutes[..split], session_minutes);
+        let (more, extra) = pack(&moved_wins, &minutes[fitted..], session_minutes);
+        slots.extend(
+            more.into_iter()
+                .map(|(s, e, idx)| (s, e, idx.into_iter().map(|i| i + fitted).collect())),
+        );
+        slots.sort_by_key(|s| s.0);
+        let fitted = fitted + extra;
         let mut chosen: Vec<Option<Chosen>> = chosen.into_iter().map(Some).collect();
         for ch in chosen.iter_mut().skip(fitted).rev() {
             if let Some(Chosen {
@@ -2734,6 +2770,67 @@ mod tests {
             }
         );
         assert!(thu.sessions.iter().skip(1).all(|s| s.moved_from.is_none()));
+    }
+
+    #[test]
+    fn a_dropped_block_keeps_its_time_and_the_rest_stay_put() {
+        let wins = r#""availability":[{"days":["mon","tue","wed","thu","fri"],"start":"18:00","end":"22:00"}]"#;
+        let with = |mv: &str| settings(&format!(r#"{{"daily_minutes":120,{mv}{wins}}}"#));
+        let tue = |p: &Plan| {
+            p.days
+                .iter()
+                .find(|x| x.date == "2026-11-17")
+                .unwrap()
+                .clone()
+        };
+        let before = tue(&run(&[], &with(""), at(11, 14, 8)));
+        assert_eq!(before.sessions[0].start_ms, at(11, 17, 18).as_millisecond());
+        assert!(before.sessions.len() > 1);
+        // Monday's 18:00 block goes to Tuesday 21:00, after Tuesday's own sessions end.
+        let drop_at = |hhmm: &str| {
+            let mv = format!(
+                r#""moves":[{{"from":"2026-11-16","from_start":"18:00","to":"2026-11-17","to_start":"{hhmm}","minutes":25}}],"#
+            );
+            tue(&run(&[], &with(&mv), at(11, 14, 8)))
+        };
+        let late = drop_at("21:00");
+        let landed = late
+            .sessions
+            .iter()
+            .find(|s| s.moved_from.is_some())
+            .unwrap();
+        assert_eq!(
+            landed.start_ms,
+            at(11, 17, 21).as_millisecond(),
+            "lands on the dropped time"
+        );
+        let own: Vec<_> = late
+            .sessions
+            .iter()
+            .filter(|s| s.moved_from.is_none())
+            .collect();
+        assert!(!own.is_empty());
+        assert!(
+            own.iter()
+                .all(|s| before.sessions.iter().any(|b| b.start_ms == s.start_ms)),
+            "Tuesday's other sessions keep their times"
+        );
+        // Dropped at 19:30, inside the window: lands at 19:30 and the 18:00 session stays.
+        let mid = drop_at("19:30");
+        let landed = mid
+            .sessions
+            .iter()
+            .find(|s| s.moved_from.is_some())
+            .unwrap();
+        assert_eq!(
+            landed.start_ms,
+            at(11, 17, 19).as_millisecond() + 30 * 60_000
+        );
+        assert_eq!(mid.sessions[0].start_ms, at(11, 17, 18).as_millisecond());
+        assert_eq!(
+            mid.windows, before.windows,
+            "the window still shows unbroken"
+        );
     }
 
     #[test]
