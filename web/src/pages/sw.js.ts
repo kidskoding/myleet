@@ -72,6 +72,18 @@ async function staleWhileRevalidate(req, name, e) {
   return net;
 }
 
+// Data changes with every deploy, so a cached copy would show last deploy's companies and problems.
+async function networkFirst(req, name) {
+  const cache = await caches.open(name);
+  try {
+    const res = await fetch(req);
+    if (res.ok) cache.put(req, res.clone());
+    return res;
+  } catch {
+    return (await cache.match(req)) || Response.error();
+  }
+}
+
 async function page(req) {
   const shell = await caches.open(SHELL);
   try {
@@ -99,7 +111,7 @@ self.addEventListener("fetch", (e) => {
     if (req.mode === "navigate") return e.respondWith(page(req));
     if (url.pathname.startsWith("/_astro/")) return e.respondWith(cacheFirst(req, STATIC));
     if (url.pathname.startsWith("/data/") || url.pathname === "/palette-index.json" || url.pathname === "/runner-lib.json")
-      return e.respondWith(staleWhileRevalidate(req, DATA, e));
+      return e.respondWith(networkFirst(req, DATA));
     return e.respondWith(staleWhileRevalidate(req, SHELL, e));
   }
   // Pyodide, its wheels and other versioned CDN files never change at a given URL.
