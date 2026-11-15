@@ -11,7 +11,7 @@ use myleet_core::catalog::{Catalog, Difficulty, Module};
 use myleet_core::placement::{self, ItemResult};
 use myleet_core::progress::{self, Event, kind, mode};
 use myleet_core::schedule::{self, Attempt, State, Status};
-use myleet_core::{checkpoint, godur, interview, savestate, session, stats};
+use myleet_core::{checkpoint, godur, ical, interview, planner, savestate, session, skills, stats};
 use serde::Deserialize;
 use serde_json::{Value, json};
 use wasm_bindgen::prelude::*;
@@ -169,12 +169,102 @@ impl Trainer {
                     "index": it.problem.order,
                     "kind": it.kind.as_str(),
                     "reason": it.reason.map(|r| r.as_str()),
+                    "why": it.why,
                     "overdue_days": it.overdue_days,
                     "state": state_json(&it.state),
                 })
             })
             .collect();
         Ok(json!(out).to_string())
+    }
+
+    fn plan_json(&self, jsonl: &str, settings_json: &str, now_ms: f64, tz: &str) -> Res {
+        let zone = zone(tz)?;
+        let settings = parse_settings(settings_json)?;
+        let name = if tz.is_empty() {
+            zone.iana_name().unwrap_or_default().to_string()
+        } else {
+            tz.to_string()
+        };
+        let p = planner::plan(
+            &self.catalog,
+            &events(jsonl),
+            &settings,
+            instant(now_ms)?,
+            &zone,
+            &name,
+        )?;
+        serde_json::to_string(&p).map_err(|e| e.to_string())
+    }
+
+    fn skills_json(&self, jsonl: &str, now_ms: f64, tz: &str, settings_json: &str) -> Res {
+        let tz = zone(tz)?;
+        let settings = parse_settings(settings_json)?;
+        let now = instant(now_ms)?;
+        let evs = events(jsonl);
+        let states = self.compute(&evs, &tz);
+        let report = skills::assess(&self.catalog, &evs, &states, now, &tz);
+        let rel = planner::relevance(&self.catalog, &settings.target_companies);
+        let interview = settings
+            .interview_date
+            .as_deref()
+            .and_then(|d| d.parse().ok());
+        let prox = planner::proximity(schedule::local_day(now, &tz), interview);
+        let max_rel = rel
+            .values()
+            .map(|v| v.iter().map(|x| x.1).sum::<usize>())
+            .max()
+            .unwrap_or(1)
+            .max(1) as f64;
+        let n = report.techniques.len().max(1) as f64;
+        let c = &self.catalog;
+        let techniques: Vec<Value> = report
+            .techniques
+            .iter()
+            .enumerate()
+            .map(|(i, s)| {
+                let m = &c.modules[s.module];
+                let t = &m.techniques[s.technique];
+                let companies = rel.get(&(s.module, s.technique));
+                let r = companies.map_or(0, |v| v.iter().map(|x| x.1).sum::<usize>()) as f64;
+                json!({
+                    "module": m.id,
+                    "module_title": m.title,
+                    "technique": t.id,
+                    "technique_title": t.title,
+                    "mastery": s.mastery,
+                    "confidence": s.confidence,
+                    "trend": s.trend,
+                    "cause": s.cause,
+                    "weak": s.weak(),
+                    "need": s.need(),
+                    "priority": planner::priority(s, r / max_rel, prox, i as f64 / n),
+                    "companies": companies.map_or(vec![], |v| v.iter().map(|x| json!({"company": x.0, "problems": x.1})).collect()),
+                    "seen": s.seen,
+                    "total": s.total,
+                    "evidence": s.evidence,
+                    "actions": s.actions.iter().map(|a| json!({
+                        "kind": a.kind,
+                        "problem": a.problem.map(|i| &c.problems()[i].id),
+                        "note": a.note,
+                        "reason": a.reason,
+                    })).collect::<Vec<_>>(),
+                })
+            })
+            .collect();
+        let modules: Vec<Value> = report
+            .modules
+            .iter()
+            .map(|m| {
+                json!({
+                    "module": c.modules[m.module].id,
+                    "title": c.modules[m.module].title,
+                    "mastery": m.mastery,
+                    "confidence": m.confidence,
+                })
+            })
+            .collect();
+        Ok(json!({"techniques": techniques, "modules": modules}).to_string())
     }
 
     fn states_json(&self, jsonl: &str, tz: &str) -> Res {
@@ -379,6 +469,28 @@ impl Trainer {
         js(self.today_json(events_jsonl, now_ms, tz, new_per_day))
     }
 
+    /// `settings_json` is the account settings object (or `""` for defaults).
+    pub fn plan(
+        &self,
+        events_jsonl: &str,
+        settings_json: &str,
+        now_ms: f64,
+        tz: &str,
+    ) -> Result<String, JsError> {
+        js(self.plan_json(events_jsonl, settings_json, now_ms, tz))
+    }
+
+    /// `settings_json` (or `""`) adds company relevance and date proximity to `priority`.
+    pub fn skills(
+        &self,
+        events_jsonl: &str,
+        now_ms: f64,
+        tz: &str,
+        settings_json: &str,
+    ) -> Result<String, JsError> {
+        js(self.skills_json(events_jsonl, now_ms, tz, settings_json))
+    }
+
     pub fn states(&self, events_jsonl: &str, tz: &str) -> Result<String, JsError> {
         js(self.states_json(events_jsonl, tz))
     }
@@ -432,6 +544,30 @@ impl Trainer {
     ) -> Result<String, JsError> {
         js(self.interview_pick_json(events_jsonl, tz, n, now_ms, seed))
     }
+}
+
+fn parse_settings(json: &str) -> Result<planner::Settings, String> {
+    if json.trim().is_empty() {
+        return Ok(planner::Settings::default());
+    }
+    serde_json::from_str(json).map_err(|e| format!("settings: {e}"))
+}
+
+fn plan_ics_of(plan_json: &str, options_json: &str) -> Res {
+    let plan: planner::Plan = serde_json::from_str(plan_json).map_err(|e| format!("plan: {e}"))?;
+    let opts: ical::IcsOptions = if options_json.trim().is_empty() {
+        ical::IcsOptions::default()
+    } else {
+        serde_json::from_str(options_json).map_err(|e| format!("options: {e}"))?
+    };
+    Ok(ical::render(&plan, &opts))
+}
+
+/// iCalendar text for a `plan()` result; `options_json` is
+/// `{site?, alarm_minutes?: number | null, uid_suffix?, name?}` or `""`.
+#[wasm_bindgen]
+pub fn plan_ics(plan_json: &str, options_json: &str) -> Result<String, JsError> {
+    js(plan_ics_of(plan_json, options_json))
 }
 
 fn event_line_of(
@@ -624,6 +760,58 @@ mod tests {
         let c = parse(&t.checkpoint_json(&(line + "\n")).unwrap());
         assert_eq!(c["result"]["through"], 2);
         assert_eq!(c["result"]["items"][0]["outcome"], "clean");
+    }
+
+    #[test]
+    fn plan_skills_and_ics() {
+        let t = trainer();
+        let now = ms_of("2026-11-14T14:00:00Z");
+        let settings =
+            r#"{"interview_date":"2026-11-28","target_companies":["meta"],"theme":"dark"}"#;
+        let plan = t
+            .plan_json(&passed_two_sum(), settings, now, CHICAGO)
+            .unwrap();
+        let p = parse(&plan);
+        assert_eq!(p["start"], "2026-11-14");
+        assert_eq!(p["tz"], CHICAGO);
+        assert_eq!(p["interview_date"], "2026-11-28");
+        assert!(p["days"].as_array().unwrap().len() == 14);
+        assert!(
+            p["summary"]["headline"]
+                .as_str()
+                .unwrap()
+                .starts_with("14 days to Nov 28")
+        );
+        assert!(
+            t.plan_json("", "{\"interview_date\":\"x\"}", now, CHICAGO)
+                .is_err()
+        );
+
+        let ics =
+            plan_ics_of(&plan, r#"{"site":"https://myleet.dev","alarm_minutes":30}"#).unwrap();
+        assert!(ics.starts_with("BEGIN:VCALENDAR\r\n") && ics.contains("TRIGGER:-PT30M"));
+        assert!(plan_ics_of("{}", "").is_err());
+
+        let s = parse(
+            &t.skills_json(&passed_two_sum(), now, CHICAGO, settings)
+                .unwrap(),
+        );
+        let three = s["techniques"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|x| x["technique"] == "three")
+            .unwrap();
+        assert_eq!(three["evidence"]["clean"], 1);
+        assert_eq!(three["companies"][0]["company"], "Meta");
+        assert!(three["mastery"].as_f64().unwrap() > 0.5);
+        assert!(s["modules"].as_array().unwrap().len() == 2);
+
+        let today = parse(
+            &t.today_json(&passed_two_sum(), ms_of("2026-10-21T15:00:00Z"), CHICAGO, 0)
+                .unwrap(),
+        );
+        assert_eq!(today[0]["why"], "due: 1-day review");
     }
 
     #[test]
