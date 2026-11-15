@@ -1,0 +1,128 @@
+title = "ExxonMobil"
+group = "Enterprise companies"
+focus = "arrays and hash maps, strings, sorting and intervals, linked lists, binary search, and grid traversal."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "06_linked_lists", "10_graphs"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+
+[[entries]]
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+
+[[entries]]
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+
+[[entries]]
+title = "Maximum Swap"
+url = "https://leetcode.com/problems/maximum-swap/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+
+[[entries]]
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+
+[[entries]]
+title = "Minimum Speed to Arrive on Time"
+url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
+
+[[entries]]
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+
+[[entries]]
+title = "Search in a Sorted Array of Unknown Size"
+url = "https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/"
+
+[[entries]]
+title = "Search Insert Position"
+url = "https://leetcode.com/problems/search-insert-position/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Insertion Sort List"
+url = "https://leetcode.com/problems/insertion-sort-list/"
+
+[[entries]]
+title = "Linked List Components"
+url = "https://leetcode.com/problems/linked-list-components/"
+
+[[entries]]
+title = "Linked List Random Node"
+url = "https://leetcode.com/problems/linked-list-random-node/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Construct String from Binary Tree"
+url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
+
+[[entries]]
+title = "Convert BST to Greater Tree"
+url = "https://leetcode.com/problems/convert-bst-to-greater-tree/"
+
+[[entries]]
+title = "Find if Path Exists in Graph"
+url = "https://leetcode.com/problems/find-if-path-exists-in-graph/"
+
+[[entries]]
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
+
+[[entries]]
+title = "Map of Highest Peak"
+url = "https://leetcode.com/problems/map-of-highest-peak/"
+
+[[entries]]
+title = "Minimum Genetic Mutation"
+url = "https://leetcode.com/problems/minimum-genetic-mutation/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Min Cost Climbing Stairs"
+url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Jump Game VII"
+url = "https://leetcode.com/problems/jump-game-vii/"
+
+[[entries]]
+title = "Lemonade Change"
+url = "https://leetcode.com/problems/lemonade-change/"
+
+[[entries]]
+title = "Maximum Number of Events That Can Be Attended"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"

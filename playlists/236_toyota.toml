@@ -1,0 +1,140 @@
+title = "Toyota (North America)"
+group = "Enterprise companies"
+focus = "arrays and strings, hash maps, binary search, trees, and grid and graph traversal, with some design problems."
+review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+
+[[entries]]
+title = "Left and Right Sum Differences"
+url = "https://leetcode.com/problems/left-and-right-sum-differences/"
+
+[[entries]]
+title = "Longest Turbulent Subarray"
+url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Design Front Middle Back Queue"
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+
+[[entries]]
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
+
+[[entries]]
+title = "Search Insert Position"
+url = "https://leetcode.com/problems/search-insert-position/"
+
+[[entries]]
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+
+[[entries]]
+title = "Successful Pairs of Spells and Potions"
+url = "https://leetcode.com/problems/successful-pairs-of-spells-and-potions/"
+
+[[entries]]
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+
+[[entries]]
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
+
+[[entries]]
+title = "N-ary Tree Postorder Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-postorder-traversal/"
+
+[[entries]]
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
+
+[[entries]]
+title = "Search in a Binary Search Tree"
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
+
+[[entries]]
+title = "Nearest Exit from Entrance in Maze"
+url = "https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/"
+
+[[entries]]
+title = "Number of Closed Islands"
+url = "https://leetcode.com/problems/number-of-closed-islands/"
+
+[[entries]]
+title = "Number of Enclaves"
+url = "https://leetcode.com/problems/number-of-enclaves/"
+
+[[entries]]
+title = "Open the Lock"
+url = "https://leetcode.com/problems/open-the-lock/"
+
+[[entries]]
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
+
+[[entries]]
+title = "The Maze II"
+url = "https://leetcode.com/problems/the-maze-ii/"
+
+[[entries]]
+title = "Last Stone Weight"
+url = "https://leetcode.com/problems/last-stone-weight/"
+
+[[entries]]
+title = "Super Ugly Number"
+url = "https://leetcode.com/problems/super-ugly-number/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "Find Greatest Common Divisor of Array"
+url = "https://leetcode.com/problems/find-greatest-common-divisor-of-array/"
+
+[[entries]]
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
+
+[[entries]]
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
+
+[[entries]]
+title = "Largest Triangle Area"
+url = "https://leetcode.com/problems/largest-triangle-area/"

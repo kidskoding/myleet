@@ -1,0 +1,136 @@
+title = "Caterpillar"
+group = "Enterprise companies"
+focus = "arrays and strings, stacks, binary search, tree recursion, and a few graph and dynamic programming problems."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "07_trees", "10_graphs"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+
+[[entries]]
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+
+[[entries]]
+title = "Find Smallest Letter Greater Than Target"
+url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
+
+[[entries]]
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+
+[[entries]]
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
+
+[[entries]]
+title = "Guess Number Higher or Lower"
+url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Circular Array Loop"
+url = "https://leetcode.com/problems/circular-array-loop/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Pruning"
+url = "https://leetcode.com/problems/binary-tree-pruning/"
+
+[[entries]]
+title = "Construct Binary Search Tree from Preorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
+
+[[entries]]
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+
+[[entries]]
+title = "Construct Binary Tree from Preorder and Postorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/"
+
+[[entries]]
+title = "Reorder Routes to Make All Paths Lead to the City Zero"
+url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
+
+[[entries]]
+title = "Shortest Bridge"
+url = "https://leetcode.com/problems/shortest-bridge/"
+
+[[entries]]
+title = "Snakes and Ladders"
+url = "https://leetcode.com/problems/snakes-and-ladders/"
+
+[[entries]]
+title = "The Maze"
+url = "https://leetcode.com/problems/the-maze/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
+
+[[entries]]
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
+
+[[entries]]
+title = "Fair Distribution of Cookies"
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
+
+[[entries]]
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"

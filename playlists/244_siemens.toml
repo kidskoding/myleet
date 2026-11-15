@@ -1,0 +1,140 @@
+title = "Siemens"
+group = "Enterprise companies"
+focus = "arrays, strings, bit manipulation, linked lists, trees, and graph traversal."
+review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+
+[[entries]]
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+
+[[entries]]
+title = "Maximum Swap"
+url = "https://leetcode.com/problems/maximum-swap/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
+
+[[entries]]
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+
+[[entries]]
+title = "Minimum Speed to Arrive on Time"
+url = "https://leetcode.com/problems/minimum-speed-to-arrive-on-time/"
+
+[[entries]]
+title = "Search a 2D Matrix II"
+url = "https://leetcode.com/problems/search-a-2d-matrix-ii/"
+
+[[entries]]
+title = "Single Element in a Sorted Array"
+url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Convert Sorted List to Binary Search Tree"
+url = "https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/"
+
+[[entries]]
+title = "Double a Number Represented as a Linked List"
+url = "https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/"
+
+[[entries]]
+title = "Insert Greatest Common Divisors in Linked List"
+url = "https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Path Sum II"
+url = "https://leetcode.com/problems/path-sum-ii/"
+
+[[entries]]
+title = "Path Sum III"
+url = "https://leetcode.com/problems/path-sum-iii/"
+
+[[entries]]
+title = "Populating Next Right Pointers in Each Node"
+url = "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/"
+
+[[entries]]
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+
+[[entries]]
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
+
+[[entries]]
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
+
+[[entries]]
+title = "Detect Cycles in 2D Grid"
+url = "https://leetcode.com/problems/detect-cycles-in-2d-grid/"
+
+[[entries]]
+title = "Minimum Number of Vertices to Reach All Nodes"
+url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
+
+[[entries]]
+title = "Letter Case Permutation"
+url = "https://leetcode.com/problems/letter-case-permutation/"
+
+[[entries]]
+title = "Letter Tile Possibilities"
+url = "https://leetcode.com/problems/letter-tile-possibilities/"
+
+[[entries]]
+title = "Matchsticks to Square"
+url = "https://leetcode.com/problems/matchsticks-to-square/"
+
+[[entries]]
+title = "Largest Triangle Area"
+url = "https://leetcode.com/problems/largest-triangle-area/"
+
+[[entries]]
+title = "Minimum Area Rectangle"
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
+
+[[entries]]
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
+
+[[entries]]
+title = "Number of Common Factors"
+url = "https://leetcode.com/problems/number-of-common-factors/"
+
+[[entries]]
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"

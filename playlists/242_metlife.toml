@@ -1,0 +1,136 @@
+title = "MetLife"
+group = "Enterprise companies"
+focus = "arrays and strings, hash maps, stacks, linked lists, trees, and a few dynamic programming problems."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "11_dp"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
+
+[[entries]]
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+
+[[entries]]
+title = "Bag of Tokens"
+url = "https://leetcode.com/problems/bag-of-tokens/"
+
+[[entries]]
+title = "Binary Subarrays With Sum"
+url = "https://leetcode.com/problems/binary-subarrays-with-sum/"
+
+[[entries]]
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
+
+[[entries]]
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+
+[[entries]]
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+
+[[entries]]
+title = "Find Smallest Letter Greater Than Target"
+url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Remove Duplicates from Sorted List II"
+url = "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
+
+[[entries]]
+title = "Remove Linked List Elements"
+url = "https://leetcode.com/problems/remove-linked-list-elements/"
+
+[[entries]]
+title = "Remove Nodes From Linked List"
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Binary Tree Preorder Traversal"
+url = "https://leetcode.com/problems/binary-tree-preorder-traversal/"
+
+[[entries]]
+title = "Binary Tree Pruning"
+url = "https://leetcode.com/problems/binary-tree-pruning/"
+
+[[entries]]
+title = "Construct Binary Search Tree from Preorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
+
+[[entries]]
+title = "Find Greatest Common Divisor of Array"
+url = "https://leetcode.com/problems/find-greatest-common-divisor-of-array/"

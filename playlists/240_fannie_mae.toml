@@ -1,0 +1,140 @@
+title = "Fannie Mae"
+group = "Enterprise companies"
+focus = "arrays, hash maps, intervals, dynamic programming, binary search, and clean tree traversal."
+review_modules = ["01_arrays_and_hashing", "05_binary_search", "11_dp", "12_greedy_algorithms", "07_trees"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Number of Ways to Split Array"
+url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+
+[[entries]]
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
+
+[[entries]]
+title = "Subarray Sums Divisible by K"
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
+
+[[entries]]
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+
+[[entries]]
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+
+[[entries]]
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
+
+[[entries]]
+title = "Guess Number Higher or Lower"
+url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
+
+[[entries]]
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Range Sum of BST"
+url = "https://leetcode.com/problems/range-sum-of-bst/"
+
+[[entries]]
+title = "Recover Binary Search Tree"
+url = "https://leetcode.com/problems/recover-binary-search-tree/"
+
+[[entries]]
+title = "Search in a Binary Search Tree"
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
+
+[[entries]]
+title = "01 Matrix"
+url = "https://leetcode.com/problems/01-matrix/"
+
+[[entries]]
+title = "All Ancestors of a Node in a Directed Acyclic Graph"
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
+
+[[entries]]
+title = "Last Stone Weight"
+url = "https://leetcode.com/problems/last-stone-weight/"
+
+[[entries]]
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
+
+[[entries]]
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Min Cost Climbing Stairs"
+url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
+
+[[entries]]
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Triangle"
+url = "https://leetcode.com/problems/triangle/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Hand of Straights"
+url = "https://leetcode.com/problems/hand-of-straights/"
+
+[[entries]]
+title = "Jump Game III"
+url = "https://leetcode.com/problems/jump-game-iii/"
+
+[[entries]]
+title = "Maximum Population Year"
+url = "https://leetcode.com/problems/maximum-population-year/"

@@ -1,0 +1,128 @@
+title = "Deloitte"
+group = "Enterprise companies"
+focus = "easy array and string problems, hash maps, sorting, two pointers, and a few stack and tree problems."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "05_binary_search", "07_trees"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
+
+[[entries]]
+title = "Maximum Absolute Sum of Any Subarray"
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+
+[[entries]]
+title = "Maximum Score After Splitting a String"
+url = "https://leetcode.com/problems/maximum-score-after-splitting-a-string/"
+
+[[entries]]
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
+
+[[entries]]
+title = "Maximum Sum Circular Subarray"
+url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
+
+[[entries]]
+title = "Maximum Sum of Two Non-Overlapping Subarrays"
+url = "https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays/"
+
+[[entries]]
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Sum of Subarray Ranges"
+url = "https://leetcode.com/problems/sum-of-subarray-ranges/"
+
+[[entries]]
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Pancake Sorting"
+url = "https://leetcode.com/problems/pancake-sorting/"
+
+[[entries]]
+title = "Count Number of Nice Subarrays"
+url = "https://leetcode.com/problems/count-number-of-nice-subarrays/"
+
+[[entries]]
+title = "Frequency of the Most Frequent Element"
+url = "https://leetcode.com/problems/frequency-of-the-most-frequent-element/"
+
+[[entries]]
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
+
+[[entries]]
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
+
+[[entries]]
+title = "K Radius Subarray Averages"
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
+
+[[entries]]
+title = "Find Smallest Letter Greater Than Target"
+url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
+
+[[entries]]
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+
+[[entries]]
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of N-ary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
+
+[[entries]]
+title = "Maximum Width of Binary Tree"
+url = "https://leetcode.com/problems/maximum-width-of-binary-tree/"
+
+[[entries]]
+title = "Minimum Depth of Binary Tree"
+url = "https://leetcode.com/problems/minimum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Split Array into Consecutive Subsequences"
+url = "https://leetcode.com/problems/split-array-into-consecutive-subsequences/"
+
+[[entries]]
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
+
+[[entries]]
+title = "Number of Common Factors"
+url = "https://leetcode.com/problems/number-of-common-factors/"
+
+[[entries]]
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"

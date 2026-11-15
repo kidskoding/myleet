@@ -1,0 +1,132 @@
+title = "3M"
+group = "Enterprise companies"
+focus = "arrays and strings, hash maps, stacks, binary search, and a few tree and backtracking problems."
+review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "07_trees", "09_backtracking"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Maximum Swap"
+url = "https://leetcode.com/problems/maximum-swap/"
+
+[[entries]]
+title = "Number of Ways to Split Array"
+url = "https://leetcode.com/problems/number-of-ways-to-split-array/"
+
+[[entries]]
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
+
+[[entries]]
+title = "Subarray Sums Divisible by K"
+url = "https://leetcode.com/problems/subarray-sums-divisible-by-k/"
+
+[[entries]]
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Design Front Middle Back Queue"
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+
+[[entries]]
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+
+[[entries]]
+title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
+url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
+
+[[entries]]
+title = "Pancake Sorting"
+url = "https://leetcode.com/problems/pancake-sorting/"
+
+[[entries]]
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
+
+[[entries]]
+title = "Guess Number Higher or Lower"
+url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
+
+[[entries]]
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
+
+[[entries]]
+title = "Kth Missing Positive Number"
+url = "https://leetcode.com/problems/kth-missing-positive-number/"
+
+[[entries]]
+title = "Kth Smallest Element in a Sorted Matrix"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Circular Array Loop"
+url = "https://leetcode.com/problems/circular-array-loop/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Balanced Binary Tree"
+url = "https://leetcode.com/problems/balanced-binary-tree/"
+
+[[entries]]
+title = "Binary Search Tree Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "Construct Binary Tree from Preorder and Inorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/"
+
+[[entries]]
+title = "Combination Sum II"
+url = "https://leetcode.com/problems/combination-sum-ii/"
+
+[[entries]]
+title = "Combination Sum III"
+url = "https://leetcode.com/problems/combination-sum-iii/"
+
+[[entries]]
+title = "Count Sorted Vowel Strings"
+url = "https://leetcode.com/problems/count-sorted-vowel-strings/"
+
+[[entries]]
+title = "Palindrome Partitioning"
+url = "https://leetcode.com/problems/palindrome-partitioning/"
+
+[[entries]]
+title = "Fair Distribution of Cookies"
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
+
+[[entries]]
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"

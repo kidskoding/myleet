@@ -1,0 +1,136 @@
+title = "Chevron"
+group = "Enterprise companies"
+focus = "arrays and strings, hash maps, intervals, binary search, tree traversal, and a few basic dynamic programming problems."
+review_modules = ["01_arrays_and_hashing", "05_binary_search", "07_trees", "10_graphs", "11_dp"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Brick Wall"
+url = "https://leetcode.com/problems/brick-wall/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
+title = "Increasing Triplet Subsequence"
+url = "https://leetcode.com/problems/increasing-triplet-subsequence/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Design Front Middle Back Queue"
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
+
+[[entries]]
+title = "3Sum Smaller"
+url = "https://leetcode.com/problems/3sum-smaller/"
+
+[[entries]]
+title = "3Sum With Multiplicity"
+url = "https://leetcode.com/problems/3sum-with-multiplicity/"
+
+[[entries]]
+title = "Find a Peak Element II"
+url = "https://leetcode.com/problems/find-a-peak-element-ii/"
+
+[[entries]]
+title = "Find K Closest Elements"
+url = "https://leetcode.com/problems/find-k-closest-elements/"
+
+[[entries]]
+title = "Find Smallest Letter Greater Than Target"
+url = "https://leetcode.com/problems/find-smallest-letter-greater-than-target/"
+
+[[entries]]
+title = "Find the Smallest Divisor Given a Threshold"
+url = "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+
+[[entries]]
+title = "Average of Levels in Binary Tree"
+url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
+
+[[entries]]
+title = "Balanced Binary Tree"
+url = "https://leetcode.com/problems/balanced-binary-tree/"
+
+[[entries]]
+title = "Binary Search Tree Iterator"
+url = "https://leetcode.com/problems/binary-search-tree-iterator/"
+
+[[entries]]
+title = "01 Matrix"
+url = "https://leetcode.com/problems/01-matrix/"
+
+[[entries]]
+title = "All Ancestors of a Node in a Directed Acyclic Graph"
+url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
+
+[[entries]]
+title = "As Far from Land as Possible"
+url = "https://leetcode.com/problems/as-far-from-land-as-possible/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Best Time to Buy and Sell Stock with Transaction Fee"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
+
+[[entries]]
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
+
+[[entries]]
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Assign Cookies"
+url = "https://leetcode.com/problems/assign-cookies/"
+
+[[entries]]
+title = "Bag of Tokens"
+url = "https://leetcode.com/problems/bag-of-tokens/"
+
+[[entries]]
+title = "Corporate Flight Bookings"
+url = "https://leetcode.com/problems/corporate-flight-bookings/"

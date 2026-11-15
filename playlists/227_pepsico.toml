@@ -1,0 +1,132 @@
+title = "PepsiCo"
+group = "Enterprise companies"
+focus = "array and string fundamentals, hash maps, stacks, linked lists, and easy tree problems."
+review_modules = ["01_arrays_and_hashing", "02_two_pointers", "03_stacks_and_queues", "06_linked_lists", "07_trees"]
+
+[[entries]]
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
+
+[[entries]]
+title = "Valid Anagram"
+url = "https://leetcode.com/problems/valid-anagram/"
+
+[[entries]]
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+
+[[entries]]
+title = "K-Concatenation Maximum Sum"
+url = "https://leetcode.com/problems/k-concatenation-maximum-sum/"
+
+[[entries]]
+title = "Left and Right Sum Differences"
+url = "https://leetcode.com/problems/left-and-right-sum-differences/"
+
+[[entries]]
+title = "Longest Turbulent Subarray"
+url = "https://leetcode.com/problems/longest-turbulent-subarray/"
+
+[[entries]]
+title = "Matrix Block Sum"
+url = "https://leetcode.com/problems/matrix-block-sum/"
+
+[[entries]]
+title = "Maximum Absolute Sum of Any Subarray"
+url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
+
+[[entries]]
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
+
+[[entries]]
+title = "132 Pattern"
+url = "https://leetcode.com/problems/132-pattern/"
+
+[[entries]]
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+
+[[entries]]
+title = "Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold"
+url = "https://leetcode.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/"
+
+[[entries]]
+title = "Number of Subarrays with Bounded Maximum"
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
+
+[[entries]]
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
+
+[[entries]]
+title = "Guess Number Higher or Lower"
+url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
+
+[[entries]]
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
+
+[[entries]]
+title = "Reverse Linked List"
+url = "https://leetcode.com/problems/reverse-linked-list/"
+
+[[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "Remove Nodes From Linked List"
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
+
+[[entries]]
+title = "Remove Zero Sum Consecutive Nodes from Linked List"
+url = "https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/"
+
+[[entries]]
+title = "Reverse Nodes in Even Length Groups"
+url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
+
+[[entries]]
+title = "Split Linked List in Parts"
+url = "https://leetcode.com/problems/split-linked-list-in-parts/"
+
+[[entries]]
+title = "Invert Binary Tree"
+url = "https://leetcode.com/problems/invert-binary-tree/"
+
+[[entries]]
+title = "Maximum Depth of Binary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+
+[[entries]]
+title = "Inorder Successor in BST"
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
+
+[[entries]]
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
+
+[[entries]]
+title = "Lowest Common Ancestor of Deepest Leaves"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
+
+[[entries]]
+title = "Find Greatest Common Divisor of Array"
+url = "https://leetcode.com/problems/find-greatest-common-divisor-of-array/"
+
+[[entries]]
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
