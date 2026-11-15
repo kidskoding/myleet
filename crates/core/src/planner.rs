@@ -1206,7 +1206,6 @@ fn build(
     while day < end {
         let off = days_off.contains(&day);
         let mut windows: Vec<(u32, u32)> = Vec::new();
-        // Moved blocks, packed apart from the usual windows.
         let mut moved_wins: Vec<(u32, u32)> = Vec::new();
         let mut moved_in: Vec<(u32, u32, Date)> = Vec::new();
         let mut cap = edits
@@ -1232,9 +1231,7 @@ fn build(
             }
             full_windows = merge(moved.iter().copied().chain(base.iter().copied()).collect());
             full_windows.sort();
-            // A moved block keeps the time it was dropped on: it packs on its own, and the usual
-            // windows give way around it (a break each side) and after a vacated block, so
-            // sessions that don't overlap either keep their times.
+            // A moved block keeps its dropped time; the usual windows give way around it.
             gaps.extend(
                 moved
                     .iter()
@@ -1517,8 +1514,7 @@ fn build(
 
         // Pack into sessions; only what fits takes effect, the rest rolls forward.
         let minutes: Vec<u32> = chosen.iter().map(|ch| ch.item.minutes).collect();
-        // The moved blocks hold the trailing items that fit them (at least one), and the usual
-        // windows the leading ones, as they would without the move, so their sessions keep their times.
+        // Moved blocks take the trailing items, so the usual sessions keep their leading ones.
         let mut split = minutes.len();
         if !moved_wins.is_empty() {
             let mut tail = 0;
