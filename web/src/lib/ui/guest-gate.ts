@@ -59,7 +59,7 @@ function todayExample(company: string | null, slug: string | null): SafeHtml {
       <p class="eg-note">Today we're focusing on <strong>sliding window</strong>, your weakest spot right now. Your <strong>${co}</strong> interview is <strong>12 days</strong> away, so we'll start with two quick reviews and then work through three window problems</p>
       <div class="eg-ready"><div class="eg-ready-top"><span class="eg-ready-h">${logo}Ready for ${co}</span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
       <ul class="eg-queue">
-        ${row("Longest Substring Without Repeating Characters", "due", "Review", "You needed a hint here 6 days ago, so a clean pass moves it to 14 days")}
+        ${row("Longest Substring Without Repeating Characters", "due", "Review", "You needed a hint here 6 days ago, so a clean pass puts it one step from mastered")}
         ${row("Minimum Window Substring", "weak", "Weak spot", "The shrink step you missed on Tuesday, one level harder")}
         ${row("Sliding Window Maximum", "new", "New", "Next in sliding window, and it shows up in " + co + "'s set")}
       </ul>

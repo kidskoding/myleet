@@ -237,7 +237,7 @@ export function reviewWhy(e: Pick<TodayEntry, "problem" | "overdue_days" | "stat
     : last && did
     ? `${cap(dayAgo(last.date, now))} you ${did}, so ${last.mark === "clean" ? "another" : "a"} clean pass now`
     : `${e.overdue_days <= 0 ? "It's due today" : e.overdue_days === 1 ? "It came due yesterday" : `It came due ${e.overdue_days} days ago`}, and a clean pass`;
-  return `${lead} puts the next review ${whenFrom(now, next)}`;
+  return `${lead} ${masteryAfter(next)}`;
 }
 
 /** "tomorrow", "on Wednesday" within a week, "in 2 weeks", "in 30 days". */
@@ -245,4 +245,13 @@ export function whenFrom(now: Date, n: number): string {
   if (n === 1) return "tomorrow";
   if (n < 7) return `on ${weekdayOf(addDays(localDay(now), n))}`;
   return n % 7 === 0 ? `in ${n === 7 ? "a week" : `${n / 7} weeks`}` : `in ${n} days`;
+}
+
+/** What a clean pass now does for a problem whose next review is `days` away, in mastery terms. */
+export function masteryAfter(days: number): string {
+  if (days <= 1) return "brings it back tomorrow";
+  if (days <= 3) return "starts to lock it in";
+  if (days <= 7) return "makes it stick";
+  if (days <= 14) return "puts it one step from mastered";
+  return "means you've mastered it";
 }

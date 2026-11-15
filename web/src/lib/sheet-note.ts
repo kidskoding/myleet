@@ -1,3 +1,4 @@
+import { masteryAfter } from "./coach";
 // The personal copy on the workspace result sheet: the note about the attempt just finished,
 // why the next problem is next, and what changed in the plan. Pure, so it is tested.
 import { dayAgo } from "./coach";
@@ -63,7 +64,7 @@ export function resultNote(f: ResultFacts): string | null {
   const tie = f.company && tech ? `${f.company}'s set leans on ${tech}${f.daysLeft && f.daysLeft > 0 && f.daysLeft <= 30 ? ` and your interview is ${daysText(f.daysLeft)} away` : ""}.` : "";
   if (f.kind === "clean") {
     const n = Math.max(1, f.cleanThisWeek);
-    const lead = tech ? `That's your ${ord(n)} clean ${tech} solve this week, and it moves to a ${f.reviewDays}-day review.` : `That was a clean pass, and it moves to a ${f.reviewDays}-day review.`;
+    const lead = tech ? `That's your ${ord(n)} clean ${tech} solve this week, which ${masteryAfter(f.reviewDays)}.` : `That was a clean pass, which ${masteryAfter(f.reviewDays)}.`;
     const level = tech && f.attempts >= 3 && f.levelAfter && LEVEL_CLAUSE[f.levelAfter] ? `${tech.charAt(0).toUpperCase()}${tech.slice(1)} ${LEVEL_CLAUSE[f.levelAfter]}.` : "";
     return join([lead, level, tie]);
   }

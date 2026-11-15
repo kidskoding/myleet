@@ -16,7 +16,7 @@ const plan = (days: { kind: string; technique: string | null }[][]) =>
 
 describe("resultNote", () => {
   it("celebrates a clean pass with the review and the level", () => {
-    expect(resultNote(facts())).toBe("That's your third clean sliding window solve this week, and it moves to a 7-day review. Sliding window is starting to feel solid");
+    expect(resultNote(facts())).toBe("That's your third clean sliding window solve this week, which makes it stick. Sliding window is starting to feel solid");
   });
   it("ties in a company only when given", () => {
     expect(resultNote(facts({ company: "Meta", daysLeft: 12 }))).toContain("Meta's set leans on sliding window and your interview is 12 days away");
@@ -26,7 +26,7 @@ describe("resultNote", () => {
     expect(resultNote(facts({ attempts: 1 }))).not.toContain("feel solid");
   });
   it("handles a first solve with no history", () => {
-    expect(resultNote(facts({ cleanThisWeek: 0, levelAfter: null, attempts: 0, reviewDays: 1 }))).toBe("That's your first clean sliding window solve this week, and it moves to a 1-day review");
+    expect(resultNote(facts({ cleanThisWeek: 0, levelAfter: null, attempts: 0, reviewDays: 1 }))).toBe("That's your first clean sliding window solve this week, which brings it back tomorrow");
   });
   it("names the missed case and the earlier edge-case miss on a near miss", () => {
     const n = resultNote(facts({ kind: "miss", passed: 6, total: 7, failing: ["test_empty_array"], reviewDays: 1, priorEdge: { title: "Two Sum", date: "2026-11-08" } }));

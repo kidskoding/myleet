@@ -82,17 +82,24 @@ fn last_clause(mark: Mark, cause: Option<Cause>, n: i64) -> String {
     }
 }
 
+/// What a clean pass now does for the problem, in mastery terms rather than review intervals.
+fn mastery_after(days_to_next: i64) -> &'static str {
+    match days_to_next {
+        i64::MIN..=1 => "brings it back tomorrow",
+        2..=3 => "starts to lock it in",
+        4..=7 => "makes it stick",
+        8..=14 => "puts it one step from mastered",
+        _ => "means you've mastered it",
+    }
+}
+
 /// A first sentence on why this problem, then one on the company, the interview and pace.
 pub fn build(f: &Facts) -> String {
     let first = if let Some((mark, cause, n)) = f.last {
         let mut s = last_clause(mark, cause, n);
         if let Some(d) = f.clean_days {
             let again = if mark == Mark::Clean { "another" } else { "a" };
-            let what = if f.on_ladder {
-                format!("puts the next review {} out", days(d))
-            } else {
-                format!("puts its first review {} out", days(d))
-            };
+            let what = mastery_after(d);
             s += &format!(", so {again} clean pass now {what}");
         }
         s
@@ -227,7 +234,7 @@ mod tests {
         };
         assert_eq!(
             build(&f),
-            "You needed a hint here 6 days ago, so a clean pass now puts the next review 14 days out."
+            "You needed a hint here 6 days ago, so a clean pass now puts it one step from mastered."
         );
     }
 
@@ -240,7 +247,7 @@ mod tests {
         };
         assert_eq!(
             build(&f),
-            "You got close yesterday but missed an edge case, so a clean pass now puts its first review 1 day out."
+            "You got close yesterday but missed an edge case, so a clean pass now brings it back tomorrow."
         );
     }
 
