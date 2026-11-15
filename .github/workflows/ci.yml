@@ -17,6 +17,10 @@ jobs:
 
       - name: Cache Cargo
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+            worker -> target
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -35,6 +39,28 @@ jobs:
           rustup target add wasm32-unknown-unknown
           cargo check -p myleet-core -p myleet-wasm --target wasm32-unknown-unknown
 
+      - name: Check the Worker backend
+        run: |
+          cargo fmt --check --manifest-path worker/Cargo.toml
+          cargo clippy --manifest-path worker/Cargo.toml --all-targets -- -D warnings
+          cargo clippy --manifest-path worker/Cargo.toml --target wasm32-unknown-unknown -- -D warnings
+          cargo test --manifest-path worker/Cargo.toml
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install just and wasm-pack
+        uses: taiki-e/install-action@v2
+        with:
+          tool: just,wasm-pack
+
+      - name: Build the web app
+        run: just web-build
+
+      - name: Test the web app
+        working-directory: web
+        run: bun run test
+
       - name: Check curriculum
         run: |
           cargo run --release -- validate
@@ -52,4 +78,4 @@ jobs:
         run: uv run pytest
 
       - name: Check Markdown formatting
-        run: find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -path './target' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
+        run: find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -path './target' -prune -o -path '*/node_modules' -prune -o -path './worker/target' -prune -o -path './web/dist' -prune -o -path './web/src/wasm' -prune -o -path './web/public/data' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check

@@ -37,6 +37,14 @@ export:
 wasm:
     wasm-pack build crates/wasm --target web --out-dir ../../web/src/wasm
 
+# web app dev server, after fresh catalog data and wasm bindings
+web-dev: export wasm
+    cd web && bun install --frozen-lockfile && bun run dev
+
+# static site in web/dist (type check + build), after fresh catalog data and wasm bindings
+web-build: export wasm
+    cd web && bun install --frozen-lockfile && bun run build
+
 # install then run doctor
 doctor: install
     myleet doctor
