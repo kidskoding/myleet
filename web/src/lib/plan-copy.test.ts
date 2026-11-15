@@ -85,7 +85,7 @@ describe("Plan copy", () => {
 
   it("names the evenings you usually practice", () => {
     const cells: [number, number][] = [0, 1, 2, 3, 4].map((d) => [d, 40]);
-    expect(drawerLede({ sessions: 5, cells, suggestion: null })).toBe("You've been solving weekday evenings around 8 pm, so we started there. Change anything and your plan reshapes as you go.");
+    expect(drawerLede({ sessions: 5, cells, suggestion: null })).toBe("You've been solving weekday evenings around 8 pm, so we started there. Change anything and your plan reshapes as you go");
   });
 
   it("counts days through the plan", () => {

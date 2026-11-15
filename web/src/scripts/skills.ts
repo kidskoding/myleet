@@ -77,7 +77,7 @@ function spotCard(c: Ctx, s: Skill, i: number, compact: boolean): SafeHtml {
   return html`<li><article class="panel spot${first ? " lowconf" : ""}" aria-labelledby="sp-${i}" tabindex="-1" data-spot="${keyOf(s)}">
     <div>
       <div class="spot-top">${tags}</div>${title}
-      <p class="diag">${s.diagnosis}</p>
+      <p class="diag">${s.diagnosis.replace(/\.$/, "")}</p>
       <div class="evid">${attemptStrip(s)}<div class="counts"><span class="range">${range}, oldest first</span>${counts.map(([k, n]) => html`<span><b>${n}</b> ${CAUSE_WORD[k].toLowerCase()}</span>`)}</div></div>
     </div>
     <div class="act"><h4>Next step</h4>
@@ -133,7 +133,7 @@ function detail(c: Ctx, s: Skill): SafeHtml {
   return html`<div class="dr-head"><div><h2 id="dt-h">${s.technique_title}</h2><p>${s.module_title}, technique ${s.technique_number} of ${s.techniques_in_module}. ${s.total} problems, ${s.seen} started</p></div><button type="button" class="icon-btn" data-close aria-label="Close (Esc)">${icon("x")}</button></div>
     <div class="lvlrow" aria-label="Level: ${LEVEL_WORD[s.level]}">${LEVELS.map((l, i) => html`<span class="${i === li ? "on" : ""}" style="--lvl:var(--lvl-${i})">${LEVEL_WORD[l]}</span>`)}</div>
     <div class="dmeta">${trend(s.trend, s.recent)}${confidence(s)}</div>
-    ${s.diagnosis ? html`<div class="dsec"><h3>Diagnosis</h3><p class="diag">${s.diagnosis}</p></div>` : html`<div class="dsec"><p class="fineprint">Complete a few attempts to see which parts need practice</p></div>`}
+    ${s.diagnosis ? html`<div class="dsec"><h3>Diagnosis</h3><p class="diag">${s.diagnosis.replace(/\.$/, "")}</p></div>` : html`<div class="dsec"><p class="fineprint">Complete a few attempts to see which parts need practice</p></div>`}
     <div class="dsec"><h3>Where attempts went wrong</h3><div class="causes">${causeCounts(s).map(
       ([k, n]) => html`<div><span>${CAUSE_WORD[k]}</span>${bar([{ value: n / max, kind: "c" }])}<b>${n}</b></div>`,
     )}</div></div>

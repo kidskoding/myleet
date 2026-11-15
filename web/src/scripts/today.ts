@@ -228,7 +228,7 @@ function weakPanel(c: Ctx, skip: string | null): SafeHtml {
   if (!list.length) return html``;
   const line = (s: Skill) => {
     const parts = s.diagnosis.split(/(?<=\.) /);
-    return parts[1] ?? parts[0] ?? "";
+    return (parts[1] ?? parts[0] ?? "").replace(/\.$/, "");
   };
   return html`<section class="panel" aria-labelledby="tws">
     <div class="section-head"><h2 id="tws">Weak spots</h2><a class="link text-small" href="${ROUTES.skills}">All skills</a></div>

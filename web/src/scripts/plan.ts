@@ -156,7 +156,7 @@ const isMock = (s: PlanSession) => s.items.some((i) => i.kind === "mock");
 
 /** Problem id to its technique's title, for "moved forward on" lines. */
 /** The pace line and the habit sentence after it, each ending in a period. */
-const withHabit = (line: string, habit: string | null | undefined): string => (habit ? `${line.endsWith(".") ? line : `${line}.`} ${habit}` : line);
+const withHabit = (line: string, habit: string | null | undefined): string => (habit ? `${line.endsWith(".") ? line : `${line}.`} ${habit}` : line).replace(/\.$/, "");
 
 const topicOf = (c: Ctx) => (id: string): string | null => {
   const p = c.cat.catalog.problems.find((x) => x.id === id);

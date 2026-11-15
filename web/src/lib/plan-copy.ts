@@ -33,8 +33,8 @@ export function habitPhrase(cells: [number, number][]): string | null {
 export function drawerLede(history: Habits["history"] | null): string {
   const habit = history ? habitPhrase(history.cells) : null;
   return habit
-    ? `You've been solving ${habit}, so we started there. Change anything and your plan reshapes as you go.`
-    : "Mark the hours that usually work for you. Change anything later and your plan reshapes as you go.";
+    ? `You've been solving ${habit}, so we started there. Change anything and your plan reshapes as you go`
+    : "Mark the hours that usually work for you. Change anything later and your plan reshapes as you go";
 }
 
 /** "evenings" from the start times of the windows on the given days; "" when they're mixed or there are none. */

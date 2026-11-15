@@ -53,7 +53,7 @@ export function richText(s: string): SafeHtml {
 }
 
 export function insightList(list: Insight[]): SafeHtml {
-  return html`<ul class="ins">${list.map((i) => html`<li>${isIcon(i.icon) ? icon(i.icon) : icon("circle-help")}<span>${richText(i.text)}</span></li>`)}</ul>`;
+  return html`<ul class="ins">${list.map((i) => html`<li>${isIcon(i.icon) ? icon(i.icon) : icon("circle-help")}<span>${richText(i.text.replace(/\.$/, ""))}</span></li>`)}</ul>`;
 }
 
 // ---- forecast ----
