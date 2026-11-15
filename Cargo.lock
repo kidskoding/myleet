@@ -303,10 +303,10 @@ dependencies = [
 name = "myleet"
 version = "0.1.0"
 dependencies = [
- "getrandom 0.4.3",
  "htmd",
  "jiff",
  "libc",
+ "myleet-core",
  "roxmltree",
  "serde",
  "serde_json",
@@ -314,6 +314,17 @@ dependencies = [
  "tempfile",
  "toml",
  "ureq",
+]
+
+[[package]]
+name = "myleet-core"
+version = "0.1.0"
+dependencies = [
+ "getrandom 0.4.3",
+ "jiff",
+ "serde",
+ "serde_json",
+ "toml",
 ]
 
 [[package]]

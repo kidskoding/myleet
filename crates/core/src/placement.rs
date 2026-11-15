@@ -373,12 +373,4 @@ mod tests {
         assert_eq!(score(false, 0, false, false), Outcome::Failed);
         assert_eq!(score(false, 0, true, false), Outcome::Skipped);
     }
-
-    #[test]
-    fn default_slots_resolve_against_curriculum() {
-        let Ok(c) = crate::catalog::load(std::path::Path::new(env!("CARGO_MANIFEST_DIR"))) else {
-            return;
-        };
-        assert_eq!(resolve(&c, DEFAULT_SLOTS).len(), DEFAULT_SLOTS.len());
-    }
 }

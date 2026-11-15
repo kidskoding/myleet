@@ -7,8 +7,8 @@ use serde::Deserialize;
 use serde::de::DeserializeOwned;
 
 use super::{
-    Catalog, DEFAULT_SAY_ALOUD, Difficulty, GROUPS, GuideNote, Module, Playlist, PlaylistEntry,
-    Problem, Technique,
+    Catalog, DEFAULT_SAY_ALOUD, Difficulty, GROUPS, Module, Note, Playlist, PlaylistEntry, Problem,
+    Technique, slug_of,
 };
 use crate::godur;
 
@@ -130,7 +130,10 @@ fn sorted_files(dir: &Path, ext: &str) -> Vec<PathBuf> {
 struct Loader<'a> {
     root: &'a Path,
     errs: Vec<String>,
-    catalog: Catalog,
+    modules: Vec<Module>,
+    problems: Vec<Problem>,
+    by_id: HashMap<String, usize>,
+    playlists: Vec<Playlist>,
 }
 
 impl Loader<'_> {
@@ -140,7 +143,7 @@ impl Loader<'_> {
     }
 
     fn load_techniques(&mut self, mut module: Module, dir: &Path) {
-        let index = self.catalog.modules.len();
+        let index = self.modules.len();
         for td in list_numbered(dir).unwrap_or_default() {
             let tf: TechniqueFile = match decode(&td.path.join("technique.toml")) {
                 Ok(tf) => tf,
@@ -167,8 +170,8 @@ impl Loader<'_> {
                 let Some(mut p) = self.load_problem(&pd) else {
                     continue;
                 };
-                if let Some(&prev) = self.catalog.by_id.get(&p.id) {
-                    let prev_dir = self.catalog.problems[prev].dir.display().to_string();
+                if let Some(&prev) = self.by_id.get(&p.id) {
+                    let prev_dir = self.problems[prev].dir.display().to_string();
                     self.report(
                         &pd.path,
                         format_args!("duplicate id {:?} (also {prev_dir})", p.id),
@@ -177,14 +180,14 @@ impl Loader<'_> {
                 }
                 p.module = index;
                 p.technique = module.techniques.len();
-                p.order = self.catalog.problems.len();
-                self.catalog.by_id.insert(p.id.clone(), p.order);
+                p.order = self.problems.len();
+                self.by_id.insert(p.id.clone(), p.order);
                 tech.problems.push(p.order);
-                self.catalog.problems.push(p);
+                self.problems.push(p);
             }
             module.techniques.push(tech);
         }
-        self.catalog.modules.push(module);
+        self.modules.push(module);
     }
 
     fn load_problem(&mut self, pd: &NumberedDir) -> Option<Problem> {
@@ -276,7 +279,7 @@ impl Loader<'_> {
 
     fn load_playlists(&mut self) {
         let mut by_slug: HashMap<String, usize> = HashMap::new();
-        for p in &self.catalog.problems {
+        for p in &self.problems {
             if !p.url.is_empty() {
                 by_slug.entry(slug_of(&p.url)).or_insert(p.order);
             }
@@ -319,25 +322,21 @@ impl Loader<'_> {
             });
         }
         out.sort_by_key(|pl| GROUPS.iter().position(|g| *g == pl.group));
-        self.catalog.playlists = out;
+        self.playlists = out;
     }
 }
 
-fn slug_of(url: &str) -> String {
-    const MARK: &str = "leetcode.com/problems/";
-    if let Some(i) = url.find(MARK) {
-        let slug: String = url[i + MARK.len()..]
-            .chars()
-            .take_while(|c| c.is_ascii_lowercase() || c.is_ascii_digit() || *c == '-')
-            .collect();
-        if !slug.is_empty() {
-            return slug;
-        }
-    }
-    url.trim_end_matches('/').to_string()
+fn notes_in(dir: &Path) -> Vec<Note> {
+    sorted_files(dir, "md")
+        .into_iter()
+        .map(|f| Note {
+            title: note_title(&f),
+            path: f,
+        })
+        .collect()
 }
 
-fn load_guide(dir: &Path) -> Vec<GuideNote> {
+fn load_guide(dir: &Path) -> Vec<Note> {
     sorted_files(dir, "md")
         .into_iter()
         .filter(|f| {
@@ -346,7 +345,7 @@ fn load_guide(dir: &Path) -> Vec<GuideNote> {
                 .and_then(split_numbered)
                 .is_some()
         })
-        .map(|f| GuideNote {
+        .map(|f| Note {
             title: note_title(&f),
             path: f,
         })
@@ -377,10 +376,10 @@ pub fn load(root: &Path) -> Result<Catalog, LoadError> {
     let mut l = Loader {
         root,
         errs: Vec::new(),
-        catalog: Catalog {
-            root: root.to_path_buf(),
-            ..Catalog::default()
-        },
+        modules: Vec::new(),
+        problems: Vec::new(),
+        by_id: HashMap::new(),
+        playlists: Vec::new(),
     };
     for md in modules {
         let mf: ModuleFile = match decode(&md.path.join("module.toml")) {
@@ -394,7 +393,7 @@ pub fn load(root: &Path) -> Result<Catalog, LoadError> {
             id: md.id,
             title: mf.title,
             description: mf.description,
-            notes: sorted_files(&md.path.join("notes"), "md"),
+            notes: notes_in(&md.path.join("notes")),
             number: md.number,
             bank: false,
             techniques: Vec::new(),
@@ -403,10 +402,16 @@ pub fn load(root: &Path) -> Result<Catalog, LoadError> {
         l.load_techniques(module, &md.path.join("techniques"));
     }
     l.load_bank(&root.join("bank"));
-    l.catalog.guide = load_guide(&root.join("guide"));
+    let guide = load_guide(&root.join("guide"));
     l.load_playlists();
     if l.errs.is_empty() {
-        Ok(l.catalog)
+        Ok(Catalog::new(
+            root.to_path_buf(),
+            guide,
+            l.modules,
+            l.playlists,
+            l.problems,
+        ))
     } else {
         Err(LoadError(l.errs))
     }
@@ -503,13 +508,6 @@ mod tests {
     }
 
     #[test]
-    fn slugs_ignore_trailing_slash() {
-        assert_eq!(slug_of("https://leetcode.com/problems/two-sum/"), "two-sum");
-        assert_eq!(slug_of("https://leetcode.com/problems/two-sum"), "two-sum");
-        assert_eq!(slug_of("https://example.com/x//"), "https://example.com/x");
-    }
-
-    #[test]
     fn numbered_names() {
         assert_eq!(split_numbered("01_alpha"), Some((1, "alpha")));
         assert_eq!(split_numbered("1_2_x"), Some((1, "2_x")));
@@ -536,5 +534,14 @@ mod tests {
         for id in crate::catalog::read_lock(root).unwrap().unwrap_or_default() {
             assert!(c.problem(&id).is_some(), "locked id {id} missing");
         }
+    }
+
+    #[test]
+    fn default_slots_resolve_against_curriculum() {
+        use crate::placement::{DEFAULT_SLOTS, resolve};
+        let Ok(c) = load(Path::new(env!("CARGO_MANIFEST_DIR"))) else {
+            return;
+        };
+        assert_eq!(resolve(&c, DEFAULT_SLOTS).len(), DEFAULT_SLOTS.len());
     }
 }

@@ -1,0 +1,15 @@
+[package]
+name = "myleet-core"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+description = "myleet's scheduling, catalog model and save-file logic, free of fs and processes"
+publish = false
+
+[dependencies]
+getrandom.workspace = true
+jiff.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+toml.workspace = true

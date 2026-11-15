@@ -18,8 +18,8 @@ build:
 # fmt, clippy, and test
 test:
     cargo fmt --check
-    cargo clippy --all-targets -- -D warnings
-    cargo test
+    cargo clippy --workspace --all-targets -- -D warnings
+    cargo test --workspace
 
 # load curriculum + playlists
 validate:
