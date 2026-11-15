@@ -14,21 +14,19 @@ It is a separate crate with its own `[workspace]`, so the root workspace does no
 build it. Only `src/api.rs` uses the Workers runtime; everything else is plain Rust
 with native unit tests.
 
-[workers-rs]: https://github.com/cloudflare/workers-rs
-
 ## Layout
 
-| Path | What it holds |
-| --- | --- |
-| `src/api.rs` | Routing, D1, KV and outbound fetches (wasm32 only) |
-| `src/account.rs` | Email and username rules, settings, account linking, public summary |
-| `src/oauth.rs` | GitHub and Google OAuth URLs, token exchange, profile parsing |
-| `src/magic.rs` | Magic-link email and rate-limit counters |
-| `src/session.rs` | Session tokens, cookies, CSRF origin check |
-| `src/statement.rs` | LeetCode GraphQL reply to markdown, premium detection |
-| `src/sync.rs` | Progress upload validation and version conflicts |
-| `migrations/` | D1 schema, applied with `wrangler d1 migrations apply` |
-| `wrangler.toml` | Worker config: bindings, public vars, static assets |
+| Path               | What it holds                                                       |
+| ------------------ | ------------------------------------------------------------------- |
+| `src/api.rs`       | Routing, D1, KV and outbound fetches (wasm32 only)                  |
+| `src/account.rs`   | Email and username rules, settings, account linking, public summary |
+| `src/oauth.rs`     | GitHub and Google OAuth URLs, token exchange, profile parsing       |
+| `src/magic.rs`     | Magic-link email and rate-limit counters                            |
+| `src/session.rs`   | Session tokens, cookies, CSRF origin check                          |
+| `src/statement.rs` | LeetCode GraphQL reply to markdown, premium detection               |
+| `src/sync.rs`      | Progress upload validation and version conflicts                    |
+| `migrations/`      | D1 schema, applied with `wrangler d1 migrations apply`              |
+| `wrangler.toml`    | Worker config: bindings, public vars, static assets                 |
 
 ## Tooling
 
@@ -48,8 +46,6 @@ none, so install it once from a shell that does, for example:
 ```sh
 nix shell nixpkgs#openssl.dev nixpkgs#pkg-config --command cargo install --locked worker-build@0.9.0
 ```
-
-[`worker-build`]: https://crates.io/crates/worker-build
 
 ## One-time setup
 
@@ -81,6 +77,7 @@ logged in (`bunx wrangler login`).
 
 5. **Register a GitHub OAuth app** at GitHub, Settings, Developer settings, OAuth Apps,
    New OAuth App:
+
    - Homepage URL: `SITE_ORIGIN`
    - Authorization callback URL: `SITE_ORIGIN/api/auth/github/callback`
 
@@ -89,6 +86,7 @@ logged in (`bunx wrangler login`).
 6. **Create a Google OAuth client** in Google Cloud Console, APIs & Services:
    configure the OAuth consent screen (scopes `openid`, `email`, `profile`), then
    Credentials, Create credentials, OAuth client ID, type Web application:
+
    - Authorized JavaScript origin: `SITE_ORIGIN`
    - Authorized redirect URI: `SITE_ORIGIN/api/auth/google/callback`
 
@@ -110,17 +108,17 @@ logged in (`bunx wrangler login`).
 
 ### Config reference
 
-| Name | Kind | Purpose |
-| --- | --- | --- |
-| `SITE_ORIGIN` | var | Site origin: redirects, CORS, CSRF check |
-| `GITHUB_CLIENT_ID` | var | GitHub OAuth app client id |
-| `GOOGLE_CLIENT_ID` | var | Google OAuth client id |
-| `EMAIL_FROM` | var | Sender for magic-link email |
-| `GITHUB_CLIENT_SECRET` | secret | GitHub OAuth app secret |
-| `GOOGLE_CLIENT_SECRET` | secret | Google OAuth client secret |
-| `RESEND_API_KEY` | secret | Resend API key |
-| `DB` | D1 binding | Accounts, sessions, settings, progress |
-| `STATEMENTS` | KV binding | Statement cache and rate-limit counters |
+| Name                   | Kind       | Purpose                                  |
+| ---------------------- | ---------- | ---------------------------------------- |
+| `SITE_ORIGIN`          | var        | Site origin: redirects, CORS, CSRF check |
+| `GITHUB_CLIENT_ID`     | var        | GitHub OAuth app client id               |
+| `GOOGLE_CLIENT_ID`     | var        | Google OAuth client id                   |
+| `EMAIL_FROM`           | var        | Sender for magic-link email              |
+| `GITHUB_CLIENT_SECRET` | secret     | GitHub OAuth app secret                  |
+| `GOOGLE_CLIENT_SECRET` | secret     | Google OAuth client secret               |
+| `RESEND_API_KEY`       | secret     | Resend API key                           |
+| `DB`                   | D1 binding | Accounts, sessions, settings, progress   |
+| `STATEMENTS`           | KV binding | Statement cache and rate-limit counters  |
 
 ## Local development
 
@@ -177,15 +175,15 @@ and premium, 7 days for `none`), so LeetCode sees at most one request per proble
 
 ### Sign-in
 
-| Endpoint | What it does |
-| --- | --- |
-| `GET /api/auth/github` | Redirects to GitHub (scope `user:email`) |
-| `GET /api/auth/github/callback` | OAuth callback |
-| `GET /api/auth/google` | Redirects to Google (scopes `openid email profile`) |
-| `GET /api/auth/google/callback` | OAuth callback |
-| `POST /api/auth/email` | Body `{"email": "..."}`. Sends a magic link: `202 {"sent": true}` |
-| `GET /api/auth/email/verify?token=` | The link in the email. Single use, expires in 15 minutes |
-| `POST /api/auth/logout` | Revokes this session and clears the cookie: `204` |
+| Endpoint                            | What it does                                                      |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| `GET /api/auth/github`              | Redirects to GitHub (scope `user:email`)                          |
+| `GET /api/auth/github/callback`     | OAuth callback                                                    |
+| `GET /api/auth/google`              | Redirects to Google (scopes `openid email profile`)               |
+| `GET /api/auth/google/callback`     | OAuth callback                                                    |
+| `POST /api/auth/email`              | Body `{"email": "..."}`. Sends a magic link: `202 {"sent": true}` |
+| `GET /api/auth/email/verify?token=` | The link in the email. Single use, expires in 15 minutes          |
+| `POST /api/auth/logout`             | Revokes this session and clears the cookie: `204`                 |
 
 A successful sign-in redirects to `SITE_ORIGIN/` with the session cookie (30 days). A
 failed one redirects to `SITE_ORIGIN/?auth_error=<reason>`, where reason is `denied`
@@ -299,3 +297,6 @@ the new `version`:
   not written.
 - **CPU (10 ms per request).** No password hashing; tokens are SHA-256. The largest
   cost is validating a large progress upload.
+
+[workers-rs]: https://github.com/cloudflare/workers-rs
+[`worker-build`]: https://crates.io/crates/worker-build
