@@ -1,204 +1,172 @@
 title = "Salesforce"
 group = "Big tech"
-focus = "trees, BFS/DFS, arrays, hashing, heaps, and clear communication."
+focus = "Tree traversals, prefix and suffix string lookups, subarray counting, and heap-based greedy problems."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "11_dp"]
 
 [[entries]]
-title = "Binary Tree Zigzag Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/"
+title = "N-ary Tree Preorder Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-preorder-traversal/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "N-ary Tree Postorder Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-postorder-traversal/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Maximum Depth of N-ary Tree"
+url = "https://leetcode.com/problems/maximum-depth-of-n-ary-tree/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Average of Levels in Binary Tree"
+url = "https://leetcode.com/problems/average-of-levels-in-binary-tree/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Find Bottom Left Tree Value"
+url = "https://leetcode.com/problems/find-bottom-left-tree-value/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Construct String from Binary Tree"
+url = "https://leetcode.com/problems/construct-string-from-binary-tree/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Binary Tree Postorder Traversal"
+url = "https://leetcode.com/problems/binary-tree-postorder-traversal/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Path Sum"
+url = "https://leetcode.com/problems/path-sum/"
 
 [[entries]]
-title = "Minimum Operations to Reduce an Integer to 0"
-url = "https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0/"
+title = "Convert BST to Greater Tree"
+url = "https://leetcode.com/problems/convert-bst-to-greater-tree/"
 
 [[entries]]
-title = "Put Marbles in Bags"
-url = "https://leetcode.com/problems/put-marbles-in-bags/"
+title = "Construct Binary Search Tree from Preorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/"
 
 [[entries]]
-title = "Sum of Matrix After Queries"
-url = "https://leetcode.com/problems/sum-of-matrix-after-queries/"
+title = "Find All Duplicates in an Array"
+url = "https://leetcode.com/problems/find-all-duplicates-in-an-array/"
 
 [[entries]]
-title = "Distance to a Cycle in Undirected Graph"
-url = "https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph/"
+title = "Majority Element II"
+url = "https://leetcode.com/problems/majority-element-ii/"
 
 [[entries]]
-title = "String Compression"
-url = "https://leetcode.com/problems/string-compression/"
+title = "Rearrange Array Elements by Sign"
+url = "https://leetcode.com/problems/rearrange-array-elements-by-sign/"
 
 [[entries]]
-title = "Optimal Account Balancing"
-url = "https://leetcode.com/problems/optimal-account-balancing/"
+title = "Wiggle Sort II"
+url = "https://leetcode.com/problems/wiggle-sort-ii/"
 
 [[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Pancake Sorting"
+url = "https://leetcode.com/problems/pancake-sorting/"
 
 [[entries]]
-title = "Path Sum II"
-url = "https://leetcode.com/problems/path-sum-ii/"
+title = "H-Index II"
+url = "https://leetcode.com/problems/h-index-ii/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Repeated DNA Sequences"
+url = "https://leetcode.com/problems/repeated-dna-sequences/"
 
 [[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
+title = "Longest Happy Prefix"
+url = "https://leetcode.com/problems/longest-happy-prefix/"
 
 [[entries]]
-title = "Time Needed to Rearrange a Binary String"
-url = "https://leetcode.com/problems/time-needed-to-rearrange-a-binary-string/"
+title = "Count Prefix and Suffix Pairs I"
+url = "https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/"
 
 [[entries]]
-title = "Remove Adjacent Almost-Equal Characters"
-url = "https://leetcode.com/problems/remove-adjacent-almost-equal-characters/"
+title = "Replace Words"
+url = "https://leetcode.com/problems/replace-words/"
 
 [[entries]]
-title = "Smallest Substring With Identical Characters I"
-url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-i/"
+title = "Prefix and Suffix Search"
+url = "https://leetcode.com/problems/prefix-and-suffix-search/"
 
 [[entries]]
-title = "Minimum Time to Visit All Houses"
-url = "https://leetcode.com/problems/minimum-time-to-visit-all-houses/"
+title = "Short Encoding of Words"
+url = "https://leetcode.com/problems/short-encoding-of-words/"
 
 [[entries]]
-title = "Smallest Substring With Identical Characters II"
-url = "https://leetcode.com/problems/smallest-substring-with-identical-characters-ii/"
+title = "Counting Words With a Given Prefix"
+url = "https://leetcode.com/problems/counting-words-with-a-given-prefix/"
 
 [[entries]]
-title = "Check Whether Two Strings are Almost Equivalent"
-url = "https://leetcode.com/problems/check-whether-two-strings-are-almost-equivalent/"
+title = "Index Pairs of a String"
+url = "https://leetcode.com/problems/index-pairs-of-a-string/"
 
 [[entries]]
-title = "Beautiful Towers I"
-url = "https://leetcode.com/problems/beautiful-towers-i/"
+title = "Implement Magic Dictionary"
+url = "https://leetcode.com/problems/implement-magic-dictionary/"
 
 [[entries]]
-title = "Check If a Number Is Majority Element in a Sorted Array"
-url = "https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/"
+title = "Grumpy Bookstore Owner"
+url = "https://leetcode.com/problems/grumpy-bookstore-owner/"
 
 [[entries]]
-title = "Number of Self-Divisible Permutations"
-url = "https://leetcode.com/problems/number-of-self-divisible-permutations/"
+title = "Maximum Points You Can Obtain from Cards"
+url = "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/"
 
 [[entries]]
-title = "Maximum Number That Makes Result of Bitwise AND Zero"
-url = "https://leetcode.com/problems/maximum-number-that-makes-result-of-bitwise-and-zero/"
+title = "K Radius Subarray Averages"
+url = "https://leetcode.com/problems/k-radius-subarray-averages/"
 
 [[entries]]
-title = "Find Subarray With Bitwise OR Closest to K"
-url = "https://leetcode.com/problems/find-subarray-with-bitwise-or-closest-to-k/"
+title = "Longest Subarray of 1's After Deleting One Element"
+url = "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
 
 [[entries]]
-title = "Equalize Strings by Adding or Removing Characters at Ends"
-url = "https://leetcode.com/problems/equalize-strings-by-adding-or-removing-characters-at-ends/"
+title = "Maximum Subarray Sum with One Deletion"
+url = "https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/"
 
 [[entries]]
-title = "Maximize Grid Happiness"
-url = "https://leetcode.com/problems/maximize-grid-happiness/"
+title = "Constrained Subsequence Sum"
+url = "https://leetcode.com/problems/constrained-subsequence-sum/"
 
 [[entries]]
-title = "Find the Last Marked Nodes in Tree"
-url = "https://leetcode.com/problems/find-the-last-marked-nodes-in-tree/"
+title = "Shortest Subarray with Sum at Least K"
+url = "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
 
 [[entries]]
-title = "Closest Equal Element Queries"
-url = "https://leetcode.com/problems/closest-equal-element-queries/"
+title = "Sliding Subarray Beauty"
+url = "https://leetcode.com/problems/sliding-subarray-beauty/"
 
 [[entries]]
-title = "Report Spam Message"
-url = "https://leetcode.com/problems/report-spam-message/"
+title = "Number of Subarrays with Bounded Maximum"
+url = "https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/"
 
 [[entries]]
-title = "Beautiful Towers II"
-url = "https://leetcode.com/problems/beautiful-towers-ii/"
+title = "Count Subarrays With Fixed Bounds"
+url = "https://leetcode.com/problems/count-subarrays-with-fixed-bounds/"
 
 [[entries]]
-title = "Maximum Height of a Triangle"
-url = "https://leetcode.com/problems/maximum-height-of-a-triangle/"
+title = "Partition Array into Disjoint Intervals"
+url = "https://leetcode.com/problems/partition-array-into-disjoint-intervals/"
 
 [[entries]]
-title = "Average Waiting Time"
-url = "https://leetcode.com/problems/average-waiting-time/"
+title = "Least Number of Unique Integers after K Removals"
+url = "https://leetcode.com/problems/least-number-of-unique-integers-after-k-removals/"
 
 [[entries]]
-title = "Maximum Palindromes After Operations"
-url = "https://leetcode.com/problems/maximum-palindromes-after-operations/"
+title = "Minimize Maximum Pair Sum in Array"
+url = "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Maximum Product After K Increments"
+url = "https://leetcode.com/problems/maximum-product-after-k-increments/"
 
 [[entries]]
-title = "Minimize Maximum Component Cost"
-url = "https://leetcode.com/problems/minimize-maximum-component-cost/"
+title = "Remove Stones to Minimize the Total"
+url = "https://leetcode.com/problems/remove-stones-to-minimize-the-total/"
 
 [[entries]]
-title = "Power Grid Maintenance"
-url = "https://leetcode.com/problems/power-grid-maintenance/"
+title = "Contains Duplicate"
+url = "https://leetcode.com/problems/contains-duplicate/"
 
 [[entries]]
-title = "Count Subarrays With Median K"
-url = "https://leetcode.com/problems/count-subarrays-with-median-k/"
-
-[[entries]]
-title = "Maximum Number of Occurrences of a Substring"
-url = "https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring/"
-
-[[entries]]
-title = "Find the Minimum Area to Cover All Ones II"
-url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-ii/"
-
-[[entries]]
-title = "Minimum Removals to Balance Array"
-url = "https://leetcode.com/problems/minimum-removals-to-balance-array/"
-
-[[entries]]
-title = "Count the Number of Fair Pairs"
-url = "https://leetcode.com/problems/count-the-number-of-fair-pairs/"
-
-[[entries]]
-title = "Count the Number of Inversions"
-url = "https://leetcode.com/problems/count-the-number-of-inversions/"
-
-[[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
-
-[[entries]]
-title = "Find the Minimum Area to Cover All Ones I"
-url = "https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/"
-
-[[entries]]
-title = "Exam Room"
-url = "https://leetcode.com/problems/exam-room/"
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"

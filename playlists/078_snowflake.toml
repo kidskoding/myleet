@@ -1,204 +1,148 @@
 title = "Snowflake"
 group = "AI labs & high growth"
-focus = "data structures, graphs, DP, intervals, heaps, performance, and system-adjacent reasoning."
+focus = "Heaps, intervals, minimum spanning trees and connectivity, and classic DP, with attention to running time."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "08_heaps", "13_intervals", "10_graphs", "11_dp"]
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Design Search Autocomplete System"
-url = "https://leetcode.com/problems/design-search-autocomplete-system/"
-
-[[entries]]
-title = "Design Add and Search Words Data Structure"
-url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
-
-[[entries]]
-title = "Largest Rectangle in Histogram"
-url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Path Sum"
-url = "https://leetcode.com/problems/path-sum/"
-
-[[entries]]
-title = "Minimum Size Subarray Sum"
-url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
-
-[[entries]]
-title = "Contains Duplicate"
-url = "https://leetcode.com/problems/contains-duplicate/"
-
-[[entries]]
-title = "Rotting Oranges"
-url = "https://leetcode.com/problems/rotting-oranges/"
-
-[[entries]]
-title = "Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree"
-url = "https://leetcode.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/"
-
-[[entries]]
-title = "Path With Minimum Effort"
-url = "https://leetcode.com/problems/path-with-minimum-effort/"
-
-[[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
-
-[[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Non-overlapping Intervals"
+url = "https://leetcode.com/problems/non-overlapping-intervals/"
 
 [[entries]]
 title = "Top K Frequent Elements"
 url = "https://leetcode.com/problems/top-k-frequent-elements/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+title = "Find K Pairs with Smallest Sums"
+url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
 
 [[entries]]
-title = "Predict the Winner"
-url = "https://leetcode.com/problems/predict-the-winner/"
+title = "Minimum Cost to Connect Sticks"
+url = "https://leetcode.com/problems/minimum-cost-to-connect-sticks/"
 
 [[entries]]
-title = "Binary Tree Level Order Traversal"
-url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+title = "Last Stone Weight"
+url = "https://leetcode.com/problems/last-stone-weight/"
 
 [[entries]]
-title = "Design Skiplist"
-url = "https://leetcode.com/problems/design-skiplist/"
+title = "Maximum Number of Events That Can Be Attended II"
+url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/"
 
 [[entries]]
-title = "Minimize Max Distance to Gas Station"
-url = "https://leetcode.com/problems/minimize-max-distance-to-gas-station/"
+title = "Min Cost to Connect All Points"
+url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
 
 [[entries]]
-title = "All Nodes Distance K in Binary Tree"
-url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
+title = "Connecting Cities With Minimum Cost"
+url = "https://leetcode.com/problems/connecting-cities-with-minimum-cost/"
+
+[[entries]]
+title = "Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree"
+url = "https://leetcode.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/"
+
+[[entries]]
+title = "Checking Existence of Edge Length Limited Paths"
+url = "https://leetcode.com/problems/checking-existence-of-edge-length-limited-paths/"
+
+[[entries]]
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Remove Max Number of Edges to Keep Graph Fully Traversable"
+url = "https://leetcode.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/"
+
+[[entries]]
+title = "Minimum Height Trees"
+url = "https://leetcode.com/problems/minimum-height-trees/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
+
+[[entries]]
+title = "Longest Increasing Path in a Matrix"
+url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+
+[[entries]]
+title = "Coin Change II"
+url = "https://leetcode.com/problems/coin-change-ii/"
+
+[[entries]]
+title = "Partition Equal Subset Sum"
+url = "https://leetcode.com/problems/partition-equal-subset-sum/"
+
+[[entries]]
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
+
+[[entries]]
+title = "Longest Common Subsequence"
+url = "https://leetcode.com/problems/longest-common-subsequence/"
 
 [[entries]]
 title = "Word Break"
 url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
+title = "Decode Ways"
+url = "https://leetcode.com/problems/decode-ways/"
+
+[[entries]]
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Maximum Product Subarray"
+url = "https://leetcode.com/problems/maximum-product-subarray/"
+
+[[entries]]
 title = "Longest Increasing Subsequence"
 url = "https://leetcode.com/problems/longest-increasing-subsequence/"
 
 [[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
+title = "Split Array Largest Sum"
+url = "https://leetcode.com/problems/split-array-largest-sum/"
 
 [[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
-
-[[entries]]
-title = "Parallel Courses III"
-url = "https://leetcode.com/problems/parallel-courses-iii/"
-
-[[entries]]
-title = "Throne Inheritance"
-url = "https://leetcode.com/problems/throne-inheritance/"
-
-[[entries]]
-title = "Maximum Number of Upgradable Servers"
-url = "https://leetcode.com/problems/maximum-number-of-upgradable-servers/"
-
-[[entries]]
-title = "Painting the Walls"
-url = "https://leetcode.com/problems/painting-the-walls/"
-
-[[entries]]
-title = "Minimum Array Length After Pair Removals"
-url = "https://leetcode.com/problems/minimum-array-length-after-pair-removals/"
-
-[[entries]]
-title = "Find the Maximum Length of a Good Subsequence I"
-url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-i/"
-
-[[entries]]
-title = "Step-By-Step Directions From a Binary Tree Node to Another"
-url = "https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/"
-
-[[entries]]
-title = "String Transformation"
-url = "https://leetcode.com/problems/string-transformation/"
-
-[[entries]]
-title = "Find the Maximum Length of a Good Subsequence II"
-url = "https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii/"
-
-[[entries]]
-title = "Parallel Courses"
-url = "https://leetcode.com/problems/parallel-courses/"
-
-[[entries]]
-title = "Most Frequent IDs"
-url = "https://leetcode.com/problems/most-frequent-ids/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
-
-[[entries]]
-title = "Find All Anagrams in a String"
-url = "https://leetcode.com/problems/find-all-anagrams-in-a-string/"
-
-[[entries]]
-title = "Number of Ways to Form a Target String Given a Dictionary"
-url = "https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/"
-
-[[entries]]
-title = "Count Nodes Equal to Average of Subtree"
-url = "https://leetcode.com/problems/count-nodes-equal-to-average-of-subtree/"
-
-[[entries]]
-title = "Boundary of Binary Tree"
-url = "https://leetcode.com/problems/boundary-of-binary-tree/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Design Circular Deque"
 url = "https://leetcode.com/problems/design-circular-deque/"
+
+[[entries]]
+title = "Median of Two Sorted Arrays"
+url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
+
+[[entries]]
+title = "Kth Smallest Element in a Sorted Matrix"
+url = "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+
+[[entries]]
+title = "Count of Smaller Numbers After Self"
+url = "https://leetcode.com/problems/count-of-smaller-numbers-after-self/"
+
+[[entries]]
+title = "Implement Trie (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-prefix-tree/"

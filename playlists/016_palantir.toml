@@ -1,204 +1,152 @@
 title = "Palantir Technologies"
 group = "Big tech"
-focus = "graphs, grids, union-find, intervals, and practical data-modeling style coding."
+focus = "Union-find, grid and graph search, intervals, and modeling messy real-world data in code."
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Number of Provinces"
+url = "https://leetcode.com/problems/number-of-provinces/"
+
+[[entries]]
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"
 
 [[entries]]
 title = "Accounts Merge"
 url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Pacific Atlantic Water Flow"
-url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
-
-[[entries]]
-title = "Surrounded Regions"
-url = "https://leetcode.com/problems/surrounded-regions/"
-
-[[entries]]
-title = "Critical Connections in a Network"
-url = "https://leetcode.com/problems/critical-connections-in-a-network/"
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
 
 [[entries]]
 title = "Graph Valid Tree"
 url = "https://leetcode.com/problems/graph-valid-tree/"
 
 [[entries]]
-title = "Number of Connected Components in an Undirected Graph"
-url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+title = "Number of Islands II"
+url = "https://leetcode.com/problems/number-of-islands-ii/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Optimize Water Distribution in a Village"
+url = "https://leetcode.com/problems/optimize-water-distribution-in-a-village/"
+
+[[entries]]
+title = "Making A Large Island"
+url = "https://leetcode.com/problems/making-a-large-island/"
+
+[[entries]]
+title = "Surrounded Regions"
+url = "https://leetcode.com/problems/surrounded-regions/"
+
+[[entries]]
+title = "Flood Fill"
+url = "https://leetcode.com/problems/flood-fill/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Walls and Gates"
+url = "https://leetcode.com/problems/walls-and-gates/"
+
+[[entries]]
+title = "The Maze"
+url = "https://leetcode.com/problems/the-maze/"
+
+[[entries]]
+title = "Shortest Bridge"
+url = "https://leetcode.com/problems/shortest-bridge/"
+
+[[entries]]
+title = "Pacific Atlantic Water Flow"
+url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
+
+[[entries]]
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
+
+[[entries]]
+title = "Number of Closed Islands"
+url = "https://leetcode.com/problems/number-of-closed-islands/"
+
+[[entries]]
+title = "Count Sub Islands"
+url = "https://leetcode.com/problems/count-sub-islands/"
+
+[[entries]]
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
 
 [[entries]]
 title = "Employee Free Time"
 url = "https://leetcode.com/problems/employee-free-time/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Non-overlapping Intervals"
+url = "https://leetcode.com/problems/non-overlapping-intervals/"
 
 [[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+title = "Interval List Intersections"
+url = "https://leetcode.com/problems/interval-list-intersections/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Shortest Path in a Grid with Obstacles Elimination"
-url = "https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Implement Rand10() Using Rand7()"
-url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
-
-[[entries]]
-title = "New 21 Game"
-url = "https://leetcode.com/problems/new-21-game/"
-
-[[entries]]
-title = "Soup Servings"
-url = "https://leetcode.com/problems/soup-servings/"
-
-[[entries]]
-title = "Number of Dice Rolls With Target Sum"
-url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
-
-[[entries]]
-title = "Dice Roll Simulation"
-url = "https://leetcode.com/problems/dice-roll-simulation/"
-
-[[entries]]
-title = "Ugly Number II"
-url = "https://leetcode.com/problems/ugly-number-ii/"
-
-[[entries]]
-title = "Super Ugly Number"
-url = "https://leetcode.com/problems/super-ugly-number/"
-
-[[entries]]
-title = "Nth Magical Number"
-url = "https://leetcode.com/problems/nth-magical-number/"
-
-[[entries]]
-title = "Water and Jug Problem"
-url = "https://leetcode.com/problems/water-and-jug-problem/"
-
-[[entries]]
-title = "Nim Game"
-url = "https://leetcode.com/problems/nim-game/"
-
-[[entries]]
-title = "Bulb Switcher"
-url = "https://leetcode.com/problems/bulb-switcher/"
-
-[[entries]]
-title = "Reach a Number"
-url = "https://leetcode.com/problems/reach-a-number/"
-
-[[entries]]
-title = "Mirror Reflection"
-url = "https://leetcode.com/problems/mirror-reflection/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Task Scheduler"
-url = "https://leetcode.com/problems/task-scheduler/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Different Ways to Add Parentheses"
-url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
-
-[[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
-
-[[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
-
-[[entries]]
-title = "Largest Rectangle in Histogram"
-url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
+title = "My Calendar II"
+url = "https://leetcode.com/problems/my-calendar-ii/"
 
 [[entries]]
 title = "Group Anagrams"
 url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Game of Life"
+url = "https://leetcode.com/problems/game-of-life/"
+
+[[entries]]
+title = "Robot Room Cleaner"
+url = "https://leetcode.com/problems/robot-room-cleaner/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "N-Queens"
+url = "https://leetcode.com/problems/n-queens/"
+
+[[entries]]
+title = "Alien Dictionary"
+url = "https://leetcode.com/problems/alien-dictionary/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"

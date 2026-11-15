@@ -1,204 +1,152 @@
 title = "Airbnb"
 group = "Big tech"
-focus = "backtracking, recursion, graphs, strings, and search/partition problems."
+focus = "Backtracking and recursion, string partitioning, and search problems where you prune and explain the state."
 review_modules = ["01_arrays_and_hashing", "09_backtracking", "10_graphs", "11_dp", "14_tries", "15_bit_manipulation"]
 
 [[entries]]
-title = "Word Search II"
-url = "https://leetcode.com/problems/word-search-ii/"
+title = "Combination Sum II"
+url = "https://leetcode.com/problems/combination-sum-ii/"
 
 [[entries]]
-title = "Palindrome Pairs"
-url = "https://leetcode.com/problems/palindrome-pairs/"
+title = "Combination Sum III"
+url = "https://leetcode.com/problems/combination-sum-iii/"
 
 [[entries]]
-title = "IP to CIDR"
-url = "https://leetcode.com/problems/ip-to-cidr/"
+title = "Combinations"
+url = "https://leetcode.com/problems/combinations/"
 
 [[entries]]
-title = "Flatten 2D Vector"
-url = "https://leetcode.com/problems/flatten-2d-vector/"
+title = "Subsets II"
+url = "https://leetcode.com/problems/subsets-ii/"
 
 [[entries]]
-title = "Text Justification"
-url = "https://leetcode.com/problems/text-justification/"
+title = "Permutations II"
+url = "https://leetcode.com/problems/permutations-ii/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Permutation Sequence"
+url = "https://leetcode.com/problems/permutation-sequence/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
 
 [[entries]]
-title = "Combination Sum"
-url = "https://leetcode.com/problems/combination-sum/"
+title = "Letter Case Permutation"
+url = "https://leetcode.com/problems/letter-case-permutation/"
 
 [[entries]]
-title = "Permutations"
-url = "https://leetcode.com/problems/permutations/"
+title = "Letter Tile Possibilities"
+url = "https://leetcode.com/problems/letter-tile-possibilities/"
+
+[[entries]]
+title = "Palindrome Partitioning"
+url = "https://leetcode.com/problems/palindrome-partitioning/"
+
+[[entries]]
+title = "Partition to K Equal Sum Subsets"
+url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
+
+[[entries]]
+title = "Matchsticks to Square"
+url = "https://leetcode.com/problems/matchsticks-to-square/"
+
+[[entries]]
+title = "Beautiful Arrangement"
+url = "https://leetcode.com/problems/beautiful-arrangement/"
+
+[[entries]]
+title = "N-Queens II"
+url = "https://leetcode.com/problems/n-queens-ii/"
+
+[[entries]]
+title = "Sudoku Solver"
+url = "https://leetcode.com/problems/sudoku-solver/"
+
+[[entries]]
+title = "Unique Paths III"
+url = "https://leetcode.com/problems/unique-paths-iii/"
+
+[[entries]]
+title = "Expression Add Operators"
+url = "https://leetcode.com/problems/expression-add-operators/"
+
+[[entries]]
+title = "Remove Invalid Parentheses"
+url = "https://leetcode.com/problems/remove-invalid-parentheses/"
 
 [[entries]]
 title = "Word Break II"
 url = "https://leetcode.com/problems/word-break-ii/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Split a String Into the Max Number of Unique Substrings"
+url = "https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/"
 
 [[entries]]
-title = "Smallest Common Region"
-url = "https://leetcode.com/problems/smallest-common-region/"
+title = "Different Ways to Add Parentheses"
+url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
 
 [[entries]]
-title = "Shortest Uncommon Substring in an Array"
-url = "https://leetcode.com/problems/shortest-uncommon-substring-in-an-array/"
+title = "Word Squares"
+url = "https://leetcode.com/problems/word-squares/"
 
 [[entries]]
-title = "Minimize Rounding Error to Meet Target"
-url = "https://leetcode.com/problems/minimize-rounding-error-to-meet-target/"
+title = "Find the Shortest Superstring"
+url = "https://leetcode.com/problems/find-the-shortest-superstring/"
 
 [[entries]]
-title = "Number of Ways to Build House of Cards"
-url = "https://leetcode.com/problems/number-of-ways-to-build-house-of-cards/"
+title = "Maximum Path Quality of a Graph"
+url = "https://leetcode.com/problems/maximum-path-quality-of-a-graph/"
 
 [[entries]]
-title = "Minimum Number of Flips to Convert Binary Matrix to Zero Matrix"
-url = "https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/"
-
-[[entries]]
-title = "Strings Differ by One Character"
-url = "https://leetcode.com/problems/strings-differ-by-one-character/"
-
-[[entries]]
-title = "Maximum Candies You Can Get from Boxes"
-url = "https://leetcode.com/problems/maximum-candies-you-can-get-from-boxes/"
-
-[[entries]]
-title = "Pour Water"
-url = "https://leetcode.com/problems/pour-water/"
-
-[[entries]]
-title = "Minimum Number of Vertices to Reach All Nodes"
-url = "https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/"
-
-[[entries]]
-title = "Design Excel Sum Formula"
-url = "https://leetcode.com/problems/design-excel-sum-formula/"
-
-[[entries]]
-title = "Convert to Base -2"
-url = "https://leetcode.com/problems/convert-to-base-2/"
-
-[[entries]]
-title = "Pyramid Transition Matrix"
-url = "https://leetcode.com/problems/pyramid-transition-matrix/"
-
-[[entries]]
-title = "Mini Parser"
-url = "https://leetcode.com/problems/mini-parser/"
-
-[[entries]]
-title = "Shopping Offers"
-url = "https://leetcode.com/problems/shopping-offers/"
+title = "Fair Distribution of Cookies"
+url = "https://leetcode.com/problems/fair-distribution-of-cookies/"
 
 [[entries]]
 title = "Smallest Sufficient Team"
 url = "https://leetcode.com/problems/smallest-sufficient-team/"
 
 [[entries]]
-title = "Sliding Puzzle"
-url = "https://leetcode.com/problems/sliding-puzzle/"
+title = "Number of Ways to Wear Different Hats to Each Other"
+url = "https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/"
 
 [[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
+title = "24 Game"
+url = "https://leetcode.com/problems/24-game/"
 
 [[entries]]
-title = "Robot Bounded In Circle"
-url = "https://leetcode.com/problems/robot-bounded-in-circle/"
+title = "Palindrome Pairs"
+url = "https://leetcode.com/problems/palindrome-pairs/"
 
 [[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
+title = "Distinct Subsequences"
+url = "https://leetcode.com/problems/distinct-subsequences/"
 
 [[entries]]
-title = "Contains Duplicate II"
-url = "https://leetcode.com/problems/contains-duplicate-ii/"
+title = "Interleaving String"
+url = "https://leetcode.com/problems/interleaving-string/"
 
 [[entries]]
-title = "Intersection of Two Linked Lists"
-url = "https://leetcode.com/problems/intersection-of-two-linked-lists/"
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
-title = "Contains Duplicate III"
-url = "https://leetcode.com/problems/contains-duplicate-iii/"
+title = "Flatten Nested List Iterator"
+url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
 
 [[entries]]
-title = "Convert Sorted Array to Binary Search Tree"
-url = "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
+title = "Maximum Students Taking Exam"
+url = "https://leetcode.com/problems/maximum-students-taking-exam/"
 
 [[entries]]
-title = "Employee Free Time"
-url = "https://leetcode.com/problems/employee-free-time/"
+title = "Cherry Pickup"
+url = "https://leetcode.com/problems/cherry-pickup/"
 
 [[entries]]
-title = "Regular Expression Matching"
-url = "https://leetcode.com/problems/regular-expression-matching/"
+title = "Minimum Cost to Merge Stones"
+url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
 
 [[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Maximal Square"
-url = "https://leetcode.com/problems/maximal-square/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
-title = "Minimum Window Subsequence"
-url = "https://leetcode.com/problems/minimum-window-subsequence/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Shortest Path to Get All Keys"
-url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"
-
-[[entries]]
-title = "Detonate the Maximum Bombs"
-url = "https://leetcode.com/problems/detonate-the-maximum-bombs/"
-
-[[entries]]
-title = "Consecutive Numbers Sum"
-url = "https://leetcode.com/problems/consecutive-numbers-sum/"
-
-[[entries]]
-title = "Minimum Cost to Reach Destination in Time"
-url = "https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time/"
-
-[[entries]]
-title = "Design Tic-Tac-Toe"
-url = "https://leetcode.com/problems/design-tic-tac-toe/"
+title = "Count Sorted Vowel Strings"
+url = "https://leetcode.com/problems/count-sorted-vowel-strings/"

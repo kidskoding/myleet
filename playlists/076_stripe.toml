@@ -1,11 +1,59 @@
 title = "Stripe"
 group = "AI labs & high growth"
-focus = "string parsing, hash-map bookkeeping, intervals, rate limiting, and small design DSes."
+focus = "String parsing, hash-map bookkeeping, intervals, rate limiting, and small in-memory designs."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
 title = "Logger Rate Limiter"
 url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Design Underground System"
+url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
+title = "Invalid Transactions"
+url = "https://leetcode.com/problems/invalid-transactions/"
+
+[[entries]]
+title = "Design HashMap"
+url = "https://leetcode.com/problems/design-hashmap/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Basic Calculator II"
+url = "https://leetcode.com/problems/basic-calculator-ii/"
+
+[[entries]]
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+
+[[entries]]
+title = "Decode String"
+url = "https://leetcode.com/problems/decode-string/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
 title = "Insert Interval"
@@ -16,169 +64,93 @@ title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Invalid Transactions"
-url = "https://leetcode.com/problems/invalid-transactions/"
-
-[[entries]]
-title = "Encode and Decode Strings"
-url = "https://leetcode.com/problems/encode-and-decode-strings/"
-
-[[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Moving Average from Data Stream"
-url = "https://leetcode.com/problems/moving-average-from-data-stream/"
-
-[[entries]]
-title = "Subdomain Visit Count"
-url = "https://leetcode.com/problems/subdomain-visit-count/"
-
-[[entries]]
 title = "My Calendar I"
 url = "https://leetcode.com/problems/my-calendar-i/"
 
 [[entries]]
-title = "My Calendar II"
-url = "https://leetcode.com/problems/my-calendar-ii/"
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
+
+[[entries]]
+title = "Insert Delete GetRandom O(1)"
+url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Find the Difference"
+url = "https://leetcode.com/problems/find-the-difference/"
+
+[[entries]]
+title = "Group Anagrams"
+url = "https://leetcode.com/problems/group-anagrams/"
+
+[[entries]]
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+
+[[entries]]
+title = "Subarray Sum Equals K"
+url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
+
+[[entries]]
+title = "Restore IP Addresses"
+url = "https://leetcode.com/problems/restore-ip-addresses/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
 title = "Number of Recent Calls"
 url = "https://leetcode.com/problems/number-of-recent-calls/"
 
 [[entries]]
-title = "Alert Using Same Key-Card Three or More Times in a One Hour Period"
-url = "https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period/"
+title = "Moving Average from Data Stream"
+url = "https://leetcode.com/problems/moving-average-from-data-stream/"
 
 [[entries]]
-title = "Brace Expansion"
-url = "https://leetcode.com/problems/brace-expansion/"
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
-title = "Minimum Penalty for a Shop"
-url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
+title = "Text Justification"
+url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
-title = "Number of Black Blocks"
-url = "https://leetcode.com/problems/number-of-black-blocks/"
+title = "Fraction to Recurring Decimal"
+url = "https://leetcode.com/problems/fraction-to-recurring-decimal/"
 
 [[entries]]
-title = "One Edit Distance"
-url = "https://leetcode.com/problems/one-edit-distance/"
+title = "Add Strings"
+url = "https://leetcode.com/problems/add-strings/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Multiply Strings"
+url = "https://leetcode.com/problems/multiply-strings/"
 
 [[entries]]
-title = "Parallel Courses III"
-url = "https://leetcode.com/problems/parallel-courses-iii/"
-
-[[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
-
-[[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Implement Rand10() Using Rand7()"
-url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
-
-[[entries]]
-title = "New 21 Game"
-url = "https://leetcode.com/problems/new-21-game/"
-
-[[entries]]
-title = "Soup Servings"
-url = "https://leetcode.com/problems/soup-servings/"
-
-[[entries]]
-title = "Number of Dice Rolls With Target Sum"
-url = "https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/"
-
-[[entries]]
-title = "Dice Roll Simulation"
-url = "https://leetcode.com/problems/dice-roll-simulation/"
-
-[[entries]]
-title = "Ugly Number II"
-url = "https://leetcode.com/problems/ugly-number-ii/"
-
-[[entries]]
-title = "Super Ugly Number"
-url = "https://leetcode.com/problems/super-ugly-number/"
-
-[[entries]]
-title = "Nth Magical Number"
-url = "https://leetcode.com/problems/nth-magical-number/"
-
-[[entries]]
-title = "Water and Jug Problem"
-url = "https://leetcode.com/problems/water-and-jug-problem/"
-
-[[entries]]
-title = "Bulb Switcher"
-url = "https://leetcode.com/problems/bulb-switcher/"
-
-[[entries]]
-title = "Reach a Number"
-url = "https://leetcode.com/problems/reach-a-number/"
-
-[[entries]]
-title = "Mirror Reflection"
-url = "https://leetcode.com/problems/mirror-reflection/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Sliding Window Median"
-url = "https://leetcode.com/problems/sliding-window-median/"
-
-[[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
 
 [[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Car Fleet"
+url = "https://leetcode.com/problems/car-fleet/"
 
 [[entries]]
-title = "Basic Calculator"
-url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Basic Calculator II"
-url = "https://leetcode.com/problems/basic-calculator-ii/"
-
-[[entries]]
-title = "Different Ways to Add Parentheses"
-url = "https://leetcode.com/problems/different-ways-to-add-parentheses/"
-
-[[entries]]
-title = "Evaluate Reverse Polish Notation"
-url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
-
-[[entries]]
-title = "Expression Add Operators"
-url = "https://leetcode.com/problems/expression-add-operators/"
+title = "Daily Temperatures"
+url = "https://leetcode.com/problems/daily-temperatures/"

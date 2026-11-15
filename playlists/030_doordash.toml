@@ -1,204 +1,156 @@
 title = "DoorDash"
 group = "Product companies"
-focus = "intervals, heaps, graphs, trees, arrays, and standard interview reasoning."
+focus = "Intervals, heaps, graph and grid search, trees, and backtracking, with a working solution first and then a faster one."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "03_stacks_and_queues", "08_heaps", "10_graphs", "07_trees"]
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
 
 [[entries]]
-title = "Majority Element II"
-url = "https://leetcode.com/problems/majority-element-ii/"
+title = "Top K Frequent Words"
+url = "https://leetcode.com/problems/top-k-frequent-words/"
 
 [[entries]]
-title = "Contains Duplicate III"
-url = "https://leetcode.com/problems/contains-duplicate-iii/"
-
-[[entries]]
-title = "Range Sum Query - Immutable"
-url = "https://leetcode.com/problems/range-sum-query-immutable/"
-
-[[entries]]
-title = "Robot Room Cleaner"
-url = "https://leetcode.com/problems/robot-room-cleaner/"
-
-[[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
-
-[[entries]]
-title = "Design Bounded Blocking Queue"
-url = "https://leetcode.com/problems/design-bounded-blocking-queue/"
-
-[[entries]]
-title = "Jump Game III"
-url = "https://leetcode.com/problems/jump-game-iii/"
-
-[[entries]]
-title = "All Paths From Source to Target"
-url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
-
-[[entries]]
-title = "Car Pooling"
-url = "https://leetcode.com/problems/car-pooling/"
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
 
 [[entries]]
 title = "Task Scheduler"
 url = "https://leetcode.com/problems/task-scheduler/"
 
 [[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
+title = "Reorganize String"
+url = "https://leetcode.com/problems/reorganize-string/"
 
 [[entries]]
-title = "Shortest Path in Binary Matrix"
-url = "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
-title = "Palindrome Partitioning"
-url = "https://leetcode.com/problems/palindrome-partitioning/"
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
 
 [[entries]]
-title = "Set Matrix Zeroes"
-url = "https://leetcode.com/problems/set-matrix-zeroes/"
+title = "Meeting Rooms"
+url = "https://leetcode.com/problems/meeting-rooms/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Car Pooling"
+url = "https://leetcode.com/problems/car-pooling/"
 
 [[entries]]
-title = "Reconstruct Itinerary"
-url = "https://leetcode.com/problems/reconstruct-itinerary/"
+title = "Minimum Number of Arrows to Burst Balloons"
+url = "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock with Cooldown"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
 
 [[entries]]
-title = "Minimum Cost to Hire K Workers"
-url = "https://leetcode.com/problems/minimum-cost-to-hire-k-workers/"
+title = "Number of Recent Calls"
+url = "https://leetcode.com/problems/number-of-recent-calls/"
 
 [[entries]]
-title = "Rotate List"
-url = "https://leetcode.com/problems/rotate-list/"
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Word Ladder"
+url = "https://leetcode.com/problems/word-ladder/"
 
 [[entries]]
-title = "Nearest Exit from Entrance in Maze"
-url = "https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/"
+title = "Clone Graph"
+url = "https://leetcode.com/problems/clone-graph/"
 
 [[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+title = "Shortest Bridge"
+url = "https://leetcode.com/problems/shortest-bridge/"
 
 [[entries]]
-title = "Maximum Length of Repeated Subarray"
-url = "https://leetcode.com/problems/maximum-length-of-repeated-subarray/"
+title = "Pacific Atlantic Water Flow"
+url = "https://leetcode.com/problems/pacific-atlantic-water-flow/"
 
 [[entries]]
-title = "Min Cost to Connect All Points"
-url = "https://leetcode.com/problems/min-cost-to-connect-all-points/"
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
-title = "Walls and Gates"
-url = "https://leetcode.com/problems/walls-and-gates/"
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Longest Increasing Path in a Matrix"
-url = "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/"
+title = "Max Area of Island"
+url = "https://leetcode.com/problems/max-area-of-island/"
 
 [[entries]]
-title = "Subsequence With the Minimum Score"
-url = "https://leetcode.com/problems/subsequence-with-the-minimum-score/"
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
 
 [[entries]]
-title = "Single-Threaded CPU"
-url = "https://leetcode.com/problems/single-threaded-cpu/"
-
-[[entries]]
-title = "Most Profit Assigning Work"
-url = "https://leetcode.com/problems/most-profit-assigning-work/"
-
-[[entries]]
-title = "Count Nodes With the Highest Score"
-url = "https://leetcode.com/problems/count-nodes-with-the-highest-score/"
-
-[[entries]]
-title = "132 Pattern"
-url = "https://leetcode.com/problems/132-pattern/"
-
-[[entries]]
-title = "Mice and Cheese"
-url = "https://leetcode.com/problems/mice-and-cheese/"
-
-[[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
-
-[[entries]]
-title = "Count All Valid Pickup and Delivery Options"
-url = "https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options/"
-
-[[entries]]
-title = "Search Suggestions System"
-url = "https://leetcode.com/problems/search-suggestions-system/"
+title = "Lowest Common Ancestor of a Binary Tree"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
 
 [[entries]]
 title = "Binary Tree Maximum Path Sum"
 url = "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
 
 [[entries]]
-title = "Shortest Distance from All Buildings"
-url = "https://leetcode.com/problems/shortest-distance-from-all-buildings/"
+title = "All Nodes Distance K in Binary Tree"
+url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
 
 [[entries]]
-title = "Next Greater Element III"
-url = "https://leetcode.com/problems/next-greater-element-iii/"
+title = "Path Sum III"
+url = "https://leetcode.com/problems/path-sum-iii/"
 
 [[entries]]
-title = "Minimum Number of Steps to Make Two Strings Anagram"
-url = "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/"
+title = "Subsets"
+url = "https://leetcode.com/problems/subsets/"
 
 [[entries]]
-title = "Maximum Profit in Job Scheduling"
-url = "https://leetcode.com/problems/maximum-profit-in-job-scheduling/"
+title = "Permutations"
+url = "https://leetcode.com/problems/permutations/"
 
 [[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
+title = "Combination Sum"
+url = "https://leetcode.com/problems/combination-sum/"
 
 [[entries]]
-title = "Find K Closest Elements"
-url = "https://leetcode.com/problems/find-k-closest-elements/"
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
 
 [[entries]]
-title = "Basic Calculator III"
-url = "https://leetcode.com/problems/basic-calculator-iii/"
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
 
 [[entries]]
-title = "Making A Large Island"
-url = "https://leetcode.com/problems/making-a-large-island/"
+title = "Generate Parentheses"
+url = "https://leetcode.com/problems/generate-parentheses/"
 
 [[entries]]
-title = "01 Matrix"
-url = "https://leetcode.com/problems/01-matrix/"
+title = "Search Suggestions System"
+url = "https://leetcode.com/problems/search-suggestions-system/"
 
 [[entries]]
-title = "Interval List Intersections"
-url = "https://leetcode.com/problems/interval-list-intersections/"
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
 
 [[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
-title = "Vertical Order Traversal of a Binary Tree"
-url = "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/"
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
 
 [[entries]]
-title = "Ways to Make a Fair Array"
-url = "https://leetcode.com/problems/ways-to-make-a-fair-array/"
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Sliding Window Maximum"
+url = "https://leetcode.com/problems/sliding-window-maximum/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"

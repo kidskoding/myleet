@@ -1,184 +1,160 @@
 title = "Coinbase"
 group = "Product companies"
-focus = "correctness under constraints, arrays/maps, graphs, DP, practical modeling, and clean state."
+focus = "Careful array and hash-map code, money-style DP, and graph problems with weights, tested against edge cases."
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "04_sliding_window", "10_graphs", "11_dp", "08_heaps", "14_tries"]
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Design Add and Search Words Data Structure"
-url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
-
-[[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
-
-[[entries]]
-title = "Network Delay Time"
-url = "https://leetcode.com/problems/network-delay-time/"
-
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
-
-[[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
-[[entries]]
-title = "Minimum Window Substring"
-url = "https://leetcode.com/problems/minimum-window-substring/"
-
-[[entries]]
-title = "Longest Consecutive Sequence"
-url = "https://leetcode.com/problems/longest-consecutive-sequence/"
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
 
 [[entries]]
 title = "Subarray Sum Equals K"
 url = "https://leetcode.com/problems/subarray-sum-equals-k/"
 
 [[entries]]
-title = "Product of Array Except Self"
-url = "https://leetcode.com/problems/product-of-array-except-self/"
+title = "Contiguous Array"
+url = "https://leetcode.com/problems/contiguous-array/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Longest Consecutive Sequence"
+url = "https://leetcode.com/problems/longest-consecutive-sequence/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
-
-[[entries]]
-title = "Serialize and Deserialize Binary Tree"
-url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
-
-[[entries]]
-title = "Coin Change"
-url = "https://leetcode.com/problems/coin-change/"
-
-[[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
-title = "Edit Distance"
-url = "https://leetcode.com/problems/edit-distance/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock with Transaction Fee"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Find Median from Data Stream"
-url = "https://leetcode.com/problems/find-median-from-data-stream/"
-
-[[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
-title = "Zigzag Iterator"
-url = "https://leetcode.com/problems/zigzag-iterator/"
-
-[[entries]]
-title = "Simple Bank System"
-url = "https://leetcode.com/problems/simple-bank-system/"
-
-[[entries]]
-title = "Design File System"
-url = "https://leetcode.com/problems/design-file-system/"
-
-[[entries]]
-title = "Find the Length of the Longest Common Prefix"
-url = "https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/"
-
-[[entries]]
-title = "Design Circular Queue"
-url = "https://leetcode.com/problems/design-circular-queue/"
-
-[[entries]]
-title = "Course Schedule II"
-url = "https://leetcode.com/problems/course-schedule-ii/"
+title = "Maximum Subarray"
+url = "https://leetcode.com/problems/maximum-subarray/"
 
 [[entries]]
 title = "Best Time to Buy and Sell Stock"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Best Time to Buy and Sell Stock II"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
 
 [[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
+title = "Coin Change"
+url = "https://leetcode.com/problems/coin-change/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Coin Change II"
+url = "https://leetcode.com/problems/coin-change-ii/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "House Robber"
+url = "https://leetcode.com/problems/house-robber/"
+
+[[entries]]
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"
+
+[[entries]]
+title = "Min Cost Climbing Stairs"
+url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
+
+[[entries]]
+title = "Climbing Stairs"
+url = "https://leetcode.com/problems/climbing-stairs/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Network Delay Time"
+url = "https://leetcode.com/problems/network-delay-time/"
+
+[[entries]]
+title = "Path with Maximum Probability"
+url = "https://leetcode.com/problems/path-with-maximum-probability/"
+
+[[entries]]
+title = "Design Twitter"
+url = "https://leetcode.com/problems/design-twitter/"
+
+[[entries]]
+title = "My Calendar I"
+url = "https://leetcode.com/problems/my-calendar-i/"
+
+[[entries]]
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
+
+[[entries]]
+title = "Spiral Matrix"
+url = "https://leetcode.com/problems/spiral-matrix/"
+
+[[entries]]
+title = "Set Matrix Zeroes"
+url = "https://leetcode.com/problems/set-matrix-zeroes/"
+
+[[entries]]
+title = "Find the Duplicate Number"
+url = "https://leetcode.com/problems/find-the-duplicate-number/"
+
+[[entries]]
+title = "Majority Element"
+url = "https://leetcode.com/problems/majority-element/"
+
+[[entries]]
+title = "Product of Array Except Self"
+url = "https://leetcode.com/problems/product-of-array-except-self/"
+
+[[entries]]
+title = "Merge Sorted Array"
+url = "https://leetcode.com/problems/merge-sorted-array/"
+
+[[entries]]
+title = "Pow(x, n)"
+url = "https://leetcode.com/problems/powx-n/"
+
+[[entries]]
+title = "Plus One"
+url = "https://leetcode.com/problems/plus-one/"
+
+[[entries]]
+title = "Integer to Roman"
+url = "https://leetcode.com/problems/integer-to-roman/"
+
+[[entries]]
+title = "Add Strings"
+url = "https://leetcode.com/problems/add-strings/"
+
+[[entries]]
+title = "Valid Sudoku"
+url = "https://leetcode.com/problems/valid-sudoku/"
+
+[[entries]]
+title = "Minimum Window Substring"
+url = "https://leetcode.com/problems/minimum-window-substring/"
+
+[[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Search in Rotated Sorted Array"
+url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+
+[[entries]]
+title = "Kth Largest Element in an Array"
+url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"

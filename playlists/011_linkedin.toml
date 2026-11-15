@@ -1,204 +1,160 @@
 title = "LinkedIn"
 group = "Big tech"
-focus = "graphs, topological sort, trees, arrays, DP, and heaps."
+focus = "Graphs and topological sort, trees, and a spread of DP and heap problems."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "07_trees", "10_graphs", "17_advanced"]
-
-[[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
 
 [[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
 
 [[entries]]
-title = "Alien Dictionary"
-url = "https://leetcode.com/problems/alien-dictionary/"
+title = "Course Schedule IV"
+url = "https://leetcode.com/problems/course-schedule-iv/"
 
 [[entries]]
-title = "Clone Graph"
-url = "https://leetcode.com/problems/clone-graph/"
+title = "Parallel Courses III"
+url = "https://leetcode.com/problems/parallel-courses-iii/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Parallel Courses II"
+url = "https://leetcode.com/problems/parallel-courses-ii/"
 
 [[entries]]
-title = "Max Stack"
-url = "https://leetcode.com/problems/max-stack/"
+title = "Sort Items by Groups Respecting Dependencies"
+url = "https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/"
 
 [[entries]]
-title = "Nested List Weight Sum"
-url = "https://leetcode.com/problems/nested-list-weight-sum/"
+title = "All Paths From Source to Target"
+url = "https://leetcode.com/problems/all-paths-from-source-to-target/"
 
 [[entries]]
-title = "Shortest Word Distance II"
-url = "https://leetcode.com/problems/shortest-word-distance-ii/"
+title = "Find Eventual Safe States"
+url = "https://leetcode.com/problems/find-eventual-safe-states/"
 
 [[entries]]
-title = "Find Leaves of Binary Tree"
-url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
+title = "Largest Color Value in a Directed Graph"
+url = "https://leetcode.com/problems/largest-color-value-in-a-directed-graph/"
 
 [[entries]]
-title = "Can Place Flowers"
-url = "https://leetcode.com/problems/can-place-flowers/"
+title = "Time Needed to Inform All Employees"
+url = "https://leetcode.com/problems/time-needed-to-inform-all-employees/"
 
 [[entries]]
-title = "Nested List Weight Sum II"
-url = "https://leetcode.com/problems/nested-list-weight-sum-ii/"
+title = "Employee Importance"
+url = "https://leetcode.com/problems/employee-importance/"
 
 [[entries]]
-title = "Letter Combinations of a Phone Number"
-url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+title = "Reorder Routes to Make All Paths Lead to the City Zero"
+url = "https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/"
 
 [[entries]]
-title = "Find K Pairs with Smallest Sums"
-url = "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+title = "Number of Connected Components in an Undirected Graph"
+url = "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
 
 [[entries]]
-title = "Valid Parentheses"
-url = "https://leetcode.com/problems/valid-parentheses/"
+title = "Redundant Connection"
+url = "https://leetcode.com/problems/redundant-connection/"
 
 [[entries]]
-title = "Bulb Switcher"
-url = "https://leetcode.com/problems/bulb-switcher/"
+title = "Redundant Connection II"
+url = "https://leetcode.com/problems/redundant-connection-ii/"
 
 [[entries]]
-title = "Second Minimum Node In a Binary Tree"
-url = "https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/"
+title = "Satisfiability of Equality Equations"
+url = "https://leetcode.com/problems/satisfiability-of-equality-equations/"
 
 [[entries]]
-title = "Closest Binary Search Tree Value II"
-url = "https://leetcode.com/problems/closest-binary-search-tree-value-ii/"
+title = "Possible Bipartition"
+url = "https://leetcode.com/problems/possible-bipartition/"
 
 [[entries]]
-title = "Insert Delete GetRandom O(1) - Duplicates allowed"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/"
+title = "Find Closest Node to Given Two Nodes"
+url = "https://leetcode.com/problems/find-closest-node-to-given-two-nodes/"
 
 [[entries]]
-title = "Maximum Product Subarray"
-url = "https://leetcode.com/problems/maximum-product-subarray/"
+title = "Most Stones Removed with Same Row or Column"
+url = "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Smallest String With Swaps"
+url = "https://leetcode.com/problems/smallest-string-with-swaps/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
+title = "Regions Cut By Slashes"
+url = "https://leetcode.com/problems/regions-cut-by-slashes/"
 
 [[entries]]
-title = "Binary Tree Upside Down"
-url = "https://leetcode.com/problems/binary-tree-upside-down/"
+title = "Lowest Common Ancestor of Deepest Leaves"
+url = "https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/"
 
 [[entries]]
-title = "Shortest Word Distance III"
-url = "https://leetcode.com/problems/shortest-word-distance-iii/"
+title = "Binary Tree Pruning"
+url = "https://leetcode.com/problems/binary-tree-pruning/"
 
 [[entries]]
-title = "Sort Transformed Array"
-url = "https://leetcode.com/problems/sort-transformed-array/"
+title = "Count Good Nodes in Binary Tree"
+url = "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
 
 [[entries]]
-title = "Factor Combinations"
-url = "https://leetcode.com/problems/factor-combinations/"
+title = "Cousins in Binary Tree"
+url = "https://leetcode.com/problems/cousins-in-binary-tree/"
 
 [[entries]]
-title = "All O`one Data Structure"
-url = "https://leetcode.com/problems/all-oone-data-structure/"
+title = "Maximum Binary Tree"
+url = "https://leetcode.com/problems/maximum-binary-tree/"
 
 [[entries]]
-title = "Design Bounded Blocking Queue"
-url = "https://leetcode.com/problems/design-bounded-blocking-queue/"
+title = "Construct Binary Tree from Inorder and Postorder Traversal"
+url = "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "House Robber III"
+url = "https://leetcode.com/problems/house-robber-iii/"
 
 [[entries]]
-title = "Maximize Total Tastiness of Purchased Fruits"
-url = "https://leetcode.com/problems/maximize-total-tastiness-of-purchased-fruits/"
+title = "Longest Palindromic Subsequence"
+url = "https://leetcode.com/problems/longest-palindromic-subsequence/"
 
 [[entries]]
-title = "Time to Cross a Bridge"
-url = "https://leetcode.com/problems/time-to-cross-a-bridge/"
+title = "Palindromic Substrings"
+url = "https://leetcode.com/problems/palindromic-substrings/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "Delete and Earn"
+url = "https://leetcode.com/problems/delete-and-earn/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Min Cost Climbing Stairs"
+url = "https://leetcode.com/problems/min-cost-climbing-stairs/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
+title = "Perfect Squares"
+url = "https://leetcode.com/problems/perfect-squares/"
 
 [[entries]]
-title = "Minimum Increase to Maximize Special Indices"
-url = "https://leetcode.com/problems/minimum-increase-to-maximize-special-indices/"
+title = "Combination Sum IV"
+url = "https://leetcode.com/problems/combination-sum-iv/"
 
 [[entries]]
-title = "Paint House"
-url = "https://leetcode.com/problems/paint-house/"
+title = "Target Sum"
+url = "https://leetcode.com/problems/target-sum/"
 
 [[entries]]
-title = "Count Integers in Intervals"
-url = "https://leetcode.com/problems/count-integers-in-intervals/"
+title = "Ones and Zeroes"
+url = "https://leetcode.com/problems/ones-and-zeroes/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Search Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/"
+title = "Coin Change II"
+url = "https://leetcode.com/problems/coin-change-ii/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree II"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/"
+title = "Russian Doll Envelopes"
+url = "https://leetcode.com/problems/russian-doll-envelopes/"
 
 [[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
+title = "Best Time to Buy and Sell Stock with Cooldown"
+url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/"
 
 [[entries]]
-title = "Max Consecutive Ones III"
-url = "https://leetcode.com/problems/max-consecutive-ones-iii/"
-
-[[entries]]
-title = "Partition to K Equal Sum Subsets"
-url = "https://leetcode.com/problems/partition-to-k-equal-sum-subsets/"
-
-[[entries]]
-title = "Kth Smallest Product of Two Sorted Arrays"
-url = "https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Maximize Subarrays After Removing One Conflicting Pair"
-url = "https://leetcode.com/problems/maximize-subarrays-after-removing-one-conflicting-pair/"
-
-[[entries]]
-title = "Repeated DNA Sequences"
-url = "https://leetcode.com/problems/repeated-dna-sequences/"
-
-[[entries]]
-title = "Can I Win"
-url = "https://leetcode.com/problems/can-i-win/"
-
-[[entries]]
-title = "Minimum Deletions to Make Array Divisible"
-url = "https://leetcode.com/problems/minimum-deletions-to-make-array-divisible/"
-
-[[entries]]
-title = "Count Different Palindromic Subsequences"
-url = "https://leetcode.com/problems/count-different-palindromic-subsequences/"
-
-[[entries]]
-title = "Valid Number"
-url = "https://leetcode.com/problems/valid-number/"
-
-[[entries]]
-title = "Exclusive Time of Functions"
-url = "https://leetcode.com/problems/exclusive-time-of-functions/"
-
-[[entries]]
-title = "Paint House II"
-url = "https://leetcode.com/problems/paint-house-ii/"
+title = "Jump Game VI"
+url = "https://leetcode.com/problems/jump-game-vi/"

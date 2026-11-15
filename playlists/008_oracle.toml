@@ -1,204 +1,184 @@
 title = "Oracle"
 group = "Big tech"
-focus = "arrays, hash maps, trees, graphs, and object-oriented design-style coding."
+focus = "Linked lists, arrays and hash maps, number and geometry helpers, and object-oriented design-style coding."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
+title = "First Bad Version"
+url = "https://leetcode.com/problems/first-bad-version/"
 
 [[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
+title = "Guess Number Higher or Lower"
+url = "https://leetcode.com/problems/guess-number-higher-or-lower/"
 
 [[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
+title = "Arranging Coins"
+url = "https://leetcode.com/problems/arranging-coins/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
+title = "Assign Cookies"
+url = "https://leetcode.com/problems/assign-cookies/"
 
 [[entries]]
-title = "Course Schedule"
-url = "https://leetcode.com/problems/course-schedule/"
+title = "Can Place Flowers"
+url = "https://leetcode.com/problems/can-place-flowers/"
 
 [[entries]]
-title = "Lowest Common Ancestor of a Binary Tree"
-url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+title = "Lemonade Change"
+url = "https://leetcode.com/problems/lemonade-change/"
 
 [[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
+title = "Bag of Tokens"
+url = "https://leetcode.com/problems/bag-of-tokens/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Advantage Shuffle"
+url = "https://leetcode.com/problems/advantage-shuffle/"
 
 [[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+title = "Maximum Units on a Truck"
+url = "https://leetcode.com/problems/maximum-units-on-a-truck/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "Find Center of Star Graph"
+url = "https://leetcode.com/problems/find-center-of-star-graph/"
 
 [[entries]]
-title = "4Sum"
-url = "https://leetcode.com/problems/4sum/"
+title = "Island Perimeter"
+url = "https://leetcode.com/problems/island-perimeter/"
 
 [[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+title = "Largest Triangle Area"
+url = "https://leetcode.com/problems/largest-triangle-area/"
 
 [[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+title = "Rectangle Overlap"
+url = "https://leetcode.com/problems/rectangle-overlap/"
 
 [[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
+title = "Rectangle Area"
+url = "https://leetcode.com/problems/rectangle-area/"
 
 [[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+title = "Number of Common Factors"
+url = "https://leetcode.com/problems/number-of-common-factors/"
 
 [[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
+title = "Find Greatest Common Divisor of Array"
+url = "https://leetcode.com/problems/find-greatest-common-divisor-of-array/"
 
 [[entries]]
-title = "Maximize Value of Function in a Ball Passing Game"
-url = "https://leetcode.com/problems/maximize-value-of-function-in-a-ball-passing-game/"
+title = "Smallest Even Multiple"
+url = "https://leetcode.com/problems/smallest-even-multiple/"
 
 [[entries]]
-title = "Word Squares II"
-url = "https://leetcode.com/problems/word-squares-ii/"
+title = "Greatest Common Divisor of Strings"
+url = "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
 
 [[entries]]
-title = "Count Ways to Group Overlapping Ranges"
-url = "https://leetcode.com/problems/count-ways-to-group-overlapping-ranges/"
+title = "Left and Right Sum Differences"
+url = "https://leetcode.com/problems/left-and-right-sum-differences/"
 
 [[entries]]
-title = "Count Distinct Numbers on Board"
-url = "https://leetcode.com/problems/count-distinct-numbers-on-board/"
+title = "Find Pivot Index"
+url = "https://leetcode.com/problems/find-pivot-index/"
 
 [[entries]]
-title = "Minimize Length of Array Using Operations"
-url = "https://leetcode.com/problems/minimize-length-of-array-using-operations/"
+title = "Range Sum Query - Immutable"
+url = "https://leetcode.com/problems/range-sum-query-immutable/"
 
 [[entries]]
-title = "Count the Number of Houses at a Certain Distance I"
-url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-i/"
+title = "Range Sum Query - Mutable"
+url = "https://leetcode.com/problems/range-sum-query-mutable/"
 
 [[entries]]
-title = "Count the Number of Houses at a Certain Distance II"
-url = "https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/"
+title = "Minimum Area Rectangle"
+url = "https://leetcode.com/problems/minimum-area-rectangle/"
 
 [[entries]]
-title = "Count Pairs Of Similar Strings"
-url = "https://leetcode.com/problems/count-pairs-of-similar-strings/"
+title = "Max Points on a Line"
+url = "https://leetcode.com/problems/max-points-on-a-line/"
 
 [[entries]]
-title = "HTML Entity Parser"
-url = "https://leetcode.com/problems/html-entity-parser/"
+title = "Water and Jug Problem"
+url = "https://leetcode.com/problems/water-and-jug-problem/"
 
 [[entries]]
-title = "Pour Water"
-url = "https://leetcode.com/problems/pour-water/"
+title = "Repeated String Match"
+url = "https://leetcode.com/problems/repeated-string-match/"
 
 [[entries]]
-title = "Design Authentication Manager"
-url = "https://leetcode.com/problems/design-authentication-manager/"
+title = "Factorial Trailing Zeroes"
+url = "https://leetcode.com/problems/factorial-trailing-zeroes/"
 
 [[entries]]
-title = "All Ancestors of a Node in a Directed Acyclic Graph"
-url = "https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/"
+title = "Nim Game"
+url = "https://leetcode.com/problems/nim-game/"
 
 [[entries]]
-title = "Count the Number of Infection Sequences"
-url = "https://leetcode.com/problems/count-the-number-of-infection-sequences/"
+title = "Shortest Palindrome"
+url = "https://leetcode.com/problems/shortest-palindrome/"
 
 [[entries]]
-title = "Remove All Adjacent Duplicates in String II"
-url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
+title = "Implement Rand10() Using Rand7()"
+url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
 
 [[entries]]
-title = "Maximum Profit From Trading Stocks"
-url = "https://leetcode.com/problems/maximum-profit-from-trading-stocks/"
+title = "Linked List Random Node"
+url = "https://leetcode.com/problems/linked-list-random-node/"
 
 [[entries]]
-title = "Group Anagrams"
-url = "https://leetcode.com/problems/group-anagrams/"
+title = "Insertion Sort List"
+url = "https://leetcode.com/problems/insertion-sort-list/"
 
 [[entries]]
-title = "Minimum One Bit Operations to Make Integers Zero"
-url = "https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/"
+title = "Merge In Between Linked Lists"
+url = "https://leetcode.com/problems/merge-in-between-linked-lists/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Delete the Middle Node of a Linked List"
+url = "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
 
 [[entries]]
-title = "Count Ways To Build Good Strings"
-url = "https://leetcode.com/problems/count-ways-to-build-good-strings/"
+title = "Convert Binary Number in a Linked List to Integer"
+url = "https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Linked List Components"
+url = "https://leetcode.com/problems/linked-list-components/"
 
 [[entries]]
-title = "Diagonal Traverse"
-url = "https://leetcode.com/problems/diagonal-traverse/"
+title = "Split Linked List in Parts"
+url = "https://leetcode.com/problems/split-linked-list-in-parts/"
 
 [[entries]]
-title = "Number of Music Playlists"
-url = "https://leetcode.com/problems/number-of-music-playlists/"
+title = "Swapping Nodes in a Linked List"
+url = "https://leetcode.com/problems/swapping-nodes-in-a-linked-list/"
 
 [[entries]]
-title = "Zigzag Conversion"
-url = "https://leetcode.com/problems/zigzag-conversion/"
+title = "Reverse Nodes in Even Length Groups"
+url = "https://leetcode.com/problems/reverse-nodes-in-even-length-groups/"
 
 [[entries]]
-title = "Longest Mountain in Array"
-url = "https://leetcode.com/problems/longest-mountain-in-array/"
+title = "Maximum Twin Sum of a Linked List"
+url = "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
 
 [[entries]]
-title = "Find Leaves of Binary Tree"
-url = "https://leetcode.com/problems/find-leaves-of-binary-tree/"
+title = "Plus One Linked List"
+url = "https://leetcode.com/problems/plus-one-linked-list/"
 
 [[entries]]
-title = "Binary Tree Right Side View"
-url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+title = "Flatten a Multilevel Doubly Linked List"
+url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
 
 [[entries]]
-title = "LFU Cache"
-url = "https://leetcode.com/problems/lfu-cache/"
+title = "Remove Nodes From Linked List"
+url = "https://leetcode.com/problems/remove-nodes-from-linked-list/"
 
 [[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
+title = "Delete Nodes From Linked List Present in Array"
+url = "https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/"
 
 [[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Spiral Matrix"
-url = "https://leetcode.com/problems/spiral-matrix/"
-
-[[entries]]
-title = "Asteroid Collision"
-url = "https://leetcode.com/problems/asteroid-collision/"
-
-[[entries]]
-title = "Contiguous Array"
-url = "https://leetcode.com/problems/contiguous-array/"
-
-[[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
-
-[[entries]]
-title = "Number of Distinct Islands"
-url = "https://leetcode.com/problems/number-of-distinct-islands/"
+title = "Next Greater Node In Linked List"
+url = "https://leetcode.com/problems/next-greater-node-in-linked-list/"

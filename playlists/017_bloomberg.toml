@@ -1,204 +1,160 @@
 title = "Bloomberg"
 group = "Big tech"
-focus = "arrays, strings, design, trees, graphs, and careful implementation."
+focus = "Stacks, queues, small data-structure designs, strings, and binary search trees, with careful, readable implementation."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "06_linked_lists", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
-title = "Invalid Transactions"
-url = "https://leetcode.com/problems/invalid-transactions/"
+title = "Valid Parentheses"
+url = "https://leetcode.com/problems/valid-parentheses/"
 
 [[entries]]
-title = "Design Underground System"
-url = "https://leetcode.com/problems/design-underground-system/"
+title = "Implement Queue using Stacks"
+url = "https://leetcode.com/problems/implement-queue-using-stacks/"
 
 [[entries]]
-title = "Flatten a Multilevel Doubly Linked List"
-url = "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/"
+title = "Implement Stack using Queues"
+url = "https://leetcode.com/problems/implement-stack-using-queues/"
 
 [[entries]]
-title = "Decode String"
-url = "https://leetcode.com/problems/decode-string/"
+title = "Design Circular Queue"
+url = "https://leetcode.com/problems/design-circular-queue/"
 
 [[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
-
-[[entries]]
-title = "Number of Islands"
-url = "https://leetcode.com/problems/number-of-islands/"
-
-[[entries]]
-title = "Validate Binary Search Tree"
-url = "https://leetcode.com/problems/validate-binary-search-tree/"
-
-[[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
-
-[[entries]]
-title = "Candy Crush"
-url = "https://leetcode.com/problems/candy-crush/"
+title = "Design Circular Deque"
+url = "https://leetcode.com/problems/design-circular-deque/"
 
 [[entries]]
 title = "Design Browser History"
 url = "https://leetcode.com/problems/design-browser-history/"
 
 [[entries]]
-title = "Concatenation of Array"
-url = "https://leetcode.com/problems/concatenation-of-array/"
+title = "Design Linked List"
+url = "https://leetcode.com/problems/design-linked-list/"
 
 [[entries]]
-title = "Pascal's Triangle"
-url = "https://leetcode.com/problems/pascals-triangle/"
+title = "Design Front Middle Back Queue"
+url = "https://leetcode.com/problems/design-front-middle-back-queue/"
 
 [[entries]]
-title = "Sum of Squares of Special Elements"
-url = "https://leetcode.com/problems/sum-of-squares-of-special-elements/"
+title = "Design Most Recently Used Queue"
+url = "https://leetcode.com/problems/design-most-recently-used-queue/"
 
 [[entries]]
-title = "Minimum Operations to Reduce X to Zero"
-url = "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/"
+title = "Design Add and Search Words Data Structure"
+url = "https://leetcode.com/problems/design-add-and-search-words-data-structure/"
 
 [[entries]]
-title = "3Sum Closest"
-url = "https://leetcode.com/problems/3sum-closest/"
+title = "Implement Trie II (Prefix Tree)"
+url = "https://leetcode.com/problems/implement-trie-ii-prefix-tree/"
 
 [[entries]]
-title = "Minimum Size Subarray Sum"
-url = "https://leetcode.com/problems/minimum-size-subarray-sum/"
+title = "Encode and Decode TinyURL"
+url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
 
 [[entries]]
-title = "Minimum Insertions to Balance a Parentheses String"
-url = "https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/"
+title = "Evaluate Reverse Polish Notation"
+url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
 [[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
+title = "Asteroid Collision"
+url = "https://leetcode.com/problems/asteroid-collision/"
 
 [[entries]]
-title = "Largest Rectangle in Histogram"
-url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
+title = "Remove All Adjacent Duplicates In String"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/"
 
 [[entries]]
-title = "Top K Frequent Elements"
-url = "https://leetcode.com/problems/top-k-frequent-elements/"
+title = "Remove All Adjacent Duplicates in String II"
+url = "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/"
 
 [[entries]]
-title = "Bus Routes"
-url = "https://leetcode.com/problems/bus-routes/"
+title = "Backspace String Compare"
+url = "https://leetcode.com/problems/backspace-string-compare/"
 
 [[entries]]
-title = "Subarray Sum Equals K"
-url = "https://leetcode.com/problems/subarray-sum-equals-k/"
+title = "Remove K Digits"
+url = "https://leetcode.com/problems/remove-k-digits/"
 
 [[entries]]
-title = "Sliding Window Maximum"
-url = "https://leetcode.com/problems/sliding-window-maximum/"
+title = "Remove Duplicate Letters"
+url = "https://leetcode.com/problems/remove-duplicate-letters/"
 
 [[entries]]
-title = "Kth Largest Element in an Array"
-url = "https://leetcode.com/problems/kth-largest-element-in-an-array/"
-
-[[entries]]
-title = "Koko Eating Bananas"
-url = "https://leetcode.com/problems/koko-eating-bananas/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Valid Triangle Number"
-url = "https://leetcode.com/problems/valid-triangle-number/"
-
-[[entries]]
-title = "Reverse Integer"
-url = "https://leetcode.com/problems/reverse-integer/"
-
-[[entries]]
-title = "Zigzag Conversion"
-url = "https://leetcode.com/problems/zigzag-conversion/"
-
-[[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock II"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
-
-[[entries]]
-title = "Stone Game IV"
-url = "https://leetcode.com/problems/stone-game-iv/"
-
-[[entries]]
-title = "Next Permutation"
-url = "https://leetcode.com/problems/next-permutation/"
-
-[[entries]]
-title = "Subsets"
-url = "https://leetcode.com/problems/subsets/"
-
-[[entries]]
-title = "Distinct Subsequences"
-url = "https://leetcode.com/problems/distinct-subsequences/"
-
-[[entries]]
-title = "Insert Delete GetRandom O(1)"
-url = "https://leetcode.com/problems/insert-delete-getrandom-o1/"
-
-[[entries]]
-title = "Number of Provinces"
-url = "https://leetcode.com/problems/number-of-provinces/"
-
-[[entries]]
-title = "Split Array Largest Sum"
-url = "https://leetcode.com/problems/split-array-largest-sum/"
-
-[[entries]]
-title = "Single Element in a Sorted Array"
-url = "https://leetcode.com/problems/single-element-in-a-sorted-array/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
+title = "Next Greater Element I"
+url = "https://leetcode.com/problems/next-greater-element-i/"
 
 [[entries]]
 title = "Online Stock Span"
 url = "https://leetcode.com/problems/online-stock-span/"
 
 [[entries]]
-title = "Two City Scheduling"
-url = "https://leetcode.com/problems/two-city-scheduling/"
-
-[[entries]]
-title = "Using a Robot to Print the Lexicographically Smallest String"
-url = "https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string/"
-
-[[entries]]
-title = "Rotate Array"
-url = "https://leetcode.com/problems/rotate-array/"
+title = "Validate Stack Sequences"
+url = "https://leetcode.com/problems/validate-stack-sequences/"
 
 [[entries]]
 title = "Minimum Add to Make Parentheses Valid"
 url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
 
 [[entries]]
-title = "Fruit Into Baskets"
-url = "https://leetcode.com/problems/fruit-into-baskets/"
+title = "Ugly Number II"
+url = "https://leetcode.com/problems/ugly-number-ii/"
+
+[[entries]]
+title = "Happy Number"
+url = "https://leetcode.com/problems/happy-number/"
+
+[[entries]]
+title = "Excel Sheet Column Title"
+url = "https://leetcode.com/problems/excel-sheet-column-title/"
+
+[[entries]]
+title = "Longest Word in Dictionary"
+url = "https://leetcode.com/problems/longest-word-in-dictionary/"
+
+[[entries]]
+title = "String Matching in an Array"
+url = "https://leetcode.com/problems/string-matching-in-an-array/"
+
+[[entries]]
+title = "Custom Sort String"
+url = "https://leetcode.com/problems/custom-sort-string/"
+
+[[entries]]
+title = "Camelcase Matching"
+url = "https://leetcode.com/problems/camelcase-matching/"
+
+[[entries]]
+title = "Find the Difference"
+url = "https://leetcode.com/problems/find-the-difference/"
+
+[[entries]]
+title = "Intersection of Two Arrays II"
+url = "https://leetcode.com/problems/intersection-of-two-arrays-ii/"
+
+[[entries]]
+title = "Search in a Binary Search Tree"
+url = "https://leetcode.com/problems/search-in-a-binary-search-tree/"
+
+[[entries]]
+title = "Insert into a Binary Search Tree"
+url = "https://leetcode.com/problems/insert-into-a-binary-search-tree/"
+
+[[entries]]
+title = "Delete Node in a BST"
+url = "https://leetcode.com/problems/delete-node-in-a-bst/"
+
+[[entries]]
+title = "Inorder Successor in BST"
+url = "https://leetcode.com/problems/inorder-successor-in-bst/"
+
+[[entries]]
+title = "N-ary Tree Level Order Traversal"
+url = "https://leetcode.com/problems/n-ary-tree-level-order-traversal/"
+
+[[entries]]
+title = "Binary Tree Paths"
+url = "https://leetcode.com/problems/binary-tree-paths/"
+
+[[entries]]
+title = "Two Sum"
+url = "https://leetcode.com/problems/two-sum/"
