@@ -3,23 +3,6 @@ group = "AI & Startups"
 focus = "practical data processing with sorting and two pointers, heaps for top-k and ranking, BFS and topological order over task graphs, weighted sampling, and small stateful APIs."
 review_modules = ["02_two_pointers", "08_heaps", "10_graphs", "01_arrays_and_hashing", "16_math_geometry"]
 
-
-[[entries]]
-title = "Longest Substring Without Repeating Characters"
-url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
-
-[[entries]]
-title = "Add Two Numbers"
-url = "https://leetcode.com/problems/add-two-numbers/"
-
-[[entries]]
-title = "Two Sum"
-url = "https://leetcode.com/problems/two-sum/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
 [[entries]]
 title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
@@ -159,6 +142,10 @@ url = "https://leetcode.com/problems/largest-color-value-in-a-directed-graph/"
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Longest Substring Without Repeating Characters"
+url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
 [[entries]]
 title = "Number of Islands"

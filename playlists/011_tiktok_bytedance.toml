@@ -3,19 +3,6 @@ group = "Big Tech"
 focus = "Medium-to-hard array, interval, and subsequence problems, stock and jump DP, and counting with trees or sorting, done fast."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "10_graphs", "11_dp", "13_intervals"]
 
-
-[[entries]]
-title = "Continuous Subarray Sum"
-url = "https://leetcode.com/problems/continuous-subarray-sum/"
-
-[[entries]]
-title = "Path Sum IV"
-url = "https://leetcode.com/problems/path-sum-iv/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"
-
 [[entries]]
 title = "Maximal Square"
 url = "https://leetcode.com/problems/maximal-square/"

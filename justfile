@@ -54,7 +54,7 @@ ci-python:
     uv run ruff format --check .
     uv run ty check
     uv run pytest
-    find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -path './target' -prune -o -path '*/node_modules' -prune -o -path './worker/target' -prune -o -path './web/dist' -prune -o -path './web/src/wasm' -prune -o -path './web/public/data' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
+    find . -path './.git' -prune -o -path './.venv' -prune -o -path './.pytest_cache' -prune -o -path './target' -prune -o -path '*/node_modules' -prune -o -path './worker/target' -prune -o -path './web/dist' -prune -o -path './web/src/wasm' -prune -o -path './web/public/data' -prune -o -path './.planning' -prune -o -path './.handoff' -prune -o -name '*.md' -type f -print | xargs -r uv run mdformat --check
 
 # what the Deploy workflow builds, without deploying (needs worker-build)
 cd-check: web-build

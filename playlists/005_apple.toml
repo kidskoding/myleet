@@ -3,54 +3,13 @@ group = "Big Tech"
 focus = "Arrays, strings, linked lists, trees, and graph traversal, with careful handling of edge cases and clear complexity talk."
 review_modules = ["01_arrays_and_hashing", "06_linked_lists", "07_trees", "09_backtracking", "10_graphs", "13_intervals"]
 
-
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
-title = "Search in Rotated Sorted Array"
-url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
-
-[[entries]]
-title = "Generate Parentheses"
-url = "https://leetcode.com/problems/generate-parentheses/"
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Merge Intervals"
 url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
-
-[[entries]]
-title = "3Sum"
-url = "https://leetcode.com/problems/3sum/"
-
-[[entries]]
-title = "Container With Most Water"
-url = "https://leetcode.com/problems/container-with-most-water/"
-
-[[entries]]
-title = "Median of Two Sorted Arrays"
-url = "https://leetcode.com/problems/median-of-two-sorted-arrays/"
-
-[[entries]]
-title = "Insert Interval"
-url = "https://leetcode.com/problems/insert-interval/"
-
-[[entries]]
-title = "Largest Rectangle in Histogram"
-url = "https://leetcode.com/problems/largest-rectangle-in-histogram/"
-
-[[entries]]
-title = "Longest Palindromic Substring"
-url = "https://leetcode.com/problems/longest-palindromic-substring/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Spiral Matrix"
@@ -67,6 +26,10 @@ url = "https://leetcode.com/problems/number-of-islands/"
 [[entries]]
 title = "Course Schedule"
 url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "3Sum"
+url = "https://leetcode.com/problems/3sum/"
 
 [[entries]]
 title = "Binary Tree Right Side View"
@@ -203,3 +166,23 @@ url = "https://leetcode.com/problems/shortest-path-to-get-all-keys/"
 [[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
+
+[[entries]]
+title = "Keys and Rooms"
+url = "https://leetcode.com/problems/keys-and-rooms/"
+
+[[entries]]
+title = "Serialize and Deserialize Binary Tree"
+url = "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/"
+
+[[entries]]
+title = "Snakes and Ladders"
+url = "https://leetcode.com/problems/snakes-and-ladders/"
+
+[[entries]]
+title = "Rotate Array"
+url = "https://leetcode.com/problems/rotate-array/"
+
+[[entries]]
+title = "Shortest Palindrome"
+url = "https://leetcode.com/problems/shortest-palindrome/"
