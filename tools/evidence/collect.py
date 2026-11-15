@@ -15,19 +15,20 @@ SUBS = ["leetcode", "cscareerquestions", "csMajors"]
 KINDS = ["interview", "OA", "onsite", "phone screen"]
 CUTOFF = datetime(2024, 1, 1, tzinfo=timezone.utc).timestamp()
 DELAY = 2.5
-# slug -> (search names, playlist file)
+# slug -> (search names, playlist slug: the file name without its NNN_ order prefix)
 COMPANIES = {
-    "google": (["google"], "001_google"), "amazon": (["amazon"], "002_amazon"),
-    "microsoft": (["microsoft"], "003_microsoft"), "meta": (["meta", "facebook"], "004_meta"),
-    "apple": (["apple"], "005_apple"), "nvidia": (["nvidia"], "006_nvidia"),
-    "netflix": (["netflix"], "007_netflix"), "bytedance": (["bytedance"], "008_bytedance"),
-    "tiktok": (["tiktok"], "008_tiktok_bytedance"), "openai": (["openai"], "009_openai"),
-    "anthropic": (["anthropic"], "010_anthropic"), "spacex": (["spacex"], "011_spacex"),
-    "databricks": (["databricks"], "012_databricks"), "palantir": (["palantir"], "013_palantir"),
-    "anysphere": (["cursor anysphere", "anysphere"], "014_anysphere"), "stripe": (["stripe"], "015_stripe"),
-    "xai": (["xai"], "016_xai"), "scale-ai": (["scale ai"], "017_scale_ai"),
+    "google": (["google"], "google"), "amazon": (["amazon"], "amazon"),
+    "microsoft": (["microsoft"], "microsoft"), "meta": (["meta", "facebook"], "meta"),
+    "apple": (["apple"], "apple"), "nvidia": (["nvidia"], "nvidia"),
+    "netflix": (["netflix"], "netflix"), "bytedance": (["bytedance"], "bytedance"),
+    "tiktok": (["tiktok"], "tiktok_bytedance"), "openai": (["openai"], "openai"),
+    "anthropic": (["anthropic"], "anthropic"), "spacex": (["spacex"], "spacex"),
+    "databricks": (["databricks"], "databricks"), "palantir": (["palantir"], "palantir"),
+    "anysphere": (["cursor anysphere", "anysphere"], "anysphere"), "stripe": (["stripe"], "stripe"),
+    "xai": (["xai"], "xai"), "scale-ai": (["scale ai"], "scale_ai"),
+    "uber": (["uber"], "uber"), "adobe": (["adobe"], "adobe"),
 }
-BIG = {"google", "amazon", "microsoft", "meta", "apple", "nvidia", "netflix", "bytedance", "tiktok"}
+BIG = {"uber", "adobe", "google", "amazon", "microsoft", "meta", "apple", "nvidia", "netflix", "bytedance", "tiktok"}
 
 
 def pool():
@@ -117,7 +118,7 @@ def apply():
         ev = json.loads(f.read_text())["problems"]
         if not ev:
             continue
-        path = ROOT / "playlists" / f"{fname}.toml"
+        path = next((ROOT / "playlists").glob(f"[0-9]*_{fname}.toml"))
         head, *blocks = re.split(r"\n(?=\[\[entries\]\])", path.read_text().rstrip() + "\n")
         entries = [(re.search(r'title = "(.*)"', b).group(1), re.search(r'url = "(.*)"', b).group(1)) for b in blocks]
         diff = lambda title, url: P.get(byurl.get(url.split("/problems/")[-1].strip("/"), {}).get("id", ""), {}).get("difficulty")
