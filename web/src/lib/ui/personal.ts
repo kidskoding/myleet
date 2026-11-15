@@ -171,7 +171,7 @@ const lvlVar = (l: SkillLevel) => `var(--lvl-${levelIndex(l)})`;
 
 /**
  * The diagnosis update in the result sheet: the core's sentence, the level shift (or "No
- * change to your level") and the trend. `role="status"` so it is announced once.
+ * change for this topic") and the trend. `role="status"` so it is announced once.
  */
 export function whatThisChanges(fb: AttemptFeedback, opts: { href?: string } = {}): SafeHtml {
   const moved = fb.after !== fb.before;
@@ -181,7 +181,7 @@ export function whatThisChanges(fb: AttemptFeedback, opts: { href?: string } = {
     <div class="shift">
       ${moved ? html`<span class="lv lv-from" style="--lvl:${raw(lvlVar(fb.before))}">${LEVEL_WORD[fb.before]}</span>${icon("arrow-right")}` : ""}
       <span class="lv${moved ? " lv-to" : ""}" style="--lvl:${raw(lvlVar(fb.after))}">${LEVEL_WORD[fb.after]}</span>
-      ${moved ? "" : html`<span class="text-muted">No change to your level</span>`}
+      ${moved ? "" : html`<span class="text-muted">No change for this topic</span>`}
       <span class="shift-end">${trend(fb.trend, 1)}${opts.href ? html`<a class="link text-small" href="${opts.href}">See ${fb.technique_title}</a>` : ""}</span>
     </div>
   </div>`;
