@@ -16,7 +16,7 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
     <div class="mock-layout" data-view="setup">
       <section aria-labelledby="mk-title">
         <h1 id="mk-title">Mock interview</h1>
-        <p class="lede" data-mock-intro>Practice a coding interview with one timer for the whole round. Hints and technique labels stay hidden until you finish, so you choose the approach yourself</p>
+        <p class="lede" data-mock-intro>Practice a coding interview with one timer for the whole round. Hints and technique labels stay hidden until you finish, so you choose the approach yourself.</p>
 
         <form class="panel setup" data-setup novalidate>
           <fieldset>
@@ -43,14 +43,14 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
             </div>
           </fieldset>
           <ul class="rules">
-            <li><Fragment set:html={svg(EyeOff)} /><span>Problem titles are visible. Technique labels, module labels, hints, and reference solutions stay hidden during the round</span></li>
-            <li><Fragment set:html={svg(Timer)} /><span>One clock for the whole round. You can move between problems; time keeps running</span></li>
-            <li><Fragment set:html={svg(GitCommitHorizontal)} /><span>Results count like reviews: a clean pass climbs a rung, a miss drops that problem to 1 day. A pass counts as clean only if your self-check is all yes</span></li>
+            <li><Fragment set:html={svg(EyeOff)} /><span>Problem titles are visible. Technique labels, module labels, hints, and reference solutions stay hidden during the round.</span></li>
+            <li><Fragment set:html={svg(Timer)} /><span>One clock for the whole round. You can move between problems; time keeps running.</span></li>
+            <li><Fragment set:html={svg(GitCommitHorizontal)} /><span>Results count like reviews: a clean pass climbs a rung, a miss drops that problem to 1 day. A pass counts as clean only if your self-check is all yes.</span></li>
           </ul>
           <p class="mk-err" data-setup-err role="alert" hidden></p>
           <div class="go">
             <button class="btn btn-primary btn-lg" type="submit" data-start>Start the round <kbd>enter</kbd></button>
-            <p>Focus mode turns on and the top bar hides. End the round any time from the ⋯ menu</p>
+            <p>Focus mode turns on and the top bar hides. End the round any time from the ⋯ menu.</p>
           </div>
         </form>
       </section>
@@ -128,7 +128,7 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
       <form method="dialog" data-check-form>
         <div class="dlg-head"><h2 id="sc-title" data-sc-title></h2></div>
         <div class="dlg-body">
-          <p>Review how well you explained your approach. Your answers stay private and help choose your next practice problems</p>
+          <p>Review how well you explained your approach. Your answers stay private and help choose your next practice problems.</p>
           <div class="checks" data-checks></div>
         </div>
         <div class="dlg-actions"><button class="btn btn-primary" type="submit" data-check-next disabled>See results <kbd>enter</kbd></button></div>
@@ -139,7 +139,6 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
 
 <style is:global>
   .mock .mock-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: var(--space-10); align-items: start; }
-  .mock .lede { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-md); font-variation-settings: "wdth" 95; max-width: 56ch; }
 
   .mock .setup { margin-top: var(--space-8); padding: var(--space-6) var(--space-8); display: grid; gap: var(--space-6); }
   .mock fieldset { border: 0; padding: 0; min-width: 0; display: grid; gap: var(--space-3); }
@@ -246,8 +245,6 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
 
   @media (max-width: 1100px) { .mock .mock-layout { grid-template-columns: 1fr; } }
   @media (max-width: 760px) {
-    .mock.page { padding-top: var(--space-6); }
-    .mock .lede { font-size: var(--text-base); }
     .mock .setup { padding: var(--space-5); }
     .mock .opts { grid-template-columns: 1fr; }
     .mock .go .btn-primary { width: 100%; }

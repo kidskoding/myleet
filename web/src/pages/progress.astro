@@ -15,7 +15,6 @@ import Base from "../layouts/Base.astro";
 </Base>
 
 <style is:global>
-  .progress .lede { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-md); font-variation-settings: "wdth" 95; }
   .progress .num { font-weight: 700; font-variation-settings: "wdth" var(--wdth-tag); letter-spacing: -0.02em; line-height: 1; }
   .progress .sec { margin-top: var(--space-12); }
   .progress .section-head h2 { font-size: var(--text-lg); }
@@ -172,8 +171,6 @@ import Base from "../layouts/Base.astro";
     .progress .ach li:nth-child(2n) { border-left: 1px solid var(--line) !important; }
   }
   @media (max-width: 760px) {
-    .progress.page { padding-top: var(--space-6); }
-    .progress .lede { font-size: var(--text-base); }
     .progress .top { grid-template-columns: 1fr; }
     .progress .heatwrap, .progress .cal, .progress .weak, .progress .top .panel, .progress .spot, .progress .lvls, .progress .ins { padding: var(--space-4); }
     .progress .mods { padding: var(--space-1) var(--space-4) var(--space-3); }

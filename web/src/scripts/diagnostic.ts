@@ -17,7 +17,7 @@ import {
   type Grade,
   type Question,
 } from "../lib/diagnostic";
-import { signupToToday } from "../lib/ui/guest-gate";
+import { gateSteps, signupToToday } from "../lib/ui/guest-gate";
 import { sentenceCase } from "../lib/display";
 import { planWeeks } from "../lib/plan";
 import { planSettings, readPrefs } from "../lib/prefs";
@@ -117,11 +117,15 @@ function steps(text: string, n: number, on: number, stop: boolean): SafeHtml {
 }
 
 function intro(): SafeHtml {
-  return html`<section class="q" aria-labelledby="d-h" style="margin-top:var(--space-4)">
+  return html`<section class="q gate" aria-labelledby="d-h" style="margin-top:var(--space-4)">
     <h1 id="d-h" tabindex="-1">Find your level</h1>
-    <p class="sub">First, ${QUESTIONS} quick questions. Each one shows a real interview problem and asks which pattern solves it. Then you solve two or three short problems in the editor, picked from the patterns you weren't sure about</p>
-    <p class="sub">It takes about 15 minutes and you don't need an account. Nothing here goes on a review schedule; it only decides what you study first</p>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-start>Start ${kbd("enter")}</button><a class="btn btn-ghost" href="${ROUTES.howItWorks}">How myleet works</a></div>
+    <p class="lede">It takes about 15 minutes, and you <strong>don't need an account</strong></p>
+    ${gateSteps([
+      [`${QUESTIONS} quick questions`, "Each one shows a real interview problem and asks which pattern solves it"],
+      ["Two or three short problems", "You solve them in the editor, picked from the patterns you weren't sure about"],
+      ["Your starting point", "Nothing goes on a review schedule; it only decides what you study first"],
+    ])}
+    <div class="gate-actions"><button class="btn btn-primary btn-lg" type="button" data-start>Start ${kbd("enter")}</button><a class="link" href="${ROUTES.howItWorks}">How myleet works</a></div>
   </section>`;
 }
 
@@ -344,7 +348,7 @@ async function init(): Promise<void> {
   } catch {
     render(
       el,
-      html`<div class="panel state-note" role="alert"><h2>Couldn't load the problems</h2><p>The diagnostic needs the problem list once. Check your connection and try again</p><div class="actions"><button class="btn btn-primary" type="button" onclick="location.reload()">Try again</button></div></div>`,
+      html`<div class="panel state-note" role="alert"><h2>Couldn't load the problems</h2><p>The diagnostic needs the problem list once. Check your connection and try again.</p><div class="actions"><button class="btn btn-primary" type="button" onclick="location.reload()">Try again</button></div></div>`,
     );
     return;
   }

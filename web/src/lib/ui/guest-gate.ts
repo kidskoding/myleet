@@ -5,7 +5,6 @@ import { signinHref } from "../gate";
 import { midSentence } from "../schedule";
 import { ROUTES } from "../routes";
 import type { Level } from "../types";
-import { tag } from "./bits";
 import { html, type SafeHtml } from "./html";
 
 export type GuestMode = "member" | "invite" | "results";
@@ -43,8 +42,11 @@ const INVITE_STEPS: [string, string][] = [
   ["A plan built for you", "Every day starts with the right problem, paced to your interview"],
 ];
 
+/** Numbered step cards: a title and a one-line description each. */
+export const gateSteps = (steps: [string, string][]): SafeHtml => html`<ol class="gate-steps">${steps.map(([t, d]) => html`<li><strong>${t}</strong><span>${d}</span></li>`)}</ol>`;
+
 export function todayInvite(greet: string, company: string | null = null): SafeHtml {
-  return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p><ol class="gate-steps">${INVITE_STEPS.map(([t, d]) => html`<li><strong>${t}</strong><span>${d}</span></li>`)}</ol>
+  return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p>${gateSteps(INVITE_STEPS)}
     <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>`;
 }
 
@@ -54,24 +56,30 @@ export function todayResults(greet: string, line: string): SafeHtml {
     <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${signupToToday()}">Create your free account to start your plan</a><a class="link" href="${ROUTES.diagnostic}">See your full results</a></div></section>`;
 }
 
-const GIVES = {
+const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [string, string][] }> = {
   plan: {
     h: "Your plan",
-    lede: "A day-by-day schedule built around your interview date, your free hours and what the diagnostic found. It moves with you when a day goes sideways.",
-    rows: [["Mon", "Sliding window", "2 new, 3 reviews"], ["Tue", "Two pointers", "3 new, 2 reviews"], ["Wed", "Rest day", ""]],
+    lede: html`A day-by-day schedule built around <strong>your interview</strong>, and it moves with you when a day goes sideways`,
+    steps: [
+      ["Paced to your interview date", "Every practice day builds toward it"],
+      ["Fits your free hours", "Practice lands in the hours you say you have each week"],
+      ["Starts where you're weakest", "What the diagnostic found decides what comes first"],
+    ],
   },
   progress: {
     h: "Your progress",
-    lede: "Your streak, which topics are solid, and the reviews coming due, all saved to your account so they follow you to every device.",
-    rows: [["Arrays and hashing", "Solid", ""], ["Sliding window", "Climbing", ""], ["Two pointers", "Started", ""]],
+    lede: html`Everything you practice is <strong>saved to your account</strong>, so it follows you to every device`,
+    steps: [
+      ["Your streak", "Days in a row you've practiced, right in the top bar"],
+      ["Topic by topic", "See which patterns are solid and which are still climbing"],
+      ["Reviews coming due", "Problems come back on a 1, 3, 7, 14, 30-day ladder after a clean pass"],
+    ],
   },
-} as const;
+};
 
-/** Plan and Progress for a guest: what they get after signing up, with a labelled example. */
+/** Plan and Progress for a guest: what they get after signing up, laid out like the Today invitation. */
 export function featureGate(kind: "plan" | "progress", diagnosticDone: boolean): SafeHtml {
   const g = GIVES[kind];
-  return html`<section class="gate" aria-labelledby="gate-h"><h1 id="gate-h">${g.h}</h1><p class="lede">${g.lede}</p>
-    <div class="panel gate-eg" role="img" aria-label="Example ${kind}">${tag("outline", "Example")}
-      <ul>${g.rows.map(([a, b, c]) => html`<li><b>${a}</b><span>${b}</span>${c ? html`<span class="text-muted">${c}</span>` : ""}</li>`)}</ul></div>
-    <div class="gate-actions">${diagnosticDone ? "" : html`<a class="btn btn-secondary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a>`}<a class="btn btn-primary btn-lg" href="${signupToToday()}">Create your free account</a></div></section>`;
+  return html`<section class="gate" aria-labelledby="gate-h"><h1 id="gate-h">${g.h}</h1><p class="lede">${g.lede}</p>${gateSteps(g.steps)}
+    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${signupToToday()}">Create your free account</a>${diagnosticDone ? "" : html`<a class="link" href="${ROUTES.diagnostic}">Take the diagnostic first</a>`}</div></section>`;
 }

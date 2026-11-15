@@ -10,8 +10,7 @@
 .flow .track i.on::after { content: ""; position: absolute; inset: 0; background: var(--accent); animation: fill-in var(--dur-base) var(--ease-out); transform-origin: left; }
 @keyframes fill-in { from { transform: scaleX(0); } }
 .flow .q { margin-top: var(--space-10); }
-.flow .q h1 { font-size: var(--text-2xl); letter-spacing: var(--track-display); line-height: var(--leading-tight); }
-.flow .q .sub { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-md); max-width: 54ch; line-height: 1.45; }
+.flow .q .sub { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-lede); max-width: 54ch; line-height: 1.55; }
 .flow .q .sub strong { color: var(--ink); }
 
 .flow .options { margin-top: var(--space-8); display: grid; gap: var(--space-3); border: 0; padding: 0; }
@@ -79,8 +78,6 @@
 @media (max-width: 760px) {
   .flow { padding-top: var(--space-5); padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
   .flow .q { margin-top: var(--space-6); }
-  .flow .q h1 { font-size: var(--text-xl); }
-  .flow .q .sub { font-size: var(--text-base); }
   .flow .opt kbd, .flow .next .hint { display: none; }
   .flow .next { position: fixed; inset: auto 0 0 0; margin: 0; padding: var(--space-3) var(--gutter) calc(var(--space-3) + env(safe-area-inset-bottom)); background: color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); z-index: var(--z-sticky); flex-wrap: nowrap; }
   .flow .next .btn { flex: 1; }

@@ -114,6 +114,9 @@ body[data-shell="focused"] .account { display: none; }
 
 .page { max-width: var(--content-max); margin: 0 auto; padding: var(--space-8) var(--gutter) var(--space-16); }
 .page-narrow { max-width: 760px; }
+@media (max-width: 760px) { .page { padding-top: var(--space-6); } }
+/* The line under every page h1: one size, colour and gap across the site */
+.lede { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-lede); line-height: 1.55; max-width: 62ch; }
 
 /* ===== Buttons ===== */
 .btn {
@@ -858,8 +861,7 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .iv-co:hover { border-color: var(--line-strong); }
 
 /* Signed-out Today, Plan and Progress: one invitation instead of personal content */
-.gate { max-width: 640px; margin-top: var(--space-6); }
-.gate .lede { margin-top: var(--space-3); color: var(--ink-2); font-size: 1.125rem; line-height: 1.55; }
+.gate { max-width: 640px; }
 .gate p + p { margin-top: var(--space-3); color: var(--ink-2); }
 .gate-steps { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-3); counter-reset: step; }
 .gate-steps li { counter-increment: step; display: grid; grid-template-columns: 32px minmax(0, 1fr); column-gap: var(--space-4); row-gap: 2px; align-items: start; align-content: start; padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
@@ -867,9 +869,6 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .gate-steps strong { font-weight: 650; color: var(--ink); }
 .gate-steps span { color: var(--ink-2); font-size: var(--text-sm); line-height: 1.5; }
 @media (min-width: 900px) { .gate { max-width: 860px; } .gate-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* Inside a narrow flow (the diagnostic intro) the steps stack */
+.flow .gate-steps { grid-template-columns: 1fr; }
 .gate-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }
-.gate-eg { margin-top: var(--space-6); padding: var(--space-4) var(--space-5); display: grid; gap: var(--space-3); opacity: 0.85; }
-.gate-eg ul { display: grid; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }
-.gate-eg li { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); font-size: var(--text-sm); }
-.gate-eg li b { min-width: 7rem; }
-.gate-eg > .tag { justify-self: start; }

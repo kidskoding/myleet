@@ -1,6 +1,6 @@
 /* Learn map, module pages and the notes reader's practice panel. */
 .learn .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-4) var(--space-8); }
-.learn .head p { margin-top: var(--space-2); color: var(--ink-2); font-size: var(--text-md); font-variation-settings: "wdth" 95; }
+.learn .head p { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-lede); line-height: 1.55; }
 .learn .tools { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; }
 .learn .filter-input { display: inline-flex; align-items: center; gap: var(--space-2); height: 34px; padding: 0 var(--space-3); width: 240px; background: var(--surface); border: 1px solid var(--control-edge); border-radius: var(--radius-sm); color: var(--ink-3); }
 .learn .filter-input input { border: 0; background: none; outline: none; width: 100%; min-width: 0; font-size: var(--text-sm); color: var(--ink); }
@@ -61,8 +61,7 @@
 .learn .crumbs a:hover { color: var(--ink); text-decoration: underline; }
 .learn .crumbs .icon { width: 14px; height: 14px; }
 .learn .detail-head { margin-top: var(--space-4); display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: var(--space-10); align-items: end; }
-.learn .detail-head h1 { font-size: var(--text-2xl); letter-spacing: var(--track-display); }
-.learn .detail-head p { margin-top: var(--space-3); color: var(--ink-2); max-width: 60ch; }
+.learn .detail-head p { margin-top: var(--space-3); color: var(--ink-2); font-size: var(--text-lede); line-height: 1.55; max-width: 60ch; }
 .learn .stat-line { display: flex; flex-wrap: wrap; gap: var(--space-6); margin-top: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
 .learn .stat-line b { display: block; font-size: var(--text-xl); font-weight: 700; color: var(--ink); font-variation-settings: "wdth" var(--wdth-tag); line-height: 1.1; }
 .learn .notes-list { list-style: none; padding: 0; margin-top: var(--space-3); }
@@ -91,8 +90,6 @@
   .learn .detail-grid aside { position: static; order: -1; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: start; }
 }
 @media (max-width: 760px) {
-  .learn.page { padding-top: var(--space-6); }
-  .learn .head p { font-size: var(--text-base); }
   .learn .tools { width: 100%; } .learn .filter-input { width: 100%; }
   .learn .tools .seg { width: 100%; } .learn .tools .seg button { flex: 1; padding: 0 var(--space-1); }
   .learn .start { padding: var(--space-4); }
@@ -101,7 +98,6 @@
   .learn .mod-body { padding: var(--space-2) 0 var(--space-6); }
   .learn .tech-head, .learn .tech-collapsed { grid-template-columns: 1fr; gap: var(--space-2); }
   .learn .mini, .learn .tech-collapsed .k { text-align: left; }
-  .learn .detail-head h1 { font-size: var(--text-xl); }
   .learn .stat-line { gap: var(--space-5); }
 }
 @media (prefers-reduced-motion: no-preference) {
