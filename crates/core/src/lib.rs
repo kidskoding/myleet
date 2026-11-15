@@ -4,8 +4,10 @@
 pub mod catalog;
 pub mod checkpoint;
 pub mod godur;
+pub mod ical;
 pub mod interview;
 pub mod placement;
+pub mod planner;
 pub mod progress;
 pub mod savestate;
 pub mod schedule;

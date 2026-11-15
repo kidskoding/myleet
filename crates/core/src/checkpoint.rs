@@ -11,7 +11,7 @@ pub use crate::placement::{ItemResult, Level, Outcome, level_of};
 
 const MIXED_MODULE: &str = "mixed_interview_practice";
 /// Practice passes between recommended check-ins, mid-module or across modules.
-const CHECK_IN_EVERY: usize = 3;
+pub const CHECK_IN_EVERY: usize = 3;
 
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct Result {
