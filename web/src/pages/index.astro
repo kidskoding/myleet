@@ -63,7 +63,8 @@ const ruleIcon = (s: string, cls: string) =>
       <section class="intro" aria-labelledby="l-h">
         <h1 id="l-h">Personalized technical interview prep</h1>
         <div>
-          <p>Solve problems in the browser and check your Python against the tests. Review them after 1, 3, 7, 14 and 30 days to practice solving from memory</p>
+          <p>Tell us which interview you're preparing for, and we'll build your practice around it, starting from <strong>what you already know</strong></p>
+          <p class="sub">You solve real problems in the browser, and each one comes back after 1, 3, 7, 14 and 30 days until you can solve it from memory</p>
           <div class="actions">
             <a class="btn btn-primary btn-lg" href={ROUTES.diagnostic}>Find your level</a>
             <a class="btn btn-secondary btn-lg" href={ROUTES.signin}>Sign in</a>
@@ -291,6 +292,8 @@ answer: [0, 1]</code></pre>
   .landing .intro h1 { font-size: var(--text-display); font-weight: 760; letter-spacing: var(--track-display); line-height: 0.98; font-variation-settings: "wdth" 82; max-width: 13ch; }
   .landing .intro > div { padding-top: var(--space-4); }
   .landing .intro p { color: var(--ink-2); font-size: 1.1875rem; line-height: 1.5; max-width: 44ch; }
+  .landing .intro p strong { color: var(--ink); font-weight: 650; }
+  .landing .intro p.sub { margin-top: var(--space-3); color: var(--ink-3); font-size: var(--text-base); line-height: 1.55; }
   .landing .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
   .landing .intro .actions { margin-top: var(--space-5); }
   .landing .intro .actions small { color: var(--ink-3); width: 100%; }
