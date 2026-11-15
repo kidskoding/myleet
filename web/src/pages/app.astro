@@ -23,6 +23,27 @@ import Base from "../layouts/Base.astro";
 </Base>
 
 <style is:global>
+  /* Guest Today: the invitation beside a labelled example of the personal Today it unlocks */
+  .gate-split { display: grid; gap: var(--space-8); align-items: start; }
+  .gate-split .gate { max-width: none; margin-top: var(--space-6); }
+  .gate-split .gate-steps { grid-template-columns: 1fr; }
+  @media (min-width: 1000px) { .gate-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-12); } .gate-eg-today { margin-top: var(--space-6); } }
+  .gate-eg-today { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); padding: var(--space-6); display: grid; gap: var(--space-4); box-shadow: var(--shadow-md); }
+  .gate-eg-today .eg-label { font: 600 var(--label-size) var(--font-label); letter-spacing: var(--label-track); text-transform: uppercase; color: var(--ink-3); }
+  .gate-eg-today h2 { font-size: var(--text-xl); }
+  .gate-eg-today .eg-note { color: var(--ink-2); line-height: 1.55; }
+  .gate-eg-today .eg-ready-top { display: flex; justify-content: space-between; font-size: var(--text-sm); color: var(--ink-2); margin-bottom: var(--space-2); }
+  .gate-eg-today .eg-ready-top strong { font-family: var(--font-label); color: var(--ink); }
+  .gate-eg-today .eg-bar { height: 6px; border-radius: 99px; background: var(--surface-sunk); overflow: hidden; }
+  .gate-eg-today .eg-bar span { display: block; height: 100%; background: var(--accent); border-radius: inherit; }
+  .gate-eg-today .eg-queue { list-style: none; padding: 0; margin: 0; display: grid; }
+  .gate-eg-today .eg-queue li { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+  .gate-eg-today .eg-queue li > div { display: grid; gap: 2px; min-width: 0; }
+  .gate-eg-today .eg-queue strong { font-size: var(--text-sm); font-weight: 650; }
+  .gate-eg-today .eg-queue li span { font-size: var(--text-sm); color: var(--ink-3); }
+  .gate-eg-today .eg-meta { display: flex; gap: var(--space-2); align-items: flex-start; flex: none; font-family: var(--font-label); }
+  .gate-eg-today .eg-tag { font-size: var(--text-xs); padding: 1px 6px; border-radius: var(--radius-xs); background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+
   .today-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--space-10); align-items: start; }
   .today-layout.is-first-run { grid-template-columns: 1fr; }
   .today-layout.is-first-run aside { display: none; }

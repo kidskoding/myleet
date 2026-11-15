@@ -37,7 +37,7 @@ export function inviteCopy(company: string | null): SafeHtml {
 }
 
 const INVITE_STEPS: [string, string][] = [
-  ["About 15 minutes", "Eight quick questions on which pattern fits, then two or three real problems you code and run"],
+  ["About 15 minutes", "Two or three real interview problems you code and run, after a few quick warm-up questions"],
   ["Your map, topic by topic", "See what you already know and where you'll grow fastest"],
   ["A plan built for you", "Every day starts with the right problem, paced to your interview"],
 ];
@@ -45,9 +45,27 @@ const INVITE_STEPS: [string, string][] = [
 /** Numbered step cards: a title and a one-line description each. */
 export const gateSteps = (steps: [string, string][]): SafeHtml => html`<ol class="gate-steps">${steps.map(([t, d]) => html`<li><strong>${t}</strong><span>${d}</span></li>`)}</ol>`;
 
+/** A labelled preview of the personal Today a learner gets after the diagnostic. */
+function todayExample(company: string | null): SafeHtml {
+  const co = company ?? "Meta";
+  const row = (title: string, tag: string, why: string, mins: string) =>
+    html`<li><div><strong>${title}</strong><span>${why}</span></div><span class="eg-meta"><span class="eg-tag">${tag}</span>${mins}</span></li>`;
+  return html`<div class="gate-eg-today" role="region" aria-label="Example of your Today after the diagnostic">
+    <p class="eg-label">Example</p>
+    <h2>Good evening, Alex!</h2>
+    <p class="eg-note">Today we're focusing on sliding window, your weakest spot right now. Your ${co} interview is 12 days away, so we'll start with two quick reviews and then work through three window problems!</p>
+    <div class="eg-ready"><div class="eg-ready-top"><span>Ready for ${co}</span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
+    <ul class="eg-queue">
+      ${row("Longest Substring Without Repeating Characters", "Review", "You needed a hint here 6 days ago, so a clean pass moves it to 14 days", "25m")}
+      ${row("Minimum Window Substring", "Weak spot", "The shrink step you missed on Tuesday, one level harder", "25m")}
+      ${row("Sliding Window Maximum", "New", "Next in sliding window, and it shows up in " + co + "'s set", "25m")}
+    </ul>
+  </div>`;
+}
+
 export function todayInvite(greet: string, company: string | null = null): SafeHtml {
-  return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p>${gateSteps(INVITE_STEPS)}
-    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>`;
+  return html`<div class="gate-split"><section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p>${gateSteps(INVITE_STEPS)}
+    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>${todayExample(company)}</div>`;
 }
 
 export function todayResults(greet: string, line: string): SafeHtml {
