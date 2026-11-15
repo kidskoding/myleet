@@ -560,11 +560,7 @@
   "url": "https://www.google.com/s2/favicons?domain=zoox.com&sz=128",
   "file": "zoox.svg"
  },
- "ramp": {
-  "source": "dashboard-icons",
-  "url": "https://raw.githubusercontent.com/homarr-labs/dashboard-icons/d767d7327db7f8ebd3715b552523f61889eea41c/svg/ramp.svg",
-  "file": "ramp.svg"
- },
+ "ramp": { "source": "website-icon", "file": "ramp.svg", "url": "https://ramp.com/favicon-32x32.png" },
  "rippling": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/rippling/default.svg",
