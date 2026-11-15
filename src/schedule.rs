@@ -8,7 +8,7 @@ use crate::progress::{Event, kind, mode};
 
 pub const RUNGS: [i64; 5] = [1, 3, 7, 14, 30];
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Status {
     Unseen,
     Learning,

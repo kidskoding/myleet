@@ -10,7 +10,7 @@ pub use load::{LoadError, load, note_title};
 pub use lock::{LOCK_FILE, read_lock, write_lock};
 pub use root::find_root;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Difficulty {
     Easy,
     Medium,
