@@ -1,5 +1,5 @@
 def number_of_arrays(differences: list[int], lower: int, upper: int) -> int:
-    prefix = cur = 0
+    cur = 0
     min_p = max_p = 0
     for d in differences:
         cur += d

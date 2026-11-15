@@ -3,9 +3,7 @@ from solution import bst_to_gst
 
 
 def test_bst_to_gst_example():
-    root = build_tree_from_level_order(
-        [4, 1, 6, 0, 2, 5, 7, None, None, None, 3, None, None, None, 8]
-    )
+    root = build_tree_from_level_order([4, 1, 6, 0, 2, 5, 7, None, None, None, 3, None, None, None, 8])
     assert tree_to_level_order(bst_to_gst(root)) == [
         30,
         36,

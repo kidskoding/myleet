@@ -3,9 +3,7 @@ from solution import last_marked_nodes
 
 def test_last_marked_nodes_path():
     # 0-1-2 diameter endpoints 0 and 2
-    assert last_marked_nodes([[0, 1], [1, 2]]) == [2, 0, 0] or last_marked_nodes(
-        [[0, 1], [1, 2]]
-    ) == [2, 2, 0]
+    assert last_marked_nodes([[0, 1], [1, 2]]) == [2, 0, 0] or last_marked_nodes([[0, 1], [1, 2]]) == [2, 2, 0]
 
 
 def test_last_marked_nodes_star():

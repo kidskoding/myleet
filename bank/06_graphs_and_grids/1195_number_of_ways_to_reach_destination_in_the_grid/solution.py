@@ -1,6 +1,4 @@
-def number_of_ways(
-    n: int, m: int, k: int, source: list[int], dest: list[int]
-) -> int:
+def number_of_ways(n: int, m: int, k: int, source: list[int], dest: list[int]) -> int:
     mod = 10**9 + 7
     same, same_col, same_row, other = 1, 0, 0, 0
     for _ in range(k):

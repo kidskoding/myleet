@@ -2,9 +2,7 @@ from solution import string_matching
 
 
 def test_string_matching_normal():
-    assert sorted(string_matching(["mass", "as", "hero", "superhero"])) == sorted(
-        ["as", "hero"]
-    )
+    assert sorted(string_matching(["mass", "as", "hero", "superhero"])) == sorted(["as", "hero"])
 
 
 def test_string_matching_leetcode():

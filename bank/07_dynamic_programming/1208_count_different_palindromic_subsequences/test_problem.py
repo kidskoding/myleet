@@ -6,12 +6,7 @@ def test_count_palindromic_subsequences_example_one():
 
 
 def test_count_palindromic_subsequences_example_two():
-    assert (
-        count_palindromic_subsequences(
-            "abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba"
-        )
-        == 104860361
-    )
+    assert count_palindromic_subsequences("abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba") == 104860361
 
 
 def test_count_palindromic_subsequences_single():

@@ -1,9 +1,7 @@
 from tree_node import TreeNode
 
 
-def lowest_common_ancestor(
-    root: TreeNode | None, p: TreeNode, q: TreeNode
-) -> TreeNode | None:
+def lowest_common_ancestor(root: TreeNode | None, p: TreeNode, q: TreeNode) -> TreeNode | None:
     ans: TreeNode | None = None
 
     def dfs(node: TreeNode | None) -> bool:

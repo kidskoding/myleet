@@ -37,4 +37,3 @@ def test_delete_nodes_keep_one_delete_one():
 def test_delete_nodes_short_tail():
     head = build_list([1, 2, 3])
     assert to_list(delete_nodes(head, 2, 5)) == [1, 2]
-

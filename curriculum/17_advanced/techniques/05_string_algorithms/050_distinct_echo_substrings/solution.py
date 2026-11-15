@@ -12,9 +12,9 @@ def distinct_echo_substrings(text: str) -> int:
         pows[i + 1] = (pows[i] * base) % mod
         pref[i + 1] = (pref[i] * base + (ord(ch) - 96)) % mod
 
-    def get_hash(l: int, r: int) -> int:
-        # hash of text[l:r]
-        return (pref[r] - pref[l] * pows[r - l]) % mod
+    def get_hash(lo: int, r: int) -> int:
+        # hash of text[lo:r]
+        return (pref[r] - pref[lo] * pows[r - lo]) % mod
 
     found: set[int] = set()
     for length in range(1, n // 2 + 1):

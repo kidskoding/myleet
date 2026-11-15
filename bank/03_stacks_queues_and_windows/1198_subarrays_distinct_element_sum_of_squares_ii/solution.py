@@ -13,12 +13,12 @@ def sum_counts(nums: list[int]) -> int:
 
     tr = [Node() for _ in range(n << 2)]
 
-    def build(u: int, l: int, r: int) -> None:
-        tr[u].l, tr[u].r = l, r
-        if l == r:
+    def build(u: int, lo: int, r: int) -> None:
+        tr[u].l, tr[u].r = lo, r
+        if lo == r:
             return
-        mid = (l + r) >> 1
-        build(u << 1, l, mid)
+        mid = (lo + r) >> 1
+        build(u << 1, lo, mid)
         build(u << 1 | 1, mid + 1, r)
 
     def apply(u: int, v: int) -> None:
@@ -37,16 +37,16 @@ def sum_counts(nums: list[int]) -> int:
         tr[u].sum = tr[u << 1].sum + tr[u << 1 | 1].sum
         tr[u].sum_sq = tr[u << 1].sum_sq + tr[u << 1 | 1].sum_sq
 
-    def modify(u: int, l: int, r: int, v: int) -> None:
-        if tr[u].l >= l and tr[u].r <= r:
+    def modify(u: int, lo: int, r: int, v: int) -> None:
+        if tr[u].l >= lo and tr[u].r <= r:
             apply(u, v)
             return
         pushdown(u)
         mid = (tr[u].l + tr[u].r) >> 1
-        if l <= mid:
-            modify(u << 1, l, r, v)
+        if lo <= mid:
+            modify(u << 1, lo, r, v)
         if r > mid:
-            modify(u << 1 | 1, l, r, v)
+            modify(u << 1 | 1, lo, r, v)
         pushup(u)
 
     build(1, 0, n - 1)

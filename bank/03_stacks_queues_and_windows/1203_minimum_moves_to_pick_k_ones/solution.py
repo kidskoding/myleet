@@ -15,8 +15,6 @@ def minimum_moves(nums: list[int], k: int, max_changes: int) -> int:
             continue
         for left in range(len(one_indices) - ones + 1):
             right = left + ones
-            cost_move = (prefix[right] - prefix[(left + right) // 2]) - (
-                prefix[(left + right + 1) // 2] - prefix[left]
-            )
+            cost_move = (prefix[right] - prefix[(left + right) // 2]) - (prefix[(left + right + 1) // 2] - prefix[left])
             ans = min(ans, cost_changes + cost_move)
     return int(ans)

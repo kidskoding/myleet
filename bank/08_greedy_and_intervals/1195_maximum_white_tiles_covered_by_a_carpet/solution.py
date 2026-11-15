@@ -2,8 +2,8 @@ def maximum_white_tiles(tiles: list[list[int]], carpet_len: int) -> int:
     tiles = sorted(tiles)
     n = len(tiles)
     pref = [0] * (n + 1)
-    for i, (l, r) in enumerate(tiles):
-        pref[i + 1] = pref[i] + (r - l + 1)
+    for i, (lo, r) in enumerate(tiles):
+        pref[i + 1] = pref[i] + (r - lo + 1)
     ans = 0
     j = 0
     for i in range(n):

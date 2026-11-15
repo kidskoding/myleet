@@ -21,17 +21,13 @@ def minimum_sum(grid: list[list[int]]) -> int:
         for i2 in range(i1 + 1, m - 1):
             ans = min(
                 ans,
-                area(0, 0, i1, n - 1)
-                + area(i1 + 1, 0, i2, n - 1)
-                + area(i2 + 1, 0, m - 1, n - 1),
+                area(0, 0, i1, n - 1) + area(i1 + 1, 0, i2, n - 1) + area(i2 + 1, 0, m - 1, n - 1),
             )
     for j1 in range(n - 1):
         for j2 in range(j1 + 1, n - 1):
             ans = min(
                 ans,
-                area(0, 0, m - 1, j1)
-                + area(0, j1 + 1, m - 1, j2)
-                + area(0, j2 + 1, m - 1, n - 1),
+                area(0, 0, m - 1, j1) + area(0, j1 + 1, m - 1, j2) + area(0, j2 + 1, m - 1, n - 1),
             )
     for i in range(m - 1):
         for j in range(n - 1):
@@ -41,9 +37,7 @@ def minimum_sum(grid: list[list[int]]) -> int:
             )
             ans = min(
                 ans,
-                area(0, 0, i, n - 1)
-                + area(i + 1, 0, m - 1, j)
-                + area(i + 1, j + 1, m - 1, n - 1),
+                area(0, 0, i, n - 1) + area(i + 1, 0, m - 1, j) + area(i + 1, j + 1, m - 1, n - 1),
             )
             ans = min(
                 ans,
@@ -51,8 +45,6 @@ def minimum_sum(grid: list[list[int]]) -> int:
             )
             ans = min(
                 ans,
-                area(0, 0, m - 1, j)
-                + area(0, j + 1, i, n - 1)
-                + area(i + 1, j + 1, m - 1, n - 1),
+                area(0, 0, m - 1, j) + area(0, j + 1, i, n - 1) + area(i + 1, j + 1, m - 1, n - 1),
             )
     return ans

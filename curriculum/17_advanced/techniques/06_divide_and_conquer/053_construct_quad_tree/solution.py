@@ -34,13 +34,7 @@ def construct(grid: list[list[int]]) -> Node | None:
         bl = build(r0 + half, c0, half)
         br = build(r0 + half, c0 + half, half)
 
-        if (
-            tl.isLeaf
-            and tr.isLeaf
-            and bl.isLeaf
-            and br.isLeaf
-            and tl.val == tr.val == bl.val == br.val
-        ):
+        if tl.isLeaf and tr.isLeaf and bl.isLeaf and br.isLeaf and tl.val == tr.val == bl.val == br.val:
             return Node(tl.val, True)
         return Node(True, False, tl, tr, bl, br)
 

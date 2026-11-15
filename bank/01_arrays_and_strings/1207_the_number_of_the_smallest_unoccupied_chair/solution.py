@@ -2,12 +2,12 @@ import heapq
 
 
 def smallest_chair(times: list[list[int]], target_friend: int) -> int:
-    friends = [(a, l, i) for i, (a, l) in enumerate(times)]
+    friends = [(a, leave, i) for i, (a, leave) in enumerate(times)]
     friends.sort()
     free: list[int] = []
     busy: list[tuple[int, int]] = []
     next_chair = 0
-    for a, l, i in friends:
+    for a, leave, i in friends:
         while busy and busy[0][0] <= a:
             heapq.heappush(free, heapq.heappop(busy)[1])
         if free:
@@ -17,5 +17,5 @@ def smallest_chair(times: list[list[int]], target_friend: int) -> int:
             next_chair += 1
         if i == target_friend:
             return chair
-        heapq.heappush(busy, (l, chair))
+        heapq.heappush(busy, (leave, chair))
     return -1

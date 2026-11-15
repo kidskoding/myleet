@@ -1,9 +1,7 @@
 from functools import cache
 
 
-def get_max_grid_happiness(
-    m: int, n: int, introverts_count: int, extroverts_count: int
-) -> int:
+def get_max_grid_happiness(m: int, n: int, introverts_count: int, extroverts_count: int) -> int:
     mx = 3**n
     f = [0] * mx
     g = [[0] * mx for _ in range(mx)]
@@ -38,9 +36,7 @@ def get_max_grid_happiness(
             if ix[cur] <= ic and ex[cur] <= ec:
                 ans = max(
                     ans,
-                    f[cur]
-                    + g[pre][cur]
-                    + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur]),
+                    f[cur] + g[pre][cur] + dfs(i + 1, cur, ic - ix[cur], ec - ex[cur]),
                 )
         return ans
 
