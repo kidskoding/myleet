@@ -92,7 +92,12 @@ import Base from "../layouts/Base.astro";
   .fold { position: absolute; left: 0; right: 0; z-index: 1; display: flex; align-items: center; padding-left: 60px; font-size: var(--text-xs); color: var(--ink-3); background: var(--surface-sunk); border-block: 1px solid var(--line); pointer-events: none; }
   .col { position: relative; border-left: 1px solid var(--line); min-width: 0; container-type: inline-size; }
   /* Narrow columns (the inspector open, 4-day view) keep the title and drop the repeated minutes. */
-  @container (max-width: 120px) { .col .ses.short .mm { display: none; } }
+  @container (max-width: 120px) {
+    .col .ses.short .mm { display: none; }
+    .col .ses { padding-inline: 6px; }
+    .col .ses .h { font-size: var(--text-xs); line-height: 1.25; }
+    .col .ses.short .h { -webkit-line-clamp: 2; white-space: normal; }
+  }
   .col > ol { list-style: none; margin: 0; padding: 0; }
   .col.today { background: color-mix(in srgb, var(--accent) 3%, transparent); }
   .col.drop-ok { background: color-mix(in srgb, var(--accent) 5%, transparent); }

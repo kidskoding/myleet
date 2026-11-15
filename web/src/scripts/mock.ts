@@ -137,7 +137,7 @@ function paintMockIntro(): void {
   const companies = ctx.cat.catalog.playlists.filter((p) => selected.includes(p.id));
   if (source === "company" && companies.length) {
     const names = new Intl.ListFormat("en", { style: "long", type: "conjunction" }).formatToParts(companies.map((p) => p.title));
-    render(intro, html`Practice for ${names.map((part) => part.type === "element" ? html`<strong>${part.value}</strong>` : part.value)} with ${setupN()} ${setupN() === 1 ? "problem" : "problems"} from their combined sets · Hints and technique labels stay hidden until you finish`);
+    render(intro, html`Practice for ${names.map((part) => part.type === "element" ? html`<strong>${part.value}</strong>` : part.value)} with ${setupN()} ${setupN() === 1 ? "problem" : "problems"} from ${companies.length === 1 ? "their set" : "their combined sets"} · Hints and technique labels stay hidden until you finish`);
     return;
   }
   intro.textContent = source === "weak"

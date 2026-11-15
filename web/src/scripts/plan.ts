@@ -136,11 +136,8 @@ function currentNote(c: Ctx): PlanNote | null {
     pool.push({
       kind: "no_date" as PlanNote["kind"],
       title: "No interview date yet",
-      body: "Until you set one, the plan covers the next 4 weeks. Pick a 15, 30 or 90-day roadmap to pace the curriculum toward your target companies, or toward general big-tech readiness if you haven't picked any. You can also add your own date. Mocks get closer together near the end.",
-      actions: [
-        ...ROADMAPS.map((r) => ({ kind: "roadmap" as const, label: r.label, value: r.days })),
-        { kind: "set_date", label: "Pick a date" },
-      ],
+      body: "Until you set one, the plan covers the next 4 weeks. Choose a 15, 30 or 90-day plan above, or pick your own date. Mocks get closer together as the date nears.",
+      actions: [{ kind: "set_date", label: "Pick a date" }],
     });
   return pool.find((n) => !noteDismissed(n)) ?? null;
 }
