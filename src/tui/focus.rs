@@ -330,7 +330,6 @@ impl Focus {
         now.duration_since(self.start) - self.paused_for + self.penalties
     }
 
-    #[allow(dead_code, reason = "the interview screen reads it")]
     pub(crate) fn green(&self) -> bool {
         self.green
     }

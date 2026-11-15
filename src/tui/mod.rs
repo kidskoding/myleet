@@ -4,6 +4,7 @@ pub mod app;
 mod focus;
 mod help;
 pub mod home;
+mod interview;
 pub mod markdown;
 pub mod placement;
 pub mod screens;
