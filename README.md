@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20windows-lightgrey?style=flat-square)](https://github.com/kidskoding/myleet/releases)
 
-**Adaptive LeetCode practice that schedules your reviews.**
+**Personalized technical interview prep.**
 
 myleet is a teaching-first DSA curriculum and trainer for internship, co-op, and
 new-grad interviews. Unlike fixed lists (NeetCode 150, etc.), it builds each day from
