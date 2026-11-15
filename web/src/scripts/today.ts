@@ -319,7 +319,12 @@ const MILESTONE_KEY = "myleet:milestone";
 function milestoneNote(states: Record<string, State>, now: Date): string | null {
   try {
     const v = JSON.parse(localStorage.getItem(MILESTONE_KEY) ?? "null") as { seen: number; day: string } | null;
-    const m = milestone(states, v?.seen ?? 0);
+    // First visit on this device: record milestones already passed silently, so only new ones are celebrated.
+    if (!v) {
+      localStorage.setItem(MILESTONE_KEY, JSON.stringify({ seen: milestone(states, 0) ?? 0, day: "" }));
+      return null;
+    }
+    const m = milestone(states, v.seen);
     if (m !== null) {
       localStorage.setItem(MILESTONE_KEY, JSON.stringify({ seen: m, day: localDay(now) }));
       return milestoneLine(m);
