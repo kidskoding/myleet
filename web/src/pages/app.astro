@@ -23,26 +23,32 @@ import Base from "../layouts/Base.astro";
 </Base>
 
 <style is:global>
-  /* Guest Today: the invitation beside a labelled example of the personal Today it unlocks */
-  .gate-split { display: grid; gap: var(--space-8); align-items: start; }
+  /* Guest Today: the invitation beside a framed preview of the personal Today it unlocks */
+  .gate-split { display: grid; gap: var(--space-10); align-items: center; }
   .gate-split .gate { max-width: none; margin-top: var(--space-6); }
-  .gate-split .gate-steps { grid-template-columns: 1fr; }
-  @media (min-width: 1000px) { .gate-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-12); } .gate-eg-today { margin-top: var(--space-6); } }
-  .gate-eg-today { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); padding: var(--space-6); display: grid; gap: var(--space-4); box-shadow: var(--shadow-md); }
-  .gate-eg-today .eg-label { font: 600 var(--label-size) var(--font-label); letter-spacing: var(--label-track); text-transform: uppercase; color: var(--ink-3); }
-  .gate-eg-today h2 { font-size: var(--text-xl); }
-  .gate-eg-today .eg-note { color: var(--ink-2); line-height: 1.55; }
-  .gate-eg-today .eg-ready-top { display: flex; justify-content: space-between; font-size: var(--text-sm); color: var(--ink-2); margin-bottom: var(--space-2); }
+  .gate-split .gate-steps { grid-template-columns: 1fr; gap: var(--space-4); }
+  .gate-split .gate-steps li { border: 0; background: none; padding: 0; }
+  @media (min-width: 1000px) { .gate-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); } }
+  .gate-eg-today { margin: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 24px 60px -24px rgb(0 0 0 / 0.5), var(--shadow-md); overflow: hidden; }
+  .gate-eg-today .eg-window { display: flex; align-items: center; gap: 6px; padding: var(--space-2) var(--space-4); border-bottom: 1px solid var(--line); background: var(--surface-sunk); }
+  .gate-eg-today .eg-window i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+  .gate-eg-today .eg-window span { margin-left: var(--space-2); font: 500 var(--label-size) var(--font-label); letter-spacing: var(--label-track); color: var(--ink-3); }
+  .gate-eg-today .eg-body { padding: var(--space-5) var(--space-6) var(--space-4); display: grid; gap: var(--space-3); }
+  .gate-eg-today .eg-hello { font-size: var(--text-md); font-weight: 700; color: var(--ink); }
+  .gate-eg-today .eg-note { color: var(--ink-2); font-size: var(--text-sm); line-height: 1.55; }
+  .gate-eg-today .eg-ready-top { display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--ink-3); margin-bottom: 6px; }
   .gate-eg-today .eg-ready-top strong { font-family: var(--font-label); color: var(--ink); }
-  .gate-eg-today .eg-bar { height: 6px; border-radius: 99px; background: var(--surface-sunk); overflow: hidden; }
+  .gate-eg-today .eg-bar { height: 5px; border-radius: 99px; background: var(--surface-sunk); overflow: hidden; }
   .gate-eg-today .eg-bar span { display: block; height: 100%; background: var(--accent); border-radius: inherit; }
   .gate-eg-today .eg-queue { list-style: none; padding: 0; margin: 0; display: grid; }
-  .gate-eg-today .eg-queue li { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+  .gate-eg-today .eg-queue li { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--line); }
   .gate-eg-today .eg-queue li > div { display: grid; gap: 2px; min-width: 0; }
   .gate-eg-today .eg-queue strong { font-size: var(--text-sm); font-weight: 650; }
-  .gate-eg-today .eg-queue li span { font-size: var(--text-sm); color: var(--ink-3); }
-  .gate-eg-today .eg-meta { display: flex; gap: var(--space-2); align-items: flex-start; flex: none; font-family: var(--font-label); }
-  .gate-eg-today .eg-tag { font-size: var(--text-xs); padding: 1px 6px; border-radius: var(--radius-xs); background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+  .gate-eg-today .eg-queue li span { font-size: var(--text-xs); color: var(--ink-3); line-height: 1.45; }
+  .gate-eg-today .eg-tag { flex: none; font: 600 var(--text-xs) var(--font-ui) !important; padding: 2px 8px; border-radius: 99px; }
+  .gate-eg-today .eg-tag.due { color: var(--due); background: var(--due-soft); }
+  .gate-eg-today .eg-tag.weak { color: var(--weak); background: var(--weak-soft); }
+  .gate-eg-today .eg-tag.new { color: var(--new); background: var(--new-soft); }
 
   .today-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--space-10); align-items: start; }
   .today-layout.is-first-run { grid-template-columns: 1fr; }

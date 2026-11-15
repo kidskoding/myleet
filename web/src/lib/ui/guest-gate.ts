@@ -33,7 +33,7 @@ export const signupToToday = (): string => `${signinHref(ROUTES.today)}&mode=sig
 /** The diagnostic invitation, aimed at their target company when onboarding named one. */
 export function inviteCopy(company: string | null): SafeHtml {
   const where = company ? `for your ${company} interview` : "in your interview prep";
-  return html`To find out where you stand ${where}, we'll start with a <strong>diagnostic test</strong>!`;
+  return html`To find out where you stand ${where}, we'll start with a <strong>diagnostic test</strong>`;
 }
 
 const INVITE_STEPS: [string, string][] = [
@@ -48,19 +48,21 @@ export const gateSteps = (steps: [string, string][]): SafeHtml => html`<ol class
 /** A labelled preview of the personal Today a learner gets after the diagnostic. */
 function todayExample(company: string | null): SafeHtml {
   const co = company ?? "Meta";
-  const row = (title: string, tag: string, why: string, mins: string) =>
-    html`<li><div><strong>${title}</strong><span>${why}</span></div><span class="eg-meta"><span class="eg-tag">${tag}</span>${mins}</span></li>`;
-  return html`<div class="gate-eg-today" role="region" aria-label="Example of your Today after the diagnostic">
-    <p class="eg-label">Example</p>
-    <h2>Good evening, Alex!</h2>
-    <p class="eg-note">Today we're focusing on sliding window, your weakest spot right now. Your ${co} interview is 12 days away, so we'll start with two quick reviews and then work through three window problems!</p>
-    <div class="eg-ready"><div class="eg-ready-top"><span>Ready for ${co}</span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
-    <ul class="eg-queue">
-      ${row("Longest Substring Without Repeating Characters", "Review", "You needed a hint here 6 days ago, so a clean pass moves it to 14 days", "25m")}
-      ${row("Minimum Window Substring", "Weak spot", "The shrink step you missed on Tuesday, one level harder", "25m")}
-      ${row("Sliding Window Maximum", "New", "Next in sliding window, and it shows up in " + co + "'s set", "25m")}
-    </ul>
-  </div>`;
+  const row = (title: string, kind: "due" | "weak" | "new", tag: string, why: string) =>
+    html`<li><div><strong>${title}</strong><span>${why}</span></div><span class="eg-tag ${kind}">${tag}</span></li>`;
+  return html`<figure class="gate-eg-today" aria-label="Example of your Today after the diagnostic">
+    <div class="eg-window" aria-hidden="true"><i></i><i></i><i></i><span>Your Today, after the diagnostic</span></div>
+    <div class="eg-body">
+      <p class="eg-hello">Good evening, Alex</p>
+      <p class="eg-note">Today we're focusing on sliding window, your weakest spot right now. Your ${co} interview is 12 days away, so we'll start with two quick reviews and then work through three window problems</p>
+      <div class="eg-ready"><div class="eg-ready-top"><span>Ready for ${co}</span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
+      <ul class="eg-queue">
+        ${row("Longest Substring Without Repeating Characters", "due", "Review", "You needed a hint here 6 days ago, so a clean pass moves it to 14 days")}
+        ${row("Minimum Window Substring", "weak", "Weak spot", "The shrink step you missed on Tuesday, one level harder")}
+        ${row("Sliding Window Maximum", "new", "New", "Next in sliding window, and it shows up in " + co + "'s set")}
+      </ul>
+    </div>
+  </figure>`;
 }
 
 export function todayInvite(greet: string, company: string | null = null): SafeHtml {
