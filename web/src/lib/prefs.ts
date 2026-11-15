@@ -52,7 +52,7 @@ export interface Plan {
 
 export interface Prefs {
   reduceMotion: boolean;
-  /** Interface font: Archivo, or JetBrains Mono everywhere (<html data-font="mono">). */
+  /** Interface font: Geist (stored as "archivo" for old saves), or JetBrains Mono everywhere (<html data-font="mono">). */
   font: "archivo" | "mono";
   /** Notes and problem statements: Literata, or JetBrains Mono (<html data-read-font="mono">). */
   readFont: "literata" | "mono";

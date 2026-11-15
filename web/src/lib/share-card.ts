@@ -25,7 +25,7 @@ export const CARD_W = 1200;
 export const CARD_H = 630;
 
 function font(ctx: CanvasRenderingContext2D, weight: number, size: number, condensed = false): void {
-  ctx.font = `${weight} ${size}px "Archivo Variable", Archivo, ui-sans-serif, sans-serif`;
+  ctx.font = `${weight} ${size}px "Geist Variable", Geist, ui-sans-serif, sans-serif`;
   const c = ctx as CanvasRenderingContext2D & { fontStretch?: string };
   if ("fontStretch" in c) c.fontStretch = condensed ? "condensed" : "normal";
 }

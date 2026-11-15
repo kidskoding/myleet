@@ -1,6 +1,6 @@
 ---
-import "@fontsource-variable/archivo/wdth.css";
-import archivoLatin from "@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2?url";
+import "@fontsource-variable/geist/wght.css";
+import geistLatin from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
 // Numbers and labels are set in JetBrains Mono on every page (and the whole UI with the mono setting).
 import "@fontsource-variable/jetbrains-mono/wght.css";
 import { ClientRouter } from "astro:transitions";
@@ -79,7 +79,7 @@ const chrome = shell === "app" || shell === "public" || shell === "focused";
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="preload" href={archivoLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={geistLatin} as="font" type="font/woff2" crossorigin />
     <!-- Before first paint: flavor, accent, in-app reduced motion and the signed-in flag, so nothing flashes. -->
     <script is:inline set:html={THEME_BOOT} />
     {gated && <script is:inline set:html={GATE_BOOT} />}

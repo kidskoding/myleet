@@ -7,7 +7,7 @@
 
 :root {
   /* ---- Type ---- */
-  --font-ui: "Archivo", "Archivo Variable", ui-sans-serif, sans-serif;
+  --font-ui: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-read: "Literata", "Literata Variable", Georgia, serif;
   --font-code: "JetBrains Mono", "JetBrains Mono Variable", ui-monospace, monospace;
   /* Archivo width axis: tags, numerals and the timer are set condensed */
