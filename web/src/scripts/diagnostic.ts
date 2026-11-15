@@ -7,6 +7,10 @@ import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import {
   CODING_MAX,
   excerpt,
+  findings,
+  findingText,
+  type Finding,
+  summaryLine,
   gradeCoding,
   nextCoding,
   placementItems,
@@ -20,6 +24,7 @@ import {
 import { gateSteps, signupToToday } from "../lib/ui/guest-gate";
 import { sentenceCase } from "../lib/display";
 import { planWeeks } from "../lib/plan";
+import { companySlug } from "../lib/catalog";
 import { planSettings, readPrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
 import { moduleHref, problemHref, ROUTES } from "../lib/routes";
@@ -73,10 +78,29 @@ const title = (id: string) => cat?.byId.get(id)?.title ?? id;
 const target = (id: string) => cat?.byId.get(id)?.time_target_secs ?? 900;
 const label = (topic: string) => TOPICS.find((t) => t.id === topic || t.label.toLowerCase().replace(/[:,]/g, "") === topic)?.label ?? topic;
 
-async function codingGrades(s: DiagnosticState): Promise<(Grade | null)[]> {
+async function codingRuns(s: DiagnosticState) {
   const evs = parseEvents(await readEvents());
   const progress = runProgress(evs, s.coding.map((c) => c.problem), "placement", s.started);
-  return progress.map((p) => gradeCoding(p, target(p.problem)));
+  return {
+    grades: progress.map((p) => gradeCoding(p, target(p.problem))),
+    mins: progress.map((p) => (p.finished?.elapsedMs == null ? null : Math.max(1, Math.round(p.finished.elapsedMs / 60_000)))),
+  };
+}
+const codingGrades = async (s: DiagnosticState) => (await codingRuns(s)).grades;
+
+/** The target company's playlist, when onboarding or prefs named one. */
+const targetCompany = () => {
+  const slug = readPrefs().plan.companies[0];
+  return slug ? (cat?.catalog.playlists.find((p) => companySlug(p.id) === slug) ?? null) : null;
+};
+
+const FINDINGS_KEY = "myleet:diagnostic:findings";
+function readFindings(): Record<string, Finding> {
+  try {
+    return JSON.parse(localStorage.getItem(FINDINGS_KEY) ?? "{}") as Record<string, Finding>;
+  } catch {
+    return {};
+  }
 }
 
 // ---- statements (LeetCode's, through the Worker) ----
@@ -119,10 +143,10 @@ function steps(text: string, n: number, on: number, stop: boolean): SafeHtml {
 function intro(): SafeHtml {
   return html`<section class="q gate" aria-labelledby="d-h" style="margin-top:var(--space-4)">
     <h1 id="d-h" tabindex="-1">Find your level</h1>
-    <p class="lede">It takes about 15 minutes, and you <strong>don't need an account</strong></p>
+    <p class="lede">You'll code two or three real interview problems in about 15 minutes, and you <strong>don't need an account</strong></p>
     ${gateSteps([
-      [`${QUESTIONS} quick questions`, "Each one shows a real interview problem and asks which pattern solves it"],
-      ["Two or three short problems", "You solve them in the editor, picked from the patterns you weren't sure about"],
+      ["Two or three real problems", `You code them in the editor and run the tests, the way you would in an interview${targetCompany() ? `, and one comes from your ${targetCompany()?.title} set` : ""}. This is what sets your starting point`],
+      [`${QUESTIONS} quick warm-up questions first`, "Each one shows a real problem and asks which pattern fits. Your answers only pick which problems you get"],
       ["Your starting point", "Nothing goes on a review schedule; it only decides what you study first"],
     ])}
     <div class="gate-actions"><button class="btn btn-primary btn-lg" type="button" data-start>Start ${kbd("enter")}</button><a class="link" href="${ROUTES.howItWorks}">How myleet works</a></div>
@@ -157,14 +181,14 @@ function codingView(s: DiagnosticState, grades: (Grade | null)[]): SafeHtml {
   const done = grades.filter((g) => g !== null).length;
   return html`${steps(`Problem ${Math.min(done + 1, s.coding.length)} of up to ${CODING_MAX}`, CODING_MAX, done, true)}
     <section class="q" aria-labelledby="dc-h">
-      <h1 id="dc-h" tabindex="-1">${done ? "Next problem" : "Now a short problem"}</h1>
-      <p class="sub">Picked from a pattern you weren't sure about. Solve it as you would in an interview, with the timer on and no notes. Submit when you're done, or choose <strong>I don't know this yet</strong> in the editor</p>
+      <h1 id="dc-h" tabindex="-1">${done ? "Next problem" : "Now a real problem"}</h1>
+      <p class="sub">${s.coding.some((c) => c.company) ? html`One comes from your ${targetCompany()?.title} set, in a pattern you weren't sure about.` : "Picked from a pattern you weren't sure about."} Solve it as you would in an interview, with the timer on and no notes. Submit when you're done, or choose <strong>I don't know this yet</strong> in the editor</p>
       <ol class="warm">${s.coding.map((c, i) => {
         const g = grades[i];
         const p = cat?.byId.get(c.problem);
         if (g) return html`<li class="wrow done"><span class="num">${i + 1}</span><div><div class="title">${title(c.problem)}</div><div class="sub">${GRADE_TAG[g]}<span>${label(c.topic)}</span></div></div><span></span></li>`;
         const now = i === nowIdx;
-        return html`<li class="wrow ${now ? "now" : "later"}"><span class="num">${i + 1}</span><div><div class="title">${title(c.problem)}</div><div class="sub"><span>${label(c.topic)}</span>${p ? diff(p.difficulty) : ""}<span>${Math.round(target(c.problem) / 60)} min target</span></div></div>${
+        return html`<li class="wrow ${now ? "now" : "later"}"><span class="num">${i + 1}</span><div><div class="title">${title(c.problem)}</div><div class="sub"><span>${label(c.topic)}</span>${c.company ? tag("outline", `${targetCompany()?.title ?? "Company"} set`, { dot: false }) : ""}${p ? diff(p.difficulty) : ""}<span>${Math.round(target(c.problem) / 60)} min target</span></div></div>${
           now ? html`<a class="btn btn-primary" href="${problemHref(c.problem, "placement")}" data-solve>Start ${kbd("enter")}</a>` : html`<span></span>`
         }</li>`;
       })}</ol>
@@ -182,7 +206,9 @@ const topicOf = (topic: string) => TOPICS.find((t) => t.id === topic || t.label.
 function resultsView(t: TrainerApi, events: string): SafeHtml {
   const c = cat as LoadedCatalog;
   const pl = t.placement(events);
-  const items = pl.result?.items ?? [];
+  const fmap = readFindings();
+  // Coded rows lead; the order inside each group stays the topic order.
+  const items = [...(pl.result?.items ?? [])].sort((a, b) => Number(fmap[b.problem]?.source === "coded") - Number(fmap[a.problem]?.source === "coded"));
   const count = (l: Level) => items.filter((i) => i.level === l).length;
   const rec = pl.recommend ? c.catalog.modules.find((m) => m.id === pl.recommend) : undefined;
   const plan = t.plan(events, planSettings());
@@ -205,7 +231,7 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
       <div class="mesh" aria-hidden="true" style="--mesh-1: var(--pass-solid); --mesh-2: var(--due-solid); --mesh-3: var(--ctp-accent); --mesh-a: ${pool(strong)}; --mesh-b: ${pool(shaky)}; --mesh-c: ${pool(start)}"></div>
       <div class="dres-sum">
         <h1 id="dr-h" tabindex="-1">Your starting point</h1>
-        <p class="sub">${plural(strong, "pattern")} strong, ${shaky} shaky and ${start} to start on. None of this goes on your review schedule. It only sets what you study first</p>
+        <p class="sub">${summaryLine(items.flatMap((i) => (fmap[i.problem] ? [fmap[i.problem] as Finding] : [])))}${items.some((i) => fmap[i.problem]) ? ". " : ""}${plural(strong, "pattern")} strong, ${shaky} shaky and ${start} to start on. None of this goes on your review schedule. It only sets what you study first</p>
         <div class="split" role="img" aria-label="${strong} strong, ${shaky} shaky, ${start} to start on">${split.map(([k, n]) => html`<span class="${k}" style="flex:${n}"></span>`)}</div>
         <ul class="split-key">${split.map(([k, n, name]) => html`<li class="${k}"><span class="num">${n}</span>${name}</li>`)}</ul>
       </div>
@@ -213,9 +239,10 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
     <section class="dres-sec" aria-labelledby="dr-topics">
       <h2 class="sec" id="dr-topics">By topic</h2>
       <ul class="topics">${items.map((it, i) => {
-        const how = { skipped: `you chose "I don't know this yet"`, failed: "missed", hinted: "right, but slow or with help", clean: "" }[it.outcome] ?? "";
+        const f = fmap[it.problem];
+        const how = f ? findingText(f, label(it.topic)) : ({ skipped: `you chose "I don't know this yet"`, failed: "missed", hinted: "right, but slow or with help", clean: "" }[it.outcome] ?? "");
         const mi = c.catalog.modules.findIndex((m) => m.id === topicOf(it.topic)?.module);
-        return html`<li class="rise" style="--i:${i}">${mi >= 0 ? modChip(mi) : html`<span></span>`}<span class="name">${label(it.topic)}</span><span class="src">${title(it.problem)}${how ? `, ${how}` : ""}</span>${LEVEL[it.level]}</li>`;
+        return html`<li class="rise" style="--i:${i}">${mi >= 0 ? modChip(mi) : html`<span></span>`}<span class="name">${label(it.topic)}</span><span class="src">${title(it.problem)}${how ? (f ? `. ${how}` : `, ${how}`) : ""}</span>${LEVEL[it.level]}</li>`;
       })}</ul>
     </section>
     <section class="dres-sec panel start-at" aria-labelledby="dr-week">
@@ -238,8 +265,13 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
 
 async function finish(s: DiagnosticState): Promise<void> {
   if (!trainer || !cat) return;
-  const grades = await codingGrades(s);
+  const { grades, mins } = await codingRuns(s);
   const items = placementItems(s, qs, grades);
+  try {
+    if (items.length) localStorage.setItem(FINDINGS_KEY, JSON.stringify(findings(s, qs, grades, mins)));
+  } catch {
+    // Rows then fall back to the plain outcome text.
+  }
   // Stopping before any answer leaves the earlier result (if any) in place.
   if (items.length) await appendEvent(trainer.placementDone(items));
   saveState(null);
@@ -269,7 +301,7 @@ async function paint(): Promise<void> {
       focusSel = "input:checked, h1";
     } else {
       const grades = await codingGrades(s);
-      const next = nextCoding(cat.catalog, s, qs, grades);
+      const next = nextCoding(cat.catalog, s, qs, grades, targetCompany());
       if (next) {
         s.coding.push(next);
         saveState(s);

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import type { ItemProgress } from "./attempts";
-import { CODING_MAX, excerpt, gradeAnswer, gradeCoding, nextCoding, OPTIONS, placementItems, QUESTIONS, questions, QUICK_MS, topicById, type DiagnosticState, type Grade } from "./diagnostic";
+import { CODING_MAX, excerpt, findings, findingText, summaryLine, gradeAnswer, gradeCoding, nextCoding, OPTIONS, placementItems, QUESTIONS, questions, QUICK_MS, topicById, type DiagnosticState, type Grade } from "./diagnostic";
 import { ROOT } from "./test-util";
 import { createTrainer } from "./trainer";
 import type { Catalog } from "./types";
@@ -145,5 +145,60 @@ describe("excerpt", () => {
     const md = "Given an array.\n\nReturn the answer.\n\n**Example 1:**\n\n```\nnums = [1]\n```";
     expect(excerpt(md)).toBe("Given an array.\n\nReturn the answer.");
     expect(excerpt("One.\n\nTwo is long.", 6)).toBe("One.");
+  });
+});
+
+describe("company pick", () => {
+  const pl = (c.playlists.find((p) => p.entries.filter((e) => e.problem !== null).length > 30) ?? c.playlists[0]) as Catalog["playlists"][number];
+
+  it("takes the first coding problem from the company set at medium in an unsure topic", () => {
+    let hit = 0;
+    for (let seed = 0; seed < 40; seed++) {
+      const { qs, s } = answerAll(seed, []);
+      const item = nextCoding(c, s, qs, [], pl);
+      if (!item?.company) continue;
+      hit++;
+      const inSet = pl.entries.some((e) => e.problem !== null && c.problems[e.problem]?.id === item.problem);
+      expect(inSet).toBe(true);
+      expect(item.difficulty).toBe("medium");
+      expect(byId.get(item.problem)?.difficulty).toBe("medium");
+    }
+    expect(hit).toBeGreaterThan(0);
+  });
+
+  it("falls back to the usual choice without a company, and only picks it first", () => {
+    const { qs, s } = answerAll(3, []);
+    expect(nextCoding(c, s, qs, [])?.company).toBeUndefined();
+    const first = nextCoding(c, s, qs, [], pl);
+    if (first) s.coding.push(first);
+    expect(nextCoding(c, s, qs, ["clean"], pl)?.company).toBeUndefined();
+  });
+
+  it("skips topics answered right", () => {
+    const { qs, s } = answerAll(5, qsTopics(5));
+    expect(nextCoding(c, s, qs, [], pl)?.company).toBeUndefined();
+  });
+});
+function qsTopics(seed: number) {
+  return questions(c, seed).map((q) => q.topic);
+}
+
+describe("finding text", () => {
+  it("says where each row came from", () => {
+    expect(findingText({ source: "coded", grade: "clean", mins: 9 }, "Sliding window")).toBe("You coded sliding window cleanly in 9 minutes");
+    expect(findingText({ source: "coded", grade: "clean", mins: 1 }, "Stack")).toBe("You coded stack cleanly in 1 minute");
+    expect(findingText({ source: "answered", grade: "skipped" }, "Intervals: sort and sweep")).toMatch(/^You weren't sure which pattern fits .*problems$/);
+    expect(findingText({ source: "answered", grade: "failed" }, "Heap")).toContain("wrong pattern");
+  });
+
+  it("builds findings from coding and answers, and the summary leads with code", () => {
+    const { qs, s } = answerAll(2, []);
+    const coding = [{ topic: qs[0]?.topic ?? "", problem: "zz", difficulty: "medium" as const }];
+    const fs = findings({ ...s, coding }, qs, ["clean"], [6]);
+    expect(fs.zz).toEqual({ source: "coded", grade: "clean", mins: 6 });
+    const line = summaryLine(Object.values(fs));
+    expect(line.startsWith("You coded")).toBe(true);
+    expect(line).toContain("pattern questions covered");
+    expect(line.endsWith(".")).toBe(false);
   });
 });

@@ -3,7 +3,8 @@
 // from the weakest answers. Everything here is pure; the page script keeps the state in
 // localStorage and writes one `placement_done` line at the end (the core reads it).
 import type { ItemProgress } from "./attempts";
-import type { Catalog, Difficulty, PlacementResult, ProblemMeta } from "./types";
+import { midSentence } from "./schedule";
+import type { Catalog, Difficulty, PlacementResult, Playlist, ProblemMeta } from "./types";
 
 export interface Topic {
   id: string;
@@ -65,6 +66,8 @@ export interface CodingItem {
   topic: string;
   problem: string;
   difficulty: Difficulty;
+  /** Picked from the learner's target company set. */
+  company?: boolean;
 }
 
 export interface DiagnosticState {
@@ -150,7 +153,7 @@ export function gradeCoding(p: ItemProgress, targetSecs: number): Grade | null {
  * and a clean pass steps the next problem up one level. Two problems without a clean pass
  * end the run: a third would only repeat what they showed.
  */
-export function nextCoding(c: Catalog, s: DiagnosticState, qs: Question[], graded: (Grade | null)[]): CodingItem | null {
+export function nextCoding(c: Catalog, s: DiagnosticState, qs: Question[], graded: (Grade | null)[], company?: Playlist | null): CodingItem | null {
   if (s.coding.length >= CODING_MAX || graded.some((g) => g === null)) return null;
   if (s.coding.length >= 2 && !graded.includes("clean")) return null;
   const done = new Set(s.coding.map((x) => x.topic));
@@ -163,6 +166,8 @@ export function nextCoding(c: Catalog, s: DiagnosticState, qs: Question[], grade
   })
     .filter((x) => x.g !== null && !done.has(x.t.id))
     .sort((x, y) => RANK[x.g as Grade] - RANK[y.g as Grade] || x.i - y.i);
+  const pick = !s.coding.length && company ? companyPick(c, company, order.filter((x) => RANK[x.g as Grade] < 2).map((x) => x.t), used) : null;
+  if (pick) return pick;
   const last = s.coding.at(-1);
   const lastGrade = graded.at(-1);
   const r = rng(s.seed + s.coding.length + 1);
@@ -177,6 +182,60 @@ export function nextCoding(c: Catalog, s: DiagnosticState, qs: Question[], grade
     }
   }
   return null;
+}
+
+/** A medium problem from the company's set in the first unsure topic that has one, or null. */
+export function companyPick(c: Catalog, pl: Playlist, unsure: Topic[], used: Set<string>): CodingItem | null {
+  const inSet = new Set(pl.entries.flatMap((e) => (e.problem === null ? [] : [c.problems[e.problem]?.id])));
+  for (const t of unsure) {
+    const p = topicProblems(c, t, ["medium"]).find((x) => inSet.has(x.id) && !used.has(x.id));
+    if (p) return { topic: t.id, problem: p.id, difficulty: "medium", company: true };
+  }
+  return null;
+}
+
+/** Where a result row came from: a problem the learner coded, or a pattern answer. */
+export type Finding = { source: "coded"; grade: Grade; mins: number | null } | { source: "answered"; grade: Grade };
+
+/** One finding per problem id, for the results page to say where each row came from. */
+export function findings(s: DiagnosticState, qs: Question[], graded: (Grade | null)[], mins: (number | null)[]): Record<string, Finding> {
+  const out: Record<string, Finding> = {};
+  for (const a of s.answers) {
+    const q = qs.find((x) => x.topic === a.topic);
+    if (q) out[a.problem] = { source: "answered", grade: gradeAnswer(q, a) };
+  }
+  s.coding.forEach((c, i) => {
+    const g = graded[i];
+    if (g) out[c.problem] = { source: "coded", grade: g, mins: mins[i] ?? null };
+  });
+  return out;
+}
+
+const minutes = (m: number | null) => (m === null ? "" : ` in ${m} minute${m === 1 ? "" : "s"}`);
+
+/** "You coded sliding window cleanly in 9 minutes" or "You weren't sure which pattern fits interval problems". */
+export function findingText(f: Finding, topic: string): string {
+  const t = midSentence(topic);
+  if (f.source === "coded") {
+    if (f.grade === "clean") return `You coded ${t} cleanly${minutes(f.mins)}`;
+    if (f.grade === "hinted") return `You coded ${t}, but with hints or extra time${minutes(f.mins)}`;
+    if (f.grade === "skipped") return `You chose "I don't know this yet" on the ${t} problem`;
+    return `You coded ${t}, but the tests didn't all pass`;
+  }
+  if (f.grade === "clean") return `You spotted the ${t} pattern right away`;
+  if (f.grade === "hinted") return `You found the ${t} pattern, but slowly`;
+  if (f.grade === "skipped") return `You weren't sure which pattern fits ${t} problems`;
+  return `You picked the wrong pattern for a ${t} problem`;
+}
+
+/** The results headline: what they coded comes first, pattern answers only fill in the rest. */
+export function summaryLine(fs: Finding[]): string {
+  const coded = fs.filter((f) => f.source === "coded");
+  const asked = fs.length - coded.length;
+  const clean = coded.filter((f) => f.grade === "clean").length;
+  const code = !coded.length ? "" : clean === coded.length ? `You coded ${coded.length === 1 ? "your problem" : `all ${coded.length} problems`} cleanly` : `You coded ${coded.length} problem${coded.length === 1 ? "" : "s"}, and ${clean} went cleanly`;
+  const rest = asked ? `${code ? "The pattern questions covered" : "Your pattern answers cover"} ${asked} more topic${asked === 1 ? "" : "s"}` : "";
+  return [code, rest].filter(Boolean).join(". ");
 }
 
 /**
