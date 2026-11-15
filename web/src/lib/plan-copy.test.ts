@@ -88,7 +88,8 @@ describe("Plan copy", () => {
     const s = standing(plan(), events, new Date("2026-11-15T12:00:00"));
     expect(s.days.map((d) => d.status)).toEqual(["done", "missed"]);
     expect([s.kept, s.of]).toEqual([1, 2]);
-    expect(onTrackLine(s, "2026-12-15")).toBe("You've kept one of your last two sessions, and you're on pace for Dec 15.");
+    expect(onTrackLine(s, "2026-12-15")).toBe("You've kept one of your last two sessions, and you're right on pace for Dec 15.");
+    expect(onTrackLine(s, "2026-12-15", "Meta")).toBe("You've kept one of your last two sessions, and you're right on pace for Meta on Dec 15.");
     expect(catchUp(s)?.title).toBe("Saturday's session didn't happen");
   });
 

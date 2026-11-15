@@ -4,7 +4,7 @@
 import { attempts, parseEvents } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { nextInterview, onPrefsChange, planSettings, readPrefs, updatePrefs, type Prefs } from "../lib/prefs";
-import { catchUp, changePreview, drawerLede, forecastLead, headCopy, INSIGHTS_EMPTY, onTrackLine, paceLine, progressLine, topicsMoved, weeklyCheckin } from "../lib/plan-copy";
+import { catchUp, changePreview, drawerLede, forecastLead, headCopy, INSIGHTS_EMPTY, onTrackLine, paceLine, progressLine, spreadDays, topicsMoved, weeklyCheckin } from "../lib/plan-copy";
 import { recordPlanned, standing, type DayStatus } from "../lib/plan-progress";
 import { companyLogo } from "../lib/company-logos";
 import { addDays } from "../lib/streak";
@@ -529,7 +529,7 @@ function head(c: Ctx): SafeHtml {
   const later = (c.plan.interviews ?? []).find((i) => date && i.date > date);
   const copy = headCopy({ plan: c.plan, company: company(c), name: firstName(), windows: p.availability, today: c.plan.start, nextAfter: later ? { company: later.name ?? null, date: later.date } : null });
   const prog = date ? progressLine(p.startedAt && p.startedAt <= c.plan.start ? p.startedAt : c.plan.start, date, c.plan.start) : null;
-  const track = onTrackLine(standing(c.plan, c.events, c.now), date);
+  const track = onTrackLine(standing(c.plan, c.events, c.now), date, company(c));
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
     <header class="plan-head">
       <div><h1>${copy.title}</h1>
@@ -1455,12 +1455,9 @@ function spreadMissed(minutes: number): void {
   const c = ctx;
   if (!c) return;
   const p = readPrefs().plan;
-  const days = c.plan.days.filter((d) => !d.off && d.windows.length).slice(0, 3);
-  if (!days.length) return;
-  const each = Math.min(60, Math.ceil(minutes / days.length / 5) * 5);
-  const budget = (d: string) => p.dayMinutes.find((x) => x.date === d)?.minutes ?? ([5, 6].includes(weekdayIndex(d)) ? (p.weekendMinutes ?? p.dailyMinutes ?? 60) : (p.dailyMinutes ?? 60));
-  const next = [...p.dayMinutes.filter((x) => x.date >= c.plan.start && !days.some((d) => d.date === x.date)), ...days.map((d) => ({ date: d.date, minutes: budget(d.date) + each }))];
-  withUndo(`Added ${fmtM(each)} to each of the next ${days.length === 1 ? "day" : `${days.length} days`}`, { plan: { dayMinutes: next } }, { plan: { dayMinutes: p.dayMinutes } });
+  const s = spreadDays(c.plan, p, minutes);
+  if (!s) return;
+  withUndo(`Added ${fmtM(s.each)} to each of the next ${s.count === 1 ? "day" : `${s.count} days`}`, { plan: { dayMinutes: s.dayMinutes } }, { plan: { dayMinutes: p.dayMinutes } });
 }
 
 // ---- wiring ----

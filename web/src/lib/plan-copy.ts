@@ -5,6 +5,7 @@ import { daysUntil, shortDate } from "./plan";
 import { attempts, parseEvents } from "./attempts";
 import { missedMinutes, recordPlanned, standing, type Standing } from "./plan-progress";
 import { fmtM, isoDay } from "./schedule";
+import type { Prefs } from "./prefs";
 import type { Availability, Forecast, Habits, Plan } from "./types";
 
 const WORDS = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
@@ -108,9 +109,10 @@ export const INSIGHTS_EMPTY =
   "Patterns in your own solving show up here after a week or two of practice, each with the attempts behind it. Every solve you log this week counts toward the first one.";
 
 /** "You've kept 3 of your last 4 sessions, and you're on pace for Dec 15." */
-export function onTrackLine(s: Standing, date: string | null): string {
+export function onTrackLine(s: Standing, date: string | null, company: string | null = null): string {
   if (!s.of) return "";
-  const pace = s.onPace ? (date ? `you're on pace for ${shortDate(date)}` : "you're on pace for the next four weeks") : date ? `a few topics are running behind for ${shortDate(date)}` : "a few topics are running behind";
+  const goal = date ? `${company ? `${company} on ` : ""}${shortDate(date)}` : "";
+  const pace = s.onPace ? (date ? `you're right on pace for ${goal}` : "you're on pace for the next four weeks") : date ? `a few topics are running behind for ${goal}` : "a few topics are running behind";
   const run = s.run >= 2 ? ` That's ${count(s.run)} days in a row.` : "";
   if (!s.kept) return `Your last ${s.of === 1 ? "session" : `${count(s.of)} sessions`} slipped by, so the work moved forward. Right now ${pace}.${run}`;
   const kept = s.kept === s.of ? `You've kept ${s.of === 1 ? "your first session" : `all ${count(s.of)} of your last sessions`}` : `You've kept ${count(s.kept)} of your last ${count(s.of)} sessions`;
@@ -194,11 +196,21 @@ export function changePreview(o: { before: Plan; after: Plan; company: string | 
   return body + (to !== from ? moved : "");
 }
 
+/** The catch-up's one click: the missed minutes added across the next three planned days. Null with no day to use. */
+export function spreadDays(plan: Plan, p: Pick<Prefs["plan"], "dayMinutes" | "weekendMinutes" | "dailyMinutes">, minutes: number): { dayMinutes: Prefs["plan"]["dayMinutes"]; each: number; count: number } | null {
+  const days = plan.days.filter((d) => !d.off && d.windows.length).slice(0, 3);
+  if (!days.length) return null;
+  const each = Math.min(60, Math.ceil(minutes / days.length / 5) * 5);
+  const budget = (d: Plan["days"][number]) => p.dayMinutes.find((x) => x.date === d.date)?.minutes ?? (d.weekday === "sat" || d.weekday === "sun" ? (p.weekendMinutes ?? p.dailyMinutes ?? 60) : (p.dailyMinutes ?? 60));
+  const keep = p.dayMinutes.filter((x) => x.date >= plan.start && !days.some((d) => d.date === x.date));
+  return { dayMinutes: [...keep, ...days.map((d) => ({ date: d.date, minutes: budget(d) + each }))], each, count: days.length };
+}
+
 /** For Today: the on-track sentence and the check-in, if it's due. Records today's planned load as a side effect. */
 export function planStatus(
   plan: Plan,
   events: string,
-  o: { windows: Availability[]; topicOf?: (problem: string) => string | null; now?: Date } = { windows: [] },
+  o: { windows: Availability[]; topicOf?: (problem: string) => string | null; now?: Date; company?: string | null } = { windows: [] },
 ): { line: string; standing: Standing; checkin: Checkin | null; catchUp: CatchUp | null } {
   const now = o.now ?? new Date();
   recordPlanned(plan);
@@ -206,7 +218,7 @@ export function planStatus(
   const today = plan.start;
   const topics = topicsMoved(events, today, o.topicOf);
   return {
-    line: onTrackLine(s, plan.interview_date),
+    line: onTrackLine(s, plan.interview_date, o.company ?? null),
     standing: s,
     checkin: weeklyCheckin({ standing: s, today, windows: o.windows, topics, date: plan.interview_date }),
     catchUp: catchUp(s),

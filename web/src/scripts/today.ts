@@ -15,6 +15,7 @@ import { reminderSupport, requestReminderPermission } from "../lib/reminders";
 import { noteHref, planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
 import { actionHref, inPlanOn } from "../lib/skills-view";
 import { localDay, readStreak, recordStats, streakNow } from "../lib/streak";
+import { planStatus, spreadDays } from "../lib/plan-copy";
 import { milestone, milestoneLine, momentum, onThisDay, personalCards, reviewWhy, todaySummary, wrapUp, type Card } from "../lib/coach";
 import {
   BUDGETS,
@@ -30,7 +31,7 @@ import {
   type Budget,
 } from "../lib/today";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
-import type { Plan, PlanItem, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
+import type { Plan, PlanItem, PlanNote, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
 import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
@@ -379,6 +380,21 @@ function paint(c: Ctx): void {
   const note = (c.plan?.notes ?? []).find((n) => n.kind !== "date_passed" && !noteDismissed(n));
   const noteHtml = note ? replanNote(note, { dismiss: true, link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : html``;
 
+  // Plan status: the on-track line, this week's check-in and the catch-up note. Each is empty without data.
+  let status: ReturnType<typeof planStatus> | null = null;
+  if (c.plan && !c.sample) {
+    try {
+      const next = (c.plan.interviews ?? []).find((i) => i.date === c.plan?.interview_date);
+      status = planStatus(c.plan, c.events, { windows: readPrefs().plan.availability, now: c.now, company: next?.name ?? null, topicOf: (id) => { const p = c.cat.catalog.problems.find((x) => x.id === id); return p ? (c.cat.catalog.modules[p.module]?.techniques[p.technique]?.title ?? null) : null; } });
+    } catch {
+      status = null;
+    }
+  }
+  const slip = status?.catchUp && !noteDismissed({ kind: "catch_up" as PlanNote["kind"], title: status.catchUp.title }) ? status.catchUp : null;
+  const check = status?.checkin && !noteDismissed({ kind: "checkin" as PlanNote["kind"], title: status.checkin.title }) ? status.checkin : null;
+  const statusHtml = html`${check ? replanNote({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body }, { link: html`<a class="link" href="${ROUTES.plan}">Open check-in</a>` }) : ""}${slip ? replanNote({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }] }, { link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : ""}`;
+  const trackLine = status?.line || "";
+
   const reviews = entries.filter((e) => e.kind === "review");
   let backlogNote = "";
   if (reviews.length >= BACKLOG_AT) {
@@ -413,7 +429,7 @@ function paint(c: Ctx): void {
     const diagnostic = evs.filter((e) => e.kind === "placement_done").reduce((n, e) => Math.max(n, e.t), 0) || null;
     const wrap = wrapUp({ clean: cleanCount, total: done.length, minutes: spent }, diagnostic, c.now);
     body = html`<section aria-labelledby="ad-h">
-      <div class="greet"><h1 id="ad-h">${hello}</h1>${noteHtml}<p>${wrap.text}</p>${
+      <div class="greet"><h1 id="ad-h">${hello}</h1>${noteHtml}${statusHtml}<p>${wrap.text}</p>${trackLine ? html`<p>${trackLine}</p>` : ""}${
         wrap.retake ? html`<p><a class="btn btn-ghost" href="${ROUTES.diagnostic}">Retake the diagnostic</a></p>` : ""
       }<p class="countdown-inline">${plan.inline}</p></div>
       ${drills.length
@@ -436,7 +452,7 @@ function paint(c: Ctx): void {
     const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now);
     const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n)].filter(Boolean);
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${(backlogNote || summary || "").split("\n\n").filter(Boolean).map((para) => html`<p>${para}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${para}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${cardsRow(cards)}
       <div data-mock-card></div>
       ${nextUp(c, first)}
@@ -606,6 +622,17 @@ document.addEventListener("click", async (e) => {
   const t = e.target as Element;
   const skipBtn = t.closest<HTMLElement>("[data-skip]");
   const budgetBtn = t.closest<HTMLElement>("[data-budget]");
+  const spread = t.closest<HTMLElement>("[data-note-act='spread']");
+  if (spread && ctx?.plan) {
+    const s = spreadDays(ctx.plan, readPrefs().plan, Number(spread.dataset.value));
+    const was = readPrefs().plan.dayMinutes;
+    if (s) {
+      updatePrefs({ plan: { dayMinutes: s.dayMinutes } });
+      toast(`Added ${formatMinutes(s.each)} to each of the next ${s.count === 1 ? "day" : `${s.count} days`}`, { action: { label: "Undo", run: () => { updatePrefs({ plan: { dayMinutes: was } }); void refresh(); } } });
+    }
+    void refresh();
+    return;
+  }
   if (t.closest("[data-note-dismiss]") && ctx?.plan) {
     const n = (ctx.plan.notes ?? []).find((x) => x.kind !== "date_passed" && !noteDismissed(x));
     if (n) dismissNote(n);
