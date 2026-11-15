@@ -109,6 +109,16 @@ const data = JSON.stringify({ meta: problem, starter, moduleTitle, techniqueTitl
                 ))}
               </section>
             )}
+
+            <section class="asked" aria-labelledby="asked-h" data-asked data-exam-hide>
+              <div class="asked-head">
+                <h2 id="asked-h">Asked in interviews</h2>
+                <button class="btn btn-ghost btn-sm" type="button" data-asked-open aria-haspopup="dialog" aria-expanded="false" hidden>I was asked this</button>
+              </div>
+              <ul class="asked-counts" data-asked-counts></ul>
+              <p class="asked-empty" data-asked-empty>No company has enough reports yet. A count shows up once 3 people say they were asked this at the same company</p>
+              <p class="asked-empty" data-asked-signin hidden><a class="link" href="/signin">Sign in</a> to say where you were asked this</p>
+            </section>
           </article>
           <div class="tabpanel" id="lp-hints" role="tabpanel" aria-labelledby="lt-hints" hidden>
             <section class="hintbox solo">
@@ -210,6 +220,10 @@ const data = JSON.stringify({ meta: problem, starter, moduleTitle, techniqueTitl
 
 <script>
   import { mountFromPage } from "./mount";
+  import { mountAsked } from "./asked";
   import { renderReason, renderChanges } from "../../lib/ui/workspace-personal";
   mountFromPage({ renderReason, renderChanges });
+  // After mountFromPage, which hides [data-exam-hide] in timed modes.
+  const ws = document.getElementById("workspace");
+  if (ws) mountAsked(ws);
 </script>

@@ -34,6 +34,7 @@ const lead = p.focus ? `Leans on ${p.focus.replace(/\.$/, "")}` : "";
         <h1 class="co-title"><Fragment set:html={companyLogo(slug).value} />{p.title}</h1>
         {lead && <p class="lead">{lead}</p>}
         <p class="disclaim">A curated practice set of {n} problems, most asked first. It is not a list of actual interview questions</p>
+        <p class="disclaim">The list comes from {p.title}'s own interview prep guidance. The counts on each problem come from learners who were asked it in their own interviews</p>
       </div>
       <div>
         <div class="actions">

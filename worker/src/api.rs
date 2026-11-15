@@ -13,6 +13,7 @@ use crate::account::{self, MePatch, PublicSummary, Resolution, Settings, Setting
 use crate::calendar;
 use crate::magic;
 use crate::oauth::{self, Failure, Profile, Provider};
+use crate::reports::{self, CompanyCount};
 use crate::session::{self, SESSION_COOKIE, STATE_COOKIE};
 use crate::statement::{self, Cached};
 use crate::sync::{self, Write};
@@ -121,6 +122,8 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
         (Method::Get, "/api/plan") => get_plan(req, app).await,
         (Method::Put, "/api/plan") => put_plan(req, app).await,
         (Method::Get, "/api/calendar") => feed_status(req, app).await,
+        (Method::Get, "/api/reports") => get_reports(req, app).await,
+        (Method::Post, "/api/reports") => post_report(req, app).await,
         _ => json_error("not found", 404),
     }
 }
@@ -567,7 +570,14 @@ async fn email_request(req: &mut Request, app: &App) -> Result<Response> {
         .get("CF-Connecting-IP")?
         .unwrap_or_else(|| "unknown".to_string());
     let now = now_ms();
-    if !rate_limit(app, &email, &ip, now / 1000).await? {
+    let limits = [
+        (
+            magic::rate_key("email", &email, now / 1000),
+            magic::PER_EMAIL_LIMIT,
+        ),
+        (magic::rate_key("ip", &ip, now / 1000), magic::PER_IP_LIMIT),
+    ];
+    if !rate_limit(app, &limits).await? {
         return json_error("too many sign-in emails; try again later", 429);
     }
 
@@ -608,18 +618,11 @@ async fn email_request(req: &mut Request, app: &App) -> Result<Response> {
     json(&serde_json::json!({ "sent": true }), 202)
 }
 
-/// Counts against both the address and the client IP; `false` means refuse.
-async fn rate_limit(app: &App, email: &str, ip: &str, now_secs: u64) -> Result<bool> {
+/// Counts one request against every `(key, limit)`; `false` means refuse.
+async fn rate_limit(app: &App, limits: &[(String, u32)]) -> Result<bool> {
     let kv = app.env.kv("STATEMENTS")?;
-    let limits = [
-        (
-            magic::rate_key("email", email, now_secs),
-            magic::PER_EMAIL_LIMIT,
-        ),
-        (magic::rate_key("ip", ip, now_secs), magic::PER_IP_LIMIT),
-    ];
     let mut next = Vec::with_capacity(limits.len());
-    for (key, limit) in &limits {
+    for (key, limit) in limits {
         let stored = kv.get(key).text().await?;
         match magic::next_count(stored.as_deref(), *limit) {
             Some(count) => next.push((key, count)),
@@ -974,6 +977,7 @@ async fn delete_me(req: &Request, app: &App) -> Result<Response> {
             .bind(std::slice::from_ref(&uid))
     };
     db.batch(vec![
+        by_user("reports", "user_id")?,
         by_user("calendar_feeds", "user_id")?,
         by_user("plans", "user_id")?,
         by_user("progress", "user_id")?,
@@ -1003,6 +1007,12 @@ async fn export_me(req: &Request, app: &App) -> Result<Response> {
         "progress": load_progress(&db, &c.user_id).await?,
         "plan": load_plan(&db, &c.user_id).await?,
         "calendar_feed": load_feed(&db, &c.user_id).await?,
+        "reports": db
+            .prepare("SELECT problem_id, company, season, created_at FROM reports WHERE user_id = ?1")
+            .bind(&[text(&c.user_id)])?
+            .all()
+            .await?
+            .results::<serde_json::Value>()?,
     });
     let mut res = json(&body, 200)?;
     res.headers_mut().set(
@@ -1330,4 +1340,88 @@ async fn serve_feed(app: &App, rest: &str) -> Result<Response> {
     headers.set("Cache-Control", calendar::FEED_CACHE)?;
     headers.set("Content-Disposition", "inline; filename=\"myleet.ics\"")?;
     Ok(Response::ok(ics)?.with_headers(headers))
+}
+
+// ---- "I was asked this" reports ----
+
+#[derive(Serialize, Deserialize)]
+struct MineRow {
+    company: String,
+    season: Option<String>,
+}
+
+/// Public counts (threshold applied) plus, when signed in, the learner's own reports.
+async fn reports_body(db: &D1Database, problem: &str, user: Option<&str>) -> Result<Response> {
+    let rows: Vec<CompanyCount> = db
+        .prepare(
+            "SELECT company, COUNT(*) AS count FROM reports WHERE problem_id = ?1 GROUP BY company",
+        )
+        .bind(&[text(problem)])?
+        .all()
+        .await?
+        .results()?;
+    let mine: Vec<MineRow> = match user {
+        Some(uid) => db
+            .prepare("SELECT company, season FROM reports WHERE problem_id = ?1 AND user_id = ?2")
+            .bind(&[text(problem), text(uid)])?
+            .all()
+            .await?
+            .results()?,
+        None => Vec::new(),
+    };
+    json(
+        &serde_json::json!({ "counts": reports::public_counts(rows), "mine": mine }),
+        200,
+    )
+}
+
+/// `GET /api/reports?problem=<id>`. Public; signed in also returns `mine`.
+async fn get_reports(req: &Request, app: &App) -> Result<Response> {
+    let Some(problem) = query_param(req, "problem")?.filter(|p| reports::valid_problem(p)) else {
+        return json_error("unknown problem", 400);
+    };
+    let user = current(req, app).await?.map(|c| c.user_id);
+    reports_body(&app.db()?, &problem, user.as_deref()).await
+}
+
+/// `POST /api/reports {problem, company, season?, reported}`: adds or removes one report.
+async fn post_report(req: &mut Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let r = match read_json::<reports::Report>(req, SMALL_BODY_BYTES).await? {
+        Ok(r) => r,
+        Err(res) => return Ok(res),
+    };
+    if let Err(message) = reports::check(&r) {
+        return json_error(message, 400);
+    }
+    let now = now_ms();
+    let limit = [(
+        magic::rate_key("report", &c.user_id, now / 1000),
+        reports::PER_USER_LIMIT,
+    )];
+    if !rate_limit(app, &limit).await? {
+        return json_error("too many reports; try again later", 429);
+    }
+    let db = app.db()?;
+    let ids = [text(&c.user_id), text(&r.problem), text(&r.company)];
+    if r.reported {
+        db.prepare(
+            "INSERT INTO reports (user_id, problem_id, company, season, created_at) \
+             VALUES (?1, ?2, ?3, ?4, ?5) \
+             ON CONFLICT (user_id, problem_id, company) DO UPDATE SET season = excluded.season",
+        )
+        .bind(&[
+            ids[0].clone(),
+            ids[1].clone(),
+            ids[2].clone(),
+            opt_text(r.season.as_deref()),
+            num(now),
+        ])?
+    } else {
+        db.prepare("DELETE FROM reports WHERE user_id = ?1 AND problem_id = ?2 AND company = ?3")
+            .bind(&ids)?
+    }
+    .run()
+    .await?;
+    reports_body(&db, &r.problem, Some(&c.user_id)).await
 }

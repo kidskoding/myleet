@@ -11,6 +11,8 @@ the Astro site's static files from `../web/dist`, and handles `/api/*`:
   reader's highlights
 - opt-in public profiles for shareable progress cards
 - the learner's computed plan and a private calendar feed (ICS) of it
+- "I was asked this" reports: `POST /api/reports` adds or removes one, and
+  `GET /api/reports?problem=<id>` returns per-company counts once 3 learners agree
 
 It is a separate crate with its own `[workspace]`, so the root workspace does not
 build it. Only `src/api.rs` uses the Workers runtime; everything else is plain Rust
@@ -28,6 +30,8 @@ with native unit tests.
 | `src/statement.rs` | LeetCode GraphQL reply to markdown, premium detection               |
 | `src/sync.rs`      | Progress upload validation and version conflicts                    |
 | `src/calendar.rs`  | Plan upload validation, feed tokens, subscribe links, ICS body      |
+| `src/reports.rs`   | Interview report validation and the 3-reporter threshold            |
+| `build.rs`         | Bakes the company slugs from `../playlists` into the Worker         |
 | `migrations/`      | D1 schema, applied with `wrangler d1 migrations apply`              |
 | `wrangler.toml`    | Worker config: bindings, public vars, static assets                 |
 
