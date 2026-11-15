@@ -52,7 +52,8 @@ export function caseName(test: string): string | null {
 /** Sentences joined with spaces; a lone sentence loses its period, per the UI copy rule. */
 function join(parts: string[]): string {
   const out = parts.filter(Boolean);
-  return out.length === 1 ? out[0]!.replace(/\.$/, "") : out.join(" ");
+  // UI text never ends on a period; a closing "!" stays.
+  return out.join(" ").replace(/\.$/, "");
 }
 
 /** 1 to 3 flowing sentences about the attempt; null when there's nothing to say. */

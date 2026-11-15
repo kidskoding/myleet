@@ -15,20 +15,20 @@ describe("todaySummary", () => {
     const items = [item("review", "Hashing"), item("review", "Trees"), ...[1, 2, 3].map(() => item("new", "Sliding Window", "weak", [{ icon: "b", text: "Meta leans on sliding window" }]))];
     const skills = [skill({ weak_spot: true, history: [attempt({ cause: "edge_cases" })] })];
     expect(todaySummary({ items, skills, daysLeft: 12, now })).toBe(
-      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's likely to come up.\n\nWe'll warm up with two quick reviews, then work through three sliding window problems! Solve them cleanly and you'll stop needing hints on sliding window.",
+      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's likely to come up.\n\nWe'll warm up with two quick reviews, then work through three sliding window problems! Solve them cleanly and you'll stop needing hints on sliding window",
     );
   });
   it("names a hint without a company", () => {
     const skills = [skill({ level: "building", history: [attempt({ mark: "hint", detail: "used a hint", date: "2026-11-12" })] })];
     expect(todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now })).toBe(
-      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nWe'll start with one sliding window problem! Solve it cleanly and sliding window will start to feel solid.",
+      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nWe'll start with one sliding window problem! Solve it cleanly and sliding window will start to feel solid",
     );
   });
   it("folds a short why and the plan into one paragraph", () => {
     const items = [item("new", "Hashing"), item("new", "Trees"), item("new", "Graphs")];
-    expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe("Today spreads three new problems across hashing, trees and graphs, with your interview 30 days away.");
+    expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe("Today spreads three new problems across hashing, trees and graphs, with your interview 30 days away");
     expect(todaySummary({ items: [item("review", "Arrays"), item("review", "Arrays"), ...items], skills: null, daysLeft: null, now })).toBe(
-      "Today starts with two reviews to keep on schedule, then three new problems in hashing, trees and graphs.",
+      "Today starts with two reviews to keep on schedule, then three new problems in hashing, trees and graphs",
     );
     expect(todaySummary({ items: [item("new", "Hashing"), item("new", "Hashing"), item("new", "Trees")], skills: null, daysLeft: 30, now })).toBe(
       "Today we're spending most of our time on hashing. Your interview is 30 days away, so we'll start with two hashing problems and then work through one more from another topic!",
@@ -38,8 +38,8 @@ describe("todaySummary", () => {
     );
   });
   it("stays short with no history and leaves clauses out without data", () => {
-    expect(todaySummary({ items: [item("new", "Hashing")], skills: null, daysLeft: null, now })).toBe("Today we're spending most of our time on hashing.");
-    expect(todaySummary({ items: [item("review", "Hashing")], skills: null, daysLeft: null, now })).toBe("Today is a review day, with one older problem to keep on schedule.");
+    expect(todaySummary({ items: [item("new", "Hashing")], skills: null, daysLeft: null, now })).toBe("Today we're spending most of our time on hashing");
+    expect(todaySummary({ items: [item("review", "Hashing")], skills: null, daysLeft: null, now })).toBe("Today is a review day, with one older problem to keep on schedule");
     expect(todaySummary({ items: [], skills: null, daysLeft: null, now })).toBeNull();
   });
 });
@@ -70,7 +70,7 @@ describe("personal cards", () => {
 describe("on this day, milestones and momentum", () => {
   it("recalls a miss from a week ago that is due today", () => {
     const skills = [skill({ history: [attempt({ problem: "r", title: "Two Sum", date: "2026-11-08" })] })];
-    expect(onThisDay([entry("r", "review")], skills, now)).toBe("A week ago you couldn't solve Two Sum. It's back in today's reviews, so try it clean.");
+    expect(onThisDay([entry("r", "review")], skills, now)).toBe("A week ago you couldn't solve Two Sum. It's back in today's reviews, so try it clean");
     expect(onThisDay([], skills, now)).toBeNull();
   });
   it("fires each milestone once", () => {
@@ -92,11 +92,11 @@ describe("empty Today", () => {
   it("wraps up the day and offers a retake after 30 days", () => {
     const old = now.getTime() - 40 * 86_400_000;
     expect(wrapUp({ clean: 2, total: 3, minutes: 52 }, old, now)).toEqual({
-      text: "You worked through three problems today, two of them cleanly, in about 52 minutes. Nothing else is due until tomorrow, so the rest of the day is yours. Your last diagnostic was over a month ago, so a retake would move your plan to where you are now.",
+      text: "You worked through three problems today, two of them cleanly, in about 52 minutes. Nothing else is due until tomorrow, so the rest of the day is yours. Your last diagnostic was over a month ago, so a retake would move your plan to where you are now",
       retake: true,
     });
     expect(wrapUp({ clean: 2, total: 2, minutes: 40 }, now.getTime(), now, { technique: "Opposite-End Pointers", reviews: 2 }).text).toBe(
-      "You worked through two problems today, all cleanly, in about 40 minutes! Nothing else is due until tomorrow, so the rest of the day is yours. Tomorrow we'll pick up opposite-end pointers, after two quick reviews.",
+      "You worked through two problems today, all cleanly, in about 40 minutes! Nothing else is due until tomorrow, so the rest of the day is yours. Tomorrow we'll pick up opposite-end pointers, after two quick reviews",
     );
     expect(wrapUp({ clean: 0, total: 0, minutes: 0 }, now.getTime(), now)).toEqual({
       text: "Nothing is due today, so your reviews are on schedule and the rest of the day is yours.",

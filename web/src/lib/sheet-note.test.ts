@@ -16,10 +16,10 @@ const plan = (days: { kind: string; technique: string | null }[][]) =>
 
 describe("resultNote", () => {
   it("celebrates a clean pass with the review and the level", () => {
-    expect(resultNote(facts())).toBe("That's your third clean sliding window solve this week, and it moves to a 7-day review. Sliding window is starting to feel solid.");
+    expect(resultNote(facts())).toBe("That's your third clean sliding window solve this week, and it moves to a 7-day review. Sliding window is starting to feel solid");
   });
   it("ties in a company only when given", () => {
-    expect(resultNote(facts({ company: "Meta", daysLeft: 12 }))).toContain("Meta's set leans on sliding window and your interview is 12 days away.");
+    expect(resultNote(facts({ company: "Meta", daysLeft: 12 }))).toContain("Meta's set leans on sliding window and your interview is 12 days away");
     expect(resultNote(facts())).not.toContain("leans");
   });
   it("holds back the level on a first read", () => {
@@ -30,14 +30,14 @@ describe("resultNote", () => {
   });
   it("names the missed case and the earlier edge-case miss on a near miss", () => {
     const n = resultNote(facts({ kind: "miss", passed: 6, total: 7, failing: ["test_empty_array"], reviewDays: 1, priorEdge: { title: "Two Sum", date: "2026-11-08" } }));
-    expect(n).toBe("Super close! You passed 6 of 7 test cases and only missed the empty array case. That's the same kind of edge case that tripped you up on Two Sum a week ago. Let's revisit it tomorrow so this one sticks.");
+    expect(n).toBe("Super close! You passed 6 of 7 test cases and only missed the empty array case. That's the same kind of edge case that tripped you up on Two Sum a week ago. Let's revisit it tomorrow so this one sticks");
   });
   it("is plain on a far miss without a case name", () => {
     expect(resultNote(facts({ kind: "miss", passed: 2, total: 7, failing: ["test_case_3"], reviewDays: 1 }))).toBe("You passed 2 of 7 test cases. Let's come back to it tomorrow and work through it again!");
     expect(resultNote(facts({ kind: "miss", passed: 0, total: 0 }))).toBeNull();
   });
   it("says what a hint means for the review", () => {
-    expect(resultNote(facts({ kind: "hint", reviewDays: 1 }))).toBe("You used a hint on this one, so the review stays at 1 day instead of climbing. A clean pass on a later day gets it moving again.");
+    expect(resultNote(facts({ kind: "hint", reviewDays: 1 }))).toBe("You used a hint on this one, so the review stays at 1 day instead of climbing. A clean pass on a later day gets it moving again");
   });
   it("explains going over the target", () => {
     expect(resultNote(facts({ kind: "over", reviewDays: 1 }))).toContain("past the 25-minute target");

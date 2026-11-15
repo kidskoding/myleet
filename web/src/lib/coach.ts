@@ -52,7 +52,12 @@ export interface SummaryInput {
  * The coaching paragraph under the greeting: the day's theme (its most common technique),
  * why it matters to this learner, and how the day runs. Null with nothing queued.
  */
-export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): string | null {
+/** Today's coaching note; like all UI text it never ends on a period. */
+export function todaySummary(input: SummaryInput): string | null {
+  return summaryText(input)?.replace(/\.$/, "") ?? null;
+}
+
+function summaryText({ items, skills, daysLeft, now }: SummaryInput): string | null {
   const counts = new Map<string, number>();
   for (const i of items) if (i.technique && i.kind !== "review") counts.set(i.technique, (counts.get(i.technique) ?? 0) + 1);
   const [theme, nTheme = 0] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
@@ -164,7 +169,7 @@ export function onThisDay(queue: TodayEntry[], skills: Skill[] | null, now: Date
   if (!h) return null;
   const when = cap(dayAgo(h.date, now).replace("14 days ago", "two weeks ago").replace("30 days ago", "a month ago"));
   const what = h.mark === "missed" ? `you couldn't solve ${h.title}` : h.mark === "hint" ? `you needed a hint on ${h.title}` : `${h.title} took you past the time target`;
-  return `${when} ${what}. It's back in today's reviews, so try it clean.`;
+  return `${when} ${what}. It's back in today's reviews, so try it clean`;
 }
 
 export const CLEAN_MILESTONES = [10, 25, 50, 100, 250, 500, 1000];
@@ -212,7 +217,7 @@ export function wrapUp(
   }
   const retake = diagnosticMs !== null && now.getTime() - diagnosticMs > 30 * 86_400_000;
   if (retake) parts.push("Your last diagnostic was over a month ago, so a retake would move your plan to where you are now.");
-  return { text: parts.join(" "), retake };
+  return { text: parts.join(" ").replace(/\.$/, ""), retake };
 }
 
 /** "Why this one" for a review: the last attempt and where a clean pass puts it. */
