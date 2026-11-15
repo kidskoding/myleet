@@ -14,7 +14,6 @@ use super::screens;
 use super::theme::Theme;
 use super::ui::{self, Key, Lines};
 use super::widgets::TAB_BAR_HEIGHT;
-use crate::catalog::Catalog;
 
 pub const TAB_NAMES: [&str; 5] = ["today", "map", "timed", "playlists", "stats"];
 
@@ -215,8 +214,8 @@ pub trait Screen {
 /// State every screen can reach.
 pub struct Shared {
     pub theme: Theme,
-    /// None when no curriculum was found.
-    pub catalog: Option<Catalog>,
+    /// The learner's catalog, history, save file, runner and prompt source.
+    pub app: crate::app::App,
     /// An error that stays on screen until restart (e.g. a failed save).
     pub status: String,
     toast: String,
@@ -226,12 +225,28 @@ pub struct Shared {
     rx: Receiver<Msg>,
 }
 
+/// A Shared over the good fixture catalog with an in-memory app and a throwaway workspace.
+#[cfg(test)]
+pub(crate) fn test_shared() -> Shared {
+    let dir = tempfile::tempdir().expect("temp dir").keep();
+    let (log, events, _) = crate::progress::Log::open(&dir.join("events.jsonl"));
+    let workspace = crate::workspace::Workspace {
+        dir: dir.join("work"),
+    };
+    Shared::new(crate::app::App::new(
+        crate::testutil::good_catalog(),
+        log,
+        events,
+        workspace,
+    ))
+}
+
 impl Shared {
-    pub fn new(catalog: Option<Catalog>) -> Shared {
+    pub fn new(app: crate::app::App) -> Shared {
         let (tx, rx) = mpsc::channel();
         Shared {
             theme: Theme::new(),
-            catalog,
+            app,
             status: String::new(),
             toast: String::new(),
             toast_id: 0,
@@ -610,7 +625,7 @@ mod tests {
     }
 
     fn app() -> App {
-        App::new(Shared::new(None))
+        App::new(test_shared())
     }
 
     fn send(app: &mut App, keys: &[&str]) {

@@ -154,7 +154,7 @@ fn launch(a: App, open_id: Option<&str>) -> Result<(), String> {
     if !std::io::stdout().is_terminal() {
         return Err("the trainer needs a terminal".into());
     }
-    crate::tui::run(crate::tui::Shared::new(Some(a.catalog))).map_err(|e| e.to_string())
+    crate::tui::run(crate::tui::Shared::new(a)).map_err(|e| e.to_string())
 }
 
 #[cfg(test)]

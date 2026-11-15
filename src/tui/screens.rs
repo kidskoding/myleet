@@ -62,15 +62,13 @@ impl Screen for Placeholder {
         ])];
         if self.kind == Kind::Home {
             body.push(Line::default());
-            body.push(match &sh.catalog {
-                Some(c) => Line::from(vec![
-                    Span::styled(c.modules.len().to_string(), th.accent),
-                    Span::raw(" modules · "),
-                    Span::styled(c.problems().len().to_string(), th.accent),
-                    Span::raw(" problems loaded"),
-                ]),
-                None => Line::from(Span::styled("no curriculum found", th.muted)),
-            });
+            let c = &sh.app.catalog;
+            body.push(Line::from(vec![
+                Span::styled(c.modules.len().to_string(), th.accent),
+                Span::raw(" modules · "),
+                Span::styled(c.problems().len().to_string(), th.accent),
+                Span::raw(" problems loaded"),
+            ]));
         }
         let mut out = vec![Line::default()];
         out.extend(indent(
