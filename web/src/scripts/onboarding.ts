@@ -25,7 +25,7 @@ const GOALS: { id: Goal; label: string; detail: string }[] = [
   { id: "coop", label: "Co-op", detail: "The same core topics as internships, often with more interview rounds" },
   { id: "newgrad", label: "New grad", detail: "Medium and some hard problems, with more graphs and dynamic programming" },
 ];
-const GROUPS: PlaylistGroup[] = ["Big tech", "AI labs & high growth", "Trading firms", "Product companies", "Enterprise companies"];
+const GROUPS: PlaylistGroup[] = ["Big tech", "AI labs & high growth", "Trading firms", "Product companies", "Fortune 500"];
 const GROUP_SHOWN = 10;
 
 let cat: LoadedCatalog | undefined;

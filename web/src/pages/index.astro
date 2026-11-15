@@ -25,7 +25,7 @@ const GROUPS: [PlaylistGroup, string][] = [
   ["Product companies", "Product companies"],
   ["AI labs & high growth", "AI labs"],
   ["Trading firms", "Trading firms"],
-  ["Enterprise companies", "Enterprise companies"],
+  ["Fortune 500", "Fortune 500"],
 ];
 const groups = GROUPS.map(([g, label]) => ({ label, sets: c.playlists.filter((p) => p.group === g) }));
 

@@ -119,13 +119,13 @@ A playlist problem that no module teaches goes in `bank/<NN_topic>/<NNN_slug>/` 
 
 Company-specific drilling belongs in `playlists/<company>.toml`. These should be curated practice plans, not claims about exact company interview questions. Each playlist is `playlists/NNN_<company>.toml` with `title`, `group`, `focus`, `review_modules`, and one ordered list of `[[entries]]` (`title`, `url`) with the main high-signal LeetCode-style problems, most asked first; entries whose URL matches a curriculum or playlist-only problem are tracked by the trainer, the rest open in the browser. Do not split playlists into warmup/core/stretch tiers. Do not force a fixed problem count; include enough problems to cover the company's core live-coding techniques. Avoid excessive cross-company overlap by repeating only deliberate anchor problems and otherwise choosing different high-signal problems from the same technique family.
 
-Playlist `group` is one of Big tech, Product companies, AI labs & high growth, Trading firms, Enterprise companies. Bucket by recruiting/interview shape, not industry taxonomy:
+Playlist `group` is one of Big tech, Product companies, AI labs & high growth, Trading firms, Fortune 500. Bucket by recruiting/interview shape, not industry taxonomy:
 
 - Big tech: FAANG-like DSA loop and “big tech” brand (Google…Bloomberg, NVIDIA)
 - Product companies: product tech, still LC, lower brand tier (Spotify, Datadog, DoorDash)
 - AI labs & high growth: hot / private / AI-forward market (OpenAI, Stripe, Cursor)
 - Trading firms: trading interview track (Jane Street, HRT)
-- Enterprise companies: not that tech recruiting track (banks, retail, defense, Dell/IBM/Cisco/chips)
+- Fortune 500: not that tech recruiting track (banks, retail, defense, Dell/IBM/Cisco/chips)
 
 ______________________________________________________________________
 

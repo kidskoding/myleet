@@ -60,7 +60,7 @@ pub const GROUPS: [&str; 5] = [
     "Product companies",
     "AI labs & high growth",
     "Trading firms",
-    "Enterprise companies",
+    "Fortune 500",
 ];
 
 #[derive(Debug)]
