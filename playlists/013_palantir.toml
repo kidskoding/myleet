@@ -4,6 +4,26 @@ focus = "Union-find, grid and graph search, intervals, and modeling messy real-w
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "16_math_geometry", "17_advanced"]
 
 [[entries]]
+title = "Merge Two Sorted Lists"
+url = "https://leetcode.com/problems/merge-two-sorted-lists/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
 title = "Number of Provinces"
 url = "https://leetcode.com/problems/number-of-provinces/"
 
@@ -100,10 +120,6 @@ title = "Count Sub Islands"
 url = "https://leetcode.com/problems/count-sub-islands/"
 
 [[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
-
-[[entries]]
 title = "Insert Interval"
 url = "https://leetcode.com/problems/insert-interval/"
 
@@ -134,19 +150,3 @@ url = "https://leetcode.com/problems/group-anagrams/"
 [[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
-
-[[entries]]
-title = "Meeting Rooms"
-url = "https://leetcode.com/problems/meeting-rooms/"
-
-[[entries]]
-title = "Game of Life"
-url = "https://leetcode.com/problems/game-of-life/"
-
-[[entries]]
-title = "Word Search"
-url = "https://leetcode.com/problems/word-search/"
-
-[[entries]]
-title = "Bricks Falling When Hit"
-url = "https://leetcode.com/problems/bricks-falling-when-hit/"

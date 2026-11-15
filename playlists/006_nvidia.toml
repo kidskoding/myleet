@@ -4,6 +4,34 @@ focus = "Bit manipulation, binary search, matrix and grid problems, and dynamic 
 review_modules = ["01_arrays_and_hashing", "10_graphs", "11_dp", "13_intervals", "15_bit_manipulation", "16_math_geometry"]
 
 [[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
+title = "Merge k Sorted Lists"
+url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Minimum Path Sum"
+url = "https://leetcode.com/problems/minimum-path-sum/"
+
+[[entries]]
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Edit Distance"
+url = "https://leetcode.com/problems/edit-distance/"
+
+[[entries]]
+title = "Unique Paths"
+url = "https://leetcode.com/problems/unique-paths/"
+
+[[entries]]
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+
+[[entries]]
 title = "Search in Rotated Sorted Array"
 url = "https://leetcode.com/problems/search-in-rotated-sorted-array/"
 
@@ -46,10 +74,6 @@ url = "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/"
 [[entries]]
 title = "UTF-8 Validation"
 url = "https://leetcode.com/problems/utf-8-validation/"
-
-[[entries]]
-title = "Merge k Sorted Lists"
-url = "https://leetcode.com/problems/merge-k-sorted-lists/"
 
 [[entries]]
 title = "Gray Code"
@@ -138,27 +162,3 @@ url = "https://leetcode.com/problems/01-matrix/"
 [[entries]]
 title = "Sliding Window Median"
 url = "https://leetcode.com/problems/sliding-window-median/"
-
-[[entries]]
-title = "Maximum Sum Circular Subarray"
-url = "https://leetcode.com/problems/maximum-sum-circular-subarray/"
-
-[[entries]]
-title = "Sum of Subarray Minimums"
-url = "https://leetcode.com/problems/sum-of-subarray-minimums/"
-
-[[entries]]
-title = "Shortest Path Visiting All Nodes"
-url = "https://leetcode.com/problems/shortest-path-visiting-all-nodes/"
-
-[[entries]]
-title = "Longest Mountain in Array"
-url = "https://leetcode.com/problems/longest-mountain-in-array/"
-
-[[entries]]
-title = "Maximum Absolute Sum of Any Subarray"
-url = "https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/"
-
-[[entries]]
-title = "Split Array Largest Sum"
-url = "https://leetcode.com/problems/split-array-largest-sum/"

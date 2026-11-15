@@ -4,20 +4,56 @@ focus = "In-memory data-structure designs, encoding and parsing, and graph searc
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "06_linked_lists", "10_graphs", "17_advanced"]
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
-title = "Snapshot Array"
-url = "https://leetcode.com/problems/snapshot-array/"
-
-[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
+
+[[entries]]
+title = "Flatten Nested List Iterator"
+url = "https://leetcode.com/problems/flatten-nested-list-iterator/"
+
+[[entries]]
+title = "Peeking Iterator"
+url = "https://leetcode.com/problems/peeking-iterator/"
+
+[[entries]]
+title = "Design In-Memory File System"
+url = "https://leetcode.com/problems/design-in-memory-file-system/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
 title = "LFU Cache"
 url = "https://leetcode.com/problems/lfu-cache/"
+
+[[entries]]
+title = "Design Hit Counter"
+url = "https://leetcode.com/problems/design-hit-counter/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Find Duplicate File in System"
+url = "https://leetcode.com/problems/find-duplicate-file-in-system/"
+
+[[entries]]
+title = "Web Crawler"
+url = "https://leetcode.com/problems/web-crawler/"
+
+[[entries]]
+title = "Snapshot Array"
+url = "https://leetcode.com/problems/snapshot-array/"
 
 [[entries]]
 title = "Encode and Decode Strings"
@@ -34,14 +70,6 @@ url = "https://leetcode.com/problems/design-underground-system/"
 [[entries]]
 title = "All O`one Data Structure"
 url = "https://leetcode.com/problems/all-oone-data-structure/"
-
-[[entries]]
-title = "Design Hit Counter"
-url = "https://leetcode.com/problems/design-hit-counter/"
-
-[[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
 
 [[entries]]
 title = "Design Browser History"
@@ -70,10 +98,6 @@ url = "https://leetcode.com/problems/evaluate-division/"
 [[entries]]
 title = "Course Schedule II"
 url = "https://leetcode.com/problems/course-schedule-ii/"
-
-[[entries]]
-title = "Design In-Memory File System"
-url = "https://leetcode.com/problems/design-in-memory-file-system/"
 
 [[entries]]
 title = "Clone Graph"
@@ -130,27 +154,3 @@ url = "https://leetcode.com/problems/spiral-matrix/"
 [[entries]]
 title = "Basic Calculator"
 url = "https://leetcode.com/problems/basic-calculator/"
-
-[[entries]]
-title = "Valid Sudoku"
-url = "https://leetcode.com/problems/valid-sudoku/"
-
-[[entries]]
-title = "Random Pick with Weight"
-url = "https://leetcode.com/problems/random-pick-with-weight/"
-
-[[entries]]
-title = "Design HashMap"
-url = "https://leetcode.com/problems/design-hashmap/"
-
-[[entries]]
-title = "Implement Rand10() Using Rand7()"
-url = "https://leetcode.com/problems/implement-rand10-using-rand7/"
-
-[[entries]]
-title = "Cheapest Flights Within K Stops"
-url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
-
-[[entries]]
-title = "Word Ladder"
-url = "https://leetcode.com/problems/word-ladder/"

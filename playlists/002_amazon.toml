@@ -4,6 +4,26 @@ focus = "Trees and BFS/DFS, heaps, intervals, sliding windows, linked lists, and
 review_modules = ["01_arrays_and_hashing", "07_trees", "08_heaps", "10_graphs", "12_greedy_algorithms", "13_intervals"]
 
 [[entries]]
+title = "Meeting Rooms II"
+url = "https://leetcode.com/problems/meeting-rooms-ii/"
+
+[[entries]]
+title = "Insert Interval"
+url = "https://leetcode.com/problems/insert-interval/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Min Stack"
+url = "https://leetcode.com/problems/min-stack/"
+
+[[entries]]
+title = "Find Median from Data Stream"
+url = "https://leetcode.com/problems/find-median-from-data-stream/"
+
+[[entries]]
 title = "LRU Cache"
 url = "https://leetcode.com/problems/lru-cache/"
 
@@ -12,20 +32,32 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Rotting Oranges"
 url = "https://leetcode.com/problems/rotting-oranges/"
 
 [[entries]]
-title = "Meeting Rooms II"
-url = "https://leetcode.com/problems/meeting-rooms-ii/"
+title = "K Closest Points to Origin"
+url = "https://leetcode.com/problems/k-closest-points-to-origin/"
+
+[[entries]]
+title = "Top K Frequent Elements"
+url = "https://leetcode.com/problems/top-k-frequent-elements/"
+
+[[entries]]
+title = "Task Scheduler"
+url = "https://leetcode.com/problems/task-scheduler/"
+
+[[entries]]
+title = "Word Break"
+url = "https://leetcode.com/problems/word-break/"
 
 [[entries]]
 title = "Merge k Sorted Lists"
 url = "https://leetcode.com/problems/merge-k-sorted-lists/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
 
 [[entries]]
 title = "Group Anagrams"
@@ -44,16 +76,8 @@ title = "Binary Tree Level Order Traversal"
 url = "https://leetcode.com/problems/binary-tree-level-order-traversal/"
 
 [[entries]]
-title = "Word Break"
-url = "https://leetcode.com/problems/word-break/"
-
-[[entries]]
 title = "Number of Atoms"
 url = "https://leetcode.com/problems/number-of-atoms/"
-
-[[entries]]
-title = "Min Stack"
-url = "https://leetcode.com/problems/min-stack/"
 
 [[entries]]
 title = "Longest Substring Without Repeating Characters"
@@ -150,27 +174,3 @@ url = "https://leetcode.com/problems/accounts-merge/"
 [[entries]]
 title = "Palindrome Partitioning II"
 url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
-
-[[entries]]
-title = "Kth Smallest Element in a BST"
-url = "https://leetcode.com/problems/kth-smallest-element-in-a-bst/"
-
-[[entries]]
-title = "Unique Paths"
-url = "https://leetcode.com/problems/unique-paths/"
-
-[[entries]]
-title = "Minimum Cost to Merge Stones"
-url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
-
-[[entries]]
-title = "House Robber"
-url = "https://leetcode.com/problems/house-robber/"
-
-[[entries]]
-title = "Subarray Product Less Than K"
-url = "https://leetcode.com/problems/subarray-product-less-than-k/"
-
-[[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"

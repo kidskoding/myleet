@@ -4,6 +4,26 @@ focus = "Medium-to-hard array, interval, and subsequence problems, stock and jum
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
 title = "Best Time to Buy and Sell Stock II"
 url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
 
@@ -150,23 +170,3 @@ url = "https://leetcode.com/problems/number-of-flowers-in-full-bloom/"
 [[entries]]
 title = "Maximum Number of Events That Can Be Attended"
 url = "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/"
-
-[[entries]]
-title = "Range Sum Query - Mutable"
-url = "https://leetcode.com/problems/range-sum-query-mutable/"
-
-[[entries]]
-title = "My Calendar III"
-url = "https://leetcode.com/problems/my-calendar-iii/"
-
-[[entries]]
-title = "Bag of Tokens"
-url = "https://leetcode.com/problems/bag-of-tokens/"
-
-[[entries]]
-title = "Minimum Add to Make Parentheses Valid"
-url = "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
-
-[[entries]]
-title = "Longest Duplicate Substring"
-url = "https://leetcode.com/problems/longest-duplicate-substring/"

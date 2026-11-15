@@ -4,6 +4,26 @@ focus = "arrays, strings, trees, graphs, DP, and high-throughput coding speed."
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "07_trees", "10_graphs", "11_dp", "13_intervals"]
 
 [[entries]]
+title = "Maximal Square"
+url = "https://leetcode.com/problems/maximal-square/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Trapping Rain Water"
+url = "https://leetcode.com/problems/trapping-rain-water/"
+
+[[entries]]
+title = "Longest Increasing Subsequence"
+url = "https://leetcode.com/problems/longest-increasing-subsequence/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
 title = "Longest Substring Without Repeating Characters"
 url = "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
 
@@ -12,16 +32,8 @@ title = "Number of Islands"
 url = "https://leetcode.com/problems/number-of-islands/"
 
 [[entries]]
-title = "Trapping Rain Water"
-url = "https://leetcode.com/problems/trapping-rain-water/"
-
-[[entries]]
 title = "Lowest Common Ancestor of a Binary Tree"
 url = "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
-
-[[entries]]
-title = "Merge Intervals"
-url = "https://leetcode.com/problems/merge-intervals/"
 
 [[entries]]
 title = "Making A Large Island"
@@ -54,10 +66,6 @@ url = "https://leetcode.com/problems/find-median-from-data-stream/"
 [[entries]]
 title = "All Nodes Distance K in Binary Tree"
 url = "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/"
-
-[[entries]]
-title = "LRU Cache"
-url = "https://leetcode.com/problems/lru-cache/"
 
 [[entries]]
 title = "Number of Distinct Islands"
@@ -172,10 +180,6 @@ title = "Make Costs of Paths Equal in a Binary Tree"
 url = "https://leetcode.com/problems/make-costs-of-paths-equal-in-a-binary-tree/"
 
 [[entries]]
-title = "Longest Increasing Subsequence"
-url = "https://leetcode.com/problems/longest-increasing-subsequence/"
-
-[[entries]]
 title = "Dice Roll Simulation"
 url = "https://leetcode.com/problems/dice-roll-simulation/"
 
@@ -198,7 +202,3 @@ url = "https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on
 [[entries]]
 title = "Maximum Swap"
 url = "https://leetcode.com/problems/maximum-swap/"
-
-[[entries]]
-title = "Paint House II"
-url = "https://leetcode.com/problems/paint-house-ii/"

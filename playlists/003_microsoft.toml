@@ -4,6 +4,46 @@ focus = "Linked lists, strings, trees, arrays, and basic DP, written as clean, t
 review_modules = ["01_arrays_and_hashing", "02_two_pointers", "06_linked_lists", "10_graphs", "14_tries", "17_advanced"]
 
 [[entries]]
+title = "Permutation in String"
+url = "https://leetcode.com/problems/permutation-in-string/"
+
+[[entries]]
+title = "Single-Threaded CPU"
+url = "https://leetcode.com/problems/single-threaded-cpu/"
+
+[[entries]]
+title = "Rotting Oranges"
+url = "https://leetcode.com/problems/rotting-oranges/"
+
+[[entries]]
+title = "Letter Combinations of a Phone Number"
+url = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+
+[[entries]]
+title = "LRU Cache"
+url = "https://leetcode.com/problems/lru-cache/"
+
+[[entries]]
+title = "Number of Islands"
+url = "https://leetcode.com/problems/number-of-islands/"
+
+[[entries]]
+title = "Course Schedule"
+url = "https://leetcode.com/problems/course-schedule/"
+
+[[entries]]
+title = "Word Search"
+url = "https://leetcode.com/problems/word-search/"
+
+[[entries]]
+title = "Merge Intervals"
+url = "https://leetcode.com/problems/merge-intervals/"
+
+[[entries]]
+title = "Binary Tree Right Side View"
+url = "https://leetcode.com/problems/binary-tree-right-side-view/"
+
+[[entries]]
 title = "Valid Sudoku"
 url = "https://leetcode.com/problems/valid-sudoku/"
 
@@ -146,43 +186,3 @@ url = "https://leetcode.com/problems/insert-interval/"
 [[entries]]
 title = "Jump Game II"
 url = "https://leetcode.com/problems/jump-game-ii/"
-
-[[entries]]
-title = "Palindrome Partitioning II"
-url = "https://leetcode.com/problems/palindrome-partitioning-ii/"
-
-[[entries]]
-title = "Unique Paths II"
-url = "https://leetcode.com/problems/unique-paths-ii/"
-
-[[entries]]
-title = "Minimum Path Sum"
-url = "https://leetcode.com/problems/minimum-path-sum/"
-
-[[entries]]
-title = "Best Time to Buy and Sell Stock IV"
-url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/"
-
-[[entries]]
-title = "Triangle"
-url = "https://leetcode.com/problems/triangle/"
-
-[[entries]]
-title = "Maximum Product Subarray"
-url = "https://leetcode.com/problems/maximum-product-subarray/"
-
-[[entries]]
-title = "Minimum Cost to Merge Stones"
-url = "https://leetcode.com/problems/minimum-cost-to-merge-stones/"
-
-[[entries]]
-title = "Maximum Subarray"
-url = "https://leetcode.com/problems/maximum-subarray/"
-
-[[entries]]
-title = "House Robber II"
-url = "https://leetcode.com/problems/house-robber-ii/"
-
-[[entries]]
-title = "Cherry Pickup"
-url = "https://leetcode.com/problems/cherry-pickup/"

@@ -4,8 +4,36 @@ focus = "String parsing, hash-map bookkeeping, intervals, rate limiting, and sma
 review_modules = ["01_arrays_and_hashing", "03_stacks_and_queues", "05_binary_search", "10_graphs", "13_intervals", "17_advanced"]
 
 [[entries]]
+title = "Evaluate Division"
+url = "https://leetcode.com/problems/evaluate-division/"
+
+[[entries]]
+title = "Cheapest Flights Within K Stops"
+url = "https://leetcode.com/problems/cheapest-flights-within-k-stops/"
+
+[[entries]]
+title = "Minimum Penalty for a Shop"
+url = "https://leetcode.com/problems/minimum-penalty-for-a-shop/"
+
+[[entries]]
 title = "Design Underground System"
 url = "https://leetcode.com/problems/design-underground-system/"
+
+[[entries]]
+title = "Logger Rate Limiter"
+url = "https://leetcode.com/problems/logger-rate-limiter/"
+
+[[entries]]
+title = "Simplify Path"
+url = "https://leetcode.com/problems/simplify-path/"
+
+[[entries]]
+title = "Accounts Merge"
+url = "https://leetcode.com/problems/accounts-merge/"
+
+[[entries]]
+title = "Time Based Key-Value Store"
+url = "https://leetcode.com/problems/time-based-key-value-store/"
 
 [[entries]]
 title = "Invalid Transactions"
@@ -20,16 +48,8 @@ title = "Text Justification"
 url = "https://leetcode.com/problems/text-justification/"
 
 [[entries]]
-title = "Time Based Key-Value Store"
-url = "https://leetcode.com/problems/time-based-key-value-store/"
-
-[[entries]]
 title = "Encode and Decode TinyURL"
 url = "https://leetcode.com/problems/encode-and-decode-tinyurl/"
-
-[[entries]]
-title = "Simplify Path"
-url = "https://leetcode.com/problems/simplify-path/"
 
 [[entries]]
 title = "Number of Atoms"
@@ -40,10 +60,6 @@ title = "Basic Calculator II"
 url = "https://leetcode.com/problems/basic-calculator-ii/"
 
 [[entries]]
-title = "Logger Rate Limiter"
-url = "https://leetcode.com/problems/logger-rate-limiter/"
-
-[[entries]]
 title = "Evaluate Reverse Polish Notation"
 url = "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
 
@@ -52,16 +68,8 @@ title = "Decode String"
 url = "https://leetcode.com/problems/decode-string/"
 
 [[entries]]
-title = "Accounts Merge"
-url = "https://leetcode.com/problems/accounts-merge/"
-
-[[entries]]
 title = "Maximum Frequency Stack"
 url = "https://leetcode.com/problems/maximum-frequency-stack/"
-
-[[entries]]
-title = "Evaluate Division"
-url = "https://leetcode.com/problems/evaluate-division/"
 
 [[entries]]
 title = "Insert Interval"
@@ -146,11 +154,3 @@ url = "https://leetcode.com/problems/meeting-rooms/"
 [[entries]]
 title = "Multiply Strings"
 url = "https://leetcode.com/problems/multiply-strings/"
-
-[[entries]]
-title = "Reorganize String"
-url = "https://leetcode.com/problems/reorganize-string/"
-
-[[entries]]
-title = "Russian Doll Envelopes"
-url = "https://leetcode.com/problems/russian-doll-envelopes/"
