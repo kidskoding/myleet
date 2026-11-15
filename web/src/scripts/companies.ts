@@ -75,15 +75,6 @@ function renderPinned(c: Ctx): void {
   if (empty) empty.hidden = list.length > 0;
   const date = readPrefs().plan.interviewDate;
   const left = date ? daysUntil(date) : null;
-  const intro = $("[data-company-intro]");
-  if (intro) {
-    const names = list.slice(0, 2).map((p) => p.title).join(" and ");
-    const more = list.length > 2 ? ` and ${list.length - 2} more` : "";
-    const deadline = left !== null && left >= 0 ? (left === 0 ? "Interview today" : `${plural(left, "day")} until your interview`) : "";
-    intro.textContent = names
-      ? `Your ${names}${more} practice${deadline ? ` · ${deadline}` : ""}`
-      : deadline ? `${deadline} · Choose your target companies` : "Find practice sets for your dream companies and upcoming interviews";
-  }
   const shown = list.slice(0, 5);
   render(
     $("[data-pin-list]"),

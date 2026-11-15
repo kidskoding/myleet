@@ -27,7 +27,7 @@ const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
     <div class="head">
       <div>
         <h1>Companies</h1>
-        <p data-company-intro>Choose from {total} company practice sets to build your interview plan</p>
+        <p data-company-intro>Practice sets for {total} companies, built around the problems their interviews lean on</p>
       </div>
       <label class="find"><Fragment set:html={icon("search").value} /><input type="search" aria-label="Find a company" placeholder="Find a company" data-find autocomplete="off" /><kbd>/</kbd></label>
     </div>
