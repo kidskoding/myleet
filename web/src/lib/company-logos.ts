@@ -7,12 +7,22 @@ import logoManifest from "../assets/logos/manifest.json";
 const revision = [...JSON.stringify(logoManifest)].reduce((hash, c) => (Math.imul(hash, 31) + c.charCodeAt(0)) >>> 0, 0).toString(36);
 export const LOGO_SPRITE = `/company-logos.svg?v=${revision}`;
 
+/** A wordmark's box is at most this many times wider than tall; wider marks shrink inside it. */
+const MAX_ASPECT = 4;
+const aspects = logoManifest as Record<string, { aspect?: number } | null>;
+
+/** Width over height of a company's logo box: 1, or wider for a wordmark such as BlackRock. */
+export const logoAspect = (slug: string): number => Math.min(aspects[slug]?.aspect ?? 1, MAX_ASPECT);
+
 /** The mark before a company name; decorative, since the name sits beside it. */
-export const companyLogo = (slug: string, cls = ""): SafeHtml =>
-  // Inline size so every page (palette, landing) gets it without extra CSS; a consistent 24px box on the baseline.
-  raw(
-    `<img class="co-logo${cls ? ` ${esc(cls)}` : ""}" src="/company-marks/${esc(slug)}.svg?v=${revision}" width="24" height="24" style="width:24px;height:24px;object-fit:contain;flex:none;display:inline-block;vertical-align:-0.2em" alt="" aria-hidden="true" loading="lazy" decoding="async"/>`,
+export const companyLogo = (slug: string, cls = ""): SafeHtml => {
+  const r = logoAspect(slug);
+  // Inline size so every page (palette, landing) gets it without extra CSS: 24px tall on the baseline,
+  // and as wide as the mark needs, so a wordmark is as tall as a square mark. Pages resize by height.
+  return raw(
+    `<img class="co-logo${cls ? ` ${esc(cls)}` : ""}" src="/company-marks/${esc(slug)}.svg?v=${revision}" width="${Math.round(24 * r)}" height="24" style="height:24px;width:auto;aspect-ratio:${r};object-fit:contain;flex:none;display:inline-block;vertical-align:-0.2em" alt="" aria-hidden="true" loading="lazy" decoding="async"/>`,
   );
+};
 
 /** "Jane Street" -> "JS", "Ramp" -> "R", "Susquehanna (SIG)" -> "SIG", "IMC Trading" -> "IMC". */
 export function monogram(title: string): string {

@@ -20,6 +20,8 @@ interface ManifestEntry {
   file?: string;
   treatment?: "mono" | "light-background" | "dark-background";
   brandColor?: string;
+  /** Width over height, recorded for wide marks (see WIDE_AT) so a page can size the box without the file. */
+  aspect?: number;
 }
 
 /** Light and current site surfaces used to keep company marks legible. */
@@ -133,6 +135,21 @@ export function sourceSvg(slug: string): string | null {
   }
   const si = e.icon ? simpleIcon(e.icon) : undefined;
   return si ? `<svg viewBox="0 0 24 24"><path fill="#${si.hex}" d="${si.path}"/></svg>` : null;
+}
+
+/** A mark at least this many times wider than tall gets a wider box instead of a square. */
+export const WIDE_AT = 1.9;
+
+/** Width over height of a set's vendored SVG, to 2 decimals; null without a file. */
+export function logoAspect(slug: string): number | null {
+  const file = readManifest()[slug]?.file;
+  if (!file) return null;
+  const svg = readFileSync(join(LOGO_DIR, file), "utf8");
+  const open = /<svg\b[^>]*>/i.exec(svg)?.[0] ?? "";
+  const vb = /viewBox\s*=\s*"([^"]+)"/i.exec(open)?.[1]?.trim().split(/[\s,]+/).map(Number);
+  const w = vb?.[2] ?? Number.parseFloat(/\bwidth\s*=\s*"([\d.]+)/.exec(open)?.[1] ?? "");
+  const h = vb?.[3] ?? Number.parseFloat(/\bheight\s*=\s*"([\d.]+)/.exec(open)?.[1] ?? "");
+  return w && h ? Math.round((w / h) * 100) / 100 : null;
 }
 
 // ---- SVG to symbol ----
