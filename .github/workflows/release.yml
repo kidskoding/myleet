@@ -9,24 +9,70 @@ permissions:
   contents: write
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: ubuntu-latest, os: linux, arch: amd64, ext: tar.gz }
+          - { runner: ubuntu-24.04-arm, os: linux, arch: arm64, ext: tar.gz }
+          - { runner: macos-15-intel, os: darwin, arch: amd64, ext: tar.gz }
+          - { runner: macos-14, os: darwin, arch: arm64, ext: tar.gz }
+          - { runner: windows-latest, os: windows, arch: amd64, ext: zip }
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Install Go
-        uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
+      - name: Install Rust from rust-toolchain.toml
+        run: rustup show active-toolchain || rustup toolchain install
 
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v6
-        with:
-          distribution: goreleaser
-          version: "~> v2"
-          args: release --clean
+      - name: Build
+        shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MYLEET_VERSION: ${{ github.ref_name }}
+          MYLEET_COMMIT: ${{ github.sha }}
+        run: |
+          export MYLEET_VERSION="${MYLEET_VERSION#v}" MYLEET_COMMIT="${MYLEET_COMMIT::7}"
+          export MYLEET_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          cargo build --release --locked
+
+      # The asset names earlier releases used, which scripts/install.sh downloads.
+      - name: Package
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          name="myleet_${version}_${{ matrix.os }}_${{ matrix.arch }}"
+          mkdir "$name"
+          cp LICENSE README.md "$name/"
+          if [ "${{ matrix.os }}" = windows ]; then
+            cp target/release/myleet.exe "$name/"
+            (cd "$name" && 7z a "../$name.zip" .)
+          else
+            cp target/release/myleet "$name/"
+            tar -czf "$name.tar.gz" -C "$name" .
+          fi
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}-${{ matrix.arch }}
+          path: myleet_*.${{ matrix.ext }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download builds
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Checksums
+        run: cd dist && sha256sum myleet_* > checksums.txt
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" dist/* --repo "$GITHUB_REPOSITORY" --generate-notes
