@@ -15,13 +15,22 @@ describe("todaySummary", () => {
     const items = [item("review", "Hashing"), item("review", "Trees"), ...[1, 2, 3].map(() => item("new", "Sliding Window", "weak", [{ icon: "b", text: "Meta leans on sliding window" }]))];
     const skills = [skill({ weak_spot: true, history: [attempt({ cause: "edge_cases" })] })];
     expect(todaySummary({ items, skills, daysLeft: 12, now })).toBe(
-      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window, so it's likely to come up. Your interview is 12 days away.\n\nAfter two quick reviews to keep your older problems on schedule, you'll work through three sliding window problems. Solve them cleanly and you'll stop needing hints on sliding window.",
+      "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window, so it's likely to come up. Your interview is 12 days away.\n\nWe'll warm up with two quick reviews, then work through three sliding window problems! Solve them cleanly and you'll stop needing hints on sliding window.",
     );
   });
   it("names a hint without a company", () => {
     const skills = [skill({ level: "building", history: [attempt({ mark: "hint", detail: "used a hint", date: "2026-11-12" })] })];
     expect(todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now })).toBe(
-      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nYou'll work through one sliding window problem. Solve it cleanly and sliding window will start to feel solid.",
+      "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nWe'll start with one sliding window problem! Solve it cleanly and sliding window will start to feel solid.",
+    );
+  });
+  it("folds a short why and the plan into one paragraph", () => {
+    const items = [item("new", "Hashing"), item("new", "Trees"), item("new", "Graphs")];
+    expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe(
+      "Today we're spending most of our time on hashing. Your interview is 30 days away, so we'll start with one hashing problem and then work through two more from other topics!",
+    );
+    expect(todaySummary({ items: [item("review", "Trees"), item("new", "Hashing")], skills: null, daysLeft: null, now })).toBe(
+      "Today we're spending most of our time on hashing. We'll warm up with a quick review, then work through one hashing problem!",
     );
   });
   it("stays short with no history and leaves clauses out without data", () => {

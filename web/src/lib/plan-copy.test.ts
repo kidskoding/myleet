@@ -37,10 +37,10 @@ const evenings: Availability[] = [{ days: ["mon", "tue", "wed", "thu", "fri"], s
 
 describe("Plan copy", () => {
   it("writes a personal header from the plan", () => {
-    const h = headCopy({ plan: plan(), company: "Meta", name: "Anirudh", windows: evenings, today: "2026-11-15" });
+    const h = headCopy({ plan: plan(), company: "Meta", name: "Anirudh", windows: evenings, weekday: 60, weekend: 90, today: "2026-11-15" });
     expect(h.title).toBe("Your road to Meta, Anirudh");
     expect(h.lede).toBe(
-      "30 days until your Meta interview on Dec 15. We've planned about 56 hours around the evenings you're free, with seven mocks spaced closer together near the end, and everything shifts after each solve.",
+      "30 days until your Meta interview on Dec 15. You'll practice about an hour on weekday evenings and a bit more on weekends, with mock interviews getting closer together toward the end, and the plan adjusts after every solve.",
     );
     const none = headCopy({ plan: plan({ interview_date: null }), company: null, name: null, windows: [], today: "2026-11-15" });
     expect(none.title).toBe("Your next four weeks");

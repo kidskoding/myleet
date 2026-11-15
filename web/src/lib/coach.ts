@@ -82,12 +82,16 @@ export function todaySummary({ items, skills, daysLeft, now }: SummaryInput): st
   const level = skill?.level;
   const outcome = level ? LEVEL_OUTCOME[level]?.(tech) : undefined;
   const work = nTheme === 1 ? `one ${tech} problem` : `${num(nTheme)} ${tech} problems`;
-  const extra = nNew > nTheme ? ` and ${nNew - nTheme === 1 ? "one more" : `${num(nNew - nTheme)} more`} after` : "";
-  const lead = reviews ? `After ${reviews === 1 ? "a quick review" : `${num(reviews)} quick reviews`} to keep your older problems on schedule, you'll work through` : "You'll work through";
+  const more = nNew - nTheme;
+  const extra = more > 0 ? ` and then work through ${more === 1 ? "one more from another topic" : `${num(more)} more from other topics`}` : "";
+  const run = reviews ? `warm up with ${reviews === 1 ? "a quick review" : `${num(reviews)} quick reviews`}, then work through ${work}${extra.replace(" and then work through", " and")}` : `start with ${work}${extra}`;
   const move = outcome ? ` Solve ${nTheme === 1 ? "it" : "them"} cleanly and ${outcome}.` : "";
-  // The why and the day's run read as two paragraphs, joined by a blank line for the renderer to split.
   const why = out.join(" ");
-  return reviews || move || extra ? `${why}\n\n${lead} ${work}${extra}.${move}` : why;
+  if (!(reviews || move || more > 0)) return why;
+  // A short why (no recent miss) shares a paragraph with the plan; with a miss to explain, the plan gets its own.
+  if (miss && did) return `${why}\n\nWe'll ${run}!${move}`;
+  const closer = near && out.at(-1)?.endsWith(`${days(near)} away.`) ? `${why.slice(0, -1)}, so we'll` : `${why} We'll`;
+  return `${closer} ${run}!${move}`;
 }
 
 export interface Card {

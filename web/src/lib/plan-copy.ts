@@ -36,33 +36,46 @@ export function drawerLede(history: Habits["history"] | null): string {
     : "Mark the hours that usually work for you. Change anything later and your plan reshapes as you go.";
 }
 
-/** "the evenings you're free" from the windows' start times. */
-function windowsPhrase(ws: Availability[]): string {
+/** "evenings" from the start times of the windows on the given days; "" when they're mixed or there are none. */
+function partPhrase(ws: Availability[], days: string[]): string {
   const parts = new Map<Part, number>();
-  for (const w of ws) parts.set(partOf(Number(w.start.slice(0, 2))), (parts.get(partOf(Number(w.start.slice(0, 2)))) ?? 0) + w.days.length);
+  for (const w of ws) {
+    const n = w.days.filter((d) => days.includes(d)).length;
+    if (n) parts.set(partOf(Number(w.start.slice(0, 2))), (parts.get(partOf(Number(w.start.slice(0, 2)))) ?? 0) + n);
+  }
   const top = [...parts.entries()].sort((a, b) => b[1] - a[1]);
-  if (!top.length) return "the hours you usually practice";
-  if (top.length > 1 && (top[1]?.[1] ?? 0) * 2 >= (top[0]?.[1] ?? 0)) return "the times you're free";
-  return `the ${top[0]?.[0]}s you're free`;
+  if (!top.length || (top[1] && top[1][1] * 2 >= (top[0]?.[1] ?? 0))) return "";
+  return `${top[0]?.[0]}s`;
 }
 
-const hoursPhrase = (minutes: number) => (minutes < 120 ? `about ${fmtM(minutes)}` : `about ${Math.round(minutes / 60)} hours`);
+const WEEKDAYS = ["mon", "tue", "wed", "thu", "fri"];
+
+/** "an hour", "90 minutes", "2 hours". */
+const lengthPhrase = (m: number) => (m === 60 ? "an hour" : m === 90 ? "an hour and a half" : m > 60 && m % 60 === 0 ? `${m / 60} hours` : `${Math.round(m / 5) * 5} minutes`);
+
+/** "about an hour on weekday evenings and a bit more on weekends". */
+export function rhythmPhrase(o: { weekday: number; weekend: number; windows: Availability[] }): string {
+  const part = partPhrase(o.windows, WEEKDAYS);
+  const first = `about ${lengthPhrase(o.weekday)} on ${part ? `weekday ${part}` : "weekdays"}`;
+  const second = o.weekend === o.weekday ? "the same on weekends" : o.weekend > o.weekday ? "a bit more on weekends" : "a bit less on weekends";
+  return `${first} and ${second}`;
+}
 
 export interface HeadCopy {
   title: string;
   lede: string;
 }
 
-export function headCopy(o: { plan: Plan; company: string | null; name: string | null; windows: Availability[]; today: string; nextAfter?: { company: string | null; date: string } | null }): HeadCopy {
+export function headCopy(o: { plan: Plan; company: string | null; name: string | null; windows: Availability[]; weekday?: number | undefined; weekend?: number | undefined; today: string; nextAfter?: { company: string | null; date: string } | null }): HeadCopy {
   const { plan, company, name } = o;
   const date = plan.interview_date;
-  const total = plan.days.reduce((m, d) => m + d.minutes, 0);
   const you = name ? `, ${name}` : "";
   const mocks = plan.summary.mocks;
-  const mockPart = !date || mocks === 0 ? "" : mocks === 1 ? ", with a mock a few days before" : mocks >= 3 ? `, with ${count(mocks)} mocks spaced closer together near the end` : `, with ${count(mocks)} mocks along the way`;
-  const planned = `We've planned ${hoursPhrase(total)} around ${windowsPhrase(o.windows)}${mockPart}, and everything shifts after each solve.`;
+  const mockPart = !date || mocks === 0 ? "" : mocks === 1 ? ", with a mock interview a few days before" : mocks >= 3 ? ", with mock interviews getting closer together toward the end" : `, with ${count(mocks)} mock interviews along the way`;
+  const weekday = o.weekday ?? Math.round(plan.days.filter((d) => !d.off).reduce((m, d) => m + d.minutes, 0) / Math.max(1, plan.days.filter((d) => !d.off).length));
+  const planned = `You'll practice ${rhythmPhrase({ weekday, weekend: o.weekend ?? weekday, windows: o.windows })}${mockPart}, and the plan adjusts after every solve.`;
   const after = o.nextAfter ? ` ${o.nextAfter.company ?? "Your next interview"} on ${shortDate(o.nextAfter.date)} comes after that.` : "";
-  if (!date) return { title: `Your next four weeks${you}`, lede: `${planned.replace(", and everything shifts", ". Everything shifts")} Add an interview and the plan paces toward it.` };
+  if (!date) return { title: `Your next four weeks${you}`, lede: `${planned.replace(", and the plan adjusts", ". The plan adjusts")} Add an interview and the plan paces toward it.` };
   const left = daysUntil(date, o.today);
   const when = `${plural(left, "day")} until your ${company ? `${company} ` : ""}interview on ${shortDate(date)}.`;
   return { title: company ? `Your road to ${company}${you}` : `Your road to ${shortDate(date)}${you}`, lede: `${when[0]?.toUpperCase()}${when.slice(1)} ${planned}${after}` };
