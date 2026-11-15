@@ -11,7 +11,7 @@ use super::widgets::indent;
 pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
     let i = if i < TAB_NAMES.len() { i } else { 0 };
     Box::new(Placeholder {
-        title: TAB_NAMES[i],
+        title: TAB_NAMES[i].into(),
         tab: Some(i),
         kind: if i == 0 { Kind::Home } else { Kind::Other },
     })
@@ -20,21 +20,35 @@ pub fn new_tab(_sh: &mut Shared, i: usize) -> Box<dyn Screen> {
 /// The screen `/` and `ctrl+k` push.
 pub fn new_search(_sh: &mut Shared) -> Box<dyn Screen> {
     Box::new(Placeholder {
-        title: "search",
+        title: "search".into(),
         tab: None,
         kind: Kind::Search,
     })
 }
 
+/// The problem screen every other screen opens; `mode` is a `progress::mode` value.
+pub fn new_focus(sh: &mut Shared, problem_id: &str, mode: &str) -> Box<dyn Screen> {
+    let title = sh
+        .app
+        .catalog
+        .problem(problem_id)
+        .map_or(problem_id, |p| p.title.as_str());
+    Box::new(Placeholder {
+        title: format!("{title} ({mode})"),
+        tab: None,
+        kind: Kind::Focus,
+    })
+}
+
 struct Placeholder {
-    title: &'static str,
+    title: String,
     tab: Option<usize>,
     kind: Kind,
 }
 
 impl Screen for Placeholder {
     fn title(&self) -> String {
-        self.title.to_string()
+        self.title.clone()
     }
 
     fn tab(&self) -> Option<usize> {
@@ -72,7 +86,7 @@ impl Screen for Placeholder {
         }
         let mut out = vec![Line::default()];
         out.extend(indent(
-            ui::card(th, self.title, body, width.saturating_sub(4), false),
+            ui::card(th, &self.title, body, width.saturating_sub(4), false),
             2,
         ));
         out
