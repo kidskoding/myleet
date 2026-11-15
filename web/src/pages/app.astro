@@ -31,13 +31,16 @@ import Base from "../layouts/Base.astro";
   @media (min-width: 1000px) { .gate-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-12); } }
   .gate-eg-today { margin: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: 0 24px 60px -24px color-mix(in srgb, var(--ground) 80%, transparent), var(--shadow-md); overflow: hidden; }
   .gate-eg-today .eg-window { display: flex; align-items: center; gap: 6px; padding: var(--space-2) var(--space-4); border-bottom: 1px solid var(--line); background: var(--surface-sunk); }
-  .gate-eg-today .eg-window i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+  .gate-eg-today .eg-window i { width: 10px; height: 10px; border-radius: 50%; }
+  .gate-eg-today .eg-window i.r { background: var(--ctp-red); } .gate-eg-today .eg-window i.y { background: var(--ctp-yellow); } .gate-eg-today .eg-window i.g { background: var(--ctp-green); }
   .gate-eg-today .eg-window span { margin-left: var(--space-2); font: 500 var(--label-size) var(--font-label); letter-spacing: var(--label-track); color: var(--ink-3); }
   .gate-eg-today .eg-body { padding: var(--space-5) var(--space-6) var(--space-4); display: grid; gap: var(--space-3); }
   .gate-eg-today .eg-hello { font-size: var(--text-md); font-weight: 700; color: var(--ink); }
   .gate-eg-today .eg-note { color: var(--ink-2); font-size: var(--text-sm); line-height: 1.55; }
-  .gate-eg-today .eg-ready-top { display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--ink-3); margin-bottom: 6px; }
-  .gate-eg-today .eg-ready-top strong { font-family: var(--font-label); color: var(--ink); }
+  .gate-eg-today .eg-ready-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2); }
+  .gate-eg-today .eg-ready-h { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-base); font-weight: 700; color: var(--ink); }
+  .gate-eg-today .eg-ready-h .co-logo { width: 20px !important; height: 20px !important; vertical-align: 0 !important; }
+  .gate-eg-today .eg-ready-top strong { font-family: var(--font-label); font-size: var(--text-base); color: var(--ink); }
   .gate-eg-today .eg-bar { height: 5px; border-radius: 99px; background: var(--surface-sunk); overflow: hidden; }
   .gate-eg-today .eg-bar span { display: block; height: 100%; background: var(--accent); border-radius: inherit; }
   .gate-eg-today .eg-queue { list-style: none; padding: 0; margin: 0; display: grid; }

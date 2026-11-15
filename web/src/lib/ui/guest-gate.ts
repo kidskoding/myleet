@@ -2,6 +2,7 @@
 // to sign up, so a guest gets an invitation (no diagnostic yet) or their diagnostic results
 // with a sign-up button, never a personal queue, countdown or plan.
 import { signinHref } from "../gate";
+import { companyLogo } from "../company-logos";
 import { midSentence } from "../schedule";
 import { ROUTES } from "../routes";
 import type { Level } from "../types";
@@ -46,16 +47,17 @@ const INVITE_STEPS: [string, string][] = [
 export const gateSteps = (steps: [string, string][]): SafeHtml => html`<ol class="gate-steps">${steps.map(([t, d]) => html`<li><strong>${t}</strong><span>${d}</span></li>`)}</ol>`;
 
 /** A labelled preview of the personal Today a learner gets after the diagnostic. */
-function todayExample(company: string | null): SafeHtml {
+function todayExample(company: string | null, slug: string | null): SafeHtml {
   const co = company ?? "Meta";
+  const logo = companyLogo(company ? (slug ?? "meta") : "meta");
   const row = (title: string, kind: "due" | "weak" | "new", tag: string, why: string) =>
     html`<li><div><strong>${title}</strong><span>${why}</span></div><span class="eg-tag ${kind}">${tag}</span></li>`;
   return html`<figure class="gate-eg-today" aria-label="Example of your Today after the diagnostic">
-    <div class="eg-window" aria-hidden="true"><i></i><i></i><i></i><span>Your Today, after the diagnostic</span></div>
+    <div class="eg-window" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i><span>Your Today, after the diagnostic</span></div>
     <div class="eg-body">
       <p class="eg-hello">Good evening, Alex</p>
       <p class="eg-note">Today we're focusing on sliding window, your weakest spot right now. Your ${co} interview is 12 days away, so we'll start with two quick reviews and then work through three window problems</p>
-      <div class="eg-ready"><div class="eg-ready-top"><span>Ready for ${co}</span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
+      <div class="eg-ready"><div class="eg-ready-top"><span class="eg-ready-h">${logo}Ready for ${co}</span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
       <ul class="eg-queue">
         ${row("Longest Substring Without Repeating Characters", "due", "Review", "You needed a hint here 6 days ago, so a clean pass moves it to 14 days")}
         ${row("Minimum Window Substring", "weak", "Weak spot", "The shrink step you missed on Tuesday, one level harder")}
@@ -65,9 +67,9 @@ function todayExample(company: string | null): SafeHtml {
   </figure>`;
 }
 
-export function todayInvite(greet: string, company: string | null = null): SafeHtml {
+export function todayInvite(greet: string, company: string | null = null, slug: string | null = null): SafeHtml {
   return html`<div class="gate-split"><section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p>${gateSteps(INVITE_STEPS)}
-    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>${todayExample(company)}</div>`;
+    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>${todayExample(company, slug)}</div>`;
 }
 
 export function todayResults(greet: string, line: string): SafeHtml {

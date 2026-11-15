@@ -387,7 +387,7 @@ function paintGuest(c: Ctx, main: HTMLElement, aside: HTMLElement): void {
       // The welcome line is a nicety.
     }
   }
-  render(main, mode === "results" ? todayResults(greet, resultsLine(items, (t) => topicById(t)?.label ?? t)) : todayInvite(greet, targetCompany(c)));
+  render(main, mode === "results" ? todayResults(greet, resultsLine(items, (t) => topicById(t)?.label ?? t)) : todayInvite(greet, targetCompany(c), readPrefs().plan.companies[0] ?? null));
   main.removeAttribute("aria-busy");
   main.removeAttribute("aria-label");
   main.closest(".today-layout")?.classList.add("is-first-run");
