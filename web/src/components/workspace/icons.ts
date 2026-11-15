@@ -40,7 +40,7 @@ const PATHS = {
 
 export type IconName = keyof typeof PATHS;
 
-/** Inline SVG markup; decorative unless the caller labels the control around it. */
+/** Inline SVG markup; decorative unless the caller labels the control around it. `i-<name>` matches the site icons (an `i-x` button turns red on hover). */
 export function icon(name: IconName, size = 18, cls = "icon"): string {
-  return `<svg class="${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PATHS[name]}</svg>`;
+  return `<svg class="${cls} i-${name}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${PATHS[name]}</svg>`;
 }
