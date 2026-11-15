@@ -6,7 +6,7 @@ import { viewEvents } from "../lib/sample";
 import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { MOCK_LEAD_MIN, mockState } from "../lib/mock-today";
-import { readHistory } from "../lib/mock";
+import { mockHref, readHistory } from "../lib/mock";
 import { addMove, minuteOf, moveFor } from "../lib/schedule";
 import { daysUntil, paceRows, shortDate } from "../lib/plan";
 import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
@@ -653,7 +653,7 @@ function paintMock(): void {
   render(
     el,
     html`<article class="l2" aria-live="polite" style="margin-block:var(--space-4)"><div><h2>${copy.h}</h2><p class="text-muted">${copy.p}</p></div>
-      <div style="display:flex;gap:var(--space-2);flex-wrap:wrap"><a class="btn ${st === "now" ? "btn-primary" : "btn-secondary"}" href="${ROUTES.mock}">${st === "now" ? "Start mock" : "Start now"}</a>${
+      <div style="display:flex;gap:var(--space-2);flex-wrap:wrap"><a class="btn ${st === "now" ? "btn-primary" : "btn-secondary"}" href="${mockHref({ session: s.id, minutes: s.minutes, company: readPrefs().plan.companies[0] ?? null })}">${st === "now" ? "Start mock" : "Start now"}</a>${
         st === "missed" ? html`<button class="btn btn-ghost" type="button" data-mock-move ${tomorrow && !tomorrow.rest ? "" : "disabled"}>Move to tomorrow</button>` : ""
       }</div></article>`,
   );

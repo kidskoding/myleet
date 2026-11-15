@@ -156,6 +156,33 @@ export function dropTarget(wins: Win[], minute: number, minutes: number, notBefo
   return { win, start: Math.max(win.start, start) };
 }
 
+/** Why a slot can't take a moved session. */
+export type DropBlock = "off" | "past" | "overlap";
+
+/**
+ * Where a moved block of `minutes` lands with its top at `minute`: snapped to `snap` minutes and
+ * kept inside the day. Any free time works, so a slot outside the usual windows is a one-off
+ * move (`outside`); only a day off, a time already past, or an overlap with `busy` blocks it.
+ */
+export function freeDrop(
+  minute: number,
+  minutes: number,
+  day: { wins: Win[]; busy: Win[]; off: boolean; notBefore?: number },
+  snap = 15,
+): { start: number; outside: boolean; blocked: DropBlock | null } {
+  const start = Math.max(0, Math.min(Math.round(minute / snap) * snap, 24 * 60 - minutes));
+  const end = start + minutes;
+  const outside = !day.wins.some((w) => w.start <= start && end <= w.end);
+  const blocked: DropBlock | null = day.off
+    ? "off"
+    : start < (day.notBefore ?? 0)
+      ? "past"
+      : day.busy.some((b) => b.start < end && start < b.end)
+        ? "overlap"
+        : null;
+  return { start, outside, blocked };
+}
+
 /** Keyboard move: the day index and window index the lifted block points at. */
 export interface KeyMove {
   day: number;

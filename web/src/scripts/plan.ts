@@ -6,6 +6,7 @@ import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { onPrefsChange, planSettings, readPrefs, updatePrefs, type Prefs } from "../lib/prefs";
 import { readEvents } from "../lib/progress";
 import { noteHref, ROUTES, sessionHref } from "../lib/routes";
+import { mockHref, readHistory } from "../lib/mock";
 import {
   addMove,
   bands,
@@ -16,6 +17,7 @@ import {
   DEFAULT_WINDOWS,
   dropTarget,
   fmtM,
+  freeDrop,
   gridHeight,
   isoDay,
   midSentence,
@@ -25,7 +27,6 @@ import {
   sittings,
   span,
   step,
-  stepMove,
   toggleDayOff,
   toMin,
   WEEKDAY_STEPS,
@@ -35,7 +36,7 @@ import {
   windowsOf,
   yOf,
   type Band,
-  type KeyMove,
+  type DropBlock,
   type Win,
 } from "../lib/schedule";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
@@ -70,6 +71,7 @@ let view: "week" | "month" | "roadmap" = "week";
 let offset = 0;
 let liveText = "";
 let openPopId: string | null = null;
+let enter: "next" | "prev" | "view" | null = null;
 let editor: AvailabilityEditor | null = null;
 let fixesKey = "";
 
@@ -94,6 +96,10 @@ function company(c: Ctx): string | null {
 }
 
 const isMock = (s: PlanSession) => s.items.some((i) => i.kind === "mock");
+/** Opens /mock ready to begin, with this block's length and the first target company. */
+const mockLink = (s: PlanSession) => mockHref({ session: s.id, minutes: s.minutes, company: readPrefs().plan.companies[0] ?? null });
+/** A planned mock that was finished from its link. */
+const mockDone = (s: PlanSession) => readHistory().find((r) => r.session === s.id) ?? null;
 
 // ---- today's done sittings, from history ----
 
@@ -244,11 +250,12 @@ function sessionBlock(c: Ctx, d: PlanDay, s: PlanSession, g: Grid, first: boolea
   const mock = isMock(s);
   const over = d.minutes - d.cap > 10 && s === d.sessions.at(-1) ? d.minutes - d.cap : 0;
   const isShort = h < 54 && !isToday;
-  const cls = ["ses", isToday ? "today" : "", mock ? "mockses on-wall" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
+  const finished = mock && mockDone(s) !== null;
+  const cls = ["ses", isToday ? "today" : "", mock ? "mockses on-wall" : "", finished ? "mock-done" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
   const label = `${dayName(d.date)} ${span(a, a + len)}, ${fmtM(s.minutes)}: ${s.title}${s.moved_from ? `, moved from ${dayName(s.moved_from)}` : ""}. Open details`;
   return html`<li><div role="button" tabindex="0" aria-describedby="ses-hint" class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px" data-ses="${s.id}" data-date="${d.date}" aria-label="${label}" title="${s.title}, ${fmtM(s.minutes)}">
     <span class="t">${span(a, a + len)}${over ? html`, <span class="over">${over} min over</span>` : ""}</span>
-    <span class="h">${s.title}</span><span class="mm">${fmtM(s.minutes)}</span>${mixBar(s.items)}
+    <span class="h">${finished ? html`${icon("check")}Mock done` : s.title}</span><span class="mm">${fmtM(s.minutes)}</span>${mixBar(s.items)}
     ${isToday ? html`<a class="btn btn-primary btn-sm start" href="${startHref(s, d.date)}" data-start aria-label="Start session (s)">${h >= 84 ? html`Start session ${kbd("s")}` : "Start"}</a>` : ""}
   </div></li>`;
 }
@@ -256,7 +263,7 @@ function sessionBlock(c: Ctx, d: PlanDay, s: PlanSession, g: Grid, first: boolea
 function startHref(s: PlanSession, day: string): string {
   const first = s.items.find((i) => i.problem);
   if (first?.problem) return sessionHref(first.problem, day);
-  if (s.items.some((i) => i.kind === "mock")) return ROUTES.mock;
+  if (isMock(s)) return mockLink(s);
   const note = s.items.find((i) => i.note)?.note;
   return note ? noteHref(note) : ROUTES.today;
 }
@@ -304,6 +311,17 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
       d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows</span>` : ""
     }<ol aria-label="Sessions on ${dayName(d.date)}">${done}${d.sessions.map((s, j) => sessionBlock(c, d, s, g, j === 0))}</ol>${now}</section>`;
   });
+  const empty = !g.done.length && g.days.every((d) => !d.sessions.length);
+  if (empty) {
+    const why = g.days.every((d) => d.off)
+      ? "Every day this week is off. Put one back from its day menu, or add windows for the days around it."
+      : g.days.every((d) => d.off || !d.windows.length)
+        ? "None of your practice windows fall on these days. Add one and the plan fills it."
+        : "Nothing is due on these days yet. Sessions appear here once a window has room for them.";
+    return html`<div class="panel week-cal" style="--cols:${n}">
+    <div class="wk wk-head">${raw("<div></div>")}${g.days.map((d) => dayHeader(c, d, g))}</div>
+    <div class="wk-empty"><h3>No sessions this week</h3><p>${why}</p><button type="button" class="btn btn-secondary btn-sm" data-act="avail">${icon("clock-3")}Edit availability</button></div></div>`;
+  }
   return html`<div class="panel week-cal" style="--cols:${n}">
     <div class="wk wk-head">${raw("<div></div>")}${g.days.map((d) => dayHeader(c, d, g))}</div>
     <div class="wk wk-body" style="height:${H}px"><div class="ruler" aria-hidden="true">${ruler}</div>${columns}${lines}</div>
@@ -406,13 +424,19 @@ function profile(c: Ctx): SafeHtml {
       check ? html`<i class="mk check" style="bottom:calc(${bh}% + ${mock ? 18 : 6}px)"></i>` : ""
     }${d.off ? html`<span class="offl">off</span>` : ""}<span class="b" style="height:${bh.toFixed(1)}%"></span></button>`;
   });
+  const lastShown = days.at(-1)?.date;
+  const beyond = date && lastShown ? Math.round((dateOf(date).getTime() - dateOf(lastShown).getTime()) / 86_400_000) : 0;
   const summit = date
-    ? html`<div class="summit">${icon("flag")}<strong>${short(date)}</strong><span>${who ? `${who} interview` : "Interview"}</span></div>`
+    ? html`<div class="summit${beyond > 0 ? " cut" : ""}">${icon("flag")}<strong>${short(date)}</strong><span>${beyond > 0 ? `${plural(beyond, "day")} past the chart` : who ? `${who} interview` : "Interview"}</span></div>`
     : html`<div class="summit rolling">${icon("calendar-plus")}<strong>${short(c.plan.end)}</strong><span>Rolls forward daily</span></div>`;
+  // Mondays are the ticks that always show, so the first one in each month names the month.
+  let month = -1;
   const axis = days.map((d) => {
     const dt = dateOf(d.date);
     const mon = weekdayIndex(d.date) === 0;
-    return html`<span class="${mon ? "mon" : thin ? "thin" : ""}">${dt.getDate() === 1 ? short(d.date) : dt.getDate()}</span>`;
+    const named = mon && dt.getMonth() !== month;
+    if (named) month = dt.getMonth();
+    return html`<span class="${mon ? "mon" : thin ? "thin" : ""}">${named ? short(d.date) : dt.getDate()}</span>`;
   });
   return html`<section class="panel approach" aria-labelledby="ap-h">
     <div class="section-head"><h2 id="ap-h">${date ? `${c.plan.summary.days_left} days to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">About ${fmtM(total)} planned, ${plural(mocks, "mock")}, ${plural(checks, "check-in")}${offs ? `, ${plural(offs, "day")} off` : ""}</span></div>
@@ -501,7 +525,7 @@ function toolbar(c: Ctx, g: Grid): SafeHtml {
     <button type="button" class="btn btn-secondary btn-sm todaybtn" data-today aria-keyshortcuts="t">Today ${kbd("t")}</button>
     <h2 id="cal-h">${range}</h2>
     <div class="budget" role="group" aria-labelledby="dt-l"><span class="bl" id="dt-l">Daily time</span>${stepper("wd", wd, WEEKDAY_STEPS, "Weekdays")}${stepper("we", we, WEEKEND_STEPS, "Weekends")}</div>
-    <div class="seg" role="group" aria-label="View"><button type="button" data-view="week" aria-pressed="${view === "week"}">${n === 7 ? "Week" : "4 days"}</button><button type="button" data-view="month" aria-pressed="${view === "month"}">Month</button><button type="button" data-view="roadmap" aria-pressed="${view === "roadmap"}">Roadmap</button></div>
+    <div class="seg" role="group" aria-label="View" style="--on:${view === "week" ? 1 : view === "month" ? 2 : 3}"><span class="seg-thumb" aria-hidden="true"></span><button type="button" data-view="week" aria-pressed="${view === "week"}">${n === 7 ? "Week" : "4 days"}</button><button type="button" data-view="month" aria-pressed="${view === "month"}">Month</button><button type="button" data-view="roadmap" aria-pressed="${view === "roadmap"}">Roadmap</button></div>
   </div>
   <div data-live-host></div>`;
 }
@@ -535,17 +559,46 @@ function paint(): void {
     el,
     html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
-        ${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}
+        <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
         <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
       <div class="route">${profile(c)}${forecast(c)}</div>
       ${you(c)}
-    </div><div class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden></div>`,
+    </div>`,
   );
   placeLive();
   placeBracket();
-  if (openPopId) openPop(openPopId);
+  placeThumb();
+  playEnter();
+  if (openPopId && view === "week" && findSession(openPopId)) openPop(openPopId, { focus: false });
+  else if (openPopId) closePop();
 }
+
+/** Week to week slides the way you moved; switching views cross-fades. Starts part-visible so fast presses never flash. */
+function playEnter(): void {
+  const how = enter;
+  enter = null;
+  const el = $<HTMLElement>(".cal-main");
+  if (!how || !el) return;
+  const still = reduced();
+  const dx = how === "next" ? 16 : how === "prev" ? -16 : 0;
+  el.animate(
+    still ? [{ opacity: 0.4 }, { opacity: 1 }] : [{ opacity: 0.4, transform: dx ? `translateX(${dx}px)` : "translateY(4px)" }, { opacity: 1, transform: "none" }],
+    { duration: still ? 120 : 200, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
+  );
+}
+
+/** The view switch's thumb sits in the pressed button's grid cell, then glides from where it was. */
+function placeThumb(): void {
+  const th = $<HTMLElement>(".cal-bar .seg-thumb");
+  if (!th) return;
+  const r = th.getBoundingClientRect();
+  const prev = lastThumb;
+  lastThumb = { left: r.left, width: r.width };
+  if (!prev || reduced() || (prev.left === r.left && prev.width === r.width) || !r.width) return;
+  th.animate([{ transform: `translateX(${prev.left - r.left}px)`, width: `${prev.width}px` }, { transform: "none", width: `${r.width}px` }], { duration: 200, easing: "cubic-bezier(0.22, 1, 0.36, 1)" });
+}
+let lastThumb: { left: number; width: number } | null = null;
 
 /** The polite live line lives outside the re-rendered markup so updates are announced. */
 function placeLive(): void {
@@ -565,21 +618,20 @@ function placeBracket(): void {
   const prof = $(".profile");
   const br = $("[data-bracket]");
   if (!prof || !br) return;
-  const all = [...prof.querySelectorAll<HTMLElement>(".pcol")];
-  const a = all[offset];
-  const b = all[Math.min(all.length - 1, offset + cols() - 1)];
-  if (!a || !b || view !== "week") return void (br.style.display = "none");
-  const base = prof.getBoundingClientRect();
-  const left = a.getBoundingClientRect().left - base.left;
-  const width = b.getBoundingClientRect().right - a.getBoundingClientRect().left;
-  br.style.left = `${left}px`;
-  br.style.width = `${width}px`;
+  const n = prof.querySelectorAll(".pcol").length;
+  const span = Math.min(cols(), n - offset);
+  if (view !== "week" || span <= 0) return void (br.style.display = "none");
+  // Placed in the columns' own grid cells, so it follows any later layout change (fonts, resize, the inspector).
+  br.style.display = "";
+  br.style.gridColumn = `${offset + 1} / span ${span}`;
   // The chart re-renders on every move, so glide the window from where it was instead of jumping.
+  const base = prof.getBoundingClientRect();
+  const r = br.getBoundingClientRect();
+  const left = r.left - base.left;
   const prev = lastBracket;
-  lastBracket = { left, width };
-  const still = matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce";
-  if (prev && !still && (prev.left !== left || prev.width !== width))
-    br.animate([{ left: `${prev.left}px`, width: `${prev.width}px` }, { left: `${left}px`, width: `${width}px` }], { duration: 240, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)" });
+  lastBracket = { left, width: r.width };
+  if (prev && !reduced() && r.width && (prev.left !== left || prev.width !== r.width))
+    br.animate([{ transform: `translateX(${prev.left - left}px)`, width: `${prev.width}px` }, { transform: "none", width: `${r.width}px` }], { duration: 200, easing: "cubic-bezier(0.22, 1, 0.36, 1)" });
 }
 let lastBracket: { left: number; width: number } | null = null;
 
@@ -738,12 +790,15 @@ function moveTargets(c: Ctx, from: PlanDay, s: PlanSession): { day: PlanDay; sta
   return out;
 }
 
-function openPop(id: string, opts: { move?: boolean } = {}): void {
+function openPop(id: string, opts: { move?: boolean; focus?: boolean } = {}): void {
   const c = ctx;
-  const pop = $("[data-pop]");
+  const pop = $<HTMLElement>("[data-pop]");
+  const inner = $<HTMLElement>("[data-pop] .pop-in");
   const hit = findSession(id);
-  if (!c || !pop || !hit) return;
+  if (!c || !pop || !inner || !hit) return;
   const [d, s] = hit;
+  const swap = !pop.hidden && openPopId !== id && !pop.classList.contains("is-leaving");
+  const fresh = pop.hidden || pop.classList.contains("is-leaving");
   openPopId = id;
   const a = minuteOf(s.start_ms);
   const len = Math.round((s.end_ms - s.start_ms) / 60000);
@@ -751,8 +806,9 @@ function openPop(id: string, opts: { move?: boolean } = {}): void {
   const itemHref = (i: PlanSession["items"][number]) =>
     i.problem ? sessionHref(i.problem, d.date) : i.note ? noteHref(i.note) : i.kind === "mock" ? ROUTES.mock : ROUTES.today;
   const targets = opts.move ? moveTargets(c, d, s) : [];
+  const done = isMock(s) ? mockDone(s) : null;
   render(
-    pop,
+    inner,
     html`<div class="pop-head"><div><h3 id="pop-h">${longDay(d.date)}</h3><p>${span(a, a + len)}, about ${fmtM(s.minutes)}${s.moved_from ? `. Moved from ${dayName(s.moved_from)}` : ""}</p></div><button type="button" class="icon-btn" data-pop-close aria-label="Close (Esc)">${icon("x")}</button></div>
       ${mixBar(s.items, { tall: true })}
       <ol class="items" aria-label="Why each problem is here">${s.items.map(
@@ -762,33 +818,45 @@ function openPop(id: string, opts: { move?: boolean } = {}): void {
       ${opts.move
         ? html`<div class="moveto"><h4>Move to</h4>${targets.length ? html`<ul>${targets.map((t) => html`<li><button type="button" class="btn btn-ghost btn-sm" data-move-to="${t.day.date}|${t.start}">${DAY_SHORT[weekdayIndex(t.day.date)]} ${short(t.day.date)}, ${span(t.start, t.start + len)}</button></li>`)}</ul>` : html`<p class="fineprint">No other window in the next week has room. Add one in Availability</p>`}</div>`
         : html`<div class="pop-foot"><button type="button" class="btn btn-secondary btn-sm" data-pop-move>${icon("move")}Move</button><button type="button" class="btn btn-ghost btn-sm" data-pop-skip>Skip this session</button>${
-            isToday ? html`<a class="btn btn-primary btn-sm" href="${startHref(s, d.date)}" data-start>Start session ${kbd("s")}</a>` : ""
+            done
+              ? html`<a class="btn btn-secondary btn-sm" href="${ROUTES.mock}?r=${done.id}">${icon("check")}See results</a>`
+              : isMock(s)
+                ? html`<a class="btn btn-primary btn-sm" href="${mockLink(s)}" data-start>Start mock interview</a>`
+                : isToday
+                  ? html`<a class="btn btn-primary btn-sm" href="${startHref(s, d.date)}" data-start>Start session ${kbd("s")}</a>`
+                  : ""
           }</div>`}`,
   );
+  clearTimeout(popTimer);
   pop.hidden = false;
+  pop.classList.remove("is-leaving");
+  // Docked beside the week on wide screens: the grid narrows (CSS) so nothing is covered.
+  $("[data-split]")?.classList.add("insp-open");
+  if (!reduced() && (fresh || swap))
+    inner.animate(swap ? [{ opacity: 0.5 }, { opacity: 1 }] : [{ opacity: 0, transform: narrow() ? "translateY(24px)" : "translateX(16px)" }, { opacity: 1, transform: "none" }], { duration: swap ? 150 : 200, easing: "cubic-bezier(0.22, 1, 0.36, 1)" });
   const anchor = $<HTMLElement>(`[data-ses="${id}"]:not([hidden])`, root() ?? document);
-  const host = root();
-  if (anchor && host && !matchMedia("(max-width: 760px)").matches) {
-    const hr = host.getBoundingClientRect();
-    const r = anchor.getBoundingClientRect();
-    const right = r.right + 12 + 384 < innerWidth - 8;
-    pop.style.left = `${(right ? r.right + 12 : Math.max(8, r.left - 12 - 384)) - hr.left}px`;
-    pop.style.top = `${Math.max(r.top - 40, 70) - hr.top}px`;
-    pop.style.setProperty("--origin", right ? "left top" : "right top");
-    // Speech-bubble tail: points at the session's middle, on the side facing it.
-    pop.dataset.side = right ? "right" : "left";
-    const tail = r.top + r.height / 2 - Math.max(r.top - 40, 70);
-    pop.style.setProperty("--tail-y", `${Math.min(Math.max(tail, 20), pop.offsetHeight - 20)}px`);
-  } else delete pop.dataset.side;
   document.querySelectorAll(".ses.is-open").forEach((el) => el.classList.remove("is-open"));
   anchor?.classList.add("is-open");
-  ($("[data-pop-close]", pop) as HTMLElement | null)?.focus({ preventScroll: true });
+  if (opts.focus !== false) ($("[data-pop-close]", pop) as HTMLElement | null)?.focus({ preventScroll: true });
 }
+let popTimer: ReturnType<typeof setTimeout> | undefined;
+const narrow = () => matchMedia("(max-width: 760px)").matches;
 
 function closePop(): void {
-  const pop = $("[data-pop]");
-  if (!pop || pop.hidden) return;
-  pop.hidden = true;
+  const pop = $<HTMLElement>("[data-pop]");
+  if (!pop || pop.hidden || pop.classList.contains("is-leaving")) return;
+  $("[data-split]")?.classList.remove("insp-open");
+  // The column collapses over 200 ms; keep the content until it has, unless something reopens it.
+  const hide = () => {
+    pop.hidden = true;
+    pop.classList.remove("is-leaving");
+  };
+  clearTimeout(popTimer);
+  if (reduced() || narrow()) hide();
+  else {
+    pop.classList.add("is-leaving");
+    popTimer = setTimeout(hide, 200);
+  }
   document.querySelectorAll(".ses.is-open").forEach((el) => el.classList.remove("is-open"));
   const id = openPopId;
   openPopId = null;
@@ -882,6 +950,9 @@ function applyMove(id: string, to: string, start: number): void {
   const reviewsBefore = c.plan.days.find((x) => x.date === to)?.sessions.flatMap((x) => x.items).filter((i) => i.kind === "review").length ?? 0;
   updatePrefs({ plan: { moves: next } });
   replan();
+  // The inspector follows the session to where it landed.
+  const landed = ctx?.plan.days.find((x) => x.date === to)?.sessions.find((x) => minuteOf(x.start_ms) === start);
+  if (openPopId && landed) openPop(landed.id, { focus: false });
   const after = ctx?.plan.days.find((x) => x.date === to)?.sessions.flatMap((x) => x.items).filter((i) => i.kind === "review").length ?? 0;
   const fit = after >= reviewsBefore ? "Reviews due that day still fit" : `${plural(reviewsBefore - after, "review")} moved to the next day`;
   const msg = `Moved to ${dayName(to)}, ${clock(start)}. ${fit}`;
@@ -897,187 +968,251 @@ function setBudget(k: "wd" | "we", value: number): void {
   else updatePrefs({ plan: { weekendMinutes: value } });
 }
 
-// ---- dragging a session (pointer) ----
+// ---- moving a session: pointer drag and keyboard share one preview ----
 
-interface Drag {
+/** A visible day column, measured once when a move starts so moving never reads layout. */
+interface Lane {
+  x: number;
+  w: number;
+  day: PlanDay;
+  wins: Win[];
+  busy: Win[];
+  notBefore: number;
+}
+
+/** Where a move would land and whether it can. */
+interface Landing {
+  lane: number;
+  start: number;
+  outside: boolean;
+  blocked: DropBlock | null;
+}
+
+interface Mover {
   el: HTMLElement;
   id: string;
+  minutes: number;
+  from: { lane: number; start: number };
+  lanes: Lane[];
+  g: Grid;
+  ghost: HTMLElement;
+  tip: HTMLElement;
+  key: string;
+  at: Landing | null;
+}
+
+const BLOCK_TEXT: Record<DropBlock, string> = { off: "That day is off", past: "That time has passed", overlap: "Overlaps another session" };
+const SPRING = "cubic-bezier(0.34, 1.32, 0.64, 1)";
+
+function startMove(el: HTMLElement): Mover | null {
+  const c = ctx;
+  const body = $<HTMLElement>(".wk-body");
+  const hit = findSession(el.dataset.ses ?? "");
+  if (!c || !body || !hit) return null;
+  const g = grid(c);
+  const nowMin = minuteOf(c.now.getTime());
+  const cols = [...body.querySelectorAll<HTMLElement>(".col")];
+  const lanes = g.days.map((d, i): Lane => {
+    const col = cols[i];
+    const busy = d.sessions.filter((s) => s.id !== hit[1].id).map((s) => ({ start: minuteOf(s.start_ms), end: minuteOf(s.end_ms) }));
+    if (d.date === c.plan.start) for (const s of g.done) busy.push({ start: s.start, end: s.end });
+    return { x: col?.offsetLeft ?? 0, w: col?.offsetWidth ?? 0, day: d, wins: windowsOf(d), busy, notBefore: d.date === c.plan.start ? nowMin : 0 };
+  });
+  const minutes = Math.round((hit[1].end_ms - hit[1].start_ms) / 60000);
+  const ghost = document.createElement("div");
+  ghost.className = "ghost-ses";
+  ghost.style.height = `${el.offsetHeight}px`;
+  const tip = document.createElement("div");
+  tip.className = "dragtip on-wall";
+  ghost.append(tip);
+  body.append(ghost);
+  const lane = Math.max(0, lanes.findIndex((l) => l.day.date === hit[0].date));
+  return { el, id: hit[1].id, minutes, from: { lane, start: minuteOf(hit[1].start_ms) }, lanes, g, ghost, tip, key: "", at: null };
+}
+
+/** Moves the ghost to a slot (CSS glides it) and says what a drop there would do. */
+function preview(m: Mover, lane: number, minute: number): Landing | null {
+  const l = m.lanes[lane];
+  if (!l) return null;
+  const f = freeDrop(minute, m.minutes, { wins: l.wins, busy: l.busy, off: l.day.off, notBefore: l.notBefore });
+  const at: Landing = { lane, ...f };
+  m.at = at;
+  const key = `${lane}|${f.start}|${f.blocked}`;
+  if (key === m.key) return at;
+  m.key = key;
+  const y = yOf(f.start, m.g.bs, m.g.hour, FOLD);
+  m.ghost.style.width = `${l.w - 8}px`;
+  m.ghost.style.transform = `translate3d(${l.x + 4}px, ${y}px, 0)`;
+  m.ghost.classList.toggle("bad", !!f.blocked);
+  m.ghost.classList.add("on");
+  const when = `${DAY_SHORT[weekdayIndex(l.day.date)]} ${span(f.start, f.start + m.minutes)}`;
+  m.tip.textContent = f.blocked ? `${when}. ${BLOCK_TEXT[f.blocked]}` : f.outside ? `${when}. Outside your usual hours` : when;
+  return at;
+}
+
+function endMove(m: Mover): void {
+  m.ghost.remove();
+  m.el.classList.remove("lifted", "kb-lifted", "pressed");
+}
+
+/** Drops at the landing, or glides back when there is none. The moved block settles with a short spring. */
+function finishMove(m: Mover, drop: boolean): void {
+  const at = drop ? m.at : null;
+  const same = at && at.lane === m.from.lane && at.start === m.from.start;
+  const to = at && !at.blocked && !same ? { date: m.lanes[at.lane]?.day.date ?? "", start: at.start } : null;
+  const fromRect = m.el.getBoundingClientRect();
+  const still = reduced();
+  if (!to) {
+    const tf = m.el.style.transform;
+    m.el.style.transform = "";
+    endMove(m);
+    if (tf && !still) m.el.animate([{ transform: tf }, { transform: "none" }], { duration: 180, easing: SPRING });
+    if (at?.blocked) say(`Not moved. ${BLOCK_TEXT[at.blocked]}`);
+    return;
+  }
+  endMove(m);
+  applyMove(m.id, to.date, to.start);
+  const moved = [...document.querySelectorAll<HTMLElement>(`.wk-body .ses[data-date="${to.date}"]`)].find((el) => {
+    const s = findSession(el.dataset.ses ?? "");
+    return s && minuteOf(s[1].start_ms) === to.start;
+  });
+  if (moved && !still) {
+    const r = moved.getBoundingClientRect();
+    moved.animate(
+      [{ transform: `translate(${fromRect.left - r.left}px, ${fromRect.top - r.top}px) scale(1.02)`, boxShadow: "var(--shadow-md)" }, { transform: "none", boxShadow: "none" }],
+      { duration: 180, easing: SPRING },
+    );
+  }
+  // The planner can merge a block into its neighbour; then keep focus on that day's first session.
+  (moved ?? $<HTMLElement>(`.wk-body .ses[data-date="${to.date}"]`))?.focus({ preventScroll: true });
+}
+
+// Pointer: the block follows the pointer 1:1 with a transform; all work happens once per frame.
+interface Drag {
+  el: HTMLElement;
   pointer: number;
   x0: number;
   y0: number;
+  sy0: number;
   top0: number;
-  minutes: number;
-  lifted: boolean;
-  ghost?: HTMLElement;
-  tip?: HTMLElement;
-  target?: { date: string; start: number } | undefined;
+  bodyLeft: number;
+  cx: number;
+  cy: number;
+  m: Mover | null;
+  frame: number;
 }
 let drag: Drag | null = null;
+let lastTap = { id: "", at: 0 };
+const EDGE = 48;
 
-function gridGeom(): { g: Grid; body: HTMLElement; cols: HTMLElement[] } | null {
-  const body = $<HTMLElement>(".wk-body");
-  if (!ctx || !body) return null;
-  return { g: grid(ctx), body, cols: [...body.querySelectorAll<HTMLElement>(".col")] };
+function laneAt(m: Mover, x: number): number {
+  const i = m.lanes.findIndex((l) => x >= l.x && x < l.x + l.w);
+  if (i >= 0) return i;
+  return x < (m.lanes[0]?.x ?? 0) ? 0 : m.lanes.length - 1;
 }
 
 function onPointerDown(e: PointerEvent): void {
   const el = (e.target as Element).closest<HTMLElement>(".wk-body .ses:not(.done)");
-  if (!el || e.button !== 0 || (e.target as Element).closest("a,button")) return;
-  const hit = findSession(el.dataset.ses ?? "");
-  if (!hit) return;
+  if (!el || e.button !== 0 || kb || (e.target as Element).closest("a,button")) return;
+  const body = $<HTMLElement>(".wk-body");
+  if (!body || !findSession(el.dataset.ses ?? "")) return;
   el.classList.add("pressed");
   el.setPointerCapture(e.pointerId);
-  drag = { el, id: hit[1].id, pointer: e.pointerId, x0: e.clientX, y0: e.clientY, top0: el.offsetTop, minutes: Math.round((hit[1].end_ms - hit[1].start_ms) / 60000), lifted: false };
+  drag = { el, pointer: e.pointerId, x0: e.clientX, y0: e.clientY, sy0: scrollY, top0: el.offsetTop, bodyLeft: body.getBoundingClientRect().left, cx: e.clientX, cy: e.clientY, m: null, frame: 0 };
 }
 
 function onPointerMove(e: PointerEvent): void {
   if (!drag || e.pointerId !== drag.pointer || !ctx) return;
-  const dx = e.clientX - drag.x0;
-  const dy = e.clientY - drag.y0;
-  if (!drag.lifted) {
-    if (Math.hypot(dx, dy) < 6) return;
-    drag.lifted = true;
-    closePop();
+  drag.cx = e.clientX;
+  drag.cy = e.clientY;
+  if (!drag.m) {
+    if (Math.hypot(e.clientX - drag.x0, e.clientY - drag.y0) < 6) return;
+    drag.m = startMove(drag.el);
+    if (!drag.m) return;
     drag.el.classList.add("lifted");
-    drag.ghost = document.createElement("div");
-    drag.ghost.className = "ghost-ses";
-    drag.ghost.style.cssText = `top:${drag.top0}px;height:${drag.el.offsetHeight}px`;
-    drag.el.closest(".col")?.append(drag.ghost);
-    drag.tip = document.createElement("div");
-    drag.tip.className = "dragtip on-wall";
-    $(".wk-body")?.append(drag.tip);
+    edgeTop = (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--topbar-h")) || 56) + EDGE;
   }
-  drag.el.style.transition = "none";
-  drag.el.style.transform = `translate(${dx}px, ${dy}px) scale(1.02)`;
-  const geo = gridGeom();
-  if (!geo) return;
-  const col = geo.cols.find((cEl) => {
-    const r = cEl.getBoundingClientRect();
-    return e.clientX >= r.left && e.clientX < r.right;
-  });
-  geo.body.querySelectorAll(".win.target").forEach((w) => w.classList.remove("target"));
-  drag.target = undefined;
-  if (!col || col.classList.contains("off")) return void (drag.tip && (drag.tip.hidden = true));
-  const day = geo.g.days[Number(col.dataset.day)];
-  if (!day) return;
-  const minute = minuteAt(drag.top0 + dy, geo.g.bs, geo.g.hour, FOLD);
-  const nowMin = day.date === ctx.plan.start ? minuteOf(ctx.now.getTime()) : 0;
-  const t = dropTarget(windowsOf(day), minute, drag.minutes, nowMin);
-  if (!t || !drag.tip) return void (drag.tip && (drag.tip.hidden = true));
-  col.querySelector(`.win[data-start="${t.win.start}"]`)?.classList.add("target");
-  drag.target = { date: day.date, start: t.start };
-  const label = `${DAY_SHORT[weekdayIndex(day.date)]} ${span(t.start, t.start + drag.minutes)}`;
-  drag.tip.hidden = false;
-  drag.tip.textContent = label;
-  drag.tip.style.left = `${col.offsetLeft + 6}px`;
-  drag.tip.style.top = `${Math.max(0, yOf(t.start, geo.g.bs, geo.g.hour, FOLD) - 30)}px`;
-  const tEl = drag.el.querySelector(".t");
-  if (tEl) tEl.textContent = span(t.start, t.start + drag.minutes);
+  if (!drag.frame) drag.frame = requestAnimationFrame(dragFrame);
+}
+let edgeTop = 104;
+
+function dragFrame(): void {
+  const d = drag;
+  if (!d?.m) return;
+  d.frame = 0;
+  // Near the top or bottom edge the page scrolls, faster the closer the pointer is.
+  const bottom = innerHeight - EDGE;
+  const v = d.cy < edgeTop ? -Math.min(16, (edgeTop - d.cy) / 3) : d.cy > bottom ? Math.min(16, (d.cy - bottom) / 3) : 0;
+  if (v) scrollBy(0, v);
+  const dy = d.cy - d.y0 + (scrollY - d.sy0);
+  d.el.style.transform = `translate3d(${d.cx - d.x0}px, ${dy}px, 0)${reduced() ? "" : " scale(1.02)"}`;
+  preview(d.m, laneAt(d.m, d.cx - d.bodyLeft), minuteAt(d.top0 + dy, d.m.g.bs, d.m.g.hour, FOLD));
+  if (v) d.frame = requestAnimationFrame(dragFrame);
 }
 
 function endDrag(e: PointerEvent, cancelled = false): void {
   if (!drag || e.pointerId !== drag.pointer) return;
   const d = drag;
   drag = null;
+  cancelAnimationFrame(d.frame);
   d.el.classList.remove("pressed");
-  if (!d.lifted) {
-    if (!cancelled) openPop(d.id);
+  if (!d.m) {
+    if (cancelled) return;
+    const id = d.el.dataset.ses ?? "";
+    // A second press within 400 ms is a double-click (counted here: pointer capture eats native dblclick). It starts a planned mock.
+    const hit = findSession(id);
+    if (lastTap.id === id && Date.now() - lastTap.at < 400 && hit && isMock(hit[1]) && !mockDone(hit[1])) return void (location.href = mockLink(hit[1]));
+    lastTap = { id, at: Date.now() };
+    openPop(id);
     return;
   }
-  d.tip?.remove();
-  document.querySelectorAll(".win.target").forEach((w) => w.classList.remove("target"));
-  const target = cancelled ? undefined : d.target;
-  const hit = findSession(d.id);
-  const same = target && hit && target.date === hit[0].date && target.start === minuteOf(hit[1].start_ms);
-  if (!target || same) {
-    // Back along the same path to where it came from.
-    const settle = () => {
-      d.el.classList.remove("lifted");
-      d.ghost?.remove();
-      d.el.style.transition = "";
-      d.el.style.transform = "";
-      paint();
-    };
-    if (reduced()) return settle();
-    d.el.style.transition = `transform var(--dur-base) var(--ease-spring)`;
-    d.el.style.transform = "translate(0, 0)";
-    setTimeout(settle, 240);
-    return;
-  }
-  const from = d.el.getBoundingClientRect();
-  applyMove(d.id, target.date, target.start);
-  // Settle from the release point: FLIP the moved block into its new slot.
-  const moved = [...document.querySelectorAll<HTMLElement>(`.wk-body .ses[data-date="${target.date}"]`)].find((el) => {
-    const s = findSession(el.dataset.ses ?? "");
-    return s && minuteOf(s[1].start_ms) === target.start;
-  });
-  if (moved && !reduced()) {
-    const to = moved.getBoundingClientRect();
-    moved.animate(
-      [{ transform: `translate(${from.left - to.left}px, ${from.top - to.top}px) scale(1.02)`, boxShadow: "var(--shadow-md)" }, { transform: "none", boxShadow: "none" }],
-      { duration: 240, easing: getComputedStyle(document.documentElement).getPropertyValue("--ease-spring").trim() || "ease-out" },
-    );
-  }
-  moved?.focus({ preventScroll: true });
+  finishMove(d.m, !cancelled);
 }
 
-// ---- moving a session (keyboard) ----
+// Keyboard: Space lifts, arrows move a day or 15 minutes (any free time), Space or Enter drops, Escape cancels.
+let kb: (Mover & { lane: number; start: number }) | null = null;
 
-let kb: { id: string; at: KeyMove; wins: Win[][]; days: PlanDay[] } | null = null;
+function kbLift(el: HTMLElement): void {
+  const m = startMove(el);
+  if (!m) return;
+  kb = { ...m, lane: m.from.lane, start: m.from.start };
+  el.classList.add("kb-lifted");
+  kbShow();
+  say(`Picked up ${span(m.from.start, m.from.start + m.minutes)} on ${dayName(m.lanes[m.from.lane]?.day.date ?? "")}. Left and right change day, up and down move 15 minutes. Space drops, Escape cancels`);
+}
 
-function kbTarget(): { day: PlanDay; start: number } | null {
-  if (!kb || !ctx) return null;
-  const day = kb.days[kb.at.day];
-  const w = kb.wins[kb.at.day]?.[kb.at.win];
-  const s = findSession(kb.id)?.[1];
-  if (!day || !w || !s) return null;
-  const t = dropTarget([w], w.start, Math.round((s.end_ms - s.start_ms) / 60000));
-  return t ? { day, start: t.start } : null;
+/** Up/down step 15 minutes inside the grid's shown hours, hopping over folded gaps. */
+function kbStep(key: string): void {
+  if (!kb) return;
+  if (key === "ArrowLeft" || key === "ArrowRight") kb.lane = Math.max(0, Math.min(kb.lanes.length - 1, kb.lane + (key === "ArrowRight" ? 1 : -1)));
+  else {
+    const dir = key === "ArrowDown" ? 1 : -1;
+    const bs = kb.g.bs;
+    let next = kb.start + dir * 15;
+    const fold = bs.find((b) => b.fold && next + (dir > 0 ? kb!.minutes : 0) > b.from && next < b.to);
+    if (fold) next = dir > 0 ? fold.to : fold.from - kb.minutes;
+    kb.start = Math.max(bs[0]?.from ?? 0, Math.min(next, (bs.at(-1)?.to ?? 24 * 60) - kb.minutes));
+  }
+  kbShow();
 }
 
 function kbShow(): void {
-  document.querySelectorAll(".win.target").forEach((w) => w.classList.remove("target"));
-  const t = kbTarget();
-  if (!kb || !t) return;
-  const win = kb.wins[kb.at.day]?.[kb.at.win];
-  $(`.wk-body .col[data-date="${t.day.date}"] .win[data-start="${win?.start}"]`)?.classList.add("target");
-  const s = findSession(kb.id)?.[1];
-  const len = s ? Math.round((s.end_ms - s.start_ms) / 60000) : 0;
-  say(`${dayName(t.day.date)} ${span(t.start, t.start + len)}. Space or Enter to move here, Escape to cancel`);
-}
-
-function kbLift(el: HTMLElement): void {
-  const c = ctx;
-  const hit = findSession(el.dataset.ses ?? "");
-  if (!c || !hit) return;
-  const days = c.plan.days.slice(offset, offset + cols());
-  const nowMin = minuteOf(c.now.getTime());
-  const wins = days.map((d) => (d.off ? [] : windowsOf(d).map((w) => (d.date === c.plan.start ? { start: Math.max(w.start, nowMin), end: w.end } : w)).filter((w) => w.end - w.start >= 5)));
-  const di = Math.max(0, days.findIndex((d) => d.date === hit[0].date));
-  const len = Math.round((hit[1].end_ms - hit[1].start_ms) / 60000);
-  const a = minuteOf(hit[1].start_ms);
-  const wi = Math.max(0, (wins[di] ?? []).findIndex((w) => a >= w.start && a < w.end));
-  kb = { id: hit[1].id, at: { day: di, win: wi }, wins, days };
-  el.classList.add("kb-lifted");
-  say(`Picked up ${span(a, a + len)} on ${dayName(hit[0].date)}. Arrows choose a window: left and right change day, up and down step through its windows. Space drops, Escape cancels`);
+  if (!kb) return;
+  const at = preview(kb, kb.lane, kb.start);
+  const l = kb.lanes[kb.lane];
+  const home = kb.lanes[kb.from.lane];
+  if (!at || !l || !home) return;
+  // The block glides to the slot (CSS transition on .kb-lifted); the ghost marks it.
+  kb.el.style.transform = `translate3d(${l.x - home.x}px, ${yOf(at.start, kb.g.bs, kb.g.hour, FOLD) - yOf(kb.from.start, kb.g.bs, kb.g.hour, FOLD)}px, 0)`;
+  say(kb.tip.textContent ?? "");
 }
 
 function kbEnd(drop: boolean): void {
-  if (!kb) return;
-  const t = drop ? kbTarget() : null;
-  const id = kb.id;
+  const m = kb;
+  if (!m) return;
   kb = null;
-  document.querySelectorAll(".win.target").forEach((w) => w.classList.remove("target"));
-  $(`[data-ses="${id}"]`)?.classList.remove("kb-lifted");
-  if (!t) return say("Move cancelled");
-  const s = findSession(id);
-  if (s && s[0].date === t.day.date && minuteOf(s[1].start_ms) === t.start) return say("Left where it was");
-  applyMove(id, t.day.date, t.start);
-  const moved = [...document.querySelectorAll<HTMLElement>(`.wk-body .ses[data-date="${t.day.date}"]`)].find((el) => {
-    const x = findSession(el.dataset.ses ?? "");
-    return x && minuteOf(x[1].start_ms) === t.start;
-  });
-  moved?.focus();
+  if (!drop) say("Move cancelled");
+  finishMove(m, drop);
 }
 
 // ---- availability panel ----
@@ -1085,6 +1220,11 @@ function kbEnd(drop: boolean): void {
 function openDrawer(): void {
   const d = $<HTMLElement>("[data-av-drawer]");
   if (!d || !ctx) return;
+  if (d.classList.contains("is-leaving")) {
+    // Reopened mid-close: keep the mounted editor and slide back in.
+    clearTimeout(drawerTimer);
+    d.classList.remove("is-leaving");
+  }
   if (!d.hidden) return void d.querySelector<HTMLElement>("button")?.focus();
   render(
     d,
@@ -1101,7 +1241,7 @@ function openDrawer(): void {
 
 function closeDrawer(): void {
   const d = $<HTMLElement>("[data-av-drawer]");
-  if (!d || d.hidden) return;
+  if (!d || d.hidden || d.classList.contains("is-leaving")) return;
   const done = () => {
     d.hidden = true;
     d.classList.remove("is-leaving");
@@ -1111,8 +1251,9 @@ function closeDrawer(): void {
   };
   if (reduced()) return done();
   d.classList.add("is-leaving");
-  setTimeout(done, 240);
+  drawerTimer = setTimeout(done, 200);
 }
+let drawerTimer: ReturnType<typeof setTimeout> | undefined;
 
 function openSync(): void {
   if (!requireAccount("calendar-sync")) return;
@@ -1131,10 +1272,12 @@ function openSync(): void {
 function goTo(index: number, openFirst = false): void {
   if (!ctx) return;
   const n = cols();
+  const was = { view, offset };
   view = "week";
   offset = Math.max(0, Math.min(index, ctx.plan.days.length - 1));
   if (n === 4 || offset > 0) offset = Math.max(0, Math.min(offset, ctx.plan.days.length - n));
   if (index < offset || index >= offset + n) offset = index;
+  enter = was.view !== "week" ? "view" : offset > was.offset ? "next" : offset < was.offset ? "prev" : null;
   const day = ctx.plan.days[index];
   openPopId = null;
   paint();
@@ -1166,12 +1309,16 @@ function onClick(e: MouseEvent): void {
   }
   if (d.fix) return setBudget("wd", Number(d.fix));
   if (d.view) {
-    view = d.view === "month" || d.view === "roadmap" ? d.view : "week";
+    const next = d.view === "month" || d.view === "roadmap" ? d.view : "week";
+    if (next !== view) enter = "view";
+    view = next;
     history.replaceState(history.state, "", view === "week" ? location.pathname : `${location.pathname}?view=${view}`);
     return paint();
   }
   if (d.nav) {
-    offset = Math.max(0, Math.min(ctx.plan.days.length - 1, offset + Number(d.nav) * cols()));
+    const next = Math.max(0, Math.min(ctx.plan.days.length - 1, offset + Number(d.nav) * cols()));
+    if (next !== offset) enter = next > offset ? "next" : "prev";
+    offset = next;
     return paint();
   }
   if (a.matches("[data-today]")) return goTo(0);
@@ -1229,14 +1376,18 @@ function onKey(e: KeyboardEvent): void {
   if (kb) {
     if (e.key.startsWith("Arrow")) {
       e.preventDefault();
-      kb.at = stepMove(kb.at, e.key, kb.wins);
-      return kbShow();
+      return kbStep(e.key);
     }
     if (e.key === " " || e.key === "Enter") return (e.preventDefault(), kbEnd(true));
     return;
   }
-  if (ses && e.key === " ") return (e.preventDefault(), kbLift(ses), kbShow());
-  if (ses && e.key === "Enter") return (e.preventDefault(), openPop(ses.dataset.ses ?? ""));
+  if (ses && e.key === " ") return (e.preventDefault(), kbLift(ses));
+  if (ses && e.key === "Enter") {
+    e.preventDefault();
+    const hit = findSession(ses.dataset.ses ?? "");
+    if (hit && isMock(hit[1]) && !mockDone(hit[1])) return void (location.href = mockLink(hit[1]));
+    return openPop(ses.dataset.ses ?? "");
+  }
   // "g t" belongs to the shell's go-to keys.
   if (prevKey.key === "g" && Date.now() - prevKey.at < 1200) return;
   const dh = active?.closest<HTMLElement>(".dh");

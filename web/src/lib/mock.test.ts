@@ -156,3 +156,15 @@ describe("multi-company mocks", () => {
     expect(readRound()?.companies).toEqual(companies);
   });
 });
+
+describe("planned mock links", () => {
+  it("round-trips the plan's settings and rejects plain visits", async () => {
+    const { mockHref, readMockLink } = await import("./mock");
+    const href = mockHref({ session: "2026-11-20-1", minutes: 50, company: "meta" });
+    expect(href).toBe("/mock?start=1&session=2026-11-20-1&n=2&company=meta");
+    expect(readMockLink(href.slice(5))).toEqual({ session: "2026-11-20-1", n: 2, company: "meta" });
+    expect(readMockLink("?start=1&session=x&n=1")).toEqual({ session: "x", n: 1, company: null });
+    expect(readMockLink("")).toBeNull();
+    expect(readMockLink("?start=1&session=x&n=7")).toBeNull();
+  });
+});

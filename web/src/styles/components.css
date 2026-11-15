@@ -617,8 +617,8 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .drawer { position: fixed; z-index: var(--z-overlay); top: calc(var(--topbar-h) + 8px); right: 8px; bottom: 8px; width: 448px; max-width: calc(100vw - 16px); overflow: auto; overscroll-behavior: contain; background: var(--surface-raised); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: var(--space-6); }
 .drawer[hidden] { display: none; }
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-motion="reduce"]) .drawer:not([hidden]) { animation: drawin var(--dur-slow) var(--ease-out); }
-  :root:not([data-motion="reduce"]) .drawer.is-leaving { animation: drawout var(--dur-base) var(--ease-in-out) forwards; }
+  :root:not([data-motion="reduce"]) .drawer:not([hidden]) { animation: drawin var(--dur-base) var(--ease-out); }
+  :root:not([data-motion="reduce"]) .drawer.is-leaving { animation: drawout 200ms var(--ease-in-out) forwards; }
 }
 @keyframes drawin { from { transform: translateX(24px); opacity: 0; } }
 @keyframes drawout { to { transform: translateX(24px); opacity: 0; } }

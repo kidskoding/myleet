@@ -18,7 +18,9 @@ import {
   problemResult,
   readHistory,
   readRound,
+  readMockLink,
   roundSecs,
+  type MockLink,
   saveResult,
   writeRound,
   type Checks,
@@ -67,7 +69,7 @@ let checkAt = 0;
 const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) => root.querySelector<T>(sel);
 const root = () => $("[data-mock]");
 
-function view(name: "setup" | "round" | "reveal"): void {
+function view(name: "setup" | "ready" | "round" | "reveal"): void {
   for (const v of document.querySelectorAll<HTMLElement>("[data-mock] [data-view]")) v.hidden = v.dataset.view !== name;
   document.body.classList.toggle("mock-focus", name === "round");
 }
@@ -229,6 +231,7 @@ function startRound(): void {
     source,
     company: source === "company" ? (setupCompanies()[0] ?? null) : null,
     ...(source === "company" ? { companies: setupCompanies() } : {}),
+    ...(link ? { session: link.session } : {}),
     now: Date.now(),
   });
   writeRound(round);
@@ -452,7 +455,7 @@ async function record(): Promise<void> {
   const after = c.t.states(c.events);
   for (const p of results) p.rungAfter = after[p.id]?.rung ?? -1;
   const end = r.end ?? Date.now();
-  const result: MockResult = { id: r.id, start: r.start, end, secs: r.secs, source: r.source, company: r.company, ...(r.companies ? { companies: r.companies } : {}), timeUp: r.overtime || end > r.start + r.secs * 1000, problems: results };
+  const result: MockResult = { id: r.id, start: r.start, end, secs: r.secs, source: r.source, company: r.company, ...(r.companies ? { companies: r.companies } : {}), timeUp: r.overtime || end > r.start + r.secs * 1000, problems: results, ...(r.session ? { session: r.session } : {}) };
   saveResult(result);
   writeRound(null);
   round = null;
@@ -570,6 +573,26 @@ async function init(): Promise<void> {
     return startChecks();
   }
   paintSetup(ctx);
+  link = readMockLink(location.search);
+  if (link) paintReady(link);
+}
+
+/** From the plan: preset the form from the link (paintSetup already applied ?company), then offer one Begin button. */
+let link: MockLink | null = null;
+function paintReady(l: MockLink): void {
+  const n = document.querySelector<HTMLInputElement>(`[data-setup] input[name="n"][value="${l.n}"]`);
+  if (n) n.checked = true;
+  const company = l.company && setupCompanies().length ? l.company : null;
+  if (!company) {
+    const mixed = document.querySelector<HTMLInputElement>('[data-setup] input[value="mixed"]');
+    if (mixed) mixed.checked = true;
+  }
+  const mins = Math.round(roundSecs(l.n, ctx?.rules.round_secs ?? 2700) / 60);
+  const set = company ? `from your ${sourceLabel({ source: "company", company: setupCompanies()[0] ?? null, companies: setupCompanies() })}` : "from across what you've covered";
+  const txt = $("[data-ready-text]");
+  if (txt) txt.textContent = `${plural(l.n, "problem")} ${set}, with one ${mins}-minute timer for the whole round. Hints and technique labels stay hidden until you finish.`;
+  view("ready");
+  $<HTMLButtonElement>("[data-begin]")?.focus();
 }
 
 document.addEventListener("submit", (e) => {
@@ -610,6 +633,11 @@ document.addEventListener("click", (e) => {
     const b = t.closest<HTMLElement>("[data-ans]");
     const row = Number(b?.closest<HTMLElement>("[data-row]")?.dataset.row ?? 0);
     answer(row, b?.dataset.ans === "1");
+  } else if (t.closest("[data-begin]")) startRound();
+  else if (t.closest("[data-change]")) {
+    link = null;
+    history.replaceState(history.state, "", location.pathname);
+    view("setup");
   } else if (t.closest("[data-phone-ok]")) {
     try {
       localStorage.setItem(PHONE_NOTE_KEY, "1");

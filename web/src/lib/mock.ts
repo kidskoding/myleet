@@ -36,6 +36,7 @@ export interface Round {
   /** Chose "Keep coding" at time up: the clock runs over. */
   overtime: boolean;
   phase: "round" | "check";
+  session?: string;
   end: number | null;
   checks: Record<string, Checks>;
 }
@@ -65,6 +66,8 @@ export interface MockResult {
   companies?: string[];
   timeUp: boolean;
   problems: ProblemResult[];
+  /** The plan session this round was started from, so the plan can show it done. */
+  session?: string;
 }
 
 export const ROUND_KEY = "myleet:mock-round";
@@ -75,8 +78,9 @@ export function roundSecs(n: number, standardSecs: number): number {
   return n <= 1 ? 25 * 60 : n === 2 ? standardSecs : 60 * 60;
 }
 
-export function newRound(o: { problems: string[]; secs: number; source: Source; company: string | null; companies?: string[]; now: number }): Round {
+export function newRound(o: { problems: string[]; secs: number; source: Source; company: string | null; companies?: string[]; session?: string; now: number }): Round {
   return {
+    ...(o.session ? { session: o.session } : {}),
     id: o.now.toString(36),
     start: o.now,
     secs: o.secs,
@@ -282,3 +286,28 @@ export const readRound = (): Round | null => read<Round | null>(ROUND_KEY, null)
 export const writeRound = (r: Round | null): void => write(ROUND_KEY, r);
 export const readHistory = (): MockResult[] => read<MockResult[]>(HISTORY_KEY, []);
 export const saveResult = (m: MockResult): void => write(HISTORY_KEY, [m, ...readHistory().filter((x) => x.id !== m.id)]);
+
+/** A planned mock from the calendar: how many problems, which company set, and the plan session it fills. */
+export interface MockLink {
+  session: string;
+  n: 1 | 2 | 3;
+  company: string | null;
+}
+
+/** Problems for a planned block: about 25 minutes each, one to three. */
+export const mockCount = (minutes: number): 1 | 2 | 3 => (minutes <= 35 ? 1 : minutes <= 52 ? 2 : 3);
+
+export function mockHref(o: { session: string; minutes: number; company?: string | null }): string {
+  const q = new URLSearchParams({ start: "1", session: o.session, n: String(mockCount(o.minutes)) });
+  if (o.company) q.set("company", o.company);
+  return `/mock?${q}`;
+}
+
+/** Reads a planned-mock link; anything else (a plain visit, a bad n) is null. */
+export function readMockLink(search: string): MockLink | null {
+  const q = new URLSearchParams(search);
+  const n = Number(q.get("n"));
+  const session = q.get("session");
+  if (q.get("start") !== "1" || !session || ![1, 2, 3].includes(n)) return null;
+  return { session, n: n as 1 | 2 | 3, company: q.get("company") || null };
+}

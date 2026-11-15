@@ -4,6 +4,7 @@ import {
   bands,
   cellsFromWindows,
   dropTarget,
+  freeDrop,
   fmtM,
   midSentence,
   minuteAt,
@@ -70,6 +71,15 @@ describe("drag and keyboard moves", () => {
     expect(dropTarget([], 600, 30)).toBeNull();
     // Today's windows that are already past are not targets.
     expect(dropTarget(wins, 19 * 60, 30, 20 * 60 + 30)?.win.end).toBe(22 * 60 + 30);
+  });
+  it("free drops snap to 15 minutes anywhere and only block real conflicts", () => {
+    const day = { wins, busy: [{ start: 21 * 60, end: 21 * 60 + 30 }], off: false };
+    expect(freeDrop(19 * 60 + 8, 30, day)).toEqual({ start: 19 * 60 + 15, outside: false, blocked: null });
+    expect(freeDrop(7 * 60 + 2, 30, day)).toEqual({ start: 7 * 60, outside: true, blocked: null });
+    expect(freeDrop(21 * 60 + 20, 30, day).blocked).toBe("overlap");
+    expect(freeDrop(19 * 60, 30, { ...day, notBefore: 19 * 60 + 10 }).blocked).toBe("past");
+    expect(freeDrop(19 * 60, 30, { ...day, off: true }).blocked).toBe("off");
+    expect(freeDrop(23 * 60 + 50, 30, day).start).toBe(23 * 60 + 30);
   });
   it("arrows skip windowless days and wrap through a day's windows", () => {
     const days = [[wins[0]!], [], [wins[0]!, wins[1]!]];
