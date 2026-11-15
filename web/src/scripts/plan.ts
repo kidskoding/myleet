@@ -8,7 +8,8 @@ import { catchUp, changePreview, drawerLede, forecastLead, headCopy, INSIGHTS_EM
 import { readLedger, recordPlanned, standing, type DayStatus, type PastDay } from "../lib/plan-progress";
 import { companyLogo } from "../lib/company-logos";
 import { addDays } from "../lib/streak";
-import { companyTitle, mountInterviews } from "../lib/ui/interviews";
+import { companyTitle } from "../lib/ui/interviews";
+import { editGoalsLabel, goalsOf, GOALS_ICON, mountGoalsEditor, planPatch, type Goals } from "../lib/ui/goals-editor";
 import { emphasize } from "../lib/ui/emphasis";
 import { topicName } from "../lib/goals";
 import { cachedMe } from "../lib/account";
@@ -203,10 +204,10 @@ function currentNote(c: Ctx): PlanNote | null {
   const more = step(WEEKDAY_STEPS, wd, 1);
   const check = weeklyCheckin({ standing: st, today, windows: readPrefs().plan.availability, topics: topicsMoved(c.events, today, topicOf(c)), date: p.interview_date, recap: weekRecap(c.events, today, (id) => c.cat.byId.get(id)?.title ?? null), focus: weekFocus(p) });
   if (check)
-    pool.push({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body, actions: [{ kind: "keep_pace", label: "Keep this pace" }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: p.interview_date ? "Shift the date" : "Adjust your plan" }] } as PlanNote);
+    pool.push({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body, actions: [{ kind: "keep_pace", label: "Keep this pace" }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: p.interview_date ? "Move the date" : "Edit goals" }] } as PlanNote);
   const slip = catchUp(st);
   if (slip)
-    pool.push({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: p.interview_date ? "Move the date" : "Adjust your plan" }] } as PlanNote);
+    pool.push({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: p.interview_date ? "Move the date" : "Edit goals" }] } as PlanNote);
   pool.push(...(p.notes ?? []));
   if (c.fixes?.note) pool.push(c.fixes.note);
   if (!p.interview_date && !(p.notes ?? []).some((n) => n.kind === "date_passed"))
@@ -214,7 +215,7 @@ function currentNote(c: Ctx): PlanNote | null {
       kind: "no_date" as PlanNote["kind"],
       title: "Your next four weeks",
       body: "Keep a steady practice routine or work toward your target companies. Your plan covers the next four weeks and adjusts as you practice. An interview date is optional",
-      actions: [{ kind: "change_plan", label: "Adjust your plan" }],
+      actions: [{ kind: "change_plan", label: "Edit goals" }],
     });
   return pool.find((n) => !noteDismissed(n)) ?? null;
 }
@@ -660,7 +661,7 @@ function head(c: Ctx): SafeHtml {
         <p class="lede">${emphasize(copy.lede, companies)}</p>
         ${prog ? html`<div class="plan-progress"><span class="pp-text">${prog.text}</span><span class="pp-bar" role="progressbar" aria-label="Plan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(prog.share * 100)}"><span style="width:${(prog.share * 100).toFixed(1)}%"></span></span></div>` : ""}
         ${track ? html`<p class="on-track">${track}</p>` : ""}</div>
-      <div class="head-actions"><button type="button" class="btn btn-secondary" data-act="change">${icon("calendar-days")}Change plan</button><button type="button" class="btn btn-ghost" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Availability ${kbd("a")}</button><button type="button" class="btn btn-secondary when-out" data-act="save">${icon("calendar-check")}Save plan</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
+      <div class="head-actions"><button type="button" class="btn btn-secondary" data-act="change">${editGoalsLabel()}</button><button type="button" class="btn btn-secondary" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Edit availability ${kbd("a")}</button><button type="button" class="btn btn-secondary when-out" data-act="save">${icon("calendar-check")}Save plan</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
     </header>`;
 }
 
@@ -689,7 +690,7 @@ function toolbar(c: Ctx, g: Grid): SafeHtml {
     <div class="nav2"><button type="button" class="icon-btn" data-nav="-1" aria-label="Previous ${n === 7 ? "week" : "4 days"} ( [ )" ${offset === 0 || view !== "week" ? "disabled" : ""}>${icon("chevron-left")}</button><button type="button" class="icon-btn" data-nav="1" aria-label="Next ${n === 7 ? "week" : "4 days"} ( ] )" ${offset + n >= vdays(c).length || view !== "week" ? "disabled" : ""}>${icon("chevron-right")}</button></div>
     <button type="button" class="btn btn-secondary btn-sm todaybtn" data-today aria-keyshortcuts="t">Today ${kbd("t")}</button>
     <h2 id="cal-h">${range}</h2>
-    <button type="button" class="budget budget-read" data-act="change" aria-label="Daily time: ${fmtM(wd)} on weekdays, ${fmtM(we)} on weekends. Change plan"><span class="bl">Daily time</span><span>${fmtM(wd)} weekdays</span><span>${fmtM(we)} weekends</span></button>
+    <button type="button" class="budget budget-read" data-act="change" aria-label="Daily time: ${fmtM(wd)} on weekdays, ${fmtM(we)} on weekends. Edit goals"><span class="bl">Daily time</span><span>${fmtM(wd)} weekdays</span><span>${fmtM(we)} weekends</span></button>
     <div class="seg" role="group" aria-label="View" style="--on:${view === "week" ? 1 : view === "month" ? 2 : 3}"><span class="seg-thumb" aria-hidden="true"></span><button type="button" data-view="week" aria-pressed="${view === "week"}">${n === 7 ? "Week" : "4 days"}</button><button type="button" data-view="month" aria-pressed="${view === "month"}">Month</button><button type="button" data-view="roadmap" aria-pressed="${view === "roadmap"}">Roadmap</button></div>
   </div>
   <div data-live-host></div>`;
@@ -1050,7 +1051,7 @@ function openDayMenu(day: string, btn: HTMLElement): void {
     m,
     html`<button type="button" role="menuitem" class="menu-item" data-dayoff="${day}">${d.off ? `Put ${dayName(day)} back` : `Take ${dayName(day)} off`}</button>${
       d.off ? "" : html`<button type="button" role="menuitem" class="menu-item" data-shorter="${day}">${shorter ? `Back to the usual time on ${dayName(day)}` : "Shorter day: 30 min"}</button>`
-    }<button type="button" role="menuitem" class="menu-item" data-act="avail">Edit windows</button>`,
+    }<button type="button" role="menuitem" class="menu-item" data-act="avail">Edit availability</button>`,
   );
   const host = root();
   host?.append(m);
@@ -1475,21 +1476,18 @@ function openSync(): void {
 }
 
 
-// ---- Change plan: the goal (dates, companies, daily time) changes here, with its cost shown first ----
+// ---- Edit goals: the shared goals editor as a draft, with the change's cost shown before it applies ----
 
-interface Draft {
-  interviews: Interview[];
-  weekday: number;
-  weekend: number;
+interface Draft extends Goals {
   preset: number | null;
 }
 
 function draftSettings(d: Draft) {
-  return { ...planSettings(), interviews: d.interviews, interview_date: nextInterview(d.interviews, ctx?.plan.start)?.date ?? null, daily_minutes: d.weekday, weekend_minutes: d.weekend };
+  return { ...planSettings(), interviews: d.interviews, interview_date: nextInterview(d.interviews, ctx?.plan.start)?.date ?? null, target_companies: d.companies, focus_topics: d.focusTopics, daily_minutes: d.weekday, weekend_minutes: d.weekend };
 }
 
 /** What changed, as plan-history lines. */
-function changeLines(before: Prefs["plan"], d: Draft, names: (slug: string | null) => string | null): Prefs["plan"]["history"] {
+function changeLines(before: Prefs["plan"], d: Draft, names: (slug: string | null) => string | null, topic: (id: string) => string | null): Prefs["plan"]["history"] {
   const today = isoDay(new Date());
   const out: Prefs["plan"]["history"] = [];
   const preset = ROADMAPS.find((r) => r.days === d.preset);
@@ -1500,45 +1498,49 @@ function changeLines(before: Prefs["plan"], d: Draft, names: (slug: string | nul
   const key = (l: Interview[]) => l.map((i) => i.company ?? "").sort().join(",");
   if (key(before.interviews) !== key(d.interviews)) {
     const added = d.interviews.filter((i) => i.company && !before.interviews.some((x) => x.company === i.company));
-    out.push({ date: today, kind: "company", text: added.length ? `Added ${added.map((i) => `${names(i.company)} on ${short(i.date)}`).join(" and ")}` : "Changed which companies the plan leans on" });
+    out.push({ date: today, kind: "company", text: added.length ? `Added ${added.map((i) => `${names(i.company)} on ${short(i.date)}`).join(" and ")}` : "Changed which companies the interviews are with" });
   }
+  const list = (xs: (string | null)[]) => xs.filter((x): x is string => !!x).join(", ");
+  const coIn = d.companies.filter((x) => !before.companies.includes(x));
+  const coOut = before.companies.filter((x) => !d.companies.includes(x));
+  if (coIn.length) out.push({ date: today, kind: "company", text: `Added ${list(coIn.map(names))} to your dream companies` });
+  if (coOut.length) out.push({ date: today, kind: "company", text: `Removed ${list(coOut.map(names))} from your dream companies` });
+  const tIn = d.focusTopics.filter((x) => !before.focusTopics.includes(x));
+  const tOut = before.focusTopics.filter((x) => !d.focusTopics.includes(x));
+  if (tIn.length) out.push({ date: today, kind: "topic", text: `Focusing on ${list(tIn.map(topic))}` });
+  if (tOut.length) out.push({ date: today, kind: "topic", text: `Stopped focusing on ${list(tOut.map(topic))}` });
   const wd = before.dailyMinutes ?? 60;
   const we = before.weekendMinutes ?? wd;
   if (!preset && (wd !== d.weekday || we !== d.weekend)) out.push({ date: today, kind: "time", text: `Daily time from ${fmtM(wd)} to ${fmtM(d.weekday)} on weekdays${we !== d.weekend ? ` and ${fmtM(we)} to ${fmtM(d.weekend)} on weekends` : ""}` });
-  return out;
+  return out.map((l) => ({ ...l, text: l.text.slice(0, 200) }));
 }
+
+const sameAims = (x: string[], y: string[]) => x.length === y.length && x.every((a) => y.includes(a));
 
 function openChange(o: { weekday?: number; focusDate?: boolean } = {}): void {
   const c = ctx;
   if (!c) return;
   const p = readPrefs().plan;
-  const draft: Draft = { interviews: [...p.interviews], weekday: o.weekday ?? p.dailyMinutes ?? 60, weekend: p.weekendMinutes ?? p.dailyMinutes ?? 60, preset: null };
+  const start = goalsOf(p);
+  const draft: Draft = { ...start, weekday: o.weekday ?? start.weekday, interviews: [...start.interviews], preset: null };
   const dlg = document.createElement("dialog");
   dlg.className = "dlg change-dlg";
   dlg.setAttribute("aria-labelledby", "cp-h");
   const names = (slug: string | null) => companyTitle(c.cat.catalog.playlists, slug);
+  const topic = (id: string) => topicName(c.cat.catalog, id);
   const cur = chosenRoadmap();
   const moves = p.history.filter((h) => h.kind === "date").length;
-  render(dlg, html`<div class="dlg-head"><h2 id="cp-h">Change plan</h2><button type="button" class="icon-btn" data-cp-close aria-label="Close">${icon("x")}</button></div>
+  render(dlg, html`<div class="dlg-head"><h2 id="cp-h">${icon(GOALS_ICON)}Your goals</h2><button type="button" class="icon-btn" data-cp-close aria-label="Close">${icon("x")}</button></div>
     <div class="cp-body">
-      <p class="cp-intro">Your goal is the interview, the company and the time you give each day. Moving a single session on the calendar never changes it. Changes here reshape the days ahead and keep everything you've already done.</p>
-      <h3>Interviews</h3><div data-cp-iv></div>
-      <h3>Start a fresh plan</h3><div class="seg" role="group" aria-label="Plan length">${ROADMAPS.map((r) => html`<button type="button" data-cp-preset="${r.days}" aria-pressed="${cur === String(r.days) ? "true" : "false"}">${r.label}</button>`)}</div>
-      <h3 id="cp-dt">Daily time</h3><div class="cp-time" role="group" aria-labelledby="cp-dt"><span>Weekdays</span><span class="stepper"><button type="button" data-cp-step="wd" data-by="-1" aria-label="Less weekday time">${icon("minus")}</button><output data-cp-out="wd"></output><button type="button" data-cp-step="wd" data-by="1" aria-label="More weekday time">${icon("plus")}</button></span><span>Weekends</span><span class="stepper"><button type="button" data-cp-step="we" data-by="-1" aria-label="Less weekend time">${icon("minus")}</button><output data-cp-out="we"></output><button type="button" data-cp-step="we" data-by="1" aria-label="More weekend time">${icon("plus")}</button></span></div>
-      <h3>Days off</h3><div data-cp-off></div>
-      <p class="cp-preview" aria-live="polite" data-cp-preview></p>
-      ${p.history.length ? html`<details class="cp-history"><summary>Plan history</summary><ol>${[...p.history].reverse().map((h) => html`<li><time datetime="${h.date}">${short(h.date)}</time> ${h.text}</li>`)}</ol></details>` : ""}
+      <p class="cp-intro">Your plan is built from these. Changes reshape the days ahead and keep everything you've already done. Moving one session on the calendar never changes them</p>
+      <div data-cp-goals></div>
+      <h3 id="cp-fresh">Or start a fresh plan</h3><div class="seg" role="group" aria-labelledby="cp-fresh">${ROADMAPS.map((r) => html`<button type="button" data-cp-preset="${r.days}" aria-pressed="${cur === String(r.days) ? "true" : "false"}">${r.label}</button>`)}</div>
+      ${p.history.length ? html`<details class="cp-history"><summary>${icon("history")}Goal history</summary><ol>${[...p.history].reverse().map((h) => html`<li><time datetime="${h.date}">${short(h.date)}</time> ${h.text}</li>`)}</ol></details>` : ""}
     </div>
-    <div class="cp-foot"><button type="button" class="btn btn-ghost" data-cp-close>Keep my plan</button><button type="button" class="btn btn-primary" data-cp-apply disabled>Update my plan</button></div>`);
+    <div class="cp-foot"><p class="cp-preview" aria-live="polite" data-cp-preview></p><div class="dlg-actions"><button type="button" class="btn btn-ghost" data-cp-close>Keep my plan</button><button type="button" class="btn btn-primary" data-cp-apply disabled>Update my plan</button></div></div>`);
   document.body.append(dlg);
-  const offEditor = mountAvailability($<HTMLElement>("[data-cp-off]", dlg) as HTMLElement, { sections: ["daysoff"], headings: false, id: "cp-off" });
-  const changed = () => changeLines(readPrefs().plan, draft, names).length > 0;
+  const changed = () => changeLines(readPrefs().plan, draft, names, topic).length > 0 || !sameAims(draft.aims, start.aims);
   const preview = (): void => {
-    const out = (k: "wd" | "we") => $(`[data-cp-out="${k}"]`, dlg);
-    const wdOut = out("wd");
-    const weOut = out("we");
-    if (wdOut) wdOut.textContent = fmtM(draft.weekday);
-    if (weOut) weOut.textContent = fmtM(draft.weekend);
     const apply = $<HTMLButtonElement>("[data-cp-apply]", dlg);
     const box = $("[data-cp-preview]", dlg);
     if (!changed()) {
@@ -1550,31 +1552,27 @@ function openChange(o: { weekday?: number; focusDate?: boolean } = {}): void {
     try {
       const after = c.t.plan(c.events, draftSettings(draft), { now: c.now.getTime() });
       const who = names(nextInterview(draft.interviews, c.plan.start)?.company ?? null);
-      if (box) box.textContent = changePreview({ before: c.plan, after, company: who, dateMoves: moves });
+      if (box) box.textContent = changePreview({ before: c.plan, after, company: who, dateMoves: moves }).replace(/\.$/, "");
     } catch {
-      if (box) box.textContent = "Check the dates: each interview needs a real day.";
+      if (box) box.textContent = "Check the dates: each interview needs a real day";
     }
   };
-  const iv = mountInterviews($<HTMLElement>("[data-cp-iv]", dlg) as HTMLElement, c.cat.catalog.playlists, {
-    id: "cp-iv",
-    get: () => draft.interviews,
-    set: (list) => {
-      draft.interviews = list;
-      draft.preset = null;
+  const editor = mountGoalsEditor($<HTMLElement>("[data-cp-goals]", dlg) as HTMLElement, {
+    id: "cp-goals",
+    catalog: c.cat.catalog,
+    get: () => draft,
+    set: (g) => {
+      Object.assign(draft, g);
+      if (g.interviews || g.weekday !== undefined || g.weekend !== undefined) draft.preset = null;
+      if (g.interviews || g.weekday !== undefined) for (const b of dlg.querySelectorAll<HTMLElement>("[data-cp-preset]")) b.setAttribute("aria-pressed", "false");
       preview();
     },
+    availability: () => (closeDialog(dlg), openDrawer()),
   });
   dlg.addEventListener("click", (e) => {
     const el = e.target as Element;
-    const st = el.closest<HTMLElement>("[data-cp-step]");
     const pre = el.closest<HTMLElement>("[data-cp-preset]");
     if (el.closest("[data-cp-close]")) return closeDialog(dlg);
-    if (st) {
-      const dir = Number(st.dataset.by) > 0 ? 1 : -1;
-      if (st.dataset.cpStep === "wd") draft.weekday = step(WEEKDAY_STEPS, draft.weekday, dir);
-      else draft.weekend = step(WEEKEND_STEPS, draft.weekend, dir);
-      return preview();
-    }
     if (pre) {
       const r = ROADMAPS.find((x) => x.days === Number(pre.dataset.cpPreset));
       if (!r) return;
@@ -1582,33 +1580,33 @@ function openChange(o: { weekday?: number; focusDate?: boolean } = {}): void {
       const next = nextInterview(draft.interviews, c.plan.start);
       const rest = draft.interviews.filter((i) => i !== next);
       draft.interviews = [...rest, { date: addDays(c.plan.start, r.days), company: next?.company ?? null }].sort((a, b) => a.date.localeCompare(b.date));
-      Object.assign(draft, { weekday: r.weekday, weekend: r.weekend, preset: r.days });
-      iv.refresh();
+      Object.assign(draft, { weekday: r.weekday, weekend: r.weekend, preset: r.days, aims: draft.aims.includes("interview") ? draft.aims : ["interview", ...draft.aims] });
+      editor.refresh();
       return preview();
     }
     if (el.closest("[data-cp-apply]")) {
       const before = readPrefs().plan;
-      const lines = changeLines(before, draft, names);
+      const lines = changeLines(before, draft, names, topic);
       if (draft.preset)
         try {
           localStorage.setItem(ROADMAP_KEY, String(draft.preset));
         } catch {
           /* only the highlight is lost */
         }
-      else if (lines.some((l) => l.kind !== "company"))
+      else if (lines.some((l) => l.kind === "date" || l.kind === "time"))
         try {
           localStorage.setItem(ROADMAP_KEY, "custom");
         } catch {
           /* ignore */
         }
       pendingChange = { kind: "budget", label: "your plan" };
-      updatePrefs({ plan: { interviews: draft.interviews, dailyMinutes: draft.weekday, weekendMinutes: draft.weekend, startedAt: draft.preset ? c.plan.start : (before.startedAt ?? c.plan.start), history: [...before.history, ...lines].slice(-50) } });
+      updatePrefs({ plan: { ...planPatch({ aims: draft.aims, interviews: draft.interviews, companies: draft.companies, focusTopics: draft.focusTopics, weekday: draft.weekday, weekend: draft.weekend }), startedAt: draft.preset ? c.plan.start : (before.startedAt ?? c.plan.start), history: [...before.history, ...lines].slice(-50) } });
       closeDialog(dlg);
-      toast("Plan updated. Everything you've done so far stays");
+      toast("Goals updated. Everything you've done so far stays");
     }
   });
   dlg.addEventListener("keydown", (e) => e.stopPropagation());
-  dlg.addEventListener("close", () => (offEditor.destroy(), dlg.remove(), $<HTMLElement>('[data-act="change"]')?.focus()), { once: true });
+  dlg.addEventListener("close", () => (dlg.remove(), $<HTMLElement>('[data-act="change"]')?.focus()), { once: true });
   openDialog(dlg);
   preview();
   (o.focusDate ? $<HTMLElement>("[data-iv-date]", dlg) : $<HTMLElement>("[data-cp-close]", dlg))?.focus();
@@ -1843,6 +1841,15 @@ async function init(): Promise<void> {
     if (hi >= 0) goTo(hi, true);
     else paint();
     computeFixes(ctx);
+    // "Edit goals" and "When do you practice?" from other pages land here with the editor open.
+    const edit = new URLSearchParams(location.search).get("edit");
+    if (edit) {
+      const q = new URLSearchParams(location.search);
+      q.delete("edit");
+      history.replaceState(history.state, "", `${location.pathname}${q.size ? `?${q}` : ""}${location.hash}`);
+      if (edit === "goals") openChange();
+      else if (edit === "availability") openDrawer();
+    }
     // Back from sign-up with the calendar dialog still wanted: reopen it.
     if (signedIn() && takePending("calendar-sync")) openSync();
   } catch (e) {
