@@ -1,0 +1,65 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="Runner check">
+  <h1>Runner check</h1>
+  <p>Manual check for the in-browser test runner. Not linked from the app.</p>
+  <form id="f">
+    <label>Problem id <input name="id" value="circular-array-loop" /></label>
+    <label>
+      Code
+      <select name="code">
+        <option value="solution">reference solution</option>
+        <option value="starter">starter</option>
+        <option value="syntax">syntax error</option>
+        <option value="hang">infinite loop</option>
+      </select>
+    </label>
+    <button>Run</button>
+  </form>
+  <ol id="log"></ol>
+  <pre id="out"></pre>
+</Base>
+
+<script>
+  import { fetchProblem } from "../../lib/catalog";
+  import { format, getRunner, lint } from "../../lib/runner";
+  import { loadTrainer } from "../../lib/trainer";
+
+  const log = (s: string) => {
+    const li = document.createElement("li");
+    li.textContent = s;
+    document.getElementById("log")?.append(li);
+  };
+  const t0 = performance.now();
+  const runner = getRunner({
+    timeoutMs: 5000,
+    onProgress: (p) => log(`load ${p.stage} at ${Math.round(p.elapsedMs)} ms`),
+  });
+  // For poking at the editor entry points from devtools.
+  Object.assign(window, { myleetDev: { runner, lint, format } });
+  runner.load().then(() => log(`python ready ${Math.round(performance.now() - t0)} ms after page start`));
+  loadTrainer().then((t) => log(`wasm trainer ready, format_secs(252) = ${t.formatSecs(252)}`));
+
+  const form = document.getElementById("f") as HTMLFormElement;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const p = await fetchProblem(String(data.get("id")));
+    const which = String(data.get("code"));
+    const code =
+      which === "solution"
+        ? (p.solution ?? p.starter)
+        : which === "syntax"
+          ? "def broken(:\n"
+          : which === "hang"
+            ? "while True:\n    pass\n"
+            : p.starter;
+    const res = await runner.run({ test: p.test, code });
+    log(`${p.id} ${which}: ${res.passed}/${res.total} in ${Math.round(res.durationMs)} ms` +
+      `${res.notStarted ? " notStarted" : ""}${res.timedOut ? " timedOut" : ""}${res.error ? ` error=${res.error}` : ""}`);
+    const out = document.getElementById("out");
+    if (out) out.textContent = JSON.stringify(res, null, 2);
+  });
+</script>
