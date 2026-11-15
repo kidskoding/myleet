@@ -18,6 +18,12 @@ describe("todaySummary", () => {
       "Today we're focusing on sliding window, your weakest spot right now. Yesterday on Sliding Window Maximum you passed 5 of 7 tests but missed edge cases. Meta's set leans on sliding window and your interview is 12 days away, so it's likely to come up.\n\nWe'll warm up with two quick reviews, then work through three sliding window problems! Solve them cleanly and you'll stop needing hints on sliding window",
     );
   });
+  it("says when LeetCode history is why a topic comes first", () => {
+    const skills = [skill({ module: "sliding_window", seen: 0, evidence: { attempts: 0 } as never })];
+    const text = todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now, leetcodeWeak: ["sliding_window"] });
+    expect(text).toContain("Your LeetCode history is light on sliding window, so this is where we're starting.");
+    expect(todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now, leetcodeWeak: ["dp"] })).not.toContain("LeetCode");
+  });
   it("names a hint without a company", () => {
     const skills = [skill({ level: "building", history: [attempt({ mark: "hint", detail: "used a hint", date: "2026-11-12" })] })];
     expect(todaySummary({ items: [item("new", "Sliding Window")], skills, daysLeft: null, now })).toBe(
@@ -109,6 +115,8 @@ describe("reviewWhy", () => {
   it("uses the last attempt, else the due date", () => {
     const skills = [skill({ history: [attempt({ problem: "r", mark: "hint", detail: "used a hint", date: "2026-11-09" })] })];
     expect(reviewWhy(entry("r", "review", { rung: 1 }), skills, now)).toBe("6 days ago you needed a hint, so a clean pass now puts the next review in a week");
+    const lc = { ...entry("lc", "review", { rung: 0 }, 20), why: "overdue 20d: 1-day review, you solved this on LeetCode 3 weeks ago, so let's see if it stuck" };
+    expect(reviewWhy(lc, null, now)).toBe("You solved this on LeetCode 3 weeks ago, so let's see if it stuck, and a clean pass now puts the next review on Wednesday");
     expect(reviewWhy(entry("x", "review", { rung: 0 }, 2), null, now)).toBe("It came due 2 days ago, and a clean pass puts the next review on Wednesday");
   });
 });

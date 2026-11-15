@@ -102,6 +102,7 @@ export async function startAccountSync(me: Me): Promise<void> {
     const pending = takePending();
     if (r.kind === "uploaded" || r.kind === "merge" || (pending !== null && pending !== "calendar-sync")) toast("Saved to your account");
     if (r.kind !== "deferred") void uploadPlan().catch(() => undefined);
+    void import("../lib/leetcode").then((m) => m.refreshIfDue()).catch(() => undefined);
   } catch {
     syncFailed(() => {
       started = false;

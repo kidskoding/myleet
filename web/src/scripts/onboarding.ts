@@ -17,8 +17,9 @@ import { kbd, plural, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { mountInterviews } from "../lib/ui/interviews";
+import { mountLeetcodePanel } from "../lib/ui/leetcode-connect";
 
-const STEPS = ["goal", "companies", "date", "time", "when", "plan"] as const;
+const STEPS = ["goal", "companies", "date", "leetcode", "time", "when", "plan"] as const;
 type Step = (typeof STEPS)[number];
 
 const GOALS: { id: Goal; label: string; detail: string }[] = [
@@ -138,6 +139,15 @@ function dateStep(error?: string): SafeHtml {
   </section>`;
 }
 
+function leetcodeStep(): SafeHtml {
+  return html`${head("leetcode")}<section class="q" aria-labelledby="q3b">
+    <h1 id="q3b">Connect your LeetCode</h1>
+    <p class="sub">This is optional. If you already practice on LeetCode, your plan can skip what you know and start with the topics you've done least</p>
+    <div data-lc-host></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Continue</button></div>
+  </section>`;
+}
+
 function timeStep(): SafeHtml {
   const m = readPrefs().plan.dailyMinutes;
   return html`${head("time")}<section class="q" aria-labelledby="q4">
@@ -228,6 +238,8 @@ async function paint(): Promise<void> {
         ? companiesStep()
         : step === "date"
           ? dateStep()
+          : step === "leetcode"
+            ? leetcodeStep()
           : step === "time"
             ? timeStep()
             : step === "when"
@@ -237,6 +249,8 @@ async function paint(): Promise<void> {
   whenEditor = null;
   render(el, body);
   mountDateEditor();
+  const lc = el.querySelector<HTMLElement>("[data-lc-host]");
+  if (lc) mountLeetcodePanel(lc, { onSkip: () => go("time") });
   const host = el.querySelector<HTMLElement>("[data-when-editor]");
   if (host) whenEditor = mountAvailability(host, { sections: ["presets", "paint", "session"], headings: false, id: "ob-av" });
   document.title = "Set up your plan · myleet";

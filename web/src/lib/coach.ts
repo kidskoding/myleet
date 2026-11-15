@@ -46,6 +46,8 @@ export interface SummaryInput {
   skills: Skill[] | null;
   daysLeft: number | null;
   now: Date;
+  /** Module ids the LeetCode import found barely touched; empty or absent when not connected. */
+  leetcodeWeak?: string[] | undefined;
 }
 
 /**
@@ -57,7 +59,7 @@ export function todaySummary(input: SummaryInput): string | null {
   return summaryText(input)?.replace(/\.$/, "") ?? null;
 }
 
-function summaryText({ items, skills, daysLeft, now }: SummaryInput): string | null {
+function summaryText({ items, skills, daysLeft, now, leetcodeWeak }: SummaryInput): string | null {
   const counts = new Map<string, number>();
   for (const i of items) if (i.technique && i.kind !== "review") counts.set(i.technique, (counts.get(i.technique) ?? 0) + 1);
   const [theme, nTheme = 0] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
@@ -84,6 +86,8 @@ function summaryText({ items, skills, daysLeft, now }: SummaryInput): string | n
   const out: string[] = [];
 
   out.push(`Today we're ${weak ? "focusing on" : "spending most of our time on"} ${tech}${weak ? ", your weakest spot right now" : ""}.`);
+
+  if (skill && leetcodeWeak?.includes(skill.module) && skill.seen === 0) out.push(`Your LeetCode history is light on ${tech}, so this is where we're starting.`);
 
   const miss = recentMiss(skill, now);
   const did = miss && attemptPhrase(miss);
@@ -221,12 +225,16 @@ export function wrapUp(
 }
 
 /** "Why this one" for a review: the last attempt and where a clean pass puts it. */
-export function reviewWhy(e: Pick<TodayEntry, "problem" | "overdue_days" | "state">, skills: Skill[] | null, now: Date): string {
+export function reviewWhy(e: Pick<TodayEntry, "problem" | "overdue_days" | "state"> & { why?: string }, skills: Skill[] | null, now: Date): string {
   const r = e.state.rung;
   const next = RUNG_DAYS[Math.min(Math.max(r + 1, 0), RUNG_DAYS.length - 1)] ?? 30;
   const last = [...(skills ?? []).flatMap((s) => s.history)].reverse().find((h) => h.problem === e.problem);
   const did = last && (attemptPhrase(last) ?? (last.mark === "clean" ? "solved it cleanly" : null));
-  const lead = last && did
+  // Imported from LeetCode: the core's reason line carries when, so the review reads as a recall check.
+  const lc = /you solved this on LeetCode (.+?), so let's see if it stuck/.exec(e.why ?? "")?.[1];
+  const lead = lc
+    ? `You solved this on LeetCode ${lc}, so let's see if it stuck, and a clean pass now`
+    : last && did
     ? `${cap(dayAgo(last.date, now))} you ${did}, so ${last.mark === "clean" ? "another" : "a"} clean pass now`
     : `${e.overdue_days <= 0 ? "It's due today" : e.overdue_days === 1 ? "It came due yesterday" : `It came due ${e.overdue_days} days ago`}, and a clean pass`;
   return `${lead} puts the next review ${whenFrom(now, next)}`;

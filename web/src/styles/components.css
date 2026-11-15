@@ -880,3 +880,15 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
   .calgrid button[data-day] { min-height: 44px; }
   .queue a:not(.btn), .prose li > a, a.link { display: inline-block; padding-block: 12px; margin-block: -12px; }
 }
+
+/* LeetCode connect panel (onboarding step and Settings) */
+.lc { display: grid; gap: var(--space-3); }
+.lc-label { font-size: var(--text-sm); font-weight: 600; }
+.lc-row { display: flex; gap: var(--space-2); flex-wrap: wrap; align-items: center; }
+.lc-row .input { flex: 1 1 220px; min-width: 0; }
+.lc-help, .lc-note { font-size: var(--text-xs); color: var(--ink-3); max-width: 62ch; }
+.lc-summary { font-size: var(--text-sm); color: var(--ink); padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); background: var(--accent-soft); max-width: 62ch; }
+.lc-who { font-size: var(--text-sm); color: var(--ink-2); }
+.lc-mods { display: grid; gap: 2px; padding: 0; margin: 0; list-style: none; max-width: 320px; }
+.lc-mods li { display: flex; justify-content: space-between; font-size: var(--text-sm); padding: 4px 0; border-bottom: 1px solid var(--line); }
+.lc-actions { display: flex; gap: var(--space-2); }

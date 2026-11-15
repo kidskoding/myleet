@@ -194,8 +194,11 @@ export type EventKind =
   | "say_aloud_checked"
   | "timer_restarted"
   | "placement_done"
-  | "checkpoint_done";
-export type Mode = "practice" | "drill" | "interview" | "placement" | "checkpoint";
+  | "checkpoint_done"
+  | "leetcode_imported"
+  | "leetcode_solved"
+  | "leetcode_disconnected";
+export type Mode = "practice" | "drill" | "interview" | "placement" | "checkpoint" | "leetcode";
 
 // ---- planner and skills (crates/wasm README "Planner and skills") ----
 
@@ -443,4 +446,23 @@ export interface Skill {
 export interface Skills {
   techniques: Skill[];
   modules: { module: string; title: string; mastery: number; confidence: number }[];
+}
+
+// ---- LeetCode import (worker GET /api/leetcode/profile, crates/core leetcode.rs) ----
+
+export interface LeetcodeProfile {
+  username: string;
+  solved: { all: number; easy: number; medium: number; hard: number };
+  tags: { name: string; solved: number }[];
+  recent: { slug: string; timestamp: number }[];
+}
+
+export interface LeetcodeImport {
+  username: string;
+  total: number;
+  modules: { id: string; title: string; solved: number }[];
+  /** Module ids with little or no LeetCode history, which the planner starts with. */
+  weak: string[];
+  /** Problems marked "solved on LeetCode". */
+  marked: number;
 }

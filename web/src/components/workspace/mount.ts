@@ -710,6 +710,17 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     }
   }
 
+  /** Copies the code and opens the problem; the learner pastes and submits themselves. No LeetCode login is ever read or stored. */
+  function submitOnLeetcode() {
+    const code = editor.code();
+    // The page opens first so the click still counts as the user's gesture.
+    window.open(meta.url, "_blank", "noopener");
+    void navigator.clipboard
+      ?.writeText(code)
+      .then(() => toast(toastSlot, "Your code is copied, so paste it and submit on LeetCode"))
+      .catch(() => toast(toastSlot, "Couldn't copy your code. Select it in the editor and copy it by hand"));
+  }
+
   async function showResultSheet(before: State | undefined, after: State | undefined, green: boolean, snapshot: Plan | null, r: RunResult) {
     const from = ladderRung(before?.rung ?? -1);
     const to = ladderRung(after?.rung ?? -1);
@@ -798,6 +809,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
         nx ? h("p", { class: "nextwhy" }, nx.reason) : null,
         extras?.guest ? h("a", { class: "nextwhy guest-link", href: signupHref() }, "Create a free account to get a plan built around this") : null,
         files?.solution ? h("button", { class: "btn btn-secondary", onclick: () => (closeResult(), showSolution("diff")) }, "Compare with reference") : null,
+        green && mode !== "drill" && leetcodeSlug(meta.url) ? h("button", { class: "btn btn-ghost", type: "button", "data-submit-lc": "", onclick: submitOnLeetcode }, "Submit on LeetCode too") : null,
       ),
       h("button", { class: "icon-btn x", "aria-label": "Dismiss (Esc)", html: icon("x"), onclick: () => closeResult(true) }),
     );

@@ -66,6 +66,8 @@ export interface Prefs {
    */
   reminders: { on: boolean; time: string; lead: number; quietFrom: string; quietTo: string };
   publicProfile: boolean;
+  /** The connected LeetCode username (synced); null when not connected. */
+  leetcodeUsername: string | null;
   plan: Plan;
 }
 
@@ -83,6 +85,7 @@ export const DEFAULT_PREFS: Prefs = {
   timeTargets: { easy: 15, medium: 25, hard: 40 },
   reminders: { on: false, time: "19:00", lead: 15, quietFrom: "23:00", quietTo: "08:00" },
   publicProfile: false,
+  leetcodeUsername: null,
   plan: {
     goal: null,
     companies: [],

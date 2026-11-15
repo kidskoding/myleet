@@ -436,6 +436,11 @@ async function init(): Promise<void> {
   me = await fetchMe();
   document.documentElement.dataset.auth = me ? "in" : "out";
   paintPrefs();
+  const lc = $("[data-lc-settings]");
+  if (lc && !lc.dataset.mounted) {
+    lc.dataset.mounted = "1";
+    void import("../lib/ui/leetcode-connect").then((m) => m.mountLeetcodePanel(lc));
+  }
   if (me) {
     paintProfile();
     paintMethods();

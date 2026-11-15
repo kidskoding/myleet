@@ -5,6 +5,8 @@ import type {
   CheckpointResult,
   EventKind,
   InterviewRules,
+  LeetcodeImport,
+  LeetcodeProfile,
   Mode,
   Placement,
   PlacementResult,
@@ -57,6 +59,12 @@ export interface TrainerApi {
   habits(events: string, opts?: When & { limit?: number }): Habits;
   /** What one attempt changed for its technique; null when it isn't a finished attempt. */
   attemptFeedback(events: string, attempt: string, opts?: When): AttemptFeedback | null;
+  /** Lines to append after fetching a LeetCode profile, plus the one-time summary. `reconnect` clears old markers first. */
+  leetcodeImport(events: string, profile: LeetcodeProfile, opts?: When & { reconnect?: boolean }): { lines: string[]; summary: string; marked: number };
+  /** The current import, or null when LeetCode is not connected. */
+  leetcode(events: string): LeetcodeImport | null;
+  /** The event line that clears the import. */
+  leetcodeDisconnect(now?: number): string;
   /** iCalendar text for a plan. */
   planIcs(plan: Plan, options?: { site?: string; alarm_minutes?: number | null; uid_suffix?: string; name?: string }): string;
 }
@@ -92,6 +100,9 @@ export function createTrainer(catalogText: string, module?: WasmInput): TrainerA
     planFixes: (ev, settings, o = {}) => parse(t.plan_fixes(ev, settings ? JSON.stringify(settings) : "", now(o.now), o.tz ?? "")),
     habits: (ev, o = {}) => parse(t.habits(ev, now(o.now), o.tz ?? "", o.limit ?? 3)),
     attemptFeedback: (ev, attempt, o = {}) => parse(t.attempt_feedback(ev, attempt, now(o.now), o.tz ?? "")),
+    leetcodeImport: (ev, profile, o = {}) => parse(t.leetcode_import(ev, JSON.stringify(profile), now(o.now), o.tz ?? "", o.reconnect ?? false)),
+    leetcode: (ev) => parse(t.leetcode(ev)),
+    leetcodeDisconnect: (n) => wasm.leetcode_disconnect(now(n)),
     planIcs: (plan, options) => wasm.plan_ics(JSON.stringify(plan), options ? JSON.stringify(options) : ""),
   };
 }

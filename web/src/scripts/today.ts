@@ -34,7 +34,7 @@ import {
   type Budget,
 } from "../lib/today";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
-import type { Plan, PlanItem, PlanNote, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
+import type { LeetcodeImport, Plan, PlanItem, PlanNote, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
 import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
@@ -58,6 +58,8 @@ interface Ctx {
   /** Computed per paint; null if the planner failed (Today still works without it). */
   plan?: Plan | null;
   skills?: Skill[] | null;
+  /** The LeetCode import, when connected. */
+  leetcode?: LeetcodeImport | null;
 }
 
 /** Today's plan item for a problem: its reason, tag and why chips. */
@@ -438,6 +440,11 @@ function paint(c: Ctx): void {
   } catch {
     c.skills = null;
   }
+  try {
+    c.leetcode = c.t.leetcode(c.events);
+  } catch {
+    c.leetcode = null;
+  }
   if (c.plan) {
     try {
       const d0 = c.plan.days[0];
@@ -524,6 +531,7 @@ function paint(c: Ctx): void {
       skills: c.skills ?? null,
       daysLeft: c.plan?.interview_date ? (c.plan.summary.days_left ?? null) : null,
       now: c.now,
+      leetcodeWeak: c.leetcode?.weak,
     });
     const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now, first.problem);
     const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n, readStreak().rests)].filter(Boolean);

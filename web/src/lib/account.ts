@@ -22,6 +22,8 @@ export interface ServerSettings {
   /** Absent on a Worker that predates plan history. */
   plan_history?: Prefs["plan"]["history"];
   plan_ledger?: Ledger;
+  /** Absent on a Worker that predates the LeetCode import. */
+  leetcode_username?: string | null;
   target_companies: string[];
   reminders: boolean;
   public_profile: boolean;
@@ -264,6 +266,7 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     interviews: p.plan.interviews.map(({ date, company }) => ({ date, company })),
     plan_history: p.plan.history,
     plan_ledger: readLedger(),
+    leetcode_username: p.leetcodeUsername,
     target_companies: p.plan.companies,
     reminders: p.reminders.on,
     public_profile: p.publicProfile,
@@ -284,6 +287,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
     newPerDay: s.new_per_day,
     reminders: { ...base.reminders, on: s.reminders },
     publicProfile: s.public_profile,
+    leetcodeUsername: s.leetcode_username === undefined ? base.leetcodeUsername : s.leetcode_username,
     plan: {
       ...base.plan,
       interviewDate: s.interview_date,
