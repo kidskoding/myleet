@@ -33,9 +33,9 @@
   "url": "https://svgl.app/library/netflix-icon.svg"
  },
  "oracle": {
-  "source": "website-icon",
+  "source": "thesvg",
   "domain": "oracle.com",
-  "url": "https://www.google.com/s2/favicons?domain=oracle.com&sz=128",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/oracle/icon.svg",
   "file": "oracle.svg"
  },
  "salesforce_slack": {
@@ -76,7 +76,7 @@
  "bloomberg": {
   "source": "website-icon",
   "domain": "bloomberg.com",
-  "url": "https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128",
+  "url": "https://www.bloomberg.com/apple-touch-icon.png",
   "file": "bloomberg.svg",
   "treatment": "dark-background"
  },
@@ -165,11 +165,10 @@
   "icon": "autodesk"
  },
  "arista": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "arista.com",
-  "url": "https://www.google.com/s2/favicons?domain=arista.com&sz=128",
-  "file": "arista.svg",
-  "treatment": "mono"
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Arista-networks-logo.svg",
+  "file": "arista.svg"
  },
  "nutanix": {
   "source": "simple-icons",
@@ -299,7 +298,7 @@
  "affirm": {
   "source": "website-icon",
   "domain": "affirm.com",
-  "url": "https://www.google.com/s2/favicons?domain=affirm.com&sz=128",
+  "url": "https://www.affirm.com/",
   "file": "affirm.svg"
  },
  "brex": {
@@ -480,9 +479,9 @@
   "file": "poolside.svg"
  },
  "magic": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "magic.dev",
-  "url": "https://www.google.com/s2/favicons?domain=magic.dev&sz=128",
+  "url": "https://magic.dev/logo.svg",
   "file": "magic.svg"
  },
  "together_ai": {
@@ -534,11 +533,11 @@
   "treatment": "dark-background"
  },
  "physical_intelligence": {
-  "source": "website-icon",
+  "source": "github-avatar",
   "domain": "physicalintelligence.company",
-  "url": "https://www.google.com/s2/favicons?domain=physicalintelligence.company&sz=128",
+  "url": "https://avatars.githubusercontent.com/u/162759805?s=460",
   "file": "physical_intelligence.svg",
-  "treatment": "mono"
+  "treatment": "light-background"
  },
  "anduril": {
   "source": "website-icon",
@@ -635,23 +634,21 @@
   "treatment": "light-background"
  },
  "navan": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "navan.com",
-  "url": "https://www.google.com/s2/favicons?domain=navan.com&sz=128",
-  "file": "navan.svg",
-  "treatment": "light-background"
+  "url": "https://navan.com/",
+  "file": "navan.svg"
  },
  "samsara": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "samsara.com",
-  "url": "https://www.google.com/s2/favicons?domain=samsara.com&sz=128",
-  "file": "samsara.svg",
-  "treatment": "mono"
+  "url": "https://www.samsara.com/",
+  "file": "samsara.svg"
  },
  "toast": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "toasttab.com",
-  "url": "https://www.google.com/s2/favicons?domain=toasttab.com&sz=128",
+  "url": "https://d2a0efs422ycyj.cloudfront.net/main/1794603827140/public/svg/img-toast-logo.svg",
   "file": "toast.svg"
  },
  "canva": {
@@ -709,7 +706,7 @@
  "jane_street": {
   "source": "website-icon",
   "domain": "janestreet.com",
-  "url": "https://www.google.com/s2/favicons?domain=janestreet.com&sz=128",
+  "url": "https://www.janestreet.com/assets/logo-icon-b8a206838d61e9232dd7d2ae67f12b4f35a494ac9ad0a7e4b1456b482849c977.svg",
   "file": "jane_street.svg"
  },
  "hudson_river_trading": {
@@ -725,9 +722,9 @@
   "file": "two_sigma.svg"
  },
  "de_shaw": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "deshaw.com",
-  "url": "https://www.google.com/s2/favicons?domain=deshaw.com&sz=128",
+  "url": "https://www.deshaw.com/img/svg/embedded/logo-white-with-trademark.svg",
   "file": "de_shaw.svg"
  },
  "sig": {
@@ -789,11 +786,10 @@
   "treatment": "mono"
  },
  "squarepoint": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "squarepoint-capital.com",
-  "url": "https://www.google.com/s2/favicons?domain=squarepoint-capital.com&sz=128",
-  "file": "squarepoint.svg",
-  "treatment": "mono"
+  "url": "https://www.squarepoint-capital.com/",
+  "file": "squarepoint.svg"
  },
  "millennium": {
   "source": "website-icon",
@@ -823,15 +819,15 @@
   "file": "walmart.svg"
  },
  "unitedhealth": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "unitedhealthgroup.com",
-  "url": "https://www.google.com/s2/favicons?domain=unitedhealthgroup.com&sz=128",
+  "url": "https://www.unitedhealthgroup.com/content/dam/uhg/icons/Icons/uhg-logo--stacked-2022.svg",
   "file": "unitedhealth.svg"
  },
  "cvs": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "cvshealth.com",
-  "url": "https://www.google.com/s2/favicons?domain=cvshealth.com&sz=128",
+  "url": "https://www.cvshealth.com/content/dam/enterprise/cvs-enterprise/logos/CVS_Health_logo.svg",
   "file": "cvs.svg"
  },
  "jpmorganchase": {
@@ -843,7 +839,7 @@
  "costco": {
   "source": "website-icon",
   "domain": "costco.com",
-  "url": "https://www.google.com/s2/favicons?domain=costco.com&sz=128",
+  "url": "https://www.costco.com/favicon.svg",
   "file": "costco.svg"
  },
  "bank_of_america": {
@@ -865,9 +861,9 @@
   "file": "elevance.svg"
  },
  "citigroup": {
-  "source": "website-icon",
+  "source": "thesvg",
   "domain": "citigroup.com",
-  "url": "https://www.google.com/s2/favicons?domain=citigroup.com&sz=128",
+  "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/citibank/default.svg",
   "file": "citigroup.svg"
  },
  "home_depot": {
@@ -896,9 +892,9 @@
   "icon": "wellsfargo"
  },
  "comcast": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "comcastcorporation.com",
-  "url": "https://www.google.com/s2/favicons?domain=comcastcorporation.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Comcast_%282013-2024%29_logo.svg",
   "file": "comcast.svg"
  },
  "state_farm": {
@@ -937,9 +933,9 @@
   "file": "disney.svg"
  },
  "ups": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "ups.com",
-  "url": "https://www.google.com/s2/favicons?domain=ups.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/UPS_Logo_Shield_2017.svg",
   "file": "ups.svg"
  },
  "fedex": {
@@ -971,24 +967,20 @@
   "icon": "americanexpress"
  },
  "lockheed_martin": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "lockheedmartin.com",
-  "url": "https://www.google.com/s2/favicons?domain=lockheedmartin.com&sz=128",
-  "file": "lockheed_martin.svg",
-  "treatment": "mono",
-  "brandColor": "#003B71"
+  "url": "https://www.lockheedmartin.com/content/dam/lockheed-martin/general/lm-logo.svg",
+  "file": "lockheed_martin.svg"
  },
  "boeing": {
   "source": "simple-icons",
   "icon": "boeing"
  },
  "allstate": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "allstate.com",
-  "url": "https://www.allstate.com/favicon.ico",
-  "file": "allstate.svg",
-  "treatment": "light-background",
-  "brandColor": "#0033A0"
+  "url": "https://upload.wikimedia.org/wikipedia/en/3/30/Allstate_logo.svg",
+  "file": "allstate.svg"
  },
  "ibm": {
   "source": "svgl",
@@ -1030,7 +1022,7 @@
  "liberty_mutual": {
   "source": "website-icon",
   "domain": "libertymutual.com",
-  "url": "https://www.google.com/s2/favicons?domain=libertymutual.com&sz=128",
+  "url": "https://www.libertymutual.com/apple-touch-icon-180x180.png",
   "file": "liberty_mutual.svg"
  },
  "general_dynamics": {
@@ -1047,33 +1039,28 @@
   "file": "best_buy.svg"
  },
  "northrop_grumman": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "northropgrumman.com",
-  "url": "https://www.google.com/s2/favicons?domain=northropgrumman.com&sz=128",
-  "file": "northrop_grumman.svg",
-  "treatment": "dark-background"
+  "url": "https://www.northropgrumman.com/",
+  "file": "northrop_grumman.svg"
  },
  "us_bank": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "usbank.com",
-  "url": "https://www.google.com/s2/favicons?domain=usbank.com&sz=128",
+  "url": "https://www.usbank.com/etc.clientlibs/ecm-global/clientlibs/clientlib-resources/resources/images/svg/logo-personal.svg",
   "file": "us_bank.svg"
  },
  "ge_aerospace": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "geaerospace.com",
-  "url": "https://www.google.com/s2/favicons?domain=geaerospace.com&sz=128",
-  "file": "ge_aerospace.svg",
-  "treatment": "mono",
-  "brandColor": "#00003C"
+  "url": "https://www.geaerospace.com/themes/custom/aero_unified/assets/images/Logo.svg",
+  "file": "ge_aerospace.svg"
  },
  "bny": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "bny.com",
-  "url": "https://www.bny.com/favicon.ico",
-  "file": "bny.svg",
-  "treatment": "mono",
-  "brandColor": "#2E9BAD"
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/BNY_logo_2024.svg",
+  "file": "bny.svg"
  },
  "qualcomm": {
   "source": "simple-icons",
@@ -1105,16 +1092,15 @@
   "file": "charles_schwab.svg"
  },
  "blackrock": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "blackrock.com",
-  "url": "https://www.google.com/s2/favicons?domain=blackrock.com&sz=128",
-  "file": "blackrock.svg",
-  "treatment": "dark-background"
+  "url": "https://www.blackrock.com/blk-one01-c-assets/cache-1767633005000/images/media-bin/web/global/wordmark/blackrock-logo-nav.svg",
+  "file": "blackrock.svg"
  },
  "state_street": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "statestreet.com",
-  "url": "https://www.google.com/s2/favicons?domain=statestreet.com&sz=128",
+  "url": "https://www.statestreet.com/web/Homepage/images/state-street-logo-final.svg",
   "file": "state_street.svg"
  },
  "fidelity": {
@@ -1142,7 +1128,7 @@
  "texas_instruments": {
   "source": "website-icon",
   "domain": "ti.com",
-  "url": "https://www.google.com/s2/favicons?domain=ti.com&sz=128",
+  "url": "https://www.ti.com/favicon.svg",
   "file": "texas_instruments.svg"
  },
  "discover": {
@@ -1240,27 +1226,27 @@
   "file": "walgreens.svg"
  },
  "cigna": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "cigna.com",
-  "url": "https://www.google.com/s2/favicons?domain=cigna.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/en/5/5f/Cigna_logo.svg",
   "file": "cigna.svg"
  },
  "exxonmobil": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "exxonmobil.com",
-  "url": "https://www.google.com/s2/favicons?domain=exxonmobil.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/ExxonMobil_Logo.svg",
   "file": "exxonmobil.svg"
  },
  "deloitte": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "deloitte.com",
-  "url": "https://www.google.com/s2/favicons?domain=deloitte.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_Deloitte.svg",
   "file": "deloitte.svg"
  },
  "mckesson": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "mckesson.com",
-  "url": "https://www.google.com/s2/favicons?domain=mckesson.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/McKesson_logo.svg",
   "file": "mckesson.svg"
  },
  "chevron": {
@@ -1270,21 +1256,23 @@
   "file": "chevron.svg"
  },
  "fannie_mae": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "fanniemae.com",
-  "url": "https://www.google.com/s2/favicons?domain=fanniemae.com&sz=128",
-  "file": "fannie_mae.svg"
+  "url": "https://fanniemae.widen.net/content/xnvdnbosmm/png/FM-FannieMaeLogo4cpNavyCropped-1556x325.png",
+  "file": "fannie_mae.svg",
+  "treatment": "mono",
+  "brandColor": "#002F55"
  },
  "prudential": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "prudential.com",
-  "url": "https://www.google.com/s2/favicons?domain=prudential.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/en/7/7e/Prudential_Financial.svg",
   "file": "prudential.svg"
  },
  "freddie_mac": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "freddiemac.com",
-  "url": "https://www.google.com/s2/favicons?domain=freddiemac.com&sz=128",
+  "url": "https://www.freddiemac.com/sites/g/files/ynjofi111/themes/site/fm_theme/images/FreddieMacLogo-no-tagline.svg",
   "file": "freddie_mac.svg"
  },
  "mercor": {
@@ -1401,7 +1389,7 @@
  "saronic": {
   "source": "website-icon",
   "domain": "saronic.com",
-  "url": "https://www.google.com/s2/favicons?domain=saronic.com&sz=128",
+  "url": "https://www.saronic.com/icon.svg",
   "file": "saronic.svg"
  },
  "writer": {
@@ -1413,13 +1401,14 @@
  "nuro": {
   "source": "website-icon",
   "domain": "nuro.ai",
-  "url": "https://www.google.com/s2/favicons?domain=nuro.ai&sz=128",
-  "file": "nuro.svg"
+  "url": "https://www.nuro.ai/_nuxt/icons/icon_512x512.bccc78.png",
+  "file": "nuro.svg",
+  "treatment": "mono"
  },
  "distyl_ai": {
   "source": "website-icon",
   "domain": "distyl.ai",
-  "url": "https://www.google.com/s2/favicons?domain=distyl.ai&sz=128",
+  "url": "https://www.distyl.ai/favicon-light.svg",
   "file": "distyl_ai.svg"
  },
  "aurora": {
@@ -1435,9 +1424,9 @@
   "file": "skild_ai.svg"
  },
  "1x": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "1x.tech",
-  "url": "https://www.google.com/s2/favicons?domain=1x.tech&sz=128",
+  "url": "https://www.1x.tech/icons/1xLogo.svg",
   "file": "1x.svg"
  },
  "epic_systems": {
@@ -1453,9 +1442,9 @@
   "file": "zscaler.svg"
  },
  "fiserv": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "fiserv.com",
-  "url": "https://www.google.com/s2/favicons?domain=fiserv.com&sz=128",
+  "url": "https://www.fiserv.com/content/dam/fiserv-ent/final-files/digital-graphics/fiserv-com-graphics/fiserv-logo-orange-ff6600.svg",
   "file": "fiserv.svg"
  },
  "belvedere_trading": {
@@ -1483,21 +1472,21 @@
   "file": "headlands_technologies.svg"
  },
  "motorola_solutions": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "motorolasolutions.com",
-  "url": "https://www.google.com/s2/favicons?domain=motorolasolutions.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Motorola_Solutions_stacked_logo.svg",
   "file": "motorola_solutions.svg"
  },
  "nationwide": {
-  "source": "website-icon",
+  "source": "wikimedia",
   "domain": "nationwide.com",
-  "url": "https://www.google.com/s2/favicons?domain=nationwide.com&sz=128",
+  "url": "https://upload.wikimedia.org/wikipedia/en/1/1c/Nationwide_Mutual_Insurance_Company_logo.svg",
   "file": "nationwide.svg"
  },
  "travelers": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "travelers.com",
-  "url": "https://www.google.com/s2/favicons?domain=travelers.com&sz=128",
+  "url": "https://www.travelers.com/ClientResources/tds-icons/assets/icons/logos/symbol-sprites.svg#trv-logo-umbrella-red",
   "file": "travelers.svg"
  },
  "cdw": {
@@ -1507,15 +1496,15 @@
   "file": "cdw.svg"
  },
  "shield_ai": {
-  "source": "website-icon",
+  "source": "website-logo",
   "domain": "shield.ai",
-  "url": "https://www.google.com/s2/favicons?domain=shield.ai&sz=64",
+  "url": "https://shield.ai/wp-content/uploads/2026/10/shield-logo.svg",
   "file": "shield_ai.svg"
  },
  "openevidence": {
   "source": "website-icon",
   "domain": "openevidence.com",
-  "url": "https://www.google.com/s2/favicons?domain=openevidence.com&sz=64",
+  "url": "https://www.openevidence.com/apple-touch-icon.png",
   "file": "openevidence.svg"
  },
  "northwestern_mutual": {
