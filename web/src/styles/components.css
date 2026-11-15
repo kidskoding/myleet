@@ -861,6 +861,12 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .gate { max-width: 640px; margin-top: var(--space-6); }
 .gate .lede { margin-top: var(--space-3); color: var(--ink-2); font-size: 1.125rem; line-height: 1.55; }
 .gate p + p { margin-top: var(--space-3); color: var(--ink-2); }
+.gate-steps { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; gap: var(--space-3); counter-reset: step; }
+.gate-steps li { counter-increment: step; display: grid; grid-template-columns: 32px minmax(0, 1fr); column-gap: var(--space-4); row-gap: 2px; align-items: start; align-content: start; padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+.gate-steps li::before { content: counter(step); grid-row: span 2; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; font: 650 var(--text-sm) var(--font-label); color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.gate-steps strong { font-weight: 650; color: var(--ink); }
+.gate-steps span { color: var(--ink-2); font-size: var(--text-sm); line-height: 1.5; }
+@media (min-width: 900px) { .gate { max-width: 860px; } .gate-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .gate-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }
 .gate-eg { margin-top: var(--space-6); padding: var(--space-4) var(--space-5); display: grid; gap: var(--space-3); opacity: 0.85; }
 .gate-eg ul { display: grid; gap: var(--space-2); list-style: none; padding: 0; margin: 0; }

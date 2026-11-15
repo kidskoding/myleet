@@ -34,11 +34,17 @@ export const signupToToday = (): string => `${signinHref(ROUTES.today)}&mode=sig
 /** The diagnostic invitation, aimed at their target company when onboarding named one. */
 export function inviteCopy(company: string | null): SafeHtml {
   const where = company ? `for your ${company} interview` : "in your interview prep";
-  return html`To find out where you stand ${where}, we'll start with a <strong>diagnostic test</strong>. It takes about 15 minutes and maps what you already know, topic by topic, and then we'll build your plan around what it finds, so every day starts with the right problem for you!`;
+  return html`To find out where you stand ${where}, we'll start with a <strong>diagnostic test</strong>!`;
 }
 
+const INVITE_STEPS: [string, string][] = [
+  ["About 15 minutes", "Eight quick questions on which pattern fits, then two or three real problems you code and run"],
+  ["Your map, topic by topic", "See what you already know and where you'll grow fastest"],
+  ["A plan built for you", "Every day starts with the right problem, paced to your interview"],
+];
+
 export function todayInvite(greet: string, company: string | null = null): SafeHtml {
-  return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p>
+  return html`<section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p><ol class="gate-steps">${INVITE_STEPS.map(([t, d]) => html`<li><strong>${t}</strong><span>${d}</span></li>`)}</ol>
     <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>`;
 }
 
