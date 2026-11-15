@@ -18,18 +18,17 @@
         then self.shortRev or self.rev
         else "dev";
     in {
-      packages.default = pkgs.buildGoModule {
+      packages.default = pkgs.rustPlatform.buildRustPackage {
         pname = "myleet";
         inherit version;
         src = ./.;
-        vendorHash = "sha256-Y+KVhOebtJx6Lafycl4/QjV8ZDkAv4t6okfGyRj3V9c=";
-        subPackages = ["cmd/myleet"];
-        ldflags = [
-          "-s"
-          "-w"
-          "-X github.com/kidskoding/myleet/internal/version.Version=${version}"
-          "-X github.com/kidskoding/myleet/internal/version.Commit=${self.shortRev or "dirty"}"
-        ];
+        cargoLock.lockFile = ./Cargo.lock;
+        env = {
+          MYLEET_VERSION = version;
+          MYLEET_COMMIT = self.shortRev or "dirty";
+        };
+        # Tests need pytest and a writable temp root; CI runs them instead.
+        doCheck = false;
         nativeBuildInputs = [pkgs.makeWrapper];
         postInstall = ''
           wrapProgram $out/bin/myleet \
@@ -53,7 +52,6 @@
       # Runtime helpers for a full practice session (clone + pytest via uv).
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
-          go
           cargo
           rustc
           rustfmt
