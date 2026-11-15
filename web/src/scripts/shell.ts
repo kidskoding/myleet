@@ -9,7 +9,7 @@ import { ROUTES } from "../lib/routes";
 import { localDay, readStreak, STREAK_MILESTONES, streakNow } from "../lib/streak";
 import { html } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
-import { hideBanner, showBanner, toast } from "../lib/ui/overlay";
+import { hideBanner, installDrawerGuard, showBanner, toast } from "../lib/ui/overlay";
 
 export const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
@@ -363,6 +363,7 @@ applyTheme();
 applyMotionPref();
 applyFontPrefs();
 paintAccount(cachedMe());
+installDrawerGuard();
 document.addEventListener("astro:page-load", onPage);
 addEventListener("scroll", () => $(".topbar")?.classList.toggle("is-scrolled", scrollY > 4), { passive: true });
 addEventListener("myleet:streak", paintStreak);

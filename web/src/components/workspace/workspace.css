@@ -116,10 +116,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 
 .skel { display: block; height: 14px; margin-top: 10px; background: var(--surface-sunk); border-radius: var(--radius-xs); position: relative; overflow: hidden; }
 .skel.tall { height: 64px; margin-top: 16px; }
-@media (prefers-reduced-motion: no-preference) {
-  .skel::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--surface) 60%, transparent), transparent); animation: wsx-shimmer 1.4s var(--ease-in-out) infinite; }
-}
-@keyframes wsx-shimmer { to { transform: translateX(100%); } }
 @keyframes wsx-spin { to { transform: rotate(1turn); } }
 @keyframes wsx-fade { from { opacity: 0; } }
 @keyframes wsx-rise { from { opacity: 0; transform: translateY(10px); } }
@@ -513,10 +509,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .shortcuts dl { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px var(--space-6); font-size: var(--text-sm); }
 .shortcuts dt { color: var(--ink-2); } .shortcuts dd { margin: 0; text-align: right; }
 
-.toast { position: fixed; left: 50%; bottom: calc(var(--space-6) + 26px); transform: translateX(-50%); z-index: var(--z-toast); display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); font-size: var(--text-sm); }
-.toast .btn-ghost { color: var(--wall-ink-2); }
-.toast .btn-ghost:hover { background: color-mix(in srgb, var(--wall-ink) 8%, transparent); color: var(--wall-ink); }
-@media (prefers-reduced-motion: no-preference) { .toast { animation: wsx-rise var(--dur-base) var(--ease-out); } }
 
 /* ===== Status bar ===== */
 .status { display: flex; align-items: center; gap: var(--space-4); height: 26px; padding: 0 var(--space-4); font-family: var(--font-label); font-size: 0.6875rem; letter-spacing: -0.01em; color: var(--ink-3); border-top: 1px solid var(--line); background: var(--ground); white-space: nowrap; overflow: hidden; }
@@ -586,6 +578,5 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
   .popover.confirm, .popover.settings-pop, .popover.drafts-pop { left: var(--space-2) !important; right: var(--space-2) !important; width: auto; }
   .statement { padding: var(--space-4) var(--space-4) var(--space-8); }
   .diff2 { grid-template-columns: 1fr; }
-  .toast { bottom: calc(var(--space-6) + 56px); }
 }
 

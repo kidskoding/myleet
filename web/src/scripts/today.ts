@@ -39,7 +39,7 @@ import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, ta
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
-import { bannerDismissed, hideBanner, showBanner, toast } from "../lib/ui/overlay";
+import { bannerDismissed, errorPanel, hideBanner, showBanner, toast } from "../lib/ui/overlay";
 import { dismissNote, forecastRows, noteDismissed, replanNote, trend, whyChips } from "../lib/ui/personal";
 
 const CHECKIN_KEY = "myleet:checkin";
@@ -626,11 +626,7 @@ function errorState(err: unknown): void {
   render(
     main,
     html`<div class="greet"><h1>${greeting(new Date(), cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null)}</h1></div>
-    <div class="panel state-note" style="margin-top:var(--space-8)" role="alert">
-      <h2>Couldn't load the curriculum</h2>
-      <p>The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practiced; those work offline</p>
-      <div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div>
-    </div>`,
+    <div style="margin-top:var(--space-8)">${errorPanel("Couldn't load the curriculum", `The problem list didn't download (${offline ? "you're offline and it isn't cached yet" : err instanceof Error ? err.message : "network error"}). Your progress is safe on this device. Try again, or open a problem you've already practiced; those work offline`)}</div>`,
   );
   main?.removeAttribute("aria-busy");
   render(aside, html``);

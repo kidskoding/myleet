@@ -396,11 +396,11 @@ dialog.shortcuts { --dlg-w: 880px; }
 
 /* ===== Skeleton ===== */
 .skel { background: var(--surface-sunk); border-radius: var(--radius-xs); position: relative; overflow: hidden; }
-/* A calm pulse that stops after three breaths; a loading state is never an endless loop */
+/* One shimmer that stops after three sweeps; a loading state is never an endless loop */
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-motion="reduce"]) .skel { animation: skel-pulse 1.2s var(--ease-in-out) 3; }
+  :root:not([data-motion="reduce"]) .skel::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--surface) 60%, transparent), transparent); animation: skel-shimmer 1.4s var(--ease-in-out) 3; }
 }
-@keyframes skel-pulse { 50% { opacity: 0.55; } }
+@keyframes skel-shimmer { to { transform: translateX(100%); } }
 
 /* ===== Empty, error and note states ===== */
 .state-note { padding: var(--space-8); }
@@ -872,3 +872,11 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 /* Inside a narrow flow (the diagnostic intro) the steps stack */
 .flow .gate-steps { grid-template-columns: 1fr; }
 .gate-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }
+
+/* Touch screens: 44px targets for the small inline controls */
+@media (pointer: coarse) {
+  .brand { min-height: 44px; }
+  details > summary { min-height: 44px; display: inline-flex; align-items: center; }
+  .calgrid button[data-day] { min-height: 44px; }
+  .queue a:not(.btn), .prose li > a, a.link { display: inline-block; padding-block: 12px; margin-block: -12px; }
+}

@@ -9,6 +9,7 @@ import { loadTrainer } from "../lib/trainer";
 import type { Plan, Skill, SkillAction } from "../lib/types";
 import { bar, tag } from "../lib/ui/bits";
 import { html, render, type SafeHtml } from "../lib/ui/html";
+import { errorPanel } from "../lib/ui/overlay";
 import { icon, type IconName } from "../lib/ui/icons";
 import { confidence, LEVEL_WORD, LEVELS, levelIndex, trend } from "../lib/ui/personal";
 
@@ -315,7 +316,7 @@ async function init(): Promise<void> {
     render(
       root(),
       html`<a class="back" href="${ROUTES.progress}">${icon("arrow-left")}Progress</a><header class="head"><div><h1>Skills</h1></div></header>
-      <div class="panel empty" role="alert" style="grid-template-columns:1fr"><div><h2>Couldn't read your attempts</h2><p>Your progress is safe. Try again in a moment</p><div style="margin-top:var(--space-5)"><button type="button" class="btn btn-primary" data-retry>Try again</button></div></div></div>`,
+      ${errorPanel("Couldn't read your attempts", "Your progress is safe. Try again in a moment")}`,
     );
     root()?.querySelector("[data-retry]")?.addEventListener("click", () => void init());
   }

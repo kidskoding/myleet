@@ -53,7 +53,7 @@ import { kbd, plural } from "../lib/ui/bits";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
 import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
-import { toast } from "../lib/ui/overlay";
+import { errorPanel, toast } from "../lib/ui/overlay";
 import { featureGate } from "../lib/ui/guest-gate";
 import { requireAccount, takePending } from "../lib/access";
 import { signedIn } from "../lib/account";
@@ -1803,9 +1803,7 @@ function errorState(err: unknown): void {
   render(
     el,
     html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a><header class="plan-head"><div><h1>Plan</h1></div></header>
-    <div class="panel state-panel" role="alert" style="grid-template-columns:1fr"><div><h2>Couldn't build the plan</h2>
-      <p>${navigator.onLine ? `The planner stopped before it finished (${err instanceof Error ? err.message : "unknown error"}).` : "You're offline and the curriculum isn't cached on this device yet"} Your progress and your settings are safe, and Today's queue works as usual</p>
-      <div class="btns"><button type="button" class="btn btn-primary" data-retry>Try again</button><a class="btn btn-secondary" href="${ROUTES.today}">Go to Today</a></div></div></div>`,
+    ${errorPanel("Couldn't build the plan", `${navigator.onLine ? `The planner stopped before it finished (${err instanceof Error ? err.message : "unknown error"}).` : "You're offline and the curriculum isn't cached on this device yet"} Your progress and your settings are safe, and Today's queue works as usual`)}`,
   );
   el.querySelector("[data-retry]")?.addEventListener("click", () => void init());
 }

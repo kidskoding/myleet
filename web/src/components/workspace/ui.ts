@@ -1,6 +1,8 @@
 // Small DOM helpers for the workspace island: element builder, anchored popovers that
 // close on Esc / outside click and return focus, the toast, and the polite live region.
 
+import { toast as sharedToast } from "../../lib/ui/overlay";
+
 type Child = Node | string | null | undefined | false;
 
 export function h<K extends keyof HTMLElementTagNameMap>(
@@ -112,32 +114,9 @@ export function confirmPop(
   });
 }
 
-let toastTimer: ReturnType<typeof setTimeout> | undefined;
-
-/** Bottom-centre toast, one at a time, 6 s (8 s with Undo). */
-export function toast(slot: HTMLElement, text: string, undo?: () => void): void {
-  clearTimeout(toastTimer);
-  slot.replaceChildren();
-  const el = h(
-    "div",
-    { class: "toast on-wall", role: "status" },
-    h("span", {}, text),
-    undo
-      ? h(
-          "button",
-          {
-            class: "btn btn-ghost btn-sm",
-            onclick: () => {
-              undo();
-              slot.replaceChildren();
-            },
-          },
-          "Undo",
-        )
-      : null,
-  );
-  slot.append(el);
-  toastTimer = setTimeout(() => el.remove(), undo ? 8000 : 6000);
+/** The shared toast (lib/ui/overlay), so the workspace looks and behaves like every page. */
+export function toast(_slot: HTMLElement, text: string, undo?: () => void): void {
+  sharedToast(text, undo ? { action: { label: "Undo", run: undo } } : {});
 }
 
 export function announcer(region: HTMLElement): (msg: string) => void {

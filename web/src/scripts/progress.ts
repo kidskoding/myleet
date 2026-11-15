@@ -43,7 +43,7 @@ import { featureGate } from "../lib/ui/guest-gate";
 import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder } from "../lib/ui/ladder";
-import { closeDialog, hideBanner, openDialog, showBanner, toast } from "../lib/ui/overlay";
+import { closeDialog, errorPanel, hideBanner, openDialog, showBanner, toast } from "../lib/ui/overlay";
 import { signupHref } from "../lib/access";
 import { viewEvents } from "../lib/sample";
 
@@ -558,7 +558,7 @@ async function refresh(): Promise<void> {
   } catch {
     render(
       $("[data-progress]"),
-      html`<h1>Progress</h1><div class="panel state-note" role="alert"><h2>Couldn't read your progress</h2><p>The trainer didn't load (network error). Your progress is safe on this device</p><div class="actions"><button class="btn btn-primary" type="button" data-retry>Try again</button></div></div>`,
+      html`<h1>Progress</h1>${errorPanel("Couldn't read your progress", "The trainer didn't load (network error). Your progress is safe on this device")}`,
     );
   }
 }
