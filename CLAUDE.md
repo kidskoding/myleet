@@ -147,7 +147,7 @@ Run `just ci` (everything) before a push that touches more than one area. Run th
 
 ## Writing for people
 
-Run the `humanizer` skill on every piece of prose a person will read: web pages (How it works, About, Privacy, Terms, landing), UI copy and descriptions, notes, READMEs, commit messages and PR descriptions. Docs pages should be thorough and long enough to answer the reader's real questions, with concrete numbers and examples taken from the code (for example the ladder rungs, time targets and skill thresholds in `crates/core`), never invented. Use full sentences with periods, sentence-case headings, and no em dashes.
+Run the `humanizer` skill on every piece of prose a person will read: web pages (How it works, About, Privacy, Terms, landing), UI copy and descriptions, notes, READMEs, commit messages and PR descriptions. Docs pages should be thorough and long enough to answer the reader's real questions, with concrete numbers and examples taken from the code (for example the ladder rungs, time targets and skill thresholds in `crates/core`), never invented. Use full sentences with periods, sentence-case headings, and no em dashes. In UI copy, a single-sentence label, caption, description or button has no trailing period; text of two or more sentences (the Today coaching note, docs pages) keeps every period, and a sentence may end with "!" where the voice calls for it.
 
 ______________________________________________________________________
 
