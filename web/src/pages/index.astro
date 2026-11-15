@@ -238,23 +238,22 @@ answer: [0, 1]</code></pre>
         <p class="lede">{c.playlists.length} company sets, ordered most-asked first. Problems you have practiced show their review rung; the rest are marked new</p>
         <div class="groups">
           {
-            groups.map((g) => (
-              <div>
+            groups.map((g, gi) => (
+              <div style={`--i:${gi}`}>
                 <h3>
                   <span class="gname">{g.label}</span> <span class="gcount">{g.sets.length}</span>
                 </h3>
-                <ul>
-                  {g.sets.slice(0, 6).map((p) => (
-                    <li>
-                      <a href={companyHref(p.id)} title={p.title} aria-label={p.title}><span class="mark"><Fragment set:html={companyLogo(companySlug(p.id)).value} /></span><span class="nm">{p.title}</span></a>
-                    </li>
-                  ))}
-                  {g.sets.length > 6 && (
-                    <li class="more">
-                      <a class="link" href={`${ROUTES.companies}#${gid(g.label)}`}>See all {g.sets.length}</a>
-                    </li>
-                  )}
-                </ul>
+                {/* Each column rolls through its first 20 companies; the second copy makes the loop seamless and is hidden from assistive tech. */}
+                <div class="tick" style={`--n:${Math.min(20, g.sets.length)}`}>
+                  <ul class="roll">
+                    {[...g.sets.slice(0, 20), ...g.sets.slice(0, 20)].map((p, i) => (
+                      <li aria-hidden={i >= Math.min(20, g.sets.length) ? "true" : undefined}>
+                        <a href={companyHref(p.id)} title={p.title} aria-label={p.title} tabindex={i >= Math.min(20, g.sets.length) ? -1 : undefined}><span class="mark"><Fragment set:html={companyLogo(companySlug(p.id)).value} /></span><span class="nm">{p.title}</span></a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p class="more"><a class="link" href={`${ROUTES.companies}#${gid(g.label)}`}>See all {g.sets.length}</a></p>
               </div>
             ))
           }
@@ -415,7 +414,14 @@ answer: [0, 1]</code></pre>
   /* Every mark in the same small tile, centred, at its own aspect ratio */
   .landing .groups .mark { flex: none; width: 28px; height: 28px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); overflow: hidden; }
   .landing .groups .mark .co-logo { width: 20px !important; height: 20px !important; vertical-align: 0 !important; border-radius: var(--radius-xs); }
-  .landing .groups .more { margin-top: var(--space-1); }
+  .landing .groups .more { margin-top: var(--space-3); font-size: var(--text-sm); }
+  .landing .groups .tick { --row: 42px; height: calc(6 * var(--row)); margin-top: var(--space-2); overflow: hidden; mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); }
+  .landing .groups .tick .roll { margin-top: 0; display: block; animation: co-roll calc(var(--n) * 2.4s) linear infinite; animation-delay: calc(var(--i, 0) * -3.7s); }
+  .landing .groups .tick .roll li { margin-bottom: 2px; }
+  .landing .groups .tick:hover .roll, .landing .groups .tick:focus-within .roll { animation-play-state: paused; }
+  @keyframes co-roll { to { transform: translateY(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .landing .groups .tick .roll { animation: none; } }
+  :root[data-motion="reduce"] .landing .groups .tick .roll { animation: none; }
   .landing .groups .more a.link { min-height: 40px; display: inline-flex; align-items: center; padding: 0; margin: 0; color: var(--accent); text-decoration-line: underline; }
   .landing .groups .more a.link:hover { background: none; }
   .landing .disclaim { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--ink-3); }
