@@ -414,8 +414,10 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .result .txt { grid-area: t; align-self: end; padding-right: var(--space-8); }
 .result .acts { grid-area: a; align-self: start; display: flex; gap: var(--space-2); flex-wrap: wrap; }
 .result .x { position: absolute; top: var(--space-2); right: var(--space-2); }
-.result h2 { font-size: var(--text-lg); font-weight: 700; letter-spacing: -0.02em; }
+.result h2 { font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; font-variant-numeric: tabular-nums; text-wrap: balance; }
 .result p { color: var(--ink-2); font-size: var(--text-sm); margin-top: 2px; }
+.result .txt > h2 + p { margin-top: var(--space-2); color: var(--ink); font-size: var(--text-base); max-width: 60ch; }
+.result p strong { color: var(--ink); font-weight: 650; }
 .result .mtag { margin-left: var(--space-2); vertical-align: 4px; }
 .result { max-height: calc(100% - var(--space-6)); overflow-y: auto; pointer-events: auto; }
 /* "What this changes" (this page doesn't load components.css): one compact card */
@@ -573,7 +575,8 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
   .mbar .key:active { background: var(--line); }
   .mbar .btn { height: 40px; min-width: 60px; }
   .ws[data-mpane="problem"] ~ .mbar, .ws[data-mpane="tests"] ~ .mbar { display: none; }
-  .result { grid-template-columns: 1fr; grid-template-areas: "l" "t" "a"; gap: var(--space-3); left: var(--space-2); right: var(--space-2); bottom: var(--space-2); padding: var(--space-5); }
+  .result h2 { font-size: var(--text-lg); }
+  .result { grid-template-columns: minmax(0, 1fr); grid-template-areas: "l" "t" "a"; gap: var(--space-3); left: var(--space-2); right: var(--space-2); bottom: var(--space-2); padding: var(--space-5); }
   .result .acts .btn { flex: 1; }
   .popover.confirm, .popover.settings-pop, .popover.drafts-pop { left: var(--space-2) !important; right: var(--space-2) !important; width: auto; }
   .statement { padding: var(--space-4) var(--space-4) var(--space-8); }

@@ -24,7 +24,7 @@ import Base from "../layouts/Base.astro";
   .plan .back:hover { color: var(--ink); }
   .plan .back .icon { width: 16px; height: 16px; }
   .plan-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-6); margin-top: var(--space-3); flex-wrap: wrap; }
-  .plan-head .lede b { color: var(--ink); font-weight: 650; }
+  .plan-head .lede :is(b, strong) { color: var(--ink); font-weight: 650; }
   .plan .head-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); max-width: 100%; }
   .plan > .replan, .plan .plan-flow > .replan { margin-top: var(--space-6); }
 

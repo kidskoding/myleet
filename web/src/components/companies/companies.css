@@ -16,6 +16,7 @@
 .cos .pin .grp { font-size: var(--text-sm); color: var(--ink-3); }
 .cos .pin .ready { font-size: var(--text-sm); color: var(--ink-2); }
 .cos .pin .ready .bar { margin-top: 6px; }
+.cos .pin .ready b { color: var(--ink); font-weight: 650; font-variant-numeric: tabular-nums; }
 .cos .pin > :last-child { justify-self: end; }
 .cos .pin .next { font-size: var(--text-sm); color: var(--ink-3); min-width: 0; }
 .cos .pin .next strong { display: block; color: var(--ink); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
