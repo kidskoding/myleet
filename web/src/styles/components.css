@@ -959,3 +959,10 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 /* Real third-party marks (LeetCode, calendar apps) beside their names */
 .brand-ico { display: inline-block; width: 1.05em; height: 1.05em; flex: none; vertical-align: -0.16em; margin-right: 0.4em; }
 .btn .brand-ico, h1 .brand-ico, h2 .brand-ico { margin-right: 0.35em; }
+
+/* Section header actions ("Open plan", "All skills"): a quiet control, not an underlined hyperlink */
+.section-head a.link { color: var(--ink-2); text-decoration: none; font-weight: 550; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; margin: -4px -8px; border-radius: var(--radius-sm); transition: color 0.15s, background-color 0.15s; }
+.section-head a.link::after { content: "→"; transition: transform 0.15s; }
+.section-head a.link:hover, .section-head a.link:focus-visible { color: var(--ink); background: var(--surface-sunk); }
+.section-head a.link:hover::after { transform: translateX(2px); }
+@media (prefers-reduced-motion: reduce) { .section-head a.link::after { transition: none; } }
