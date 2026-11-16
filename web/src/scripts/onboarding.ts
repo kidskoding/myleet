@@ -2,6 +2,7 @@
 // first time), LeetCode, hours and the plan.
 // Each step is a URL so Back works. Answers save as you go (lib/prefs). The placement
 // diagnostic lives at /diagnostic.
+import { brandIcon } from "../lib/ui/brand";
 import { navigate } from "astro:transitions/client";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { daysUntil, planWeeks, shortDate, TIME_OPTIONS } from "../lib/plan";
@@ -15,7 +16,7 @@ import { ROUTES } from "../lib/routes";
 import { localDay } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import { kbd, plural, tag } from "../lib/ui/bits";
-import { html, render, type SafeHtml } from "../lib/ui/html";
+import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { goalsOf, mountGoalsEditor, planPatch } from "../lib/ui/goals-editor";
 import { mountLeetcodePanel } from "../lib/ui/leetcode-connect";
@@ -91,7 +92,7 @@ function goalsStep(error?: string): SafeHtml {
 
 function leetcodeStep(): SafeHtml {
   return html`${head("leetcode")}<section class="q" aria-labelledby="q3b">
-    <h1 id="q3b">Connect your LeetCode</h1>
+    <h1 id="q3b">Connect your <span class="co-inline">${raw(brandIcon("leetcode", 30))}LeetCode</span></h1>
     <p class="sub">This is optional. If you already practice on LeetCode, your plan can skip what you know and start with the topics you've done least</p>
     <div data-lc-host></div>
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue>Continue</button></div>

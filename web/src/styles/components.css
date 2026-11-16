@@ -955,3 +955,7 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
   :root:not([data-motion="reduce"]) .is-arriving :is(.nextup, .week-sec) { animation-delay: calc(90ms + var(--arrive-shift, 0ms)); }
   @keyframes arrive { from { opacity: 0; transform: translateY(8px); } }
 }
+
+/* Real third-party marks (LeetCode, calendar apps) beside their names */
+.brand-ico { display: inline-block; width: 1.05em; height: 1.05em; flex: none; vertical-align: -0.16em; margin-right: 0.4em; }
+.btn .brand-ico, h1 .brand-ico, h2 .brand-ico { margin-right: 0.35em; }

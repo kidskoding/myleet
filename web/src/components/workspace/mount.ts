@@ -11,6 +11,7 @@
 //   own `passed` line for an interview round) from the last report with `event: "submit"`.
 //   Practice and drill also emit the report, after the workspace has recorded the attempt.
 
+import { brandIcon } from "../../lib/ui/brand";
 import { addToHistory, draftHistory, loadSnapshot, opening, saveSnapshot } from "../../lib/editor/drafts";
 import { Attempt, isExam } from "../../lib/editor/attempt";
 import { chipText, failures, type Failure } from "../../lib/editor/failure";
@@ -841,7 +842,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
         nx ? h("p", { class: "nextwhy", html: markCompanies(nx.reason, extras?.marks ?? {}).value }) : null,
         extras?.guest ? h("a", { class: "nextwhy guest-link", href: signupHref() }, "Create a free account to get a plan built around this") : null,
         files?.solution ? h("button", { class: "btn btn-secondary", onclick: () => (closeResult(), showSolution("diff")) }, "Compare with reference") : null,
-        green && mode !== "drill" && leetcodeSlug(meta.url) ? h("button", { class: "btn btn-ghost", type: "button", "data-submit-lc": "", onclick: submitOnLeetcode }, "Submit on LeetCode too") : null,
+        green && mode !== "drill" && leetcodeSlug(meta.url) ? h("button", { class: "btn btn-ghost", type: "button", "data-submit-lc": "", onclick: submitOnLeetcode }, h("span", { html: brandIcon("leetcode", 16) }), "Submit on LeetCode too") : null,
       ),
       h("button", { class: "icon-btn x", "aria-label": "Dismiss (Esc)", html: icon("x"), onclick: () => closeResult(true) }),
     );
@@ -915,7 +916,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   async function loadStatement() {
     if (stmt.hasAttribute("data-has-prompt")) return;
     const slug = leetcodeSlug(meta.url);
-    const lc = h("a", { class: "btn btn-secondary btn-sm", href: meta.url, target: "_blank", rel: "noopener" }, "Open on LeetCode ", h("span", { html: icon("external-link", 14, "icon-sm") }));
+    const lc = h("a", { class: "btn btn-secondary btn-sm", href: meta.url, target: "_blank", rel: "noopener" }, h("span", { html: brandIcon("leetcode", 16) }), "Open on LeetCode ", h("span", { html: icon("external-link", 14, "icon-sm") }));
     if (!slug) {
       stmt.replaceChildren(h("div", { class: "stmt-note" }, "This problem's statement lives on LeetCode", h("div", { class: "row" }, lc)));
       return;
@@ -1349,7 +1350,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       item("Keyboard shortcuts", "keyboard", openShortcuts),
       item(document.fullscreenElement ? "Exit full screen" : "Full screen", "expand", toggleFullscreen),
       h("hr", {}),
-      h("a", { role: "menuitem", href: meta.url, target: "_blank", rel: "noopener" }, h("span", { html: icon("external-link") }), "Open on LeetCode"),
+      h("a", { role: "menuitem", href: meta.url, target: "_blank", rel: "noopener" }, h("span", { html: brandIcon("leetcode") }), "Open on LeetCode"),
       h("a", { role: "menuitem", href: issue, target: "_blank", rel: "noopener" }, h("span", { html: icon("flask-conical") }), "Report a broken test"),
     );
     menu.addEventListener("keydown", (e) => {

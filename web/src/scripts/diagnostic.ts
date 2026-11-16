@@ -1,6 +1,7 @@
 // The diagnostic (/diagnostic, no account needed): intro, eight pattern questions, two or
 // three coding problems in the workspace (mode=placement), then results. The run lives in
 // localStorage; the finish writes one placement_done line that Today and the plan read.
+import { brandIcon } from "../lib/ui/brand";
 import { cachedMe } from "../lib/account";
 import { parseEvents, runProgress } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
@@ -129,7 +130,7 @@ function statementBody(id: string): SafeHtml {
   const url = cat?.byId.get(id)?.url;
   if (s === undefined || s === null) return html`<div class="skel" style="height:18px;width:92%"></div><div class="skel" style="height:18px;width:70%;margin-top:8px"></div>`;
   if (s) return raw(s);
-  return html`<p>The statement didn't load here.</p>${url ? html`<a class="link lc" href="${url}" target="_blank" rel="noopener">Read it on LeetCode${icon("external-link")}</a>` : ""}`;
+  return html`<p>The statement didn't load here.</p>${url ? html`<a class="link lc" href="${url}" target="_blank" rel="noopener">${raw(brandIcon("leetcode", 16))}Read it on LeetCode${icon("external-link")}</a>` : ""}`;
 }
 
 // ---- views ----

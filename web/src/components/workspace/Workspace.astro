@@ -83,7 +83,7 @@ const data = JSON.stringify({ meta: problem, starter, moduleTitle, techniqueTitl
             <div class="meta">
               <span class="diff" data-level={problem.difficulty}><i><b></b><b></b><b></b></i>{diffLabel}</span>
               <span>{minutes} min target</span>
-              <a class="link" href={problem.url} target="_blank" rel="noopener">LeetCode {problem.leetcode}</a>
+              <a class="link lc-link" href={problem.url} target="_blank" rel="noopener"><img class="brand-ico" src="/brand/leetcode.svg" alt="" width="16" height="16" />LeetCode {problem.leetcode}</a>
             </div>
             <div class="prose" data-statement data-has-prompt={statementHtml ? "" : undefined}>
               {statementHtml ? <Fragment set:html={statementHtml} /> : (
