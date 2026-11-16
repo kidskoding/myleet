@@ -6,7 +6,7 @@ import { ROUTES } from "../lib/routes";
 <LongForm
   title="How myleet tracks mastery"
   pageTitle="How it works"
-  description="What counts as a clean pass, how review levels schedule problems, how weak spots are found, and how Today and your plan are built."
+  description="How myleet decides a problem is mastered, spots the techniques you're weak in, and builds Today and your plan"
   toc={[
     ["idea", "The idea behind it"],
     ["clean", "What counts as a clean pass"],
@@ -43,7 +43,7 @@ import { ROUTES } from "../lib/routes";
   <p>Looking at a hint or the solution after you have already passed does not undo the pass. Reading how someone else solved it is often the most useful thing to do next.</p>
 
   <h2 id="targets">Time targets</h2>
-  <p>Every problem has the same 25-minute target, whether it is easy, medium or hard. That is about the time one problem gets in a real interview round, once you leave room to talk through your approach and test your code.</p>
+  <p>Every problem has the same 25-minute target, whether it is easy, medium or hard. That is about the time one problem gets in a real interview round, once you leave room to talk through your approach and test your code. You can change the target for each difficulty in Settings, anywhere from 10 to 60 minutes.</p>
   <p>The timer starts on your first keystroke. You can pause it during practice, and the code hides while it is paused so the pause stays honest. Restarting it is allowed, but a pass after a restart is not clean, because the clock is the part of the interview you cannot restart.</p>
 
   <h2 id="ladder">Review levels</h2>
@@ -71,7 +71,7 @@ import { ROUTES } from "../lib/routes";
   <p>The one hint on Friday cost about four days of progress.</p>
 
   <h2 id="mastered">When a problem counts as mastered</h2>
-  <p>A problem counts as mastered once it reaches level 4, the 14-day level. It takes at least two clean, cold redos after the first finish, each on a later day, and in practice usually more. Level 5, at 30 days, keeps mastered problems from fading.</p>
+  <p>A problem counts as mastered once it reaches level 4, the 14-day level. It takes at least three clean, cold redos after the first finish, each on a later day, and in practice usually more. Level 5, at 30 days, keeps mastered problems from fading.</p>
   <p>The status shown on a problem follows its level directly. Problems on levels 1 and 2 are Learning, level 3 is Reviewing, and levels 4 and 5 are Mastered. A mastered problem that you then fail goes back to level 1 and shows as Learning again.</p>
 
   <h2 id="missed">Missed reviews and busy weeks</h2>
@@ -82,7 +82,7 @@ import { ROUTES } from "../lib/routes";
   <p>Problems are how you practice, but techniques are what an interview tests. A new problem you have never seen will still be a sliding window or a topological sort, so myleet keeps a mastery score from 0 to 1 for each technique, built from your attempts at all of its problems.</p>
   <p>Each attempt gets a score. A clean pass scores 1. A pass with help scores less: the first hint takes off 0.25 and each extra hint another 0.1, a look at the solution takes off 0.4, and a timer restart takes off 0.1. Going over the time target takes some off as well. A failed attempt still earns a little, up to 0.25, in proportion to how many tests your best run passed, because getting most of the way there is real progress.</p>
   <p>Those scores are averaged with recent work counting the most: an attempt three weeks old counts half as much as one from today, and one six weeks old a quarter as much. Three quarters of the final score comes from that history of attempts, and one quarter from where the technique's problems sit on the review levels, so a technique full of level 4 and level 5 problems reads as stronger than one where everything is due tomorrow.</p>
-  <p>On the skill map the score turns into a level: Shaky below 0.35, Building below 0.65, Solid below 0.85 and Strong above that. A technique you have never attempted is simply New.</p>
+  <p>On the skill map the score turns into a level: Shaky below 0.35, Building below 0.65, Solid below 0.85 and Strong above that. A technique you have never attempted shows as New.</p>
   <p>Once a technique has at least four scored attempts, myleet also shows a trend. It compares the score of your more recent half of attempts with the older half; a difference of more than 0.15 either way reads as improving or slipping, and anything smaller reads as flat.</p>
 
   <h2 id="sure">How sure myleet is</h2>
@@ -117,7 +117,7 @@ import { ROUTES } from "../lib/routes";
 
   <h2 id="plan">How your plan is built</h2>
   <p>The <a href={ROUTES.plan}>Plan</a> looks further ahead than Today. It walks forward one day at a time from today to your interview date, or four weeks ahead if you have not set one, and places sessions inside the hours you told it you are free, up to your daily time. Without any free hours set, it uses one window a day at the hour you usually practice, or 7 pm until it has learned that.</p>
-  <p>To size sessions it uses how long you actually take, by difficulty, once you have five solves; before then it uses the targets. It assumes each planned review will pass, which lets it see when every problem will come back and keep those days from overflowing.</p>
+  <p>To size sessions it uses how long you actually take, by difficulty, once you have two solves at that difficulty; before then it uses the targets. It assumes each planned review will pass, which lets it see when every problem will come back and keep those days from overflowing.</p>
   <p>Each day is filled in this order: due reviews first, then a mock interview if one is scheduled, then a check-in, then new problems up to your daily number, ranked the same way Today ranks them, and finally a targeted drill from your weak spots. Items are packed into sessions of your preferred length with ten-minute breaks between them. In the last two days before an interview the plan stops adding new problems, so those days are for review and rest.</p>
   <p>Mock interviews start once you have tried at least eight problems. They come weekly, every three days during the last two weeks, and once more the day before your interview. Check-ins come at most weekly, once you have a few clean passes.</p>
   <p>The plan is rebuilt from your real history every time, so a missed day moves its work forward into your next free windows. You can drag a session to another window, take a day off, or give a single day a shorter budget, and the rest of the plan adjusts around it. If you subscribe from your calendar app, the same sessions appear there with reminders.</p>
@@ -125,18 +125,18 @@ import { ROUTES } from "../lib/routes";
   <h2 id="forecast">The forecast and "behind by N"</h2>
   <p>For each technique your target companies lean on, the plan sets a coverage goal: how many of that technique's problems you should have worked on by the interview. The goal is the number of tracked problems your companies' sets contain for that technique, kept between two and five. With no target companies, every technique's goal is three.</p>
   <p>The forecast counts the problems you have already started plus the ones the plan will add before the date. If that reaches the goal, the technique is on track. If it falls short, it is behind by the number of problems it would miss. "Behind by N" means the same thing everywhere in myleet: how many problems short you would be on the day if you kept to the current plan.</p>
-  <p>When something is behind, the plan suggests the smallest change that would close the gap, usually a little more daily time on weekdays. The suggestion is only a suggestion; turning down the budget is always allowed, and the forecast simply shows the honest result.</p>
+  <p>When something is behind, the plan suggests the smallest change that would close the gap, usually a little more daily time on weekdays. You don't have to take it. If you lower your budget instead, the forecast shows what that costs.</p>
 
   <h2 id="exempt">Practice that never changes a level</h2>
   <p>Some kinds of practice measure you without changing your review schedule.</p>
   <ul>
     <li>The diagnostic only tells Today which patterns are strong, which are shaky and where to start. None of its questions or problems get a review level.</li>
     <li>Check-ins sample a stretch of modules you have studied and report how they are holding up, again without touching due dates.</li>
-    <li>Keep-sharp drills count toward your streak and your stats, and they feed the skill scores, but they never change a problem's level or due date.</li>
+    <li>Keep-sharp drills count towards your streak and your stats, and they feed the skill scores, but they never change a problem's level or due date.</li>
   </ul>
 
   <h2 id="mock">Mock interviews</h2>
-  <p>A mock round is 45 minutes for one to three problems, chosen without telling you the technique, since recognizing the pattern is half of a real interview. Each hint costs three minutes off the round clock. After the round you answer a short self-check (could you explain your approach and its complexity out loud?), and a pass you could not explain, or one that ran past the clock, is recorded as not clean. Mock results then flow into review levels and the skill scores like any other attempt.</p>
+  <p>A mock round runs on one clock: about 25 minutes for one problem, 45 for two (like a phone screen) and 60 for three (like an onsite). The problems come without their technique, since recognizing the pattern is half of a real interview, and hints and reference solutions stay hidden until the round ends. After the round you answer a short self-check (could you explain your approach and its complexity out loud?), and a pass you could not explain, or one that ran past the clock, is recorded as not clean. Mock results then flow into review levels and the skill scores like any other attempt.</p>
 
   <h2 id="data">Where your progress lives</h2>
   <p>Your history is a list of events (opened, ran the tests, passed, used a hint and so on). Everything on this page is computed from that list in your browser. Practicing needs a free account, and the list syncs to it so your other devices see the same history. Your browser keeps its own copy as well, so practice keeps working offline and syncs when you reconnect.</p>
