@@ -1009,7 +1009,6 @@ mod tests {
     /// (minute offset, kind, data)
     type Step<'a> = (i64, &'a str, &'a [(&'a str, &'a str)]);
 
-    /// One attempt made of `steps`.
     fn att(p: &str, id: &str, start: Timestamp, steps: &[Step]) -> Vec<Event> {
         let mut out = vec![ev(start, kind::OPENED, p, id, &[])];
         for (m, k, d) in steps {
