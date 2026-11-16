@@ -56,7 +56,8 @@ const ruleIcon = (s: string, cls: string) =>
     // Signed-in learners go straight to Today, before first paint.
     (function () {
       try {
-        if (localStorage.getItem("myleet:me")) location.replace("/app");
+        // "/?home" is the footer's Home page link: signed-in learners can still read the landing.
+        if (localStorage.getItem("myleet:me") && !/[?&]home\b/.test(location.search)) location.replace("/app");
       } catch (e) {}
     })();
   </script>
@@ -69,7 +70,7 @@ const ruleIcon = (s: string, cls: string) =>
           <p class="sub">You solve real problems in the browser. Each one comes back after 1 day, then after 3, 7, 14 and 30 days as it levels up, until you can solve it from memory</p>
           <div class="actions">
             <a class="btn btn-primary btn-lg" href={ROUTES.diagnostic}>Find your level</a>
-            <a class="btn btn-secondary btn-lg" href={ROUTES.signin}>Sign in</a>
+            <a class="btn btn-secondary btn-lg when-out" href={ROUTES.signin}>Sign in</a><a class="btn btn-secondary btn-lg when-in" href={ROUTES.today}>Open Today</a>
             <small>Free and about 15 minutes. You don't need an account to take it</small>
           </div>
         </div>
@@ -268,7 +269,7 @@ answer: [0, 1]</code></pre>
           <p class="lede">Eight multiple-choice questions and two or three short coding problems show which patterns you already know. Make a free account afterward to keep the plan they build</p>
           <div class="actions">
             <a class="btn btn-primary btn-lg" href={ROUTES.diagnostic}>Find your level</a>
-            <a class="btn btn-secondary btn-lg" href={ROUTES.signin}>Sign in</a>
+            <a class="btn btn-secondary btn-lg when-out" href={ROUTES.signin}>Sign in</a><a class="btn btn-secondary btn-lg when-in" href={ROUTES.today}>Open Today</a>
           </div>
         </div>
         <div class="l2 preview" role="img" aria-label="Example result: arrays and hashing strong, sliding window shaky, graphs is where to start">

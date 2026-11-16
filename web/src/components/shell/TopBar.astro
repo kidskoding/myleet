@@ -21,7 +21,8 @@ const links: { key: NavKey; href: string; label: string; icon: IconName }[] = [
 ---
 
 <header class="topbar" transition:persist="topbar" transition:animate="none">
-  <a class="brand" href={ROUTES.home} aria-label="myleet, home"><BrandMark /><span class="brand-word">myleet</span></a>
+  <a class="brand when-out" href={ROUTES.home} aria-label="myleet, home"><BrandMark /><span class="brand-word">myleet</span></a>
+  <a class="brand when-in" href={ROUTES.today} aria-label="myleet, Today"><BrandMark /><span class="brand-word">myleet</span></a>
   <nav class="nav" aria-label="Primary">
     {links.map((l) => <a href={l.href} data-nav={l.key} aria-current={nav === l.key ? "page" : undefined}><Icon name={l.icon} />{l.label}</a>)}
   </nav>

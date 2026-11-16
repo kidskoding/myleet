@@ -339,7 +339,8 @@ async function bootAccount(): Promise<void> {
   }
   void import("./auth-ui").then((m) => m.rememberAccount());
   const back = takeReturn();
-  if (back !== null || location.pathname === ROUTES.home) {
+  // The footer's Home page link (/?home) lets a signed-in learner read the landing.
+  if (back !== null || (location.pathname === ROUTES.home && !new URLSearchParams(location.search).has("home"))) {
     const dest = afterSignIn(me, back ?? ROUTES.today, readPrefs().plan.onboarded);
     if (dest !== here) await navigate(dest);
   }
