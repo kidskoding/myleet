@@ -64,7 +64,7 @@ const ago = (ms: number) => {
 };
 
 // The real app icons (Wikimedia Commons) live in public/brand, since source files may not hold raw colours.
-const BRAND = { google: "/brand/google-calendar.svg", apple: "/brand/apple-calendar.svg", outlook: "/brand/outlook.svg" } as const;
+const BRAND = { google: "/brand/google-calendar.svg", apple: "/brand/apple-calendar.webp", outlook: "/brand/outlook.svg" } as const;
 
 const PROVIDERS = [
   { id: "google", label: "Google Calendar", sub: "Opens Google to subscribe" },
