@@ -14,6 +14,7 @@ import type { TrainerApi } from "../trainer";
 import type { Plan, TodayEntry } from "../types";
 import { html, render } from "./html";
 import { whatThisChanges } from "./personal";
+import { companyMarks, type Marks } from "./emphasis";
 
 interface Ctx {
   problem: string;
@@ -71,6 +72,8 @@ export interface ResultExtras {
   end: { text: string; tomorrowHref: string; extra: { href: string; title: string } | null } | null;
   /** Signed out: Next follows curriculum order and the sheet offers a free account. */
   guest: boolean;
+  /** Logos for the learner's companies, for the lines that name them. */
+  marks: Marks;
 }
 
 /** The plan before the attempt is recorded, for the "what changed" diff. */
@@ -101,7 +104,8 @@ export async function resultExtras(c: Ctx & { snapshot: Plan | null; attempt: Re
     return m ? (catalog.modules[m.module]?.techniques[m.technique]?.title ?? null) : null;
   };
   const technique = techTitle(c.problem);
-  const out: ResultExtras = { note: null, change: null, next: null, end: null, guest: false };
+  const prefs = readPrefs().plan;
+  const out: ResultExtras = { note: null, change: null, next: null, end: null, guest: false, marks: companyMarks(catalog.playlists, [...prefs.companies, ...prefs.interviews.map((i) => i.company)]) };
 
   let plan: Plan | null = null;
   try {

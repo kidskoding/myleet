@@ -10,7 +10,7 @@ import { companyLogo } from "../lib/company-logos";
 import { addDays } from "../lib/streak";
 import { companyTitle } from "../lib/ui/interviews";
 import { editGoalsLabel, goalsOf, GOALS_ICON, mountGoalsEditor, planPatch, type Goals } from "../lib/ui/goals-editor";
-import { emphasize } from "../lib/ui/emphasis";
+import { companyMarks, emphasize, markCompanies, type Marks } from "../lib/ui/emphasis";
 import { topicName } from "../lib/goals";
 import { cachedMe } from "../lib/account";
 import { closeDialog, openDialog } from "../lib/ui/overlay";
@@ -52,7 +52,7 @@ import {
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Habits, Interview, Plan, PlanDay, PlanFixes, PlanNote, PlanSession } from "../lib/types";
 import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
-import { kbd, plural } from "../lib/ui/bits";
+import { arrive, kbd, keepArriving, plural } from "../lib/ui/bits";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
 import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
@@ -146,6 +146,12 @@ function companySlugNow(): string | null {
   return nextInterview(p.interviews)?.company ?? p.companies[0] ?? null;
 }
 
+/** Logos for the learner's target and interview companies, for the copy that names them. */
+function marks(c: Ctx): Marks {
+  const p = readPrefs().plan;
+  return companyMarks(c.cat.catalog.playlists, [...p.companies, ...p.interviews.map((i) => i.company)]);
+}
+
 function company(c: Ctx): string | null {
   return companyTitle(c.cat.catalog.playlists, companySlugNow());
 }
@@ -216,7 +222,7 @@ function currentNote(c: Ctx): PlanNote | null {
     pool.push({
       kind: "no_date" as PlanNote["kind"],
       title: "Your next four weeks",
-      body: "Keep a steady practice routine or work toward your target companies. Your plan covers the next four weeks and adjusts as you practice. An interview date is optional",
+      body: "Keep a steady practice routine or work towards your target companies. Your plan covers the next four weeks and adjusts as you practice. An interview date is optional",
       actions: [{ kind: "change_plan", label: "Edit goals" }],
     });
   return pool.find((n) => !noteDismissed(n)) ?? null;
@@ -650,7 +656,7 @@ function forecast(c: Ctx): SafeHtml {
   const closeAll = c.fixes?.all && behind.length > 1 ? html`<p class="fc-all"><button type="button" class="fix" data-fix="${c.fixes.all}">See what weekdays at ${fmtM(c.fixes.all)} would change</button></p>` : "";
   return html`<section class="panel fc-panel" aria-labelledby="fc-h">
     <div class="section-head" style="margin:0"><h2 id="fc-h">${date ? `Where you'll be by ${short(date)}` : "Where you'll be in four weeks"}</h2><span class="meta">If you keep to the plan</span></div>
-    ${lead ? html`<p class="fc-lead">${lead}</p>` : ""}
+    ${lead ? html`<p class="fc-lead">${markCompanies(lead, marks(c))}</p>` : ""}
     ${rows.length ? html`<div class="fc">${forecastRows(rows, { date, fixes: c.fixes, fix: true, scale })}</div>` : html`<p class="fineprint">Add an interview or a target company and this shows the topics their sets lean on, and whether you'll be ready for each in time</p>`}
     ${more.length ? html`<details class="fc-more"><summary>See all ${all.length} topics</summary><div class="fc">${forecastRows(more, { date, fixes: c.fixes, fix: true, scale })}</div></details>` : ""}
     ${closeAll}${rows.length ? forecastKey() : ""}
@@ -696,10 +702,10 @@ function head(c: Ctx): SafeHtml {
   const track = onTrackLine(standing(c.plan, c.events, c.now), date, company(c));
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
     <header class="plan-head">
-      <div><h1>${copy.title}</h1>
-        <p class="lede">${emphasize(copy.lede, companies)}</p>
+      <div><h1>${markCompanies(copy.title, marks(c))}</h1>
+        <p class="lede">${emphasize(copy.lede, companies, marks(c))}</p>
         ${prog ? html`<div class="plan-progress"><span class="pp-text">${prog.text}</span><span class="pp-bar" role="progressbar" aria-label="Plan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(prog.share * 100)}"><span style="width:${(prog.share * 100).toFixed(1)}%"></span></span></div>` : ""}
-        ${track ? html`<p class="on-track">${track}</p>` : ""}</div>
+        ${track ? html`<p class="on-track">${markCompanies(track, marks(c))}</p>` : ""}</div>
       <div class="head-actions"><button type="button" class="btn btn-secondary" data-act="change">${editGoalsLabel()}</button><button type="button" class="btn btn-secondary" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Edit availability ${kbd("a")}</button><button type="button" class="btn btn-secondary when-out" data-act="save">${icon("calendar-check")}Save plan</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
     </header>`;
 }
@@ -762,7 +768,7 @@ function paint(): void {
   const note = currentNote(c);
   render(
     el,
-    html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
+    html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { marks: marks(c), dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
         <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
@@ -771,6 +777,7 @@ function paint(): void {
       ${you(c)}
     </div>`,
   );
+  keepArriving(el);
   placeLive();
   placeBracket();
   placeThumb();
@@ -1904,6 +1911,7 @@ async function init(): Promise<void> {
     const hi = /^\d{4}-\d{2}-\d{2}$/.test(hash) ? plan.days.findIndex((d) => d.date === hash) : -1;
     if (hi >= 0) goTo(hi, true);
     else paint();
+    arrive(root());
     computeFixes(ctx);
     // "Edit goals" and "When do you practice?" from other pages land here with the editor open.
     const edit = new URLSearchParams(location.search).get("edit");

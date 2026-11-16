@@ -37,8 +37,8 @@ import {
 } from "../lib/today";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { LeetcodeImport, Plan, PlanItem, PlanNote, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
-import { diff, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
-import { emphasize } from "../lib/ui/emphasis";
+import { arrive, diff, keepArriving, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
+import { companyMarks, emphasize, markCompanies, type Marks } from "../lib/ui/emphasis";
 import { goalLine, goalReadiness, goalTitle, topicName, type GoalReady } from "../lib/goals";
 import { lastCleanSet } from "../lib/companies";
 import { html, render, type SafeHtml } from "../lib/ui/html";
@@ -168,8 +168,8 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
     const topics = topicNames(c);
     const rows = cos.length || topics.length ? goalRows(c) : [];
     return {
-      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">${goalTitle(cos, topics)}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
-        <p class="plan-note">${emphasize(goalLine(cos, topics), [...cos, ...topics])}</p>
+      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">${markCompanies(goalTitle(cos, topics), marks(c))}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
+        <p class="plan-note">${emphasize(goalLine(cos, topics), [...cos, ...topics], marks(c))}</p>
         ${rows.length ? html`<ul class="goal-ready" aria-label="Readiness for your goals">${rows.map((r) => {
           const pct = Math.round((r.ready / Math.max(1, r.tracked)) * 100);
           return html`<li><span class="gr-name">${r.kind === "company" ? companyLogo(r.id, "ready-logo") : ""}${r.name}</span><span class="gr-n"><b>${r.ready}</b> of ${r.tracked} ready</span><span class="ready-bar" role="meter" aria-label="${r.name}: ${r.ready} of ${r.tracked} problems ready" aria-valuemin="0" aria-valuemax="${r.tracked}" aria-valuenow="${r.ready}"><span style="width:${pct}%"></span></span></li>`;
@@ -181,8 +181,8 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   const left = daysUntil(p.interviewDate, today);
   if (left < 0) {
     return {
-      panel: html`<section class="panel" aria-labelledby="cd"><h2 id="cd">${title}</h2>
-        <p class="plan-note">Your ${who ? `${who} ` : ""}interview date was ${shortDate(p.interviewDate)}. Keep practicing or set a date for your next interview</p>
+      panel: html`<section class="panel" aria-labelledby="cd"><h2 id="cd">${markCompanies(title, marks(c))}</h2>
+        <p class="plan-note">${markCompanies(`Your ${who ? `${who} ` : ""}interview date was ${shortDate(p.interviewDate)}. Keep practicing or set a date for your next interview`, marks(c))}</p>
         <div class="goal-actions"><a class="btn btn-secondary btn-sm" href="${ROUTES.goals}">${editGoalsLabel()}</a><button class="btn btn-ghost btn-sm" type="button" data-remove-date>Keep practicing without a date</button></div></section>`,
       inline: "",
     };
@@ -192,7 +192,7 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${behind.title} is behind by ${behind.behind_by}` : c.plan?.summary.on_track ? " On track" : ""}`;
   return {
     panel: html`<section class="panel" aria-labelledby="cd">
-      <div class="section-head"><h2 id="cd">${title}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
+      <div class="section-head"><h2 id="cd">${markCompanies(title, marks(c))}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
       <p class="countdown"><span class="count-num">${left}</span><span class="text-secondary">${left === 1 ? "day" : "days"} left, ${shortDate(p.interviewDate)}</span></p>
       ${readiness(c, p.interviewDate)}
       ${rows.length ? html`<div class="fc">${forecastRows(rows, { date: p.interviewDate })}</div>` : ""}
@@ -211,9 +211,8 @@ function readiness(c: Ctx, date: string): SafeHtml {
   const lead = forecastLead({ forecast: fc, date, companies: [...new Set(fc.flatMap((f) => f.companies))], weekday: readPrefs().plan.dailyMinutes ?? 60, closeAll: null });
   const focus = weekFocus(c.plan);
   const co = targetCompany(c);
-  const slug = readPrefs().plan.companies[0];
   const pct = Math.round((ready / fc.length) * 100);
-  return html`<div class="ready"><div class="ready-head"><h3>${co && slug ? companyLogo(slug, "ready-logo") : ""}Ready for ${co ?? "your interview"}</h3><span class="ready-pct">${pct}%</span></div>
+  return html`<div class="ready"><div class="ready-head"><h3>Ready for ${co ? markCompanies(co, marks(c)) : "your interview"}</h3><span class="ready-pct">${pct}%</span></div>
     <p class="ready-line">${lead}</p>
     <div class="ready-bar" role="meter" aria-label="Core topics on pace" aria-valuemin="0" aria-valuemax="${fc.length}" aria-valuenow="${ready}"><span style="width:${((ready / fc.length) * 100).toFixed(0)}%"></span></div>
     ${focus && ready < fc.length ? html`<p class="fineprint">Clean passes in ${midSentence(focus)} move this the most</p>` : ""}</div>`;
@@ -262,7 +261,7 @@ function budgetPanel(b: Budget, planned: number): SafeHtml {
     <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${opts.map(
       (o) => html`<button type="button" data-budget="${o.id}" aria-pressed="${o.id === b ? "true" : "false"}">${o.label}</button>`,
     )}</div></div>
-    <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts toward your streak</p></section>`;
+    <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts towards your streak</p></section>`;
 }
 
 // ---- main column ----
@@ -287,7 +286,7 @@ function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
     </div>
     <div class="rail">${ladder({ rung, size: "xl", due: e.kind === "review", draw: true, w: 340, h: 156 })}<p class="cap">${cap}</p></div>
     <div class="why">
-      <p><strong class="why-lead">Why this one:</strong> ${e.kind === "review" ? reviewWhy(e, c.skills ?? null, c.now) : item ? item.reason : e.kind === "practice" ? "Extra practice on a topic you've worked on, and it doesn't change your review schedule." : e.why ? `${sentence(e.why)}.` : "It's next in your curriculum."}</p>
+      <p><strong class="why-lead">Why this one:</strong> ${markCompanies(e.kind === "review" ? reviewWhy(e, c.skills ?? null, c.now) : item ? item.reason : e.kind === "practice" ? "Extra practice on a topic you've worked on, and it doesn't change your review schedule." : e.why ? `${sentence(e.why)}.` : "It's next in your curriculum.", marks(c))}</p>
       <button class="btn btn-ghost" type="button" data-skip="${e.problem}" aria-keyshortcuts="x">Skip for today ${kbd("x")}</button>
       <a class="btn btn-primary btn-lg" href="${problemHref(e.problem, e.kind === "practice" ? "drill" : undefined)}" data-start aria-keyshortcuts="s">Start ${kbd("s")}</a>
     </div>
@@ -380,6 +379,12 @@ async function load(): Promise<Ctx> {
 /** Titles of the learner's pinned companies, for bolding in the coaching note. */
 function companyNames(c: Ctx): string[] {
   return readPrefs().plan.companies.flatMap((slug) => c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title ?? []);
+}
+
+/** Logos for the learner's target and interview companies, for the copy that names them. */
+function marks(c: Ctx): Marks {
+  const p = readPrefs().plan;
+  return companyMarks(c.cat.catalog.playlists, [...p.companies, ...p.interviews.map((i) => i.company)]);
 }
 
 /** Focus topics mid-sentence ("graphs"), in the order picked. */
@@ -485,7 +490,7 @@ function paint(c: Ctx): void {
   }
   const plan = planInfo(c);
   const note = (c.plan?.notes ?? []).find((n) => n.kind !== "date_passed" && !noteDismissed(n));
-  const noteHtml = note ? replanNote(note, { dismiss: true, link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : html``;
+  const noteHtml = note ? replanNote(note, { marks: marks(c), dismiss: true, link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : html``;
 
   // Plan status: the on-track line, this week's check-in and the catch-up note. Each is empty without data.
   let status: ReturnType<typeof planStatus> | null = null;
@@ -499,7 +504,7 @@ function paint(c: Ctx): void {
   }
   const slip = status?.catchUp && !noteDismissed({ kind: "catch_up" as PlanNote["kind"], title: status.catchUp.title }) ? status.catchUp : null;
   const check = status?.checkin && !noteDismissed({ kind: "checkin" as PlanNote["kind"], title: status.checkin.title }) ? status.checkin : null;
-  const statusHtml = html`${check ? replanNote({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body }, { link: html`<a class="link" href="${ROUTES.plan}">Open check-in</a>` }) : ""}${slip ? replanNote({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }] }, { link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : ""}`;
+  const statusHtml = html`${check ? replanNote({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body }, { marks: marks(c), link: html`<a class="link" href="${ROUTES.plan}">Open check-in</a>` }) : ""}${slip ? replanNote({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }] }, { marks: marks(c), link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : ""}`;
   // The check-in already says how the week went, so the on-track line waits for another day.
   const trackLine = check ? "" : status?.line || "";
 
@@ -569,7 +574,7 @@ function paint(c: Ctx): void {
     const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now, first.problem);
     const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n, readStreak().rests)].filter(Boolean);
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${emphasize(para, [...companyNames(c), ...topicNames(c)])}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${emphasize(para, [...companyNames(c), ...topicNames(c)], marks(c))}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${cardsRow(cards)}
       <div data-mock-card></div>
       ${nextUp(c, first)}
@@ -581,6 +586,7 @@ function paint(c: Ctx): void {
     </section>`;
   }
   render(main, body);
+  keepArriving($("[data-today]"));
   main.removeAttribute("aria-busy");
   main.removeAttribute("aria-label");
   const first = main.querySelector(".gate-split") !== null;
@@ -692,6 +698,7 @@ async function init(): Promise<void> {
   try {
     ctx = await load();
     paint(ctx);
+    arrive($("[data-today]"));
     prefetchPython();
   } catch (e) {
     errorState(e);

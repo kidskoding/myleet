@@ -88,7 +88,7 @@ function renderPinned(c: Ctx): void {
       const end = left !== null ? tag("outline", left === 0 ? "Interview today" : `Interview in ${plural(left, "day")}`, { dot: false }) : html`<span></span>`;
       return html`<li><a class="pin" href="${ROUTES.companies}/${companySlug(p.id)}">
         <div><div class="name">${companyLogo(companySlug(p.id))}<span>${p.title}</span></div><div class="grp">${p.group}, ${plural(p.entries.length, "problem")}</div></div>
-        <div class="ready">${r.ready} of ${r.tracked} ready${readyBar(r, readyLabel(r))}</div>
+        <div class="ready"><b>${r.ready}</b> of ${r.tracked} ready${readyBar(r, readyLabel(r))}</div>
         <div class="next">${next ? html`Next from this set<strong>${c.cat.byId.get(next)?.title ?? next}</strong>` : "Every problem is ready"}</div>
         ${end}</a></li>`;
     })}${list.length > 5 ? html`<li class="pin-more">and ${list.length - 5} more</li>` : ""}`,
@@ -304,7 +304,7 @@ function renderPin(p: Playlist): void {
   if (note) {
     const date = readPrefs().plan.interviewDate;
     note.hidden = !pinned;
-    note.textContent = `One of your dream companies. Your plan leans toward ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
+    note.textContent = `One of your dream companies. Your plan leans towards ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
   }
 }
 

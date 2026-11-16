@@ -44,6 +44,7 @@ import { getRunner, PYODIDE_URL, type RunResult } from "../../lib/runner";
 import type { TrainerApi } from "../../lib/trainer";
 import type { Mode, Plan, ProblemFiles, ProblemMeta, State } from "../../lib/types";
 import type { ResultAttempt, ResultExtras } from "../../lib/ui/workspace-personal";
+import { markCompanies } from "../../lib/ui/emphasis";
 import { signupHref } from "../../lib/access";
 import { companyPracticeContext, type PracticeContext } from "../../lib/practice-context";
 import { ROUTES } from "../../lib/routes";
@@ -827,8 +828,8 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
         "div",
         { class: "txt" },
         h("h2", {}, title, mastered ? h("span", { class: "tag tag-pass mtag" }, "Mastered") : null),
-        h("p", {}, extras?.note ?? body),
-        extras?.change ? h("p", { class: "adapt" }, extras.change) : null,
+        extras?.note ? h("p", { html: markCompanies(extras.note, extras.marks).value }) : h("p", {}, body),
+        extras?.change ? h("p", { class: "adapt", html: markCompanies(extras.change, extras.marks).value }) : null,
         changes,
         end ? h("p", { class: "endnote" }, end.text) : null,
       ),
@@ -837,7 +838,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
         { class: "acts" },
         next,
         end?.extra ? h("a", { class: "btn btn-secondary", href: end.extra.href }, `One more: ${end.extra.title}`) : null,
-        nx ? h("p", { class: "nextwhy" }, nx.reason) : null,
+        nx ? h("p", { class: "nextwhy", html: markCompanies(nx.reason, extras?.marks ?? {}).value }) : null,
         extras?.guest ? h("a", { class: "nextwhy guest-link", href: signupHref() }, "Create a free account to get a plan built around this") : null,
         files?.solution ? h("button", { class: "btn btn-secondary", onclick: () => (closeResult(), showSolution("diff")) }, "Compare with reference") : null,
         green && mode !== "drill" && leetcodeSlug(meta.url) ? h("button", { class: "btn btn-ghost", type: "button", "data-submit-lc": "", onclick: submitOnLeetcode }, "Submit on LeetCode too") : null,

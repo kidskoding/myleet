@@ -942,3 +942,16 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .lc-mods { display: grid; gap: 2px; padding: 0; margin: 0; list-style: none; max-width: 320px; }
 .lc-mods li { display: flex; justify-content: space-between; font-size: var(--text-sm); padding: 4px 0; border-bottom: 1px solid var(--line); }
 .lc-actions { display: flex; gap: var(--space-2); }
+
+/* A company named in personal copy: its mark sits on the text, sized to it, and never wraps away from the name */
+.co-inline { white-space: nowrap; }
+.co-inline .co-logo { width: 0.95em !important; height: 0.95em !important; margin-right: 0.28em; vertical-align: -0.12em !important; }
+:is(h1, h2, h3) .co-inline .co-logo { width: 1.05em !important; height: 1.05em !important; margin-right: 0.24em; vertical-align: -0.16em !important; }
+:is(h1, h2, h3) .co-inline strong { font-weight: inherit; }
+
+/* First arrival on Today and Plan: the greeting and the next problem, or the plan's header and week, rise once */
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-motion="reduce"]) .is-arriving :is(.greet, .nextup, .plan-head, .week-sec) { animation: arrive var(--dur-slow) var(--ease-out-expo) both; animation-delay: var(--arrive-shift, 0ms); }
+  :root:not([data-motion="reduce"]) .is-arriving :is(.nextup, .week-sec) { animation-delay: calc(90ms + var(--arrive-shift, 0ms)); }
+  @keyframes arrive { from { opacity: 0; transform: translateY(8px); } }
+}

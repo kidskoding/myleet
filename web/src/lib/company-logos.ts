@@ -7,6 +7,9 @@ import logoManifest from "../assets/logos/manifest.json";
 const revision = [...JSON.stringify(logoManifest)].reduce((hash, c) => (Math.imul(hash, 31) + c.charCodeAt(0)) >>> 0, 0).toString(36);
 export const LOGO_SPRITE = `/company-logos.svg?v=${revision}`;
 
+/** True when the company has a real brand mark rather than a generated monogram tile. */
+export const hasLogo = (slug: string): boolean => Object.hasOwn(logoManifest, slug);
+
 /** The mark before a company name; decorative, since the name sits beside it. */
 export const companyLogo = (slug: string, cls = ""): SafeHtml =>
   // Inline size so every page (palette, landing) gets it without extra CSS; a consistent 24px box on the baseline.

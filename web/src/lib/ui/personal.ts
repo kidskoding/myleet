@@ -7,6 +7,7 @@ import type { AttemptFeedback, Forecast, Insight, PlanFixes, PlanItem, PlanNote,
 import { tag, type TagKind } from "./bits";
 import { html, raw, type SafeHtml } from "./html";
 import { icon, isIcon } from "./icons";
+import { markCompanies, type Marks } from "./emphasis";
 
 // ---- reason tags and lines ----
 
@@ -116,10 +117,11 @@ const NOTE_ICON: Record<string, Parameters<typeof icon>[0]> = {
 };
 
 /** Calm by design: ink on sunk, never amber, red or a toast. At most one at a time. */
-export function replanNote(n: Pick<PlanNote, "kind" | "title" | "body"> & { actions?: PlanNote["actions"] }, opts: { dismiss?: boolean; link?: SafeHtml } = {}): SafeHtml {
+export function replanNote(n: Pick<PlanNote, "kind" | "title" | "body"> & { actions?: PlanNote["actions"] }, opts: { dismiss?: boolean; link?: SafeHtml; marks?: Marks } = {}): SafeHtml {
+  const m = opts.marks ?? {};
   return html`<div class="replan" role="status" data-note="${n.kind}">
     ${icon(NOTE_ICON[n.kind] ?? "calendar-clock")}
-    <div><strong>${n.title}</strong> ${n.body}${opts.link ? html` ${opts.link}` : ""}</div>
+    <div><strong>${markCompanies(n.title, m)}</strong> ${markCompanies(n.body, m)}${opts.link ? html` ${opts.link}` : ""}</div>
     <div class="acts">${(n.actions ?? []).map(
       (a, i) =>
         html`<button type="button" class="btn ${i === 0 ? "btn-secondary" : "btn-ghost"} btn-sm" data-note-act="${a.kind}"${a.value !== undefined ? raw(` data-value="${a.value}"`) : ""}>${a.label}</button>`,

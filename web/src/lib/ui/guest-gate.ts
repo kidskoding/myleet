@@ -33,7 +33,7 @@ export const signupToToday = (): string => `${signinHref(ROUTES.today)}&mode=sig
 
 /** The diagnostic invitation, aimed at their target company when onboarding named one. */
 export function inviteCopy(company: string | null): SafeHtml {
-  return html`Start with a <strong>diagnostic test</strong> to see what you know and where to focus${company ? ` as you work toward ${company}` : ""}`;
+  return html`Start with a <strong>diagnostic test</strong> to see what you know and where to focus${company ? ` as you work towards ${company}` : ""}`;
 }
 
 const INVITE_STEPS: [string, string][] = [
@@ -55,8 +55,8 @@ function todayExample(company: string | null, slug: string | null): SafeHtml {
     <div class="eg-window" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i><span>Your Today, after the diagnostic</span></div>
     <div class="eg-body">
       <p class="eg-hello">Good evening, Alex</p>
-      <p class="eg-note">Today we're focusing on <strong>sliding window</strong>, your weakest spot right now. Your <strong>${co}</strong> interview is <strong>12 days</strong> away, so we'll start with two quick reviews and then work through three window problems</p>
-      <div class="eg-ready"><div class="eg-ready-top"><span class="eg-ready-h">${logo}Ready for ${co}</span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
+      <p class="eg-note">Today we're focusing on <strong>sliding window</strong>, your weakest spot right now. Your <span class="co-inline">${logo}<strong>${co}</strong></span> interview is <strong>12 days</strong> away, so we'll start with two quick reviews and then work through three window problems</p>
+      <div class="eg-ready"><div class="eg-ready-top"><span class="eg-ready-h">Ready for <span class="co-inline">${logo}${co}</span></span><strong>62%</strong></div><div class="eg-bar"><span style="width:62%"></span></div></div>
       <ul class="eg-queue">
         ${row("Longest Substring Without Repeating Characters", "due", "Review", "You needed a hint here 6 days ago, so a clean pass puts it one step from mastered")}
         ${row("Minimum Window Substring", "weak", "Weak spot", "The shrink step you missed on Tuesday, one level harder")}
@@ -80,9 +80,9 @@ export function todayResults(greet: string, line: string): SafeHtml {
 const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [string, string][] }> = {
   plan: {
     h: "Your plan",
-    lede: html`Tell us what you're working toward and when you're free, and we'll plan out your days. With an interview coming up, we'll pace things so you're <strong>ready by the date</strong>. Aiming for a dream company? We'll help you build a <strong>steady routine</strong> you can keep up week after week`,
+    lede: html`Tell us what you're working towards and when you're free, and we'll plan out your days. With an interview coming up, we'll pace things so you're <strong>ready by the date</strong>. Aiming for a dream company? We'll help you build a <strong>steady routine</strong> you can keep up week after week`,
     steps: [
-      ["Built for what you’re working toward", "An interview on a date, a few dream companies, the topics you want to get better at, or all of them at once"],
+      ["Built for what you’re working towards", "An interview on a date, a few dream companies, the topics you want to get better at, or all of them at once"],
       ["Fits your availability", "Practice lands in the hours you say you have each week"],
       ["Starts where you're weakest", "What the diagnostic found decides what comes first"],
     ],

@@ -91,3 +91,18 @@ export function formatDuration(ms: number): string {
 }
 
 export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
+
+/** First arrival on a personal page: the key blocks rise once, in order (CSS in components.css). Later repaints stay still. */
+export function arrive(el: HTMLElement | null): void {
+  if (!el) return;
+  el.dataset.arriveAt = String(performance.now());
+  el.style.setProperty("--arrive-shift", "0ms");
+  el.classList.add("is-arriving");
+  setTimeout(() => el.classList.remove("is-arriving"), 900);
+}
+
+/** A repaint during the arrival swaps the elements; this resumes their rise where it was instead of restarting it. */
+export function keepArriving(el: HTMLElement | null): void {
+  if (!el?.classList.contains("is-arriving")) return;
+  el.style.setProperty("--arrive-shift", `${-(performance.now() - Number(el.dataset.arriveAt ?? 0)).toFixed(0)}ms`);
+}
