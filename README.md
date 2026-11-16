@@ -304,6 +304,8 @@ is permanent. [CLAUDE.md](CLAUDE.md) has the full content and writing rules
 - Company logos from [Simple Icons](https://simpleicons.org), [theSVG](https://thesvg.org),
   [Lobe Icons](https://github.com/lobehub/lobe-icons), Wikimedia Commons and other sources listed in
   [web/src/assets/logos/README.md](web/src/assets/logos/README.md). Logos remain the trademarks of their owners
+- Google Calendar, Apple Calendar and Outlook app icons from Wikimedia Commons, in
+  [web/public/brand](web/public/brand)
 
 ## License
 

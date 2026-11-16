@@ -63,8 +63,8 @@ const ago = (ms: number) => {
   return new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 };
 
-// Brand marks live in public/brand, since source files may not hold raw colours.
-const BRAND = { google: "/brand/google-calendar.svg", apple: "/brand/apple.svg", outlook: "/brand/microsoft.svg" } as const;
+// The real app icons (Wikimedia Commons) live in public/brand, since source files may not hold raw colours.
+const BRAND = { google: "/brand/google-calendar.svg", apple: "/brand/apple-calendar.svg", outlook: "/brand/outlook.svg" } as const;
 
 const PROVIDERS = [
   { id: "google", label: "Google Calendar", sub: "Opens Google to subscribe" },
@@ -84,7 +84,7 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
   const alarm = readPrefs().plan.reminderMinutes;
   const tiles = html`<div class="prov">${PROVIDERS.map(
     (p) =>
-      html`<button type="button" data-provider="${p.id}" ${offline || s.busy || s.view === "loading" ? "disabled" : ""}><span class="pi">${p.id === "copy" ? icon("link") : html`<img src="${BRAND[p.id as keyof typeof BRAND]}" alt="" width="20" height="20" />`}</span><strong>${p.id === "copy" && s.copied ? "Copied" : p.label}</strong><small>${offline ? "Available when you're online" : p.sub}</small></button>`,
+      html`<button type="button" data-provider="${p.id}" ${offline || s.busy || s.view === "loading" ? "disabled" : ""}><span class="pi">${p.id === "copy" ? icon("link") : html`<img src="${BRAND[p.id as keyof typeof BRAND]}" alt="" width="24" height="24" />`}</span><strong>${p.id === "copy" && s.copied ? "Copied" : p.label}</strong><small>${offline ? "Available when you're online" : p.sub}</small></button>`,
   )}</div>`;
   const linkRow = s.links
     ? html`<div class="linkrow"><input class="input" readonly value="${elide(s.links.webcal_url)}" aria-label="Private calendar link (shown once)" /><button type="button" class="btn btn-secondary" data-provider="copy">${icon("copy")}Copy</button></div>
