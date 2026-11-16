@@ -86,6 +86,8 @@ let view: "week" | "month" | "roadmap" = "week";
 let offset = 0;
 let liveText = "";
 let openPopId: string | null = null;
+/** The day shown in the chart's side card; null shows today. */
+let pickedDay: string | null = null;
 let enter: "next" | "prev" | "view" | null = null;
 let editor: AvailabilityEditor | null = null;
 let fixesKey = "";
@@ -555,7 +557,6 @@ function profile(c: Ctx): SafeHtml {
   const mocks = days.filter((d) => d.sessions.some(isMock)).length;
   const checks = days.filter((d) => d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"))).length;
   const offs = days.filter((d) => d.off).length;
-  const who = company(c);
   const pastHtml = before.map((d) => {
     const bh = Math.max(3, (Math.min(d.planned, PROFILE_MAX_MIN) / PROFILE_MAX_MIN) * 82);
     return html`<span class="pcol past st-${d.status}" data-date="${d.date}" role="img" aria-label="${longDay(d.date)}: ${STATUS_TEXT[d.status].toLowerCase()}, ${fmtM(d.practised)} of ${fmtM(d.planned)}"><span class="b" style="height:${bh.toFixed(1)}%"><span class="f" style="height:${Math.min(100, (d.practised / Math.max(1, d.planned)) * 100).toFixed(0)}%"></span></span></span>`;
@@ -566,18 +567,14 @@ function profile(c: Ctx): SafeHtml {
     const mock = d.sessions.some(isMock);
     const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
     const label = `${longDay(d.date)}: ${d.off ? "day off" : fmtM(m)}${mock ? ", mock interview" : ""}${check ? ", check-in" : ""}`;
-    return html`<button type="button" class="pcol${i === 0 ? " today" : ""}${d.off ? " off" : ""}" data-p="${i}" data-date="${d.date}" aria-label="${label}">${mock ? html`<i class="mk mock" style="bottom:calc(${bh}% + 6px)"></i>` : ""}${
+    const on = d.date === pickedDay;
+    const stop = on || (i === 0 && !days.some((x) => x.date === pickedDay));
+    return html`<button type="button" class="pcol${i === 0 ? " today" : ""}${d.off ? " off" : ""}${on ? " picked" : ""}" data-p="${i}" data-date="${d.date}" aria-label="${label}" aria-pressed="${String(on)}" tabindex="${stop ? 0 : -1}">${mock ? html`<i class="mk mock" style="bottom:calc(${bh}% + 6px)"></i>` : ""}${
       check ? html`<i class="mk check" style="bottom:calc(${bh}% + ${mock ? 18 : 6}px)"></i>` : ""
     }${d.off ? html`<span class="offl">off</span>` : ""}<span class="b" style="height:${bh.toFixed(1)}%"></span></button>`;
   });
   const tailHtml = tail.map((d) => html`<span class="pcol empty${d === date ? " iv" : ""}" data-date="${d}" role="img" aria-label="${longDay(d)}${d === date ? ", interview day" : ", beyond the plan"}"><span class="b" style="height:${d === date ? 6 : 3}%"></span></span>`);
-  const lastShown = tail.at(-1) ?? days.at(-1)?.date;
-  const beyond = date && lastShown ? Math.round((dateOf(date).getTime() - dateOf(lastShown).getTime()) / 86_400_000) : 0;
-  const nextIv = (c.plan.interviews ?? []).find((i) => i.date === date);
-  const later = (c.plan.interviews ?? []).filter((i) => date && i.date > date);
-  const summit = date
-    ? html`<div class="summit${beyond > 0 ? " cut" : ""}">${nextIv?.company ? companyLogo(nextIv.company) : icon("flag")}<strong>${short(date)}</strong><span>${beyond > 0 ? `${plural(beyond, "day")} past the chart` : who ? `${who} interview` : "Interview"}</span>${later.map((i) => html`<span class="later">${i.company ? companyLogo(i.company) : ""}${i.name ?? "Interview"}, ${short(i.date)}</span>`)}</div>`
-    : html`<div class="summit rolling">${icon("calendar-plus")}<strong>${short(c.plan.end)}</strong><span>Rolls forward daily</span></div>`;
+  const summit = html`<div class="summit pday" data-pday aria-live="polite" aria-atomic="true">${dayCard(c)}</div>`;
   // Mondays are the ticks that always show, so the first one in each month names the month.
   let month = -1;
   const axis = [...before.map((d) => d.date), ...days.map((d) => d.date), ...tail].map((day) => {
@@ -590,10 +587,52 @@ function profile(c: Ctx): SafeHtml {
   });
   return html`<section class="panel approach" aria-labelledby="ap-h">
     <div class="section-head"><h2 id="ap-h">${date ? `${c.plan.summary.days_left} days to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${plural(mocks, "mock")}, ${plural(checks, "check-in")}${offs ? `, ${plural(offs, "day")} off` : ""}</span></div>
-    <div class="profile" style="--n:${n}" role="group" aria-label="Planned minutes per day${date ? " until the interview" : ""}, after the last week's outcomes. Choose a day to show its week.">${pastHtml}${colsHtml}${tailHtml}${summit}<div class="bracket" data-bracket></div></div>
+    <div class="profile" style="--n:${n}" role="group" aria-label="Planned minutes per day${date ? " until the interview" : ""}, after the last week's outcomes. Choose a day to see it, arrow keys move between days">${pastHtml}${colsHtml}${tailHtml}${summit}<div class="bracket" data-bracket></div></div>
     <div class="paxis" style="--n:${n}" aria-hidden="true">${axis}<span class="end">${date ? short(date) : ""}</span></div>
     <div class="legend"><span><i style="background:var(--accent)"></i>Today</span><span><i style="background:var(--line-strong)"></i>Planned minutes</span><span><i class="lg-mock"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i class="lg-off"></i>Day off</span>${before.length ? html`<span><i class="lg-done"></i>Done</span><span><i class="lg-missed"></i>Missed, moved forward</span>` : ""}</div>
   </section>`;
+}
+
+/** The chart's side card: the chosen day, or today when none is chosen, plus where the plan ends. */
+function dayCard(c: Ctx): SafeHtml {
+  const days = c.plan.days.slice(0, PROFILE_MAX_DAYS);
+  const d = days.find((x) => x.date === pickedDay) ?? days[0];
+  const date = c.plan.interview_date;
+  const lastDay = days.at(-1)?.date ?? c.plan.start;
+  const tail = date ? Math.min(Math.max(0, Math.round((dateOf(date).getTime() - dateOf(lastDay).getTime()) / 86_400_000)), PROFILE_MAX_DAYS - days.length) : 0;
+  const lastShown = addDays(lastDay, tail);
+  const beyond = date && lastShown ? Math.round((dateOf(date).getTime() - dateOf(lastShown).getTime()) / 86_400_000) : 0;
+  const nextIv = (c.plan.interviews ?? []).find((i) => i.date === date);
+  const later = (c.plan.interviews ?? []).filter((i) => date && i.date > date);
+  const who = company(c);
+  const end = date
+    ? html`<span class="pd-end">${nextIv?.company ? companyLogo(nextIv.company) : icon("flag")}<span>${who ? `${who} interview` : "Interview"}, <span class="nw">${short(date)}</span>${beyond > 0 ? `, ${plural(beyond, "day")} past the chart` : ""}</span></span>${later.map((i) => html`<span class="pd-end">${i.company ? companyLogo(i.company) : icon("flag")}<span>${i.name ?? "Interview"}, <span class="nw">${short(i.date)}</span></span></span>`)}`
+    : html`<span class="pd-end">${icon("calendar-plus")}<span>Runs to <span class="nw">${short(c.plan.end)}</span>, rolls forward daily</span></span>`;
+  if (!d) return end;
+  const mocks = d.sessions.filter(isMock).length;
+  const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
+  const n = d.sessions.length;
+  return html`<span class="pd-when${d === days[0] ? " pd-today" : ""}">${d === days[0] ? "Today" : DAY_SHORT[weekdayIndex(d.date)]}</span><strong class="pd-date">${short(d.date)}</strong>
+    <span class="pd-load">${d.off ? "Day off" : n ? `${fmtM(d.minutes)}, ${plural(n, "session")}` : "Nothing planned"}</span>${
+      mocks ? html`<span class="pd-tag"><i class="lg-mock"></i>${mocks > 1 ? plural(mocks, "mock interview") : "Mock interview"}</span>` : ""
+    }${check ? html`<span class="pd-tag"><i class="lg-check"></i>Check-in</span>` : ""}${end}`;
+}
+
+/** Choosing a bar only swaps the side card; the week grid, the bracket and the scroll stay put. */
+function pickDay(date: string | null, focus = false): void {
+  if (!ctx) return;
+  pickedDay = date;
+  const bars = [...document.querySelectorAll<HTMLElement>(".profile .pcol[data-p]")];
+  const stop = bars.find((b) => b.dataset.date === date) ?? bars[0];
+  for (const b of bars) {
+    const on = b.dataset.date === date;
+    b.classList.toggle("picked", on);
+    b.setAttribute("aria-pressed", String(on));
+    b.tabIndex = b === stop ? 0 : -1;
+  }
+  const card = $("[data-pday]");
+  if (card) render(card, dayCard(ctx));
+  if (focus) stop?.focus({ preventScroll: true });
 }
 
 function forecast(c: Ctx): SafeHtml {
@@ -1707,7 +1746,7 @@ function onClick(e: MouseEvent): void {
   if (d.dayoff) return (closeDayMenu(), toggleOff(d.dayoff));
   if (d.shorter) return (closeDayMenu(), toggleShorter(d.shorter));
   if (d.goto) return goTo(Number(d.goto), true);
-  if (a.classList.contains("pcol")) return goTo(Number(d.p), true);
+  if (a.classList.contains("pcol")) return pickDay(d.date === pickedDay ? null : (d.date ?? null));
   if (a.classList.contains("ag-ses") && d.ses) return openPop(d.ses);
   if (a.matches("[data-pop-close]")) return closePop();
   if (a.matches("[data-pop-move]") && openPopId) return openPop(openPopId, { move: true });
@@ -1756,6 +1795,7 @@ function onKey(e: KeyboardEvent): void {
     if (document.querySelector(".daymenu-pop")) return closeDayMenu();
     if (!$<HTMLElement>("[data-pop]")?.hidden) return closePop();
     if (!$<HTMLElement>("[data-av-drawer]")?.hidden) return closeDrawer();
+    if (pickedDay && !document.querySelector("dialog[open]")) return pickDay(null, !!document.activeElement?.closest(".profile"));
     return;
   }
   if (e.metaKey || e.ctrlKey || e.altKey || e.defaultPrevented || document.querySelector("dialog[open]")) return;
@@ -1770,6 +1810,14 @@ function onKey(e: KeyboardEvent): void {
     }
     if (e.key === " " || e.key === "Enter") return (e.preventDefault(), kbEnd(true));
     return;
+  }
+  const bar = active?.closest<HTMLElement>(".profile .pcol[data-p]");
+  if (bar && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) {
+    e.preventDefault();
+    const bars = [...document.querySelectorAll<HTMLElement>(".profile .pcol[data-p]")];
+    const i = bars.indexOf(bar);
+    const to = bars[e.key === "Home" ? 0 : e.key === "End" ? bars.length - 1 : Math.max(0, Math.min(bars.length - 1, i + (e.key === "ArrowRight" ? 1 : -1)))];
+    return pickDay(to?.dataset.date ?? null, true);
   }
   if (ses && e.key === " ") return (e.preventDefault(), kbLift(ses));
   if (ses && e.key === "Enter") {
