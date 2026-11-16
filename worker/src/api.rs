@@ -244,8 +244,6 @@ async fn send(url: &str, method: Method, headers: Headers, body: Option<String>)
     res.text().await
 }
 
-// ---- statements ----
-
 #[derive(Serialize)]
 struct StatementReply<'a> {
     status: &'a str,
@@ -303,8 +301,6 @@ async fn get_statement(req: &Request, app: &App) -> Result<Response> {
     }
     statement_reply(cached.status(false), &cached.markdown)
 }
-
-// ---- LeetCode profile ----
 
 /// One GET with an overall deadline: a sleeping Render instance is aborted, not waited on.
 async fn get_with_deadline(urls: &[String], secs: u64) -> Result<Vec<String>> {
@@ -417,8 +413,6 @@ async fn get_leetcode_profile(req: &Request, app: &App) -> Result<Response> {
     res.headers_mut().set("Content-Type", "application/json")?;
     Ok(res)
 }
-
-// ---- sign-in ----
 
 fn auth_failed(app: &App, f: Failure) -> Result<Response> {
     redirect(
@@ -790,8 +784,6 @@ async fn email_verify(req: &Request, app: &App) -> Result<Response> {
     finish_sign_in(req, app, &profile).await
 }
 
-// ---- sessions ----
-
 struct Current {
     user_id: String,
     session_id: String,
@@ -899,8 +891,6 @@ async fn delete_session(req: &Request, app: &App, id: &str) -> Result<Response> 
     };
     no_content(&cookies)
 }
-
-// ---- account ----
 
 #[derive(Serialize, Deserialize)]
 struct UserRow {
@@ -1186,8 +1176,6 @@ async fn public_profile(app: &App, username: &str) -> Result<Response> {
     Ok(res)
 }
 
-// ---- progress ----
-
 #[derive(Serialize, Deserialize)]
 struct ProgressRow {
     events_jsonl: String,
@@ -1282,8 +1270,6 @@ async fn put_progress(req: &mut Request, app: &App) -> Result<Response> {
         ),
     }
 }
-
-// ---- plan and calendar feed ----
 
 #[derive(Serialize, Deserialize)]
 struct PlanRow {
@@ -1458,8 +1444,6 @@ async fn serve_feed(app: &App, rest: &str) -> Result<Response> {
     headers.set("Content-Disposition", "inline; filename=\"myleet.ics\"")?;
     Ok(Response::ok(ics)?.with_headers(headers))
 }
-
-// ---- "I was asked this" reports ----
 
 #[derive(Serialize, Deserialize)]
 struct MineRow {
