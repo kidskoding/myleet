@@ -38,7 +38,7 @@ describe("goal mix", () => {
     expect(goalLine([], ["graphs", "trees"])).toBe("Your plan puts extra time on graphs and trees, with reviews that keep the rest fresh");
     expect(goalLine([], [])).toContain("steady practice routine");
     for (const s of [goalLine(["A"], ["b"]), goalLine([], [])]) expect(s.endsWith(".")).toBe(false);
-    expect(goalTitle(["Stripe", "Ramp"], ["graphs"])).toBe("Working toward Stripe and Ramp");
+    expect(goalTitle(["Stripe", "Ramp"], ["graphs"])).toBe("Working towards Stripe and Ramp");
     expect(goalTitle([], ["graphs"])).toBe("Focusing on graphs");
     expect(goalTitle([], ["graphs", "trees"])).toBe("Your focus topics");
     expect(goalTitle([], [])).toBe("Your next 4 weeks");

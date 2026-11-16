@@ -1859,7 +1859,7 @@ fn notes(
         out.push(Note {
             kind: "date_passed".into(),
             title,
-            body: "Set a new date to plan toward it, or keep practising on a rolling four weeks."
+            body: "Set a new date to plan towards it, or keep practising on a rolling four weeks."
                 .into(),
             actions: vec![
                 NoteAction {

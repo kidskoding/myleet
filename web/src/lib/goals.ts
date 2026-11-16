@@ -52,7 +52,7 @@ export function goalLine(companies: string[], topics: string[]): string {
 
 /** The Today panel's title for undated goals. */
 export function goalTitle(companies: string[], topics: string[]): string {
-  if (companies.length) return `Working toward ${names(companies)}`;
+  if (companies.length) return `Working towards ${names(companies)}`;
   if (topics.length) return topics.length === 1 ? `Focusing on ${topics[0]}` : "Your focus topics";
   return "Your next 4 weeks";
 }

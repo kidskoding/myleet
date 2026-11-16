@@ -939,7 +939,7 @@ pub fn feedback(
     } else if a.outcome == Outcome::Pass {
         let t = target_of(p);
         if a.hints > 0 || a.peeks > 0 {
-            "It passed with help, so it counts toward the approach, not as a clean pass."
+            "It passed with help, so it counts towards the approach, not as a clean pass."
                 .to_string()
         } else {
             format!(

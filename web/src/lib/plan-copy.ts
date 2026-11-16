@@ -83,12 +83,12 @@ function headText(o: Parameters<typeof headCopy>[0]): HeadCopy {
   const date = plan.interview_date;
   const you = name ? `, ${name}` : "";
   const mocks = plan.summary.mocks;
-  const mockPart = !date || mocks === 0 ? "" : mocks === 1 ? ", with a mock interview a few days before" : mocks >= 3 ? ", with mock interviews getting closer together toward the end" : `, with ${count(mocks)} mock interviews along the way`;
+  const mockPart = !date || mocks === 0 ? "" : mocks === 1 ? ", with a mock interview a few days before" : mocks >= 3 ? ", with mock interviews getting closer together towards the end" : `, with ${count(mocks)} mock interviews along the way`;
   const weekday = o.weekday ?? Math.round(plan.days.filter((d) => !d.off).reduce((m, d) => m + d.minutes, 0) / Math.max(1, plan.days.filter((d) => !d.off).length));
   const planned = `You'll practice ${rhythmPhrase({ weekday, weekend: o.weekend ?? weekday, windows: o.windows })}${mockPart}, and the plan adjusts after every solve.`;
   const after = o.nextAfter ? ` ${o.nextAfter.company ?? "Your next interview"} on ${shortDate(o.nextAfter.date)} comes after that.` : "";
   if (!date) {
-    const goal = cos.length > 1 || topics.length ? ` ${goalLine(cos, topics)}.` : company ? ` Your plan works toward ${company} through its practice set and the patterns you need to build.` : " Keep building a steady practice routine, with reviews that help what you learn stick.";
+    const goal = cos.length > 1 || topics.length ? ` ${goalLine(cos, topics)}.` : company ? ` Your plan works towards ${company} through its practice set and the patterns you need to build.` : " Keep building a steady practice routine, with reviews that help what you learn stick.";
     return { title: cos.length ? `Your road to ${names(cos)}${you}` : `Your next four weeks${you}`, lede: `${planned}${goal}` };
   }
   const left = daysUntil(date, o.today);
@@ -134,7 +134,7 @@ export function paceLine(pace: Plan["pace"], targets: Record<"easy" | "medium" |
 }
 
 export const INSIGHTS_EMPTY =
-  "Patterns in your own solving show up here after a week or two of practice, each with the attempts behind it. Every solve you log this week counts toward the first one.";
+  "Patterns in your own solving show up here after a week or two of practice, each with the attempts behind it. Every solve you log this week counts towards the first one.";
 
 /** "You've kept 3 of your last 4 sessions, and you're on pace for Dec 15." */
 export function onTrackLine(s: Standing, date: string | null, company: string | null = null): string {

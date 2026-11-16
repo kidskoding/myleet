@@ -81,7 +81,7 @@ function goalStep(): SafeHtml {
 function goalsStep(error?: string): SafeHtml {
   const any = aimsOf(readPrefs().plan).length > 0;
   return html`${head("goals")}<section class="q ob-goals" aria-labelledby="q2">
-    <h1 id="q2">What are you working toward?</h1>
+    <h1 id="q2">What are you working towards?</h1>
     <p class="sub">Turn on as many as fit. Your plan blends them, and you can edit your goals any time</p>
     <div class="panel ob-goals-panel" data-goals-host></div>
     <p class="err field" id="ge-err" role="alert" ${error ? "" : "hidden"} style="margin-top:var(--space-3)">${error ?? ""}</p>
@@ -123,7 +123,7 @@ function planStep(): SafeHtml {
   const later = plan.summary.behind.slice(0, 6);
   return html`${head("plan", { skip: false })}<section class="q" aria-labelledby="q5">
     <h1 id="q5">${title}</h1>
-    <p class="sub"><strong>${plan.summary.headline}</strong> Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>
+    <p class="sub"><strong>${plan.summary.headline}</strong> Techniques come in by how often they're asked${p.companies.length ? ", weighted towards what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>
     <ol class="weeks" aria-label="Week by week">${weeks.map(
       (w) =>
         html`<li class="week"><div class="when">${w.label}<small>${shortDate(w.from)}${w.from !== w.to ? ` to ${shortDate(w.to)}` : ""}</small></div><div class="tech">${
