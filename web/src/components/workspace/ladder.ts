@@ -42,10 +42,10 @@ export function ladderSvg(p: LadderProps): string {
     s += `<path class="fall" d="M${x(fell - 1)},${y(fell - 1)} L${x(fell - 1)},${y(0)} L${x(0)},${y(0)}"/>`;
     s += `<circle class="ghost" cx="${x(fell - 1)}" cy="${y(fell - 1)}" r="${r}"/>`;
   }
-  DAYS.forEach((d, i) => {
+  DAYS.forEach((_, i) => {
     const cls = i < rung - 1 ? "done" : i === rung - 1 ? `current${p.due ? " due" : ""}` : "";
     s += `<circle class="node ${cls}" cx="${x(i)}" cy="${y(i)}" r="${r}"/>`;
-    if (lg) s += `<text class="lbl${i === rung - 1 ? " on" : ""}" x="${x(i)}" y="${H - 1}" text-anchor="middle">${d}d</text>`;
+    if (lg) s += `<text class="lbl${i === rung - 1 ? " on" : ""}" x="${x(i)}" y="${H - 1}" text-anchor="middle">L${i + 1}</text>`;
   });
   return `${s}</svg>`;
 }

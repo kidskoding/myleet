@@ -963,6 +963,7 @@ pub fn feedback(
             text += &format!(" Next for {tech}: {}.", next.title);
         }
     }
+    text.truncate(text.trim_end_matches('.').len());
     Some(Feedback {
         module: p.module,
         technique: p.technique,
@@ -1427,7 +1428,7 @@ mod tests {
             f.text
         );
         assert!(
-            f.text.contains("Next for one: Edge-case drill: P Two."),
+            f.text.ends_with("Next for one: Edge-case drill: P Two"),
             "{}",
             f.text
         );

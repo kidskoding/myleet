@@ -55,10 +55,10 @@ export function ladder(o: LadderOpts): SafeHtml {
   if (rung > 1) s += `<polyline class="route" points="${pts(rung)}"/>`;
   if (fell > 0)
     s += `<path class="fall" d="M${x(fell - 1)},${y(fell - 1)} L${x(fell - 1)},${y(0)} L${x(0)},${y(0)}"/><circle class="ghost" cx="${x(fell - 1)}" cy="${y(fell - 1)}" r="${r}"/>`;
-  RUNG_DAYS.forEach((d, i) => {
+  RUNG_DAYS.forEach((_, i) => {
     const cls = i < rung - 1 ? "done" : i === rung - 1 ? `current${o.due ? " due" : ""}` : "";
     s += `<circle class="node ${cls}" cx="${x(i)}" cy="${y(i)}" r="${r}"/>`;
-    if (lg) s += `<text class="lbl${i === rung - 1 ? " on" : ""}" x="${x(i)}" y="${H - 1}" text-anchor="middle">${d}d</text>`;
+    if (lg) s += `<text class="lbl${i === rung - 1 ? " on" : ""}" x="${x(i)}" y="${H - 1}" text-anchor="middle">L${i + 1}</text>`;
   });
   s += "</svg>";
   const cls = `ladder${lg ? " ladder-lg" : ""}${rung >= MASTERED_RUNG ? " mastered" : ""}`;
@@ -83,8 +83,8 @@ function ladderXl(o: LadderOpts): SafeHtml {
   let s = `<svg viewBox="0 0 ${w} ${h}" aria-hidden="true"><defs>`;
   s += `<linearGradient id="lx-r${id}" x1="0" x2="1" y1="0" y2="0"><stop offset="0" class="stop-a"/><stop offset="1" class="stop-b"/></linearGradient>`;
   s += `<linearGradient id="lx-a${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" class="area-a"/><stop offset="1" class="area-b"/></linearGradient></defs>`;
-  RUNG_DAYS.forEach((d, i) => {
-    s += `<line class="guide" x1="${x(i)}" x2="${w - padR + 8}" y1="${y(i)}" y2="${y(i)}"/><text class="guide-lbl${i === rung - 1 ? " on" : ""}" x="${w - padR + 14}" y="${y(i) + 4}">${d}d</text>`;
+  RUNG_DAYS.forEach((_, i) => {
+    s += `<line class="guide" x1="${x(i)}" x2="${w - padR + 8}" y1="${y(i)}" y2="${y(i)}"/><text class="guide-lbl${i === rung - 1 ? " on" : ""}" x="${w - padR + 14}" y="${y(i) + 4}">L${i + 1}</text>`;
   });
   const last = done.at(-1);
   if (rung > 1 && last) s += `<path class="area" style="fill:url(#lx-a${id})" d="M${done.map((p) => p.join(",")).join(" L")} L${last[0]},${h - padB} L${x(0)},${h - padB} Z"/>`;

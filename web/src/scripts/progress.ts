@@ -123,7 +123,7 @@ function masteryPanel(c: Ctx): SafeHtml {
       `${k.mastered} mastered, ${k.climbing} leveling up, ${k.started} started, ${k.notStarted} not started`,
     )}</div>
     <div class="legend"><span><i class="lg-m"></i>Mastered ${k.mastered}</span><span><i class="lg-c"></i>Leveling up ${k.climbing}</span><span><i class="lg-s"></i>Started ${k.started}</span><span><i class="lg-n"></i>Not started ${k.notStarted}</span></div>
-    <p class="next">Mastered means a clean cold redo on the 14-day rung</p>
+    <p class="next">A problem is mastered once you solve it cleanly at level 4, two weeks after your last clean pass</p>
   </section>`;
 }
 
