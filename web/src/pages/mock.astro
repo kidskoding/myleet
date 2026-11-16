@@ -11,19 +11,19 @@ const playlists = buildCatalog().playlists.filter(listedCompany);
 const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width="${size}" height="${size}" aria-hidden="true"`);
 ---
 
-<Base title="Mock interview" nav="mock" noindex description="Practice a timed coding interview without hints or technique labels. Results update your review schedule">
+<Base title="Mock interview" nav="mock" noindex description="A timed coding round with hints and technique labels hidden. Your results move problems between levels like any other practice">
   <div class="page mock" data-mock>
     <!-- Setup and past mocks -->
     <div class="mock-layout" data-view="setup">
       <section aria-labelledby="mk-title">
         <h1 id="mk-title">Mock interview</h1>
-        <p class="lede" data-mock-intro>Practice a coding interview with one timer for the whole round. Hints and technique labels stay hidden until you finish, so you choose the approach yourself.</p>
+        <p class="lede" data-mock-intro>Practice a coding interview with one timer for the whole round. Hints and technique labels stay hidden until you finish, so you choose the approach yourself</p>
 
         <form class="setup" data-setup novalidate>
           <fieldset>
             <legend>Problems</legend>
             <div class="opts">
-              <label class="opt"><input type="radio" name="n" value="1" /><span class="big">1</span><span>About 25 minutes, ideally for <strong>personal practice</strong></span></label>
+              <label class="opt"><input type="radio" name="n" value="1" /><span class="big">1</span><span>About 25 minutes, good for a <strong>quick practice round</strong></span></label>
               <label class="opt"><input type="radio" name="n" value="2" checked /><span class="big">2</span><span><span data-std-mins>45</span> minutes, similar to a <strong>phone screen</strong></span></label>
               <label class="opt"><input type="radio" name="n" value="3" /><span class="big">3</span><span>60 minutes, similar to an <strong>onsite interview</strong></span></label>
             </div>
@@ -129,7 +129,7 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
       <form method="dialog" data-check-form>
         <div class="dlg-head"><h2 id="sc-title" data-sc-title></h2></div>
         <div class="dlg-body">
-          <p>Review how well you explained your approach. Your answers stay private and help choose your next practice problems.</p>
+          <p>Be honest about how well you explained your approach. Your answers stay private and help choose your next practice problems</p>
           <div class="checks" data-checks></div>
         </div>
         <div class="dlg-actions"><button class="btn btn-primary" type="submit" data-check-next disabled>See results <kbd>enter</kbd></button></div>

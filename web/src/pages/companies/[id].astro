@@ -52,7 +52,7 @@ const pick = lead10.reduce<number | undefined>((best, i) => (best === undefined 
 const example = pick !== undefined ? c.problems[pick] : undefined;
 ---
 
-<Base title={`${p.title} prep`} nav="companies" description={`A curated ${p.title} practice set of ${n} problems, most asked first, with the techniques it leans on. Not a list of actual interview questions.`}>
+<Base title={`${p.title} prep`} nav="companies" description={`${n} problems to practice for ${p.title} interviews, most asked first, and the techniques they cover. A practice plan, not a list of actual interview questions`}>
   <div class="page cos" data-cos="prep" data-playlist={p.id} data-slug={slug}>
     <nav class="crumbs" aria-label="Breadcrumb"><a href={ROUTES.companies}>Companies</a><Fragment set:html={chevronRight().value} /><span>{p.group}</span></nav>
     <div class="prep-head">

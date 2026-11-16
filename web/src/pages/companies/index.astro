@@ -11,9 +11,9 @@ import type { PlaylistGroup } from "../../lib/types";
 const catalog = buildCatalog();
 const c = { ...catalog, playlists: catalog.playlists.filter(listedCompany) };
 const GROUPS: { name: PlaylistGroup; about: string }[] = [
-  { name: "Big Tech", about: "The leaders and giants of technology and software" },
+  { name: "Big Tech", about: "The biggest names in tech, like Google, Amazon, Meta and Apple" },
   { name: "AI & Startups", about: "AI labs and fast-growing startups" },
-  { name: "Consumer and Business Tech", about: "Tech companies that people and businesses rely on every day" },
+  { name: "Consumer and Business Tech", about: "Established public tech companies, from consumer apps to business software" },
   { name: "Trading Firms", about: "Quant and trading firms" },
   { name: "Fortune 500", about: "Tech roles at the biggest companies outside tech" },
 ];
@@ -22,12 +22,12 @@ const total = c.playlists.length;
 const gid = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 ---
 
-<Base title="Companies" nav="companies" description={`${total} curated company practice sets, most asked problems first. Add the companies you're aiming for to your goals and your plan mixes their problems in.`}>
+<Base title="Companies" nav="companies" description={`Practice sets for ${total} companies, with the most-asked problems first. Add the companies you're aiming for to your goals and your plan leans towards the techniques they ask about`}>
   <div class="page cos" data-cos="index">
     <div class="head">
       <div>
         <h1>Companies</h1>
-        <p data-company-intro>Practice sets for {total} companies, built around the problems their interviews lean on</p>
+        <p data-company-intro>Practice sets for {total} companies, each built around the techniques its interviews use most</p>
       </div>
       <label class="find"><Fragment set:html={icon("search").value} /><input type="search" aria-label="Find a company" placeholder="Find a company" data-find autocomplete="off" /><kbd>/</kbd></label>
     </div>

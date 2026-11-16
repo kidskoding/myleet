@@ -40,7 +40,7 @@ const account = [
       <div>
         <section class="grp" aria-labelledby="goals">
           <h2 id="goals">Your goals</h2>
-          <p class="lede grp-lede">What your plan works toward. Today, the plan and the reasons behind each problem all follow these</p>
+          <p class="lede grp-lede">What your plan works towards. Today, the plan and the reason shown on each problem all come from these</p>
           <div class="panel goals-panel" data-goals-settings></div>
         </section>
 
@@ -60,7 +60,7 @@ const account = [
               <div class="ctl wide"><input id="set-name" class="input" autocomplete="name" maxlength="60" data-set-name /></div>
             </div>
             <div class="row">
-              <div><label class="lbl" for="set-user">Username</label><div class="desc">Lowercase letters, numbers and dashes. Your profile link</div></div>
+              <div><label class="lbl" for="set-user">Username</label><div class="desc">Lowercase letters, numbers and dashes. It's also your profile link</div></div>
               <div class="ctl wide">
                 <div style="width:100%">
                   <div class="prefix"><span>/u/</span><input id="set-user" class="input" spellcheck="false" autocapitalize="off" maxlength="30" aria-describedby="set-user-msg" data-set-user /></div>
@@ -86,7 +86,7 @@ const account = [
                     </label>
                   ))}
                 </div>
-                <p class="ac-note" data-accent-note>Choose the accent color for buttons, links, and your practice progress</p>
+                <p class="ac-note" data-accent-note>Pick the color for buttons, links and your practice progress</p>
                 <div class="ac-preview" aria-hidden="true"><span class="btn btn-primary btn-sm">Start</span><span class="ac-link">Edit plan</span><span class="tag tag-new">New topic</span></div>
               </div>
             </div>
@@ -99,7 +99,7 @@ const account = [
               <div class="ctl"><select id="set-read-font" class="input" style="width:180px" data-pref="readFont"><option value="literata">Literata</option><option value="mono">JetBrains Mono</option></select></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system. On also stops the level-up animation and pass wash here</div></div>
+              <div><div class="lbl" id="rm-l">Reduce motion</div><div class="desc">Off follows your system setting. On also stops the level-up animation and the highlight after a pass</div></div>
               <div class="ctl"><label class="switch"><input type="checkbox" data-pref="reduceMotion" aria-labelledby="rm-l" /></label></div>
             </div>
             <p class="credit">Colors are <a href="https://catppuccin.com" rel="noopener">Catppuccin</a>, MIT licensed</p>
@@ -159,7 +159,7 @@ const account = [
               </div>
             </div>
             <div class="row">
-              <div><div class="lbl">Time targets</div><div class="desc">The time limit for a clean pass. A longer limit gives you more time on each problem before a pass stops counting as clean</div></div>
+              <div><div class="lbl">Time targets</div><div class="desc">A pass only counts as clean inside this time. The default is <strong>25 minutes</strong> at every difficulty</div></div>
               <div class="ctl">
                 {
                   (["easy", "medium", "hard"] as const).map((d) => (
@@ -229,7 +229,7 @@ const account = [
               <div class="ctl"><button class="btn btn-secondary btn-sm" type="button" data-export-local><Icon name="download" />Download events.jsonl</button></div>
             </div>
             <div class="row">
-              <div><div class="lbl" id="imp-l">Import</div><div class="desc">Merge an <code>events.jsonl</code> from the CLI or another browser, or an account export. Nothing is overwritten; histories are joined</div></div>
+              <div><div class="lbl" id="imp-l">Import</div><div class="desc">Merge an <code>events.jsonl</code> from the CLI or another browser, or an account export. Nothing is overwritten, and the two histories are merged</div></div>
               <div class="ctl"><label class="btn btn-ghost btn-sm file-btn"><Icon name="upload" />Choose file<input type="file" accept=".jsonl,.json,.ndjson,application/json" data-import aria-labelledby="imp-l" /></label></div>
             </div>
           </div>
