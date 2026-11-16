@@ -87,8 +87,6 @@ function techniqueOf(id: string): { label: string; note: string | null; noteTitl
   return { label: [m && !m.bank ? sentenceCase(m.title) : null, t ? sentenceCase(t.title) : null].filter(Boolean).join(", "), note, noteTitle };
 }
 
-// ---- setup ----
-
 function setupSource(): Source {
   return (document.querySelector<HTMLInputElement>('[data-setup] input[name="src"]:checked')?.value as Source) ?? "mixed";
 }
@@ -238,8 +236,6 @@ function startRound(): void {
   writeRound(round);
   enterRound();
 }
-
-// ---- the round ----
 
 function enterRound(): void {
   if (!round) return;
@@ -467,8 +463,6 @@ async function record(): Promise<void> {
   setTimeout(() => requireAccount("save-mock"), 900);
 }
 
-// ---- reveal ----
-
 function effectText(p: ProblemResult): string {
   const level = (rung: number) => `level ${Math.max(0, rung) + 1}, back in ${plural(RUNG_DAYS[Math.max(0, rung)] ?? 1, "day")}`;
   if (!p.started) return p.rungBefore < 0 ? "Not started. Nothing recorded" : "Not started. Its schedule didn't change";
@@ -524,8 +518,6 @@ function paintReveal(m: MockResult): void {
   );
   $<HTMLElement>("#rv-title")?.focus();
 }
-
-// ---- wiring ----
 
 /** "Keep coding" (or Esc) at time up: the round runs over and later passes can't be clean. */
 function keepCoding(): void {

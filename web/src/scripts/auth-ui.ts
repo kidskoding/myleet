@@ -264,8 +264,6 @@ export async function signOutFlow(): Promise<void> {
   toast("Signed out");
 }
 
-// ---- Keep your progress (merge) ----
-
 const ago = (ms: number | null, other: boolean): string => {
   if (ms === null) return "No practice yet";
   const d = new Date(ms);

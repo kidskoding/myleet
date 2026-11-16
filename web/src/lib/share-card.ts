@@ -55,7 +55,6 @@ export function drawCard(canvas: HTMLCanvasElement, d: CardData, flavor: Flavor,
   ctx.fillRect(0, 0, CARD_W, CARD_H);
   const P = 64;
 
-  // Brand mark + wordmark.
   ctx.save();
   ctx.translate(P, P - 6);
   ctx.scale(1.5, 1.5);
@@ -108,7 +107,6 @@ export function drawCard(canvas: HTMLCanvasElement, d: CardData, flavor: Flavor,
     ctx.fillText(`/u/${d.username}`, P, y + 4);
   }
 
-  // Big numbers bottom-left.
   let x = P;
   const stat = (n: number, label: string) => {
     ctx.fillStyle = t.ink;
@@ -123,7 +121,6 @@ export function drawCard(canvas: HTMLCanvasElement, d: CardData, flavor: Flavor,
   if (d.streak !== null) stat(d.streak, "day streak");
   if (d.mastered !== null) stat(d.mastered, "mastered");
 
-  // Strongest, top right.
   if (d.strongest?.length) {
     ctx.textAlign = "right";
     ctx.fillStyle = t.ink3;

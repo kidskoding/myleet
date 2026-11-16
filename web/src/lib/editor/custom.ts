@@ -47,7 +47,7 @@ export function parseSignature(starter: string): Signature | null {
   return { kind: "function", name: fn[1]!, params, returns: (fn[3] ?? "").trim() };
 }
 
-// ---- Python literal checking (in the page, so the error shows as you type) ----
+// Python literals are checked in the page so the error shows as you type.
 
 type Lit =
   | { t: "int" | "float"; v: number }
@@ -245,8 +245,6 @@ export function placeholderFor(type: string): string {
   if (t === "float") return "1.5";
   return "1";
 }
-
-// ---- The generated test ----
 
 export interface CaseResult {
   /** `repr` of the return value (or the call list's results for a design class). */

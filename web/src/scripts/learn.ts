@@ -86,8 +86,6 @@ function railBar(t: Tally, label: string): SafeHtml {
 
 const railLabel = (t: Tally) => `${t.mastered} mastered, ${t.climbing} leveling up, ${t.started} started of ${t.total}`;
 
-// ---- technique blocks (map and module page) ----
-
 function problemRow(c: Ctx, id: string): SafeHtml {
   const p = c.cat.byId.get(id);
   const st = c.states[id];
@@ -179,8 +177,6 @@ function toggleTech(modId: string, techId: string): void {
   $<HTMLElement>(`[data-tech="${techId}"][data-tech-mod="${modId}"]`)?.focus();
 }
 
-// ---- map ----
-
 function openModules(c: Ctx): Set<string> {
   const stored = readJson<string[] | null>(OPEN_KEY, null);
   if (stored) return new Set(stored);
@@ -208,7 +204,6 @@ function renderMap(c: Ctx): void {
   if (lede && touched(all) > 0)
     lede.textContent = `${lede.dataset["count"]} modules by interview pattern. ${touched(all)} of ${all.total} problems started, ${all.mastered} mastered`;
 
-  // Start here
   const guide = c.cat.catalog.guide;
   let read = 0;
   for (const a of $$<HTMLAnchorElement>("[data-start] a[data-note]")) {
@@ -219,7 +214,6 @@ function renderMap(c: Ctx): void {
   const meta = $("[data-start-meta]");
   if (meta && read > 0) meta.textContent = `${read} of ${guide.length} read`;
 
-  // Counts on the filter
   let weakN = 0;
   for (const m of mods) for (const t of m.techniques) if (c.weak.has(weakKey(m, t))) weakN += idsOf(c, t).filter((id) => pstatus(c.states[id]) !== "unseen").length;
   const n = (k: string, v: number) => { const el = $(`[data-n="${k}"]`); if (el) el.textContent = v ? String(v) : ""; };
@@ -279,8 +273,6 @@ function toggleModule(id: string, force?: boolean): void {
   if (m) renderBody(ctx, m);
 }
 
-// ---- module page ----
-
 function renderModulePage(c: Ctx): void {
   const root = $("[data-learn='module']");
   const m = c.cat.catalog.modules.find((x) => x.id === root?.dataset["module"]);
@@ -331,8 +323,6 @@ function nextPanel(c: Ctx, m: Module): SafeHtml {
       <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href="${problemHref(practice)}">Practice ${pTitle ?? practice}</a>`;
   return html`${head}<p class="text-small text-secondary" style="margin-top:var(--space-2)">You have read every note and started every problem. Upcoming reviews will appear on Today</p>`;
 }
-
-// ---- load ----
 
 async function load(): Promise<void> {
   const root = $("[data-learn]");
@@ -410,8 +400,6 @@ function setMode(m: FilterMode): void {
   mode = m;
   rerender();
 }
-
-// ---- keys ----
 
 const rows = () => $$(".mod:not([hidden]) .mod-row, .tech-collapsed, .tech .qrow").filter((el) => el.offsetParent !== null);
 

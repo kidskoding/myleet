@@ -177,8 +177,6 @@ const mockLink = (s: PlanSession) => mockHref({ session: s.id, minutes: s.minute
 /** A planned mock that was finished from its link. */
 const mockDone = (s: PlanSession) => readHistory().find((r) => r.session === s.id) ?? null;
 
-// ---- today's done sittings, from history ----
-
 interface Sitting {
   start: number;
   end: number;
@@ -198,8 +196,6 @@ function doneSittings(c: Ctx): Sitting[] {
     minutes: Math.round((s.end - s.start) / 60000),
   }));
 }
-
-// ---- notes ----
 
 function currentNote(c: Ctx): PlanNote | null {
   const p = c.plan;
@@ -263,8 +259,6 @@ function startRoadmap(days: number): void {
   view = "roadmap";
   history.replaceState(history.state, "", `${location.pathname}?view=roadmap`);
 }
-
-// ---- the week grid ----
 
 interface Grid {
   days: PlanDay[];
@@ -467,8 +461,6 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
   </div>`;
 }
 
-// ---- month and agenda ----
-
 /** A day's load in words, summed across its sessions: "11 reviews, 2 new, mock". */
 function dayHeadline(d: PlanDay): string {
   const items = d.sessions.flatMap((s) => s.items);
@@ -548,8 +540,6 @@ function agenda(c: Ctx): SafeHtml {
     return html`<li class="ag-day${isToday ? " today" : ""}${d.date < c.plan.start ? ` past st-${was?.status ?? "none"}` : ""}" data-agenda-day="${i}"><h3>${head}<small>${d.date < c.plan.start ? "" : d.off ? "Day off" : fmtM(d.minutes)}</small></h3>${body}</li>`;
   })}</ol>`;
 }
-
-// ---- the route ----
 
 function profile(c: Ctx): SafeHtml {
   const days = c.plan.days.slice(0, PROFILE_MAX_DAYS);
@@ -681,8 +671,6 @@ function you(c: Ctx): SafeHtml {
     </section>
   </div>`;
 }
-
-// ---- page ----
 
 function firstName(): string | null {
   const n = cachedMe()?.user.display_name?.trim();
@@ -852,8 +840,6 @@ function placeBracket(): void {
 }
 let lastBracket: { left: number; width: number } | null = null;
 
-// ---- morphing between plans (state feedback, 240 ms, interruptible) ----
-
 type Snap = Map<string, Record<string, string>>;
 const MORPH: [string, (el: HTMLElement) => string | null, string[]][] = [
   [".ses[data-ses]", (el) => el.dataset.ses ?? null, ["top", "height"]],
@@ -907,8 +893,6 @@ function morph(before: Snap): void {
     }),
   );
 }
-
-// ---- re-planning ----
 
 type Change = { kind: "budget"; label: string } | { kind: "quiet" };
 let pendingChange: Change | null = null;
@@ -986,8 +970,6 @@ function rememberSessions(p: Plan): void {
     // Reminders fall back to the daily time.
   }
 }
-
-// ---- popover, sheet and day menu ----
 
 function findSession(id: string): [PlanDay, PlanSession] | null {
   for (const d of ctx?.plan.days ?? []) for (const s of d.sessions) if (s.id === id) return [d, s];
@@ -1114,8 +1096,6 @@ function closeDayMenu(): void {
   document.querySelector(".daymenu-pop")?.remove();
 }
 
-// ---- setting changes, each with Undo ----
-
 function withUndo(message: string, patch: Parameters<typeof updatePrefs>[0], previous: Parameters<typeof updatePrefs>[0]): void {
   updatePrefs(patch);
   toast(message, { ms: 8000, action: { label: "Undo", run: () => updatePrefs(previous) } });
@@ -1187,7 +1167,7 @@ function setBudget(k: "wd" | "we", value: number): void {
   else updatePrefs({ plan: { weekendMinutes: value } });
 }
 
-// ---- moving a session: pointer drag and keyboard share one preview ----
+// Pointer drag and keyboard share one preview when moving a session.
 
 /** A visible day column, measured once when a move starts so moving never reads layout. */
 interface Lane {
@@ -1470,8 +1450,6 @@ function kbEnd(drop: boolean): void {
   finishMove(m, drop);
 }
 
-// ---- availability panel ----
-
 function openDrawer(): void {
   const d = $<HTMLElement>("[data-av-drawer]");
   if (!d || !ctx) return;
@@ -1527,7 +1505,7 @@ function openSync(): void {
 }
 
 
-// ---- Edit goals: the shared goals editor as a draft, with the change's cost shown before it applies ----
+// Edit goals runs the shared goals editor as a draft, so the change's cost shows before it applies.
 
 interface Draft extends Goals {
   preset: number | null;
@@ -1683,8 +1661,6 @@ function spreadMissed(minutes: number): void {
   if (!s) return;
   withUndo(`Added ${fmtM(s.each)} to each of the next ${s.count === 1 ? "day" : `${s.count} days`}`, { plan: { dayMinutes: s.dayMinutes } }, { plan: { dayMinutes: p.dayMinutes } });
 }
-
-// ---- wiring ----
 
 function goTo(index: number, openFirst = false): void {
   if (!ctx) return;

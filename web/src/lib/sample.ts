@@ -1,5 +1,4 @@
-// Guests no longer get an example day: personal views need an account, so the learner's
-// own events are the only events.
+// Personal views need an account, so the learner's own events are the only events.
 import type { LoadedCatalog } from "./catalog";
 import type { TrainerApi } from "./trainer";
 

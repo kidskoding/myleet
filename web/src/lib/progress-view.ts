@@ -53,8 +53,6 @@ export function moduleRows(cat: Catalog, states: Record<string, State>): ModuleR
   return cat.modules.filter((m) => !m.bank).map((module) => ({ module, ...count(moduleIds(cat, module), states) }));
 }
 
-// ---- streaks ----
-
 const active = (heat: Record<string, number>, day: string) => (heat[day] ?? 0) > 0;
 
 /** Longest run of consecutive practised days. */
@@ -91,7 +89,7 @@ export function nextMilestone(streak: number, milestones: number[]): number | nu
   return milestones.find((m) => m > streak) ?? null;
 }
 
-// ---- heatmap weeks (same grid as lib/ui/heatmap.ts: Sunday-first columns ending this week) ----
+// Heatmap weeks: the same grid as lib/ui/heatmap.ts, Sunday-first columns ending this week.
 
 export function weekStarts(today: string, weeks: number): string[] {
   const [y, m, d] = today.split("-").map(Number) as [number, number, number];
@@ -135,8 +133,6 @@ export function weeklyTable(heat: Record<string, number>, today: string, weeks: 
     .reverse();
 }
 
-// ---- review calendar ----
-
 /** Sunday-first month grid: nulls pad the first week. `month` is 0-11. */
 export function monthGrid(year: number, month: number): (string | null)[] {
   const first = new Date(year, month, 1);
@@ -175,8 +171,6 @@ export function dueWithin(byDay: Map<string, DueItem[]>, today: string, days: nu
   for (let i = 0; i < days; i++) n += byDay.get(addDays(today, i))?.length ?? 0;
   return n;
 }
-
-// ---- milestones ----
 
 /** Smallest i in 1..n with `pred(i)`, assuming it stays true once reached; null if never. */
 export function firstWhere(n: number, pred: (i: number) => boolean): number | null {
@@ -267,8 +261,6 @@ export function orderMilestones(list: Milestone[]): (Milestone & { label: "earne
   ];
 }
 
-// ---- skills preview ----
-
 export type SkillLevel = "new" | "shaky" | "building" | "solid" | "strong";
 
 /** skills/design.md buckets. */
@@ -281,8 +273,6 @@ export function skillLevel(s: Pick<Skill, "mastery" | "evidence">): SkillLevel {
 export function topWeakSpot(skills: Skill[]): Skill | null {
   return skills.filter((s) => s.weak && (s.evidence["attempts"] ?? 0) >= 4).sort((a, b) => b.priority - a.priority)[0] ?? null;
 }
-
-// ---- insights ("Noticed this week") ----
 
 export interface Insight {
   text: string;

@@ -104,8 +104,6 @@ function readFindings(): Record<string, Finding> {
   }
 }
 
-// ---- statements (LeetCode's, through the Worker) ----
-
 async function loadStatement(id: string): Promise<void> {
   if (statements.has(id)) return;
   statements.set(id, null);
@@ -132,8 +130,6 @@ function statementBody(id: string): SafeHtml {
   if (s) return raw(s);
   return html`<p>The statement didn't load here.</p>${url ? html`<a class="link lc" href="${url}" target="_blank" rel="noopener">${raw(brandIcon("leetcode", 16))}Read it on LeetCode${icon("external-link")}</a>` : ""}`;
 }
-
-// ---- views ----
 
 function steps(text: string, n: number, on: number, stop: boolean): SafeHtml {
   return html`<div class="steps"><span class="count">${text}</span>${
@@ -261,8 +257,6 @@ function resultsView(t: TrainerApi, events: string): SafeHtml {
       </aside>
   </section>`;
 }
-
-// ---- paint ----
 
 async function finish(s: DiagnosticState): Promise<void> {
   if (!trainer || !cat) return;

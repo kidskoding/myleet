@@ -185,7 +185,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
     return true;
   }
 
-  // ---- painting a rectangle: pointer, touch (after a short press) and Shift+arrows share it ----
+  // Pointer, touch (after a short press) and Shift+arrows all paint through this.
 
   type Cell = { d: number; r: number };
   interface Drag {

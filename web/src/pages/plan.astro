@@ -28,7 +28,6 @@ import Base from "../layouts/Base.astro";
   .plan .head-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); max-width: 100%; }
   .plan > .replan, .plan .plan-flow > .replan { margin-top: var(--space-6); }
 
-  /* toolbar */
   .plan .week-sec { margin-top: var(--space-8); }
   /* One control height (32px, 40px+ on touch), one radius (--radius-sm) across the bar. */
   .cal-bar { --ctl: 32px; display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-3); }
@@ -65,7 +64,6 @@ import Base from "../layouts/Base.astro";
   .lg-check { border: 1.5px solid var(--ink-2); border-radius: 50% !important; }
   .lg-off { border-bottom: 1.5px dashed var(--control-edge); border-radius: 0 !important; height: 5px !important; }
 
-  /* week grid */
   .week-cal { padding: 0; overflow: clip; }
   .wk { display: grid; grid-template-columns: 52px repeat(var(--cols, 7), minmax(0, 1fr)); }
   .wk-head { position: sticky; top: var(--topbar-h); z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); }
@@ -192,7 +190,6 @@ import Base from "../layouts/Base.astro";
   .pop .moveto button { width: 100%; justify-content: flex-start; }
   .daymenu-pop { position: absolute; z-index: 30; min-width: 220px; }
 
-  /* month */
   .month { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); padding: 0; overflow: clip; }
   .month .mh { padding: var(--space-2) var(--space-3); font-size: var(--text-xs); font-weight: 650; color: var(--ink-3); border-bottom: 1px solid var(--line); }
   .mc { min-height: 104px; padding: var(--space-2) var(--space-3); border-top: 1px solid var(--line); border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; min-width: 0; text-align: left; background: none; color: var(--ink); }
@@ -213,7 +210,6 @@ import Base from "../layouts/Base.astro";
   .mc .chip.interview { background: var(--ink); color: var(--ground); }
   button.mc:hover { background: var(--surface-sunk); }
 
-  /* agenda (phone) */
   .agenda { display: none; list-style: none; padding: 0; margin: 0; }
   .ag-day { margin-top: var(--space-5); }
   .ag-day:first-child { margin-top: 0; }
@@ -233,7 +229,6 @@ import Base from "../layouts/Base.astro";
   .ag-off, .ag-empty { margin-top: var(--space-2); padding: var(--space-3) var(--space-4); border: 1.5px dashed var(--control-edge); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--ink-2); }
   .ag-empty { border-style: solid; border-color: var(--line); }
 
-  /* route: profile + forecast */
   /* The chart and the forecast sit on a hairline, like the notes under them, instead of two boxes */
   .plan .route { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: var(--space-10); margin-top: var(--space-10); align-items: start; }
   .plan .route > .panel { padding: var(--space-5) 0 0; background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; }
@@ -312,7 +307,6 @@ import Base from "../layouts/Base.astro";
   .drawer .av-editor { margin-top: var(--space-5); }
 
 
-  /* goal progress, the kept-sessions line and Change plan */
   .plan-progress { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-3); font-size: var(--text-sm); font-weight: 650; font-variant-numeric: tabular-nums; }
   .pp-bar { flex: 0 1 220px; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
   .pp-bar > span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }

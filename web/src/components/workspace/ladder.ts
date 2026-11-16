@@ -1,6 +1,4 @@
-// The review ladder (signature component): rungs 1 3 7 14 30 days rising left to right.
-// rung 0 = not started, 1..5 = on the 1d..30d rung. A local port of the design's
-// reference renderer (screens/_shared/proto.js) until the shared component lands.
+// Rung 0 = not started, 1..5 = on the 1d..30d rung.
 
 export const DAYS = [1, 3, 7, 14, 30];
 

@@ -101,8 +101,6 @@ function ago(ms: number, now: Date): string {
   return days <= 0 ? "today" : days === 1 ? "yesterday" : `${days} days ago`;
 }
 
-// ---- check-in (wasm checkpoint) ----
-
 interface ActiveCheckin {
   through: number;
   ids: string[];
@@ -150,8 +148,6 @@ function checkinPanel(c: Ctx): SafeHtml {
     <div class="actions"><button class="btn btn-secondary btn-sm" type="button" data-checkin-start="${cp.suggest_through}">Start the check-in</button><button class="btn btn-ghost btn-sm" type="button" data-checkin-snooze="${cp.suggest_through}">Not now</button></div>
   </section>`;
 }
-
-// ---- plan panel ----
 
 function companyName(cat: LoadedCatalog, slug: string | undefined): string | null {
   if (!slug) return null;
@@ -263,8 +259,6 @@ function budgetPanel(b: Budget, planned: number): SafeHtml {
     )}</div></div>
     <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts towards your streak</p></section>`;
 }
-
-// ---- main column ----
 
 function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
   const m = meta(c.cat, e.problem);

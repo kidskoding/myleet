@@ -9,8 +9,6 @@ import { html, raw, type SafeHtml } from "./html";
 import { icon, isIcon } from "./icons";
 import { markCompanies, type Marks } from "./emphasis";
 
-// ---- reason tags and lines ----
-
 export const TAG_OF: Record<PlanTag, { kind: TagKind; label: string; dot?: boolean }> = {
   review: { kind: "due", label: "Review" },
   weak: { kind: "weak", label: "Weak spot" },
@@ -57,8 +55,6 @@ export function insightList(list: Insight[]): SafeHtml {
   return html`<ul class="ins">${list.map((i) => html`<li>${isIcon(i.icon) ? icon(i.icon) : icon("circle-help")}<span>${richText(i.text.replace(/\.$/, ""))}</span></li>`)}</ul>`;
 }
 
-// ---- forecast ----
-
 export interface ForecastOpts {
   /** `YYYY-MM-DD` the forecast runs to; null = a rolling four weeks. */
   date: string | null;
@@ -102,8 +98,6 @@ export function forecastRows(rows: Forecast[], o: ForecastOpts): SafeHtml {
 export const forecastKey = (): SafeHtml =>
   html`<div class="fc-key" aria-hidden="true"><span><i class="m"></i>Mastered</span><span><i class="c"></i>Leveling up</span><span><i class="p"></i>Added by the plan</span><span><i class="need"></i>Needed</span></div>`;
 
-// ---- re-plan note ----
-
 const NOTE_ICON: Record<string, Parameters<typeof icon>[0]> = {
   missed: "calendar-clock",
   away: "calendar-clock",
@@ -146,8 +140,6 @@ export function dismissNote(n: Pick<PlanNote, "kind" | "title">): void {
   }
 }
 
-// ---- skills: level, trend, confidence ----
-
 export const LEVELS: SkillLevel[] = ["new", "shaky", "building", "solid", "strong"];
 export const LEVEL_WORD: Record<SkillLevel, string> = { new: "New", shaky: "Shaky", building: "Building", solid: "Solid", strong: "Strong" };
 export const levelIndex = (l: SkillLevel): number => LEVELS.indexOf(l);
@@ -168,8 +160,6 @@ export function confidence(s: Pick<Skill, "sureness" | "recent">): SafeHtml {
 }
 
 const lvlVar = (l: SkillLevel) => `var(--lvl-${levelIndex(l)})`;
-
-// ---- post-attempt: "What this changes" ----
 
 /**
  * The diagnosis update in the result sheet: the core's sentence, the level shift (or "No

@@ -2,8 +2,6 @@
 import { html, render, type SafeHtml } from "./html";
 import { icon, type IconName } from "./icons";
 
-// ---- toasts: bottom centre, one at a time, 6 s (8 s with an action), optional Undo ----
-
 export interface ToastAction {
   label: string;
   run: () => void;
@@ -67,8 +65,6 @@ export function installDrawerGuard(): void {
   });
 }
 
-// ---- dialogs (native <dialog class="dlg">) ----
-
 export function openDialog(d: HTMLDialogElement | null): void {
   if (!d || d.open) return;
   d.classList.remove("is-closing");
@@ -124,8 +120,6 @@ export function confirmDialog(o: {
     openDialog(d);
   });
 }
-
-// ---- banners: under the top bar, inside the content column ----
 
 export interface BannerOpts {
   icon: IconName;

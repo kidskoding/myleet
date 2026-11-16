@@ -76,8 +76,6 @@ function paintPrefs(): void {
   if (mod) mod.textContent = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent) ? "⌘" : "Ctrl";
 }
 
-// ---- appearance ----
-
 function accentNote(accent: Accent, latte: boolean): string {
   const meaning = ACCENT_MEANING[accent];
   if (meaning)
@@ -110,8 +108,6 @@ function paintAppearance(): void {
   const note = $("[data-accent-note]");
   if (note) note.textContent = accentNote(accent, flavor === "latte");
 }
-
-// ---- account rows ----
 
 const PROVIDERS: { id: Provider; label: string; icon: IconName; add: string }[] = [
   { id: "github", label: "GitHub", icon: "github", add: "Connect GitHub" },
@@ -195,8 +191,6 @@ function paintProfile(): void {
   if (path) path.textContent = profileHref(me.user.username);
 }
 
-// ---- profile fields (debounced saves) ----
-
 let nameTimer: ReturnType<typeof setTimeout> | undefined;
 let userTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -237,8 +231,6 @@ function onName(v: string): void {
     }
   }, 500);
 }
-
-// ---- data ----
 
 async function exportLocal(): Promise<void> {
   const blob = await exportEvents();
@@ -347,8 +339,6 @@ function deleteFlow(): void {
   document.body.append(d);
   openDialog(d);
 }
-
-// ---- wiring ----
 
 function onChange(e: Event): void {
   if (!root()) return;

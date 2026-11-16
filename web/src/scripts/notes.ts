@@ -45,7 +45,7 @@ let composing: { id: string; draft: string } | null = null;
 let pending: { start: number; end: number } | null = null;
 let openedAt = Date.now();
 
-// ---- text offsets over the prose (UI chips and code toolbars excluded) ----
+// Text offsets count prose only: UI chips and code toolbars are excluded.
 
 /** Where highlights live: the account when this device syncs, else this device. */
 function whereSaved(subject: string): string {
@@ -108,8 +108,6 @@ function clearMarks(root: HTMLElement): void {
   for (const m of $$("mark.hl", root)) m.replaceWith(...m.childNodes);
   root.normalize();
 }
-
-// ---- rendering highlights, margin notes and "Your notes" ----
 
 function placed(): { a: Annotation; at: [number, number] | null }[] {
   const root = prose();
@@ -212,8 +210,6 @@ function renderMine(list = placed()): void {
   render($("[data-mine]"), body);
   render($("[data-mine-mob]"), n ? html`<h3>Your notes</h3>${items(placedOnes)}` : html``);
 }
-
-// ---- popover ----
 
 function showPop(rect: DOMRect, content: ReturnType<typeof html>): void {
   const pop = $("[data-pop]");
@@ -340,8 +336,6 @@ function remove(id: string): void {
     });
 }
 
-// ---- reading progress and contents ----
-
 let lastSaved = -1;
 let raf = 0;
 
@@ -413,8 +407,6 @@ function toggleRead(): void {
   setReadButton(read);
 }
 
-// ---- practice panel ----
-
 async function renderPractice(): Promise<void> {
   const list = $("[data-practice]");
   const data = JSON.parse($("[data-practice-data]")?.textContent ?? "null") as Practice | null;
@@ -452,8 +444,6 @@ async function renderPractice(): Promise<void> {
   if (meta) meta.textContent = `${tl.mastered} mastered, ${tl.climbing} leveling up of ${tl.total}`;
 }
 
-// ---- Try it ----
-
 function openTry(block: HTMLElement): void {
   const d = $<HTMLDialogElement>("[data-try-dlg]");
   const ta = $<HTMLTextAreaElement>("[data-try-code]");
@@ -486,8 +476,6 @@ async function runTry(): Promise<void> {
     btn.removeAttribute("aria-busy");
   }
 }
-
-// ---- wiring ----
 
 function load(): void {
   if (!page()) return;

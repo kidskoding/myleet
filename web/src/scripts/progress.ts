@@ -85,8 +85,6 @@ function where(c: Ctx, p: ProblemMeta | undefined): string {
 
 const targetSecs = (c: Ctx, id: string) => c.cat.byId.get(id)?.time_target_secs ?? 1500;
 
-// ---- sections ----
-
 function streakPanel(c: Ctx, best: number): SafeHtml {
   const n = c.stats.streak;
   const strip = stripDays(c.stats.heatmap, c.today);
@@ -330,8 +328,6 @@ function notesSection(c: Ctx): SafeHtml {
   </section>`;
 }
 
-// ---- milestones ----
-
 function milestoneFacts(c: Ctx, atts: Attempt[], best: number): MilestoneFacts {
   const lines = c.events.split("\n").filter((l) => l.trim());
   const prefix = (i: number) => `${lines.slice(0, i).join("\n")}\n`;
@@ -446,8 +442,6 @@ function momentBand(c: Ctx): SafeHtml {
     <button class="btn btn-secondary" type="button" data-share>Share progress card</button>
   </section>`;
 }
-
-// ---- render ----
 
 async function build(): Promise<Ctx> {
   const [t, cat, real] = await Promise.all([loadTrainer(), loadCatalog(), readEvents()]);
@@ -573,8 +567,6 @@ function init(): void {
   remindOpen = false;
   void refresh();
 }
-
-// ---- actions ----
 
 async function resetAll(): Promise<void> {
   const d = document.createElement("dialog");

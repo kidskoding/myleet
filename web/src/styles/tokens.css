@@ -6,7 +6,6 @@
  */
 
 :root {
-  /* ---- Type ---- */
   --font-ui: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-read: "Literata", "Literata Variable", Georgia, serif;
   --font-code: "JetBrains Mono", "JetBrains Mono Variable", ui-monospace, monospace;
@@ -51,7 +50,7 @@
   --label-size: 0.71875rem; /* 11.5: mono runs wide, so a pixel under the old 12px tag */
   --label-track: -0.01em;
 
-  /* ---- Space (4px base) ---- */
+  /* 4px base */
   --space-0: 2px;
   --space-1: 4px;
   --space-2: 8px;
@@ -66,16 +65,16 @@
   --space-24: 96px;
   --gutter: clamp(16px, 4vw, 40px);
 
-  /* ---- Radius: squarer for tape and controls, softer for panels ---- */
+  /* Squarer for tape and controls, softer for panels */
   --radius-xs: 3px;   /* tags, chips, heatmap cells */
   --radius-sm: 6px;   /* buttons, inputs, test rows */
   --radius-md: 10px;  /* panels, cards */
   --radius-lg: 14px;  /* dialogs, palette, sheets */
   --radius-pill: 999px; /* switches, the ladder track only */
 
-  /* ---- Elevation: --shadow-sm/md/lg are per flavor in flavors.css. In-flow panels use --line, floating layers use shadow ---- */
+  /* --shadow-sm/md/lg are per flavor in flavors.css. In-flow panels use --line, floating layers use shadow */
 
-  /* ---- Motion. Springs are critically damped; bounce only after a flick ---- */
+  /* Springs are critically damped; bounce only after a flick */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: linear(0, 0.1 4.6%, 0.4 11.6%, 0.68 20%, 0.86 29.4%, 0.95 39.8%, 0.99 52%, 1);
@@ -89,7 +88,6 @@
   --dur-draw: 900ms;   /* the ladder route drawing in, once */
   --lift: -1px;        /* linked cards and the primary button rise 1px; never more inside the app */
 
-  /* ---- Layout ---- */
   --topbar-h: 52px;
   --tabbar-h: 60px;
   --content-max: 1200px;
@@ -97,7 +95,7 @@
   --z-overlay: 40;
   --z-toast: 50;
 
-  /* ---- Plan: the hour grid. Its colours (--window, --mix-*) are derived in flavors.css ---- */
+  /* The plan's hour grid; its colours (--window, --mix-*) are derived in flavors.css */
   --hour: 112px;
   --fold: 28px;
 }

@@ -226,8 +226,6 @@ export function planSettings(p: Prefs = readPrefs()): PlanSettings {
   };
 }
 
-// ---- theme: a Catppuccin flavor (or the system), the night flavor System uses after dark, an accent ----
-
 function write(key: string, value: string | null): void {
   const s = storage();
   try {

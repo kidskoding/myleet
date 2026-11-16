@@ -259,7 +259,7 @@ export const AUTH_ERRORS: Record<string, string> = {
   upstream: "The provider didn't answer. Try again in a minute, or use another method",
 };
 
-// ---- settings mapping (theme stays device-local) ----
+// Theme stays device-local, so it never goes to the server.
 
 export function toServer(p: Prefs): Partial<ServerSettings> {
   return {

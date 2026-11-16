@@ -160,7 +160,7 @@ export function minutesLeft(proseWords: number, codeWords: number, pct: number):
   return Math.max(0, Math.ceil(total * (1 - pct)));
 }
 
-// ---- account sync (lib/progress.ts) ----
+// Account sync; lib/progress.ts carries the blob.
 
 /** Union by id, the newer `updated` winning (a tombstone wins a tie); reads keep the furthest scroll and the newer read flag. */
 export function mergeNotes(a: Pick<Store, "annotations" | "reads">, b: Pick<Store, "annotations" | "reads">): Pick<Store, "annotations" | "reads"> {

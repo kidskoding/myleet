@@ -176,8 +176,6 @@ export function problemResult(r: Round, id: string, attempt: string | null, befo
   };
 }
 
-// ---- picking problems ----
-
 /** Seeded order so one seed reproduces a round. */
 function shuffle<T>(xs: T[], seed: number): T[] {
   let s = seed >>> 0 || 1;
@@ -254,8 +252,6 @@ export function pickWeak(c: Catalog, weak: { module: string; technique: string }
   }
   return spread(shuffle(ids, seed), techKey(c), n);
 }
-
-// ---- storage ----
 
 function store(): Storage | undefined {
   try {

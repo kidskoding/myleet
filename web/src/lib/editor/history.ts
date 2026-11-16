@@ -98,7 +98,6 @@ export function attemptsFor(events: string, problem: string): AttemptSummary[] {
   return [...byId.values()].sort((x, y) => y.start - x.start);
 }
 
-/** The tag on a History row. */
 export function outcomeTag(a: AttemptSummary, targetMs: number): { text: string; tone: "pass" | "fail" | "due" | "progress" } {
   switch (a.outcome) {
     case "passed":

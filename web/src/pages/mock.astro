@@ -13,7 +13,6 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
 
 <Base title="Mock interview" nav="mock" noindex description="A timed coding round with hints and technique labels hidden. Your results move problems between levels like any other practice">
   <div class="page mock" data-mock>
-    <!-- Setup and past mocks -->
     <div class="mock-layout" data-view="setup">
       <section aria-labelledby="mk-title">
         <h1 id="mk-title">Mock interview</h1>
@@ -113,7 +112,6 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
       </div>
     </section>
 
-    <!-- Results -->
     <section data-view="reveal" aria-labelledby="rv-title" hidden></section>
 
     <dialog class="dlg mk-dlg" id="mk-timeup" role="alertdialog" aria-labelledby="tu-title" aria-describedby="tu-body">
@@ -221,7 +219,6 @@ const svg = (s: string, size = 16) => s.replace("<svg", `<svg class="icon" width
   .mock .check strong { font-size: var(--text-base); font-weight: 600; }
   .mock .check p { font-size: var(--text-sm); color: var(--ink-3); margin-top: 2px; }
 
-  /* Reveal */
   .mock .reveal-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
   .mock .reveal-head .btns { display: flex; gap: var(--space-3); flex-wrap: wrap; }
   .mock .summary { margin-top: var(--space-8); display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }

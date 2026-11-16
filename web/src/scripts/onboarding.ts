@@ -67,8 +67,6 @@ function radios(name: string, label: string, opts: { id: string; label: string; 
   )}</fieldset>`;
 }
 
-// ---- steps ----
-
 function goalStep(): SafeHtml {
   const g = readPrefs().plan.goal;
   return html`${head("goal")}<section class="q" aria-labelledby="q1">
@@ -141,8 +139,6 @@ function planStep(): SafeHtml {
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Go to Today</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
   </section>`;
 }
-
-// ---- paint + events ----
 
 async function paint(): Promise<void> {
   const el = root();
@@ -264,7 +260,7 @@ function onKey(e: KeyboardEvent): void {
 
 async function init(): Promise<void> {
   if (!root()) return;
-  // The old warm-up step is the diagnostic now.
+  // Old links to the warm-up step land on the diagnostic, which replaced it.
   if (new URLSearchParams(location.search).get("step") === "warm-up") return location.replace(ROUTES.diagnostic);
   void paint();
   const [c, t] = await Promise.all([loadCatalog(), loadTrainer()]).catch(() => [undefined, undefined] as const);

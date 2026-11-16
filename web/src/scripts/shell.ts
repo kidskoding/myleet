@@ -25,13 +25,9 @@ function dialogOpen(): boolean {
   return !!document.querySelector("dialog[open]");
 }
 
-// ---- overlays (lazy chunks) ----
-
 export const openPalette = () => import("./palette").then((m) => m.openPalette());
 export const openShortcuts = () => import("./shortcuts").then((m) => m.openShortcuts());
 export const openSignIn = (error?: string) => import("./auth-ui").then((m) => m.openSignIn(error ? { error } : {}));
-
-// ---- keys ----
 
 const G_ROUTES: Record<string, string> = {
   t: ROUTES.today,
@@ -66,7 +62,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// ---- clicks (delegated, so they survive page swaps) ----
+// Delegated, so clicks survive page swaps.
 
 document.addEventListener("click", (e) => {
   const t = e.target as Element;
@@ -77,8 +73,6 @@ document.addEventListener("click", (e) => {
     void openSignIn();
   } else if (t.closest("[data-account-menu]")) toggleAccountMenu(t.closest<HTMLElement>("[data-account-menu]"));
 });
-
-// ---- account menu ----
 
 let menu: HTMLElement | undefined;
 
@@ -129,8 +123,6 @@ function toggleAccountMenu(btn: HTMLElement | null): void {
 document.addEventListener("pointerdown", (e) => {
   if (menu && !menu.hidden && !menu.contains(e.target as Node) && !(e.target as Element).closest("[data-account-menu]")) closeMenu();
 });
-
-// ---- top bar state ----
 
 export function paintAccount(me: Me | null): void {
   document.documentElement.dataset.auth = me ? "in" : "out";
@@ -193,8 +185,6 @@ function paintNav(): void {
   if (kbd) kbd.textContent = isMac ? "⌘K" : "Ctrl K";
 }
 
-// ---- banners: offline, update, sync ----
-
 function paintOnline(): void {
   if (navigator.onLine) hideBanner("offline");
   else
@@ -244,7 +234,7 @@ async function registerServiceWorker(): Promise<void> {
   });
 }
 
-// ---- install (Chromium's install prompt, offered from Today, Settings and the palette) ----
+// Chromium's install prompt, offered from Today, Settings and the palette.
 
 addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
@@ -254,8 +244,6 @@ addEventListener("beforeinstallprompt", (e) => {
     delete w.__myleetInstall;
   };
 });
-
-// ---- reminders ----
 
 let reminderTimer: ReturnType<typeof setTimeout> | undefined;
 const SESSION_SENT = "myleet:session-reminded";
@@ -314,8 +302,6 @@ function todayLine(): string {
   return "One problem keeps your streak going today";
 }
 
-// ---- account bootstrap ----
-
 async function bootAccount(): Promise<void> {
   const params = new URLSearchParams(location.search);
   const err = params.get("auth_error");
@@ -346,8 +332,6 @@ async function bootAccount(): Promise<void> {
   }
   void import("./account-sync").then((m) => m.startAccountSync(me));
 }
-
-// ---- lifecycle ----
 
 function onPage(): void {
   paintNav();

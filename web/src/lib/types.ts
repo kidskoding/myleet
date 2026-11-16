@@ -80,8 +80,6 @@ export interface ProblemFiles {
   solution?: string;
 }
 
-// ---- wasm results ----
-
 export type Status = "unseen" | "learning" | "reviewing" | "mastered";
 
 export interface State {
@@ -200,7 +198,7 @@ export type EventKind =
   | "leetcode_disconnected";
 export type Mode = "practice" | "drill" | "interview" | "placement" | "checkpoint" | "leetcode";
 
-// ---- planner and skills (crates/wasm README "Planner and skills") ----
+// Planner and skills shapes: crates/wasm README, "Planner and skills".
 
 export type Weekday = "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun";
 
@@ -450,7 +448,7 @@ export interface Skills {
   modules: { module: string; title: string; mastery: number; confidence: number }[];
 }
 
-// ---- LeetCode import (worker GET /api/leetcode/profile, crates/core leetcode.rs) ----
+// LeetCode import: worker GET /api/leetcode/profile and crates/core leetcode.rs.
 
 export interface LeetcodeProfile {
   username: string;

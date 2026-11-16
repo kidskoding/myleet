@@ -20,7 +20,7 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .wsx > .status { grid-row: 5; }
 .wsx > .toast-slot { position: absolute; }
 
-/* ===== Shared controls (local copies until the shared components land) ===== */
+/* Shared controls, copied here because this page doesn't load components.css */
 .wsx .icon { width: 18px; height: 18px; flex: none; }
 .wsx .icon-sm { width: 14px; height: 14px; flex: none; }
 .wsx .icon-xs { width: 13px; height: 13px; flex: none; }
@@ -121,7 +121,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 @keyframes wsx-rise { from { opacity: 0; transform: translateY(10px); } }
 @keyframes wsx-drop { from { opacity: 0; transform: translateY(-4px) scale(0.985); } }
 
-/* ===== Workspace bar ===== */
 .wbar { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--space-4); height: 56px; padding: 0 var(--space-4); border-bottom: 1px solid var(--line); background: var(--ground); position: relative; z-index: 6; transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out); }
 .wbar .left { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
 .wbar .crumbs { min-width: 0; }
@@ -155,7 +154,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .timer[data-state="over"] .track span { background: var(--fail-solid); }
 .timer[data-state="paused"] .clock { color: var(--ink-3); }
 
-/* ===== Panes ===== */
 .ws { position: relative; display: grid; grid-template-columns: var(--left) 8px minmax(0, 1fr); min-height: 0; padding: var(--space-2); }
 .col { display: grid; min-height: 0; min-width: 0; }
 .right-col { grid-template-rows: minmax(0, 1fr) 8px minmax(0, var(--tests)); }
@@ -195,7 +193,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .wsx[data-hide-tests] .gutter.h { visibility: hidden; }
 .wsx[data-hide-tests] .rail-bottom { display: flex; grid-column: 3; grid-row: 1; align-self: end; height: 36px; }
 
-/* ===== Statement ===== */
 .statement { padding: var(--space-5) var(--space-6) var(--space-8); }
 .statement .meta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); align-items: center; margin-bottom: var(--space-4); font-size: var(--text-sm); color: var(--ink-2); }
 .statement .meta .link { color: var(--accent); text-decoration-line: underline; text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent); text-underline-offset: 0.2em; }
@@ -277,7 +274,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .empty-hist { padding: var(--space-6); font-size: var(--text-sm); color: var(--ink-3); max-width: 46ch; }
 .back-row { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--line); font-size: var(--text-xs); color: var(--ink-3); }
 
-/* ===== Editor ===== */
 .ed-head .file { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-code); font-size: 0.8125rem; height: 40px; padding: 0 var(--space-2); box-shadow: inset 0 -2px 0 var(--accent); flex: none; }
 .ed-head .saved { font-size: var(--text-xs); color: var(--ink-3); margin-left: var(--space-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .ed-head .tools { margin-left: auto; display: flex; gap: 2px; align-items: center; flex: none; }
@@ -331,7 +327,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 @media (prefers-reduced-transparency: reduce) { .paused-veil { background: var(--surface); backdrop-filter: none; } }
 .wsx[data-paused] .editor { filter: blur(3px); }
 
-/* ===== Tests ===== */
 .tests-body { padding: var(--space-2); }
 .empty-note { padding: var(--space-3) var(--space-3); font-size: var(--text-sm); color: var(--ink-3); }
 .tsum { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-1) var(--space-3); padding: var(--space-2) var(--space-3) var(--space-3); font-size: var(--text-sm); }
@@ -448,7 +443,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) { .result { animation: wsx-fade 120ms linear both; } }
 
-/* ===== Ladder ===== */
 .ladder { display: inline-block; color: var(--ink); line-height: 0; }
 .ladder svg { overflow: visible; }
 .ladder .track { stroke: var(--rung-empty); stroke-width: 1.5; stroke-dasharray: 2 3; fill: none; }
@@ -464,7 +458,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .ladder .lbl { font: 500 11px var(--font-label); letter-spacing: -0.02em; fill: var(--ink-2); }
 .ladder .lbl.on { fill: var(--ink); }
 
-/* ===== Popovers, menus, dialogs ===== */
 .popover { position: absolute; background: var(--surface-raised); border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--line); font-size: var(--text-sm); z-index: 30; }
 @media (prefers-reduced-motion: no-preference) { .popover { animation: wsx-drop var(--dur-fast) var(--ease-out); transform-origin: top right; } }
 .menu { min-width: 232px; padding: 4px; display: grid; }
@@ -512,7 +505,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .shortcuts dt { color: var(--ink-2); } .shortcuts dd { margin: 0; text-align: right; }
 
 
-/* ===== Status bar ===== */
 .status { display: flex; align-items: center; gap: var(--space-4); height: 26px; padding: 0 var(--space-4); font-family: var(--font-label); font-size: 0.6875rem; letter-spacing: -0.01em; color: var(--ink-3); border-top: 1px solid var(--line); background: var(--ground); white-space: nowrap; overflow: hidden; }
 .status > * { display: inline-flex; align-items: center; gap: 5px; }
 .status button { color: inherit; font-size: inherit; border-radius: var(--radius-xs); }
@@ -522,7 +514,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .status [data-lint-text] { overflow: hidden; text-overflow: ellipsis; max-width: 40ch; }
 .status code { font-size: 0.95em; }
 
-/* ===== Focus mode: chrome recedes, the timer sits on a quiet wall strip ===== */
 .wsx[data-focus] .wbar .crumbs .s, .wsx[data-focus] .status .opt { visibility: hidden; }
 .wsx[data-focus] .wbar { border-color: transparent; } /* wall colours: .on-wall scope in base.css */
 .wsx[data-focus] .wbar .icon-btn { color: var(--wall-ink-2); }
@@ -541,7 +532,6 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 
 .wsx:fullscreen { width: 100vw; height: 100vh; }
 
-/* ===== Phone: one pane at a time ===== */
 .mtabs { display: none; }
 .mbar { display: none; }
 @media (max-width: 1100px) and (min-width: 761px) {

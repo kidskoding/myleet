@@ -163,7 +163,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     $(root, "[data-interview-tag]").hidden = false;
   }
 
-  // ---- State ----
   let settings: EditorSettings = loadSettings();
   if (interview) settings = { ...settings, autocomplete: false };
   // Lines always wrap on phones.
@@ -207,7 +206,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     });
   let attempt = newAttempt();
 
-  // ---- Background loads (never block typing) ----
+  // Background loads never block typing.
   const trainerP = import("../../lib/trainer")
     .then((m) => m.loadTrainer())
     .then(async (t) => {
@@ -229,7 +228,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   });
   const ruff = ruffWorker();
 
-  // ---- Draft / opening ----
   const draft = await loadDraft(id).catch(() => undefined);
   const states0 = await Promise.race([trainerP.then((t) => (t ? t.states(events) : {})), new Promise<Record<string, State>>((r) => setTimeout(() => r({}), 600))]);
   const st0 = states0[id];
@@ -238,7 +236,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   if (open.banner?.kind === "review" && draft) previousDraft = draft;
   setTag(st0, review);
 
-  // ---- Editor ----
   const smarts: Smarts = {
     ready: () => smartsReady,
     complete: (p) => runner.complete(p),
@@ -279,7 +276,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   const panes: Panes = setupPanes(root, { focusEditor: () => editor.focus() });
   if (interview && !root.hasAttribute("data-focus")) toggleFocusMode(true);
 
-  // ---- Status bar ----
   function setStatus(key: string, text: string) {
     const el = root.querySelector<HTMLElement>(`[data-st="${key}"]`);
     if (el && key !== "lint" && key !== "tests" && key !== "saved") el.textContent = text;
@@ -342,7 +338,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   renderVim();
   $(root, '[data-st="spaces"]').textContent = `Spaces: ${settings.tabSize}`;
 
-  // ---- Draft bar ----
   const bar = $(root, "[data-draft-bar]");
   if (open.banner?.kind === "draft") {
     const saved = open.banner.savedAt;
@@ -371,7 +366,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     );
   }
 
-  // ---- Editing, autosave, timer start ----
   function setCode(code: string) {
     programmatic = true;
     editor.setCode(code);
@@ -425,7 +419,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     if (settings.runOnSave) void run(false);
   }
 
-  // ---- Timer ----
   const timerEl = $(root, "[data-timer]");
   const clockEl = $(root, "[data-clock]");
   const labelEl = $(root, "[data-target-label]");
@@ -478,7 +471,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     tick();
   }
 
-  // ---- Python loading ----
   const testsPanel = $(root, "[data-tests]");
   function renderLoad() {
     renderRuntime();
@@ -550,7 +542,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   renderLoad();
   renderTestsStatus();
 
-  // ---- Run and Submit ----
   const runBtns = $$<HTMLButtonElement>(root, '[data-act="run"]');
   function setRunning(on: boolean) {
     running = on;
@@ -715,7 +706,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     }));
   }
 
-  // ---- Result sheet ----
   const resultSlot = $(root, "[data-result]");
   const tickPane = $(root, ".tests-pane");
   function closeResult(restoreFocus = false) {
@@ -862,7 +852,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     announce(`${title}. ${extras?.note ?? body}`);
   }
 
-  // ---- Left pane: tabs, statement, hints, solution, history ----
   const leftTabs = $$<HTMLButtonElement>(root, "[data-ltab]");
   function showLeftTab(name: string) {
     for (const t of leftTabs) {
@@ -1194,7 +1183,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     draw();
   }
 
-  // ---- Custom input ----
   const customPanel = $(root, "[data-custom]");
   let customValues: string[] | null = null;
   let customOut: HTMLElement | null = null;
@@ -1332,7 +1320,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     }
   }
 
-  // ---- Menus: more, settings, drafts ----
   function moreMenu(anchor: HTMLElement) {
     const item = (label: string, ic: Parameters<typeof icon>[0], fn: () => void, o: { danger?: boolean; kbd?: string; hidden?: boolean } = {}) =>
       o.hidden ? null : h("button", { role: "menuitem", class: o.danger ? "danger" : "", onclick: () => (close(), fn()) }, h("span", { html: icon(ic) }), label, o.kbd ? h("kbd", {}, keyLabel(o.kbd, mac)) : null);
@@ -1432,7 +1419,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     const close = popover(root, anchor, el);
   }
 
-  // ---- Restart and give up ----
   async function restart() {
     const anchor = $(root, '.wbar [data-act="more"]');
     const ok = await confirmPop(root, anchor, {
@@ -1479,7 +1465,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     announce("Gave up. It goes back to level 1; the reference solution is open");
   }
 
-  // ---- Focus mode, fullscreen ----
   function toggleFocusMode(force?: boolean) {
     const on = force ?? !root.hasAttribute("data-focus");
     root.toggleAttribute("data-focus", on);
@@ -1490,7 +1475,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     else void root.requestFullscreen?.().catch(() => toast(toastSlot, "Full screen isn't available in this browser"));
   }
 
-  // ---- Palette and shortcuts (local until the shared overlays land) ----
   function overlay(dialog: HTMLElement, label: string, onKey?: (e: KeyboardEvent) => void): () => void {
     const prev = document.activeElement as HTMLElement | null;
     const scrim = h("div", { class: "scrim" }, dialog);
@@ -1623,7 +1607,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     input.focus();
   }
 
-  // ---- Problems cycling (F8) ----
   function cycleProblem(dir: 1 | -1) {
     if (!editor.cycleProblem(dir)) {
       toast(toastSlot, "No lint problems or failing tests");
@@ -1632,7 +1615,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     panes.showMobile("code");
   }
 
-  // ---- Actions and keys ----
   async function dontKnow() {
     await attempt.skip().catch(() => {});
     location.href = backHref;
@@ -1744,7 +1726,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
     });
   });
 
-  // ---- Leaving ----
   window.addEventListener("pagehide", () => {
     void flushDraft();
     if (!exam && attempt.opened && !attempt.end) void attempt.leave();
@@ -1752,7 +1733,6 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
   window.addEventListener("online", renderRuntime);
   window.addEventListener("offline", renderRuntime);
 
-  // Late data.
   void trainerP.then(() => {
     const st = trainer?.states(events)[id];
     setTag(st, review);

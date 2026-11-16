@@ -116,8 +116,6 @@ export function hoverDocs(smarts: Smarts): Extension {
   );
 }
 
-// ---- Docs at the cursor (Ctrl/Cmd+I) ----
-
 const setDocs = StateEffect.define<Tooltip | null>();
 
 const docsField = StateField.define<Tooltip | null>({
@@ -142,8 +140,6 @@ export async function showDocsAtCursor(view: EditorView, smarts: Smarts): Promis
   const msg = smarts.ready() ? text.trim() || "No docs for this name" : "Docs arrive once Python finishes loading";
   view.dispatch({ effects: setDocs.of({ pos, above: true, create: () => ({ dom: docDom(msg) }) }) });
 }
-
-// ---- Signature help ----
 
 const setSig = StateEffect.define<{ pos: number; sig: Signature } | null>();
 

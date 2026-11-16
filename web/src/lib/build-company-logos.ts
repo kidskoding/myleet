@@ -31,8 +31,6 @@ const MIN_CONTRAST = 3;
 
 const LOGO_DIR = join(process.cwd(), "src/assets/logos");
 
-// ---- colour maths (WCAG) ----
-
 const NAMED: Record<string, string> = { black: "#000000", white: "#ffffff", red: "#ff0000", blue: "#0000ff", green: "#008000" };
 
 /** `#abc`, `#aabbcc`, `rgb(…)` or a few names to `#rrggbb`; null for none, url(…) and the like. */
@@ -95,8 +93,6 @@ export function monogramColours(name: string): { bgLight: string; fgLight: strin
   return { bgLight, fgLight: hsl(h, 65, l), bgDark, fgDark: hsl(h, 75, d) };
 }
 
-// ---- sources ----
-
 let manifest: Record<string, ManifestEntry | null> | undefined;
 const readManifest = () =>
   import.meta.env.DEV
@@ -134,8 +130,6 @@ export function sourceSvg(slug: string): string | null {
   const si = e.icon ? simpleIcon(e.icon) : undefined;
   return si ? `<svg viewBox="0 0 24 24"><path fill="#${si.hex}" d="${si.path}"/></svg>` : null;
 }
-
-// ---- SVG to symbol ----
 
 const COLOUR_ATTR = /\b(fill|stroke|stop-color)\s*=\s*"([^"]*)"/g;
 const COLOUR_DECL = /\b(fill|stroke|stop-color)\s*:\s*([^;"]+)/g;

@@ -67,8 +67,6 @@ function nextEntry(c: Ctx, p: Playlist): string | null {
   return null;
 }
 
-// ---- index ----
-
 function renderPinned(c: Ctx): void {
   const list = pins().map((s) => bySlug(c, s)).filter((p): p is Playlist => !!p);
   const sec = $("[data-pinned]");
@@ -147,8 +145,6 @@ function applyIndexFilter(): void {
       );
   }
 }
-
-// ---- prep page ----
 
 function setStatus(c: Ctx, id: string): [ReturnType<typeof statusTag>, State | undefined] {
   const st = c.states[id];
@@ -324,8 +320,6 @@ function togglePin(p: Playlist): void {
     },
   });
 }
-
-// ---- load ----
 
 function rerender(): void {
   const c = ctx;

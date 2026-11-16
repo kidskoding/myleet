@@ -35,7 +35,6 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 table { border-collapse: collapse; }
 [hidden] { display: none !important; }
 
-/* ---- Headings: tighter tracking and leading as size grows ---- */
 h1, h2, h3, h4 {
   font-family: var(--font-ui);
   font-variation-settings: "wdth" var(--wdth-head);
@@ -57,7 +56,6 @@ small, .text-small { font-size: var(--text-sm); }
 .text-muted { color: var(--ink-3); }
 .text-secondary { color: var(--ink-2); }
 
-/* ---- Prose: statements, notes, hints. Literata, comfortable measure ---- */
 .prose {
   font-family: var(--font-read);
   font-size: var(--text-read);
@@ -114,7 +112,6 @@ kbd {
   border-radius: var(--radius-xs);
 }
 
-/* ---- Links ---- */
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .prose a, a.link {
   color: var(--accent);
@@ -124,7 +121,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 }
 .prose a:hover, a.link:hover { text-decoration-color: currentColor; }
 
-/* ---- Focus: always visible for keyboards, never for mouse clicks ---- */
+/* Focus rings for keyboards only, never for mouse clicks */
 :focus { outline: none; }
 :focus-visible {
   outline: 2px solid var(--focus);
@@ -139,7 +136,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   :focus-visible { outline-color: Highlight; }
 }
 
-/* ---- Browser surfaces ---- */
 ::selection { background: var(--code-selection); color: var(--ink); }
 input, textarea { caret-color: var(--accent); }
 ::placeholder { color: var(--ink-3); opacity: 1; }
@@ -152,7 +148,6 @@ input, textarea { caret-color: var(--accent); }
 }
 ::-webkit-scrollbar-track { background: transparent; }
 
-/* ---- Utilities the components rely on ---- */
 .visually-hidden {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -175,10 +170,10 @@ input, textarea { caret-color: var(--accent); }
 }
 .skip-link:focus-visible { transform: none; }
 
-/* ---- Wall scope: anything drawn on --wall (always a dark Catppuccin Crust) takes the wall's own
+/* Wall scope: anything drawn on --wall (always a dark Catppuccin Crust) takes the wall's own
    hue tokens. Custom properties resolve where declared, so the rung aliases are re-declared here.
    :is() lifts every member to the focus-bar selector's weight so page rules can't repaint the wall.
-   A test (styles/theme.test.ts) fails on the wall colour used anywhere else. ---- */
+   A test (styles/theme.test.ts) fails on the wall colour used anywhere else. */
 :is(.on-wall, .wsx[data-focus] .wbar) {
   background: var(--wall);
   color: var(--wall-ink);
@@ -187,7 +182,7 @@ input, textarea { caret-color: var(--accent); }
   --rung-done: var(--wall-ink); --rung-empty: var(--wall-ink-2); --focus: var(--wall-accent);
 }
 
-/* ---- Theme changes ease instead of flashing ---- */
+/* Theme changes ease instead of flashing */
 @media (prefers-reduced-motion: no-preference) {
   html.theme-transition, html.theme-transition * {
     transition: background-color var(--dur-base) var(--ease-out),
@@ -196,7 +191,6 @@ input, textarea { caret-color: var(--accent); }
   }
 }
 
-/* ---- Astro View Transitions: cross-fade + 8px lift; nothing under reduced motion ---- */
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-old(root) { animation: vt-out var(--dur-fast) var(--ease-out) both; }
   ::view-transition-new(root) { animation: vt-in var(--dur-base) var(--ease-out) both; }

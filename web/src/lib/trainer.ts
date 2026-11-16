@@ -65,7 +65,6 @@ export interface TrainerApi {
   leetcode(events: string): LeetcodeImport | null;
   /** The event line that clears the import. */
   leetcodeDisconnect(now?: number): string;
-  /** iCalendar text for a plan. */
   planIcs(plan: Plan, options?: { site?: string; alarm_minutes?: number | null; uid_suffix?: string; name?: string }): string;
 }
 

@@ -13,8 +13,6 @@ export const WEEKEND_STEPS = [60, 90, 120, 150, 180];
 export const SESSION_LENGTHS = [30, 45, 60, 90];
 export const LEAD_TIMES = [10, 15, 30, 60];
 
-// ---- time text ----
-
 /** `HH:MM` to minutes after midnight (`24:00` is 1440). */
 export function toMin(hhmm: string): number {
   const [h, m] = hhmm.split(":").map(Number);
@@ -67,8 +65,6 @@ export const addDays = (day: string, n: number): string => {
   d.setDate(d.getDate() + n);
   return isoDay(d);
 };
-
-// ---- the week grid's time scale ----
 
 /** A visible stretch of the day, or a folded band. Minutes after midnight. */
 export interface Band {
@@ -128,8 +124,6 @@ export function minuteAt(y: number, bs: Band[], hour: number, fold: number): num
 }
 
 export const gridHeight = (bs: Band[], hour: number, fold: number): number => yOf(bs.at(-1)?.to ?? 0, bs, hour, fold);
-
-// ---- moving a session ----
 
 export interface Win {
   start: number;
@@ -240,7 +234,7 @@ export function step(steps: number[], v: number, dir: 1 | -1): number {
   return [...steps].reverse().find((s) => s < v) ?? steps[0] ?? v;
 }
 
-// ---- availability painter: half-hour cells 07:00 .. 24:00 ----
+// Availability painter: half-hour cells from 07:00 to 24:00.
 
 export const PAINT_FROM = 7 * 60;
 // shortcut: rows stop at midnight because planner windows never cross it; extend when they can.

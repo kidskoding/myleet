@@ -99,8 +99,6 @@ export function resetProgressStore(): void {
   kvPromise = undefined;
 }
 
-// ---- events ----
-
 /** Tells the page (and lib/sync.ts) that local progress changed. */
 function changed(): void {
   if (typeof window !== "undefined") window.dispatchEvent(new Event("myleet:progress"));
@@ -186,7 +184,7 @@ export async function clearEvents(): Promise<void> {
   await store.del(META);
 }
 
-// ---- server sync (the Worker's GET/PUT /api/progress) ----
+// Server sync: the Worker's GET/PUT /api/progress.
 
 export interface RemoteProgress {
   events_jsonl: string;
@@ -291,8 +289,6 @@ export async function syncProgress(remote: SyncTransport): Promise<string> {
   }
   throw new Error("progress sync kept conflicting; try again");
 }
-
-// ---- drafts ----
 
 const draftKey = (problem: string) => `draft:${problem}`;
 
