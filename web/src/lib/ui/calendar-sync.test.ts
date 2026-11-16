@@ -25,8 +25,8 @@ describe("calendar sync dialog", () => {
   it("offers the four providers before a link exists, with the one-way and Google facts", () => {
     const h = renderSync(base, null).value;
     for (const p of ["google", "apple", "outlook", "copy"]) expect(h).toContain(`data-provider="${p}"`);
-    expect(h).toContain("One way.");
-    expect(h).toContain("Google doesn't play alarms from subscribed calendars.");
+    expect(h).toContain("One way:");
+    expect(h).toContain("Google doesn't play alarms from subscribed calendars:");
     expect(h).not.toContain("Turn off link");
   });
   it("shows the link once, elided, then only rotate", () => {

@@ -63,6 +63,9 @@ const ago = (ms: number) => {
   return new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 };
 
+// Brand marks live in public/brand, since source files may not hold raw colours.
+const BRAND = { google: "/brand/google-calendar.svg", apple: "/brand/apple.svg", outlook: "/brand/microsoft.svg" } as const;
+
 const PROVIDERS = [
   { id: "google", label: "Google Calendar", sub: "Opens Google to subscribe" },
   { id: "apple", label: "Apple Calendar", sub: "Mac, iPhone, iPad (webcal)" },
@@ -81,7 +84,7 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
   const alarm = readPrefs().plan.reminderMinutes;
   const tiles = html`<div class="prov">${PROVIDERS.map(
     (p) =>
-      html`<button type="button" data-provider="${p.id}" ${offline || s.busy || s.view === "loading" ? "disabled" : ""}><span class="pi">${icon(p.id === "copy" ? "link" : "calendar")}</span><strong>${p.id === "copy" && s.copied ? "Copied" : p.label}</strong><small>${offline ? "Available when you're online" : p.sub}</small></button>`,
+      html`<button type="button" data-provider="${p.id}" ${offline || s.busy || s.view === "loading" ? "disabled" : ""}><span class="pi">${p.id === "copy" ? icon("link") : html`<img src="${BRAND[p.id as keyof typeof BRAND]}" alt="" width="20" height="20" />`}</span><strong>${p.id === "copy" && s.copied ? "Copied" : p.label}</strong><small>${offline ? "Available when you're online" : p.sub}</small></button>`,
   )}</div>`;
   const linkRow = s.links
     ? html`<div class="linkrow"><input class="input" readonly value="${elide(s.links.webcal_url)}" aria-label="Private calendar link (shown once)" /><button type="button" class="btn btn-secondary" data-provider="copy">${icon("copy")}Copy</button></div>
@@ -94,10 +97,10 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
       ? html`<div class="rotate-confirm" role="alert"><span>The old link stops working. Calendars using it stop updating until you add the new one</span><button type="button" class="btn btn-secondary btn-sm" data-sync-rotate-ok>Rotate link</button><button type="button" class="btn btn-ghost btn-sm" data-sync-rotate-cancel>Cancel</button></div>`
       : "";
   const facts = html`<div class="howto">
-    <div>${icon("arrow-right-left")}<span><b>One way.</b> Changes in myleet reach your calendar. Moving an event in your calendar doesn't move the session here</span></div>
-    <div>${icon("refresh")}<span><b>It refreshes on the calendar's schedule.</b> Apple Calendar lets you choose how often. Google can take several hours to show a change</span></div>
-    <div>${icon("bell-off")}<span><b>Google doesn't play alarms from subscribed calendars.</b> Turn on notifications for this calendar in Google, or use browser reminders from myleet</span></div>
-    <div>${icon("lock")}<span><b>The link is private.</b> Anyone with it can see your session times and problem titles, never your code or results. Rotate it if it leaks</span></div>
+    <div>${icon("arrow-right-left")}<span><b>One way:</b> changes in myleet reach your calendar. Moving an event in your calendar doesn't move the session here</span></div>
+    <div>${icon("refresh")}<span><b>It refreshes on the calendar's schedule:</b> Apple Calendar lets you choose how often. Google can take several hours to show a change</span></div>
+    <div>${icon("bell-off")}<span><b>Google doesn't play alarms from subscribed calendars:</b> turn on notifications for this calendar in Google, or use browser reminders from myleet</span></div>
+    <div>${icon("lock")}<span><b>The link is private:</b> anyone with it can see your session times and problem titles, never your code or results. Rotate it if it leaks</span></div>
   </div>`;
   const evt = preview
     ? html`<div class="evt"><div class="et">${preview.summary}</div><div class="em">${icon("clock-3")}${preview.when}</div>${
