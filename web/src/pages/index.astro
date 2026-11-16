@@ -49,7 +49,7 @@ const ruleIcon = (s: string, cls: string) =>
 <Base
   title="myleet"
   shell="public"
-  description="Personalized LeetCode interview prep. Solve real problems in your browser, and myleet brings each one back until you can solve it cold. Free, with a 15-minute diagnostic to find where you start"
+  description="Personalized LeetCode interview prep. Solve real problems in your browser, and myleet brings each one back until you can solve it cold. It's free, and a 15-minute diagnostic shows you where to start"
   ogImage="/og/default.png"
 >
   <script is:inline>
@@ -66,7 +66,7 @@ const ruleIcon = (s: string, cls: string) =>
         <h1 id="l-h">Personalized technical interview prep</h1>
         <div>
           <p>Tell us which interview you're preparing for, and we'll build your practice around it, starting from <strong>what you already know</strong></p>
-          <p class="sub">You solve real problems in the browser, and each one comes back after 1, 3, 7, 14 and 30 days until you can solve it from memory</p>
+          <p class="sub">You solve real problems in the browser. Each one comes back after 1 day, then after 3, 7, 14 and 30 days as it levels up, until you can solve it from memory</p>
           <div class="actions">
             <a class="btn btn-primary btn-lg" href={ROUTES.diagnostic}>Find your level</a>
             <a class="btn btn-secondary btn-lg" href={ROUTES.signin}>Sign in</a>
@@ -82,7 +82,7 @@ const ruleIcon = (s: string, cls: string) =>
           <h2>Two Sum</h2>
           <span class="diff" data-level="easy"><i aria-hidden="true"><b></b><b></b><b></b></i>Easy</span>
           <span class="mod-name"><span class="mod-chip" data-hue="01">01</span>Arrays and hashing</span>
-          <div class="timer" role="timer" aria-label="6 minutes 40 seconds of 15">
+          <div class="timer" role="timer" aria-label="6 minutes 40 seconds of 25">
             <div class="clock" data-clock>6:40</div>
             <div class="target">of 25:00</div>
             <div class="track"><span data-track style="width:44%"></span></div>
@@ -154,7 +154,7 @@ answer: [0, 1]</code></pre>
     <section class="band on-wall" aria-labelledby="ladder-h">
       <div class="lwrap">
         <h2 id="ladder-h">A problem comes back until you can solve it cold</h2>
-        <p class="lede">Solving a problem once won't help much in an interview a month later. LeetCode prep sticks through repetition, coming back to the same problems until the pattern is second nature, so myleet handles that for you. Each time you pass on your own and within the time target, the problem levels up and comes back a little later</p>
+        <p class="lede">One solve won't carry you to an interview a month away. What sticks is solving the same problems again until the pattern is automatic, and myleet schedules those repeats for you. Each time you pass on your own and inside the time target, the problem levels up and comes back a little later</p>
         <div class="topo">
           <figure>
             <div class="topo-scroll">
@@ -182,10 +182,10 @@ answer: [0, 1]</code></pre>
             </div>
           </figure>
           <ul class="rules">
-            <li><Fragment set:html={ruleIcon(ArrowUpRight, "up")} /><div><strong>Levels up</strong><span>Green tests, no hint or peek, and under the 25-minute target</span></div></li>
+            <li><Fragment set:html={ruleIcon(ArrowUpRight, "up")} /><div><strong>Levels up</strong><span>All tests pass, with no hint, no look at the solution, and under the <strong>25-minute target</strong></span></div></li>
             <li><Fragment set:html={ruleIcon(CornerLeftDown, "down")} /><div><strong>Back to level 1</strong><span>Using a hint, looking at the solution, going over time, or giving up sends it back to level 1. The attempt stays in your history</span></div></li>
             <li><Fragment set:html={ruleIcon(Equal, "same")} /><div><strong>Same day doesn't count</strong><span>Passing again on the same day keeps its level. You need to solve it on a later day to move up</span></div></li>
-            <li><Fragment set:html={ruleIcon(CheckCheck, "done")} /><div><strong>Mastered at level 4</strong><span>Solve it from memory after two weeks without help and within the time target. Monthly reviews follow</span></div></li>
+            <li><Fragment set:html={ruleIcon(CheckCheck, "done")} /><div><strong>Mastered at level 4</strong><span>It gets there with a clean pass a week after its level 3 review. It still comes back 14 days later, then every 30 days</span></div></li>
           </ul>
         </div>
       </div>
@@ -195,7 +195,7 @@ answer: [0, 1]</code></pre>
       <section class="notes" aria-labelledby="notes-h">
         <div>
           <h2 id="notes-h">Learn each pattern, then practice</h2>
-          <p class="lede">{modules.length} modules organized by interview pattern, with notes to read in order. Each note starts with a brute-force approach, explains its limits, and walks through a more efficient solution</p>
+          <p class="lede">{modules.length} modules arranged by interview pattern, with notes you read in order. Each note starts from the brute-force answer and shows why it's too slow before working up to the faster one</p>
           <ul>
             {
               featured.map((m) => (
@@ -235,7 +235,7 @@ answer: [0, 1]</code></pre>
 
       <section class="companies" aria-labelledby="co-h">
         <h2 id="co-h">Practice for a company once you know the basics</h2>
-        <p class="lede">{c.playlists.length} company sets, ordered most-asked first. Problems you have practiced show their review level; the rest are marked new</p>
+        <p class="lede">{c.playlists.length} company sets, with the most-asked problems first. Each problem you've practiced shows its level, and the rest are marked new</p>
         <div class="groups">
           {
             groups.map((g, gi) => (
@@ -258,14 +258,14 @@ answer: [0, 1]</code></pre>
             ))
           }
         </div>
-        <p class="disclaim">Pick the companies you're interviewing with, and we'll build your plan around them</p>
+        <p class="disclaim">Add the companies you're interviewing with to your goals, and your plan leans towards the techniques they ask about</p>
       </section>
 
       <section class="close" aria-labelledby="close-h">
         <div class="mesh" aria-hidden="true"></div>
         <div>
           <h2 id="close-h">Find out where to start</h2>
-          <p class="lede">Eight quick questions and two or three short problems show which patterns you already know. Make a free account afterward to keep the plan it builds</p>
+          <p class="lede">Eight multiple-choice questions and two or three short coding problems show which patterns you already know. Make a free account afterward to keep the plan they build</p>
           <div class="actions">
             <a class="btn btn-primary btn-lg" href={ROUTES.diagnostic}>Find your level</a>
             <a class="btn btn-secondary btn-lg" href={ROUTES.signin}>Sign in</a>
