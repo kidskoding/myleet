@@ -1456,13 +1456,17 @@ function closeDrawer(): void {
     d.classList.remove("is-leaving");
     editor?.destroy();
     editor = null;
-    $<HTMLElement>('[data-act="avail"]')?.focus();
+    const back = afterDrawer;
+    afterDrawer = null;
+    if (back) back();
+    else $<HTMLElement>('[data-act="avail"]')?.focus();
   };
   if (reduced()) return done();
   d.classList.add("is-leaving");
   drawerTimer = setTimeout(done, 200);
 }
 let drawerTimer: ReturnType<typeof setTimeout> | undefined;
+let afterDrawer: (() => void) | null = null;
 
 function openSync(): void {
   if (!requireAccount("calendar-sync")) return;
@@ -1568,7 +1572,7 @@ function openChange(o: { weekday?: number; focusDate?: boolean } = {}): void {
       if (g.interviews || g.weekday !== undefined) for (const b of dlg.querySelectorAll<HTMLElement>("[data-cp-preset]")) b.setAttribute("aria-pressed", "false");
       preview();
     },
-    availability: () => (closeDialog(dlg), openDrawer()),
+    availability: () => closeDialog(dlg, "avail"),
   });
   dlg.addEventListener("click", (e) => {
     const el = e.target as Element;
@@ -1607,7 +1611,18 @@ function openChange(o: { weekday?: number; focusDate?: boolean } = {}): void {
     }
   });
   dlg.addEventListener("keydown", (e) => e.stopPropagation());
-  dlg.addEventListener("close", () => (dlg.remove(), $<HTMLElement>('[data-act="change"]')?.focus()), { once: true });
+  // Edit availability parks the goals dialog behind the drawer and brings it back, draft intact, on Done.
+  const onClose = () => {
+    if (dlg.returnValue === "avail") {
+      dlg.returnValue = "";
+      afterDrawer = () => (openDialog(dlg), preview());
+      return openDrawer();
+    }
+    dlg.removeEventListener("close", onClose);
+    dlg.remove();
+    $<HTMLElement>('[data-act="change"]')?.focus();
+  };
+  dlg.addEventListener("close", onClose);
   openDialog(dlg);
   preview();
   (o.focusDate ? $<HTMLElement>("[data-iv-date]", dlg) : $<HTMLElement>("[data-cp-close]", dlg))?.focus();
