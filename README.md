@@ -66,69 +66,69 @@ around your interview date and free hours, and brings every problem back until y
 
 Most people prepare by working down a list of a few hundred problems once. A problem you solved three weeks ago
 with the editorial open is one you may not be able to start in an interview, and nothing on the list tells you
-which ones those are. The lists are also the same for everyone, so a learner who already knows two pointers
-spends the same days on it as someone who has never seen it. A list also can't tell how you miss: whether you
+which ones those are. The lists are also **the same for everyone**, so a learner who already knows two pointers
+spends the same days on it as someone who has never seen it. A list also can't tell **how you miss**: whether you
 can't start, pick the wrong idea, trip on edge cases or run out of time
 
-myleet keeps that record for you. Every attempt is logged as events (opened, ran the tests, used a hint, passed,
+myleet **keeps that record for you**. Every attempt is logged as events (opened, ran the tests, used a hint, passed,
 gave up), and every page reads its suggestions from that history
 
 ### Personalization
 
-- The diagnostic takes about 15 minutes and needs no account. It starts with eight multiple-choice questions,
+- The **diagnostic** takes about **15 minutes** and needs **no account**. It starts with eight multiple-choice questions,
   each showing a real problem and asking which pattern solves it, then gives you up to three coding problems in
   the normal editor from the patterns you were least sure of. Each pattern comes out strong, shaky or "start
-  here", and the first "start here" pattern becomes the first module of your plan
-- Goals mix freely. You can add interviews (each with a date and, if you know it, the company), dream companies
+  here", and the first "start here" pattern becomes the **first module of your plan**
+- **Goals mix freely**. You can add interviews (each with a date and, if you know it, the company), dream companies
   whose sets the plan works through, focus topics that get extra time, a daily time budget for weekdays and
   weekends, or none of these to just stay sharp
-- The plan walks forward one day at a time to your interview date (or four weeks ahead without one) and places
-  sessions inside the hours you said you are free. Due reviews come first, then mock interviews, check-ins and new
+- The **plan** walks forward **one day at a time** to your interview date (or four weeks ahead without one) and places
+  sessions **inside the hours you said you are free**. **Due reviews come first**, then mock interviews, check-ins and new
   problems. It stops adding new problems in the last two days before an interview. A missed day moves its work
-  into your next free windows, and you can subscribe to the plan from Google, Apple or Outlook calendars
-- Today opens with short coaching notes built from your history, such as "You cleared 7 problems yesterday, 2
+  into your next free windows, and you can subscribe to the plan from **Google, Apple or Outlook calendars**
+- Today opens with short **coaching notes built from your history**, such as "You cleared 7 problems yesterday, 2
   more than planned" or "Sunday's session didn't happen", each with a way to adjust the plan. Each problem says
-  why it was picked ("It came due 18 days ago, and a clean pass puts it one step from mastered")
-- After every submit, the result sheet says what the attempt changed: the problem's new level, how the
+  **why it was picked** ("It came due 18 days ago, and a clean pass puts it one step from mastered")
+- After every submit, the **result sheet** says **what the attempt changed**: the problem's new level, how the
   technique's diagnosis moved, and the next problem to try
 
 ### Learning that sticks
 
-- Every problem you finish sits on one of five review levels. It comes back after 1, 3, 7, 14 and then 30 days,
-  and it counts as mastered at level 4, the 14-day level
-- A level moves up only on a clean pass: every test passes, no hint or solution was opened first, the timer was
-  never restarted, and you finished inside the 25-minute target. A second clean pass on the same day leaves the
-  level alone. Anything else sends the problem back to level 1
-- Once a technique has two or more attempts and a low score, myleet names the most likely cause from how those
+- Every problem you finish sits on one of **five review levels**. It comes back after 1, 3, 7, 14 and then 30 days,
+  and it counts as **mastered at level 4**, the 14-day level
+- A level moves up only on a **clean pass**: every test passes, no hint or solution was opened first, the timer was
+  never restarted, and you finished inside the **25-minute target**. A second clean pass on the same day leaves the
+  level alone. Anything else sends the problem **back to level 1**
+- Once a technique has two or more attempts and a low score, myleet **names the most likely cause** from how those
   attempts went (can't start, wrong approach, edge cases, too slow or forgetting) and suggests a next step that
   fits it, such as "Edge-case drill: Max Area of Island, 25 min"
-- Eighteen modules of notes teach each pattern before the drills. The notes are written to start from the brute
+- **Eighteen modules of notes** teach each pattern **before the drills**. The notes are written to start from the brute
   force and show why it is too slow, trace the technique by hand, and cover what to say out loud
 
 ### Real interview conditions
 
-You write Python in a CodeMirror editor and run it against each problem's pytest file in the browser with
-Pyodide, so there is nothing to install. The timer starts on your first keystroke, and every problem has the same
-25-minute target, about what one problem gets in a live round. Mock interviews give you 45 minutes for one to three
-problems without naming the technique, charge three minutes per hint and end with a self-check on whether you
-could explain your approach and its complexity
+You write Python in a CodeMirror editor and run it against each problem's pytest file **in the browser** with
+Pyodide, so there is **nothing to install**. The timer starts on your first keystroke, and every problem has the same
+**25-minute target**, about what one problem gets in a live round. **Mock interviews** run for **25, 45 or 60 minutes**
+depending on how many problems you take on. They don't name the technique, keep hints hidden during the round
+and end with a self-check on whether you could explain your approach and its complexity
 
 ### Company sets
 
-There are 285 sets across Big Tech, AI and startups, consumer and business tech, trading firms and the
-Fortune 500. Each set covers live coding rounds only, never online assessments or behavioral rounds. The larger
-sets are built from counted candidate reports: the script in [`tools/evidence`](tools/evidence) collects public
+There are **285 sets** across Big Tech, AI and startups, consumer and business tech, trading firms and the
+Fortune 500. Each set covers **live coding rounds only**, never online assessments or behavioral rounds. The larger
+sets are built from **counted candidate reports**: the script in [`tools/evidence`](tools/evidence) collects public
 interview posts from 2024 on and treats a problem as evidenced once at least two separate posts name it (four for
-an easy problem in Big Tech). Each file cites its sources in a comment at the top, prefers United States reports
-and labels the location of any from elsewhere. Sets built on thin evidence say so, for example "Estimate from 6
-candidate reports (medium confidence)". Learners can also mark "I was asked this" on a problem, and a company's
+an easy problem in Big Tech). Each file cites its sources in a comment at the top, prefers **United States reports**
+and labels the location of any from elsewhere. Sets built on thin evidence **say so**, for example "Estimate from 6
+candidate reports (medium confidence)". Learners can also mark **"I was asked this"** on a problem, and a company's
 count shows once three people report the same one
 
 ### Your data
 
-myleet is free and open source under the MIT license. An account keeps your settings and practice events and
-syncs them across devices, and your browser keeps a copy so practice works offline. The optional LeetCode import
-asks only for a username and reads public profile data. It never asks for, or stores, a LeetCode password,
+myleet is **free and open source** under the MIT license. An account keeps your settings and practice events and
+**syncs them across devices**, and your browser keeps a copy so practice works offline. The optional LeetCode import
+asks only for a username and reads **public profile data**. It **never** asks for, or stores, a LeetCode password,
 session or cookie
 
 ### How it compares
@@ -149,24 +149,24 @@ confirm it
 ### Who it's for
 
 myleet is for students heading into internship and co-op interviews, new grads, and anyone with an interview on
-the calendar or a company they want to work at someday. If you have a date, it paces you to it. If you don't, it
-keeps a steady routine of new patterns and reviews
+the calendar or a company they want to work at someday. If you have a date, it **paces you to it**. If you don't, it
+keeps a **steady routine** of new patterns and reviews
 
 ## How it works
 
-1. The diagnostic marks each pattern strong, shaky or "start here" and picks your first module
-2. Your goals (interviews, dream companies, focus topics and daily time) shape a day-by-day plan inside your free
+1. The **diagnostic** marks each pattern strong, shaky or "start here" and picks your first module
+2. Your goals (interviews, dream companies, focus topics and daily time) shape a **day-by-day plan** inside your free
    hours
-3. Today lists due reviews first, most overdue first, then new problems up to your daily number (three unless you
+3. Today lists **due reviews first**, most overdue first, then new problems up to your daily number (three unless you
    change it), with weak techniques ahead of the rest
-4. A clean pass inside the 25-minute target moves a problem up one level, and anything else sends it back to
+4. A **clean pass** inside the **25-minute target** moves a problem up one level, and anything else sends it back to
    level 1
 
 ```text
 Level 1 (1 day) → Level 2 (3 days) → Level 3 (7 days) → Level 4 (14 days, mastered) → Level 5 (30 days)
 ```
 
-A missed review stays due without losing its level, and it waits at the top of Today until you get to it. The full
+A missed review **stays due without losing its level**, and it waits at the top of Today until you get to it. The full
 rules, with a worked example, are on the [How it works](https://myleet.anirudhkonidala.workers.dev/how-it-works)
 page
 
