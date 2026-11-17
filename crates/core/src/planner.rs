@@ -105,6 +105,8 @@ pub struct Settings {
     pub day_minutes: BTreeMap<String, u32>,
     /// Sessions the learner dragged to another window or day.
     pub moves: Vec<Move>,
+    /// Times the learner is busy in their own calendar; no session overlaps one.
+    pub busy: Vec<Busy>,
 }
 
 impl Default for Settings {
@@ -122,6 +124,7 @@ impl Default for Settings {
             weekend_minutes: None,
             day_minutes: BTreeMap::new(),
             moves: Vec::new(),
+            busy: Vec::new(),
         }
     }
 }
@@ -181,6 +184,44 @@ pub struct Move {
     pub to: String,
     pub to_start: String,
     pub minutes: u32,
+}
+
+/// A busy block from the learner's calendar, UTC milliseconds, `[start_ms, end_ms)`.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Busy {
+    pub start_ms: i64,
+    pub end_ms: i64,
+}
+
+/// The minutes of `day` (local) that `busy` covers. A block whose time can't be read
+/// covers the whole day: unknown time is busy, never free.
+fn busy_on(day: Date, busy: &[Busy], tz: &TimeZone) -> Vec<(u32, u32)> {
+    let local = |ms: i64| {
+        Timestamp::from_millisecond(ms)
+            .ok()
+            .map(|t| t.to_zoned(tz.clone()))
+    };
+    let minute = |z: &jiff::Zoned| z.hour() as u32 * 60 + z.minute() as u32;
+    let mut out = Vec::new();
+    for b in busy.iter().filter(|b| b.end_ms > b.start_ms) {
+        let (Some(s), Some(e)) = (local(b.start_ms), local(b.end_ms)) else {
+            return vec![(0, DAY_MINUTES)];
+        };
+        if s.date() > day || e.date() < day {
+            continue;
+        }
+        let from = if s.date() < day { 0 } else { minute(&s) };
+        let to = if e.date() > day {
+            DAY_MINUTES
+        } else {
+            // A block ending at 10:00:30 still covers the 10:00 minute.
+            minute(&e) + u32::from(e.second() > 0 || e.subsec_nanosecond() > 0)
+        };
+        if from < to {
+            out.push((from, to));
+        }
+    }
+    out
 }
 
 /// A window on one date, `HH:MM` to `HH:MM`.
@@ -1244,6 +1285,11 @@ fn build(
             windows = merge(base);
         } else {
             cap = 0;
+        }
+        for (s, e) in busy_on(day, &settings.busy, tz) {
+            windows = subtract(&windows, s, e);
+            moved_wins = subtract(&moved_wins, s, e);
+            full_windows = subtract(&full_windows, s, e);
         }
         let day_cap = cap;
         if day == today {
@@ -2737,6 +2783,151 @@ mod tests {
         let p = run(&[], &off, at(11, 14, 8));
         let d = p.days.iter().find(|x| x.date == "2026-11-17").unwrap();
         assert!(d.off && d.rest && d.cap == 0 && d.windows.is_empty());
+    }
+
+    fn busy(blocks: &[(Timestamp, Timestamp)]) -> String {
+        let b: Vec<Busy> = blocks
+            .iter()
+            .map(|(s, e)| Busy {
+                start_ms: s.as_millisecond(),
+                end_ms: e.as_millisecond(),
+            })
+            .collect();
+        format!(r#""busy":{}"#, serde_json::to_string(&b).unwrap())
+    }
+
+    fn overlaps(s: &Session, (a, b): (Timestamp, Timestamp)) -> bool {
+        s.start_ms < b.as_millisecond() && a.as_millisecond() < s.end_ms
+    }
+
+    #[test]
+    fn sessions_never_overlap_a_busy_block() {
+        // Tuesday 19:00 to 21:00 has a 19:30 to 20:15 meeting.
+        let meeting = (
+            at(11, 17, 19) + SignedDuration::from_mins(30),
+            at(11, 17, 20) + SignedDuration::from_mins(15),
+        );
+        let s = settings(&format!(
+            r#"{{"daily_minutes":90,{},{WINDOWS}}}"#,
+            busy(&[meeting])
+        ));
+        let p = run(&[], &s, at(11, 14, 8));
+        let tue = p.days.iter().find(|d| d.date == "2026-11-17").unwrap();
+        assert!(
+            !tue.sessions.is_empty(),
+            "the free time around it is still used"
+        );
+        assert!(tue.sessions.iter().all(|x| !overlaps(x, meeting)));
+        assert_eq!(
+            tue.windows,
+            vec![
+                Span {
+                    start: "19:00".into(),
+                    end: "19:30".into()
+                },
+                Span {
+                    start: "20:15".into(),
+                    end: "21:00".into()
+                }
+            ]
+        );
+        assert!(
+            p.days
+                .iter()
+                .flat_map(|d| &d.sessions)
+                .all(|x| !overlaps(x, meeting))
+        );
+    }
+
+    #[test]
+    fn a_fully_busy_day_gets_no_sessions() {
+        // An all-day block on Wednesday, local midnight to midnight.
+        let day = (at(11, 18, 0), at(11, 19, 0));
+        let s = settings(&format!(
+            r#"{{"daily_minutes":60,{},{WINDOWS}}}"#,
+            busy(&[day])
+        ));
+        let p = run(&[], &s, at(11, 14, 8));
+        let wed = p.days.iter().find(|d| d.date == "2026-11-18").unwrap();
+        assert!(wed.sessions.is_empty() && wed.rest && wed.windows.is_empty());
+        let thu = p.days.iter().find(|d| d.date == "2026-11-19").unwrap();
+        assert!(!thu.sessions.is_empty(), "the next day is untouched");
+    }
+
+    #[test]
+    fn busy_blocks_at_the_window_edges() {
+        // Ends as the window opens, starts as it closes: both leave 19:00 to 21:00 free.
+        let before = (at(11, 17, 18), at(11, 17, 19));
+        let after = (at(11, 17, 21), at(11, 17, 22));
+        let s = settings(&format!(
+            r#"{{"daily_minutes":60,{},{WINDOWS}}}"#,
+            busy(&[before, after])
+        ));
+        let p = run(&[], &s, at(11, 14, 8));
+        let tue = p.days.iter().find(|d| d.date == "2026-11-17").unwrap();
+        assert_eq!(
+            tue.windows,
+            vec![Span {
+                start: "19:00".into(),
+                end: "21:00".into()
+            }]
+        );
+        assert_eq!(tue.sessions[0].start_ms, at(11, 17, 19).as_millisecond());
+        // Overlapping the start and the end trims the window from both sides.
+        let head = (
+            at(11, 17, 18),
+            at(11, 17, 19) + SignedDuration::from_mins(20),
+        );
+        let tail = (
+            at(11, 17, 20) + SignedDuration::from_mins(40),
+            at(11, 17, 23),
+        );
+        let s = settings(&format!(
+            r#"{{"daily_minutes":60,{},{WINDOWS}}}"#,
+            busy(&[head, tail])
+        ));
+        let p = run(&[], &s, at(11, 14, 8));
+        let tue = p.days.iter().find(|d| d.date == "2026-11-17").unwrap();
+        assert_eq!(
+            tue.windows,
+            vec![Span {
+                start: "19:20".into(),
+                end: "20:40".into()
+            }]
+        );
+        assert!(
+            tue.sessions
+                .iter()
+                .all(|x| !overlaps(x, head) && !overlaps(x, tail))
+        );
+        // A block across midnight covers the end of one day and the start of the next.
+        let tz = chicago();
+        let late = (at(11, 16, 23), at(11, 17, 1));
+        assert_eq!(
+            busy_on(
+                jiff::civil::date(2026, 11, 16),
+                &settings(&format!("{{{}}}", busy(&[late]))).busy,
+                &tz
+            ),
+            vec![(23 * 60, DAY_MINUTES)]
+        );
+        assert_eq!(
+            busy_on(
+                jiff::civil::date(2026, 11, 17),
+                &settings(&format!("{{{}}}", busy(&[late]))).busy,
+                &tz
+            ),
+            vec![(0, 60)]
+        );
+        // Unreadable time fails closed: the whole day is busy.
+        let bad = [Busy {
+            start_ms: i64::MIN,
+            end_ms: i64::MAX,
+        }];
+        assert_eq!(
+            busy_on(jiff::civil::date(2026, 11, 17), &bad, &tz),
+            vec![(0, DAY_MINUTES)]
+        );
     }
 
     #[test]

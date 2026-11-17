@@ -596,7 +596,8 @@ impl Trainer {
         js(self.today_json(events_jsonl, now_ms, tz, new_per_day))
     }
 
-    /// `settings_json` is the account settings object (or `""` for defaults).
+    /// `settings_json` is the account settings object (or `""` for defaults), plus
+    /// `busy`: `[{start_ms, end_ms}]` from the learner's calendar, which no session overlaps.
     pub fn plan(
         &self,
         events_jsonl: &str,
@@ -969,6 +970,13 @@ mod tests {
             t.plan_json("", "{\"interview_date\":\"x\"}", now, CHICAGO)
                 .is_err()
         );
+        // Busy from now through the interview: nothing is planned.
+        let busy = format!(
+            r#"{{"interview_date":"2026-11-28","busy":[{{"start_ms":{now},"end_ms":{}}}]}}"#,
+            now + 15.0 * 86_400_000.0
+        );
+        let none = parse(&t.plan_json(&passed_two_sum(), &busy, now, CHICAGO).unwrap());
+        assert_eq!(none["summary"]["sessions"], 0);
 
         let ics =
             plan_ics_of(&plan, r#"{"site":"https://myleet.dev","alarm_minutes":30}"#).unwrap();

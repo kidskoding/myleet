@@ -5,7 +5,7 @@
 use jiff::Timestamp;
 use serde::Deserialize;
 
-use crate::planner::{ItemKind, Plan};
+use crate::planner::{ItemKind, Plan, Session};
 
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
 #[serde(default)]
@@ -83,6 +83,31 @@ fn label(k: ItemKind) -> &'static str {
     }
 }
 
+/// A session's event title, the same in the feed and in a synced calendar.
+pub fn summary(s: &Session) -> String {
+    format!("myleet · {} (≈{} min)", s.title, s.minutes)
+}
+
+/// A session's event description: each item with its reason and a link on `site`.
+pub fn description(s: &Session, site: &str) -> String {
+    let mut desc = Vec::new();
+    for it in &s.items {
+        desc.push(format!(
+            "{}: {} ({} min) - {}",
+            label(it.kind),
+            it.title,
+            it.minutes,
+            it.reason
+        ));
+        desc.push(match (&it.problem, it.kind) {
+            (Some(id), _) => format!("{site}/p/{id}"),
+            (None, ItemKind::Mock) => format!("{site}/mock"),
+            _ => format!("{site}/today"),
+        });
+    }
+    desc.join("\n")
+}
+
 pub fn render(plan: &Plan, o: &IcsOptions) -> String {
     let mut out = String::new();
     let mut line = |s: String| fold(&s, &mut out);
@@ -125,32 +150,13 @@ pub fn render(plan: &Plan, o: &IcsOptions) -> String {
         line("END:VEVENT".into());
     }
     for s in plan.days.iter().flat_map(|d| &d.sessions) {
-        let mut desc = Vec::new();
-        for it in &s.items {
-            desc.push(format!(
-                "{}: {} ({} min) - {}",
-                label(it.kind),
-                it.title,
-                it.minutes,
-                it.reason
-            ));
-            let link = match (&it.problem, it.kind) {
-                (Some(id), _) => format!("{}/p/{id}", o.site),
-                (None, ItemKind::Mock) => format!("{}/mock", o.site),
-                _ => format!("{}/today", o.site),
-            };
-            desc.push(link);
-        }
         line("BEGIN:VEVENT".into());
         line(format!("UID:{}{}@myleet", s.id, o.uid_suffix));
         line(format!("DTSTAMP:{stamp}"));
         line(format!("DTSTART:{}", utc(s.start_ms)));
         line(format!("DTEND:{}", utc(s.end_ms)));
-        line(format!(
-            "SUMMARY:{}",
-            escape(&format!("myleet · {} (≈{} min)", s.title, s.minutes))
-        ));
-        line(format!("DESCRIPTION:{}", escape(&desc.join("\n"))));
+        line(format!("SUMMARY:{}", escape(&summary(s))));
+        line(format!("DESCRIPTION:{}", escape(&description(s, &o.site))));
         if !o.site.is_empty() {
             line(format!("URL:{}/today", o.site));
         }
