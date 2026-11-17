@@ -29,6 +29,8 @@ export interface ServerSettings {
   focus_topics?: string[];
   /** Absent on a Worker that predates synced goals. */
   aims?: Aim[];
+  /** Finished or skipped setup; absent until the first sync after setup. */
+  onboarded?: boolean;
   reminders: boolean;
   public_profile: boolean;
   daily_minutes: number;
@@ -286,6 +288,7 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     target_companies: p.plan.companies,
     focus_topics: p.plan.focusTopics,
     aims: p.plan.aims,
+    ...(p.plan.onboarded ? { onboarded: true } : {}),
     reminders: p.reminders.on,
     public_profile: p.publicProfile,
     daily_minutes: p.plan.dailyMinutes ?? 60,
@@ -314,6 +317,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
       companies: s.target_companies,
       focusTopics: s.focus_topics ?? base.plan.focusTopics,
       aims: s.aims ?? base.plan.aims,
+      onboarded: base.plan.onboarded || s.onboarded === true,
       dailyMinutes: s.daily_minutes ?? base.plan.dailyMinutes,
       sessionMinutes: s.session_minutes ?? base.plan.sessionMinutes,
       availability: s.availability ?? base.plan.availability,

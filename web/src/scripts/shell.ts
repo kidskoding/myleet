@@ -2,7 +2,7 @@
 // reminders. Runs once per full load; `astro:page-load` refreshes per-page state.
 import { navigate } from "astro:transitions/client";
 import { AUTH_ERRORS, cachedMe, fetchMe, initials, takeReturn, type Me } from "../lib/account";
-import { afterSignIn, signinHref } from "../lib/gate";
+import { afterSignIn, needsSetup, signinHref } from "../lib/gate";
 import { applyFontPrefs, applyMotionPref, applyTheme, readPrefs, readTheme } from "../lib/prefs";
 import { lastReminder, nextSessionReminder, reminderDelay, reminderSupport, sendReminder, type PlannedSession } from "../lib/reminders";
 import { ROUTES } from "../lib/routes";
@@ -302,6 +302,14 @@ function todayLine(): string {
   return "One problem keeps your streak going today";
 }
 
+/** Pages that would sit half empty before setup; a new or reset account goes to onboarding instead, as after sign-up. */
+const SETUP_FIRST: string[] = [ROUTES.today, ROUTES.plan, ROUTES.progress];
+function routeToSetup(me: Me | null): boolean {
+  if (!me || !SETUP_FIRST.includes(location.pathname.replace(/\/$/, "")) || !needsSetup(me, readPrefs().plan.onboarded)) return false;
+  void navigate(ROUTES.onboarding, { history: "replace" });
+  return true;
+}
+
 async function bootAccount(): Promise<void> {
   const params = new URLSearchParams(location.search);
   const err = params.get("auth_error");
@@ -326,7 +334,9 @@ async function bootAccount(): Promise<void> {
   void import("./auth-ui").then((m) => m.rememberAccount());
   const back = takeReturn();
   // The footer's Home page link (/?home) lets a signed-in learner read the landing.
-  if (back !== null || (location.pathname === ROUTES.home && !new URLSearchParams(location.search).has("home"))) {
+  if (back === null && routeToSetup(me)) {
+    // Onboarding next; sync still starts below.
+  } else if (back !== null || (location.pathname === ROUTES.home && !new URLSearchParams(location.search).has("home"))) {
     const dest = afterSignIn(me, back ?? ROUTES.today, readPrefs().plan.onboarded);
     if (dest !== here) await navigate(dest);
   }
@@ -334,6 +344,7 @@ async function bootAccount(): Promise<void> {
 }
 
 function onPage(): void {
+  if (routeToSetup(cachedMe())) return;
   paintNav();
   paintSigninLinks();
   paintStreak();

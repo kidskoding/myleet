@@ -321,7 +321,7 @@ function resetFlow(): void {
     try {
       await resetProgress();
       clearDevice(true);
-      location.assign(ROUTES.today);
+      location.assign(ROUTES.onboarding);
     } catch {
       confirm.removeAttribute("aria-busy");
       const err = d.querySelector<HTMLElement>("[data-rst-err]");

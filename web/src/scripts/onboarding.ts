@@ -136,7 +136,7 @@ function planStep(): SafeHtml {
       <p><strong>On track</strong> means a technique is projected to reach the plan's goal by the date</p>
       <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up</p>
     </div>
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>Go to Today</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>${placeNext() ? "Find your level" : "Go to Today"}</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
   </section>`;
 }
 
@@ -195,6 +195,9 @@ function advance(): void {
   if (next) go(next);
 }
 
+/** Setup ends in the diagnostic until it's done, so Today opens on a placed plan. */
+const placeNext = (): boolean => trainer?.placement(planEvents).needs ?? false;
+
 /** New problems a day for the daily time picked: the nearest of the usual budgets. */
 const newPerDayFor = (m: number) => TIME_OPTIONS.reduce((a, b) => (Math.abs(b.minutes - m) < Math.abs(a.minutes - m) ? b : a)).newPerDay;
 
@@ -217,7 +220,7 @@ function onClick(e: MouseEvent): void {
   else if (t.closest("[data-finish-plan]")) {
     const minutes = readPrefs().plan.dailyMinutes ?? 60;
     updatePrefs({ newPerDay: newPerDayFor(minutes), plan: { dailyMinutes: minutes, startedAt: localDay(), onboarded: true } });
-    void navigate(ROUTES.today);
+    void navigate(placeNext() ? ROUTES.diagnostic : ROUTES.today);
   }
 }
 

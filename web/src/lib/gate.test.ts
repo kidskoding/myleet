@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { DEFAULT_PREFS } from "./prefs";
 import { toServer, type Me, type ServerSettings } from "./account";
-import { afterSignIn, GATE_BOOT, gateRedirect, isFreshAccount, safeNext, signinHref } from "./gate";
+import { afterSignIn, GATE_BOOT, gateRedirect, needsSetup, safeNext, signinHref } from "./gate";
 
 const NOW = Date.parse("2026-11-15T12:00:00Z");
 const settings = { theme: "system", editor_font_size: 14, ...toServer(DEFAULT_PREFS) } as ServerSettings;
@@ -53,15 +53,20 @@ describe("next", () => {
 
 describe("after sign-in", () => {
   it("sends a brand-new account to onboarding", () => {
-    expect(isFreshAccount(me(60_000), false, NOW)).toBe(true);
-    expect(afterSignIn(me(60_000), null, false, NOW)).toBe("/onboarding");
-    expect(afterSignIn(me(60_000), "/plan", false, NOW)).toBe("/plan");
+    expect(needsSetup(me(60_000), false)).toBe(true);
+    expect(afterSignIn(me(60_000), null, false)).toBe("/onboarding");
+    expect(afterSignIn(me(60_000), "/plan", false)).toBe("/plan");
+  });
+
+  it("sends a reset account back through setup, but not one set up on another device", () => {
+    expect(needsSetup(me(90 * 86_400_000), false)).toBe(true);
+    expect(needsSetup(me(90 * 86_400_000, { onboarded: true }), false)).toBe(false);
   });
 
   it("sends everyone else to next, or Today", () => {
-    expect(afterSignIn(me(60_000), "/plan", true, NOW)).toBe("/plan");
-    expect(afterSignIn(me(90 * 86_400_000), "/plan", false, NOW)).toBe("/plan");
-    expect(afterSignIn(me(60_000, { interview_date: "2027-01-10" }), null, false, NOW)).toBe("/app");
+    expect(afterSignIn(me(60_000), "/plan", true)).toBe("/plan");
+    expect(afterSignIn(me(90 * 86_400_000), "/plan", false)).toBe("/plan");
+    expect(afterSignIn(me(60_000, { interview_date: "2027-01-10" }), null, false)).toBe("/app");
   });
 });
 

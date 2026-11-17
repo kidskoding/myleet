@@ -29,16 +29,16 @@ export function safeNext(raw: string | null | undefined, fallback = "/app"): str
   return raw;
 }
 
-/** How long after creating an account its first sign-in still counts as new. */
-const NEW_ACCOUNT_MS = 30 * 60_000;
-
-/** A brand-new account with nothing set up yet goes through onboarding first. */
-export function isFreshAccount(me: Me, onboarded: boolean, now = Date.now()): boolean {
-  return !onboarded && now - me.user.created_at < NEW_ACCOUNT_MS && isDefaultServer(me.settings);
+/**
+ * An account with nothing set up yet (brand new, or just reset) goes through onboarding first.
+ * The flag syncs, so a learner who finished setup on another device isn't asked again.
+ */
+export function needsSetup(me: Me, onboarded: boolean): boolean {
+  return !onboarded && !me.settings.onboarded && isDefaultServer(me.settings);
 }
 
-export function afterSignIn(me: Me, next: string | null | undefined, onboarded: boolean, now = Date.now()): string {
+export function afterSignIn(me: Me, next: string | null | undefined, onboarded: boolean): string {
   // Someone sent here from a page (a sign-up prompt) goes straight back to it.
   const back = safeNext(next, "");
-  return isFreshAccount(me, onboarded, now) && !back ? "/onboarding" : back || "/app";
+  return needsSetup(me, onboarded) && !back ? "/onboarding" : back || "/app";
 }
