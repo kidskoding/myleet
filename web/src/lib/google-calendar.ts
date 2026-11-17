@@ -53,7 +53,8 @@ export function mergeGoogle(state: GoogleState, plan: Plan, cur: { moves: PlanMo
     const hit = at(plan, k.start_ms);
     if (hit) dayMinutes = skipBudget(dayMinutes, hit[0], hit[1], plan.start);
   }
-  const busy = state.busy ?? cur.busy;
+  // Unreadable busy time blocks writes to Google, but the plan keeps the last good busy time instead of going blank.
+  const busy = state.busy_complete === false ? cur.busy : (state.busy ?? cur.busy);
   if (moves === cur.moves && dayMinutes === cur.dayMinutes && JSON.stringify(busy) === JSON.stringify(cur.busy)) return null;
   return { moves, dayMinutes, busy };
 }

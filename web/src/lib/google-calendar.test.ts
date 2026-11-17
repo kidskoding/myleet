@@ -55,6 +55,8 @@ describe("Google changes merge into the plan settings", () => {
     expect(mergeGoogle({ connected: true, busy }, plan, empty)?.busy).toEqual(busy);
     expect(mergeGoogle({ connected: true, busy }, plan, { ...empty, busy })).toBeNull();
     expect(mergeGoogle({ connected: true }, plan, { ...empty, busy })).toBeNull();
+    const whole = [{ start_ms: at(17, 0), end_ms: at(17, 0) + 28 * 86_400_000 }];
+    expect(mergeGoogle({ connected: true, busy_complete: false, busy: whole }, plan, { ...empty, busy })).toBeNull();
   });
 
   it("only sessions that haven't started and fall in the next four weeks go out", () => {
