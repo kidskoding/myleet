@@ -51,7 +51,7 @@ describe("calendar sync dialog", () => {
     expect(fresh).not.toContain("AbCdEf");
     expect(fresh).toContain("Turn off link");
     const later = renderSync({ ...base, view: "active", status: { enabled: true, created_at: 1, plan_updated_at: null } }, null).value;
-    expect(later).toContain("Your calendar link is on.");
+    expect(later).toContain("Your subscription link is on:");
     expect(later).not.toContain("linkrow");
     expect(renderSync({ ...base, view: "active", confirm: "rotate" }, null).value).toContain("The old link stops working.");
   });

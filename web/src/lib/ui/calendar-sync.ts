@@ -105,7 +105,7 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
     ? html`<div class="linkrow"><input class="input" readonly value="${elide(s.links.webcal_url)}" aria-label="Private calendar link (shown once)" /><button type="button" class="btn btn-secondary" data-provider="copy">${icon("copy")}Copy</button></div>
       <p class="fineprint">This link is shown once. Keep it in your calendar; to see a link again, rotate it</p>`
     : s.view === "active"
-      ? html`<p class="sync-active">${icon("circle-check")}<span><b>Your calendar link is on.</b> It was made ${s.status?.created_at ? new Date(s.status.created_at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "earlier"} and was shown once. To add it to another calendar, rotate it for a new one</span></p>`
+      ? html`<p class="sync-active">${icon("circle-check")}<span><b>Your subscription link is on:</b> Apple Calendar, Outlook or any app you added it to keeps following your plan. It's separate from Google sync, made ${s.status?.created_at ? new Date(s.status.created_at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : "earlier"} and shown only once, so rotate it to add it somewhere new or turn it off below</span></p>`
       : "";
   const confirm =
     s.confirm === "rotate"
