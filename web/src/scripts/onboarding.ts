@@ -74,7 +74,7 @@ function goalStep(): SafeHtml {
   const g = readPrefs().plan.goal;
   return html`${head("goal")}<section class="q" aria-labelledby="q1">
     <h1 id="q1">What are you preparing for?</h1>
-    <p class="sub">This sets your time targets and the order of topics</p>
+    <p class="sub">Tell us where you're headed. You can change it any time in Settings</p>
     ${radios("goal", "q1", ROLES, g)}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("3")} to pick, ${kbd("enter")} to continue</span></div>
   </section>`;
