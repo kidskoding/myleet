@@ -1,5 +1,6 @@
 // Skills (/progress/skills): weak spots with their evidence and one next step each, and
 // the skill map of every technique. All text comes from the wasm skill model.
+import { sentenceCase } from "../lib/display";
 import { planSettings } from "../lib/prefs";
 import { readEvents } from "../lib/progress";
 import { ROUTES } from "../lib/routes";
@@ -67,7 +68,7 @@ function attemptStrip(s: Skill): SafeHtml {
 function spotCard(c: Ctx, s: Skill, i: number, compact: boolean): SafeHtml {
   const first = !s.weak_spot && s.watch;
   const tags = html`${first ? html`<span class="tag watch">Watching</span>` : tag("weak", "Weak spot")}${s.cause ? html`<span class="tag cause">${CAUSE_WORD[s.cause]}</span>` : ""}${trend(s.trend, s.recent)}${confidence(s)}`;
-  const title = html`<h3 id="sp-${i}"><button type="button" data-open="${keyOf(s)}">${s.technique_title}</button><small>${s.module_title}</small></h3>`;
+  const title = html`<h3 id="sp-${i}"><button type="button" data-open="${keyOf(s)}">${sentenceCase(s.technique_title)}</button><small>${sentenceCase(s.module_title)}</small></h3>`;
   if (compact) {
     return html`<li><article class="panel spot compact${first ? " lowconf" : ""}" aria-labelledby="sp-${i}" tabindex="-1" data-spot="${keyOf(s)}"><div><div class="spot-top">${tags}</div>${title}</div><button type="button" class="btn btn-ghost btn-sm" data-open="${keyOf(s)}">Details</button></article></li>`;
   }
@@ -98,7 +99,7 @@ function mapCell(s: Skill, low: boolean): SafeHtml {
   const weak = s.weak_spot && !low;
   const label = `${s.technique_title}: ${lvl ? LEVEL_WORD[s.level] : "not started"}${faint ? `, only ${tries} ${tries === 1 ? "try" : "tries"}` : ""}${s.trend === "improving" ? ", improving" : s.trend === "slipping" ? ", slipping" : ""}${weak ? ", weak spot" : ""}`;
   return html`<button type="button" role="gridcell" class="cell${faint ? " faint" : ""}${lvl ? "" : " new"}" data-l="${lvl}" data-open="${keyOf(s)}" aria-label="${label}" aria-pressed="${openKey === keyOf(s) ? "true" : "false"}" tabindex="-1">
-    <span class="n">${s.technique_title}</span>
+    <span class="n">${sentenceCase(s.technique_title)}</span>
     <span class="l">${lvl ? html`<span class="pips" aria-hidden="true"><b></b><b></b><b></b><b></b></span>${LEVEL_WORD[s.level]}` : "New"}${faint ? `, ${tries} ${tries === 1 ? "try" : "tries"}` : ""}${
       s.trend === "improving" ? icon("trending-up") : s.trend === "slipping" ? icon("trending-down") : ""
     }${weak ? html`<span class="wkw">Weak spot</span>` : ""}</span>
