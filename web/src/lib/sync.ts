@@ -86,6 +86,24 @@ export async function discardDeviceAndPull(t: SyncTransport, userId: string): Pr
 }
 
 /** Signing out keeps local progress but forgets the link. */
+/** Wipes this browser's myleet data. A reset keeps the sign-in; a deleted account keeps only the theme. */
+export function clearDevice(keepAccount: boolean): void {
+  const keep = new Set(keepAccount ? ["myleet:me", "myleet:auth", "myleet:theme"] : ["myleet:theme"]);
+  for (const store of [localStorage, sessionStorage]) {
+    try {
+      const keys = Array.from({ length: store.length }, (_, i) => store.key(i) ?? "");
+      for (const k of keys) if (k.startsWith("myleet") && !keep.has(k)) store.removeItem(k);
+    } catch {
+      /* storage refused: nothing was stored to clear */
+    }
+  }
+  try {
+    indexedDB.deleteDatabase("myleet");
+  } catch {
+    /* no IndexedDB in this browser */
+  }
+}
+
 export function unlinkDevice(): void {
   set(LINKED, null);
   set(LATER, null);

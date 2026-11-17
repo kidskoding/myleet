@@ -129,6 +129,7 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
         (Method::Get, "/api/me") => get_me(req, app).await,
         (Method::Patch, "/api/me") => patch_me(req, app).await,
         (Method::Delete, "/api/me") => delete_me(req, app).await,
+        (Method::Post, "/api/me/reset") => reset_me(req, app).await,
         (Method::Get, "/api/me/export") => export_me(req, app).await,
         (Method::Get, "/api/sessions") => list_sessions(req, app).await,
         (Method::Get, "/api/progress") => get_progress(req, app).await,
@@ -1133,6 +1134,24 @@ async fn delete_me(req: &Request, app: &App) -> Result<Response> {
     ])
     .await?;
     no_content(&[session::clear_cookie(SESSION_COOKIE)])
+}
+
+// Practice data only: the account, sign-in, calendar links and "I was asked this" reports stay.
+async fn reset_me(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let db = app.db()?;
+    let uid = text(&c.user_id);
+    let by_user = |table: &str| {
+        db.prepare(format!("DELETE FROM {table} WHERE user_id = ?1"))
+            .bind(std::slice::from_ref(&uid))
+    };
+    db.batch(vec![
+        by_user("plans")?,
+        by_user("progress")?,
+        by_user("user_settings")?,
+    ])
+    .await?;
+    no_content(&[])
 }
 
 async fn export_me(req: &Request, app: &App) -> Result<Response> {

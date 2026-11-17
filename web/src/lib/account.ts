@@ -220,6 +220,9 @@ export async function deleteAccount(): Promise<void> {
   cache(null);
   mePromise = Promise.resolve(null);
 }
+export async function resetProgress(): Promise<void> {
+  await api<void>("/api/me/reset", { method: "POST" });
+}
 export const exportUrl = "/api/me/export";
 
 /** Stores the plan for the calendar feed; an identical plan writes nothing server-side. */

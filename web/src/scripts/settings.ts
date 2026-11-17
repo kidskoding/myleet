@@ -1,8 +1,8 @@
 // Settings (/settings): every preference applies and saves as it changes.
-import { navigate } from "astro:transitions/client";
 import {
   ApiError,
   deleteAccount,
+  resetProgress,
   fetchMe,
   initials,
   listSessions,
@@ -17,7 +17,7 @@ import { ACCENT_MEANING, ACCENT_NAMES, ACCENTS, flavorTokens, isAccent, isNight,
 import { readAccent, readNight, readPrefs, readTheme, resolvedFlavor, setAccent, setNight, setTheme, updatePrefs, type Prefs, type ThemePref } from "../lib/prefs";
 import { exportEvents, importEvents, mergeEvents, readEvents } from "../lib/progress";
 import { profileHref, ROUTES } from "../lib/routes";
-import { unlinkDevice } from "../lib/sync";
+import { clearDevice, unlinkDevice } from "../lib/sync";
 import { html, render } from "../lib/ui/html";
 import { icon, type IconName } from "../lib/ui/icons";
 import { closeDialog, confirmDialog, openDialog, toast } from "../lib/ui/overlay";
@@ -290,6 +290,52 @@ async function importFile(file: File): Promise<void> {
   toast(`Imported ${added} events`);
 }
 
+function resetFlow(): void {
+  if (!me) return;
+  const d = document.createElement("dialog");
+  d.className = "dlg confirm-del";
+  d.style.setProperty("--dlg-w", "500px");
+  d.setAttribute("role", "alertdialog");
+  d.setAttribute("aria-labelledby", "rc");
+  d.setAttribute("aria-describedby", "rcd");
+  render(
+    d,
+    html`<div class="dlg-head"><h2 id="rc">Reset your progress?</h2></div>
+    <div class="dlg-body"><p id="rcd">This deletes, on our servers and in this browser:</p>
+      <ul><li>Every attempt, review and streak day</li><li>Your plan, goals and practice schedule</li></ul>
+      <p style="margin-top:var(--space-3)">Your account, sign-in and calendar connection stay, and you start again from setup. It can't be undone, so download your data first if you want a copy</p>
+      <label for="rc-in">Type <code>reset</code> to confirm</label>
+      <input class="input" id="rc-in" autocomplete="off" spellcheck="false" autocapitalize="off" style="margin-top:var(--space-2)" />
+      <p class="err" data-rst-err hidden style="margin-top:var(--space-2);font-size:var(--text-xs);color:var(--fail);font-weight:600"></p>
+    </div>
+    <div class="dlg-actions"><a class="btn btn-ghost" href="/api/me/export" download>Download data</a><button class="btn btn-secondary" type="button" data-cancel autofocus>Cancel</button><button class="btn btn-danger" type="button" data-confirm disabled>Reset progress</button></div>`,
+  );
+  const input = d.querySelector<HTMLInputElement>("#rc-in");
+  const confirm = d.querySelector<HTMLButtonElement>("[data-confirm]");
+  input?.addEventListener("input", () => {
+    if (confirm) confirm.disabled = input.value.trim().toLowerCase() !== "reset";
+  });
+  d.querySelector("[data-cancel]")?.addEventListener("click", () => closeDialog(d));
+  confirm?.addEventListener("click", async () => {
+    confirm.setAttribute("aria-busy", "true");
+    try {
+      await resetProgress();
+      clearDevice(true);
+      location.assign(ROUTES.today);
+    } catch {
+      confirm.removeAttribute("aria-busy");
+      const err = d.querySelector<HTMLElement>("[data-rst-err]");
+      if (err) {
+        err.hidden = false;
+        err.textContent = "Couldn't reach the server. Nothing was reset; try again";
+      }
+    }
+  });
+  d.addEventListener("close", () => d.remove());
+  document.body.append(d);
+  openDialog(d);
+}
+
 function deleteFlow(): void {
   if (!me) return;
   const username = me.user.username;
@@ -304,7 +350,7 @@ function deleteFlow(): void {
     html`<div class="dlg-head"><h2 id="dc">Delete your account?</h2></div>
     <div class="dlg-body"><p id="dcd">This removes from our servers:</p>
       <ul><li>Your synced progress and every attempt in it</li><li>Your public profile at ${profileHref(username)}</li><li>Sign-in methods, sessions and settings</li></ul>
-      <p style="margin-top:var(--space-3)">It can't be undone. Download your data first if you want a copy. Progress in this browser stays</p>
+      <p style="margin-top:var(--space-3)">It can't be undone, and this browser's copy is cleared too. Download your data first if you want a copy</p>
       <label for="dc-in">Type <code>${username}</code> to confirm</label>
       <input class="input" id="dc-in" autocomplete="off" spellcheck="false" autocapitalize="off" style="margin-top:var(--space-2)" />
       <p class="err" data-del-err hidden style="margin-top:var(--space-2);font-size:var(--text-xs);color:var(--fail);font-weight:600"></p>
@@ -322,10 +368,8 @@ function deleteFlow(): void {
     try {
       await deleteAccount();
       unlinkDevice();
-      closeDialog(d);
-      document.documentElement.dataset.auth = "out";
-      toast("Account deleted. Progress on this device is still here");
-      await navigate(ROUTES.home);
+      clearDevice(false);
+      location.assign(ROUTES.home);
     } catch {
       confirm.removeAttribute("aria-busy");
       const err = d.querySelector<HTMLElement>("[data-del-err]");
@@ -391,6 +435,7 @@ function onClick(e: MouseEvent): void {
   else if (connect?.dataset.connect) startOAuth(connect.dataset.connect as "github" | "google", `${ROUTES.settings}#signin`);
   else if (t.closest("[data-export-local]")) void exportLocal();
   else if (t.closest("[data-delete]")) deleteFlow();
+  else if (t.closest("[data-reset]")) resetFlow();
 }
 
 function onInput(e: Event): void {

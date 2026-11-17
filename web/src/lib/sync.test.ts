@@ -2,7 +2,7 @@ import "fake-indexeddb/auto";
 import { beforeEach, describe, expect, it } from "vitest";
 import { memoryStorage } from "./memory-storage";
 import { appendEvent, clearEvents, readEvents, resetProgressStore, type PutOutcome, type RemoteProgress, type SyncTransport } from "./progress";
-import { createSyncer, decideLater, deferredMerge, discardDeviceAndPull, firstSync, isLinked, mergeIntoAccount, unlinkDevice } from "./sync";
+import { clearDevice, createSyncer, decideLater, deferredMerge, discardDeviceAndPull, firstSync, isLinked, mergeIntoAccount, unlinkDevice } from "./sync";
 
 const ev = (t: string, problem = "two-sum") => JSON.stringify({ t, kind: "passed", problem, attempt: t, mode: "practice" });
 const A = ev("2026-11-14T10:00:00Z");
@@ -114,5 +114,19 @@ describe("createSyncer", () => {
     s.request(true);
     await new Promise((r) => setTimeout(r, 20));
     expect(states).toEqual([true, false]);
+  });
+});
+
+describe("clearDevice", () => {
+  it("a reset keeps the sign-in and theme, a deleted account keeps only the theme, other sites' keys stay", () => {
+    for (const keep of [true, false]) {
+      globalThis.localStorage = memoryStorage();
+      globalThis.sessionStorage = memoryStorage();
+      for (const k of ["myleet:me", "myleet:auth", "myleet:theme", "myleet:prefs", "myleet:progress", "other:key"]) localStorage.setItem(k, "x");
+      sessionStorage.setItem("myleet:gcal", "x");
+      clearDevice(keep);
+      expect(Array.from({ length: localStorage.length }, (_, i) => localStorage.key(i)).sort()).toEqual((keep ? ["myleet:auth", "myleet:me", "myleet:theme", "other:key"] : ["myleet:theme", "other:key"]).sort());
+      expect(sessionStorage.length).toBe(0);
+    }
   });
 });
