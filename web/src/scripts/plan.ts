@@ -35,6 +35,7 @@ import {
   minuteOf,
   moveFor,
   sittings,
+  skipBudget,
   span,
   step,
   toggleDayOff,
@@ -73,6 +74,15 @@ interface Ctx {
   fixes: PlanFixes | null;
   habits: Habits | null;
 }
+
+/** Toasts for `/plan?gcal=<outcome>` after connecting Google Calendar. */
+const GCAL_LANDED: Record<string, string> = {
+  connected: "Google Calendar is connected. Your sessions show up there in a moment, and your meetings now stay off your plan",
+  denied: "Google Calendar wasn't connected. You can connect it any time from Add to calendar",
+  scope: "Google Calendar needs both permissions to sync. Connect again and leave both boxes ticked",
+  signin: "Sign in first, then connect Google Calendar",
+  upstream: "Couldn't connect Google Calendar. Try again in a moment",
+};
 
 const FOLD = 28;
 const PROFILE_MAX_DAYS = 63;
@@ -1131,8 +1141,7 @@ function skipSession(id: string): void {
   if (!hit || !ctx) return;
   const [d, s] = hit;
   const prev = readPrefs().plan.dayMinutes;
-  const cur = prev.find((x) => x.date === d.date)?.minutes ?? d.cap;
-  const next = [...prev.filter((x) => x.date !== d.date && x.date >= ctx!.plan.start), { date: d.date, minutes: Math.max(0, cur - s.minutes) }];
+  const next = skipBudget(prev, d, s, ctx.plan.start);
   closePop();
   withUndo(`Skipped. Its ${plural(s.items.length, "item")} moved to the next free windows`, { plan: { dayMinutes: next } }, { plan: { dayMinutes: prev } });
 }
@@ -1900,6 +1909,14 @@ async function init(): Promise<void> {
     }
     // Back from sign-up with the calendar dialog still wanted: reopen it.
     if (signedIn() && takePending("calendar-sync")) openSync();
+    // Back from Google's consent screen (GET /api/calendar/google/connect).
+    const gcal = new URLSearchParams(location.search).get("gcal");
+    if (gcal) {
+      const q = new URLSearchParams(location.search);
+      q.delete("gcal");
+      history.replaceState(history.state, "", `${location.pathname}${q.size ? `?${q}` : ""}${location.hash}`);
+      toast(GCAL_LANDED[gcal] ?? GCAL_LANDED["upstream"]!);
+    }
   } catch (e) {
     errorState(e);
   }

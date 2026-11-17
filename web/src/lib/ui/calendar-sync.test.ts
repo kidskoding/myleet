@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { memoryStorage } from "../memory-storage";
-import { elide, eventPreview, renderSync, type SyncState } from "./calendar-sync";
+import { elide, eventPreview, FACTS, renderSync, type SyncState } from "./calendar-sync";
 
 const base: SyncState = { view: "none", status: { enabled: false, created_at: null, plan_updated_at: null }, links: null, confirm: null, busy: false, copied: false };
 const LINKS = {
@@ -22,12 +22,28 @@ describe("calendar sync dialog", () => {
     expect(h).toContain("Sign in to add");
     expect(h).not.toContain("data-provider");
   });
-  it("offers the four providers before a link exists, with the one-way and Google facts", () => {
+  it("offers Google two-way and the others by link, with facts for each", () => {
     const h = renderSync(base, null).value;
     for (const p of ["google", "apple", "outlook", "copy"]) expect(h).toContain(`data-provider="${p}"`);
-    expect(h).toContain("One way:");
-    expect(h).toContain("Google doesn't play alarms from subscribed calendars:");
+    expect(h).toContain("Connect Google Calendar");
+    expect(h).toContain("Two-way with Google:");
+    expect(h).toContain("One way with Apple and Outlook:");
     expect(h).not.toContain("Turn off link");
+    expect(h).not.toContain("data-gcal-off");
+  });
+  it("shows a connected Google Calendar with its last sync and Disconnect", () => {
+    const h = renderSync({ ...base, status: { ...base.status!, google: { connected: true, last_synced_at: Date.now() - 5 * 60_000 } } }, null).value;
+    expect(h).toContain("Google Calendar is connected:");
+    expect(h).toContain("last synced 5 minutes ago");
+    expect(h).toContain("data-gcal-off");
+    expect(h).toMatch(/data-provider="google" class="on"[^>]*disabled/);
+    expect(h).not.toContain("Connect Google Calendar");
+  });
+  it("writes the facts the way the copy rules ask", () => {
+    for (const f of FACTS) {
+      expect(f.text).not.toMatch(/[.—]$/);
+      expect(`${f.lead} ${f.text}`).not.toContain("—");
+    }
   });
   it("shows the link once, elided, then only rotate", () => {
     const fresh = renderSync({ ...base, view: "active", links: LINKS }, null).value;
@@ -42,7 +58,7 @@ describe("calendar sync dialog", () => {
   it("disables providers offline", () => {
     const h = renderSync({ ...base, view: "offline" }, null).value;
     expect(h).toContain("Available when you&#39;re online");
-    expect(h.match(/data-provider="[a-z]+" disabled/g)?.length).toBe(4);
+    expect(h.match(/data-provider="[a-z]+" class="[a-z]*" disabled/g)?.length).toBe(4);
   });
   it("previews the event from the core's iCalendar text, alarm only when on", () => {
     const ics = "BEGIN:VCALENDAR\r\nBEGIN:VEVENT\r\nDTSTART:20261118T030000Z\r\nDTEND:20261118T040000Z\r\nSUMMARY:myleet · 1 review\\, 2 new (≈55 min)\r\nDESCRIPTION:Review: Course Schedule (12 min) - 3-day review is du\r\n e\\nhttps://x/p/a\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n";

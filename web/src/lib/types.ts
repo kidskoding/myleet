@@ -233,6 +233,39 @@ export interface PlanSettings {
   weekend_minutes?: number | null;
   day_minutes?: Record<string, number>;
   moves?: PlanMove[];
+  /** Busy time from a connected calendar, UTC ms; no session overlaps one. */
+  busy?: BusyBlock[];
+}
+
+export interface BusyBlock {
+  start_ms: number;
+  end_ms: number;
+}
+
+/** A session moved in Google Calendar: where we wrote it and where it is now. */
+export interface GoogleMove {
+  key: string;
+  from_start_ms: number;
+  from_end_ms: number;
+  to_start_ms: number;
+  to_end_ms: number;
+}
+
+/** A session deleted in Google Calendar. */
+export interface GoogleSkip {
+  key: string;
+  start_ms: number;
+  end_ms: number;
+}
+
+/** `GET /api/calendar/google/state`. Busy time that couldn't be read in full comes back as one block over the whole range with `busy_complete: false`. */
+export interface GoogleState {
+  connected: boolean;
+  moves?: GoogleMove[];
+  skips?: GoogleSkip[];
+  busy?: BusyBlock[];
+  busy_complete?: boolean;
+  last_synced_at?: number;
 }
 
 /** A dragged session: `minutes` at `from_start` on `from` now happen at `to_start` on `to`. */

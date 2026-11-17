@@ -211,6 +211,12 @@ export function moveFor(s: PlanSession, from: string, to: string, start: number)
   };
 }
 
+/** One-day budgets after skipping `s` on `day`: the day loses the session's minutes. */
+export function skipBudget(dayMinutes: { date: string; minutes: number }[], day: PlanDay, s: PlanSession, today: string): { date: string; minutes: number }[] {
+  const cur = dayMinutes.find((x) => x.date === day.date)?.minutes ?? day.cap;
+  return [...dayMinutes.filter((x) => x.date !== day.date && x.date >= today), { date: day.date, minutes: Math.max(0, cur - s.minutes) }];
+}
+
 /**
  * Adds a move, dropping moves for past days. A block that was itself moved here is
  * re-moved from its original slot, so moves never chain.

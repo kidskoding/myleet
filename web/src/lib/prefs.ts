@@ -3,7 +3,7 @@
 // blocking head script can read it before first paint.
 import { DEFAULT_ACCENT, SITE_FLAVOR, flavorTokens, isAccent, type Accent, type Flavor, type NightFlavor } from "./flavors";
 import { localDay } from "./streak";
-import type { Availability, Difficulty, Interview, PlanMove, PlanSettings } from "./types";
+import type { Availability, BusyBlock, Difficulty, Interview, PlanMove, PlanSettings } from "./types";
 
 export type ThemePref = "system" | Flavor;
 export type Goal = "internship" | "coop" | "newgrad";
@@ -42,6 +42,8 @@ export interface Plan {
   dayMinutes: { date: string; minutes: number }[];
   /** Sessions dragged to another window or day. Device-local for now. */
   moves: PlanMove[];
+  /** Busy time from Google Calendar (two-way sync), refreshed on app open. Device-local. */
+  busy: BusyBlock[];
   /** Longest single sitting the planner schedules. */
   sessionMinutes: number;
   /** Weekly windows to plan sessions in; empty = around the hour you usually practice. */
@@ -104,6 +106,7 @@ export const DEFAULT_PREFS: Prefs = {
     weekendMinutes: null,
     dayMinutes: [],
     moves: [],
+    busy: [],
     sessionMinutes: 45,
     availability: [],
     daysOff: [],
@@ -223,6 +226,7 @@ export function planSettings(p: Prefs = readPrefs()): PlanSettings {
     days_off: p.plan.daysOff,
     day_minutes: Object.fromEntries(p.plan.dayMinutes.map((d) => [d.date, d.minutes])),
     moves: p.plan.moves,
+    busy: p.plan.busy,
   };
 }
 

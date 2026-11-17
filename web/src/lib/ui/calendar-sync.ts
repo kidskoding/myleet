@@ -1,9 +1,9 @@
-// "Add your plan to your calendar": the private ICS feed from the Worker (one way,
-// refreshed on the calendar's schedule). Provider buttons are plain text with a neutral
-// calendar icon: Google, Apple and Microsoft marks are only used under their brand
-// terms, which this app doesn't hold.
-import { ApiError, cachedMe, calendarStatus, makeCalendarLink, turnOffCalendarLink, type CalendarLinks, type CalendarStatus } from "../account";
-import { readPrefs } from "../prefs";
+// "Add your plan to your calendar": two-way sync with Google Calendar (the Worker writes
+// to a myleet calendar and reads changes back), and the private ICS feed from the Worker
+// for Apple, Outlook and the rest (one way, refreshed on the calendar's schedule).
+import { ApiError, cachedMe, calendarStatus, disconnectGoogle, GOOGLE_CONNECT_URL, makeCalendarLink, turnOffCalendarLink, type CalendarLinks, type CalendarStatus } from "../account";
+import { forgetGoogle } from "../google-calendar";
+import { readPrefs, updatePrefs } from "../prefs";
 import { html, render, type SafeHtml } from "./html";
 import { icon } from "./icons";
 import { closeDialog, confirmDialog, openDialog, toast } from "./overlay";
@@ -67,10 +67,19 @@ const ago = (ms: number) => {
 const BRAND = { google: "/brand/google-calendar.svg", apple: "/brand/apple-calendar.webp", outlook: "/brand/outlook.svg" } as const;
 
 const PROVIDERS = [
-  { id: "google", label: "Google Calendar", sub: "Opens Google to subscribe" },
+  { id: "google", label: "Connect Google Calendar", sub: "Two-way sync" },
   { id: "apple", label: "Apple Calendar", sub: "Mac, iPhone, iPad (webcal)" },
   { id: "outlook", label: "Outlook", sub: "Outlook on the web" },
   { id: "copy", label: "Copy link", sub: "Any other calendar app" },
+] as const;
+
+/** What each kind of calendar does, Google (two-way) first. */
+export const FACTS = [
+  { icon: "arrow-right-left", lead: "Two-way with Google", text: "your sessions show up in Google, your meetings stay off your plan, and moving a session in Google moves it here" },
+  { icon: "lock", lead: "Google shares busy times only", text: "myleet writes only to its own myleet calendar and reads when you're busy from your main one, not meeting titles or guests" },
+  { icon: "arrow-right", lead: "One way with Apple and Outlook", text: "changes in myleet reach your calendar. Moving an event there doesn't move the session here" },
+  { icon: "refresh", lead: "Apple and Outlook refresh on their own schedule", text: "Apple Calendar lets you choose how often. Outlook checks every few hours" },
+  { icon: "link", lead: "The link is private", text: "anyone with it can see your session times and problem titles, never your code or results. Rotate it if it leaks" },
 ] as const;
 
 export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml {
@@ -82,10 +91,16 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
   }
   const offline = s.view === "offline";
   const alarm = readPrefs().plan.reminderMinutes;
+  const google = s.status?.google;
+  const label = (id: string, l: string) => (id === "copy" && s.copied ? "Copied" : id === "google" && google?.connected ? "Google Calendar" : l);
+  const sub = (id: string, l: string) => (offline ? "Available when you're online" : id === "google" && google?.connected ? "Connected, two-way" : l);
   const tiles = html`<div class="prov">${PROVIDERS.map(
     (p) =>
-      html`<button type="button" data-provider="${p.id}" ${offline || s.busy || s.view === "loading" ? "disabled" : ""}><span class="pi">${p.id === "copy" ? icon("link") : html`<img src="${BRAND[p.id as keyof typeof BRAND]}" alt="" width="24" height="24" />`}</span><strong>${p.id === "copy" && s.copied ? "Copied" : p.label}</strong><small>${offline ? "Available when you're online" : p.sub}</small></button>`,
+      html`<button type="button" data-provider="${p.id}" class="${p.id === "google" && google?.connected ? "on" : ""}" ${offline || s.busy || s.view === "loading" || (p.id === "google" && google?.connected) ? "disabled" : ""}><span class="pi">${p.id === "copy" ? icon("link") : html`<img src="${BRAND[p.id as keyof typeof BRAND]}" alt="" width="24" height="24" />`}</span><strong>${label(p.id, p.label)}</strong><small>${sub(p.id, p.sub)}</small></button>`,
   )}</div>`;
+  const googleRow = google?.connected
+    ? html`<div class="sync-active">${icon("circle-check")}<span><b>Google Calendar is connected:</b> ${google.last_synced_at ? `last synced ${ago(google.last_synced_at)}` : "the first sync runs in a moment"}. It syncs each time you open myleet</span><button type="button" class="btn btn-quiet-danger btn-sm" data-gcal-off ${offline || s.busy ? "disabled" : ""}>Disconnect</button></div>`
+    : "";
   const linkRow = s.links
     ? html`<div class="linkrow"><input class="input" readonly value="${elide(s.links.webcal_url)}" aria-label="Private calendar link (shown once)" /><button type="button" class="btn btn-secondary" data-provider="copy">${icon("copy")}Copy</button></div>
       <p class="fineprint">This link is shown once. Keep it in your calendar; to see a link again, rotate it</p>`
@@ -96,12 +111,7 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
     s.confirm === "rotate"
       ? html`<div class="rotate-confirm" role="alert"><span>The old link stops working. Calendars using it stop updating until you add the new one</span><button type="button" class="btn btn-secondary btn-sm" data-sync-rotate-ok>Rotate link</button><button type="button" class="btn btn-ghost btn-sm" data-sync-rotate-cancel>Cancel</button></div>`
       : "";
-  const facts = html`<div class="howto">
-    <div>${icon("arrow-right-left")}<span><b>One way:</b> changes in myleet reach your calendar. Moving an event in your calendar doesn't move the session here</span></div>
-    <div>${icon("refresh")}<span><b>It refreshes on the calendar's schedule:</b> Apple Calendar lets you choose how often. Google can take several hours to show a change</span></div>
-    <div>${icon("bell-off")}<span><b>Google doesn't play alarms from subscribed calendars:</b> turn on notifications for this calendar in Google, or use browser reminders from myleet</span></div>
-    <div>${icon("lock")}<span><b>The link is private:</b> anyone with it can see your session times and problem titles, never your code or results. Rotate it if it leaks</span></div>
-  </div>`;
+  const facts = html`<div class="howto">${FACTS.map((f) => html`<div>${icon(f.icon)}<span><b>${f.lead}:</b> ${f.text}</span></div>`)}</div>`;
   const evt = preview
     ? html`<div class="evt"><div class="et">${preview.summary}</div><div class="em">${icon("clock-3")}${preview.when}</div>${
         alarm ? html`<div class="em">${icon("bell")}Alarm ${alarm} min before (calendar alarms are on in Settings)</div>` : ""
@@ -114,7 +124,7 @@ export function renderSync(s: SyncState, preview: EventPreview | null): SafeHtml
       : "";
   return html`<div class="dlg-head"><div><h2 id="sync-title">Add your plan to your calendar</h2><p class="sync-lede">Each session shows up as an event in the calendar you already use, and moves when the plan changes</p></div>${close}</div>
     <div class="sync-grid">
-      <div>${s.view === "error" ? html`<p class="sync-error" role="alert">${icon("circle-alert")}Couldn't reach your account. Your plan is safe on this device. Try again in a moment</p>` : ""}${tiles}${linkRow}${confirm}${facts}</div>
+      <div>${s.view === "error" ? html`<p class="sync-error" role="alert">${icon("circle-alert")}Couldn't reach your account. Your plan is safe on this device. Try again in a moment</p>` : ""}${tiles}${googleRow}${linkRow}${confirm}${facts}</div>
       <div><p class="evt-cap">How a session looks in your calendar</p>${evt}<p class="fineprint">Titles update if the plan changes. Days off have no events</p></div>
     </div>
     <div class="sync-foot">${
@@ -196,6 +206,29 @@ export async function openCalendarSync(ics: () => string | null): Promise<void> 
       if (await make()) toast("New link made. The old one has stopped working");
       return;
     }
+    if (t.closest("[data-gcal-off]")) {
+      const ok = await confirmDialog({
+        title: "Disconnect Google Calendar?",
+        body: "The myleet calendar and its events leave your Google account, and your meetings stop shaping your plan. You can connect again any time",
+        confirm: "Disconnect",
+        danger: true,
+      });
+      if (!ok) return;
+      s.busy = true;
+      draw();
+      try {
+        await disconnectGoogle();
+        forgetGoogle();
+        updatePrefs({ plan: { busy: [] } });
+        s.status = s.status ? { ...s.status, google: { connected: false, last_synced_at: null } } : null;
+        toast("Google Calendar disconnected");
+      } catch {
+        s.view = "error";
+      } finally {
+        s.busy = false;
+      }
+      return draw();
+    }
     if (t.closest("[data-sync-off]")) {
       const ok = await confirmDialog({
         title: "Turn off the calendar link?",
@@ -216,12 +249,16 @@ export async function openCalendarSync(ics: () => string | null): Promise<void> 
       return draw();
     }
     if (!prov) return;
+    if (prov === "google") {
+      location.href = GOOGLE_CONNECT_URL;
+      return;
+    }
     if (!s.links && s.view === "active") {
       s.confirm = "rotate";
       return draw();
     }
     // A blank tab opened inside the click keeps popup blockers happy while the link is made.
-    const tab = !s.links && (prov === "google" || prov === "outlook") ? window.open("about:blank", "_blank") : null;
+    const tab = !s.links && prov === "outlook" ? window.open("about:blank", "_blank") : null;
     const links = s.links ?? (await make());
     if (!links) {
       tab?.close();
@@ -235,9 +272,8 @@ export async function openCalendarSync(ics: () => string | null): Promise<void> 
     } else if (prov === "apple") {
       location.href = links.webcal_url;
     } else {
-      const url = prov === "google" ? links.google_url : links.outlook_url;
-      if (tab) tab.location.href = url;
-      else window.open(url, "_blank", "noopener");
+      if (tab) tab.location.href = links.outlook_url;
+      else window.open(links.outlook_url, "_blank", "noopener");
     }
   };
 }

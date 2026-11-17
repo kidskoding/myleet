@@ -1,6 +1,7 @@
 // Signed-in housekeeping: link this device's progress on first sign-in (merge if both
 // sides have history), keep progress and settings synced, report sync trouble.
-import { fetchMe, fromServer, isDefaultServer, patchMe, putPlan, toServer, type Me, type ServerSettings } from "../lib/account";
+import { fetchMe, fromServer, googleState, isDefaultServer, patchMe, pushGoogleSessions, putPlan, toServer, type Me, type ServerSettings } from "../lib/account";
+import { GCAL_KEY, GCAL_SENT, mergeGoogle, upcoming } from "../lib/google-calendar";
 import { DEFAULT_ACCENT, DEFAULT_NIGHT } from "../lib/flavors";
 import { adoptAppearance, onPrefsChange, planSettings, readAccent, readNight, readPrefs, readTheme, updatePrefs } from "../lib/prefs";
 import { apiTransport, readEvents, type SyncTransport } from "../lib/progress";
@@ -42,10 +43,92 @@ function syncFailed(retry: () => void): void {
 }
 
 const PLAN_SENT = "myleet:plan-sent";
+/** A connected tab reads Google at most this often (open, return to the tab). */
+const GCAL_PULL_MS = 60_000;
+
+interface GcalSeen {
+  at: number;
+  connected: boolean;
+  /** False after a free/busy answer that couldn't be read in full. */
+  complete: boolean;
+}
+
+function session(key: string): string | null {
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function setSession(key: string, value: string | null): void {
+  try {
+    if (value === null) sessionStorage.removeItem(key);
+    else sessionStorage.setItem(key, value);
+  } catch {
+    // This tab asks again next time; harmless.
+  }
+}
+
+const seen = (): GcalSeen | null => {
+  try {
+    return JSON.parse(session(GCAL_KEY) ?? "null") as GcalSeen | null;
+  } catch {
+    return null;
+  }
+};
+
+/**
+ * Changes made in Google become moves and skips, and busy time reaches the planner.
+ * Runs before any push, so a push never puts back a session the learner just moved.
+ */
+async function pullGoogle(): Promise<void> {
+  const last = seen();
+  if (!trainer || !navigator.onLine || (last?.connected && Date.now() - last.at < GCAL_PULL_MS)) return;
+  const state = await googleState().catch(() => null);
+  if (!state) return;
+  setSession(GCAL_KEY, JSON.stringify({ at: Date.now(), connected: state.connected, complete: state.busy_complete !== false } satisfies GcalSeen));
+  const p = readPrefs();
+  if (!state.connected) {
+    setSession(GCAL_SENT, null);
+    if (p.plan.busy.length) updatePrefs({ plan: { busy: [] } });
+    return;
+  }
+  const patch = mergeGoogle(state, trainer.plan(await readEvents(), planSettings(p)), p.plan);
+  if (!patch) return;
+  updatePrefs({ plan: patch });
+  if (state.moves?.length || state.skips?.length) toast("Updated from your changes in Google Calendar");
+}
+
+let pulling: Promise<void> = Promise.resolve();
+
+function pullNow(): Promise<void> {
+  pulling = pulling.then(pullGoogle).catch(() => undefined);
+  return pulling;
+}
+
+/** Sends the next four weeks of sessions to Google when they changed. */
+async function pushGoogle(): Promise<void> {
+  await pulling;
+  const s = seen();
+  // Unreadable busy time plans nothing, and sending that would empty the calendar.
+  if (!trainer || !navigator.onLine || !s?.connected || !s.complete) return;
+  const sessions = upcoming(trainer.plan(await readEvents(), planSettings()), Date.now());
+  const key = JSON.stringify(sessions);
+  if (session(GCAL_SENT) === key) return;
+  // Each call writes up to 40 events; a first sync of four weeks may need a few.
+  for (let i = 0; i < 5; i++) {
+    const r = await pushGoogleSessions(sessions);
+    if (!r.connected) return setSession(GCAL_KEY, null);
+    if (r.failed) return;
+    if (!r.more) return setSession(GCAL_SENT, key);
+  }
+}
 
 /** After a sync or a settings change: upload the plan only when its content changed. */
 async function uploadPlan(): Promise<void> {
   if (!trainer || !navigator.onLine) return;
+  void pushGoogle().catch(() => undefined);
   const plan = trainer.plan(await readEvents(), planSettings());
   const key = JSON.stringify({ ...plan, generated_ms: 0 });
   let last: string | null = null;
@@ -67,6 +150,7 @@ export async function startAccountSync(me: Me): Promise<void> {
   if (started) return;
   started = true;
   trainer = await loadTrainer().catch(() => undefined);
+  void pullNow();
   const t = transport();
   const user = me.user.id;
 
@@ -112,7 +196,10 @@ export async function startAccountSync(me: Me): Promise<void> {
 
   addEventListener("myleet:progress", () => syncer.request());
   addEventListener("online", () => syncer.request(true));
-  document.addEventListener("visibilitychange", () => document.visibilityState === "hidden" && syncer.request(true));
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") syncer.request(true);
+    else void pullNow();
+  });
 
   // Settings changes go to the account, debounced; the Settings page shows Saved / Couldn't save.
   let timer: ReturnType<typeof setTimeout> | undefined;

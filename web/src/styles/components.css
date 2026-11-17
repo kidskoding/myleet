@@ -695,6 +695,7 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .prov button:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
 .prov button:active:not(:disabled) { transform: scale(0.98); }
 .prov button:disabled { opacity: .55; cursor: not-allowed; }
+.prov button.on:disabled { opacity: 1; cursor: default; border-color: var(--line); background: var(--surface-sunk); }
 .prov .pi { grid-row: span 2; width: 28px; height: 28px; border-radius: var(--radius-sm); background: var(--surface-sunk); display: grid; place-items: center; color: var(--ink-2); }
 .prov .pi .icon { width: 16px; height: 16px; }
 .prov strong { font-size: var(--text-sm); }
@@ -704,6 +705,7 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .sync-active, .sync-error { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: var(--space-2); margin-top: var(--space-4); font-size: var(--text-sm); color: var(--ink-2); }
 .sync-active .icon { color: var(--pass); } .sync-error { margin: 0 0 var(--space-4); } .sync-error .icon { color: var(--fail); }
 .sync-active b { color: var(--ink); }
+.sync-active .btn { grid-column: 2; justify-self: start; }
 .howto { margin-top: var(--space-5); display: grid; gap: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
 .howto > div { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: var(--space-3); }
 .howto .icon { color: var(--ink-2); margin-top: 1px; }

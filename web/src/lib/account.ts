@@ -3,7 +3,7 @@
 import type { Accent, Flavor, NightFlavor } from "./flavors";
 import { DEFAULT_PREFS, mergeHistory, readPrefs, validWindows, type Aim, type Prefs } from "./prefs";
 import { mergeLedger, readLedger, writeLedger, type Ledger } from "./plan-progress";
-import type { Availability, Interview } from "./types";
+import type { Availability, GoogleState, Interview, PlanSession } from "./types";
 
 export type Provider = "github" | "google" | "email";
 
@@ -230,7 +230,16 @@ export interface CalendarStatus {
   enabled: boolean;
   created_at: number | null;
   plan_updated_at: number | null;
+  /** Two-way Google Calendar sync; absent from older Workers. */
+  google?: { connected: boolean; last_synced_at: number | null };
 }
+
+/** Starts the Google consent flow; it returns to `/plan?gcal=<outcome>`. */
+export const GOOGLE_CONNECT_URL = "/api/calendar/google/connect";
+export const googleState = (): Promise<GoogleState> => api("/api/calendar/google/state");
+export const pushGoogleSessions = (sessions: PlanSession[]): Promise<{ connected: boolean; more?: boolean; failed?: number }> =>
+  api("/api/calendar/google/sessions", { method: "POST", body: JSON.stringify({ sessions }) });
+export const disconnectGoogle = (): Promise<void> => api("/api/calendar/google/disconnect", { method: "POST" });
 
 /** The private feed's links; the Worker returns them only when the token is made. */
 export interface CalendarLinks {
