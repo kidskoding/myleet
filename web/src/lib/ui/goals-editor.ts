@@ -6,9 +6,10 @@ import { companyLogo } from "../company-logos";
 import { sentenceCase } from "../display";
 import { aimsOf, focusModules } from "../goals";
 import { TIME_OPTIONS } from "../plan";
-import type { Aim, Prefs } from "../prefs";
+import type { Aim, Goal, Prefs } from "../prefs";
 import { ROUTES } from "../routes";
 import { fmtM, step, WEEKDAY_STEPS, WEEKEND_STEPS } from "../schedule";
+import { ROLES } from "../setup";
 import type { Catalog, Interview } from "../types";
 import { pickCompany } from "./company-picker";
 import { html, render, type SafeHtml } from "./html";
@@ -69,6 +70,8 @@ export interface GoalsEditorOpts {
   live?: boolean;
   /** "When do you practice?": a handler, or the plan page's drawer by default. */
   availability?: () => void;
+  /** Settings shows the role from onboarding above the goals. */
+  role?: { get: () => Goal | null; set: (g: Goal) => void };
 }
 
 export interface GoalsEditor {
@@ -122,11 +125,18 @@ export function mountGoalsEditor(host: HTMLElement, o: GoalsEditorOpts): GoalsEd
       return html`<button type="button" class="chip" data-ge-topic="${m.id}" aria-pressed="${on ? "true" : "false"}">${on ? icon("check") : ""}${sentenceCase(m.title)}</button>`;
     })}</div>`;
 
+  const roleBody = (): SafeHtml => {
+    const cur = o.role?.get() ?? null;
+    const desc = ROLES.find((r) => r.id === cur)?.detail ?? "Pick the one you're preparing for";
+    return html`<div class="ge-head"><span><span class="ge-title" id="${id}-role">Role</span><span class="ge-desc">${desc}</span></span></div>
+      <div class="ge-body"><div class="seg" role="group" aria-labelledby="${id}-role">${ROLES.map((r) => html`<button type="button" data-ge-role="${r.id}" aria-pressed="${r.id === cur ? "true" : "false"}">${r.label}</button>`)}</div></div>`;
+  };
+
   const paint = (): void => {
     const g = o.get();
     render(
       host,
-      html`<div class="ge">${SECTIONS.map((s) => {
+      html`<div class="ge">${o.role ? html`<section class="ge-sec" data-sec="role" aria-labelledby="${id}-role">${roleBody()}</section>` : ""}${SECTIONS.map((s) => {
         const on = s.aim === "time" || g.aims.includes(s.aim);
         const head = html`<span class="ge-title" id="${id}-${s.aim}">${s.title}</span><span class="ge-desc">${s.desc}</span>`;
         return html`<section class="ge-sec" data-sec="${s.aim}" data-on="${on ? "true" : "false"}" aria-labelledby="${id}-${s.aim}">
@@ -169,7 +179,13 @@ export function mountGoalsEditor(host: HTMLElement, o: GoalsEditorOpts): GoalsEd
     const rm = t.closest<HTMLElement>("[data-ge-co-remove]");
     const topic = t.closest<HTMLElement>("[data-ge-topic]");
     const st = t.closest<HTMLElement>("[data-ge-step]");
-    if (rm) {
+    const role = t.closest<HTMLElement>("[data-ge-role]");
+    if (role && o.role) {
+      o.role.set(role.dataset.geRole as Goal);
+      const sec = host.querySelector<HTMLElement>('[data-sec="role"]');
+      if (sec) render(sec, roleBody());
+      host.querySelector<HTMLElement>(`[data-ge-role="${role.dataset.geRole}"]`)?.focus();
+    } else if (rm) {
       const list = o.get().companies;
       const i = list.indexOf(rm.dataset.geCoRemove ?? "");
       o.set({ companies: list.filter((s) => s !== rm.dataset.geCoRemove) });

@@ -77,7 +77,7 @@ function paint(): void {
   const goalsEl = $("[data-goals-settings]");
   if (goalsEl && cat) {
     if (goals) goals.refresh();
-    else goals = mountGoalsEditor(goalsEl, { id: "set-goals", catalog: cat.catalog, live: true, get: () => goalsOf(readPrefs().plan), set: (g) => updatePrefs({ plan: planPatch(g) }), availability: openWindows });
+    else goals = mountGoalsEditor(goalsEl, { id: "set-goals", catalog: cat.catalog, live: true, get: () => goalsOf(readPrefs().plan), set: (g) => updatePrefs({ plan: planPatch(g) }), availability: openWindows, role: { get: () => readPrefs().plan.goal, set: (goal) => updatePrefs({ plan: { goal } }) } });
   }
   if (remEl) render(remEl, reminderGroup());
 }
