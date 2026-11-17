@@ -203,6 +203,14 @@ pub enum Aim {
     Sharp,
 }
 
+/// What a learner hid from Today's "Finish setting up": the whole card, or the LeetCode row.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum SetupHide {
+    Card,
+    Leetcode,
+}
+
 /// One line of "Change plan" history; devices union these by `date|kind|text`.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -332,6 +340,9 @@ pub struct Extra {
     /// The goals picked, so a new device gets the same personalization.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub aims: Option<Vec<Aim>>,
+    /// Parts of "Finish setting up" the learner hid.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub setup_hidden: Option<Vec<SetupHide>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -433,6 +444,7 @@ pub struct SettingsPatch {
     pub plan_ledger: Option<BTreeMap<String, DayRecord>>,
     pub focus_topics: Option<Vec<String>>,
     pub aims: Option<Vec<Aim>>,
+    pub setup_hidden: Option<Vec<SetupHide>>,
 }
 
 impl Settings {
@@ -655,6 +667,12 @@ impl Extra {
                 return Err("aims must not repeat".to_string());
             }
             x.aims = Some(v);
+        }
+        if let Some(v) = p.setup_hidden.clone() {
+            if v.iter().enumerate().any(|(i, h)| v[..i].contains(h)) {
+                return Err("setup_hidden must not repeat".to_string());
+            }
+            x.setup_hidden = Some(v);
         }
         if let Some(v) = p.interviews.clone() {
             if v.len() > MAX_INTERVIEWS {
@@ -1003,6 +1021,7 @@ mod tests {
             r#"{"target_companies":["Google"]}"#,
             r#"{"focus_topics":["Graphs!"]}"#,
             r#"{"aims":["sharp","sharp"]}"#,
+            r#"{"setup_hidden":["card","card"]}"#,
             r#"{"daily_minutes":5}"#,
             r#"{"session_minutes":500}"#,
             r#"{"reminder_minutes":2000}"#,
@@ -1014,6 +1033,7 @@ mod tests {
         }
         assert!(serde_json::from_str::<SettingsPatch>(r#"{"theme":"neon"}"#).is_err());
         assert!(serde_json::from_str::<SettingsPatch>(r#"{"aims":["dream"]}"#).is_err());
+        assert!(serde_json::from_str::<SettingsPatch>(r#"{"setup_hidden":["plan"]}"#).is_err());
         assert!(serde_json::from_str::<SettingsPatch>(r#"{"unknown":1}"#).is_err());
     }
 
@@ -1093,7 +1113,7 @@ mod tests {
                     "time_targets":{"easy":15,"medium":25,"hard":40},"reduce_motion":true,
                     "editor_ligatures":false,"editor_minimap":true,"editor_indent":2,
                     "editor_format_on_save":false,"editor_run_on_save":true,
-                    "goal":"coop","plan_started_at":"2026-11-01","onboarded":true,
+                    "goal":"coop","plan_started_at":"2026-11-01","onboarded":true,"setup_hidden":["leetcode"],
                     "interviews":[{"date":"2026-12-15","company":"meta"},{"date":"2027-01-10","company":null}],
                     "plan_history":[{"date":"2026-11-15","kind":"date","text":"Set the interview for Dec 15"}],
                     "plan_ledger":{"2026-11-14":{"minutes":60,"sessions":2,"at":1763000000000}}}"#,
@@ -1108,6 +1128,7 @@ mod tests {
         assert_eq!(gone.extra.leetcode_username, Some(None));
         assert!(s.apply(patch(r#"{"leetcode_username":"a b"}"#)).is_err());
         assert_eq!(s.extra.goal, Some(Some(Goal::Coop)));
+        assert_eq!(s.extra.setup_hidden, Some(vec![SetupHide::Leetcode]));
         let cleared = s
             .apply(patch(r#"{"weekend_minutes":null,"goal":null}"#))
             .unwrap();
