@@ -209,16 +209,8 @@ export function momentum(streak: number, rests: string[] = []): string | null {
   return rests.length === 1 ? `${streak} days, with your rest day on ${weekdayOf(rests[0] ?? "")}` : `${streak} days, with a rest day each week`;
 }
 
-/**
- * The wrap-up when nothing is left today. Offers a retake when the last diagnostic is over
- * 30 days old (`diagnosticMs` null means it was never taken).
- */
-export function wrapUp(
-  done: { clean: number; total: number; minutes: number },
-  diagnosticMs: number | null,
-  now: Date,
-  tomorrow: { technique: string | null; reviews: number } | null = null,
-): { text: string; retake: boolean } {
+/** The wrap-up when nothing is left today. */
+export function wrapUp(done: { clean: number; total: number; minutes: number }, tomorrow: { technique: string | null; reviews: number } | null = null): string {
   const parts: string[] = [];
   if (done.total) {
     const clean = done.clean === done.total ? (done.total === 1 ? "cleanly" : "all cleanly") : done.clean ? `${num(done.clean)} of them cleanly` : "";
@@ -230,9 +222,7 @@ export function wrapUp(
   } else {
     parts.push("Nothing is due today, so your reviews are on schedule and the rest of the day is yours.");
   }
-  const retake = diagnosticMs !== null && now.getTime() - diagnosticMs > 30 * 86_400_000;
-  if (retake) parts.push("Your last diagnostic was over a month ago, so a retake would move your plan to where you are now.");
-  return { text: parts.join(" ").replace(/\.$/, ""), retake };
+  return parts.join(" ").replace(/\.$/, "");
 }
 
 /**

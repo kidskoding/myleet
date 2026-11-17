@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { ROOT } from "./test-util";
+import { moduleOneStart } from "./diagnostic";
 import { createTrainer } from "./trainer";
 
 const catalogText = readFileSync(join(ROOT, "public/data/catalog.json"), "utf8");
@@ -37,5 +38,13 @@ describe("trainer", () => {
     expect(t.placement("").needs).toBeTypeOf("boolean");
     expect(t.interviewPick("", 2, 7, { now: NOW, tz: "UTC" })).toHaveLength(2);
     expect(() => createTrainer("{")).toThrow();
+  });
+
+  it("counts a skipped diagnostic as done, starting at module 1", () => {
+    expect(t.placement("").needs).toBe(true);
+    const skipped = `${t.placementSkip(NOW)}\n`;
+    expect(t.placement(skipped).needs).toBe(false);
+    expect(t.placement(skipped).done).toBe(true);
+    expect(moduleOneStart(JSON.parse(catalogText))).toBe("two-sum");
   });
 });

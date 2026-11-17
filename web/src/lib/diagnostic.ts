@@ -274,3 +274,9 @@ export function excerpt(markdown: string, maxChars = 700): string {
   }
   return out;
 }
+
+/** Where "Skip and start at module 1" lands: the first problem of module 1's first technique. */
+export function moduleOneStart(catalog: Catalog): string | null {
+  const idx = catalog.modules[0]?.techniques[0]?.problems[0];
+  return idx === undefined ? null : (catalog.problems[idx]?.id ?? null);
+}

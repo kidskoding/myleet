@@ -28,7 +28,7 @@ export function renderReason(el: HTMLElement, c: Ctx): void {
     const plan = c.trainer.plan(c.events, planSettings());
     const item = plan.days.flatMap((d) => d.sessions).flatMap((s) => s.items).find((i) => i.problem === c.problem);
     if (item) {
-      render(el, html`${item.reason}`);
+      render(el, html`${item.reason.replace(/\.$/, "")}`);
       el.title = item.reason;
       return;
     }
@@ -185,7 +185,7 @@ export async function resultExtras(c: Ctx & { snapshot: Plan | null; attempt: Re
   const clean = done.filter((d) => d.finish === "clean").length;
   const minutes = done.reduce((n, d) => n + (d.elapsedMs ?? 0), 0) / 60_000;
   out.end = {
-    text: wrapUp({ clean, total: done.length, minutes }, null, now).text,
+    text: wrapUp({ clean, total: done.length, minutes }),
     tomorrowHref: plan?.days[1] ? planDayHref(plan.days[1].date) : ROUTES.plan,
     extra: extra && em ? { href: problemHref(extra.problem), title: em.title } : null,
   };

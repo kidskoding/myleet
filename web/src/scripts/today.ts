@@ -4,7 +4,7 @@ import { navigate } from "astro:transitions/client";
 import { cachedMe } from "../lib/account";
 import { signedIn } from "../lib/account";
 import { signupHref } from "../lib/access";
-import { topicById } from "../lib/diagnostic";
+import { moduleOneStart, topicById } from "../lib/diagnostic";
 import { companyLogo } from "../lib/company-logos";
 import { guestMode, resultsLine, todayInvite, todayResults, WELCOME_KEY } from "../lib/ui/guest-gate";
 import { viewEvents } from "../lib/sample";
@@ -369,7 +369,6 @@ async function load(): Promise<Ctx> {
   return { t, cat, ...viewEvents(t, cat, real), now: new Date() };
 }
 
-/** A guest sees the diagnostic invitation or their results, never a personal Today. */
 /** Titles of the learner's pinned companies, for bolding in the coaching note. */
 function companyNames(c: Ctx): string[] {
   return readPrefs().plan.companies.flatMap((slug) => c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title ?? []);
@@ -404,6 +403,7 @@ function targetCompany(c: Ctx): string | null {
   return (slug && c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title) || null;
 }
 
+/** A guest sees the diagnostic invitation or their results, never a personal Today. */
 function paintGuest(c: Ctx, main: HTMLElement, aside: HTMLElement): void {
   const pl = c.t.placement(c.events);
   const items = pl.result && !pl.result.skipped ? pl.result.items : [];
@@ -438,7 +438,7 @@ function welcome(main: HTMLElement, hasDiagnostic: boolean): void {
   const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0];
   const p = document.createElement("p");
   p.className = "plan-note";
-  p.textContent = `Welcome${name ? `, ${name}` : ""}! Your diagnostic is saved and your plan is ready.`;
+  p.textContent = `Welcome${name ? `, ${name}` : ""}! Your diagnostic is saved and your plan is ready`;
   main.querySelector(".greet")?.append(p);
 }
 
@@ -534,16 +534,13 @@ function paint(c: Ctx): void {
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     const spent = done.reduce((n, d) => n + (d.elapsedMs ?? 0), 0) / 60000;
     const drills = queue.filter((e) => e.kind === "practice");
-    const diagnostic = evs.filter((e) => e.kind === "placement_done").reduce((n, e) => Math.max(n, e.t), 0) || null;
     const next = c.plan?.days.find((d) => d.date > localDay(c.now) && d.sessions.length);
     const items = next?.sessions.flatMap((s) => s.items) ?? [];
     const techs = items.filter((i) => i.kind === "new" && i.technique).map((i) => i.technique as string);
     const tomorrow = next && next.date === addDays(localDay(c.now), 1) ? { technique: techs.sort((a, b) => techs.filter((x) => x === b).length - techs.filter((x) => x === a).length)[0] ?? null, reviews: items.filter((i) => i.kind === "review").length } : null;
-    const wrap = wrapUp({ clean: cleanCount, total: done.length, minutes: spent }, diagnostic, c.now, tomorrow);
+    const wrap = wrapUp({ clean: cleanCount, total: done.length, minutes: spent }, tomorrow);
     body = html`<section aria-labelledby="ad-h">
-      <div class="greet"><h1 id="ad-h">${hello}</h1>${noteHtml}${statusHtml}<p>${wrap.text}</p>${trackLine ? html`<p>${trackLine}</p>` : ""}${
-        wrap.retake ? html`<p><a class="btn btn-ghost" href="${ROUTES.diagnostic}">Retake the diagnostic</a></p>` : ""
-      }<p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="ad-h">${hello}</h1>${noteHtml}${statusHtml}<p>${wrap}</p>${trackLine ? html`<p>${trackLine}</p>` : ""}<p class="countdown-inline">${plan.inline}</p></div>
       ${drills.length
         ? html`<div class="panel state-note" style="margin-top:var(--space-8)"><h2>More practice</h2>
           <p>If you'd like more, these revisit topics you've practiced, including ones you found hard, and they don't change your review schedule.</p>
@@ -735,6 +732,14 @@ function moveKbd(d: number): void {
 document.addEventListener("click", async (e) => {
   if (!$("[data-today]")) return;
   const t = e.target as Element;
+  // Signed in, skipping is recorded so the diagnostic counts as done everywhere; a guest just browses.
+  if (ctx && signedIn() && t.closest("[data-skip-placement]")) {
+    e.preventDefault();
+    await appendEvent(ctx.t.placementSkip());
+    const first = moduleOneStart(ctx.cat.catalog);
+    void navigate(first ? problemHref(first) : ROUTES.today);
+    return;
+  }
   const skipBtn = t.closest<HTMLElement>("[data-skip]");
   const budgetBtn = t.closest<HTMLElement>("[data-budget]");
   const spread = t.closest<HTMLElement>("[data-note-act='spread']");

@@ -104,19 +104,14 @@ describe("on this day, milestones and momentum", () => {
 });
 
 describe("empty Today", () => {
-  it("wraps up the day and offers a retake after 30 days", () => {
-    const old = now.getTime() - 40 * 86_400_000;
-    expect(wrapUp({ clean: 2, total: 3, minutes: 52 }, old, now)).toEqual({
-      text: "You worked through three problems today, two of them cleanly, in about 52 minutes. Nothing else is due until tomorrow, so the rest of the day is yours. Your last diagnostic was over a month ago, so a retake would move your plan to where you are now",
-      retake: true,
-    });
-    expect(wrapUp({ clean: 2, total: 2, minutes: 40 }, now.getTime(), now, { technique: "Opposite-End Pointers", reviews: 2 }).text).toBe(
+  it("wraps up the day", () => {
+    expect(wrapUp({ clean: 2, total: 3, minutes: 52 })).toBe(
+      "You worked through three problems today, two of them cleanly, in about 52 minutes. Nothing else is due until tomorrow, so the rest of the day is yours",
+    );
+    expect(wrapUp({ clean: 2, total: 2, minutes: 40 }, { technique: "Opposite-End Pointers", reviews: 2 })).toBe(
       "You worked through two problems today, all cleanly, in about 40 minutes! Nothing else is due until tomorrow, so the rest of the day is yours. Tomorrow we'll pick up opposite-end pointers, after two quick reviews",
     );
-    expect(wrapUp({ clean: 0, total: 0, minutes: 0 }, now.getTime(), now)).toEqual({
-      text: "Nothing is due today, so your reviews are on schedule and the rest of the day is yours",
-      retake: false,
-    });
+    expect(wrapUp({ clean: 0, total: 0, minutes: 0 })).toBe("Nothing is due today, so your reviews are on schedule and the rest of the day is yours");
   });
 });
 

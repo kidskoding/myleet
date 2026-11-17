@@ -68,7 +68,7 @@ function todayExample(company: string | null, slug: string | null): SafeHtml {
 
 export function todayInvite(greet: string, company: string | null = null, slug: string | null = null): SafeHtml {
   return html`<div class="gate-split"><section class="gate" aria-labelledby="greet"><h1 id="greet">${greet}</h1><p class="lede">${inviteCopy(company)}</p>${gateSteps(INVITE_STEPS)}
-    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Skip and start at module 1</a></div></section>${todayExample(company, slug)}</div>`;
+    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="btn btn-ghost btn-lg" href="${ROUTES.learn}" data-skip-placement>Skip and start at module 1</a></div></section>${todayExample(company, slug)}</div>`;
 }
 
 export function todayResults(greet: string, line: string): SafeHtml {
