@@ -481,9 +481,9 @@ function renderAll(c: Ctx): void {
         ${gateSteps([
           ["Your streak", "Days in a row you've practiced, also in the top bar"],
           ["Topic by topic", "Which patterns are solid and which are still leveling up"],
-          ["Reviews coming due", "Problems come back after 1, 3, 7, 14 and 30 days once you pass them clean"],
+          ["Reviews coming due", "Each clean pass levels a problem up and brings it back a little later, until it's mastered"],
         ])}
-        <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a><a class="link" href="${ROUTES.learn}">Browse the modules</a></div></section>`,
+        <div class="gate-actions">${c.t.placement(c.events).done ? html`<a class="btn btn-primary btn-lg" href="${ROUTES.today}">Start today's practice</a>` : html`<a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a>`}<a class="btn btn-ghost btn-lg" href="${ROUTES.learn}">Browse the modules</a></div></section>`,
     );
     return;
   }
