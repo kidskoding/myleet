@@ -250,7 +250,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
   try {
     plan = c.t.plan(c.events, planSettings());
   } catch {
-    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">The plan couldn't be built right now</p><div class="foot"><a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">Open plan</a></div>`);
+    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">The plan couldn't be built right now</p><div class="foot"><a class="btn btn-secondary btn-sm" href="${ROUTES.plan}">Open plan</a></div>`);
     return;
   }
   const ids = new Set(p.entries.map((e) => (e.problem === null ? "" : (c.cat.catalog.problems[e.problem]?.id ?? ""))));
@@ -285,7 +285,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
             })}</div>`
           : ""
       }
-      <div class="foot"><span class="text-muted">${plan.summary.headline.replace(/\.$/, "")}</span><a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">Open plan</a></div>`,
+      <div class="foot"><span class="text-muted">${plan.summary.headline.replace(/\.$/, "")}</span><a class="btn btn-secondary btn-sm" href="${ROUTES.plan}">Open plan</a></div>`,
   );
 }
 
