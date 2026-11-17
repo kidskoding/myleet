@@ -30,6 +30,8 @@ with native unit tests.
 | `src/statement.rs` | LeetCode GraphQL reply to markdown, premium detection               |
 | `src/sync.rs`      | Progress upload validation and version conflicts                    |
 | `src/calendar.rs`  | Plan upload validation, feed tokens, subscribe links, ICS body      |
+| `src/calsync.rs`   | Two-way sync: sealed tokens, event map, diff, moves and skips       |
+| `src/gcal.rs`      | Google Calendar OAuth, event and free/busy request and reply shapes |
 | `src/reports.rs`   | Interview report validation and the 3-reporter threshold            |
 | `build.rs`         | Bakes the company slugs from `../playlists` into the Worker         |
 | `migrations/`      | D1 schema, applied with `wrangler d1 migrations apply`              |
@@ -95,9 +97,15 @@ logged in (`bunx wrangler login`).
    Credentials, Create credentials, OAuth client ID, type Web application:
 
    - Authorized JavaScript origin: `SITE_ORIGIN`
-   - Authorized redirect URI: `SITE_ORIGIN/api/auth/google/callback`
+   - Authorized redirect URIs: `SITE_ORIGIN/api/auth/google/callback` (sign-in) and
+     `SITE_ORIGIN/api/calendar/google/callback` (Google Calendar sync)
 
-   Put the client id in `GOOGLE_CLIENT_ID`.
+   Put the client id in `GOOGLE_CLIENT_ID`. For calendar sync, also enable the Google
+   Calendar API in the same project and add the scopes
+   `https://www.googleapis.com/auth/calendar.app.created` and
+   `https://www.googleapis.com/auth/calendar.freebusy` to the consent screen. Both are
+   sensitive scopes: until Google verifies the app, people connecting see an
+   "unverified app" warning and the project is capped at 100 users.
 
 7. **Set up Resend** for magic-link email: add and verify your sending domain at
    [resend.com](https://resend.com), create an API key with sending access, and set
@@ -111,22 +119,27 @@ logged in (`bunx wrangler login`).
    bunx wrangler secret put GITHUB_CLIENT_SECRET
    bunx wrangler secret put GOOGLE_CLIENT_SECRET
    bunx wrangler secret put RESEND_API_KEY
+   openssl rand -base64 32 | bunx wrangler secret put CALENDAR_TOKEN_KEY
    ```
+
+   `CALENDAR_TOKEN_KEY` seals Google Calendar refresh tokens at rest. Changing it
+   disconnects everyone's Google Calendar, so set it once.
 
 ### Config reference
 
-| Name                   | Kind       | Purpose                                  |
-| ---------------------- | ---------- | ---------------------------------------- |
-| `SITE_ORIGIN`          | var        | Site origin: redirects, CORS, CSRF check |
-| `GITHUB_CLIENT_ID`     | var        | GitHub OAuth app client id               |
-| `LEETCODE_API_BASE`    | var        | alfa-leetcode-api base URL, tried first  |
-| `GOOGLE_CLIENT_ID`     | var        | Google OAuth client id                   |
-| `EMAIL_FROM`           | var        | Sender for magic-link email              |
-| `GITHUB_CLIENT_SECRET` | secret     | GitHub OAuth app secret                  |
-| `GOOGLE_CLIENT_SECRET` | secret     | Google OAuth client secret               |
-| `RESEND_API_KEY`       | secret     | Resend API key                           |
-| `DB`                   | D1 binding | Accounts, sessions, settings, progress   |
-| `STATEMENTS`           | KV binding | Statement cache and rate-limit counters  |
+| Name                   | Kind       | Purpose                                   |
+| ---------------------- | ---------- | ----------------------------------------- |
+| `SITE_ORIGIN`          | var        | Site origin: redirects, CORS, CSRF check  |
+| `GITHUB_CLIENT_ID`     | var        | GitHub OAuth app client id                |
+| `LEETCODE_API_BASE`    | var        | alfa-leetcode-api base URL, tried first   |
+| `GOOGLE_CLIENT_ID`     | var        | Google OAuth client id                    |
+| `EMAIL_FROM`           | var        | Sender for magic-link email               |
+| `GITHUB_CLIENT_SECRET` | secret     | GitHub OAuth app secret                   |
+| `GOOGLE_CLIENT_SECRET` | secret     | Google OAuth client secret                |
+| `RESEND_API_KEY`       | secret     | Resend API key                            |
+| `CALENDAR_TOKEN_KEY`   | secret     | Base64 of 32 bytes; seals calendar tokens |
+| `DB`                   | D1 binding | Accounts, sessions, settings, progress    |
+| `STATEMENTS`           | KV binding | Statement cache and rate-limit counters   |
 
 ## Local development
 
@@ -390,8 +403,42 @@ day is plenty for the feed.
   few hours, Google within 12-24 hours with no manual refresh. `REFRESH-INTERVAL` and
   `X-PUBLISHED-TTL` ask for hourly, but Google ignores both. Google also ignores
   VALARMs in subscribed calendars and uses the calendar's own notification setting.
-- No Google Calendar API or OAuth calendar scopes: those are sensitive scopes that
-  need Google verification, and ICS subscription works everywhere.
+- Apple Calendar, Outlook and any other app use the feed. Google Calendar has the
+  two-way sync below instead.
+
+### Google Calendar sync
+
+| Endpoint                               | What it does                                                                 |
+| -------------------------------------- | ---------------------------------------------------------------------------- |
+| `GET /api/calendar/google/connect`     | Redirects to Google for the calendar scopes (separate from sign-in)          |
+| `GET /api/calendar/google/callback`    | Seals the refresh token, creates the "myleet" calendar, redirects to `/plan` |
+| `POST /api/calendar/google/sessions`   | Body `{"sessions": [...]}` from the plan: writes the next 28 days            |
+| `GET /api/calendar/google/state`       | `{"moves", "skips", "busy", "busy_complete", "last_synced_at"}`              |
+| `POST /api/calendar/google/disconnect` | Deletes the myleet calendar, revokes the grant, drops the row: `204`         |
+
+`GET /api/calendar` also returns `"google": {"connected", "last_synced_at"}`.
+
+- The callback lands on `SITE_ORIGIN/plan?gcal=<outcome>`: `connected`, or `denied`,
+  `state`, `scope` (a scope was unticked on the consent screen), `signin` or
+  `upstream`.
+- Scopes are `calendar.app.created` (only calendars this app creates) and
+  `calendar.freebusy` (busy times on the primary calendar, never titles or
+  attendees). The refresh token is sealed with AES-256-GCM (fresh random nonce, the
+  user id as associated data) in `calendar_links`; it is never logged or returned.
+- `sessions` diffs the plan against the event map (session key to event id and the
+  times and wording we wrote): insert, patch or delete in the myleet calendar only,
+  at most 40 writes per request (`"more": true` means call again). Event ids are
+  base32hex of a SHA-256 of the session key, so a retried insert hits `409` and
+  patches the event it made. Sessions that have started are never rewritten.
+- `state` reads `events.list` with the stored sync token (a full listing again on
+  `410`). An event whose times differ from what we wrote is a move, a deleted one is
+  a skip; each is reported once. The client applies them as Plan drags and skips,
+  re-plans, then sends `sessions`. Busy blocks come from `freeBusy` on `primary` for
+  28 days, cached 15 minutes. If any of that answer can't be read, the whole 28 days
+  come back busy with `busy_complete: false` and nothing is cached.
+- A revoked or expired grant deletes the row, so the page offers Connect again.
+- Sync runs when the app opens and when the tab comes back, never while it is
+  closed (no `events.watch` push channel or cron).
 
 ### Daily email digest (designed, not built)
 

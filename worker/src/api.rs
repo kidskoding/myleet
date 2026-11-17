@@ -11,11 +11,13 @@ use worker::{
 
 use crate::account::{self, MePatch, PublicSummary, Resolution, Settings, SettingsRow};
 use crate::calendar;
+use crate::calsync::{self, EventMap, Op, Remote};
+use crate::gcal;
 use crate::leetcode::{self, Outcome};
 use crate::magic;
 use crate::oauth::{self, Failure, Profile, Provider};
 use crate::reports::{self, CompanyCount, ProblemCount};
-use crate::session::{self, SESSION_COOKIE, STATE_COOKIE};
+use crate::session::{self, CAL_STATE_COOKIE, SESSION_COOKIE, STATE_COOKIE};
 use crate::statement::{self, Cached};
 use crate::sync::{self, Write};
 
@@ -83,6 +85,16 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
         return match method {
             Method::Delete => delete_session(req, app, id).await,
             _ => json_error("method not allowed", 405),
+        };
+    }
+    if let Some(rest) = path.strip_prefix("/api/calendar/google/") {
+        return match (method, rest) {
+            (Method::Get, "connect") => gcal_connect(req, app).await,
+            (Method::Get, "callback") => gcal_callback(req, app).await,
+            (Method::Get, "state") => gcal_state(req, app).await,
+            (Method::Post, "sessions") => gcal_sessions(req, app).await,
+            (Method::Post, "disconnect") => gcal_disconnect(req, app).await,
+            _ => json_error("not found", 404),
         };
     }
     if let Some(rest) = path.strip_prefix(calendar::FEED_PREFIX) {
@@ -242,6 +254,25 @@ async fn send(url: &str, method: Method, headers: Headers, body: Option<String>)
         return Err(worker::Error::RustError(format!("{url} returned {status}")));
     }
     res.text().await
+}
+
+/// Like `send`, but hands back the status so callers can act on 404, 409 or 410.
+/// The reply body is never logged: token replies carry secrets.
+async fn call(
+    url: &str,
+    method: Method,
+    headers: Headers,
+    body: Option<String>,
+) -> Result<(u16, String)> {
+    let mut init = RequestInit::new();
+    init.with_method(method)
+        .with_headers(headers)
+        .with_body(body.map(|b| JsValue::from_str(&b)));
+    let mut res = Fetch::Request(Request::new_with_init(url, &init)?)
+        .send()
+        .await?;
+    let status = res.status_code();
+    Ok((status, res.text().await.unwrap_or_default()))
 }
 
 #[derive(Serialize)]
@@ -1078,6 +1109,10 @@ async fn delete_me(req: &Request, app: &App) -> Result<Response> {
     let Some(user) = load_user(&db, &c.user_id).await? else {
         return json_error("not signed in", 401);
     };
+    // Best effort: the row goes in the batch below whatever Google says.
+    if let Err(e) = gcal_unlink(app, &db, &c.user_id).await {
+        console_warn!("google calendar unlink on account delete: {e}");
+    }
     let uid = text(&c.user_id);
     let by_user = |table: &str, column: &str| {
         db.prepare(format!("DELETE FROM {table} WHERE {column} = ?1"))
@@ -1086,6 +1121,7 @@ async fn delete_me(req: &Request, app: &App) -> Result<Response> {
     db.batch(vec![
         by_user("reports", "user_id")?,
         by_user("calendar_feeds", "user_id")?,
+        by_user("calendar_links", "user_id")?,
         by_user("plans", "user_id")?,
         by_user("progress", "user_id")?,
         by_user("user_settings", "user_id")?,
@@ -1358,11 +1394,16 @@ async fn feed_status(req: &Request, app: &App) -> Result<Response> {
         .bind(&[text(&c.user_id)])?
         .first(None)
         .await?;
+    let google = load_link(&db, &c.user_id).await?;
     json(
         &serde_json::json!({
             "enabled": feed.is_some(),
             "created_at": feed.map(|f| f.created_at),
             "plan_updated_at": plan.map(|p| p.created_at),
+            "google": {
+                "connected": google.is_some(),
+                "last_synced_at": google.and_then(|g| g.last_synced_at),
+            },
         }),
         200,
     )
@@ -1548,4 +1589,528 @@ async fn post_report(req: &mut Request, app: &App) -> Result<Response> {
     .run()
     .await?;
     reports_body(&db, &r.problem, Some(&c.user_id)).await
+}
+
+#[derive(Deserialize)]
+struct LinkRow {
+    refresh_token_enc: String,
+    calendar_id: String,
+    sync_token: Option<String>,
+    event_map: String,
+    busy_json: Option<String>,
+    busy_fetched_at: Option<u64>,
+    last_synced_at: Option<u64>,
+}
+
+async fn load_link(db: &D1Database, user_id: &str) -> Result<Option<LinkRow>> {
+    db.prepare(
+        "SELECT refresh_token_enc, calendar_id, sync_token, event_map, busy_json, \
+         busy_fetched_at, last_synced_at FROM calendar_links WHERE user_id = ?1 AND provider = ?2",
+    )
+    .bind(&[text(user_id), text(gcal::PROVIDER)])?
+    .first(None)
+    .await
+}
+
+async fn delete_link(db: &D1Database, user_id: &str) -> Result<()> {
+    db.prepare("DELETE FROM calendar_links WHERE user_id = ?1 AND provider = ?2")
+        .bind(&[text(user_id), text(gcal::PROVIDER)])?
+        .run()
+        .await?;
+    Ok(())
+}
+
+/// Where the connect flow lands: `/plan?gcal=connected`, or the reason it stopped.
+fn gcal_done(app: &App, outcome: &str) -> Result<Response> {
+    redirect(
+        &format!("{}/plan?gcal={outcome}", app.site),
+        &[session::clear_cookie(CAL_STATE_COOKIE)],
+    )
+}
+
+fn token_key(app: &App) -> Result<[u8; calsync::KEY_BYTES]> {
+    calsync::key_from_base64(&app.secret("CALENDAR_TOKEN_KEY")?).map_err(worker::Error::RustError)
+}
+
+fn nonce() -> Result<[u8; calsync::NONCE_BYTES]> {
+    let mut n = [0u8; calsync::NONCE_BYTES];
+    getrandom::fill(&mut n).map_err(|e| worker::Error::RustError(e.to_string()))?;
+    Ok(n)
+}
+
+fn form_headers() -> Result<Headers> {
+    let headers = Headers::new();
+    headers.set("Accept", "application/json")?;
+    headers.set("Content-Type", "application/x-www-form-urlencoded")?;
+    headers.set("User-Agent", USER_AGENT)?;
+    Ok(headers)
+}
+
+fn google_headers(token: &str) -> Result<Headers> {
+    let headers = bearer_headers(token, "application/json")?;
+    headers.set("Content-Type", "application/json")?;
+    Ok(headers)
+}
+
+async fn google_secret(app: &App) -> Result<(String, String)> {
+    Ok((
+        client_id(app, Provider::Google)?,
+        app.secret("GOOGLE_CLIENT_SECRET")?,
+    ))
+}
+
+/// `GET /api/calendar/google/connect`: off to Google's consent screen.
+async fn gcal_connect(req: &Request, app: &App) -> Result<Response> {
+    if current(req, app).await?.is_none() {
+        return gcal_done(app, "signin");
+    }
+    let state = random_hex(oauth::STATE_BYTES)?;
+    let url = gcal::authorize_url(
+        &client_id(app, Provider::Google)?,
+        &gcal::redirect_uri(&app.site),
+        &state,
+    );
+    redirect(
+        &url,
+        &[session::set_cookie(
+            CAL_STATE_COOKIE,
+            &state,
+            session::STATE_TTL_SECS,
+        )],
+    )
+}
+
+/// `GET /api/calendar/google/callback`: keeps the refresh token (sealed) and creates
+/// the myleet calendar every session goes into.
+async fn gcal_callback(req: &Request, app: &App) -> Result<Response> {
+    let Some(c) = current(req, app).await? else {
+        return gcal_done(app, "signin");
+    };
+    let code = match oauth::check_callback(
+        query_param(req, "code")?.as_deref(),
+        query_param(req, "state")?.as_deref(),
+        query_param(req, "error")?.as_deref(),
+        cookie(req, CAL_STATE_COOKIE)?.as_deref(),
+    ) {
+        Ok(code) => code.to_string(),
+        Err(f) => return gcal_done(app, f.as_str()),
+    };
+    let key = match token_key(app) {
+        Ok(k) => k,
+        Err(e) => {
+            console_error!("google calendar connect: {e}");
+            return gcal_done(app, "upstream");
+        }
+    };
+    let (id, secret) = google_secret(app).await?;
+    let (status, reply) = call(
+        gcal::TOKEN_URL,
+        Method::Post,
+        form_headers()?,
+        Some(gcal::code_request(
+            &id,
+            &secret,
+            &code,
+            &gcal::redirect_uri(&app.site),
+        )),
+    )
+    .await?;
+    let grant = match gcal::parse_grant(&reply) {
+        Ok(g) if status == 200 => g,
+        _ => {
+            console_warn!("google calendar connect: token exchange returned {status}");
+            return gcal_done(app, "upstream");
+        }
+    };
+    let Some(refresh) = grant.refresh_token else {
+        console_warn!("google calendar connect: no refresh token");
+        return gcal_done(app, "upstream");
+    };
+    if !gcal::has_scopes(&grant.scope) {
+        revoke(&refresh).await;
+        return gcal_done(app, "scope");
+    }
+    let (status, reply) = call(
+        gcal::CALENDARS_URL,
+        Method::Post,
+        google_headers(&grant.access_token)?,
+        Some(gcal::calendar_body()),
+    )
+    .await?;
+    let calendar_id = match gcal::parse_calendar_id(&reply) {
+        Ok(id) if (200..300).contains(&status) => id,
+        _ => {
+            console_warn!("google calendar connect: calendars.insert returned {status}");
+            revoke(&refresh).await;
+            return gcal_done(app, "upstream");
+        }
+    };
+    let db = app.db()?;
+    // Connecting again replaces the link; the calendar we made before goes with it.
+    if let Some(old) = load_link(&db, &c.user_id).await? {
+        let (status, _) = call(
+            &gcal::calendar_url(&old.calendar_id),
+            Method::Delete,
+            bearer_headers(&grant.access_token, "application/json")?,
+            None,
+        )
+        .await?;
+        if !(200..300).contains(&status) {
+            console_warn!("google calendar reconnect: old calendar delete returned {status}");
+        }
+    }
+    let sealed = calsync::seal(
+        &key,
+        nonce()?,
+        &calsync::token_aad(gcal::PROVIDER, &c.user_id),
+        &refresh,
+    );
+    let now = now_ms();
+    db.prepare(
+        "INSERT INTO calendar_links (user_id, provider, refresh_token_enc, calendar_id, \
+           created_at, updated_at) VALUES (?1, ?2, ?3, ?4, ?5, ?5) \
+         ON CONFLICT (user_id, provider) DO UPDATE SET \
+           refresh_token_enc = excluded.refresh_token_enc, calendar_id = excluded.calendar_id, \
+           sync_token = NULL, event_map = '{}', busy_json = NULL, busy_fetched_at = NULL, \
+           last_synced_at = NULL, updated_at = excluded.updated_at",
+    )
+    .bind(&[
+        text(&c.user_id),
+        text(gcal::PROVIDER),
+        text(&sealed),
+        text(&calendar_id),
+        num(now),
+    ])?
+    .run()
+    .await?;
+    gcal_done(app, "connected")
+}
+
+/// Revokes the whole grant at Google; failures only get logged.
+async fn revoke(refresh_token: &str) {
+    match call(
+        gcal::REVOKE_URL,
+        Method::Post,
+        match form_headers() {
+            Ok(h) => h,
+            Err(_) => return,
+        },
+        Some(gcal::revoke_request(refresh_token)),
+    )
+    .await
+    {
+        Ok((200, _)) => {}
+        Ok((status, _)) => console_warn!("google revoke returned {status}"),
+        Err(e) => console_warn!("google revoke: {e}"),
+    }
+}
+
+/// A fresh access token for this user's own link, or `None` once Google says the
+/// grant is gone (the link is deleted then, so the page offers Connect again).
+async fn gcal_access(
+    app: &App,
+    db: &D1Database,
+    user_id: &str,
+    row: &LinkRow,
+) -> Result<Option<String>> {
+    let refresh = calsync::open(
+        &token_key(app)?,
+        &calsync::token_aad(gcal::PROVIDER, user_id),
+        &row.refresh_token_enc,
+    )
+    .map_err(worker::Error::RustError)?;
+    let (id, secret) = google_secret(app).await?;
+    let (status, reply) = call(
+        gcal::TOKEN_URL,
+        Method::Post,
+        form_headers()?,
+        Some(gcal::refresh_request(&id, &secret, &refresh)),
+    )
+    .await?;
+    if gcal::is_invalid_grant(status, &reply) {
+        delete_link(db, user_id).await?;
+        return Ok(None);
+    }
+    if status != 200 {
+        return Err(worker::Error::RustError(format!(
+            "google token refresh returned {status}"
+        )));
+    }
+    gcal::parse_grant(&reply)
+        .map(|g| Some(g.access_token))
+        .map_err(worker::Error::RustError)
+}
+
+fn not_connected() -> Result<Response> {
+    json(&serde_json::json!({ "connected": false }), 200)
+}
+
+/// One calendar write; `false` leaves the map as it was so the next sync retries.
+async fn gcal_write(token: &str, calendar: &str, op: &Op, reminder: Option<u32>) -> Result<bool> {
+    let ok = |s: u16| (200..300).contains(&s);
+    let patch = |id: &str, body: String| {
+        let url = gcal::event_url(calendar, id);
+        async move { call(&url, Method::Patch, google_headers(token)?, Some(body)).await }
+    };
+    Ok(match op {
+        Op::Insert(id, w) => {
+            let body = gcal::event_body(w, Some(id), reminder);
+            let (s, _) = call(
+                &gcal::events_url(calendar),
+                Method::Post,
+                google_headers(token)?,
+                Some(body),
+            )
+            .await?;
+            // The id exists: a retry of our own insert, or an event deleted earlier.
+            ok(s) || (s == 409 && ok(patch(id, gcal::event_body(w, None, reminder)).await?.0))
+        }
+        Op::Patch(id, w) => {
+            let (s, _) = patch(id, gcal::event_body(w, None, reminder)).await?;
+            ok(s)
+        }
+        Op::Delete(_, id) => {
+            let (s, _) = call(
+                &gcal::event_url(calendar, id),
+                Method::Delete,
+                bearer_headers(token, "application/json")?,
+                None,
+            )
+            .await?;
+            ok(s) || s == 404 || s == 410
+        }
+    })
+}
+
+/// `POST /api/calendar/google/sessions` with `{sessions}` from the plan: makes the
+/// myleet calendar match the sessions of the next four weeks.
+async fn gcal_sessions(req: &mut Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let declared = req
+        .headers()
+        .get("Content-Length")?
+        .and_then(|n| n.parse::<usize>().ok());
+    if declared.is_some_and(|n| n > calsync::MAX_BODY_BYTES) {
+        return json_error("sessions too large", 413);
+    }
+    let sessions = match calsync::parse_sessions(&req.bytes().await?) {
+        Ok(s) => s,
+        Err((status, message)) => return json_error(&message, status),
+    };
+    let db = app.db()?;
+    let Some(row) = load_link(&db, &c.user_id).await? else {
+        return not_connected();
+    };
+    let Some(token) = gcal_access(app, &db, &c.user_id, &row).await? else {
+        return not_connected();
+    };
+    let reminder = load_settings(&db, &c.user_id).await?.reminder_minutes;
+    let now = now_ms();
+    let mut map: EventMap = serde_json::from_str(&row.event_map).unwrap_or_default();
+    let want = calsync::wanted(&sessions, &app.site, now as i64);
+    let ops = calsync::diff(&mut map, &want, now as i64, gcal::event_id);
+    let mut failed = 0;
+    for op in ops.iter().take(calsync::MAX_OPS) {
+        if gcal_write(&token, &row.calendar_id, op, reminder).await? {
+            calsync::applied(&mut map, op);
+        } else {
+            failed += 1;
+        }
+    }
+    db.prepare(
+        "UPDATE calendar_links SET event_map = ?1, last_synced_at = ?2, updated_at = ?2 \
+         WHERE user_id = ?3 AND provider = ?4",
+    )
+    .bind(&[
+        text(&serde_json::to_string(&map)?),
+        num(now),
+        text(&c.user_id),
+        text(gcal::PROVIDER),
+    ])?
+    .run()
+    .await?;
+    json(
+        &serde_json::json!({
+            "connected": true,
+            "failed": failed,
+            "more": ops.len() > calsync::MAX_OPS,
+            "last_synced_at": now,
+        }),
+        200,
+    )
+}
+
+enum Listing {
+    Done(Vec<Remote>, Option<String>),
+    /// The sync token expired (410): list everything again.
+    Gone,
+    /// An error or too many pages: trust none of it and keep the old token.
+    Partial,
+}
+
+async fn list_events(token: &str, calendar: &str, sync: Option<&str>) -> Result<Listing> {
+    let mut items = Vec::new();
+    let mut page: Option<String> = None;
+    for _ in 0..gcal::MAX_PAGES {
+        let (s, reply) = call(
+            &gcal::list_url(calendar, sync, page.as_deref()),
+            Method::Get,
+            bearer_headers(token, "application/json")?,
+            None,
+        )
+        .await?;
+        if s == 410 && sync.is_some() {
+            return Ok(Listing::Gone);
+        }
+        if !(200..300).contains(&s) {
+            console_warn!("google events.list returned {s}");
+            return Ok(Listing::Partial);
+        }
+        let Ok(p) = gcal::parse_page(&reply).map_err(|e| console_warn!("{e}")) else {
+            return Ok(Listing::Partial);
+        };
+        items.extend(p.items);
+        match p.next_page {
+            Some(next) => page = Some(next),
+            None => return Ok(Listing::Done(items, p.next_sync)),
+        }
+    }
+    Ok(Listing::Partial)
+}
+
+/// `GET /api/calendar/google/state`: sessions moved or deleted in Google since the
+/// last read, and busy time on the primary calendar for the next four weeks.
+async fn gcal_state(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let db = app.db()?;
+    let Some(row) = load_link(&db, &c.user_id).await? else {
+        return not_connected();
+    };
+    let Some(token) = gcal_access(app, &db, &c.user_id, &row).await? else {
+        return not_connected();
+    };
+    let now = now_ms();
+    let mut map: EventMap = serde_json::from_str(&row.event_map).unwrap_or_default();
+    let mut sync = row.sync_token.clone();
+    let mut listing = list_events(&token, &row.calendar_id, sync.as_deref()).await?;
+    if let Listing::Gone = listing {
+        listing = list_events(&token, &row.calendar_id, None).await?;
+        sync = None;
+    }
+    let (moves, skips) = match listing {
+        Listing::Done(items, next) => {
+            let full = sync.is_none();
+            sync = next.or(sync);
+            calsync::changes(&mut map, &items, full, now as i64)
+        }
+        _ => (Vec::new(), Vec::new()),
+    };
+
+    let cached = row
+        .busy_json
+        .as_deref()
+        .filter(|_| {
+            row.busy_fetched_at
+                .is_some_and(|t| now.saturating_sub(t) < calsync::BUSY_TTL_MS)
+        })
+        .and_then(|j| serde_json::from_str::<Vec<myleet_core::planner::Busy>>(j).ok());
+    let (busy, fetched_at) = match cached {
+        Some(b) => (Some(b), row.busy_fetched_at),
+        None => {
+            let (s, reply) = call(
+                gcal::FREEBUSY_URL,
+                Method::Post,
+                google_headers(&token)?,
+                Some(gcal::freebusy_body(
+                    now as i64,
+                    now as i64 + calsync::HORIZON_MS,
+                )),
+            )
+            .await?;
+            match gcal::parse_freebusy(&reply) {
+                Ok(b) if s == 200 => (Some(b), Some(now)),
+                Ok(_) | Err(_) => {
+                    console_warn!(
+                        "google free/busy returned {s}; the next four weeks count as busy"
+                    );
+                    (None, None)
+                }
+            }
+        }
+    };
+    db.prepare(
+        "UPDATE calendar_links SET event_map = ?1, sync_token = ?2, busy_json = ?3, \
+           busy_fetched_at = ?4, last_synced_at = ?5, updated_at = ?5 \
+         WHERE user_id = ?6 AND provider = ?7",
+    )
+    .bind(&[
+        text(&serde_json::to_string(&map)?),
+        opt_text(sync.as_deref()),
+        match &busy {
+            Some(b) => text(&serde_json::to_string(b)?),
+            None => JsValue::NULL,
+        },
+        fetched_at.map_or(JsValue::NULL, num),
+        num(now),
+        text(&c.user_id),
+        text(gcal::PROVIDER),
+    ])?
+    .run()
+    .await?;
+    json(
+        &serde_json::json!({
+            "connected": true,
+            "moves": moves,
+            "skips": skips,
+            "busy_complete": busy.is_some(),
+            "busy": busy.unwrap_or_else(|| calsync::all_busy(now as i64)),
+            "last_synced_at": now,
+        }),
+        200,
+    )
+}
+
+/// Deletes the myleet calendar, revokes the grant and drops the row. Google failures
+/// are logged and the row goes anyway, so the learner is never stuck connected.
+async fn gcal_unlink(app: &App, db: &D1Database, user_id: &str) -> Result<()> {
+    let Some(row) = load_link(db, user_id).await? else {
+        return Ok(());
+    };
+    let refresh = token_key(app).ok().and_then(|k| {
+        calsync::open(
+            &k,
+            &calsync::token_aad(gcal::PROVIDER, user_id),
+            &row.refresh_token_enc,
+        )
+        .ok()
+    });
+    match gcal_access(app, db, user_id, &row).await {
+        Ok(Some(token)) => {
+            let deleted = call(
+                &gcal::calendar_url(&row.calendar_id),
+                Method::Delete,
+                bearer_headers(&token, "application/json")?,
+                None,
+            )
+            .await;
+            match deleted {
+                Ok((s, _)) if (200..300).contains(&s) || s == 404 || s == 410 => {}
+                Ok((s, _)) => console_warn!("google calendar delete returned {s}"),
+                Err(e) => console_warn!("google calendar delete: {e}"),
+            }
+        }
+        Ok(None) => {}
+        Err(e) => console_warn!("google calendar unlink: {e}"),
+    }
+    if let Some(r) = refresh {
+        revoke(&r).await;
+    }
+    delete_link(db, user_id).await
+}
+
+/// `POST /api/calendar/google/disconnect`.
+async fn gcal_disconnect(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    gcal_unlink(app, &app.db()?, &c.user_id).await?;
+    no_content(&[])
 }

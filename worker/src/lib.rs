@@ -4,6 +4,8 @@
 
 pub mod account;
 pub mod calendar;
+pub mod calsync;
+pub mod gcal;
 pub mod leetcode;
 pub mod magic;
 pub mod oauth;
