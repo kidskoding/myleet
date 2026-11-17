@@ -1952,10 +1952,11 @@ fn notes(
         .max()
         .map(|t| local_day(t, tz));
     let states = schedule::compute(events, target, tz);
+    // Due today counts too, so the away note's number matches Today's review count.
     let overdue: HashSet<&str> = states
         .iter()
         .filter(|(_, st)| {
-            st.status != Status::Unseen && st.due.is_some_and(|t| local_day(t, tz) < today)
+            st.status != Status::Unseen && st.due.is_some_and(|t| local_day(t, tz) <= today)
         })
         .map(|(id, _)| id.as_str())
         .collect();
@@ -1977,11 +1978,11 @@ fn notes(
             };
             let body = match (overdue.len(), review_days(plan, &overdue).last()) {
                 (0, _) | (_, None) => {
-                    "The plan picked up where you are. Nothing is overdue.".to_string()
+                    "Nothing is overdue, so the plan carries on where you left off.".to_string()
                 }
                 (n, Some(end)) => format!(
-                    "The plan picked up where you are: {n} {} spread over the next {} days, and no day goes past your daily time.",
-                    if n == 1 { "review" } else { "reviews" },
+                    "{n} {} spread over the next {} days, and no day goes past your daily time.",
+                    if n == 1 { "review is" } else { "reviews are" },
                     days_between(today, *end) + 1
                 ),
             };
@@ -2273,9 +2274,25 @@ fn summarize(days: &[Day], forecast: &[Coverage], today: Date, interview: Option
         let names: Vec<String> = behind
             .iter()
             .take(3)
-            .map(|f| format!("{} (by {})", f.title, f.behind_by))
+            .map(|f| format!("{} (by {})", skills::mid_sentence(&f.title), f.behind_by))
             .collect();
-        format!(" Behind on {}.", names.join(", "))
+        format!(" Behind on {}.", and_list(&names))
+    };
+    let count_of =
+        |n: usize, one: &str, many: &str| format!("{n} {}", if n == 1 { one } else { many });
+    let work: Vec<String> = [
+        (new, "new problem", "new problems"),
+        (reviews, "review", "reviews"),
+        (mocks, "mock interview", "mock interviews"),
+    ]
+    .into_iter()
+    .filter(|(n, ..)| *n > 0)
+    .map(|(n, one, many)| count_of(n, one, many))
+    .collect();
+    let work = if work.is_empty() {
+        "nothing planned yet".to_string()
+    } else {
+        and_list(&work)
     };
     Summary {
         days_left,
@@ -2288,7 +2305,7 @@ fn summarize(days: &[Day], forecast: &[Coverage], today: Date, interview: Option
         checkpoints: count(ItemKind::Checkpoint),
         on_track: behind.is_empty(),
         behind: behind.iter().map(|f| f.title.clone()).collect(),
-        headline: format!("{lead}: {new} new problems, {reviews} reviews, {mocks} mocks.{tail}"),
+        headline: format!("{lead}: {work}.{tail}"),
     }
 }
 
@@ -3098,7 +3115,7 @@ mod tests {
         let away = run(&pass("p-one", "a", at(11, 3, 19), 5), &s, at(11, 14, 8));
         let n = away.notes.iter().find(|n| n.kind == "away").expect("away");
         assert_eq!(n.title, "You've been away since Nov 4.");
-        assert!(n.body.contains("1 review spread over"), "{}", n.body);
+        assert!(n.body.contains("1 review is spread over"), "{}", n.body);
 
         // Friday's plan (from Thursday's history) held one review; Friday cleared four.
         let mut events = pass("p-one", "a", at(11, 12, 19), 5);

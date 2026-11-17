@@ -331,7 +331,7 @@ function sessionBlock(c: Ctx, d: PlanDay, s: PlanSession, g: Grid, first: boolea
   const cls = ["ses", isToday ? "today" : "", mock ? "mockses on-wall" : "", finished ? "mock-done" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
   const label = `${dayName(d.date)} ${span(a, a + len)}, ${fmtM(s.minutes)}: ${s.title}${s.moved_from ? `, moved from ${dayName(s.moved_from)}` : ""}. Open details`;
   return html`<li><div role="button" tabindex="0" aria-describedby="ses-hint" class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px" data-m0="${a}" data-m1="${a + len}" data-minh="22" data-ses="${s.id}" data-date="${d.date}" aria-label="${label}" title="${s.title}, ${fmtM(s.minutes)}">
-    <span class="t">${span(a, a + len)}${over ? html`, <span class="over">${over} min over</span>` : ""}</span>
+    <span class="t">${isToday && h < 84 ? clock(a) : span(a, a + len)}${over ? html`, <span class="over">${over} min over</span>` : ""}</span>
     <span class="h">${finished ? html`${icon("check")}Mock done` : s.title}</span><span class="mm">${fmtM(s.minutes)}</span>${mixBar(s.items)}
     ${isToday ? html`<a class="btn btn-primary btn-sm start" href="${startHref(s, d.date)}" data-start aria-label="Start session (s)">${h >= 84 ? html`Start session ${kbd("s")}` : "Start"}</a>` : ""}
   </div></li>`;
@@ -521,7 +521,7 @@ function monthGrid(c: Ctx, whole = false): SafeHtml {
       ${d.off ? html`<span class="chip off">Day off</span>` : html`${what ? html`<span class="what">${what}</span>` : ""}${whole && d.minutes ? mixBar(d.sessions.flatMap((x) => x.items)) : ""}${mock ? html`<span class="chip mock on-wall">Mock</span>` : ""}${check ? html`<span class="chip check">Check-in</span>` : ""}`}${ivs.map(flag)}
     </button>`);
   }
-  return html`${whole ? html`<p class="roadmap-sum">${c.plan.summary.headline}</p>` : ""}<div class="panel month${whole ? " roadmap" : ""}">${DAY_SHORT.map((d) => html`<div class="mh">${d}</div>`)}${cells}</div>`;
+  return html`${whole ? html`<p class="roadmap-sum">${c.plan.summary.headline.replace(/\.$/, "")}</p>` : ""}<div class="panel month${whole ? " roadmap" : ""}">${DAY_SHORT.map((d) => html`<div class="mh">${d}</div>`)}${cells}</div>`;
 }
 
 function agenda(c: Ctx): SafeHtml {
@@ -542,7 +542,7 @@ function agenda(c: Ctx): SafeHtml {
             ? d.sessions.map(
                 (s, j) => html`<button type="button" class="ag-ses${isToday && j === 0 ? " today" : ""}${isMock(s) ? " mockses on-wall" : ""}" data-ses="${s.id}" data-date="${d.date}">
                   <span class="t">${clock(minuteOf(s.start_ms))}<br>${fmtM(s.minutes)}</span>
-                  <div><div class="h">${s.title}</div>${mixBar(s.items)}<div class="r">${s.items[0]?.reason ?? ""}</div>${isToday && j === 0 ? html`<span class="btn btn-primary" data-start-href="${startHref(s, d.date)}">Start session</span>` : ""}</div>
+                  <div><div class="h">${s.title}</div>${mixBar(s.items)}<div class="r">${s.items[0]?.reason.replace(/\.$/, "") ?? ""}</div>${isToday && j === 0 ? html`<span class="btn btn-primary" data-start-href="${startHref(s, d.date)}">Start session</span>` : ""}</div>
                 </button>`,
               )
             : html`<div class="ag-empty">${d.windows.length ? "Nothing planned in your windows" : "No window this day"}</div>`

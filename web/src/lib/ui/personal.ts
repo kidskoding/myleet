@@ -2,6 +2,7 @@
 // the reason line, why chips, the session mix bar, forecast rows, the re-plan note,
 // insights, trend and confidence, and the post-attempt "What this changes" block.
 // Every sentence comes from the core (planner / skill model); these only lay it out.
+import { sentenceCase } from "../display";
 import { fmtM } from "../schedule";
 import type { AttemptFeedback, Forecast, Insight, PlanFixes, PlanItem, PlanNote, PlanTag, Skill, SkillLevel, WhyChip } from "../types";
 import { tag, type TagKind } from "./bits";
@@ -87,8 +88,8 @@ export function forecastRows(rows: Forecast[], o: ForecastOpts): SafeHtml {
         ? html`<button type="button" class="fix" data-fix="${fx.weekday_minutes}">Use ${fmtM(fx.weekday_minutes)} on weekdays</button>`
         : html`<span>Not reachable at up to 2 h on weekdays</span>`;
     return html`<div class="fc-row${behind ? " is-behind" : ""}">
-      <span class="nm">${f.title}${f.companies.length ? html`<small>${f.companies.slice(0, 2).join(", ")}</small>` : ""}</span>
-      <div class="fc-bar" role="img" aria-label="${f.title}: ${f.started_now} started now, ${f.projected} ${when}, ${f.goal} needed"><span class="m" style="width:${pct(mastered)}"></span><span class="c" style="width:${pct(climbing)}"></span><span class="p" style="width:${pct(added)}"></span><i class="need" style="left:${pct(f.goal)}"></i></div>
+      <span class="nm">${sentenceCase(f.title)}${f.companies.length ? html`<small>${f.companies.slice(0, 2).join(", ")}</small>` : ""}</span>
+      <div class="fc-bar" role="img" aria-label="${sentenceCase(f.title)}: ${f.started_now} started now, ${f.projected} ${when}, ${f.goal} needed"><span class="m" style="width:${pct(mastered)}"></span><span class="c" style="width:${pct(climbing)}"></span><span class="p" style="width:${pct(added)}"></span><i class="need" style="left:${pct(f.goal)}"></i></div>
       ${behind ? html`<span class="pace-st behind">${icon("trending-down")}Behind by ${f.behind_by}</span>` : html`<span class="pace-st">${icon("circle-check")}On track</span>`}
       ${behind ? html`<span class="detail"><span>${f.projected} of ${f.goal} ${when}</span>${fixLink}</span>` : ""}
     </div>`;
@@ -111,15 +112,18 @@ const NOTE_ICON: Record<string, Parameters<typeof icon>[0]> = {
 };
 
 /** Calm by design: ink on sunk, never amber, red or a toast. At most one at a time. */
+/** A note's title leads its body: "You've been away since Friday:", never a full stop. */
+const leadIn = (t: string): string => (/[!?]$/.test(t) ? t : `${t.replace(/[.:]$/, "")}:`);
+
 export function replanNote(n: Pick<PlanNote, "kind" | "title" | "body"> & { actions?: PlanNote["actions"] }, opts: { dismiss?: boolean; link?: SafeHtml; marks?: Marks } = {}): SafeHtml {
   const m = opts.marks ?? {};
   return html`<div class="replan" role="status" data-note="${n.kind}">
     ${icon(NOTE_ICON[n.kind] ?? "calendar-clock")}
-    <div><strong>${markCompanies(n.title, m)}</strong> ${markCompanies(n.body, m)}${opts.link ? html` ${opts.link}` : ""}</div>
+    <div><strong>${markCompanies(leadIn(n.title), m)}</strong> ${markCompanies(n.body.replace(/\.$/, ""), m)}</div>
     <div class="acts">${(n.actions ?? []).map(
       (a, i) =>
         html`<button type="button" class="btn ${i === 0 ? "btn-secondary" : "btn-ghost"} btn-sm" data-note-act="${a.kind}"${a.value !== undefined ? raw(` data-value="${a.value}"`) : ""}>${a.label}</button>`,
-    )}${opts.dismiss ? html`<button type="button" class="icon-btn x" data-note-dismiss aria-label="Dismiss">${icon("x")}</button>` : ""}</div>
+    )}${opts.link ?? ""}${opts.dismiss ? html`<button type="button" class="icon-btn x" data-note-dismiss aria-label="Dismiss">${icon("x")}</button>` : ""}</div>
   </div>`;
 }
 

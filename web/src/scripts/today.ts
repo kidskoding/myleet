@@ -5,6 +5,7 @@ import { cachedMe } from "../lib/account";
 import { signedIn } from "../lib/account";
 import { signupHref } from "../lib/access";
 import { moduleOneStart, topicById } from "../lib/diagnostic";
+import { sentenceCase } from "../lib/display";
 import { companyLogo } from "../lib/company-logos";
 import { guestMode, resultsLine, todayInvite, todayResults, WELCOME_KEY } from "../lib/ui/guest-gate";
 import { viewEvents } from "../lib/sample";
@@ -88,7 +89,7 @@ function meta(cat: LoadedCatalog, id: string): ProblemMeta | undefined {
 function where(cat: LoadedCatalog, p: ProblemMeta): string {
   const m = cat.catalog.modules[p.module];
   const tech = m?.techniques[p.technique];
-  return [m?.title, tech?.title].filter(Boolean).join(", ");
+  return [m ? sentenceCase(m.title) : "", tech ? midSentence(tech.title) : ""].filter(Boolean).join(", ");
 }
 
 /** "overdue 2d, just learned" reads as "Overdue 2d, just learned". */
@@ -192,7 +193,7 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
       <p class="countdown"><span class="count-num">${left}</span><span class="text-secondary">${left === 1 ? "day" : "days"} left, ${shortDate(p.interviewDate)}</span></p>
       ${readiness(c, p.interviewDate)}
       ${rows.length ? html`<div class="fc">${forecastRows(rows, { date: p.interviewDate })}</div>` : ""}
-      <p class="fineprint">${rows.length ? "If you keep to the plan. Behind by N means N problems short on the date" : (c.plan?.summary.headline ?? "")}</p>
+      <p class="fineprint">${rows.length ? "If you keep to the plan. Behind by N means N problems short on the date" : (c.plan?.summary.headline.replace(/\.$/, "") ?? "")}</p>
       <div class="goal-actions">${editGoalsLink()}</div>
     </section>`,
     inline,
@@ -280,7 +281,7 @@ function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
     </div>
     <div class="rail">${ladder({ rung, size: "xl", due: e.kind === "review", draw: true, w: 340, h: 156 })}<p class="cap">${cap}</p></div>
     <div class="why">
-      <p><strong class="why-lead">Why this one:</strong> ${markCompanies(e.kind === "review" ? reviewWhy(e, c.skills ?? null, c.now) : item ? item.reason : e.kind === "practice" ? "Extra practice on a topic you've worked on, and it doesn't change your review schedule." : e.why ? `${sentence(e.why)}.` : "It's next in your curriculum.", marks(c))}</p>
+      <p><strong class="why-lead">Why this one:</strong> ${markCompanies((e.kind === "review" ? reviewWhy(e, c.skills ?? null, c.now) : item ? item.reason : e.kind === "practice" ? "Extra practice on a topic you've worked on, and it doesn't change your review schedule" : e.why ? sentence(e.why) : "It's next in your curriculum").replace(/\.$/, ""), marks(c))}</p>
       <button class="btn btn-ghost" type="button" data-skip="${e.problem}" aria-keyshortcuts="x">Skip for today ${kbd("x")}</button>
       <a class="btn btn-primary btn-lg" href="${problemHref(e.problem, e.kind === "practice" ? "drill" : undefined)}" data-start aria-keyshortcuts="s">Start ${kbd("s")}</a>
     </div>
@@ -291,7 +292,7 @@ function entryRow(c: Ctx, e: TodayEntry): SafeHtml {
   const m = meta(c.cat, e.problem);
   const [k, label] = reasonTag(e);
   const item = planItem(c, e.problem);
-  const why = item?.reason ?? (e.why ? sentence(e.why) : "");
+  const why = (item?.reason ?? (e.why ? sentence(e.why) : "")).replace(/\.$/, "");
   return queueRow({
     href: problemHref(e.problem, e.kind === "practice" ? "drill" : undefined),
     title: m?.title ?? e.problem,
@@ -484,7 +485,7 @@ function paint(c: Ctx): void {
   }
   const plan = planInfo(c);
   const note = (c.plan?.notes ?? []).find((n) => n.kind !== "date_passed" && !noteDismissed(n));
-  const noteHtml = note ? replanNote(note, { marks: marks(c), dismiss: true, link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : html``;
+  const noteHtml = note ? replanNote(note, { marks: marks(c), dismiss: true, link: html`<a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">See the plan</a>` }) : html``;
 
   // Plan status: the on-track line, this week's check-in and the catch-up note. Each is empty without data.
   let status: ReturnType<typeof planStatus> | null = null;
@@ -498,7 +499,7 @@ function paint(c: Ctx): void {
   }
   const slip = status?.catchUp && !noteDismissed({ kind: "catch_up" as PlanNote["kind"], title: status.catchUp.title }) ? status.catchUp : null;
   const check = status?.checkin && !noteDismissed({ kind: "checkin" as PlanNote["kind"], title: status.checkin.title }) ? status.checkin : null;
-  const statusHtml = html`${check ? replanNote({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body }, { marks: marks(c), link: html`<a class="link" href="${ROUTES.plan}">Open check-in</a>` }) : ""}${slip ? replanNote({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }] }, { marks: marks(c), link: html`<a class="link" href="${ROUTES.plan}">See the plan</a>` }) : ""}`;
+  const statusHtml = html`${check ? replanNote({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body }, { marks: marks(c), link: html`<a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">Open check-in</a>` }) : ""}${slip ? replanNote({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }] }, { marks: marks(c), link: html`<a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">See the plan</a>` }) : ""}`;
   // The check-in already says how the week went, so the on-track line waits for another day.
   const trackLine = check ? "" : status?.line || "";
 

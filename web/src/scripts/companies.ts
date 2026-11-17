@@ -13,6 +13,7 @@ import { requireAccount } from "../lib/access";
 import { readEvents } from "../lib/progress";
 import { companyProblemHref } from "../lib/practice-context";
 import { moduleHref, ROUTES } from "../lib/routes";
+import { clock, minuteOf } from "../lib/schedule";
 import { recordStats } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Playlist, Skill, State } from "../lib/types";
@@ -233,7 +234,7 @@ function renderLeans(c: Ctx, p: Playlist): void {
 }
 
 const sessionDay = (ms: number) => new Date(ms).toLocaleDateString(undefined, { weekday: "short" });
-const sessionTime = (ms: number) => new Date(ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }).replace(":00", "");
+const sessionTime = (ms: number) => clock(minuteOf(ms));
 
 /** "In your plan": upcoming sessions with this set's problems and the forecast for its techniques. */
 function renderInPlan(c: Ctx, p: Playlist): void {
@@ -249,7 +250,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
   try {
     plan = c.t.plan(c.events, planSettings());
   } catch {
-    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">The plan couldn't be built right now</p><div class="foot"><a class="link" href="/plan">Open plan</a></div>`);
+    render(el, html`<h2 id="ip">In your plan</h2><p class="text-small text-secondary" style="margin-top:var(--space-2)">The plan couldn't be built right now</p><div class="foot"><a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">Open plan</a></div>`);
     return;
   }
   const ids = new Set(p.entries.map((e) => (e.problem === null ? "" : (c.cat.catalog.problems[e.problem]?.id ?? ""))));
@@ -266,7 +267,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
         sessions.length
           ? html`<ol class="ses">${sessions.map(
               ({ s, picks }) =>
-                html`<li><span class="d">${sessionDay(s.start_ms)} ${sessionTime(s.start_ms)}</span><span>${picks.map((x) => x.title).join(", ")}<span class="why">${picks[0]?.reason ?? ""}</span></span></li>`,
+                html`<li><span class="d">${sessionDay(s.start_ms)} ${sessionTime(s.start_ms)}</span><span>${picks.map((x) => x.title).join(", ")}<span class="why">${picks[0]?.reason.replace(/\.$/, "") ?? ""}</span></span></li>`,
             )}</ol>`
           : html`<p class="text-small text-secondary" style="margin-top:var(--space-2)">No ${p.title} problems in the next sessions: reviews and other techniques come first right now</p>`
       }
@@ -284,7 +285,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
             })}</div>`
           : ""
       }
-      <div class="foot"><span class="text-muted">${plan.summary.headline}</span><a class="link" href="/plan">Open plan</a></div>`,
+      <div class="foot"><span class="text-muted">${plan.summary.headline.replace(/\.$/, "")}</span><a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">Open plan</a></div>`,
   );
 }
 
