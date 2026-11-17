@@ -93,7 +93,7 @@ const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [st
     steps: [
       ["Your streak", "Days in a row you've practiced, right in the top bar"],
       ["Topic by topic", "See which patterns are solid and which are still leveling up"],
-      ["Reviews coming due", "Each clean pass levels a problem up, and it comes back after 1, 3, 7, 14, then 30 days"],
+      ["Reviews coming due", "Each clean pass levels a problem up and brings it back a little later, until it's mastered"],
     ],
   },
 };
@@ -102,5 +102,11 @@ const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [st
 export function featureGate(kind: "plan" | "progress", diagnosticDone: boolean): SafeHtml {
   const g = GIVES[kind];
   return html`<section class="gate" aria-labelledby="gate-h"><h1 id="gate-h">${g.h}</h1><p class="lede">${g.lede}</p>${gateSteps(g.steps)}
-    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${signupToToday()}">Create your free account</a>${diagnosticDone ? "" : html`<a class="link" href="${ROUTES.diagnostic}">Take the diagnostic first</a>`}</div></section>`;
+    <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${signupToToday()}">Create your free account</a>${
+      kind === "progress"
+        ? html`<a class="btn btn-ghost btn-lg" href="${ROUTES.learn}">Browse the modules</a>`
+        : diagnosticDone
+          ? ""
+          : html`<a class="link" href="${ROUTES.diagnostic}">Take the diagnostic first</a>`
+    }</div></section>`;
 }

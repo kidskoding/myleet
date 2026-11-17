@@ -483,7 +483,7 @@ function renderAll(c: Ctx): void {
           ["Topic by topic", "Which patterns are solid and which are still leveling up"],
           ["Reviews coming due", "Each clean pass levels a problem up and brings it back a little later, until it's mastered"],
         ])}
-        <div class="gate-actions">${c.t.placement(c.events).done ? html`<a class="btn btn-primary btn-lg" href="${ROUTES.today}">Start today's practice</a>` : html`<a class="btn btn-primary btn-lg" href="${ROUTES.diagnostic}">Take the diagnostic</a>`}<a class="btn btn-ghost btn-lg" href="${ROUTES.learn}">Browse the modules</a></div></section>`,
+        <div class="gate-actions"><a class="btn btn-primary btn-lg" href="${ROUTES.today}">Start today's practice</a><a class="btn btn-ghost btn-lg" href="${ROUTES.learn}">Browse the modules</a></div></section>`,
     );
     return;
   }

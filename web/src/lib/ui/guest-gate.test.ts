@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { guestMode, resultsLine } from "./guest-gate";
+import { featureGate, guestMode, resultsLine } from "./guest-gate";
 
 const name = (t: string) => ({ a: "Arrays and hashing", w: "Sliding window", p: "Two pointers" })[t] ?? t;
 
@@ -24,5 +24,16 @@ describe("resultsLine", () => {
   it("copes with no strong or no weak topics", () => {
     expect(resultsLine([{ topic: "w", level: "start here" }], name)).toContain("sliding window is where we'll begin");
     expect(resultsLine([{ topic: "a", level: "strong" }], name)).toContain("most often in interviews");
+  });
+});
+
+describe("guest Progress gate", () => {
+  it("offers an account and the modules, never the diagnostic", () => {
+    for (const done of [false, true]) {
+      const out = String(featureGate("progress", done));
+      expect(out).toContain("Create your free account");
+      expect(out).toContain("Browse the modules");
+      expect(out).not.toContain("/diagnostic");
+    }
   });
 });
