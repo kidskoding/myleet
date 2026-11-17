@@ -9,7 +9,7 @@ import { TIME_OPTIONS } from "../plan";
 import type { Aim, Goal, Prefs } from "../prefs";
 import { ROUTES } from "../routes";
 import { fmtM, step, WEEKDAY_STEPS, WEEKEND_STEPS } from "../schedule";
-import { ROLES } from "../setup";
+import { ROLES, roleOf } from "../setup";
 import type { Catalog, Interview } from "../types";
 import { pickCompany } from "./company-picker";
 import { html, render, type SafeHtml } from "./html";
@@ -126,7 +126,7 @@ export function mountGoalsEditor(host: HTMLElement, o: GoalsEditorOpts): GoalsEd
     })}</div>`;
 
   const roleBody = (): SafeHtml => {
-    const cur = o.role?.get() ?? null;
+    const cur = roleOf(o.role?.get() ?? null);
     const desc = ROLES.find((r) => r.id === cur)?.detail ?? "Pick the one you're preparing for";
     return html`<div class="ge-head"><span><span class="ge-title" id="${id}-role">Role</span><span class="ge-desc">${desc}</span></span></div>
       <div class="ge-body"><div class="seg" role="group" aria-labelledby="${id}-role">${ROLES.map((r) => html`<button type="button" data-ge-role="${r.id}" aria-pressed="${r.id === cur ? "true" : "false"}">${r.label}</button>`)}</div></div>`;

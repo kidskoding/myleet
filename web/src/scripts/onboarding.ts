@@ -21,7 +21,7 @@ import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { goalsOf, mountGoalsEditor, planPatch } from "../lib/ui/goals-editor";
 import { safeNext } from "../lib/gate";
-import { ROLES } from "../lib/setup";
+import { ROLES, roleOf } from "../lib/setup";
 import { mountLeetcodePanel } from "../lib/ui/leetcode-connect";
 
 const STEPS = ["goal", "goals", "leetcode", "when", "plan"] as const;
@@ -71,12 +71,12 @@ function radios(name: string, label: string, opts: { id: string; label: string; 
 }
 
 function goalStep(): SafeHtml {
-  const g = readPrefs().plan.goal;
+  const g = roleOf(readPrefs().plan.goal);
   return html`${head("goal")}<section class="q" aria-labelledby="q1">
     <h1 id="q1">What are you preparing for?</h1>
     <p class="sub">Pick the one closest to you. You can change it later in Settings</p>
     ${radios("goal", "q1", ROLES, g)}
-    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("3")} to pick, ${kbd("enter")} to continue</span></div>
+    <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("2")} to pick, ${kbd("enter")} to continue</span></div>
   </section>`;
 }
 

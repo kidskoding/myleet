@@ -17,10 +17,12 @@ export interface SetupItem {
 
 /** The roles onboarding and Settings offer, with the same words in both. */
 export const ROLES: { id: Goal; label: string; detail: string }[] = [
-  { id: "internship", label: "Internship", detail: "Mostly easy and medium problems, arrays to trees first" },
-  { id: "coop", label: "Co-op", detail: "The same core topics as internships, often with more interview rounds" },
+  { id: "internship", label: "Internship or co-op", detail: "Mostly easy and medium problems, arrays to trees first" },
   { id: "newgrad", label: "New grad", detail: "Medium and some hard problems, with more graphs and dynamic programming" },
 ];
+
+/** Co-op interviews match internship ones, so a saved "coop" shows as the shared option. */
+export const roleOf = (g: Goal | null): Goal | null => (g === "coop" ? "internship" : g);
 
 /** One onboarding question on its own, coming back to Today. */
 export const setupStepHref = (step: "role" | "leetcode"): string => `${ROUTES.onboarding}?step=${step}&return=${ROUTES.today}`;
