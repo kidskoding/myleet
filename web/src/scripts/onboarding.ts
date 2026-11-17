@@ -1,7 +1,8 @@
 // Onboarding (/onboarding?step=...): role, your goals (the shared goals editor, filled here the
 // first time), LeetCode, hours and the plan.
 // Each step is a URL so Back works. Answers save as you go (lib/prefs). The placement
-// diagnostic lives at /diagnostic.
+// diagnostic lives at /diagnostic. With `&return=<path>` (Today's "Finish setting up") a step
+// shows on its own, and Continue goes back there.
 import { brandIcon } from "../lib/ui/brand";
 import { navigate } from "astro:transitions/client";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
@@ -19,6 +20,8 @@ import { kbd, plural, tag } from "../lib/ui/bits";
 import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { goalsOf, mountGoalsEditor, planPatch } from "../lib/ui/goals-editor";
+import { safeNext } from "../lib/gate";
+import { ROLES } from "../lib/setup";
 import { mountLeetcodePanel } from "../lib/ui/leetcode-connect";
 
 const STEPS = ["goal", "goals", "leetcode", "when", "plan"] as const;
@@ -27,11 +30,6 @@ type Step = (typeof STEPS)[number];
 const OLD_STEPS = ["aims", "companies", "date", "topics", "time"];
 const steps = (): Step[] => [...STEPS];
 
-const GOALS: { id: Goal; label: string; detail: string }[] = [
-  { id: "internship", label: "Internship", detail: "Mostly easy and medium problems, arrays to trees first" },
-  { id: "coop", label: "Co-op", detail: "The same core topics as internships, often with more interview rounds" },
-  { id: "newgrad", label: "New grad", detail: "Medium and some hard problems, with more graphs and dynamic programming" },
-];
 let cat: LoadedCatalog | undefined;
 let trainer: TrainerApi | undefined;
 
@@ -40,6 +38,7 @@ const root = () => document.querySelector<HTMLElement>("[data-onboarding]");
 function currentStep(): Step {
   const s = new URLSearchParams(location.search).get("step") ?? "";
   if (OLD_STEPS.includes(s)) return "goals";
+  if (s === "role") return "goal";
   return (STEPS as readonly string[]).includes(s) ? (s as Step) : "goal";
 }
 
@@ -50,7 +49,11 @@ function go(step: Step, replace = false): void {
   void paint();
 }
 
+/** Where a single step returns to, or null in the full flow. */
+const returnTo = (): string | null => safeNext(new URLSearchParams(location.search).get("return"), "") || null;
+
 function head(step: Step, opts: { skip?: boolean } = {}): SafeHtml {
+  if (returnTo()) return html`<div class="steps"><button class="icon-btn back" type="button" data-return aria-label="Back">${icon("arrow-left")}</button><span class="count">Finish setting up</span></div>`;
   const all = steps();
   const i = all.indexOf(step);
   const back = i > 0 ? html`<button class="icon-btn back" type="button" data-back aria-label="Back">${icon("arrow-left")}</button>` : "";
@@ -72,7 +75,7 @@ function goalStep(): SafeHtml {
   return html`${head("goal")}<section class="q" aria-labelledby="q1">
     <h1 id="q1">What are you preparing for?</h1>
     <p class="sub">This sets your time targets and the order of topics</p>
-    ${radios("goal", "q1", GOALS, g)}
+    ${radios("goal", "q1", ROLES, g)}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-continue ${g ? "" : "disabled"}>Continue</button><span class="hint">${kbd("1")}–${kbd("3")} to pick, ${kbd("enter")} to continue</span></div>
   </section>`;
 }
@@ -151,7 +154,14 @@ async function paint(): Promise<void> {
   render(el, body);
   mountGoals();
   const lc = el.querySelector<HTMLElement>("[data-lc-host]");
-  if (lc) mountLeetcodePanel(lc, { onSkip: () => go("when") });
+  // Skipping here hides the optional LeetCode row on Today's "Finish setting up".
+  if (lc)
+    mountLeetcodePanel(lc, {
+      onSkip: () => {
+        if (!readPrefs().setupHidden.includes("leetcode")) updatePrefs({ setupHidden: [...readPrefs().setupHidden, "leetcode"] });
+        if (!finishStep()) go("when");
+      },
+    });
   const host = el.querySelector<HTMLElement>("[data-when-editor]");
   if (host) whenEditor = mountAvailability(host, { sections: ["presets", "paint", "session"], headings: false, id: "ob-av" });
   document.title = "Set up your plan · myleet";
@@ -190,9 +200,17 @@ function advance(): void {
     root()?.querySelector<HTMLElement>("[data-iv-date]")?.focus();
     return;
   }
+  if (finishStep()) return;
   const all = steps();
   const next = all[all.indexOf(step) + 1];
   if (next) go(next);
+}
+
+/** A single step (from "Finish setting up") goes back where it came from; true when it did. */
+function finishStep(): boolean {
+  const back = returnTo();
+  if (back) void navigate(back);
+  return back !== null;
 }
 
 /** Setup ends in the diagnostic until it's done, so Today opens on a placed plan. */
@@ -213,6 +231,7 @@ function onClick(e: MouseEvent): void {
       return next ? tr.planIcs({ ...plan, days: [{ ...next, sessions: next.sessions.slice(0, 1) }] }, { site: location.origin, alarm_minutes: readPrefs().plan.reminderMinutes }) : null;
     });
   } else if (t.closest("[data-back]")) history.back();
+  else if (t.closest("[data-return]")) finishStep();
   else if (t.closest("[data-skip]")) {
     updatePrefs({ plan: { onboarded: true } });
     void navigate(ROUTES.today);
@@ -256,7 +275,8 @@ function onKey(e: KeyboardEvent): void {
       const b = root()?.querySelector<HTMLButtonElement>("[data-continue]");
       if (b && !b.disabled) advance();
     }
-  } else if (e.key === "Escape" && steps().indexOf(step) > 0) {
+  } else if (e.key === "Escape" && returnTo()) finishStep();
+  else if (e.key === "Escape" && steps().indexOf(step) > 0) {
     history.back();
   }
 }

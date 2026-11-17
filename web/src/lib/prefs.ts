@@ -9,6 +9,8 @@ export type ThemePref = "system" | Flavor;
 export type Goal = "internship" | "coop" | "newgrad";
 /** What the learner is working toward; any mix. Decides which onboarding questions follow. */
 export type Aim = "interview" | "companies" | "topics" | "sharp";
+/** What a learner hid from "Finish setting up": the whole card, or the optional LeetCode row. */
+export type SetupHide = "card" | "leetcode";
 
 export interface EditorPrefs {
   keymap: "standard" | "vim";
@@ -76,6 +78,8 @@ export interface Prefs {
   publicProfile: boolean;
   /** The connected LeetCode username (synced); null when not connected. */
   leetcodeUsername: string | null;
+  /** Synced, so a card hidden on one device stays hidden on the others. */
+  setupHidden: SetupHide[];
   plan: Plan;
 }
 
@@ -94,6 +98,7 @@ export const DEFAULT_PREFS: Prefs = {
   reminders: { on: false, time: "19:00", lead: 15, quietFrom: "23:00", quietTo: "08:00" },
   publicProfile: false,
   leetcodeUsername: null,
+  setupHidden: [],
   plan: {
     goal: null,
     companies: [],

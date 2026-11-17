@@ -36,6 +36,7 @@ import {
   writeSkipped,
   type Budget,
 } from "../lib/today";
+import { setupCard } from "../lib/setup";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { LeetcodeImport, Plan, PlanItem, PlanNote, PlanSession, ProblemMeta, Skill, State, TodayEntry } from "../lib/types";
 import { arrive, diff, keepArriving, formatDuration, formatMinutes, kbd, modChip, plural, queueRow, tag } from "../lib/ui/bits";
@@ -333,6 +334,22 @@ function firstRun(c: Ctx): SafeHtml {
   return todayInvite(`Welcome to myleet${name ? `, ${name}` : ""}`, targetCompany(c), readPrefs().plan.companies[0] ?? null);
 }
 
+/**
+ * "Finish setting up": the setup answers still open, each opening just that question. Painted
+ * twice, in the side column on wide screens and under the next problem on narrow ones.
+ */
+function setupPanel(card: ReturnType<typeof setupCard>, where: "side" | "main" | "first"): SafeHtml {
+  if (!card) return html``;
+  const pct = Math.round((card.done / card.total) * 100);
+  return html`<section class="panel setup-card setup-${where}" aria-labelledby="su-${where}">
+    <div class="su-head"><h2 id="su-${where}">Finish setting up</h2><button type="button" class="icon-btn" data-setup-hide aria-label="Hide this checklist">${icon("x")}</button></div>
+    <div class="su-progress"><span>${card.done} of ${card.total} done</span><span class="su-bar" role="progressbar" aria-label="Setup" aria-valuemin="0" aria-valuemax="${card.total}" aria-valuenow="${card.done}"><span style="width:${pct}%"></span></span></div>
+    <ul class="su-list">${card.open.map(
+      (i) => html`<li><span class="su-label">${i.label}${i.optional ? html`<small>Optional</small>` : ""}</span><a class="btn btn-ghost btn-sm" href="${i.href}">${i.action}</a></li>`,
+    )}</ul>
+  </section>`;
+}
+
 /** "For you": up to three cards built from the learner's own data. */
 function cardsRow(cards: Card[]): SafeHtml {
   if (!cards.length) return html``;
@@ -526,11 +543,12 @@ function paint(c: Ctx): void {
   }
 
   const placement = c.t.placement(c.events);
+  const setup = setupCard(prefs, placement.needs);
   const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null;
   const hello = greeting(c.now, name);
   let body: SafeHtml;
   if (placement.needs && Object.keys(states).length === 0) {
-    body = firstRun(c);
+    body = html`${firstRun(c)}${setupPanel(setup, "first")}`;
   } else if (work.length === 0) {
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     const spent = done.reduce((n, d) => n + (d.elapsedMs ?? 0), 0) / 60000;
@@ -542,6 +560,7 @@ function paint(c: Ctx): void {
     const wrap = wrapUp({ clean: cleanCount, total: done.length, minutes: spent }, tomorrow);
     body = html`<section aria-labelledby="ad-h">
       <div class="greet"><h1 id="ad-h">${hello}</h1>${noteHtml}${statusHtml}<p>${wrap}</p>${trackLine ? html`<p>${trackLine}</p>` : ""}<p class="countdown-inline">${plan.inline}</p></div>
+      ${setupPanel(setup, "main")}
       ${drills.length
         ? html`<div class="panel state-note" style="margin-top:var(--space-8)"><h2>More practice</h2>
           <p>If you'd like more, these revisit topics you've practiced, including ones you found hard, and they don't change your review schedule.</p>
@@ -570,6 +589,7 @@ function paint(c: Ctx): void {
       ${cardsRow(cards)}
       <div data-mock-card></div>
       ${nextUp(c, first)}
+      ${setupPanel(setup, "main")}
       ${rest.length
         ? html`<div class="group"><div class="section-head"><h2>Also today</h2><span class="meta">${plural(rest.length, "problem")}, about ${formatMinutes(mins(rest))}</span></div>
           <ol class="panel queue" aria-label="Today's queue">${rest.map((e) => entryRow(c, e))}</ol></div>`
@@ -588,7 +608,7 @@ function paint(c: Ctx): void {
   const next = queueFirst(entries, skipped);
   const nm = next ? meta(c.cat, next) : undefined;
   const skipKey = nm ? `${c.cat.catalog.modules[nm.module]?.id}/${c.cat.catalog.modules[nm.module]?.techniques[nm.technique]?.id}` : null;
-  render(aside, first ? html`` : html`${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget, planned)}`);
+  render(aside, first ? html`` : html`${setupPanel(setup, "side")}${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget, planned)}`);
   banners(Object.keys(states).length, Object.keys(stats.heatmap).length, c.sample === true);
 }
 
@@ -739,6 +759,12 @@ document.addEventListener("click", async (e) => {
     await appendEvent(ctx.t.placementSkip());
     const first = moduleOneStart(ctx.cat.catalog);
     void navigate(first ? problemHref(first) : ROUTES.today);
+    return;
+  }
+  if (t.closest("[data-setup-hide]")) {
+    const was = readPrefs().setupHidden;
+    updatePrefs({ setupHidden: [...was, "card"] });
+    toast("Checklist hidden. You can still change your role and goals in Settings", { action: { label: "Undo", run: () => updatePrefs({ setupHidden: was }) } });
     return;
   }
   const skipBtn = t.closest<HTMLElement>("[data-skip]");

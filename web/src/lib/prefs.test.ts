@@ -66,7 +66,9 @@ describe("prefs", () => {
   it("round-trips the account settings and drops invalid windows", () => {
     updatePrefs({
       newPerDay: 4,
+      setupHidden: ["leetcode"],
       plan: {
+        goal: "coop",
         interviewDate: "2026-12-07",
         dailyMinutes: 90,
         aims: ["companies", "sharp"],
@@ -86,6 +88,9 @@ describe("prefs", () => {
     expect(readPrefs().newPerDay).toBe(4);
     // The goals picked follow the account to a new device.
     expect(readPrefs().plan.aims).toEqual(["companies", "sharp"]);
+    // So do the role and what was hidden from "Finish setting up".
+    expect(readPrefs().plan.goal).toBe("coop");
+    expect(readPrefs().setupHidden).toEqual(["leetcode"]);
     expect(isDefaultServer(server)).toBe(false);
     expect(isDefaultServer({ ...toServer(DEFAULT_PREFS), theme: "system" } as ServerSettings)).toBe(true);
   });

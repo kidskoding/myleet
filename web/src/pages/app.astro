@@ -151,16 +151,36 @@ import Base from "../layouts/Base.astro";
   .today .checkin .qrow .ladder-cell, .today .checkin .qrow .diff { display: none; }
   .today .checkin .qrow .title { font-size: var(--text-sm); }
 
+  /* "Finish setting up": in the side column when there is one, under the next problem when not */
+  .today .setup-card h2 { font-size: var(--text-base); font-weight: 650; color: var(--ink); }
+  .today .su-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+  .today .su-head .icon-btn { margin: -6px 0; }
+  .today .su-progress { display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); white-space: nowrap; }
+  .today .su-bar { flex: 1; height: 4px; border-radius: 99px; background: var(--surface-sunk); overflow: hidden; }
+  .today .su-bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); transition: width var(--dur-fast) var(--ease-out); }
+  .today .su-list { list-style: none; margin: var(--space-3) 0 0; padding: 0; }
+  .today .su-list li { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: 40px; border-top: 1px solid var(--line); }
+  .today .su-list li:first-child { border-top: 0; }
+  .today .su-label { font-size: var(--text-sm); color: var(--ink); }
+  .today .su-label small { margin-left: var(--space-2); font-size: var(--text-xs); color: var(--ink-3); }
+  .today .su-list .btn { margin-right: calc(-1 * var(--space-2)); }
+  .today .setup-main, .today .setup-first { margin-top: var(--space-8); padding: var(--space-5); }
+  .today .setup-main { display: none; }
+  .today .setup-first { max-width: 440px; }
+
   @media (max-width: 1100px) {
+    .today .setup-main { display: block; }
+    .today .setup-side { display: none; }
+    .today aside > .setup-side + .panel { padding-top: 0; border-top: 0; }
     .today-layout { grid-template-columns: 1fr; }
     .today .nextup { grid-template-columns: 1fr; }
     .today .nextup .rail { max-width: 320px; }
     .today aside { grid-template-columns: repeat(2, 1fr); align-items: start; }
-    .today aside > section:first-child { grid-row: span 2; }
+    .today aside > section:first-child, .today aside > .setup-side + section { grid-row: span 2; }
   }
   @media (max-width: 760px) {
     .today aside { grid-template-columns: 1fr; }
-    .today aside > section:first-child { grid-row: auto; }
+    .today aside > section:first-child, .today aside > .setup-side + section { grid-row: auto; }
     .today .greet .countdown-inline { display: block; margin-top: var(--space-1); color: var(--ink); font-weight: 600; font-size: var(--text-sm); }
     .today .nextup { grid-template-columns: 1fr; padding: var(--space-5); gap: var(--space-5); }
     .today .nextup h2 { font-size: 2.125rem; }

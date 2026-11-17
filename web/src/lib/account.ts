@@ -1,7 +1,7 @@
 // The Worker's account API (worker/README.md). Every call is same-origin with the
 // session cookie. Without a Worker (astro preview, offline) the app is simply signed out.
 import type { Accent, Flavor, NightFlavor } from "./flavors";
-import { DEFAULT_PREFS, mergeHistory, readPrefs, validWindows, type Aim, type Prefs } from "./prefs";
+import { DEFAULT_PREFS, mergeHistory, readPrefs, validWindows, type Aim, type Goal, type Prefs, type SetupHide } from "./prefs";
 import { mergeLedger, readLedger, writeLedger, type Ledger } from "./plan-progress";
 import type { Availability, GoogleState, Interview, PlanSession } from "./types";
 
@@ -31,6 +31,10 @@ export interface ServerSettings {
   aims?: Aim[];
   /** Finished or skipped setup; absent until the first sync after setup. */
   onboarded?: boolean;
+  /** The role picked in onboarding or Settings. */
+  goal?: Goal | null;
+  /** Absent on a Worker that predates "Finish setting up". */
+  setup_hidden?: SetupHide[];
   reminders: boolean;
   public_profile: boolean;
   daily_minutes: number;
@@ -289,6 +293,8 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     focus_topics: p.plan.focusTopics,
     aims: p.plan.aims,
     ...(p.plan.onboarded ? { onboarded: true } : {}),
+    goal: p.plan.goal,
+    setup_hidden: p.setupHidden,
     reminders: p.reminders.on,
     public_profile: p.publicProfile,
     daily_minutes: p.plan.dailyMinutes ?? 60,
@@ -309,6 +315,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
     reminders: { ...base.reminders, on: s.reminders },
     publicProfile: s.public_profile,
     leetcodeUsername: s.leetcode_username === undefined ? base.leetcodeUsername : s.leetcode_username,
+    setupHidden: s.setup_hidden ?? base.setupHidden,
     plan: {
       ...base.plan,
       interviewDate: s.interview_date,
@@ -318,6 +325,7 @@ export function fromServer(s: ServerSettings, base: Prefs = readPrefs()) {
       focusTopics: s.focus_topics ?? base.plan.focusTopics,
       aims: s.aims ?? base.plan.aims,
       onboarded: base.plan.onboarded || s.onboarded === true,
+      goal: s.goal === undefined ? base.plan.goal : s.goal,
       dailyMinutes: s.daily_minutes ?? base.plan.dailyMinutes,
       sessionMinutes: s.session_minutes ?? base.plan.sessionMinutes,
       availability: s.availability ?? base.plan.availability,
