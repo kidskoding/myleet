@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { DEFAULT_PREFS, type Prefs } from "./prefs";
-import { setupCard, setupItems } from "./setup";
+import { SETUP_SOLVES, setupCard, setupItems } from "./setup";
 
 const prefs = (p: { plan?: Partial<Prefs["plan"]>; leetcodeUsername?: string | null; setupHidden?: Prefs["setupHidden"] } = {}): Prefs => ({
   ...DEFAULT_PREFS,
@@ -35,6 +35,11 @@ describe("finish setting up", () => {
 
   it("stays hidden for good once dismissed", () => {
     expect(setupCard(prefs({ setupHidden: ["card"] }), true)).toBeNull();
+  });
+
+  it("bows out once the learner has solved enough problems, even with items open", () => {
+    expect(setupCard(prefs({}), true, SETUP_SOLVES - 1)).not.toBeNull();
+    expect(setupCard(prefs({}), true, SETUP_SOLVES)).toBeNull();
   });
 
   it("opens each question on its own, coming back to Today", () => {

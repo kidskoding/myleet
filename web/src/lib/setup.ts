@@ -38,9 +38,12 @@ export function setupItems(p: Pick<Prefs, "plan" | "leetcodeUsername" | "setupHi
   ];
 }
 
-/** The card's rows, or null when it shouldn't show: everything done, or hidden for good. */
-export function setupCard(p: Pick<Prefs, "plan" | "leetcodeUsername" | "setupHidden">, placementNeeded: boolean): { open: SetupItem[]; done: number; total: number } | null {
-  if (p.setupHidden.includes("card")) return null;
+/** After this many solved problems the learner clearly knows what they're working towards, so the card bows out. */
+export const SETUP_SOLVES = 5;
+
+/** The card's rows, or null when it shouldn't show: everything done, hidden for good, or enough solves. */
+export function setupCard(p: Pick<Prefs, "plan" | "leetcodeUsername" | "setupHidden">, placementNeeded: boolean, solved = 0): { open: SetupItem[]; done: number; total: number } | null {
+  if (p.setupHidden.includes("card") || solved >= SETUP_SOLVES) return null;
   const items = setupItems(p, placementNeeded);
   const open = items.filter((i) => !i.done);
   return open.length ? { open, done: items.length - open.length, total: items.length } : null;

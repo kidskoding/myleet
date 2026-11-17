@@ -543,12 +543,13 @@ function paint(c: Ctx): void {
   }
 
   const placement = c.t.placement(c.events);
-  const setup = setupCard(prefs, placement.needs);
+  const setup = setupCard(prefs, placement.needs, Object.values(states).filter((s) => s.rung >= 0).length);
   const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null;
   const hello = greeting(c.now, name);
   let body: SafeHtml;
   if (placement.needs && Object.keys(states).length === 0) {
-    body = html`${firstRun(c)}${setupPanel(setup, "first")}`;
+    // The welcome screen is itself the setup step, so the checklist waits for the normal Today.
+    body = firstRun(c);
   } else if (work.length === 0) {
     const cleanCount = done.filter((d) => d.finish === "clean").length;
     const spent = done.reduce((n, d) => n + (d.elapsedMs ?? 0), 0) / 60000;
