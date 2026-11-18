@@ -543,7 +543,7 @@ function monthGrid(c: Ctx, whole = false): SafeHtml {
     const mock = d.sessions.some(isMock);
     const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
     const what = dayHeadline(d);
-    cells.push(html`<button type="button" class="mc${day === c.plan.start ? " today" : ""}" data-goto="${idx}" aria-label="${longDay(day)}: ${d.off ? "day off" : d.minutes ? `${fmtM(d.minutes)}, ${what}` : "nothing planned"}">
+    cells.push(html`<button type="button" class="mc${day === c.plan.start ? " today" : ""}" data-day-pop="${idx}" aria-label="${longDay(day)}: ${d.off ? "day off" : d.minutes ? `${fmtM(d.minutes)}, ${what}` : "nothing planned"}">
       <span class="num"><span>${whole && (i === 0 || dt.getDate() === 1) ? short(day) : dt.getDate()}</span>${d.minutes ? html`<small>${d.minutes}m</small>` : ""}</span>
       ${d.off ? html`<span class="chip off">Day off</span>` : html`${what ? html`<span class="what">${what}</span>` : ""}${whole && d.minutes ? mixBar(d.sessions.flatMap((x) => x.items)) : ""}${mock ? html`<span class="chip mock on-wall">Mock</span>` : ""}${check ? html`<span class="chip check">Check-in</span>` : ""}`}${ivs.map(flag)}
     </button>`);
@@ -1105,6 +1105,36 @@ function openPop(id: string, opts: { move?: boolean; focus?: boolean } = {}): vo
   if (opts.focus !== false) ($("[data-pop-close]", pop) as HTMLElement | null)?.focus({ preventScroll: true });
 }
 let popTimer: ReturnType<typeof setTimeout> | undefined;
+
+/** Month view: a day's interviews and sessions in the side panel, so choosing a day doesn't leave the month. */
+function openDayPop(index: number): void {
+  const c = ctx;
+  const pop = $<HTMLElement>("[data-pop]");
+  const inner = $<HTMLElement>("[data-pop] .pop-in");
+  const d = c?.plan.days[index];
+  if (!c || !pop || !inner || !d) return;
+  const fresh = pop.hidden || pop.classList.contains("is-leaving");
+  openPopId = null;
+  const ivs = interviewsOn(c, d.date);
+  render(
+    inner,
+    html`<div class="pop-head"><div><h3 id="pop-h">${longDay(d.date)}</h3><p>${d.off ? "Day off" : d.sessions.length ? `${fmtM(d.minutes)}, ${plural(d.sessions.length, "session")}` : "Nothing planned"}</p></div><button type="button" class="icon-btn" data-pop-close aria-label="Close (Esc)">${icon("x")}</button></div>
+      ${ivs.length ? html`<ul class="day-ivs">${ivs.map((iv) => html`<li>${iv.company ? companyLogo(iv.company) : icon("flag")}${ivLabel(iv)}</li>`)}</ul>` : ""}
+      ${d.sessions.length
+        ? html`<ol class="day-ses" aria-label="Sessions">${d.sessions.map(
+            (s) => html`<li><button type="button" class="pd-ses" data-ses="${s.id}" data-date="${d.date}"><span class="t">${clock(minuteOf(s.start_ms))}, ${fmtM(s.minutes)}</span><span class="h">${s.title}</span>${mixBar(s.items)}</button></li>`,
+          )}</ol>`
+        : ""}
+      <div class="pop-foot"><button type="button" class="btn btn-secondary btn-sm" data-goto="${index}">${icon("calendar-days")}Open this week</button></div>`,
+  );
+  clearTimeout(popTimer);
+  pop.hidden = false;
+  pop.classList.remove("is-leaving");
+  $("[data-split]")?.classList.add("insp-open");
+  if (!reduced() && fresh) inner.animate([{ opacity: 0, transform: narrow() ? "translateY(24px)" : "translateX(16px)" }, { opacity: 1, transform: "none" }], { duration: 200, easing: "cubic-bezier(0.22, 1, 0.36, 1)" });
+  ($("[data-pop-close]", pop) as HTMLElement | null)?.focus({ preventScroll: true });
+}
+
 const narrow = () => matchMedia("(max-width: 760px)").matches;
 
 function closePop(): void {
@@ -1753,7 +1783,7 @@ function goTo(index: number, openFirst = false): void {
 function onClick(e: MouseEvent): void {
   if (!root() || !ctx) return;
   const t = e.target as Element;
-  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],button[data-nav],[data-today],[data-unfold],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol[data-p],.ag-ses[data-ses],.pd-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
+  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],button[data-nav],[data-today],[data-unfold],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],[data-day-pop],.pcol[data-p],.ag-ses[data-ses],.pd-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
   if (!t.closest(".daymenu-pop") && !t.closest("[data-daymenu]")) closeDayMenu();
   // Any click outside the popover closes it; a session click reopens it on that session.
   if (!t.closest("[data-pop]") && !t.closest(".ses") && !t.closest(".toast")) closePop();
@@ -1793,6 +1823,7 @@ function onClick(e: MouseEvent): void {
   if (d.daymenu) return openDayMenu(d.daymenu, a);
   if (d.dayoff) return (closeDayMenu(), toggleOff(d.dayoff));
   if (d.shorter) return (closeDayMenu(), toggleShorter(d.shorter));
+  if (d.dayPop) return openDayPop(Number(d.dayPop));
   if (d.goto) return goTo(Number(d.goto), true);
   if (a.classList.contains("pcol")) return pickDay(d.date === pickedDay ? null : (d.date ?? null));
   if ((a.classList.contains("ag-ses") || a.classList.contains("pd-ses")) && d.ses) return openPop(d.ses);
