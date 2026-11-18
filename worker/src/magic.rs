@@ -26,6 +26,9 @@ pub fn print_link_instead(site: &str, email_configured: bool) -> bool {
     local && !email_configured
 }
 
+/// The seeded demo learner (`just dev` loads it from tools/demo/seed.py), local dev only.
+pub const DEMO_EMAIL: &str = "demo@myleet.test";
+
 pub fn link(site: &str, token: &str) -> String {
     format!("{site}{VERIFY_PATH}?token={token}")
 }

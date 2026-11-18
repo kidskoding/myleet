@@ -40,8 +40,8 @@ myleet/
 │   └── wasm/                `myleet-wasm`: wasm-bindgen JSON API over core (`just wasm`); see its README
 ├── web/                     the web app (Astro + Bun); web/public/data (`just export`) and web/src/wasm are generated.
 │                            `bun run dev` re-exports on content edits and proxies /api/statement to production.
-│                            `just dev` serves the built site and the Worker API on localhost:8787 with a local D1;
-│                            with no email key set, sign-in links print in that terminal (localhost origins only).
+│                            `just dev` serves the built site and the Worker API on localhost:8787 with a local D1,
+│                            signed in as the demo learner (tools/demo/seed.py, reset each run; localhost origins only).
 │                            Personal copy lives in lib/coach.ts (Today), lib/plan-copy.ts (Plan), lib/sheet-note.ts
 │                            (result sheet) and crates/core/src/reason.rs ("Why this one"); guest vs account rules in lib/access.ts
 ├── worker/                  workers-rs backend on Cloudflare (D1, KV): auth, sync, statements, interview reports,
@@ -62,6 +62,7 @@ myleet/
 ├── playlists/               company sets as TOML; the NNN_ prefix is display order, the slug after it is permanent
 ├── mock-interviews/
 ├── tools/evidence/          collects candidate-reported problems from public posts (see its README)
+├── tools/demo/              seed.py: the local-only demo learner `just dev` signs in as
 ├── tools/playlists/         audit.py lists sets whose focus names topics they lack; rebuild.py <slug> refits a set to its focus
 └── tools/migrate/           one-time migration from the old multi-problem files
 ```

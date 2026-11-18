@@ -265,6 +265,9 @@ pub struct Providers {
     pub github: bool,
     pub google: bool,
     pub email: bool,
+    /// Local dev only: a one-click sign-in as the seeded demo learner.
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub demo: bool,
 }
 
 /// A config value counts once it is set and is not a `replace-...` or example.com
@@ -286,6 +289,7 @@ pub fn providers(
         github: configured(github_id),
         google: configured(google_id),
         email: configured(resend_key) && configured(email_from),
+        demo: false,
     }
 }
 
@@ -306,7 +310,8 @@ mod tests {
             Providers {
                 github: true,
                 google: false,
-                email: false
+                email: false,
+                demo: false
             }
         );
         let all = providers(

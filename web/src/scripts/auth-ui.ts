@@ -93,9 +93,12 @@ function formView(h: Host, v: Extract<View, { kind: "form" }>): SafeHtml {
     ${offline ? html`<p class="auth-alert" role="status">${icon("wifi-off")}<span>You're offline. Sign in when you reconnect</span></p>` : ""}
     ${none ? html`<p class="auth-alert" role="status">${icon("circle-alert")}<span>Sign-in isn't set up on this copy of myleet yet</span></p>` : ""}
     <div class="auth-stack">
-      ${m.oauth.map(provider)}
-      ${m.email && m.oauth.length ? html`<div class="auth-or">or</div>` : ""}
-      ${m.email ? email : ""}
+      ${
+        // Local dev signs in as the seeded demo learner and nothing else.
+        h.providers.demo
+          ? html`<a class="btn btn-primary btn-lg" href="/api/auth/demo">Sign in as Demo Learner</a>`
+          : html`${m.oauth.map(provider)}${m.email && m.oauth.length ? html`<div class="auth-or">or</div>` : ""}${m.email ? email : ""}`
+      }
     </div>
     <p class="auth-swap"><button class="btn btn-ghost btn-sm" type="button" data-swap>${c.swap}</button></p>
     <p class="auth-fine">${m.oauth.length ? "Signing up and signing in use the same buttons. " : ""}We store your email and your practice history, nothing else, and there are no passwords. <a class="link" href="${ROUTES.privacy}">Privacy</a></p>`;

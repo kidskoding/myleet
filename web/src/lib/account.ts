@@ -203,6 +203,8 @@ export interface Providers {
   github: boolean;
   google: boolean;
   email: boolean;
+  /** Local dev only: one click signs in as the seeded demo learner. */
+  demo?: boolean;
 }
 
 let providersPromise: Promise<Providers> | undefined;

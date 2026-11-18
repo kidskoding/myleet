@@ -117,6 +117,7 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
         (Method::Get, "/api/statement") => get_statement(req, app).await,
         (Method::Get, "/api/leetcode/profile") => get_leetcode_profile(req, app).await,
         (Method::Get, "/api/auth/providers") => auth_providers(app),
+        (Method::Get, "/api/auth/demo") => auth_demo(req, app).await,
         (Method::Get, "/api/auth/github") => auth_start(app, Provider::Github),
         (Method::Get, "/api/auth/google") => auth_start(app, Provider::Google),
         (Method::Get, "/api/auth/github/callback") => {
@@ -572,7 +573,24 @@ fn auth_providers(app: &App) -> Result<Response> {
         var("EMAIL_FROM").as_deref(),
     );
     p.email = p.email || magic::print_link_instead(&app.site, false);
+    p.demo = magic::print_link_instead(&app.site, email_configured(app));
     json(&p, 200)
+}
+
+/// `GET /api/auth/demo`: signs in as the seeded demo learner. Same local-only gate as printed links.
+async fn auth_demo(req: &Request, app: &App) -> Result<Response> {
+    if !magic::print_link_instead(&app.site, email_configured(app)) {
+        return json_error("not found", 404);
+    }
+    let profile = Profile {
+        provider: "email",
+        provider_user_id: magic::DEMO_EMAIL.to_string(),
+        email: magic::DEMO_EMAIL.to_string(),
+        display_name: Some("Demo Learner".to_string()),
+        avatar_url: None,
+        username_hint: "demo".to_string(),
+    };
+    finish_sign_in(req, app, &profile).await
 }
 
 /// Email works when Resend and a sender are set; else, on localhost only, links print.
