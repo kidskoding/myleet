@@ -239,6 +239,36 @@ import Base from "../layouts/Base.astro";
   .plan .route { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: var(--space-10); margin-top: var(--space-10); align-items: start; }
   .plan .route > .panel { padding: var(--space-5) 0 0; background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; }
   .approach { display: flex; flex-direction: column; }
+  /* The road: phases as a band, milestones as marks on a line, then the same milestones as a list */
+  .road-track { position: relative; margin: var(--space-2) 0 var(--space-5); }
+  .road-phases { position: relative; height: 26px; }
+  .road-phases .ph { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; padding: 0 8px; overflow: hidden; border-radius: var(--radius-xs); font-size: var(--text-2xs); font-weight: 650; color: var(--ink-2); white-space: nowrap; border-left: 2px solid var(--surface); }
+  .road-phases .ph b { overflow: hidden; text-overflow: ellipsis; font-weight: inherit; }
+  .ph-learn { background: color-mix(in srgb, var(--mix-new) 16%, transparent); }
+  .ph-near { background: color-mix(in srgb, var(--mix-mock) 22%, transparent); }
+  .ph-tail { background: color-mix(in srgb, var(--mix-review) 22%, transparent); }
+  .ph-steady { background: color-mix(in srgb, var(--ink-3) 12%, transparent); }
+  .road-line { position: relative; height: 2px; margin-top: 18px; background: var(--line-strong); border-radius: 1px; }
+  .road-line .rm { position: absolute; top: 50%; transform: translate(-50%, -50%); }
+  .rm-today { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--surface); }
+  .rm-mock { width: 9px; height: 9px; background: var(--mix-mock); transform: translate(-50%, -50%) rotate(45deg) !important; }
+  .rm-check { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--ink-2); background: var(--surface); }
+  .rm-off { width: 10px; height: 0; border-top: 2px dashed var(--ink-3); }
+  .rm-interview { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--surface); border: 1.5px solid var(--accent); }
+  .rm-interview .co-logo, .rm-interview .icon { width: 14px !important; height: 14px !important; }
+  .road-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--space-2); }
+  .road-list li > button, .road-list .rl-static { display: grid; gap: 2px; width: 100%; padding: var(--space-2) var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); text-align: left; font: inherit; }
+  .road-list li > button { cursor: pointer; }
+  .road-list li > button:hover { border-color: var(--line-strong); }
+  .road-list li > button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .road-list .rl-interview > * { border-color: var(--accent); }
+  .rl-when { font-size: var(--text-2xs); font-weight: 650; color: var(--ink-3); }
+  .rl-what { display: flex; align-items: center; gap: 6px; font-size: var(--text-sm); font-weight: 650; }
+  .rl-what .co-logo, .rl-what .icon { width: 14px !important; height: 14px !important; flex: none; }
+  .rl-dot { position: static !important; flex: none; transform: none !important; }
+  .rl-dot.rm-mock { transform: rotate(45deg) !important; }
+  .rl-dot.rm-off { width: 10px; }
+  @media (max-width: 640px) { .road-track { display: none; } .road-list { grid-template-columns: 1fr; } }
   .approach .section-head h2, .fc-panel h2, .you h2 { font-size: var(--text-base); }
   .approach .section-head { margin-bottom: var(--space-4); }
   /* The chart and its axis share one fixed summit column, so day labels sit under their bars. */

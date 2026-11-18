@@ -191,9 +191,10 @@ function syncInterviews(base: Prefs, patch: Patch<Prefs>): Patch<Prefs> {
   if (pp.interviews === undefined) {
     const cur = nextInterview(list);
     const rest = list.filter((i) => i !== cur);
-    list = pp.interviewDate ? [...rest, { date: pp.interviewDate, company: cur?.company ?? null }] : rest;
+    list = pp.interviewDate ? [...rest, { date: pp.interviewDate, company: cur?.company ?? null, ...(cur?.time ? { time: cur.time } : {}) }] : rest;
   }
-  list = [...list].map(({ date, company }) => ({ date, company })).sort((a, b) => a.date.localeCompare(b.date));
+  // Keeps only what settings store (the plan's display `name` is dropped), start time included.
+  list = [...list].map(({ date, company, time }) => ({ date, company, ...(time ? { time } : {}) })).sort((a, b) => a.date.localeCompare(b.date));
   return { ...patch, plan: { ...pp, interviews: list, interviewDate: nextInterview(list)?.date ?? null } };
 }
 

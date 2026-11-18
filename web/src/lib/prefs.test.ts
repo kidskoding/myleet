@@ -148,3 +148,14 @@ describe("nextInterview and pacingInterview", () => {
     expect(pacingInterview(ivs, "2026-12-20")?.company).toBe("google");
   });
 });
+
+describe("interview times", () => {
+  it("survive saving the interview list", async () => {
+    const { readPrefs, updatePrefs } = await import("./prefs");
+    updatePrefs({ plan: { interviews: [{ date: "2099-12-07", company: "google", time: "14:00" }, { date: "2099-12-21", company: "meta" }] } });
+    expect(readPrefs().plan.interviews).toEqual([
+      { date: "2099-12-07", company: "google", time: "14:00" },
+      { date: "2099-12-21", company: "meta" },
+    ]);
+  });
+});

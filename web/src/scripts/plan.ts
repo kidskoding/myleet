@@ -87,10 +87,7 @@ const GCAL_LANDED: Record<string, string> = {
 
 const FOLD = 28;
 const PROFILE_MAX_DAYS = 63;
-const PROFILE_MAX_MIN = 180;
 const FORECAST_ROWS = 4;
-/** Past days shown before today on the route chart. */
-const PAST_DAYS = 7;
 
 let ctx: Ctx | undefined;
 let view: "week" | "month" | "roadmap" = "week";
@@ -583,51 +580,71 @@ function agenda(c: Ctx): SafeHtml {
   })}</ol>`;
 }
 
-function profile(c: Ctx): SafeHtml {
-  const days = c.plan.days.slice(0, PROFILE_MAX_DAYS);
-  const before = standing(c.plan, c.events, c.now).days.filter((d) => d.date >= addDays(c.plan.start, -PAST_DAYS));
+/** Days from `a` to `b`, both `YYYY-MM-DD`. */
+const dayDiff = (a: string, b: string): number => Math.round((dateOf(b).getTime() - dateOf(a).getTime()) / 86_400_000);
+/** The planner's own phase lengths (crates/core/src/planner.rs NEAR_DAYS and REVIEW_ONLY_DAYS). */
+const NEAR_DAYS = 14;
+const REVIEW_ONLY_DAYS = 2;
+
+type Milestone = { date: string; kind: "interview" | "mock" | "check" | "off"; label: string; iv?: Interview };
+
+/**
+ * The road to your interviews: what each stretch of the plan is for, and the moments that
+ * matter on it. Minutes per day live in the week calendar, where they vary.
+ */
+function road(c: Ctx): SafeHtml {
+  const start = c.plan.start;
+  const days = c.plan.days;
+  const ivs = (c.plan.interviews ?? []).filter((i) => i.date >= start).sort((a, b) => a.date.localeCompare(b.date));
+  const end = [days.at(-1)?.date ?? start, ...ivs.map((i) => i.date)].sort().at(-1) ?? start;
+  const len = Math.max(1, dayDiff(start, end));
+  const at = (d: string) => `${Math.min(100, Math.max(0, (dayDiff(start, d) / len) * 100)).toFixed(2)}%`;
+  const idx = new Map(days.map((d, i) => [d.date, i]));
+
+  // Phases follow the planner: new topics, then mocks closer together, then reviews only.
+  const phases: { from: string; to: string; kind: string; label: string }[] = [];
+  let prev = start;
+  for (const iv of ivs) {
+    const near = addDays(iv.date, -NEAR_DAYS);
+    const tail = addDays(iv.date, -REVIEW_ONLY_DAYS);
+    const push = (from: string, to: string, kind: string, label: string) => {
+      const f = from < prev ? prev : from;
+      if (to > f) phases.push({ from: f, to, kind, label });
+    };
+    push(prev, near, "learn", "New topics and reviews");
+    push(near, tail, "near", "Mocks closer together");
+    push(tail, iv.date, "tail", "Reviews only");
+    prev = iv.date;
+  }
+  if (end > prev) phases.push({ from: prev, to: end, kind: "steady", label: ivs.length ? "Steady practice" : "Steady practice: reviews, weak spots and new topics" });
+
+  const ms: Milestone[] = [];
+  for (const d of days) {
+    if (d.off) ms.push({ date: d.date, kind: "off", label: "Day off" });
+    if (d.sessions.some(isMock)) ms.push({ date: d.date, kind: "mock", label: "Mock interview" });
+    if (d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"))) ms.push({ date: d.date, kind: "check", label: "Check-in" });
+  }
+  for (const iv of ivs) ms.push({ date: iv.date, kind: "interview", label: ivLabel(iv), iv });
+  ms.sort((a, b) => a.date.localeCompare(b.date) || (a.kind === "interview" ? -1 : b.kind === "interview" ? 1 : 0));
+
+  const when = (d: string) => dateOf(d).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+  const mark = (m: Milestone) =>
+    m.kind === "interview"
+      ? html`<span class="rm rm-interview" style="left:${at(m.date)}" title="${m.label}, ${when(m.date)}">${m.iv?.company ? companyLogo(m.iv.company) : icon("flag")}</span>`
+      : html`<span class="rm rm-${m.kind}" style="left:${at(m.date)}" title="${m.label}, ${when(m.date)}"></span>`;
+  const item = (m: Milestone) => {
+    const i = idx.get(m.date);
+    const inner = html`<span class="rl-when">${dayDiff(start, m.date) === 0 ? "Today" : when(m.date)}</span><span class="rl-what">${m.kind === "interview" ? (m.iv?.company ? companyLogo(m.iv.company) : icon("flag")) : html`<i class="rl-dot rm-${m.kind}"></i>`}${m.label}</span>`;
+    return html`<li class="rl-${m.kind}">${i !== undefined ? html`<button type="button" data-goto="${i}">${inner}</button>` : html`<span class="rl-static">${inner}</span>`}</li>`;
+  };
   const date = c.plan.interview_date;
-  // Run the chart through the interview day itself; only a date past the 63-day maximum falls off the end.
-  const gap = date && days.length ? Math.max(0, Math.round((dateOf(date).getTime() - dateOf(days.at(-1)?.date ?? date).getTime()) / 86_400_000)) : 0;
-  const tail = Array.from({ length: Math.min(gap, PROFILE_MAX_DAYS - days.length) }, (_, i) => addDays(days.at(-1)?.date ?? c.plan.start, i + 1));
-  const n = days.length + before.length + tail.length;
-  const thin = n > 31;
-  const mocks = days.filter((d) => d.sessions.some(isMock)).length;
-  const checks = days.filter((d) => d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"))).length;
-  const offs = days.filter((d) => d.off).length;
-  const pastHtml = before.map((d) => {
-    const bh = Math.max(3, (Math.min(d.planned, PROFILE_MAX_MIN) / PROFILE_MAX_MIN) * 82);
-    return html`<span class="pcol past st-${d.status}" data-date="${d.date}" role="img" aria-label="${longDay(d.date)}: ${STATUS_TEXT[d.status].toLowerCase()}, ${fmtM(d.practised)} of ${fmtM(d.planned)}"><span class="b" style="height:${bh.toFixed(1)}%"><span class="f" style="height:${Math.min(100, (d.practised / Math.max(1, d.planned)) * 100).toFixed(0)}%"></span></span></span>`;
-  });
-  const colsHtml = days.map((d, i) => {
-    const m = d.minutes;
-    const bh = d.off ? 0 : Math.max(3, (Math.min(m, PROFILE_MAX_MIN) / PROFILE_MAX_MIN) * 82);
-    const mock = d.sessions.some(isMock);
-    const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
-    const label = `${longDay(d.date)}: ${d.off ? "day off" : fmtM(m)}${mock ? ", mock interview" : ""}${check ? ", check-in" : ""}`;
-    const on = d.date === pickedDay;
-    const stop = on || (i === 0 && !days.some((x) => x.date === pickedDay));
-    return html`<button type="button" class="pcol${i === 0 ? " today" : ""}${d.off ? " off" : ""}${on ? " picked" : ""}" data-p="${i}" data-date="${d.date}" aria-label="${label}" aria-pressed="${String(on)}" tabindex="${stop ? 0 : -1}">${mock ? html`<i class="mk mock" style="bottom:calc(${bh}% + 6px)"></i>` : ""}${
-      check ? html`<i class="mk check" style="bottom:calc(${bh}% + ${mock ? 18 : 6}px)"></i>` : ""
-    }${d.off ? html`<span class="offl">off</span>` : ""}<span class="b" style="height:${bh.toFixed(1)}%"></span></button>`;
-  });
-  const tailHtml = tail.map((d) => html`<span class="pcol empty${d === date ? " iv" : ""}" data-date="${d}" role="img" aria-label="${longDay(d)}${d === date ? ", interview day" : ", beyond the plan"}"><span class="b" style="height:${d === date ? 6 : 3}%"></span></span>`);
-  const summit = html`<div class="summit pday" data-pday aria-live="polite" aria-atomic="true">${dayCard(c)}</div>`;
-  // Mondays are the ticks that always show, so the first one in each month names the month.
-  let month = -1;
-  const axis = [...before.map((d) => d.date), ...days.map((d) => d.date), ...tail].map((day) => {
-    const dt = dateOf(day);
-    const mon = weekdayIndex(day) === 0;
-    const named = mon && dt.getMonth() !== month;
-    if (named) month = dt.getMonth();
-    // The month sits on its own line above the day number, so numbers stay in one row and never collide.
-    return html`<span class="${mon ? "mon" : thin ? "thin" : ""}">${named ? html`<em>${dt.toLocaleDateString(undefined, { month: "short" })}</em>` : ""}${dt.getDate()}</span>`;
-  });
-  return html`<section class="panel approach" aria-labelledby="ap-h">
-    <div class="section-head"><h2 id="ap-h">${date ? `${plural(c.plan.summary.days_left ?? 0, "day")} to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${[mocks ? plural(mocks, "mock") : "", checks ? plural(checks, "check-in") : "", offs ? plural(offs, "day") + " off" : ""].filter(Boolean).join(", ")}</span></div>
-    <div class="profile" style="--n:${n}" role="group" aria-label="Planned minutes per day${date ? " until the interview" : ""}, after the last week's outcomes. Choose a day to see it, arrow keys move between days">${pastHtml}${colsHtml}${tailHtml}${summit}<div class="bracket" data-bracket></div></div>
-    <div class="paxis" style="--n:${n}" aria-hidden="true">${axis}<span class="end">${date ? short(date) : ""}</span></div>
-    <div class="legend"><span><i style="background:var(--accent)"></i>Today</span><span><i style="background:var(--line-strong)"></i>Planned minutes</span><span><i class="lg-mock"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i class="lg-off"></i>Day off</span>${before.length ? html`<span><i class="lg-done"></i>Done</span><span><i class="lg-missed"></i>Missed, moved forward</span>` : ""}</div>
+  return html`<section class="panel approach road" aria-labelledby="ap-h">
+    <div class="section-head"><h2 id="ap-h">${date ? `${plural(c.plan.summary.days_left ?? 0, "day")} to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${short(start)} to ${short(end)}</span></div>
+    <div class="road-track" aria-hidden="true">
+      <div class="road-phases">${phases.map((ph) => html`<span class="ph ph-${ph.kind}" style="left:${at(ph.from)};width:calc(${at(ph.to)} - ${at(ph.from)})" title="${ph.label}"><b>${ph.label}</b></span>`)}</div>
+      <div class="road-line"><span class="rm rm-today" style="left:0"></span>${ms.filter((m) => m.kind !== "interview").map(mark)}${ms.filter((m) => m.kind === "interview").map(mark)}</div>
+    </div>
+    ${ms.length ? html`<ol class="road-list" aria-label="Milestones. Choose one to open its week">${ms.map(item)}</ol>` : html`<p class="text-small text-secondary">No mocks, check-ins or interviews in this stretch yet</p>`}
   </section>`;
 }
 
@@ -809,7 +826,7 @@ function paint(): void {
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
         <div class="legend cal-legend" aria-label="Session mix colors"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span>${readPrefs().plan.busy.length ? html`<span><i class="lg-busy"></i>Busy (Google Calendar)</span>` : ""}<span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
-      <div class="route">${profile(c)}${forecast(c)}</div>
+      <div class="route">${road(c)}${forecast(c)}</div>
       ${you(c)}
     </div>`,
   );
