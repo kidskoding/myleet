@@ -293,6 +293,24 @@ function grid(c: Ctx): Grid {
   return { days, bs, hour: fitHour(bs), done };
 }
 
+/** Google Calendar busy time on `day` inside your usual practice hours, as minutes from midnight. Titles are never read.
+ * The plan's own windows already have busy time cut out, so this clips to the availability you set. */
+function busyOn(day: string): Win[] {
+  const wins = offWindows(day);
+  const d0 = new Date(`${day}T00:00:00`).getTime();
+  const out: Win[] = [];
+  for (const b of readPrefs().plan.busy) {
+    const s = (b.start_ms - d0) / 60000;
+    const e = (b.end_ms - d0) / 60000;
+    for (const w of wins) {
+      const a = Math.max(s, w.start);
+      const z = Math.min(e, w.end);
+      if (z > a) out.push({ start: Math.round(a), end: Math.round(z) });
+    }
+  }
+  return out.sort((x, y) => x.start - y.start);
+}
+
 /** A day off has no plan windows; draw its usual ones dashed. */
 function offWindows(day: string): Win[] {
   const wd = WEEKDAYS[weekdayIndex(day)];
@@ -400,7 +418,7 @@ function relayout(c: Ctx): void {
     el.classList.toggle("short", h < 54 && !el.classList.contains("today"));
     el.classList.toggle("tall", h >= 84);
   }
-  for (const el of body.querySelectorAll<HTMLElement>(".win")) {
+  for (const el of body.querySelectorAll<HTMLElement>(".win, .busy")) {
     const box = winBox({ start: num(el, "start"), end: num(el, "end") }, g);
     el.style.display = box ? "" : "none";
     if (box) {
@@ -440,6 +458,13 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
         !used(w) && !d.off ? html`<span class="free">Free window</span>` : ""
       }</div>`;
     });
+    // Busy time sits under the sessions as stripes, so a session's place makes sense at a glance.
+    const busyEls = d.off
+      ? []
+      : busyOn(d.date).map((b) => {
+          const box = winBox(b, g);
+          return html`<div class="busy" data-start="${b.start}" data-end="${b.end}" title="Busy ${span(b.start, b.end)} in Google Calendar" style="${box ? `top:${box[0]}px;height:${box[1]}px` : "display:none"}"><span>Busy</span></div>`;
+        });
     const done = isToday
       ? g.done.map((s) => {
           const top = yOf(s.start, g.bs, g.hour, FOLD);
@@ -451,7 +476,7 @@ function weekGrid(c: Ctx, g: Grid): SafeHtml {
       isToday && g.bs.length && nowMin >= (g.bs[0]?.from ?? 0) && nowMin <= (g.bs.at(-1)?.to ?? 0)
         ? html`<div class="now" data-m0="${nowMin}" style="top:${yOf(nowMin, g.bs, g.hour, FOLD)}px" aria-hidden="true"></div>`
         : "";
-    return html`<section class="col${isToday ? " today" : ""}${d.off ? " off" : ""}${d.date < c.plan.start ? " past" : ""}" data-day="${i}" data-date="${d.date}" aria-label="${longDay(d.date)}${d.off ? ", day off" : ""}">${winEls}${
+    return html`<section class="col${isToday ? " today" : ""}${d.off ? " off" : ""}${d.date < c.plan.start ? " past" : ""}" data-day="${i}" data-date="${d.date}" aria-label="${longDay(d.date)}${d.off ? ", day off" : ""}">${winEls}${busyEls}${
       d.off ? html`<span class="offtag">Day off. Its work moved to the next free windows</span>` : ""
     }<ol aria-label="Sessions on ${dayName(d.date)}">${done}${d.sessions.map((s, j) => sessionBlock(c, d, s, g, j === 0))}</ol>${now}</section>`;
   });
@@ -541,7 +566,9 @@ function agenda(c: Ctx): SafeHtml {
       : html`${isToday ? done.map((s) => html`<div class="ag-ses done"><span class="t">${clock(s.start)}</span><div><div class="h">Done: ${s.clean ? plural(s.clean, "clean pass", "clean passes") : `${s.solved} solved`}</div></div></div>`) : ""}${
           d.sessions.length
             ? d.sessions.map(
-                (s, j) => html`<button type="button" class="ag-ses${isToday && j === 0 ? " today" : ""}${isMock(s) ? " mockses on-wall" : ""}" data-ses="${s.id}" data-date="${d.date}">
+                (s, j) => html`${busyOn(d.date)
+                  .filter((b) => b.start < minuteOf(s.start_ms) && b.start >= (j ? minuteOf(d.sessions[j - 1]!.start_ms) : 0))
+                  .map((b) => html`<div class="ag-busy">Busy ${span(b.start, b.end)}</div>`)}<button type="button" class="ag-ses${isToday && j === 0 ? " today" : ""}${isMock(s) ? " mockses on-wall" : ""}" data-ses="${s.id}" data-date="${d.date}">
                   <span class="t">${clock(minuteOf(s.start_ms))}<br>${fmtM(s.minutes)}</span>
                   <div><div class="h">${s.title}</div>${mixBar(s.items)}<div class="r">${s.items[0]?.reason.replace(/\.$/, "") ?? ""}</div>${isToday && j === 0 ? html`<span class="btn btn-primary" data-start-href="${startHref(s, d.date)}">Start session</span>` : ""}</div>
                 </button>`,
@@ -776,7 +803,7 @@ function paint(): void {
     html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { marks: marks(c), dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
-        <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span><span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
+        <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span>${readPrefs().plan.busy.length ? html`<span><i class="lg-busy"></i>Busy (Google Calendar)</span>` : ""}<span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
       <div class="route">${profile(c)}${forecast(c)}</div>
       ${you(c)}
@@ -1229,7 +1256,8 @@ function startMove(el: HTMLElement): Mover | null {
   const cols = [...body.querySelectorAll<HTMLElement>(".col")];
   const lanes = g.days.map((d, i): Lane => {
     const col = cols[i];
-    const busy = d.sessions.filter((s) => s.id !== hit[1].id).map((s) => ({ start: minuteOf(s.start_ms), end: minuteOf(s.end_ms) }));
+    // A drop snaps past calendar busy time as well as other sessions.
+    const busy = [...d.sessions.filter((s) => s.id !== hit[1].id).map((s) => ({ start: minuteOf(s.start_ms), end: minuteOf(s.end_ms) })), ...busyOn(d.date)];
     if (d.date === c.plan.start) for (const s of g.done) busy.push({ start: s.start, end: s.end });
     return { x: col?.offsetLeft ?? 0, w: col?.offsetWidth ?? 0, day: d, wins: windowsOf(d), busy, notBefore: d.date === c.plan.start ? nowMin : 0 };
   });
