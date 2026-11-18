@@ -327,7 +327,7 @@ function sessionBlock(c: Ctx, d: PlanDay, s: PlanSession, g: Grid, first: boolea
   const isToday = d.date === c.plan.start && first;
   const mock = isMock(s);
   const over = d.minutes - d.cap > 10 && s === d.sessions.at(-1) ? d.minutes - d.cap : 0;
-  const isShort = h < 54 && !isToday;
+  const isShort = h < 54;
   const finished = mock && mockDone(s) !== null;
   const cls = ["ses", isToday ? "today" : "", mock ? "mockses on-wall" : "", finished ? "mock-done" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
   const label = `${dayName(d.date)} ${span(a, a + len)}, ${fmtM(s.minutes)}: ${s.title}${s.moved_from ? `, moved from ${dayName(s.moved_from)}` : ""}. Open details`;
