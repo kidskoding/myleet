@@ -40,7 +40,7 @@ export function mountLeetcodePanel(host: HTMLElement, opts: PanelOptions = {}): 
           <p class="lc-who"><strong>${info.username}</strong> is connected, with ${info.total} problems solved on LeetCode</p>
           ${mods.length ? html`<ul class="lc-mods">${mods.map((m) => html`<li><span>${m.title}</span><b>${m.solved}</b></li>`)}</ul>` : ""}
           <p class="lc-note">${info.marked ? `${info.marked} recent problems are marked "solved on LeetCode" and will come back as reviews` : "Your plan starts with the topics you've done least"}</p>
-          <p class="lc-note" data-lc-synced>New solves on LeetCode show up here on their own, within the hour while myleet is open and within a few hours when it isn't${synced ? `. Last checked ${synced}` : ""}</p>
+          <p class="lc-note" data-lc-synced>We check LeetCode for new solves every hour while myleet is open and every 3 hours while it's closed, and the ones myleet teaches join your reviews${synced ? `. Last checked ${synced}` : ""}</p>
           ${error ? html`<p class="err" role="alert">${error}</p>` : ""}
           <div class="lc-actions">
             <button class="btn btn-ghost btn-sm" type="button" data-lc-refresh ${busy ? "disabled" : ""}>${busy ? "Checking" : "Check now"}</button>
@@ -59,7 +59,7 @@ export function mountLeetcodePanel(host: HTMLElement, opts: PanelOptions = {}): 
           <button class="btn btn-primary" type="submit" ${busy ? "disabled" : ""}>${busy ? "Connecting" : "Connect"}</button>
           ${opts.onSkip ? html`<button class="btn btn-ghost" type="button" data-lc-skip>Skip</button>` : ""}
         </div>
-        <p class="lc-help" id="lc-help">We only read your public profile: solved counts, topics and recent accepted problems. After this it stays in sync on its own. We never ask for your password or a login, and you can disconnect any time</p>
+        <p class="lc-help" id="lc-help">We only read your public profile: solved counts, topics and recent accepted problems. New solves keep coming in after that. We never ask for your password or a login, and you can disconnect any time</p>
         <p class="err" id="lc-err" role="alert" ${error ? "" : "hidden"}>${error}</p>
       </form>`,
     );

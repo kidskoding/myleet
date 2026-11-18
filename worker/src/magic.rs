@@ -13,6 +13,19 @@ pub const RATE_WINDOW_SECS: u64 = 3600;
 pub const PER_EMAIL_LIMIT: u32 = 5;
 pub const PER_IP_LIMIT: u32 = 20;
 
+/// Local dev without email set up: the sign-in link is printed in the `wrangler dev`
+/// terminal instead of emailed. Only for an `http://localhost` or `http://127.0.0.1`
+/// site, which production's `https://` origin can never be.
+pub fn print_link_instead(site: &str, email_configured: bool) -> bool {
+    let local = ["http://localhost", "http://127.0.0.1"].iter().any(|h| {
+        site == *h
+            || site
+                .strip_prefix(h)
+                .is_some_and(|rest| rest.starts_with(':'))
+    });
+    local && !email_configured
+}
+
 pub fn link(site: &str, token: &str) -> String {
     format!("{site}{VERIFY_PATH}?token={token}")
 }
@@ -103,5 +116,19 @@ mod tests {
         assert_eq!(next_count(Some("4"), 5), Some(5));
         assert_eq!(next_count(Some("5"), 5), None);
         assert_eq!(next_count(Some("garbage"), 5), Some(1));
+    }
+
+    #[test]
+    fn printed_links_are_local_dev_only() {
+        assert!(print_link_instead("http://localhost:8787", false));
+        assert!(print_link_instead("http://127.0.0.1:8787", false));
+        assert!(!print_link_instead("http://localhost:8787", true));
+        assert!(!print_link_instead(
+            "https://myleet.anirudhkonidala.workers.dev",
+            false
+        ));
+        assert!(!print_link_instead("https://localhost:8787", false));
+        assert!(!print_link_instead("http://localhost.evil.com", false));
+        assert!(!print_link_instead("http://127.0.0.10:8787", false));
     }
 }

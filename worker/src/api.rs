@@ -6,8 +6,8 @@ use serde::{Deserialize, Serialize};
 use worker::wasm_bindgen::JsValue;
 use worker::{
     Context, D1Database, D1PreparedStatement, Date, Env, Fetch, Headers, Method, Request,
-    RequestInit, Response, Result, ScheduleContext, ScheduledEvent, console_error, console_warn,
-    event,
+    RequestInit, Response, Result, ScheduleContext, ScheduledEvent, console_error, console_log,
+    console_warn, event,
 };
 
 use crate::account::{self, MePatch, PublicSummary, Resolution, Settings, SettingsRow};
@@ -564,15 +564,21 @@ fn client_id(app: &App, provider: Provider) -> Result<String> {
 fn auth_providers(app: &App) -> Result<Response> {
     let var = |n: &str| app.env.var(n).ok().map(|v| v.to_string());
     let secret = app.env.secret("RESEND_API_KEY").ok().map(|v| v.to_string());
-    json(
-        &oauth::providers(
-            var("GITHUB_CLIENT_ID").as_deref(),
-            var("GOOGLE_CLIENT_ID").as_deref(),
-            secret.as_deref(),
-            var("EMAIL_FROM").as_deref(),
-        ),
-        200,
-    )
+    let mut p = oauth::providers(
+        var("GITHUB_CLIENT_ID").as_deref(),
+        var("GOOGLE_CLIENT_ID").as_deref(),
+        secret.as_deref(),
+        var("EMAIL_FROM").as_deref(),
+    );
+    p.email = p.email || magic::print_link_instead(&app.site, false);
+    json(&p, 200)
+}
+
+/// Email works when Resend and a sender are set; else, on localhost only, links print.
+fn email_configured(app: &App) -> bool {
+    let var = |n: &str| app.env.var(n).ok().map(|v| v.to_string());
+    let secret = app.env.secret("RESEND_API_KEY").ok().map(|v| v.to_string());
+    oauth::providers(None, None, secret.as_deref(), var("EMAIL_FROM").as_deref()).email
 }
 
 fn auth_start(app: &App, provider: Provider) -> Result<Response> {
@@ -843,6 +849,13 @@ async fn email_request(req: &mut Request, app: &App) -> Result<Response> {
     ])
     .await?;
 
+    if magic::print_link_instead(&app.site, email_configured(app)) {
+        console_log!(
+            "Sign-in link for {email}: {}",
+            magic::link(&app.site, &token)
+        );
+        return json(&serde_json::json!({ "sent": true }), 202);
+    }
     let headers = Headers::new();
     headers.set(
         "Authorization",

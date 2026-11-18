@@ -40,10 +40,13 @@ myleet/
 │   └── wasm/                `myleet-wasm`: wasm-bindgen JSON API over core (`just wasm`); see its README
 ├── web/                     the web app (Astro + Bun); web/public/data (`just export`) and web/src/wasm are generated.
 │                            `bun run dev` re-exports on content edits and proxies /api/statement to production.
+│                            `just dev` serves the built site and the Worker API on localhost:8787 with a local D1;
+│                            with no email key set, sign-in links print in that terminal (localhost origins only).
 │                            Personal copy lives in lib/coach.ts (Today), lib/plan-copy.ts (Plan), lib/sheet-note.ts
 │                            (result sheet) and crates/core/src/reason.rs ("Why this one"); guest vs account rules in lib/access.ts
 ├── worker/                  workers-rs backend on Cloudflare (D1, KV): auth, sync, statements, interview reports,
 │                            LeetCode profile import (alfa-leetcode-api first, LeetCode GraphQL fallback; public data only)
+│                            and a 3-hourly cron that keeps connected learners' recent solves in D1
 ├── guide/                   start-here notes shown at the top of the map
 ├── curriculum/
 │   ├── _lib/                shared Python helpers importable from every test

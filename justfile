@@ -72,6 +72,13 @@ wasm:
 web-dev: export wasm
     cd web && bun install --frozen-lockfile && bun run dev
 
+# the whole site and API on http://localhost:8787 with a local database; without email keys,
+# sign-in links print in this terminal. Edits need a rerun (use web-dev for quick UI work).
+# Fire the LeetCode cron with:
+#   curl -X POST 'http://localhost:8787/cdn-cgi/local/explorer/api/local/scheduled?worker=myleet' -H 'content-type: application/json' -d '{"cron":"0 */3 * * *"}'
+dev: web-build
+    cd worker && bun install --frozen-lockfile && ([ -f .dev.vars ] || cp .dev.vars.example .dev.vars) && bunx wrangler d1 migrations apply DB --local && bunx wrangler dev
+
 # static site in web/dist (type check + build), after fresh catalog data and wasm bindings
 web-build: export wasm
     cd web && bun install --frozen-lockfile && bun run build
