@@ -288,7 +288,7 @@ function budgetPanel(b: Budget, planned: number, planMode: boolean, now: Date): 
     <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${opts.map(
       (o) => html`<button type="button" data-budget="${o.id}" aria-pressed="${o.id === b ? "true" : "false"}">${o.label}</button>`,
     )}</div></div>
-    <p class="fineprint">${planMode ? "This changes today's plan only, and with less time new problems drop before reviews. Practicing any one problem keeps your streak going" : "Reducing your time removes new problems before reviews. Any one problem you practice counts towards your streak"}</p></section>`;
+    <p class="fineprint">${planMode ? "This changes today's plan only, and with less time new problems drop before reviews. Practicing any one problem keeps your streak going" : "Reducing your time removes new problems before reviews. Any one problem you practice counts toward your streak"}</p></section>`;
 }
 
 function nextUp(c: Ctx, e: TodayEntry): SafeHtml {

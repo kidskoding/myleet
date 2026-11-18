@@ -50,7 +50,7 @@ export function planPatch(g: Partial<Goals>): Partial<Prefs["plan"]> {
 }
 
 const SECTIONS: { aim: Aim | "time"; title: string; desc: string }[] = [
-  { aim: "interview", title: "Interviews", desc: "Each one with a date and, if you know it, the company. The plan paces towards the nearest and leans on that company's set before it" },
+  { aim: "interview", title: "Interviews", desc: "Each one with a date and, if you know it, the company. The plan paces toward the nearest and leans on that company's set before it" },
   { aim: "companies", title: "Dream companies", desc: "The plan works through their practice sets. Curated sets, not actual interview questions" },
   { aim: "topics", title: "Focus topics", desc: "These get extra time, and the rest still gets covered" },
   { aim: "time", title: "Time per day", desc: "Reviews come first, then new problems if time allows" },

@@ -603,7 +603,7 @@ export async function mountWorkspace(root: HTMLElement, opts: MountOptions = {})
       runner.dispose();
       setRunning(false);
       lastRun = null;
-      testsPanel.replaceChildren(h("p", { class: "empty-note" }, "Run cancelled. Python is restarting"));
+      testsPanel.replaceChildren(h("p", { class: "empty-note" }, "Run canceled. Python is restarting"));
       startPython();
       return;
     }

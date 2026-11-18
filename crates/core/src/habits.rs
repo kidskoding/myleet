@@ -1,4 +1,4 @@
-//! What the history says about the learner's habits: when they practise (painted as dots
+//! What the history says about the learner's habits: when they practice (painted as dots
 //! in the availability editor and offered as a suggestion), how fast reviews go, and the
 //! short "Noticed this week" insights. Every sentence names two facts from their own
 //! attempts; nothing is compared with other people.
@@ -37,7 +37,7 @@ pub type Cell = (u8, u8);
 pub struct Suggestion {
     pub windows: Vec<Window>,
     pub sessions: usize,
-    /// "You usually practise **9 to 10 pm on weekdays** and **Saturday mornings**, ..."
+    /// "You usually practice **9 to 10 pm on weekdays** and **Saturday mornings**, ..."
     pub text: String,
 }
 

@@ -139,7 +139,7 @@ export function mountAvailability(el: HTMLElement, opts: AvailabilityOpts = {}):
       ${sections.includes("paint")
         ? html`<div class="av-sec">${head("Your week")}<p class="help" id="${id}-paint-help">Drag across the hours you're free, even across several days. Starting on a lit cell erases instead. On a phone, press and hold to start. With the keyboard, arrows move, Space toggles and Shift with arrows paints a block</p>
           <div data-paint-host>${paintGrid()}</div>
-          <div class="paint-key"><span><i></i>Your windows</span>${history?.cells.length ? html`<span><i class="h"></i>You practised here in the last 4 weeks</span>` : ""}</div>
+          <div class="paint-key"><span><i></i>Your windows</span>${history?.cells.length ? html`<span><i class="h"></i>You practiced here in the last 4 weeks</span>` : ""}</div>
           <div data-list-host>${listAndFits()}</div></div>`
         : ""}
       ${sections.includes("session")

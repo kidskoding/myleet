@@ -33,7 +33,7 @@ export const signupToToday = (): string => `${signinHref(ROUTES.today)}&mode=sig
 
 /** The diagnostic invitation, aimed at their target company when onboarding named one. */
 export function inviteCopy(company: string | null): SafeHtml {
-  return html`Start with a <strong>diagnostic test</strong> to see what you know and where to focus${company ? ` as you work towards ${company}` : ""}`;
+  return html`Start with a <strong>diagnostic test</strong> to see what you know and where to focus${company ? ` as you work toward ${company}` : ""}`;
 }
 
 const INVITE_STEPS: [string, string][] = [
@@ -80,9 +80,9 @@ export function todayResults(greet: string, line: string): SafeHtml {
 const GIVES: Record<"plan" | "progress", { h: string; lede: SafeHtml; steps: [string, string][] }> = {
   plan: {
     h: "Your plan",
-    lede: html`Tell us what you're working towards and when you're free, and we'll plan out your days. With an interview coming up, we'll pace things so you're <strong>ready by the date</strong>. Aiming for a dream company? We'll help you build a <strong>steady routine</strong> you can keep up week after week`,
+    lede: html`Tell us what you're working toward and when you're free, and we'll plan out your days. With an interview coming up, we'll pace things so you're <strong>ready by the date</strong>. Aiming for a dream company? We'll help you build a <strong>steady routine</strong> you can keep up week after week`,
     steps: [
-      ["Built for what you’re working towards", "An interview on a date, a few dream companies, the topics you want to get better at, or all of them at once"],
+      ["Built for what you’re working toward", "An interview on a date, a few dream companies, the topics you want to get better at, or all of them at once"],
       ["Fits your availability", "Practice lands in the hours you say you have each week"],
       ["Starts where you're weakest", "What the diagnostic found decides what comes first"],
     ],

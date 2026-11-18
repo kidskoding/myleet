@@ -69,7 +69,7 @@ export async function openShare(opts: { profile?: PublicProfile } = {}): Promise
         <label class="switch"><input type="checkbox" data-show="streak" checked />Streak</label>
         <label class="switch"><input type="checkbox" data-show="mastered" checked />Mastered count</label>
         ${full.strongest ? html`<label class="switch"><input type="checkbox" data-show="strongest" checked />Strongest techniques</label>` : ""}
-        <div class="seg" role="group" aria-label="Card colours">${(["latte", night] as const).map((f) => html`<button type="button" data-theme-card="${f}" aria-pressed="${f === theme ? "true" : "false"}">${FLAVOR_NAMES[f]}</button>`)}</div>
+        <div class="seg" role="group" aria-label="Card colors">${(["latte", night] as const).map((f) => html`<button type="button" data-theme-card="${f}" aria-pressed="${f === theme ? "true" : "false"}">${FLAVOR_NAMES[f]}</button>`)}</div>
       </div>
       ${url
         ? html`<div class="share-link"><label class="visually-hidden" for="sh-url">Profile link</label><input class="input" id="sh-url" readonly value="${url}" /><button class="btn btn-secondary" type="button" data-copy>Copy link</button><span class="visually-hidden" role="status" data-copied></span></div>`

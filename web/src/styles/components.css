@@ -50,12 +50,13 @@
 .search-trigger kbd { margin-left: auto; white-space: nowrap; flex: none; }
 
 .streak {
-  display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 var(--space-3);
+  display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 var(--space-3); flex: none;
   font-size: var(--text-sm); font-weight: 600; color: var(--ink); text-decoration: none;
   border-radius: var(--radius-sm); transition: background-color var(--dur-fast) var(--ease-out);
 }
 .streak:hover, .streak[aria-current="page"] { background: var(--surface-sunk); }
-.streak .num { display: inline-block; font-family: var(--font-label); font-size: 0.9375rem; font-weight: 650; letter-spacing: -0.03em; overflow: hidden; height: 1.25em; line-height: 1.25; }
+/* flex: none: in a tight top bar an overflow-hidden box shrinks to a sliver of its digit */
+.streak .num { display: inline-block; flex: none; font-family: var(--font-label); font-size: 0.9375rem; font-weight: 650; letter-spacing: -0.03em; overflow: hidden; height: 1.25em; line-height: 1.25; }
 .streak .num.roll { animation: digit-roll var(--dur-base) var(--ease-out); }
 @keyframes digit-roll { from { transform: translateY(70%); opacity: 0; } }
 .streak .unit { color: var(--ink-3); font-weight: 500; }
@@ -70,8 +71,11 @@
 .avatar-btn:hover .avatar { box-shadow: 0 0 0 2px var(--line-strong); }
 
 .tabbar { display: none; }
-@media (max-width: 1100px) {
+/* Six nav links, a full search field, the streak and the guest buttons need about 1360px; below that search is an icon (Ctrl K still opens it) */
+@media (max-width: 1360px) {
   .search-trigger { min-width: 0; width: 34px; flex: none; padding: 0; justify-content: center; } .search-trigger :is(.label, kbd) { display: none; }
+}
+@media (max-width: 1100px) {
   .streak .unit { display: none; }
   /* Tablet widths: six nav links plus the guest buttons must fit without a sideways scroll */
   .topbar { gap: var(--space-3); } .nav a { padding: 0 var(--space-2); }

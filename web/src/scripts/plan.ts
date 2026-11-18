@@ -229,7 +229,7 @@ function currentNote(c: Ctx): PlanNote | null {
     pool.push({
       kind: "no_date" as PlanNote["kind"],
       title: "Your next four weeks",
-      body: "Keep a steady practice routine or work towards your target companies. Your plan covers the next four weeks and adjusts as you practice. An interview date is optional",
+      body: "Keep a steady practice routine or work toward your target companies. Your plan covers the next four weeks and adjusts as you practice. An interview date is optional",
       actions: [{ kind: "change_plan", label: "Edit goals" }],
     });
   return pool.find((n) => !noteDismissed(n)) ?? null;
@@ -803,7 +803,7 @@ function paint(): void {
     html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { marks: marks(c), dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
-        <div class="legend cal-legend" aria-label="Session mix colours"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span>${readPrefs().plan.busy.length ? html`<span><i class="lg-busy"></i>Busy (Google Calendar)</span>` : ""}<span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
+        <div class="legend cal-legend" aria-label="Session mix colors"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span>${readPrefs().plan.busy.length ? html`<span><i class="lg-busy"></i>Busy (Google Calendar)</span>` : ""}<span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
       <div class="route">${profile(c)}${forecast(c)}</div>
       ${you(c)}
@@ -1490,7 +1490,7 @@ function kbEnd(drop: boolean): void {
   const m = kb;
   if (!m) return;
   kb = null;
-  if (!drop) say("Move cancelled");
+  if (!drop) say("Move canceled");
   finishMove(m, drop);
 }
 

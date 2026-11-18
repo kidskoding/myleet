@@ -310,7 +310,7 @@ function renderPin(p: Playlist): void {
     const slug = p.id.replace(/^\d+_/, "");
     const date = ivs.filter((i) => i.company === slug && i.date >= localDay()).sort((a, b) => a.date.localeCompare(b.date))[0]?.date ?? pacingInterview(ivs)?.date ?? null;
     note.hidden = !pinned;
-    note.textContent = `One of your dream companies. Your plan leans towards ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
+    note.textContent = `One of your dream companies. Your plan leans toward ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
   }
 }
 

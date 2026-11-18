@@ -70,13 +70,13 @@ function summaryText({ items, skills, daysLeft, now, leetcodeWeak, sets, focus }
   const [theme, nTheme = 0] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
   const reviews = items.filter((i) => i.kind === "review").length;
   const nNew = items.filter((i) => i.kind !== "review").length;
-  if (!theme) return reviews ? `Today is a review day, with ${num(reviews)} older ${reviews === 1 ? "problem" : "problems"} to keep on schedule.` : null;
+  if (!theme) return reviews ? `Today is a review day, with ${num(reviews)} older ${reviews === 1 ? "problem" : "problems"} to keep you on schedule.` : null;
   const near = daysLeft !== null && daysLeft > 0 && daysLeft <= 30 ? daysLeft : null;
   // One problem each from several techniques: no theme to claim, so say what the day holds.
   if (nTheme === 1 && counts.size > 1) {
     const techs = [...counts.keys()].map(midSentence);
     const topics = `${techs.slice(0, -1).join(", ")} and ${techs.at(-1)}`;
-    const lead = reviews ? `Today starts with ${num(reviews)} ${reviews === 1 ? "review" : "reviews"} to keep on schedule, then ${num(nNew)} new problems in ${topics}` : `Today spreads ${num(nNew)} new problems across ${topics}`;
+    const lead = reviews ? `Today starts with ${num(reviews)} ${reviews === 1 ? "review" : "reviews"} to keep you on schedule, then ${num(nNew)} new problems in ${topics}` : `Today spreads ${num(nNew)} new problems across ${topics}`;
     return `${lead}${near ? `, with your interview ${days(near)} away` : ""}.`;
   }
 

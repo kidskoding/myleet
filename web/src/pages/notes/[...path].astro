@@ -91,7 +91,7 @@ const description = first.replace(/[*_`[\]]/g, "").replace(/\(https?:[^)]*\)/g, 
         <h1 id="top">{title}</h1>
         <div class="byline">
           <span>{minutes} min read</span>
-          {problems.length > 0 && <span>Practises {problems.length} problems in {techTitle}</span>}
+          {problems.length > 0 && <span>Practices {problems.length} problems in {techTitle}</span>}
           <button class="btn btn-secondary btn-sm when-in" type="button" data-mark-read aria-pressed="false" aria-keyshortcuts="m"><Fragment set:html={icon("check").value} /><span>Mark as read</span></button>
         </div>
         <div class="prose" data-prose set:html={r.html} />

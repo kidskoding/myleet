@@ -40,7 +40,7 @@ export function setupItems(p: Pick<Prefs, "plan" | "leetcodeUsername" | "setupHi
   ];
 }
 
-/** After this many solved problems the learner clearly knows what they're working towards, so the card bows out. */
+/** After this many solved problems the learner clearly knows what they're working toward, so the card bows out. */
 export const SETUP_SOLVES = 5;
 
 /** The card's rows, or null when it shouldn't show: everything done, hidden for good, or enough solves. */

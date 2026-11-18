@@ -1912,12 +1912,12 @@ fn notes(
         // On the day itself the interview hasn't happened yet, so the note wishes luck.
         let (body, set_label) = if d == today {
             (
-                "Good luck! When it's done, add your next interview to plan towards it, or keep practising on a rolling four weeks.",
+                "Good luck! When it's done, add your next interview to plan toward it, or keep practicing on a rolling four weeks.",
                 "Add your next interview",
             )
         } else {
             (
-                "Set a new date to plan towards it, or keep practising on a rolling four weeks.",
+                "Set a new date to plan toward it, or keep practicing on a rolling four weeks.",
                 "Set a new date",
             )
         };
@@ -1933,7 +1933,7 @@ fn notes(
                 },
                 NoteAction {
                     kind: "clear_date".into(),
-                    label: "Keep practising without a date".into(),
+                    label: "Keep practicing without a date".into(),
                     value: None,
                 },
             ],

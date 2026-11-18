@@ -72,7 +72,7 @@ export function getStaticPaths() {
     const s = p.summary ?? { streak: 0, mastered: 0, solved: 0, heatmap: {} };
     const days = Object.values(s.heatmap).filter((n) => n > 0).length;
     const name = p.display_name || p.username;
-    const since = days === 0 ? "Practising since today" : `${plural(s.solved, "problem")} practised on myleet`;
+    const since = days === 0 ? "Practicing since today" : `${plural(s.solved, "problem")} practiced on myleet`;
     return html`<div class="head">
         <span class="pic">${p.avatar_url ? html`<img src="${p.avatar_url}" alt="" referrerpolicy="no-referrer" />` : initials({ display_name: p.display_name, username: p.username, email: p.username })}</span>
         <div><h1>${name}</h1><p>@${p.username}. ${since}</p></div>
@@ -82,10 +82,10 @@ export function getStaticPaths() {
         <div><div class="v">${s.streak}</div><div class="l">Day streak</div></div>
         <div><div class="v">${s.mastered}</div><div class="l">Problems mastered</div></div>
         <div><div class="v">${s.solved}</div><div class="l">Problems started</div></div>
-        <div><div class="v">${days}</div><div class="l">Days practised</div></div>
+        <div><div class="v">${days}</div><div class="l">Days practiced</div></div>
       </div>
       <section class="sec" aria-labelledby="heat-h"><div class="section-head"><h2 id="heat-h">Practice, last 48 weeks</h2></div>
-        <div class="panel heatwrap" data-heatwrap>${heatmap(s.heatmap, { label: `${name} practised on ${plural(days, "day")} in the last 48 weeks` })}</div></section>
+        <div class="panel heatwrap" data-heatwrap>${heatmap(s.heatmap, { label: `${name} practiced on ${plural(days, "day")} in the last 48 weeks` })}</div></section>
       <footer class="foot"><span>Mastered on myleet means a clean, cold redo on review level 4</span><a class="btn btn-primary btn-sm" href="${ROUTES.home}">Practice with myleet</a></footer>`;
   }
 

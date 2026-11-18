@@ -21,8 +21,8 @@ describe("company marks", () => {
     expect(out).toMatch(/Your <span class="co-inline"><img class="co-logo" src="\/company-marks\/meta\.svg\?v=\w+"[^>]*\/><strong>Meta<\/strong><\/span> interview is <strong>12 days<\/strong> away/);
   });
   it("leaves a company without a mark as a bold name", () => {
-    expect(markCompanies("Working towards Ramp", { Ramp: "" }).value).toBe("Working towards <strong>Ramp</strong>");
-    expect(emphasize("Working towards Ramp", ["Ramp"]).value).toBe("Working towards <strong>Ramp</strong>");
+    expect(markCompanies("Working toward Ramp", { Ramp: "" }).value).toBe("Working toward <strong>Ramp</strong>");
+    expect(emphasize("Working toward Ramp", ["Ramp"]).value).toBe("Working toward <strong>Ramp</strong>");
   });
   it("gives a logo only to companies with a real one", () => {
     expect(companyMarks([{ id: "001_meta", title: "Meta" }, { id: "002_nope", title: "Nope" }, { id: "003_x", title: "X" }], ["meta", "nope"])).toEqual({ Meta: "meta", Nope: "" });

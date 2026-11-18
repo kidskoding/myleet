@@ -272,7 +272,7 @@ export const fetchProfile = (username: string): Promise<PublicProfile> =>
 
 /** Sign-in failure reasons the Worker puts in `?auth_error=`. */
 export const AUTH_ERRORS: Record<string, string> = {
-  denied: "Sign-in was cancelled at the provider. Try again or use another method",
+  denied: "Sign-in was canceled at the provider. Try again or use another method",
   state: "That sign-in took too long or was opened twice. Start it again",
   email: "That account has no verified email address. Verify one with the provider, or use another method",
   link: "That sign-in link has expired or was already used. Links work once, for 15 minutes",

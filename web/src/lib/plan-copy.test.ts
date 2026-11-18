@@ -40,17 +40,17 @@ describe("Plan copy", () => {
     const h = headCopy({ plan: plan(), company: "Meta", name: "Anirudh", windows: evenings, weekday: 60, weekend: 90, today: "2026-11-15" });
     expect(h.title).toBe("Your road to Meta, Anirudh");
     expect(h.lede).toBe(
-      "30 days until your Meta interview on Dec 15. You'll practice about an hour on weekday evenings and a bit more on weekends, with mock interviews getting closer together towards the end, and the plan adjusts after every solve",
+      "30 days until your Meta interview on Dec 15. You'll practice about an hour on weekday evenings and a bit more on weekends, with mock interviews getting closer together toward the end, and the plan adjusts after every solve",
     );
     const none = headCopy({ plan: plan({ interview_date: null }), company: null, name: null, windows: [], today: "2026-11-15" });
     expect(none.title).toBe("Your next four weeks");
     expect(none.lede).toContain("and the plan adjusts after every solve. Keep building a steady practice routine, with reviews that help what you learn stick");
   });
 
-  it("supports working towards a company without an interview date", () => {
+  it("supports working toward a company without an interview date", () => {
     const h = headCopy({ plan: plan({ interview_date: null }), company: "Google", name: "Alex", windows: evenings, weekday: 60, today: "2026-11-15" });
     expect(h.title).toBe("Your road to Google, Alex");
-    expect(h.lede).toContain("Your plan works towards Google through its practice set");
+    expect(h.lede).toContain("Your plan works toward Google through its practice set");
     expect(h.lede).not.toContain("days until");
   });
 
