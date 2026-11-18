@@ -4,7 +4,7 @@
 import { sentenceCase } from "../lib/display";
 import { attempts, parseEvents } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
-import { nextInterview, onPrefsChange, planSettings, readPrefs, updatePrefs, type Prefs } from "../lib/prefs";
+import { onPrefsChange, pacingInterview, planSettings, readPrefs, updatePrefs, type Prefs } from "../lib/prefs";
 import { catchUp, changePreview, drawerLede, forecastLead, headCopy, INSIGHTS_EMPTY, onTrackLine, paceLine, progressLine, spreadDays, topicsMoved, weekFocus, weekRecap, weeklyCheckin } from "../lib/plan-copy";
 import { readLedger, recordPlanned, standing, type DayStatus, type PastDay } from "../lib/plan-progress";
 import { companyLogo } from "../lib/company-logos";
@@ -154,7 +154,7 @@ const dayName = (d: string) => DAY_LONG[weekdayIndex(d)] ?? "";
 /** The next interview's company slug, or the first target company. */
 function companySlugNow(): string | null {
   const p = readPrefs().plan;
-  return nextInterview(p.interviews)?.company ?? p.companies[0] ?? null;
+  return pacingInterview(p.interviews)?.company ?? p.companies[0] ?? null;
 }
 
 /** Logos for the learner's target and interview companies, for the copy that names them. */
@@ -1525,7 +1525,7 @@ interface Draft extends Goals {
 }
 
 function draftSettings(d: Draft) {
-  return { ...planSettings(), interviews: d.interviews, interview_date: nextInterview(d.interviews, ctx?.plan.start)?.date ?? null, target_companies: d.companies, focus_topics: d.focusTopics, daily_minutes: d.weekday, weekend_minutes: d.weekend };
+  return { ...planSettings(), interviews: d.interviews, interview_date: pacingInterview(d.interviews, ctx?.plan.start)?.date ?? null, target_companies: d.companies, focus_topics: d.focusTopics, daily_minutes: d.weekday, weekend_minutes: d.weekend };
 }
 
 /** What changed, as plan-history lines. */
@@ -1534,8 +1534,8 @@ function changeLines(before: Prefs["plan"], d: Draft, names: (slug: string | nul
   const out: Prefs["plan"]["history"] = [];
   const preset = ROADMAPS.find((r) => r.days === d.preset);
   if (preset) out.push({ date: today, kind: "preset", text: `Switched to the ${preset.label.toLowerCase()}` });
-  const a = nextInterview(before.interviews)?.date ?? null;
-  const b = nextInterview(d.interviews)?.date ?? null;
+  const a = pacingInterview(before.interviews)?.date ?? null;
+  const b = pacingInterview(d.interviews)?.date ?? null;
   if (a !== b) out.push({ date: today, kind: "date", text: a && b ? `Moved the interview from ${short(a)} to ${short(b)}` : b ? `Set the interview for ${short(b)}` : `Cleared the date from ${short(a ?? today)}` });
   const key = (l: Interview[]) => l.map((i) => i.company ?? "").sort().join(",");
   if (key(before.interviews) !== key(d.interviews)) {
@@ -1593,7 +1593,7 @@ function openChange(o: { weekday?: number; focusDate?: boolean } = {}): void {
     if (apply) apply.disabled = false;
     try {
       const after = c.t.plan(c.events, draftSettings(draft), { now: c.now.getTime() });
-      const who = names(nextInterview(draft.interviews, c.plan.start)?.company ?? null);
+      const who = names(pacingInterview(draft.interviews, c.plan.start)?.company ?? null);
       if (box) box.textContent = changePreview({ before: c.plan, after, company: who, dateMoves: moves }).replace(/\.$/, "");
     } catch {
       if (box) box.textContent = "Check the dates: each interview needs a real day";
@@ -1619,7 +1619,7 @@ function openChange(o: { weekday?: number; focusDate?: boolean } = {}): void {
       const r = ROADMAPS.find((x) => x.days === Number(pre.dataset.cpPreset));
       if (!r) return;
       for (const b of dlg.querySelectorAll<HTMLElement>("[data-cp-preset]")) b.setAttribute("aria-pressed", String(b === pre));
-      const next = nextInterview(draft.interviews, c.plan.start);
+      const next = pacingInterview(draft.interviews, c.plan.start);
       const rest = draft.interviews.filter((i) => i !== next);
       draft.interviews = [...rest, { date: addDays(c.plan.start, r.days), company: next?.company ?? null }].sort((a, b) => a.date.localeCompare(b.date));
       Object.assign(draft, { weekday: r.weekday, weekend: r.weekend, preset: r.days, aims: draft.aims.includes("interview") ? draft.aims : ["interview", ...draft.aims] });

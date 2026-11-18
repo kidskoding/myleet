@@ -254,7 +254,10 @@ function weakPanel(c: Ctx, skip: string | null): SafeHtml {
 }
 
 function weekPanel(c: Ctx): SafeHtml {
-  const days = weekStrip(c.t.states(c.events), c.now);
+  // Planned reviews per day when there is a plan, so a backlog spread over the week shows
+  // spread; due dates alone would pile every overdue review onto today.
+  const planned = new Map((c.plan?.days ?? []).map((d) => [d.date, d.sessions.flatMap((s) => s.items).filter((i) => i.kind === "review").length]));
+  const days = weekStrip(c.t.states(c.events), c.now).map((d) => (c.plan ? { ...d, count: planned.get(d.day) ?? 0 } : d));
   const fmt = (d: string, long: boolean) => new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { weekday: long ? "long" : "short" });
   return html`<section class="panel" aria-labelledby="wk">
     <div class="section-head"><h2 id="wk">Reviews this week</h2><a class="link text-small" href="${ROUTES.plan}">Plan</a></div>

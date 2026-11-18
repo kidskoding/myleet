@@ -8,13 +8,13 @@ import { entryState, lastCleanSet, leans, perDay, readiness, type Readiness } fr
 import { sentenceCase } from "../lib/display";
 import { isDue, statusTag } from "../lib/learn";
 import { daysUntil, shortDate } from "../lib/plan";
-import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
+import { pacingInterview, planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { requireAccount } from "../lib/access";
 import { readEvents } from "../lib/progress";
 import { companyProblemHref } from "../lib/practice-context";
 import { moduleHref, ROUTES } from "../lib/routes";
 import { clock, minuteOf } from "../lib/schedule";
-import { recordStats } from "../lib/streak";
+import { localDay, recordStats } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Playlist, Skill, State } from "../lib/types";
 import { bar, plural, tag } from "../lib/ui/bits";
@@ -299,7 +299,10 @@ function renderPin(p: Playlist): void {
   }
   const note = $("[data-pinned-note]");
   if (note) {
-    const date = readPrefs().plan.interviewDate;
+    // This company's own upcoming interview if it has one, else the date the plan paces to.
+    const ivs = readPrefs().plan.interviews;
+    const slug = p.id.replace(/^\d+_/, "");
+    const date = ivs.filter((i) => i.company === slug && i.date >= localDay()).sort((a, b) => a.date.localeCompare(b.date))[0]?.date ?? pacingInterview(ivs)?.date ?? null;
     note.hidden = !pinned;
     note.textContent = `One of your dream companies. Your plan leans towards ${p.title}'s problems and techniques${date ? ` until ${shortDate(date)}` : ""}`;
   }

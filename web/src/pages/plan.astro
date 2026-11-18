@@ -355,6 +355,8 @@ import Base from "../layouts/Base.astro";
   @media (max-width: 1100px) {
     .plan .route { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .paxis span:not(.mon) { visibility: hidden; }
+    /* Its column is 0px wide here, and hidden text still sticks out and scrolls the page */
+    .paxis .end { display: none; }
     .pcol .offl { display: none; }
     .cal-bar .budget { margin-left: 0; order: 5; width: 100%; }
     .ses { padding: 5px 6px; }

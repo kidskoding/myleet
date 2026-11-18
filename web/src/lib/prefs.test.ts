@@ -134,3 +134,17 @@ describe("plan history and day records", () => {
     expect(toServer(readPrefs()).plan_history).toEqual([a, b]);
   });
 });
+
+describe("nextInterview and pacingInterview", () => {
+  const ivs = [
+    { date: "2026-12-07", company: "google" },
+    { date: "2026-11-18", company: "meta" },
+  ];
+  it("on interview day, today's is next but the plan paces to the one after", async () => {
+    const { nextInterview, pacingInterview } = await import("./prefs");
+    expect(nextInterview(ivs, "2026-11-18")?.company).toBe("meta");
+    expect(pacingInterview(ivs, "2026-11-18")?.company).toBe("google");
+    expect(pacingInterview([ivs[1]!], "2026-11-18")?.company).toBe("meta");
+    expect(pacingInterview(ivs, "2026-12-20")?.company).toBe("google");
+  });
+});

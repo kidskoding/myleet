@@ -107,13 +107,13 @@ import Base from "../layouts/Base.astro";
   .progress .hist .qrow { grid-template-columns: minmax(0, 1fr) auto auto; }
 
   .progress .skills { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--space-5); align-items: start; }
-  .progress .spot, .progress .lvls, .progress .ins { padding: var(--space-5) var(--space-6); }
+  .progress .spot, .progress .lvls, .progress .ins-panel { padding: var(--space-5) var(--space-6); }
   .progress .spot-head { display: flex; align-items: center; gap: var(--space-3); }
   .progress .spot h3 { margin-top: var(--space-3); font-size: var(--text-md); }
   .progress .spot p { margin-top: var(--space-2); font-size: var(--text-sm); color: var(--ink-2); max-width: 56ch; }
   .progress .spot .spot-act { font-family: var(--font-read); font-size: var(--text-base); color: var(--ink); }
   .progress .spot .btn { margin-top: var(--space-4); }
-  .progress .lvls h3, .progress .ins h3 { font-size: var(--text-base); }
+  .progress .lvls h3, .progress .ins-panel h3 { font-size: var(--text-base); }
   .progress .lvls ul { list-style: none; padding: 0; margin-top: var(--space-3); display: grid; gap: var(--space-2); }
   .progress .lvls li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--ink-2); }
   .progress .lvls li strong { font-variation-settings: "wdth" var(--wdth-tag); color: var(--ink); }
@@ -121,9 +121,9 @@ import Base from "../layouts/Base.astro";
   .progress .pips b { width: 6px; height: 10px; border-radius: 1px; background: var(--line-strong); }
   .progress .pips b.on { background: var(--ink-2); }
   .progress .lv-solid .pips b.on, .progress .lv-strong .pips b.on { background: var(--pass-solid); }
-  .progress .ins { margin-top: var(--space-5); }
-  .progress .ins ul { margin-top: var(--space-2); padding-left: 1.2em; font-size: var(--text-sm); color: var(--ink-2); display: grid; gap: var(--space-1); }
-  .progress .ins strong { color: var(--ink); }
+  .progress .ins-panel { margin-top: var(--space-5); }
+  .progress .ins-panel ul { margin-top: var(--space-2); padding-left: 1.2em; font-size: var(--text-sm); color: var(--ink-2); display: grid; gap: var(--space-1); }
+  .progress .ins-panel strong { color: var(--ink); }
 
   .progress .yn { list-style: none; padding: var(--space-1); }
   .progress .yn a { display: grid; gap: 2px; padding: var(--space-3) var(--space-4); text-decoration: none; border-radius: var(--radius-sm); }
@@ -172,7 +172,7 @@ import Base from "../layouts/Base.astro";
   }
   @media (max-width: 760px) {
     .progress .top { grid-template-columns: 1fr; }
-    .progress .heatwrap, .progress .cal, .progress .weak, .progress .top .panel, .progress .spot, .progress .lvls, .progress .ins { padding: var(--space-4); }
+    .progress .heatwrap, .progress .cal, .progress .weak, .progress .top .panel, .progress .spot, .progress .lvls, .progress .ins-panel { padding: var(--space-4); }
     .progress .mods { padding: var(--space-1) var(--space-4) var(--space-3); }
     .progress .ach { grid-template-columns: 1fr; }
     .progress .ach li:nth-child(n) { border-left: 0 !important; border-top: 1px solid var(--line); }

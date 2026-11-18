@@ -167,10 +167,17 @@ export function readPrefs(): Prefs {
   }
 }
 
-/** The interview a plan paces toward: the soonest one after today, else the latest. */
+/** Your next interview: the soonest from today on (today's included), else the latest. */
 export function nextInterview(list: Interview[], today: string = localDay()): Interview | null {
   const sorted = [...list].sort((a, b) => a.date.localeCompare(b.date));
   return sorted.find((i) => i.date >= today) ?? sorted.at(-1) ?? null;
+}
+
+/** The interview the plan paces toward, as the planner picks it (Settings::resolved in
+ * crates/core/src/planner.rs): the soonest after today, else today's, else the latest. */
+export function pacingInterview(list: Interview[], today: string = localDay()): Interview | null {
+  const sorted = [...list].sort((a, b) => a.date.localeCompare(b.date));
+  return sorted.find((i) => i.date > today) ?? sorted.find((i) => i.date === today) ?? sorted.at(-1) ?? null;
 }
 
 /**

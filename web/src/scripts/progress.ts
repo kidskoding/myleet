@@ -312,7 +312,7 @@ function skillsSection(c: Ctx, skills: Skill[] | null, atts: Attempt[]): SafeHtm
         <ul>${LEVELS.map(([k, label, pips]) => html`<li class="lv-${k}"><span class="pips" aria-hidden="true">${[1, 2, 3, 4].map((i) => html`<b class="${i <= pips ? "on" : ""}"></b>`)}</span>${label}<strong>${counts.get(k) ?? 0}</strong></li>`)}</ul>
       </div>
     </div>
-    ${notes.length ? html`<div class="panel ins"><h3>Practice insights</h3><ul>${notes.map((n) => html`<li>${bold(n.text)}</li>`)}</ul></div>` : ""}
+    ${notes.length ? html`<div class="panel ins-panel"><h3>Practice insights</h3><ul>${notes.map((n) => html`<li>${bold(n.text)}</li>`)}</ul></div>` : ""}
   </section>`;
 }
 
