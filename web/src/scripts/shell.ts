@@ -234,9 +234,16 @@ async function registerServiceWorker(): Promise<void> {
   });
 }
 
-// myleet is a website, so Chromium's own install bar never pops up. The manifest stays for
-// people who add it to a home screen themselves; iPhone reminders need that.
-addEventListener("beforeinstallprompt", (e) => e.preventDefault());
+// Chromium's install prompt, offered from Today, Settings and the palette.
+
+addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  const w = window as { __myleetInstall?: () => void };
+  w.__myleetInstall = () => {
+    void (e as Event & { prompt(): Promise<void> }).prompt();
+    delete w.__myleetInstall;
+  };
+});
 
 let reminderTimer: ReturnType<typeof setTimeout> | undefined;
 const SESSION_SENT = "myleet:session-reminded";
