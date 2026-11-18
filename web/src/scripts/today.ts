@@ -13,7 +13,7 @@ import { checkpointResults, doneToday, parseEvents, runProgress, type DoneItem }
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { MOCK_LEAD_MIN, mockState } from "../lib/mock-today";
 import { mockHref, readHistory } from "../lib/mock";
-import { addMove, midSentence, minuteOf, moveFor } from "../lib/schedule";
+import { addMove, clock, midSentence, minuteOf, moveFor } from "../lib/schedule";
 import { daysUntil, paceRows, shortDate } from "../lib/plan";
 import { nextInterview, planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
@@ -267,13 +267,28 @@ function weekPanel(c: Ctx): SafeHtml {
     )}</ol></section>`;
 }
 
-function budgetPanel(b: Budget, planned: number): SafeHtml {
-  const opts = planned > 0 ? [{ id: "plan" as Budget, label: `Your plan, ${formatMinutes(planned)}` }, ...BUDGETS] : BUDGETS;
+/** Minutes the "Time today" buttons give today's plan; "plan" clears the one-day change. */
+const PLAN_BUDGET_MIN: Partial<Record<Budget, number>> = { "30": 30, "60": 60, "120": 120 };
+
+/** A usual day's minutes, before any one-day change. */
+function usualMinutes(now: Date): number {
+  const p = readPrefs().plan;
+  const weekend = now.getDay() === 0 || now.getDay() === 6;
+  return (weekend ? (p.weekendMinutes ?? p.dailyMinutes) : p.dailyMinutes) ?? 60;
+}
+
+function budgetPanel(b: Budget, planned: number, planMode: boolean, now: Date): SafeHtml {
+  // With a plan, these change today's plan itself, so Today and Plan stay the same list.
+  const opts = planMode
+    ? [{ id: "plan" as Budget, label: `Usual, ${formatMinutes(usualMinutes(now))}` }, ...BUDGETS.filter((o) => o.id in PLAN_BUDGET_MIN).map((o) => (o.id === "120" ? { ...o, label: "2 h" } : o))]
+    : planned > 0
+      ? [{ id: "plan" as Budget, label: `Your plan, ${formatMinutes(planned)}` }, ...BUDGETS]
+      : BUDGETS;
   return html`<section class="panel" aria-labelledby="tb"><h2 id="tb">Time today</h2>
     <div class="budget"><div class="seg seg-block" role="group" aria-labelledby="tb">${opts.map(
       (o) => html`<button type="button" data-budget="${o.id}" aria-pressed="${o.id === b ? "true" : "false"}">${o.label}</button>`,
     )}</div></div>
-    <p class="fineprint">Reducing your time removes new problems before reviews. Any one problem you practice counts towards your streak</p></section>`;
+    <p class="fineprint">${planMode ? "This changes today's plan only, and with less time new problems drop before reviews. Practicing any one problem keeps your streak going" : "Reducing your time removes new problems before reviews. Any one problem you practice counts towards your streak"}</p></section>`;
 }
 
 function nextUp(c: Ctx, e: TodayEntry): SafeHtml {
@@ -539,16 +554,20 @@ function paint(c: Ctx): void {
   // The check-in already says how the week went, so the on-track line waits for another day.
   const trackLine = check ? "" : status?.line || "";
 
+  // With a plan for today, Today is that plan: its problems in its order, so the two
+  // pages never disagree. The queue below only runs when today has no planned problems.
+  const fromPlan = planQueue(c, entries, states, doneIds);
   const reviews = entries.filter((e) => e.kind === "review");
-  const backlog = reviews.length >= BACKLOG_AT;
+  const backlog = !fromPlan && reviews.length >= BACKLOG_AT;
   if (backlog) {
     const show = new Set(reviews.slice(0, BACKLOG_SHOW).map((e) => e.problem));
     entries = entries.filter((e) => e.kind !== "review" || show.has(e.problem));
   }
-  const visible = entries.filter((e) => !skipped.has(e.problem));
+  const visible = (fromPlan ?? entries).filter((e) => !skipped.has(e.problem));
   const BUDGET_SECS = budget === "plan" ? planned * 60 : (BUDGETS.find((b) => b.id === budget)?.secs ?? null);
-  const queue = fitBudget(visible, BUDGET_SECS, (e) => meta(c.cat, e.problem)?.time_target_secs ?? 1500);
-  const mins = (list: TodayEntry[]) => list.reduce((n, e) => n + targetMins(meta(c.cat, e.problem)), 0);
+  const queue = fromPlan ? visible : fitBudget(visible, BUDGET_SECS, (e) => meta(c.cat, e.problem)?.time_target_secs ?? 1500);
+  // Planned problems count the minutes the plan gave them, so the total matches Plan's day.
+  const mins = (list: TodayEntry[]) => list.reduce((n, e) => n + ((fromPlan ? planItem(c, e.problem)?.minutes : undefined) ?? targetMins(meta(c.cat, e.problem))), 0);
   const work = queue.filter((e) => e.kind !== "practice");
   const nReview = work.filter((e) => e.kind === "review").length;
   const nNew = work.length - nReview;
@@ -605,7 +624,7 @@ function paint(c: Ctx): void {
     const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now, first.problem);
     const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n, readStreak().rests)].filter(Boolean);
     body = html`<section aria-labelledby="greet">
-      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${emphasize(para, [...companyNames(c), ...topicNames(c)], marks(c))}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}</p><p class="countdown-inline">${plan.inline}</p></div>
+      <div class="greet"><h1 id="greet">${hello}</h1>${noteHtml}${statusHtml}${[backlogNote || summary || "", trackLine].filter(Boolean).join("\n\n").split("\n\n").filter(Boolean).map((para) => html`<p>${emphasize(para, [...companyNames(c), ...topicNames(c)], marks(c))}</p>`)}${quiet.length ? html`<p class="quiet">${quiet.join(" · ")}</p>` : ""}<p class="meta">${parts} · About ${formatMinutes(mins(work))}${fromPlan ? sessionTimes(c, new Set(work.map((e) => e.problem))) : ""}</p><p class="countdown-inline">${plan.inline}</p></div>
       ${cardsRow(cards)}
       <div data-mock-card></div>
       ${nextUp(c, first)}
@@ -628,8 +647,35 @@ function paint(c: Ctx): void {
   const next = queueFirst(entries, skipped);
   const nm = next ? meta(c.cat, next) : undefined;
   const skipKey = nm ? `${c.cat.catalog.modules[nm.module]?.id}/${c.cat.catalog.modules[nm.module]?.techniques[nm.technique]?.id}` : null;
-  render(aside, first ? html`` : html`${setupPanel(setup, "side")}${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget, planned)}`);
+  render(aside, first ? html`` : html`${setupPanel(setup, "side")}${plan.panel}${weakPanel(c, skipKey)}${checkinPanel(c)}${weekPanel(c)}${budgetPanel(budget, planned, fromPlan !== null, c.now)}`);
   banners(Object.keys(states).length, Object.keys(stats.heatmap).length, c.sample === true);
+}
+
+/** " in your 6 pm and 6:54 pm sessions": the planned sessions that still hold `left`. */
+function sessionTimes(c: Ctx, left: Set<string>): string {
+  const times = (c.plan?.days[0]?.sessions ?? []).filter((s) => s.items.some((i) => i.problem && left.has(i.problem))).map((s) => clock(minuteOf(s.start_ms)));
+  if (!times.length) return "";
+  const list = times.length === 1 ? times[0] : `${times.slice(0, -1).join(", ")} and ${times.at(-1)}`;
+  return ` in your ${list} ${times.length === 1 ? "session" : "sessions"}`;
+}
+
+const PLAN_KINDS = new Set<PlanItem["kind"]>(["review", "new", "drill"]);
+
+/** Today's planned problems as queue entries, in plan order and minus what's done; null when today has none planned. */
+function planQueue(c: Ctx, entries: TodayEntry[], states: Record<string, State>, done: Set<string>): TodayEntry[] | null {
+  const day = c.plan?.days[0];
+  if (!day || day.date !== localDay(c.now)) return null;
+  const items = day.sessions.flatMap((s) => s.items).filter((i) => i.problem && PLAN_KINDS.has(i.kind));
+  if (!items.length) return null;
+  const byId = new Map(entries.map((e) => [e.problem, e]));
+  const out: TodayEntry[] = [];
+  for (const i of items) {
+    const id = i.problem as string;
+    if (done.has(id) || out.some((e) => e.problem === id)) continue;
+    const state = states[id] ?? { status: "unseen", rung: -1, due_ms: null, last_ms: null, first_ms: null, attempts: 0, clean_passes: 0, fails: 0, hint_attempts: 0, best_secs: null };
+    out.push(byId.get(id) ?? { problem: id, index: 0, kind: i.kind === "new" ? "new" : "review", reason: null, overdue_days: 0, state });
+  }
+  return out;
 }
 
 function queueFirst(entries: TodayEntry[], skipped: Set<string>): string | null {
@@ -811,7 +857,15 @@ document.addEventListener("click", async (e) => {
   }
   if (skipBtn?.dataset.skip) skip(skipBtn.dataset.skip);
   else if (budgetBtn) {
-    writeBudget(budgetBtn.dataset.budget as Budget);
+    const b = budgetBtn.dataset.budget as Budget;
+    writeBudget(b);
+    if (ctx?.plan) {
+      // The plan holds today's time, so Plan's day shows the same change.
+      const day = localDay();
+      const rest = readPrefs().plan.dayMinutes.filter((d) => d.date !== day);
+      const m = PLAN_BUDGET_MIN[b];
+      updatePrefs({ plan: { dayMinutes: m ? [...rest, { date: day, minutes: m }] : rest } });
+    }
     void refresh();
   } else if (t.closest("[data-remove-date]")) {
     updatePrefs({ plan: { interviewDate: null } });
