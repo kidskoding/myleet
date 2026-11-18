@@ -40,6 +40,9 @@ const DEFAULT_GOAL: usize = 3;
 const WEAK_BONUS: f64 = 0.5;
 /// The last days before the interview introduce nothing new.
 const REVIEW_ONLY_DAYS: i64 = 2;
+/// On an interview day with a known time: at most this much review, ending this long before it.
+const WARMUP_MINUTES: u32 = 20;
+const WARMUP_GAP_MINUTES: u32 = 60;
 const REVIEW_SHARE: f64 = 0.6;
 const MIN_ITEM_MINUTES: u32 = 5;
 const NOTE_MINUTES: u32 = 10;
@@ -75,6 +78,9 @@ pub struct Interview {
     pub date: String,
     #[serde(default)]
     pub company: Option<String>,
+    /// `HH:MM` local start, when known: the day then gets a short warm-up before it.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub time: Option<String>,
     /// The company's display name; filled in on the plan, ignored in settings.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub name: Option<String>,
@@ -141,6 +147,7 @@ impl Settings {
             s.interviews.push(Interview {
                 date: d.clone(),
                 company: None,
+                time: None,
                 name: None,
             });
         }
@@ -1092,6 +1099,22 @@ fn build(
         .collect();
     upcoming.sort();
     upcoming.dedup();
+    // Interview days from today on, with the earliest known start time; None when no time is set.
+    let mut iv_days: HashMap<Date, Option<u32>> = HashMap::new();
+    for i in &settings.interviews {
+        let Ok(d) = i.date.parse::<Date>() else {
+            continue;
+        };
+        if d < today {
+            continue;
+        }
+        let t = i.time.as_deref().and_then(|t| parse_hhmm(t, false));
+        let e = iv_days.entry(d).or_insert(t);
+        *e = match (*e, t) {
+            (Some(a), Some(b)) => Some(a.min(b)),
+            (a, b) => a.or(b),
+        };
+    }
     let prox = proximity(today, interview);
 
     // Weekly windows (minutes after midnight), or one daily window at your best hour.
@@ -1306,12 +1329,23 @@ fn build(
         } else {
             cap = 0;
         }
-        // Interview days get no practice sessions.
-        if upcoming.contains(&day) {
-            windows.clear();
-            moved_wins.clear();
-            full_windows.clear();
-            cap = 0;
+        // Interview days: a short review warm-up that ends an hour before a known start
+        // time, and nothing when the time isn't set.
+        match iv_days.get(&day).copied() {
+            Some(Some(t)) => {
+                let until = t.saturating_sub(WARMUP_GAP_MINUTES);
+                windows = subtract(&windows, until, DAY_MINUTES);
+                moved_wins = subtract(&moved_wins, until, DAY_MINUTES);
+                full_windows = subtract(&full_windows, until, DAY_MINUTES);
+                cap = cap.min(WARMUP_MINUTES);
+            }
+            Some(None) => {
+                windows.clear();
+                moved_wins.clear();
+                full_windows.clear();
+                cap = 0;
+            }
+            None => {}
         }
         for (s, e) in busy_on(day, &settings.busy, tz) {
             windows = subtract(&windows, s, e);
@@ -2714,6 +2748,34 @@ mod tests {
             n.body.starts_with("From here it's reviews only"),
             "{}",
             n.body
+        );
+    }
+
+    #[test]
+    fn an_interview_with_a_time_gets_a_short_warm_up_before_it() {
+        let s = settings(
+            r#"{"interviews":[{"date":"2026-11-16","company":"meta","time":"14:00"}],
+                "availability":[{"days":["mon","tue","wed","thu","fri","sat","sun"],"start":"09:00","end":"17:00"}]}"#,
+        );
+        let p = run(&[], &s, at(11, 14, 8));
+        let day = p.days.iter().find(|d| d.date == "2026-11-16").unwrap();
+        assert!(day.minutes <= WARMUP_MINUTES, "{} minutes", day.minutes);
+        let cutoff = jiff::civil::date(2026, 11, 16)
+            .at(13, 0, 0, 0)
+            .to_zoned(chicago())
+            .unwrap()
+            .timestamp()
+            .as_millisecond();
+        assert!(
+            day.sessions.iter().all(|x| x.end_ms <= cutoff),
+            "ends an hour before"
+        );
+        assert!(
+            day.sessions
+                .iter()
+                .flat_map(|x| &x.items)
+                .all(|i| i.kind == ItemKind::Review),
+            "reviews only"
         );
     }
 

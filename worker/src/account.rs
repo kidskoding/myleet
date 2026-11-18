@@ -683,9 +683,13 @@ impl Extra {
                     && i.company
                         .as_deref()
                         .is_none_or(|c| valid_slug(c, MAX_COMPANY_SLUG))
+                    && i.time
+                        .as_deref()
+                        .is_none_or(|t| planner::parse_hhmm(t, false).is_some())
             }) {
                 return Err(
-                    "interviews need a YYYY-MM-DD date and an optional playlist slug".to_string(),
+                    "interviews need a YYYY-MM-DD date, an optional HH:MM time and an optional playlist slug"
+                        .to_string(),
                 );
             }
             // The plan fills in display names; settings keep only the slug.

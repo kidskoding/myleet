@@ -169,6 +169,8 @@ function company(c: Ctx): string | null {
 
 /** The interviews on a day, for flags. */
 const interviewsOn = (c: Ctx, day: string): Interview[] => (c.plan.interviews ?? []).filter((i) => i.date === day);
+/** "Google interview, 2 pm": the name, and the start time when it's known. */
+const ivLabel = (iv: Interview): string => `${iv.name ? `${iv.name} interview` : "Interview"}${iv.time ? `, ${clock(toMin(iv.time))}` : ""}`;
 const flag = (iv: Interview): SafeHtml => html`<span class="chip interview">${iv.company ? companyLogo(iv.company) : icon("flag")}<span>${iv.name ?? "Interview"}</span></span>`;
 
 const isMock = (s: PlanSession) => s.items.some((i) => i.kind === "mock");
@@ -329,7 +331,7 @@ function dayHeader(c: Ctx, d: PlanDay, g: Grid): SafeHtml {
     : d.off
     ? html`Day off`
     : interviewsOn(c, d.date).length
-      ? html`${interviewsOn(c, d.date).map((iv) => (iv.name ? `${iv.name} interview` : "Interview")).join(", ")}`
+      ? html`${interviewsOn(c, d.date).map(ivLabel).join(", ")}`
     : !d.windows.length
       ? html`No window`
       : html`<span class="bar" aria-hidden="true"><span style="width:${Math.min(100, (planned / Math.max(1, d.cap)) * 100).toFixed(0)}%"></span></span>${planned}/${d.cap}m`;
@@ -649,7 +651,7 @@ function dayCard(c: Ctx): SafeHtml {
   const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
   const n = d.sessions.length;
   // The day's interviews lead, then its sessions, so the card says what the day holds.
-  const ivs = interviewsOn(c, d.date).map((iv) => html`<span class="pd-iv">${iv.company ? companyLogo(iv.company) : icon("flag")}<span>${iv.name ? `${iv.name} interview` : "Interview"}</span></span>`);
+  const ivs = interviewsOn(c, d.date).map((iv) => html`<span class="pd-iv">${iv.company ? companyLogo(iv.company) : icon("flag")}<span>${ivLabel(iv)}</span></span>`);
   const list = !d.off && n ? html`<ol class="pd-list" aria-label="Sessions">${d.sessions.map((s) => html`<li><button type="button" class="pd-ses" data-ses="${s.id}" data-date="${d.date}"><span class="h">${s.title}</span><span class="t">${clock(minuteOf(s.start_ms))}, ${fmtM(s.minutes)}</span></button></li>`)}</ol>` : "";
   return html`<span class="pd-when${d === days[0] ? " pd-today" : ""}">${d === days[0] ? "Today" : DAY_SHORT[weekdayIndex(d.date)]}</span><strong class="pd-date">${short(d.date)}</strong>${ivs}
     <span class="pd-load">${d.off ? "Day off" : n ? `${fmtM(d.minutes)}, ${plural(n, "session")}` : "Nothing planned"}</span>${list}${

@@ -287,7 +287,7 @@ export function toServer(p: Prefs): Partial<ServerSettings> {
     editor_font_size: p.editor.fontSize,
     new_per_day: p.newPerDay,
     interview_date: p.plan.interviewDate,
-    interviews: p.plan.interviews.map(({ date, company }) => ({ date, company })),
+    interviews: p.plan.interviews.map(({ date, company, time }) => ({ date, company, ...(time ? { time } : {}) })),
     plan_history: p.plan.history,
     plan_ledger: readLedger(),
     leetcode_username: p.leetcodeUsername,

@@ -1,4 +1,4 @@
-// The interviews list: each row a date and an optional company, picked with the company
+// The interviews list: each row a date, an optional start time and an optional company, picked with the company
 // search. Used by Settings, onboarding and Change plan; the caller decides where it saves.
 import { companySlug, listedCompany } from "../catalog";
 import { companyLogo } from "../company-logos";
@@ -30,6 +30,7 @@ export function mountInterviews(host: HTMLElement, playlists: Company[], o: Inte
       html`<ul class="iv-list">${rows.map((iv, i) => {
         const name = companyTitle(companies, iv.company);
         return html`<li class="iv-row"><label class="visually-hidden" for="${o.id}-d${i}">Interview ${i + 1} date</label><input class="input" type="date" id="${o.id}-d${i}" min="${localDay()}" value="${iv.date}" data-iv-date="${i}" />
+          <label class="visually-hidden" for="${o.id}-t${i}">Interview ${i + 1} start time</label><input class="input" type="time" id="${o.id}-t${i}" value="${iv.time ?? ""}" data-iv-time="${i}" ${iv.date ? "" : "disabled"} />
           <button type="button" class="company-trigger iv-co" data-iv-co="${i}" aria-haspopup="dialog">${iv.company ? html`${companyLogo(iv.company)}<span>${name}</span>` : html`<span class="text-secondary">No specific company</span>`}<span aria-hidden="true">⌕</span></button>
           ${list.length ? html`<button type="button" class="icon-btn" data-iv-remove="${i}" aria-label="Remove the ${name ?? ""} interview${iv.date ? ` on ${iv.date}` : ""}">${icon("x")}</button>` : ""}</li>`;
       })}</ul>
@@ -42,11 +43,19 @@ export function mountInterviews(host: HTMLElement, playlists: Company[], o: Inte
   };
   host.addEventListener("change", (e) => {
     const el = e.target as HTMLInputElement;
+    if (el.matches("[data-iv-time]")) {
+      const i = Number(el.dataset.ivTime);
+      const list = [...o.get()];
+      const cur = list[i];
+      if (!cur) return;
+      list[i] = { ...cur, time: el.value || null };
+      return save(list);
+    }
     if (!el.matches("[data-iv-date]")) return;
     const i = Number(el.dataset.ivDate);
     const list = [...o.get()];
     if (!el.value) return save(list.filter((_, j) => j !== i));
-    list[i] = { company: list[i]?.company ?? (host.dataset.pending || null), date: el.value };
+    list[i] = { ...list[i], company: list[i]?.company ?? (host.dataset.pending || null), date: el.value };
     delete host.dataset.pending;
     save(list);
   });

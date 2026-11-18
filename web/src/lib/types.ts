@@ -214,6 +214,8 @@ export interface Availability {
 export interface Interview {
   date: string;
   company: string | null;
+  /** `HH:MM` local start time, when known. */
+  time?: string | null;
   /** The company's display name, on a plan only. */
   name?: string | null;
 }
