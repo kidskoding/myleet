@@ -5,7 +5,7 @@
 
 use jiff::Timestamp;
 use myleet_core::planner::Busy;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::calsync::{Remote, Wanted};
 use crate::oauth::encode;
@@ -15,6 +15,22 @@ pub const CALLBACK_PATH: &str = "/api/calendar/google/callback";
 /// Only calendars this app creates, plus free/busy (never event details) elsewhere.
 pub const SCOPE_EVENTS: &str = "https://www.googleapis.com/auth/calendar.app.created";
 pub const SCOPE_FREEBUSY: &str = "https://www.googleapis.com/auth/calendar.freebusy";
+/// Asked for only when the learner presses "Find interviews": reads event titles and times.
+pub const SCOPE_READ: &str = "https://www.googleapis.com/auth/calendar.events.readonly";
+/// How far ahead "Find interviews" looks.
+pub const FIND_DAYS: i64 = 90;
+/// Words in an event title that mean an interview; "mock" titles are practice, not one.
+const INTERVIEW_WORDS: [&str; 9] = [
+    "interview",
+    "onsite",
+    "on-site",
+    "phone screen",
+    "tech screen",
+    "technical screen",
+    "superday",
+    "final round",
+    "coding round",
+];
 pub const TOKEN_URL: &str = "https://oauth2.googleapis.com/token";
 pub const REVOKE_URL: &str = "https://oauth2.googleapis.com/revoke";
 pub const FREEBUSY_URL: &str = "https://www.googleapis.com/calendar/v3/freeBusy";
@@ -28,14 +44,20 @@ pub fn redirect_uri(site: &str) -> String {
 }
 
 /// `prompt=consent` so Google returns a refresh token even on a second connect.
-pub fn authorize_url(client_id: &str, redirect_uri: &str, state: &str) -> String {
+/// `read` adds event reading for "Find interviews"; granted scopes carry over.
+pub fn authorize_url(client_id: &str, redirect_uri: &str, state: &str, read: bool) -> String {
+    let scopes = if read {
+        format!("{SCOPE_EVENTS} {SCOPE_FREEBUSY} {SCOPE_READ}")
+    } else {
+        format!("{SCOPE_EVENTS} {SCOPE_FREEBUSY}")
+    };
     format!(
         "https://accounts.google.com/o/oauth2/v2/auth?client_id={}&redirect_uri={}\
          &response_type=code&scope={}&state={}&access_type=offline&prompt=consent\
          &include_granted_scopes=true",
         encode(client_id),
         encode(redirect_uri),
-        encode(&format!("{SCOPE_EVENTS} {SCOPE_FREEBUSY}")),
+        encode(&scopes),
         encode(state),
     )
 }
@@ -84,6 +106,81 @@ pub fn parse_grant(text: &str) -> Result<Grant, String> {
 pub fn has_scopes(scope: &str) -> bool {
     let granted: Vec<&str> = scope.split_whitespace().collect();
     granted.contains(&SCOPE_EVENTS) && granted.contains(&SCOPE_FREEBUSY)
+}
+
+pub fn can_read(scope: &str) -> bool {
+    scope.split_whitespace().any(|s| s == SCOPE_READ)
+}
+
+/// The primary calendar's events from `from_ms` for `FIND_DAYS`, titles and starts only.
+pub fn find_url(from_ms: i64) -> String {
+    format!(
+        "{CALENDARS_URL}/primary/events?singleEvents=true&orderBy=startTime&maxResults=250\
+         &fields=items(summary,start)&timeMin={}&timeMax={}",
+        encode(&rfc3339(from_ms)),
+        encode(&rfc3339(from_ms + FIND_DAYS * 86_400_000)),
+    )
+}
+
+/// An event that looks like an interview. The title goes to the learner's browser to
+/// show and match a company; it is never stored.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct Found {
+    pub date: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub time: Option<String>,
+    pub title: String,
+}
+
+#[derive(Deserialize)]
+struct FindPage {
+    #[serde(default)]
+    items: Vec<FindItem>,
+}
+
+#[derive(Deserialize)]
+struct FindItem {
+    #[serde(default)]
+    summary: String,
+    #[serde(default)]
+    start: FindStart,
+}
+
+#[derive(Deserialize, Default)]
+struct FindStart {
+    #[serde(rename = "dateTime")]
+    date_time: Option<String>,
+    date: Option<String>,
+}
+
+pub fn looks_like_interview(title: &str) -> bool {
+    let t = title.to_lowercase();
+    !t.contains("mock") && INTERVIEW_WORDS.iter().any(|w| t.contains(w))
+}
+
+/// Interview-looking events, in order. A timed event keeps the local date and time
+/// Google wrote (`2026-12-07T14:00:00-06:00`); an all-day one has no time.
+pub fn parse_found(text: &str) -> Result<Vec<Found>, String> {
+    let page: FindPage = serde_json::from_str(text).map_err(|_| "google: unreadable events")?;
+    Ok(page
+        .items
+        .into_iter()
+        .filter(|i| looks_like_interview(&i.summary))
+        .filter_map(|i| {
+            let (date, time) = match (i.start.date_time, i.start.date) {
+                (Some(dt), _) if dt.len() >= 16 => {
+                    (dt[..10].to_string(), Some(dt[11..16].to_string()))
+                }
+                (_, Some(d)) if d.len() == 10 => (d, None),
+                _ => return None,
+            };
+            Some(Found {
+                date,
+                time,
+                title: i.summary.trim().chars().take(120).collect(),
+            })
+        })
+        .collect())
 }
 
 /// A refresh token that was revoked or expired: the link is gone for good.
@@ -296,7 +393,7 @@ mod tests {
 
     #[test]
     fn authorize_url_asks_for_both_calendar_scopes_offline() {
-        let u = authorize_url("id", &redirect_uri("https://myleet.dev"), "s1");
+        let u = authorize_url("id", &redirect_uri("https://myleet.dev"), "s1", false);
         assert!(u.starts_with("https://accounts.google.com/o/oauth2/v2/auth?client_id=id"));
         assert!(u.contains(
             "redirect_uri=https%3A%2F%2Fmyleet.dev%2Fapi%2Fcalendar%2Fgoogle%2Fcallback"
@@ -448,5 +545,34 @@ mod tests {
         ] {
             assert!(parse_freebusy(bad).is_err(), "{bad}");
         }
+    }
+
+    #[test]
+    fn finds_interviews_by_title_with_local_date_and_time() {
+        let text = r#"{"items":[
+            {"summary":"Google onsite interview","start":{"dateTime":"2026-12-07T14:00:00-06:00"}},
+            {"summary":"Dentist","start":{"dateTime":"2026-12-08T09:00:00-06:00"}},
+            {"summary":"Mock interview with Sam","start":{"dateTime":"2026-12-09T18:00:00-06:00"}},
+            {"summary":"Meta phone screen","start":{"date":"2026-12-10"}}
+        ]}"#;
+        let found = parse_found(text).unwrap();
+        assert_eq!(
+            found,
+            [
+                Found {
+                    date: "2026-12-07".into(),
+                    time: Some("14:00".into()),
+                    title: "Google onsite interview".into()
+                },
+                Found {
+                    date: "2026-12-10".into(),
+                    time: None,
+                    title: "Meta phone screen".into()
+                },
+            ]
+        );
+        assert!(can_read(&format!("openid {SCOPE_READ}")) && !can_read(SCOPE_FREEBUSY));
+        assert!(authorize_url("c", "r", "s", true).contains("events.readonly"));
+        assert!(!authorize_url("c", "r", "s", false).contains("events.readonly"));
     }
 }

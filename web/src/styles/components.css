@@ -891,6 +891,14 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .iv-row { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
 .iv-row input[type="date"] { width: 170px; }
 .iv-row input[type="time"] { width: 130px; }
+.iv-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+.iv-found { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+.iv-found li { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+.iv-found li > .icon, .iv-found li > .co-logo { width: 18px; height: 18px; flex: none; color: var(--ink-3); }
+.iv-found-t { display: grid; gap: 1px; flex: 1; min-width: 0; font-size: var(--text-sm); }
+.iv-found-t b { font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.iv-found-t span { color: var(--ink-3); font-size: var(--text-xs); }
+.iv-note { margin-top: var(--space-2); }
 .iv-co { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 36px; min-width: 200px; padding: 0 var(--space-3); border: 1px solid var(--control-edge); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); cursor: pointer; text-align: left; }
 .iv-co > span[aria-hidden] { margin-left: auto; color: var(--ink-3); }
 .iv-co:hover { border-color: var(--line-strong); }

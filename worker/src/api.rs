@@ -18,7 +18,7 @@ use crate::leetcode::{self, Outcome};
 use crate::magic;
 use crate::oauth::{self, Failure, Profile, Provider};
 use crate::reports::{self, CompanyCount, ProblemCount};
-use crate::session::{self, CAL_STATE_COOKIE, SESSION_COOKIE, STATE_COOKIE};
+use crate::session::{self, CAL_FIND_COOKIE, CAL_STATE_COOKIE, SESSION_COOKIE, STATE_COOKIE};
 use crate::statement::{self, Cached};
 use crate::sync::{self, Write};
 
@@ -92,6 +92,7 @@ async fn route(req: &mut Request, app: &App, origin: Option<&str>) -> Result<Res
     if let Some(rest) = path.strip_prefix("/api/calendar/google/") {
         return match (method, rest) {
             (Method::Get, "connect") => gcal_connect(req, app).await,
+            (Method::Get, "interviews") => gcal_interviews(req, app).await,
             (Method::Get, "callback") => gcal_callback(req, app).await,
             (Method::Get, "state") => gcal_state(req, app).await,
             (Method::Post, "sessions") => gcal_sessions(req, app).await,
@@ -1819,18 +1820,37 @@ async fn gcal_connect(req: &Request, app: &App) -> Result<Response> {
         return gcal_done(app, "signin");
     }
     let state = random_hex(oauth::STATE_BYTES)?;
+    // `?interviews` also asks to read events, for "Find interviews in Google Calendar".
+    let find = query_param(req, "interviews")?.is_some();
     let url = gcal::authorize_url(
         &client_id(app, Provider::Google)?,
         &gcal::redirect_uri(&app.site),
         &state,
+        find,
     );
-    redirect(
-        &url,
-        &[session::set_cookie(
-            CAL_STATE_COOKIE,
-            &state,
+    let mut cookies = vec![session::set_cookie(
+        CAL_STATE_COOKIE,
+        &state,
+        session::STATE_TTL_SECS,
+    )];
+    if find {
+        cookies.push(session::set_cookie(
+            CAL_FIND_COOKIE,
+            "1",
             session::STATE_TTL_SECS,
-        )],
+        ));
+    }
+    redirect(&url, &cookies)
+}
+
+/// Back to Your goals, where the interviews list runs the search (`ok`) or says why not.
+fn find_done(app: &App, outcome: &str) -> Result<Response> {
+    redirect(
+        &format!("{}/settings?find-interviews={outcome}#goals", app.site),
+        &[
+            session::clear_cookie(CAL_STATE_COOKIE),
+            session::clear_cookie(CAL_FIND_COOKIE),
+        ],
     )
 }
 
@@ -1883,6 +1903,30 @@ async fn gcal_callback(req: &Request, app: &App) -> Result<Response> {
     if !gcal::has_scopes(&grant.scope) {
         revoke(&refresh).await;
         return gcal_done(app, "scope");
+    }
+    let find = cookie(req, CAL_FIND_COOKIE)?.is_some();
+    // Adding event reading to a link that already syncs: keep its calendar and sync
+    // state, and only swap in the token that carries the extra scope.
+    if find && let Some(_old) = load_link(&app.db()?, &c.user_id).await? {
+        let sealed = calsync::seal(
+            &key,
+            nonce()?,
+            &calsync::token_aad(gcal::PROVIDER, &c.user_id),
+            &refresh,
+        );
+        app.db()?
+            .prepare("UPDATE calendar_links SET refresh_token_enc = ?1, updated_at = ?2 WHERE user_id = ?3 AND provider = ?4")
+            .bind(&[text(&sealed), num(now_ms()), text(&c.user_id), text(gcal::PROVIDER)])?
+            .run()
+            .await?;
+        return find_done(
+            app,
+            if gcal::can_read(&grant.scope) {
+                "ok"
+            } else {
+                "denied"
+            },
+        );
     }
     let (status, reply) = call(
         gcal::CALENDARS_URL,
@@ -1937,7 +1981,55 @@ async fn gcal_callback(req: &Request, app: &App) -> Result<Response> {
     ])?
     .run()
     .await?;
+    if find {
+        return find_done(
+            app,
+            if gcal::can_read(&grant.scope) {
+                "ok"
+            } else {
+                "denied"
+            },
+        );
+    }
     gcal_done(app, "connected")
+}
+
+/// `GET /api/calendar/google/interviews`: events in the next 90 days that look like
+/// interviews. `access: false` means the link can't read events yet.
+async fn gcal_interviews(req: &Request, app: &App) -> Result<Response> {
+    let c = signed_in!(req, app);
+    let db = app.db()?;
+    let Some(row) = load_link(&db, &c.user_id).await? else {
+        return not_connected();
+    };
+    let Some(grant) = gcal_grant(app, &db, &c.user_id, &row).await? else {
+        return not_connected();
+    };
+    if !gcal::can_read(&grant.scope) {
+        return json(
+            &serde_json::json!({ "connected": true, "access": false }),
+            200,
+        );
+    }
+    let (status, reply) = call(
+        &gcal::find_url(now_ms() as i64),
+        Method::Get,
+        bearer_headers(&grant.access_token, "application/json")?,
+        None,
+    )
+    .await?;
+    if status != 200 {
+        console_warn!("google find interviews returned {status}");
+        return json_error(
+            "Google Calendar isn't answering right now; try again soon",
+            502,
+        );
+    }
+    let found = gcal::parse_found(&reply).map_err(worker::Error::RustError)?;
+    json(
+        &serde_json::json!({ "connected": true, "access": true, "found": found }),
+        200,
+    )
 }
 
 /// Revokes the whole grant at Google; failures only get logged.
@@ -1967,6 +2059,18 @@ async fn gcal_access(
     user_id: &str,
     row: &LinkRow,
 ) -> Result<Option<String>> {
+    Ok(gcal_grant(app, db, user_id, row)
+        .await?
+        .map(|g| g.access_token))
+}
+
+/// The refreshed grant, with the scopes Google says it carries.
+async fn gcal_grant(
+    app: &App,
+    db: &D1Database,
+    user_id: &str,
+    row: &LinkRow,
+) -> Result<Option<gcal::Grant>> {
     let refresh = calsync::open(
         &token_key(app)?,
         &calsync::token_aad(gcal::PROVIDER, user_id),
@@ -1991,7 +2095,7 @@ async fn gcal_access(
         )));
     }
     gcal::parse_grant(&reply)
-        .map(|g| Some(g.access_token))
+        .map(Some)
         .map_err(worker::Error::RustError)
 }
 

@@ -8,6 +8,8 @@ pub const SESSION_COOKIE: &str = "__Host-myleet_session";
 pub const STATE_COOKIE: &str = "__Host-myleet_oauth_state";
 /// Connecting a calendar has its own state, so it never clobbers a sign-in in flight.
 pub const CAL_STATE_COOKIE: &str = "__Host-myleet_cal_state";
+/// Set while a "Find interviews" grant is in flight, so the callback keeps the calendar.
+pub const CAL_FIND_COOKIE: &str = "__Host-myleet_cal_find";
 pub const SESSION_TTL_SECS: u64 = 30 * 86_400;
 pub const STATE_TTL_SECS: u64 = 600;
 /// Session and magic-link tokens are this many random bytes, sent as hex.
