@@ -33,8 +33,7 @@
     pkg-config
     git
     just
-    
-    # wrangler
-    wrangler
+    # No wrangler here: use `bunx wrangler` in worker/ (or `just dev`), the version
+    # worker/package.json pins and CI deploys with.
   ];
 }
