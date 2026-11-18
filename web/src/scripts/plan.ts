@@ -328,6 +328,8 @@ function dayHeader(c: Ctx, d: PlanDay, g: Grid): SafeHtml {
     ? html`${was ? `${STATUS_TEXT[was.status]}, ${fmtM(was.practised)} of ${fmtM(was.planned)}` : "Nothing recorded"}`
     : d.off
     ? html`Day off`
+    : interviewsOn(c, d.date).length
+      ? html`${interviewsOn(c, d.date).map((iv) => (iv.name ? `${iv.name} interview` : "Interview")).join(", ")}`
     : !d.windows.length
       ? html`No window`
       : html`<span class="bar" aria-hidden="true"><span style="width:${Math.min(100, (planned / Math.max(1, d.cap)) * 100).toFixed(0)}%"></span></span>${planned}/${d.cap}m`;

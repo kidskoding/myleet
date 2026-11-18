@@ -1076,9 +1076,22 @@ fn build(
         today,
         interview,
     };
+    // The plan keeps going after an interview: at least four weeks, and past the date
+    // when it's sooner, so practice carries on (toward the next interview, if any).
+    let rolling = add_days(today, DEFAULT_DAYS);
     let end = interview
-        .unwrap_or(add_days(today, DEFAULT_DAYS))
+        .map_or(rolling, |d| d.max(rolling))
         .min(add_days(today, MAX_DAYS));
+    // Every upcoming interview, so each day paces toward the next one on or after it.
+    let mut upcoming: Vec<Date> = settings
+        .interviews
+        .iter()
+        .filter_map(|i| i.date.parse::<Date>().ok())
+        .chain(interview)
+        .filter(|d| *d > today)
+        .collect();
+    upcoming.sort();
+    upcoming.dedup();
     let prox = proximity(today, interview);
 
     // Weekly windows (minutes after midnight), or one daily window at your best hour.
@@ -1293,6 +1306,13 @@ fn build(
         } else {
             cap = 0;
         }
+        // Interview days get no practice sessions.
+        if upcoming.contains(&day) {
+            windows.clear();
+            moved_wins.clear();
+            full_windows.clear();
+            cap = 0;
+        }
         for (s, e) in busy_on(day, &settings.busy, tz) {
             windows = subtract(&windows, s, e);
             moved_wins = subtract(&moved_wins, s, e);
@@ -1340,7 +1360,10 @@ fn build(
         }
 
         // 2. Mock interviews: weekly, every few days near the date, and one the day before.
-        let days_left = interview.map(|d| days_between(day, d));
+        let days_left = upcoming
+            .iter()
+            .find(|d| **d >= day)
+            .map(|d| days_between(day, *d));
         let near = days_left.is_some_and(|n| n <= NEAR_DAYS);
         let every = if near {
             MOCK_EVERY_DAYS_NEAR
@@ -1619,7 +1642,10 @@ fn build(
                                 last: day,
                             },
                         );
-                        techs[ti].placed += 1;
+                        // The forecast reads "by the interview", so later days don't count.
+                        if interview.is_none_or(|iv| day < iv) {
+                            techs[ti].placed += 1;
+                        }
                         passes_since += 1;
                     }
                     Effect::Note(ti) => techs[ti].note = None,
@@ -2275,7 +2301,13 @@ pub fn fixes(
     Ok(out)
 }
 
-fn summarize(days: &[Day], forecast: &[Coverage], today: Date, interview: Option<Date>) -> Summary {
+fn summarize(all: &[Day], forecast: &[Coverage], today: Date, interview: Option<Date>) -> Summary {
+    // Counts run to the interview; the plan's days after it are practice that carries on.
+    let cut = interview.map(|d| d.to_string());
+    let days: Vec<&Day> = all
+        .iter()
+        .filter(|d| cut.as_ref().is_none_or(|c| d.date < *c))
+        .collect();
     let items = || days.iter().flat_map(|d| &d.sessions).flat_map(|s| &s.items);
     let count = |k: ItemKind| items().filter(|i| i.kind == k).count();
     let behind: Vec<&Coverage> = forecast.iter().filter(|f| f.behind_by > 0).collect();
@@ -2428,7 +2460,7 @@ mod tests {
     }
 
     #[test]
-    fn fresh_plan_runs_to_the_interview_inside_windows() {
+    fn fresh_plan_runs_past_the_interview_inside_windows() {
         let s = settings(
             r#"{"interview_date":"2026-11-21","new_per_day":2,"daily_minutes":60,"session_minutes":45,
                 "availability":[{"days":["mon","tue","wed","thu","fri"],"start":"19:00","end":"20:30"},
@@ -2437,9 +2469,10 @@ mod tests {
         );
         // Saturday 2026-11-14, 08:00: today's Saturday window is still ahead.
         let p = run(&[], &s, at(11, 14, 8));
+        // Four weeks, past the interview: practice carries on after it.
         assert_eq!(
             (p.start.as_str(), p.end.as_str()),
-            ("2026-11-14", "2026-11-20")
+            ("2026-11-14", "2026-12-11")
         );
         let by_date: HashMap<&str, &Day> = p.days.iter().map(|d| (d.date.as_str(), d)).collect();
         assert!(by_date["2026-11-15"].rest, "Sunday has no window");
@@ -2485,11 +2518,20 @@ mod tests {
             review.1.reason
         );
         // Nothing new in the last 2 days before the interview.
+        // Nothing new in the last 2 days before the interview, nothing on the day, and new
+        // problems again after it.
         assert!(
             items
                 .iter()
-                .all(|(d, i)| i.kind != ItemKind::New || *d < "2026-11-19"),
+                .all(|(d, i)| i.kind != ItemKind::New || *d < "2026-11-19" || *d > "2026-11-21"),
             "review-only tail"
+        );
+        assert!(by_date["2026-11-21"].sessions.is_empty(), "interview day");
+        assert!(
+            items
+                .iter()
+                .any(|(d, i)| i.kind == ItemKind::New && *d > "2026-11-21"),
+            "new problems after the interview"
         );
         assert_eq!(p.summary.days_left, Some(7));
         assert!(
