@@ -944,3 +944,6 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 .section-head a.link:hover, .section-head a.link:focus-visible { color: var(--ink); background: var(--surface-sunk); }
 .section-head a.link:hover::after { transform: translateX(2px); }
 @media (prefers-reduced-motion: reduce) { .section-head a.link::after { transition: none; } }
+
+/* Problem statements: LeetCode italicizes for emphasis; we keep only its bold */
+.statement em, .statement i { font-style: normal; }
