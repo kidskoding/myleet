@@ -75,8 +75,6 @@ function commands(): Command[] {
   } else {
     cmds.push({ key: "cmd:signin", kind: "command", title: "Sign in", hint: "keep your progress on every device", icon: "user", run: () => import("./auth-ui").then((m) => m.openSignIn()) });
   }
-  const install = (window as { __myleetInstall?: () => void }).__myleetInstall;
-  if (install) cmds.push({ key: "cmd:install", kind: "command", title: "Install myleet", hint: "app, offline practice", icon: "download", run: install });
   return cmds;
 }
 

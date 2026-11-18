@@ -724,16 +724,6 @@ function banners(practised: number, days: number, sample: boolean): void {
       dismiss("remind");
     });
   }
-  const install = (window as { __myleetInstall?: () => void }).__myleetInstall;
-  if (!nudge && install && days >= 3 && !bannerDismissed("install")) {
-    const el = showBanner("install", {
-      icon: "download",
-      body: html`Install myleet for one-click practice and offline use`,
-      actions: html`<button class="btn btn-secondary btn-sm" type="button" data-install>Install</button><button class="btn btn-ghost btn-sm" type="button" data-install-no>Not now</button>`,
-    });
-    el?.querySelector("[data-install]")?.addEventListener("click", () => (install(), hideBanner("install")));
-    el?.querySelector("[data-install-no]")?.addEventListener("click", () => (hideBanner("install"), dismiss("install", 30)));
-  }
 }
 
 function dismiss(id: string, days = 3650): void {
