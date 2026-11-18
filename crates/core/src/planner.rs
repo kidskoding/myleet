@@ -131,8 +131,8 @@ impl Default for Settings {
 
 impl Settings {
     /// Folds `interview_date` into `interviews`, points `interview_date` at the nearest
-    /// upcoming interview (the latest one once all have passed), and adds each upcoming
-    /// interview's company to the targets. Safe to apply twice.
+    /// interview after today (else today's, else the latest once all have passed), and adds
+    /// the company of each interview from today on to the targets. Safe to apply twice.
     pub fn resolved(&self, today: Date) -> Settings {
         let mut s = self.clone();
         if s.interviews.is_empty()
@@ -146,7 +146,12 @@ impl Settings {
         }
         s.interviews.sort_by(|a, b| a.date.cmp(&b.date));
         let today_s = today.to_string();
-        let next = s.interviews.iter().find(|i| i.date >= today_s);
+        // Today's interview is still a target, but the plan paces toward the next one.
+        let next = s
+            .interviews
+            .iter()
+            .find(|i| i.date > today_s)
+            .or_else(|| s.interviews.iter().find(|i| i.date == today_s));
         if let Some(n) = next.or(s.interviews.last()) {
             s.interview_date = Some(n.date.clone());
         }
@@ -2631,14 +2636,17 @@ mod tests {
     }
 
     #[test]
-    fn an_interview_today_is_still_the_next_one() {
+    fn an_interview_today_stays_a_target_while_the_plan_paces_to_the_next() {
         let s = settings(
             r#"{"interviews":[{"date":"2026-11-14","company":"meta"},{"date":"2026-12-20","company":"stripe"}],
                 "target_companies":["google"]}"#,
         );
         let r = s.resolved(jiff::civil::date(2026, 11, 14));
-        assert_eq!(r.interview_date.as_deref(), Some("2026-11-14"));
+        assert_eq!(r.interview_date.as_deref(), Some("2026-12-20"));
         assert!(r.target_companies.contains(&"meta".to_string()));
+        let only = settings(r#"{"interviews":[{"date":"2026-11-14","company":"meta"}]}"#);
+        let r = only.resolved(jiff::civil::date(2026, 11, 14));
+        assert_eq!(r.interview_date.as_deref(), Some("2026-11-14"));
     }
 
     #[test]

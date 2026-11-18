@@ -593,7 +593,7 @@ function profile(c: Ctx): SafeHtml {
     return html`<span class="${mon ? "mon" : thin ? "thin" : ""}">${named ? html`<em>${dt.toLocaleDateString(undefined, { month: "short" })}</em>` : ""}${dt.getDate()}</span>`;
   });
   return html`<section class="panel approach" aria-labelledby="ap-h">
-    <div class="section-head"><h2 id="ap-h">${date ? `${c.plan.summary.days_left} days to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${plural(mocks, "mock")}, ${plural(checks, "check-in")}${offs ? `, ${plural(offs, "day")} off` : ""}</span></div>
+    <div class="section-head"><h2 id="ap-h">${date ? `${c.plan.summary.days_left} days to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${[mocks ? plural(mocks, "mock") : "", checks ? plural(checks, "check-in") : "", offs ? plural(offs, "day") + " off" : ""].filter(Boolean).join(", ")}</span></div>
     <div class="profile" style="--n:${n}" role="group" aria-label="Planned minutes per day${date ? " until the interview" : ""}, after the last week's outcomes. Choose a day to see it, arrow keys move between days">${pastHtml}${colsHtml}${tailHtml}${summit}<div class="bracket" data-bracket></div></div>
     <div class="paxis" style="--n:${n}" aria-hidden="true">${axis}<span class="end">${date ? short(date) : ""}</span></div>
     <div class="legend"><span><i style="background:var(--accent)"></i>Today</span><span><i style="background:var(--line-strong)"></i>Planned minutes</span><span><i class="lg-mock"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i class="lg-off"></i>Day off</span>${before.length ? html`<span><i class="lg-done"></i>Done</span><span><i class="lg-missed"></i>Missed, moved forward</span>` : ""}</div>
@@ -613,14 +613,17 @@ function dayCard(c: Ctx): SafeHtml {
   const later = (c.plan.interviews ?? []).filter((i) => date && i.date > date);
   const who = company(c);
   const end = date
-    ? html`<span class="pd-end">${nextIv?.company ? companyLogo(nextIv.company) : icon("flag")}<span>${who ? `${who} interview` : "Interview"}, <span class="nw">${short(date)}</span>${beyond > 0 ? `, ${plural(beyond, "day")} past the chart` : ""}</span></span>${later.map((i) => html`<span class="pd-end">${i.company ? companyLogo(i.company) : icon("flag")}<span>${i.name ?? "Interview"}, <span class="nw">${short(i.date)}</span></span></span>`)}`
+    ? html`<span class="pd-end">${nextIv?.company ? companyLogo(nextIv.company) : icon("flag")}<span>${nextIv?.name ? `${nextIv.name} interview` : who ? `${who} interview` : "Interview"}, <span class="nw">${short(date)}</span>${beyond > 0 ? `, ${plural(beyond, "day")} past the chart` : ""}</span></span>${later.map((i) => html`<span class="pd-end">${i.company ? companyLogo(i.company) : icon("flag")}<span>${i.name ?? "Interview"}, <span class="nw">${short(i.date)}</span></span></span>`)}`
     : html`<span class="pd-end">${icon("calendar-plus")}<span>Runs to <span class="nw">${short(c.plan.end)}</span>, rolls forward daily</span></span>`;
   if (!d) return end;
   const mocks = d.sessions.filter(isMock).length;
   const check = d.sessions.some((s) => s.items.some((x) => x.kind === "checkpoint"));
   const n = d.sessions.length;
-  return html`<span class="pd-when${d === days[0] ? " pd-today" : ""}">${d === days[0] ? "Today" : DAY_SHORT[weekdayIndex(d.date)]}</span><strong class="pd-date">${short(d.date)}</strong>
-    <span class="pd-load">${d.off ? "Day off" : n ? `${fmtM(d.minutes)}, ${plural(n, "session")}` : "Nothing planned"}</span>${
+  // The day's interviews lead, then its sessions, so the card says what the day holds.
+  const ivs = interviewsOn(c, d.date).map((iv) => html`<span class="pd-iv">${iv.company ? companyLogo(iv.company) : icon("flag")}<span>${iv.name ? `${iv.name} interview` : "Interview"}</span></span>`);
+  const list = !d.off && n ? html`<ol class="pd-list" aria-label="Sessions">${d.sessions.map((s) => html`<li><button type="button" class="pd-ses" data-ses="${s.id}" data-date="${d.date}"><span class="h">${s.title}</span><span class="t">${clock(minuteOf(s.start_ms))}, ${fmtM(s.minutes)}</span></button></li>`)}</ol>` : "";
+  return html`<span class="pd-when${d === days[0] ? " pd-today" : ""}">${d === days[0] ? "Today" : DAY_SHORT[weekdayIndex(d.date)]}</span><strong class="pd-date">${short(d.date)}</strong>${ivs}
+    <span class="pd-load">${d.off ? "Day off" : n ? `${fmtM(d.minutes)}, ${plural(n, "session")}` : "Nothing planned"}</span>${list}${
       mocks ? html`<span class="pd-tag"><i class="lg-mock"></i>${mocks > 1 ? plural(mocks, "mock interview") : "Mock interview"}</span>` : ""
     }${check ? html`<span class="pd-tag"><i class="lg-check"></i>Check-in</span>` : ""}${end}`;
 }
@@ -1698,7 +1701,7 @@ function goTo(index: number, openFirst = false): void {
 function onClick(e: MouseEvent): void {
   if (!root() || !ctx) return;
   const t = e.target as Element;
-  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],button[data-nav],[data-today],[data-unfold],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol[data-p],.ag-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
+  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],button[data-nav],[data-today],[data-unfold],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],.pcol[data-p],.ag-ses[data-ses],.pd-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
   if (!t.closest(".daymenu-pop") && !t.closest("[data-daymenu]")) closeDayMenu();
   // Any click outside the popover closes it; a session click reopens it on that session.
   if (!t.closest("[data-pop]") && !t.closest(".ses") && !t.closest(".toast")) closePop();
@@ -1740,7 +1743,7 @@ function onClick(e: MouseEvent): void {
   if (d.shorter) return (closeDayMenu(), toggleShorter(d.shorter));
   if (d.goto) return goTo(Number(d.goto), true);
   if (a.classList.contains("pcol")) return pickDay(d.date === pickedDay ? null : (d.date ?? null));
-  if (a.classList.contains("ag-ses") && d.ses) return openPop(d.ses);
+  if ((a.classList.contains("ag-ses") || a.classList.contains("pd-ses")) && d.ses) return openPop(d.ses);
   if (a.matches("[data-pop-close]")) return closePop();
   if (a.matches("[data-pop-move]") && openPopId) return openPop(openPopId, { move: true });
   if (a.matches("[data-pop-skip]") && openPopId) return skipSession(openPopId);

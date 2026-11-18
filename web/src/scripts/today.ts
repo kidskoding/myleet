@@ -185,6 +185,17 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
       inline: "",
     };
   }
+  if (left === 0) {
+    // The day itself: no countdown or forecast, which by now pace toward the next interview.
+    const after = p.interviews.filter((i) => i.date > today).sort((a, b) => a.date.localeCompare(b.date))[0];
+    const then = after ? ` After it, your plan builds toward ${companyName(c.cat, after.company ?? undefined) ?? "your next interview"} on ${shortDate(after.date)}` : "";
+    return {
+      panel: html`<section class="panel" aria-labelledby="cd"><div class="section-head"><h2 id="cd">${markCompanies(title, marks(c))}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
+        <p class="plan-note">${markCompanies(`Good luck today!${then}`, marks(c))}</p>
+        <div class="goal-actions">${editGoalsLink()}</div></section>`,
+      inline: `${title} today`,
+    };
+  }
   const rows = c.plan ? paceRows(c.plan.forecast) : [];
   const behind = rows.find((r) => r.status === "behind") ?? null;
   const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${sentenceCase(behind.title)} is behind by ${behind.behind_by}` : c.plan?.summary.on_track ? " On track" : ""}`;
