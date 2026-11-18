@@ -243,7 +243,8 @@ import Base from "../layouts/Base.astro";
   .approach .section-head { margin-bottom: var(--space-4); }
   /* The chart and its axis share one fixed summit column, so day labels sit under their bars. */
   .approach { --summit-w: 9.5rem; }
-  .profile { position: relative; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)) var(--summit-w); align-items: end; flex: 1; min-height: 110px; max-height: 200px; }
+  /* No max-height: the side card shares this row, and a capped row let a tall card push the bars over the dates */
+  .profile { position: relative; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)) var(--summit-w); align-items: end; flex: 1; min-height: 110px; }
   .pcol { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; border-radius: 4px; padding: 0; background: none; }
   .pcol:hover { background: var(--surface-sunk); }
   .pcol:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
