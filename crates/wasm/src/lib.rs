@@ -993,7 +993,8 @@ mod tests {
         assert_eq!(p["start"], "2026-11-14");
         assert_eq!(p["tz"], CHICAGO);
         assert_eq!(p["interview_date"], "2026-11-28");
-        assert!(p["days"].as_array().unwrap().len() == 14);
+        // Four weeks: the plan carries on past the interview on the 28th.
+        assert!(p["days"].as_array().unwrap().len() == 28);
         assert!(
             p["summary"]["headline"]
                 .as_str()
