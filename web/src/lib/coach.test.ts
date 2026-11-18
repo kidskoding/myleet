@@ -61,21 +61,18 @@ describe("todaySummary", () => {
 
 describe("personal cards", () => {
   const title = (id: string) => id.toUpperCase();
-  it("shows jump back in, due and still building from real data", () => {
+  it("shows jump back in and still building from real data", () => {
     const q = [entry("a", "new", { rung: -1, attempts: 2 }), entry("r", "review", {}, 3), entry("s", "review", {}, 1)];
     const skills = [skill({ history: [attempt({ problem: "a", date: "2026-11-13" })] }), skill({ technique_title: "Hashing", level: "solid", need: 0.1 })];
     expect(personalCards(q, skills, title, now)).toEqual([
       { kind: "resume", label: "Jump back in", title: "A", body: "Last time you passed 5 of 7 tests, 2 days ago", problem: "a" },
-      { kind: "due", label: "Waiting the longest", title: "R", body: "It's been waiting 3 days, and one clean pass puts it back on schedule", problem: "r" },
       { kind: "weak", label: "Still building", title: "Sliding Window", body: "It's still shaky. A few clean solves and you'll stop needing hints on it.", problem: null },
     ]);
   });
   it("leaves the hero's problem and a flagged weak spot to their own cards", () => {
     const q = [entry("r", "review", {}, 3), entry("s", "review", {}, 1)];
     const skills = [skill({ weak_spot: true }), skill({ technique_title: "Hashing", level: "building", need: 0.9 })];
-    expect(personalCards(q, skills, title, now, "r")).toEqual([
-      { kind: "due", label: "Due before it slips", title: "S", body: "It came due yesterday, so a clean pass today keeps it on schedule", problem: "s" },
-    ]);
+    expect(personalCards(q, skills, title, now, "r")).toEqual([]);
   });
   it("renders nothing without data", () => {
     expect(personalCards([entry("n", "new", { attempts: 0 })], null, title, now)).toEqual([]);

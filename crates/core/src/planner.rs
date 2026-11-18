@@ -726,9 +726,11 @@ impl Ctx<'_> {
         ))
     }
 
-    fn review(&self, p: &Problem, s: &Sim, overdue: i64) -> PlanItem {
+    fn review(&self, p: &Problem, s: &Sim) -> PlanItem {
         let stage = crate::schedule::mastery_stage(s.rung);
-        let reason = match overdue {
+        // Worded from today, since the reason is read today even on a later day's item.
+        let reason = match days_between(s.due, self.today) {
+            n if n < 0 => format!("Due {} while it's {stage}", day_name(s.due, self.today)),
             0 => format!("Due today while it's {stage}"),
             1 => format!("Due yesterday while it's {stage}"),
             n => format!("Due {n} days ago while it's {stage}"),
@@ -1324,14 +1326,14 @@ fn build(
             .collect();
         due.sort_by(|a, b| b.0.cmp(&a.0).then(a.1.cmp(&b.1)));
         let mut today_problems: HashSet<usize> = HashSet::new();
-        for (overdue, pi, s) in due {
+        for (_, pi, s) in due {
             let p = &c.problems()[pi];
             let m = ctx.review_minutes(p);
             if fits(used, m) {
                 used += m;
                 today_problems.insert(pi);
                 chosen.push(Chosen {
-                    item: ctx.review(p, &s, overdue),
+                    item: ctx.review(p, &s),
                     effect: Effect::Review(pi),
                 });
             }
@@ -2457,6 +2459,12 @@ mod tests {
         assert_eq!(review.0, "2026-11-16", "1-day review the next practice day");
         assert!(
             review.1.reason.contains("just learned"),
+            "{}",
+            review.1.reason
+        );
+        // Read today, a later day's review says when it comes due, never "Due today".
+        assert!(
+            review.1.reason.starts_with("Due tomorrow"),
             "{}",
             review.1.reason
         );

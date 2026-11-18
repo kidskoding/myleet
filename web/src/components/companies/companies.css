@@ -72,6 +72,7 @@
 .cos .inplan .ses { list-style: none; padding: 0; margin-top: var(--space-3); display: grid; gap: var(--space-2); font-size: var(--text-sm); }
 .cos .inplan .ses li { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); gap: var(--space-3); }
 .cos .inplan .ses .d { color: var(--ink-3); font-weight: 600; font-variation-settings: "wdth" var(--wdth-tag); }
+.cos .inplan .ses .d .tm { display: block; font-weight: 500; white-space: nowrap; }
 .cos .inplan .ses .why { display: block; font-size: var(--text-xs); color: var(--ink-3); }
 .cos .inplan .fc { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
 .cos .inplan .fc-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px var(--space-3); font-size: var(--text-sm); align-items: center; }

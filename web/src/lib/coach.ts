@@ -122,7 +122,7 @@ function summaryText({ items, skills, daysLeft, now, leetcodeWeak, sets, focus }
 }
 
 export interface Card {
-  kind: "resume" | "due" | "weak";
+  kind: "resume" | "weak";
   label: string;
   title: string;
   body: string;
@@ -148,18 +148,7 @@ export function personalCards(queue: TodayEntry[], skills: Skill[] | null, title
       problem: started.problem,
     });
   }
-  // The hero card already shows `next`, so this card picks the next most overdue review.
-  const due = queue.filter((e) => e.kind === "review" && e.overdue_days > 0 && e.problem !== next).sort((a, b) => b.overdue_days - a.overdue_days)[0];
-  if (due) {
-    const n = due.overdue_days;
-    cards.push({
-      kind: "due",
-      label: n <= 2 ? "Due before it slips" : "Waiting the longest",
-      title: title(due.problem),
-      body: n <= 2 ? `It came due ${n === 1 ? "yesterday" : "2 days ago"}, so a clean pass today keeps it on schedule` : `It's been waiting ${n} days, and one clean pass puts it back on schedule`,
-      problem: due.problem,
-    });
-  }
+  // No card for the most overdue review: its row in the list already says how long it waited.
   // A flagged weak spot has its own panel beside Today, so this card only speaks when there is none.
   const tried = (skills ?? []).filter((s) => (s.evidence.attempts ?? 0) > 0);
   const weak = tried.filter((s) => s.level === "shaky" || s.level === "building").sort((a, b) => b.need - a.need)[0];

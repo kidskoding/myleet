@@ -14,7 +14,7 @@ import { readEvents } from "../lib/progress";
 import { companyProblemHref } from "../lib/practice-context";
 import { moduleHref, ROUTES } from "../lib/routes";
 import { clock, minuteOf } from "../lib/schedule";
-import { localDay, recordStats } from "../lib/streak";
+import { addDays, localDay, recordStats } from "../lib/streak";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import type { Playlist, Skill, State } from "../lib/types";
 import { bar, plural, tag } from "../lib/ui/bits";
@@ -233,7 +233,13 @@ function renderLeans(c: Ctx, p: Playlist): void {
   );
 }
 
-const sessionDay = (ms: number) => new Date(ms).toLocaleDateString(undefined, { weekday: "short" });
+/** "Today", "Tomorrow", else "Mon, Nov 23": a bare weekday can't tell this Wednesday from next. */
+function sessionDay(ms: number): string {
+  const day = localDay(new Date(ms));
+  if (day === localDay()) return "Today";
+  if (day === addDays(localDay(), 1)) return "Tomorrow";
+  return new Date(ms).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+}
 const sessionTime = (ms: number) => clock(minuteOf(ms));
 
 /** "In your plan": upcoming sessions with this set's problems and the forecast for its techniques. */
@@ -267,7 +273,7 @@ function renderInPlan(c: Ctx, p: Playlist): void {
         sessions.length
           ? html`<ol class="ses">${sessions.map(
               ({ s, picks }) =>
-                html`<li><span class="d">${sessionDay(s.start_ms)} ${sessionTime(s.start_ms)}</span><span>${picks.map((x) => x.title).join(", ")}<span class="why">${picks[0]?.reason.replace(/\.$/, "") ?? ""}</span></span></li>`,
+                html`<li><span class="d">${sessionDay(s.start_ms)}<span class="tm">${sessionTime(s.start_ms)}</span></span><span>${picks.map((x) => x.title).join(", ")}<span class="why">${picks[0]?.reason.replace(/\.$/, "") ?? ""}</span></span></li>`,
             )}</ol>`
           : html`<p class="text-small text-secondary" style="margin-top:var(--space-2)">No ${p.title} problems in the next sessions: reviews and other techniques come first right now</p>`
       }
