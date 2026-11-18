@@ -81,8 +81,11 @@ dev: web-build
     cd worker && bun install --frozen-lockfile && ([ -f .dev.vars ] || cp .dev.vars.example .dev.vars) && bunx wrangler d1 migrations apply DB --local
     uv run python tools/demo/seed.py web/public/data/catalog.json worker/.wrangler/demo.sql
     cd worker && bunx wrangler d1 execute DB --local --file .wrangler/demo.sql
+    # Serves a private copy of the site, so a rebuild of web/dist (CI checks, another session)
+    # can't pull files out from under the running server.
+    rm -rf worker/.wrangler/site && cp -r web/dist worker/.wrangler/site
     (until curl -sf -o /dev/null http://localhost:8787/api/auth/providers; do sleep 1; done; xdg-open http://localhost:8787/api/auth/demo >/dev/null 2>&1 || open http://localhost:8787/api/auth/demo) &
-    cd worker && bunx wrangler dev --port 8787
+    cd worker && bunx wrangler dev --port 8787 --assets .wrangler/site
 
 # static site in web/dist (type check + build), after fresh catalog data and wasm bindings
 web-build: export wasm
