@@ -739,31 +739,37 @@ impl Ctx<'_> {
     }
 
     fn review(&self, p: &Problem, s: &Sim) -> PlanItem {
-        let stage = crate::schedule::mastery_stage(s.rung);
-        // Worded from today, since the reason is read today even on a later day's item.
-        let reason = match days_between(s.due, self.today) {
-            n if n < 0 => format!("Due {} while it's {stage}", day_name(s.due, self.today)),
-            0 => format!("Due today while it's {stage}"),
-            1 => format!("Due yesterday while it's {stage}"),
-            n => format!("Due {n} days ago while it's {stage}"),
+        // Full sentences, worded from today since the reason is read today even on a
+        // later day's item: "It came due 19 days ago, and it's still settling in."
+        let stage = match s.rung {
+            i32::MIN..=0 => "you're still new to it",
+            1 => "it's still settling in",
+            2 => "it's getting solid",
+            3 => "it's mastered, so this keeps it there",
+            _ => "it's locked in, so this is a quick check",
         };
-        let reason = match self.lc_days.get(&p.id) {
-            Some(n) => format!("{reason}, {}", reason::leetcode_clause(*n)),
-            None => reason,
+        let when = match days_between(s.due, self.today) {
+            n if n < 0 => format!("It comes due {}", day_name(s.due, self.today)),
+            0 => "It's due today".to_string(),
+            1 => "It came due yesterday".to_string(),
+            n => format!("It came due {n} days ago"),
         };
+        let mut reason = format!("{when}, and {stage}.");
+        if let Some(n) = self.lc_days.get(&p.id) {
+            reason = format!("{reason} {}.", reason::cap(&reason::leetcode_clause(*n)));
+        }
         // Like new work, a review says when its pattern matters for a target company.
-        let reason = match self.company(p) {
-            Some((co, n)) => format!(
-                "{reason}. {} shows up in {} of {co}'s problems",
-                reason::cap(&self.tech(p)),
-                if n == 1 {
-                    "one".to_string()
-                } else {
-                    n.to_string()
-                }
-            ),
-            None => reason,
-        };
+        if let Some((co, n)) = self.company(p) {
+            let count = if n == 1 {
+                "one".to_string()
+            } else {
+                n.to_string()
+            };
+            reason = format!(
+                "{reason} {co} uses {} in {count} of its problems.",
+                self.tech(p)
+            );
+        }
         let mut it = self.item(
             ItemKind::Review,
             Tag::Review,
@@ -2581,13 +2587,13 @@ mod tests {
             .expect("the first new problem is reviewed later");
         assert_eq!(review.0, "2026-11-16", "1-day review the next practice day");
         assert!(
-            review.1.reason.contains("just learned"),
+            review.1.reason.contains("still new to it"),
             "{}",
             review.1.reason
         );
         // Read today, a later day's review says when it comes due, never "Due today".
         assert!(
-            review.1.reason.starts_with("Due tomorrow"),
+            review.1.reason.starts_with("It comes due tomorrow"),
             "{}",
             review.1.reason
         );
