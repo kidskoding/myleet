@@ -770,6 +770,8 @@ impl Ctx<'_> {
                 self.tech(p)
             );
         }
+        // UI text never ends on a period; the ones between sentences stay.
+        let reason = reason.trim_end_matches('.').to_string();
         let mut it = self.item(
             ItemKind::Review,
             Tag::Review,
