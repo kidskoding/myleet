@@ -48,7 +48,7 @@ fn days(n: i64) -> String {
     }
 }
 
-fn cap(s: &str) -> String {
+pub(crate) fn cap(s: &str) -> String {
     let mut cs = s.chars();
     cs.next()
         .map_or(String::new(), |c| c.to_uppercase().chain(cs).collect())

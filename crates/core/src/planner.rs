@@ -40,6 +40,11 @@ const DEFAULT_GOAL: usize = 3;
 const WEAK_BONUS: f64 = 0.5;
 /// The last days before the interview introduce nothing new.
 const REVIEW_ONLY_DAYS: i64 = 2;
+/// Kept free of reviews each day (outside the review-only days) so a new problem always
+/// fits; a backlog then clears over a few more days instead of crowding out new work.
+const NEW_RESERVE_MINUTES: u32 = 25;
+/// Days shorter than this go to reviews alone, since one new problem would take most of it.
+const NEW_RESERVE_MIN_CAP: u32 = 45;
 /// On an interview day with a known time: at most this much review, ending this long before it.
 const WARMUP_MINUTES: u32 = 20;
 const WARMUP_GAP_MINUTES: u32 = 60;
@@ -746,6 +751,19 @@ impl Ctx<'_> {
             Some(n) => format!("{reason}, {}", reason::leetcode_clause(*n)),
             None => reason,
         };
+        // Like new work, a review says when its pattern matters for a target company.
+        let reason = match self.company(p) {
+            Some((co, n)) => format!(
+                "{reason}. {} shows up in {} of {co}'s problems",
+                reason::cap(&self.tech(p)),
+                if n == 1 {
+                    "one".to_string()
+                } else {
+                    n.to_string()
+                }
+            ),
+            None => reason,
+        };
         let mut it = self.item(
             ItemKind::Review,
             Tag::Review,
@@ -1371,8 +1389,21 @@ fn build(
         // The first item of a day may run past the budget, or a long problem could
         // never be planned on a short budget.
         let fits = |used: u32, m: u32| used + m <= cap || (used == 0 && cap > 0 && m <= room);
+        let days_left = upcoming
+            .iter()
+            .find(|d| **d >= day)
+            .map(|d| days_between(day, *d));
+        let review_only = days_left.is_some_and(|n| n <= REVIEW_ONLY_DAYS);
+        // Reviews leave room for one new problem, so every day mixes the two.
+        let review_cap = if review_only || cap < NEW_RESERVE_MIN_CAP {
+            cap
+        } else {
+            cap - NEW_RESERVE_MINUTES
+        };
+        let fits_review =
+            |used: u32, m: u32| used + m <= review_cap || (used == 0 && cap > 0 && m <= room);
 
-        // 1. Due reviews, most overdue first; never dropped for new work.
+        // 1. Due reviews, most overdue first. Ones that don't fit roll to the next day.
         let mut due: Vec<(i64, usize, Sim)> = sim
             .iter()
             .filter(|(_, s)| s.due <= day)
@@ -1383,7 +1414,7 @@ fn build(
         for (_, pi, s) in due {
             let p = &c.problems()[pi];
             let m = ctx.review_minutes(p);
-            if fits(used, m) {
+            if fits_review(used, m) {
                 used += m;
                 today_problems.insert(pi);
                 chosen.push(Chosen {
@@ -1394,10 +1425,6 @@ fn build(
         }
 
         // 2. Mock interviews: weekly, every few days near the date, and one the day before.
-        let days_left = upcoming
-            .iter()
-            .find(|d| **d >= day)
-            .map(|d| days_between(day, *d));
         let near = days_left.is_some_and(|n| n <= NEAR_DAYS);
         let every = if near {
             MOCK_EVERY_DAYS_NEAR
@@ -1465,7 +1492,6 @@ fn build(
         }
 
         // 4. New problems: techniques below their goal first, then by priority.
-        let review_only = days_left.is_some_and(|n| n <= REVIEW_ONLY_DAYS);
         let mut placed_new = 0;
         if !review_only {
             let slots =
