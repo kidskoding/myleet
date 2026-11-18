@@ -33,5 +33,8 @@
     pkg-config
     git
     just
+    
+    # wrangler
+    wrangler
   ];
 }
