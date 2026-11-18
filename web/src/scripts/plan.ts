@@ -1,6 +1,7 @@
 // Plan (/plan, ?view=month, #YYYY-MM-DD): the route from today to the interview as the
 // learner's own schedule. Everything comes from the wasm planner; moves, days off and
 // budgets are settings, so every change re-runs it and the page morphs to the new plan.
+import { sentenceCase } from "../lib/display";
 import { attempts, parseEvents } from "../lib/attempts";
 import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { nextInterview, onPrefsChange, planSettings, readPrefs, updatePrefs, type Prefs } from "../lib/prefs";
@@ -933,7 +934,7 @@ function forecastLine(prev: Plan, next: Plan): string {
     return p && p.behind_by !== f.behind_by;
   });
   const parts = (changed.length ? changed : next.forecast.filter((f) => f.behind_by > 0)).slice(0, 3).map((f, i) => {
-    const name = i === 0 ? f.title : midSentence(f.title);
+    const name = i === 0 ? sentenceCase(f.title) : midSentence(f.title);
     return f.behind_by ? `${name} is behind by ${f.behind_by}` : `${name} is on track`;
   });
   if (!parts.length) return next.forecast.length ? "Every target is on track" : "";

@@ -170,7 +170,7 @@ export function readPrefs(): Prefs {
 /** The interview a plan paces toward: the soonest one after today, else the latest. */
 export function nextInterview(list: Interview[], today: string = localDay()): Interview | null {
   const sorted = [...list].sort((a, b) => a.date.localeCompare(b.date));
-  return sorted.find((i) => i.date > today) ?? sorted.at(-1) ?? null;
+  return sorted.find((i) => i.date >= today) ?? sorted.at(-1) ?? null;
 }
 
 /**

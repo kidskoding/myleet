@@ -109,7 +109,7 @@ export function mountGoalsEditor(host: HTMLElement, o: GoalsEditorOpts): GoalsEd
       const name = companyTitle(companies, s) ?? s;
       return html`<li class="chip ge-chip">${companyLogo(s)}<span>${name}</span><button type="button" data-ge-co-remove="${s}" aria-label="Remove ${name}">${icon("x")}</button></li>`;
     })}<li><button type="button" class="btn btn-ghost btn-sm" data-ge-co-add>${icon("plus")}Add a company</button></li></ul>
-    ${leans.length ? html`<div class="ge-lean" aria-label="Techniques your companies lean on, by problem count in their sets"><p>Their sets lean on</p>${leans.map((l) => html`<div><span>${l.title}</span><span class="bar" aria-hidden="true"><span style="width:${((l.n / max) * 100).toFixed(0)}%"></span></span><b>${l.n}</b></div>`)}</div>` : ""}`;
+    ${leans.length ? html`<div class="ge-lean" aria-label="Techniques your companies lean on, by problem count in their sets"><p>Their sets lean on</p>${leans.map((l) => html`<div><span>${sentenceCase(l.title)}</span><span class="bar" aria-hidden="true"><span style="width:${((l.n / max) * 100).toFixed(0)}%"></span></span><b>${l.n}</b></div>`)}</div>` : ""}`;
   };
 
   const stepper = (k: "weekday" | "weekend", v: number, steps: number[], label: string): SafeHtml =>

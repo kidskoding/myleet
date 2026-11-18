@@ -30,7 +30,7 @@ import {
   type Source,
   type WorkspaceReport,
 } from "../lib/mock";
-import { readPrefs } from "../lib/prefs";
+import { nextInterview, readPrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
 import { noteHref, problemHref } from "../lib/routes";
 import { recordStats } from "../lib/streak";
@@ -151,7 +151,7 @@ function paintSetup(c: Ctx): void {
   if (std) std.textContent = String(Math.round(c.rules.round_secs / 60));
 
   const q = new URLSearchParams(location.search).get("company");
-  const slug = q ?? readPrefs().plan.companies[0];
+  const slug = q ?? nextInterview(readPrefs().plan.interviews)?.company ?? readPrefs().plan.companies[0];
   const pl = slug ? c.cat.catalog.playlists.find((p) => companySlug(p.id) === slug) : undefined;
   const sel = $<HTMLInputElement>("[data-company]");
   if (sel && pl) {

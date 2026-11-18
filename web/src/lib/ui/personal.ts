@@ -117,7 +117,7 @@ const leadIn = (t: string): string => (/[!?]$/.test(t) ? t : `${t.replace(/[.:]$
 
 export function replanNote(n: Pick<PlanNote, "kind" | "title" | "body"> & { actions?: PlanNote["actions"] }, opts: { dismiss?: boolean; link?: SafeHtml; marks?: Marks } = {}): SafeHtml {
   const m = opts.marks ?? {};
-  return html`<div class="replan" role="status" data-note="${n.kind}">
+  return html`<div class="replan" role="status" data-note="${n.kind}" data-note-title="${n.title}">
     ${icon(NOTE_ICON[n.kind] ?? "calendar-clock")}
     <div><strong>${markCompanies(leadIn(n.title), m)}</strong> ${markCompanies(n.body.replace(/\.$/, ""), m)}</div>
     <div class="acts">${(n.actions ?? []).map(
@@ -141,6 +141,15 @@ export function dismissNote(n: Pick<PlanNote, "kind" | "title">): void {
     localStorage.setItem(`myleet:note:${n.kind}:${n.title}`, String(Date.now()));
   } catch {
     // Shows again next visit.
+  }
+}
+
+/** Undo for a dismissal, so an undone action brings its note back. */
+export function restoreNote(n: Pick<PlanNote, "kind" | "title">): void {
+  try {
+    localStorage.removeItem(`myleet:note:${n.kind}:${n.title}`);
+  } catch {
+    // Nothing stored, nothing to restore.
   }
 }
 

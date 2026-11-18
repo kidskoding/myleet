@@ -146,14 +146,14 @@ impl Settings {
         }
         s.interviews.sort_by(|a, b| a.date.cmp(&b.date));
         let today_s = today.to_string();
-        let next = s.interviews.iter().find(|i| i.date > today_s);
+        let next = s.interviews.iter().find(|i| i.date >= today_s);
         if let Some(n) = next.or(s.interviews.last()) {
             s.interview_date = Some(n.date.clone());
         }
         let wanted: Vec<String> = s
             .interviews
             .iter()
-            .filter(|i| i.date > today_s)
+            .filter(|i| i.date >= today_s)
             .filter_map(|i| i.company.clone())
             .collect();
         for c in wanted {
@@ -2628,6 +2628,17 @@ mod tests {
             serde_json::to_string(&a.days).unwrap(),
             serde_json::to_string(&b.days).unwrap()
         );
+    }
+
+    #[test]
+    fn an_interview_today_is_still_the_next_one() {
+        let s = settings(
+            r#"{"interviews":[{"date":"2026-11-14","company":"meta"},{"date":"2026-12-20","company":"stripe"}],
+                "target_companies":["google"]}"#,
+        );
+        let r = s.resolved(jiff::civil::date(2026, 11, 14));
+        assert_eq!(r.interview_date.as_deref(), Some("2026-11-14"));
+        assert!(r.target_companies.contains(&"meta".to_string()));
     }
 
     #[test]

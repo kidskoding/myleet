@@ -15,7 +15,7 @@ import { MOCK_LEAD_MIN, mockState } from "../lib/mock-today";
 import { mockHref, readHistory } from "../lib/mock";
 import { addMove, midSentence, minuteOf, moveFor } from "../lib/schedule";
 import { daysUntil, paceRows, shortDate } from "../lib/plan";
-import { planSettings, readPrefs, updatePrefs } from "../lib/prefs";
+import { nextInterview, planSettings, readPrefs, updatePrefs } from "../lib/prefs";
 import { appendEvent, readEvents } from "../lib/progress";
 import { reminderSupport, requestReminderPermission, toPlanned } from "../lib/reminders";
 import { planDayHref, problemHref, ROUTES, skillHref } from "../lib/routes";
@@ -47,7 +47,7 @@ import { html, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
 import { displayRung, ladder, RUNG_DAYS } from "../lib/ui/ladder";
 import { bannerDismissed, errorPanel, hideBanner, showBanner, toast } from "../lib/ui/overlay";
-import { dismissNote, forecastRows, noteDismissed, replanNote, trend, whyChips } from "../lib/ui/personal";
+import { dismissNote, forecastRows, noteDismissed, replanNote, restoreNote, trend, whyChips } from "../lib/ui/personal";
 
 const CHECKIN_KEY = "myleet:checkin";
 /** Above this many due reviews, Today shows only the most overdue ones. */
@@ -158,7 +158,7 @@ function companyName(cat: LoadedCatalog, slug: string | undefined): string | nul
 
 function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   const p = readPrefs().plan;
-  const who = companyName(c.cat, p.companies[0]);
+  const who = companyName(c.cat, companySlugNow());
   const title = who ? `${who} interview` : "Your interview";
   const today = localDay(c.now);
   if (!p.interviewDate) {
@@ -187,7 +187,7 @@ function planInfo(c: Ctx): { panel: SafeHtml; inline: string } {
   }
   const rows = c.plan ? paceRows(c.plan.forecast) : [];
   const behind = rows.find((r) => r.status === "behind") ?? null;
-  const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${behind.title} is behind by ${behind.behind_by}` : c.plan?.summary.on_track ? " On track" : ""}`;
+  const inline = `${title} in ${plural(left, "day")}.${behind ? ` ${sentenceCase(behind.title)} is behind by ${behind.behind_by}` : c.plan?.summary.on_track ? " On track" : ""}`;
   return {
     panel: html`<section class="panel" aria-labelledby="cd">
       <div class="section-head"><h2 id="cd">${markCompanies(title, marks(c))}</h2><a class="link text-small" href="${ROUTES.plan}">Open plan</a></div>
@@ -331,7 +331,7 @@ function doneRow(c: Ctx, d: DoneItem, states: Record<string, State>): SafeHtml {
 
 function firstRun(c: Ctx): SafeHtml {
   const name = cachedMe()?.user.display_name?.trim().split(/\s+/)[0] || null;
-  return todayInvite(`Welcome to myleet${name ? `, ${name}` : ""}`, targetCompany(c), readPrefs().plan.companies[0] ?? null);
+  return todayInvite(`Welcome to myleet${name ? `, ${name}` : ""}`, targetCompany(c), companySlugNow() ?? null);
 }
 
 /**
@@ -416,9 +416,14 @@ function goalRows(c: Ctx): GoalReady[] {
   return goalReadiness(c.cat.catalog, { companies: p.companies, topics: p.focusTopics }, c.t.states(c.events), lastCleanSet(parseEvents(c.events), target), c.now.getTime()).slice(0, 4);
 }
 
+/** The next interview's company slug, or the first target company: the same rule as the Plan page. */
+function companySlugNow(): string | undefined {
+  const p = readPrefs().plan;
+  return nextInterview(p.interviews)?.company ?? p.companies[0];
+}
+
 function targetCompany(c: Ctx): string | null {
-  const slug = readPrefs().plan.companies[0];
-  return (slug && c.cat.catalog.playlists.find((p) => p.id.replace(/^\d+_/, "") === slug)?.title) || null;
+  return companyName(c.cat, companySlugNow());
 }
 
 /** A guest sees the diagnostic invitation or their results, never a personal Today. */
@@ -434,7 +439,7 @@ function paintGuest(c: Ctx, main: HTMLElement, aside: HTMLElement): void {
       // The welcome line is a nicety.
     }
   }
-  render(main, mode === "results" ? todayResults(greet, resultsLine(items, (t) => topicById(t)?.label ?? t)) : todayInvite(greet, targetCompany(c), readPrefs().plan.companies[0] ?? null));
+  render(main, mode === "results" ? todayResults(greet, resultsLine(items, (t) => topicById(t)?.label ?? t)) : todayInvite(greet, targetCompany(c), companySlugNow() ?? null));
   main.removeAttribute("aria-busy");
   main.removeAttribute("aria-label");
   main.closest(".today-layout")?.classList.add("is-first-run");
@@ -775,8 +780,11 @@ document.addEventListener("click", async (e) => {
     const s = spreadDays(ctx.plan, readPrefs().plan, Number(spread.dataset.value));
     const was = readPrefs().plan.dayMinutes;
     if (s) {
+      // The note goes once acted on; otherwise each click stacks the minutes again.
+      const note = { kind: "catch_up" as PlanNote["kind"], title: spread.closest<HTMLElement>("[data-note]")?.dataset.noteTitle ?? "" };
+      dismissNote(note);
       updatePrefs({ plan: { dayMinutes: s.dayMinutes } });
-      toast(`Added ${formatMinutes(s.each)} to each of the next ${s.count === 1 ? "day" : `${s.count} days`}`, { action: { label: "Undo", run: () => { updatePrefs({ plan: { dayMinutes: was } }); void refresh(); } } });
+      toast(`Added ${formatMinutes(s.each)} to each of the next ${s.count === 1 ? "day" : `${s.count} days`}`, { action: { label: "Undo", run: () => { restoreNote(note); updatePrefs({ plan: { dayMinutes: was } }); void refresh(); } } });
     }
     void refresh();
     return;
@@ -867,7 +875,7 @@ function paintMock(): void {
   render(
     el,
     html`<article class="l2" aria-live="polite" style="margin-block:var(--space-4)"><div><h2>${copy.h}</h2><p class="text-muted">${copy.p}</p></div>
-      <div style="display:flex;gap:var(--space-2);flex-wrap:wrap"><a class="btn ${st === "now" ? "btn-primary" : "btn-secondary"}" href="${mockHref({ session: s.id, minutes: s.minutes, company: readPrefs().plan.companies[0] ?? null })}">${st === "now" ? "Start mock" : "Start now"}</a>${
+      <div style="display:flex;gap:var(--space-2);flex-wrap:wrap"><a class="btn ${st === "now" ? "btn-primary" : "btn-secondary"}" href="${mockHref({ session: s.id, minutes: s.minutes, company: companySlugNow() ?? null })}">${st === "now" ? "Start mock" : "Start now"}</a>${
         st === "missed" ? html`<button class="btn btn-ghost" type="button" data-mock-move ${tomorrow && !tomorrow.rest ? "" : "disabled"}>Move to tomorrow</button>` : ""
       }</div></article>`,
   );
