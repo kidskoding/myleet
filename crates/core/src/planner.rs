@@ -1723,6 +1723,7 @@ fn build(
                 }
                 items.push(ch.item);
             }
+            interleave(&mut items);
             let minutes = items.iter().map(|i| i.minutes).sum();
             let moved_from = moved_in
                 .iter()
@@ -2361,6 +2362,19 @@ pub fn fixes(
     Ok(out)
 }
 
+/// A session opens with one warm-up review, then the new problem, then the rest, so new
+/// work isn't always saved for last after a run of reviews.
+fn interleave(items: &mut Vec<PlanItem>) {
+    let first_new = items.iter().position(|i| i.kind == ItemKind::New);
+    if let Some(at) = first_new
+        && at > 1
+        && items[0].kind == ItemKind::Review
+    {
+        let it = items.remove(at);
+        items.insert(1, it);
+    }
+}
+
 fn summarize(all: &[Day], forecast: &[Coverage], today: Date, interview: Option<Date>) -> Summary {
     // Counts run to the interview; the plan's days after it are practice that carries on.
     let cut = interview.map(|d| d.to_string());
@@ -2775,6 +2789,30 @@ mod tests {
             "{}",
             n.body
         );
+    }
+
+    #[test]
+    fn a_session_puts_the_new_problem_after_one_warm_up_review() {
+        let it = |kind: ItemKind, title: &str| PlanItem {
+            kind,
+            tag: Tag::default(),
+            problem: None,
+            title: title.into(),
+            technique: None,
+            minutes: 10,
+            reason: String::new(),
+            note: None,
+            chips: Vec::new(),
+        };
+        let mut items = vec![
+            it(ItemKind::Review, "r1"),
+            it(ItemKind::Review, "r2"),
+            it(ItemKind::Review, "r3"),
+            it(ItemKind::New, "n1"),
+        ];
+        interleave(&mut items);
+        let order: Vec<&str> = items.iter().map(|i| i.title.as_str()).collect();
+        assert_eq!(order, ["r1", "n1", "r2", "r3"]);
     }
 
     #[test]
