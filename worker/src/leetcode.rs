@@ -5,7 +5,19 @@ use serde::{Deserialize, Deserializer, Serialize};
 use serde_json::Value;
 
 pub const GRAPHQL: &str = "https://leetcode.com/graphql";
-pub const TTL_SECS: u64 = 86_400;
+/// An hour, so returning to myleet after a LeetCode session picks up what you just solved.
+pub const TTL_SECS: u64 = 3_600;
+/// Connected learners the cron reads per run; each costs one GraphQL subrequest, and
+/// the free plan allows 50. shortcut: past ~300 connected learners a full lap takes over
+/// a day; then run the cron hourly or fan out through a queue.
+pub const POLL_BATCH: u32 = 40;
+/// How long the cron keeps a solve waiting for the learner's next visit.
+pub const KEEP_SECS: i64 = 30 * 86_400;
+/// The learners to read next: connected ones, longest since their last check first.
+pub const DUE_SQL: &str = "SELECT s.user_id AS user_id, json_extract(s.extra, '$.leetcode_username') AS username \
+    FROM user_settings s LEFT JOIN leetcode_polls p ON p.user_id = s.user_id \
+    WHERE json_extract(s.extra, '$.leetcode_username') IS NOT NULL \
+    ORDER BY COALESCE(p.checked_at, 0) LIMIT ?1";
 /// Free Render instances sleep, so a slow first answer is a reason to fall back.
 pub const ALFA_TIMEOUT_SECS: u64 = 5;
 /// Uncached lookups per IP per hour; cache hits are free.
@@ -56,6 +68,16 @@ pub struct Profile {
     pub solved: Solved,
     pub tags: Vec<TagCount>,
     pub recent: Vec<Recent>,
+}
+
+/// Folds the cron's stored solves into a profile's recent list: newest first, one per
+/// problem, so a week away from myleet still counts every solve, not only the last 20.
+pub fn with_stored(mut p: Profile, stored: Vec<Recent>) -> Profile {
+    p.recent.extend(stored);
+    p.recent.sort_by_key(|r| std::cmp::Reverse(r.timestamp));
+    let mut seen = std::collections::HashSet::new();
+    p.recent.retain(|r| seen.insert(r.slug.clone()));
+    p
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -297,5 +319,33 @@ mod tests {
         assert!(needs_fallback(&Ok(Outcome::NotFound)));
         assert!(needs_fallback(&Err("timeout".into())));
         assert!(!needs_fallback(&parse_alfa("u", SOLVED, SKILL, AC)));
+    }
+
+    #[test]
+    fn stored_solves_join_the_recent_list_once_each() {
+        let mut p = parse_graphql("neetcode", GQL).unwrap();
+        let Outcome::Found(ref mut p) = p else {
+            panic!()
+        };
+        p.recent = vec![Recent {
+            slug: "two-sum".into(),
+            timestamp: 50,
+        }];
+        let stored = vec![
+            Recent {
+                slug: "two-sum".into(),
+                timestamp: 10,
+            },
+            Recent {
+                slug: "valid-anagram".into(),
+                timestamp: 40,
+            },
+        ];
+        let got: Vec<_> = with_stored(p.clone(), stored)
+            .recent
+            .into_iter()
+            .map(|r| (r.slug, r.timestamp))
+            .collect();
+        assert_eq!(got, [("two-sum".into(), 50), ("valid-anagram".into(), 40)]);
     }
 }

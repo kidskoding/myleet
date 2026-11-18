@@ -6,7 +6,8 @@ use serde::{Deserialize, Serialize};
 use worker::wasm_bindgen::JsValue;
 use worker::{
     Context, D1Database, D1PreparedStatement, Date, Env, Fetch, Headers, Method, Request,
-    RequestInit, Response, Result, console_error, console_warn, event,
+    RequestInit, Response, Result, ScheduleContext, ScheduledEvent, console_error, console_warn,
+    event,
 };
 
 use crate::account::{self, MePatch, PublicSummary, Resolution, Settings, SettingsRow};
@@ -399,9 +400,14 @@ async fn get_leetcode_profile(req: &Request, app: &App) -> Result<Response> {
     let kv = app.env.kv("STATEMENTS")?;
     let key = leetcode::cache_key(&user);
     if let Some(hit) = kv.get(&key).text().await? {
-        let mut res = Response::ok(hit)?;
-        res.headers_mut().set("Content-Type", "application/json")?;
-        return Ok(res);
+        return match serde_json::from_str::<leetcode::Profile>(&hit) {
+            Ok(p) => profile_response(req, app, p).await,
+            Err(_) => {
+                let mut res = Response::ok(hit)?;
+                res.headers_mut().set("Content-Type", "application/json")?;
+                Ok(res)
+            }
+        };
     }
     let ip = req
         .headers()
@@ -441,9 +447,104 @@ async fn get_leetcode_profile(req: &Request, app: &App) -> Result<Response> {
     {
         console_warn!("leetcode {user}: cache write failed: {e}");
     }
-    let mut res = Response::ok(body)?;
-    res.headers_mut().set("Content-Type", "application/json")?;
-    Ok(res)
+    profile_response(req, app, profile).await
+}
+
+#[derive(Deserialize)]
+struct SolveRow {
+    slug: String,
+    solved_at: f64,
+}
+
+/// The profile, plus what the cron stored for the signed-in learner under this username.
+async fn profile_response(req: &Request, app: &App, p: leetcode::Profile) -> Result<Response> {
+    let Some(c) = current(req, app).await? else {
+        return json(&p, 200);
+    };
+    let rows: Vec<SolveRow> = app
+        .db()?
+        .prepare("SELECT slug, solved_at FROM leetcode_solves WHERE user_id = ?1 AND username = ?2")
+        .bind(&[text(&c.user_id), text(&p.username.to_ascii_lowercase())])?
+        .all()
+        .await?
+        .results()?;
+    let stored = rows
+        .into_iter()
+        .map(|r| leetcode::Recent {
+            slug: r.slug,
+            timestamp: r.solved_at as i64,
+        })
+        .collect();
+    json(&leetcode::with_stored(p, stored), 200)
+}
+
+#[derive(Deserialize)]
+struct DueRow {
+    user_id: String,
+    username: String,
+}
+
+/// Every few hours: reads connected learners' public profiles and keeps their recent
+/// solves, so the next visit picks up work done while myleet was closed.
+#[event(scheduled)]
+async fn scheduled(_e: ScheduledEvent, env: Env, _ctx: ScheduleContext) {
+    let site = env
+        .var("SITE_ORIGIN")
+        .map(|v| v.to_string())
+        .unwrap_or_default();
+    if let Err(e) = poll_leetcode(&App { env, site }).await {
+        console_error!("leetcode poll: {e}");
+    }
+}
+
+async fn poll_leetcode(app: &App) -> Result<()> {
+    let db = app.db()?;
+    let now = now_ms() / 1000;
+    db.prepare("DELETE FROM leetcode_solves WHERE solved_at < ?1")
+        .bind(&[num(now.saturating_sub(leetcode::KEEP_SECS as u64))])?
+        .run()
+        .await?;
+    let due: Vec<DueRow> = db
+        .prepare(leetcode::DUE_SQL)
+        .bind(&[num(leetcode::POLL_BATCH.into())])?
+        .all()
+        .await?
+        .results()?;
+    let kv = app.env.kv("STATEMENTS")?;
+    for d in due
+        .into_iter()
+        .filter(|d| leetcode::valid_username(&d.username))
+    {
+        let mut writes = vec![
+            db.prepare("INSERT INTO leetcode_polls (user_id, checked_at) VALUES (?1, ?2) ON CONFLICT(user_id) DO UPDATE SET checked_at = ?2")
+                .bind(&[text(&d.user_id), num(now)])?,
+        ];
+        // One subrequest per learner; a failure waits for the next run.
+        match graphql_profile(&d.username).await {
+            Ok(Outcome::Found(p)) => {
+                let name = p.username.to_ascii_lowercase();
+                for r in &p.recent {
+                    writes.push(
+                        db.prepare("INSERT OR IGNORE INTO leetcode_solves (user_id, username, slug, solved_at) VALUES (?1, ?2, ?3, ?4)")
+                            .bind(&[text(&d.user_id), text(&name), text(&r.slug), num(r.timestamp.max(0) as u64)])?,
+                    );
+                }
+                if let Ok(body) = serde_json::to_string(&p)
+                    && let Err(e) = kv
+                        .put(&leetcode::cache_key(&d.username), body)?
+                        .expiration_ttl(leetcode::TTL_SECS)
+                        .execute()
+                        .await
+                {
+                    console_warn!("leetcode poll {}: cache write failed: {e}", d.username);
+                }
+            }
+            Ok(Outcome::NotFound) => {}
+            Err(e) => console_warn!("leetcode poll {}: {e}", d.username),
+        }
+        db.batch(writes).await?;
+    }
+    Ok(())
 }
 
 fn auth_failed(app: &App, f: Failure) -> Result<Response> {
@@ -1123,6 +1224,8 @@ async fn delete_me(req: &Request, app: &App) -> Result<Response> {
         by_user("reports", "user_id")?,
         by_user("calendar_feeds", "user_id")?,
         by_user("calendar_links", "user_id")?,
+        by_user("leetcode_solves", "user_id")?,
+        by_user("leetcode_polls", "user_id")?,
         by_user("plans", "user_id")?,
         by_user("progress", "user_id")?,
         by_user("user_settings", "user_id")?,

@@ -20,7 +20,8 @@ const MIN_TOTAL: u32 = 20;
 const FEW: u32 = 3;
 /// At least this many and the module starts further along.
 pub const MANY: u32 = 25;
-/// Recent accepted problems become review markers; more would flood the first day.
+/// On first connect, recent accepted problems become review markers; more would flood
+/// the first day. Later syncs mark every new solve, since each one really happened.
 const MAX_MARKERS: usize = 10;
 
 #[derive(Debug, Deserialize)]
@@ -218,12 +219,13 @@ pub fn disconnect_event(now: Timestamp) -> Event {
 }
 
 /// The import event, then one solved event per recent accepted problem that we teach and
-/// the learner has not touched yet.
+/// the learner has not touched yet. `first` caps the markers at `MAX_MARKERS`.
 pub fn import_events(
     c: &Catalog,
     states: &HashMap<String, State>,
     p: &Profile,
     now: Timestamp,
+    first: bool,
 ) -> Vec<Event> {
     let mut modules: BTreeMap<String, u32> = c
         .modules
@@ -265,7 +267,7 @@ pub fn import_events(
         };
         let at = BTreeMap::from([("solved_at".to_string(), t.as_second().to_string())]);
         out.push(event(now, kind::LEETCODE_SOLVED, id, at));
-        if seen.len() == MAX_MARKERS {
+        if first && seen.len() == MAX_MARKERS {
             break;
         }
     }
@@ -378,7 +380,7 @@ mod tests {
                 "recent":[{"slug":"two-sum","timestamp":1700000000},{"slug":"unknown","timestamp":1}]}"#,
         );
         let now = Timestamp::from_second(1_800_000_000).unwrap();
-        let evs = import_events(&c, &HashMap::new(), &p, now);
+        let evs = import_events(&c, &HashMap::new(), &p, now, true);
         let got = load(&evs).unwrap();
         assert_eq!((got.username.as_str(), got.total), ("kid", 300));
         assert_eq!(

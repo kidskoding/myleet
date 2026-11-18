@@ -1,14 +1,16 @@
 // The opt-in LeetCode import. The Worker reads the public profile; the wasm core turns it
 // into event lines (priors per module, recent solves as started problems). Nothing here
-// ever sees a password or a cookie.
+// ever sees a password or a cookie. After connecting it syncs on its own: hourly while
+// myleet is open, and the Worker's cron keeps solves made while it is closed.
 import { readPrefs, updatePrefs } from "./prefs";
 import { appendEvent, readEvents } from "./progress";
-import { localDay } from "./streak";
 import { loadTrainer } from "./trainer";
 import type { LeetcodeImport, LeetcodeProfile } from "./types";
 
 const REFRESHED = "myleet-lc-refreshed";
 const SUMMARY = "myleet-lc-summary";
+/** The profile cache on the Worker lasts an hour too, so checking sooner finds nothing new. */
+export const SYNC_EVERY_MS = 60 * 60 * 1000;
 
 export type Connected = { ok: true; summary: string; marked: number } | { ok: false; message: string };
 
@@ -55,7 +57,7 @@ async function apply(profile: LeetcodeProfile, reconnect: boolean) {
   const trainer = await loadTrainer();
   const out = trainer.leetcodeImport(await readEvents(), profile, { reconnect });
   for (const line of out.lines) await appendEvent(line);
-  store(REFRESHED, localDay());
+  store(REFRESHED, String(Date.now()));
   return out;
 }
 
@@ -81,11 +83,18 @@ export async function refresh(): Promise<Connected> {
   return { ok: true, summary: out.summary, marked: out.marked };
 }
 
-/** At most one refresh a day, quietly: a failure just waits for tomorrow's. */
-export async function refreshIfDue(today = localDay()): Promise<void> {
-  if (!readPrefs().leetcodeUsername || load(REFRESHED) === today) return;
-  store(REFRESHED, today);
-  await refresh().catch(() => undefined);
+/** When the last sync ran, in ms, or null before the first. */
+export function lastSynced(): number | null {
+  const n = Number(load(REFRESHED));
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+/** At most one sync an hour, quietly: a failure just waits for the next. Resolves to the new solves it marked. */
+export async function refreshIfDue(now = Date.now()): Promise<number> {
+  if (!readPrefs().leetcodeUsername || (lastSynced() ?? 0) > now - SYNC_EVERY_MS) return 0;
+  store(REFRESHED, String(now));
+  const r = await refresh().catch(() => null);
+  return r?.ok ? r.marked : 0;
 }
 
 /** Forgets the username and voids the import and its markers. */

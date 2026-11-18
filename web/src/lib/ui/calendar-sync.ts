@@ -54,7 +54,7 @@ export function elide(url: string): string {
   return `${m[1]}${m[2]!.slice(0, 4)}…${m[2]!.slice(-3)}${m[3]}`;
 }
 
-const ago = (ms: number) => {
+export const ago = (ms: number) => {
   const mins = Math.round((Date.now() - ms) / 60000);
   if (mins < 2) return "just now";
   if (mins < 90) return `${mins} minutes ago`;

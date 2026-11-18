@@ -412,12 +412,20 @@ impl Trainer {
             all.push(leetcode::disconnect_event(now));
         }
         let states = self.compute(&all, &zone(tz)?);
-        let new = leetcode::import_events(&self.catalog, &states, &profile, now);
+        let new = leetcode::import_events(&self.catalog, &states, &profile, now, reconnect);
         let marked = new
             .iter()
             .filter(|e| e.kind == kind::LEETCODE_SOLVED)
             .count();
-        all.extend(new);
+        // Refreshes run hourly; one that changes nothing writes nothing, so the synced
+        // log does not grow by an import line every hour.
+        let last = all.iter().rev().find(|e| e.kind == kind::LEETCODE_IMPORTED);
+        let same = !reconnect
+            && marked == 0
+            && last.zip(new.first()).is_some_and(|(a, b)| a.data == b.data);
+        if !same {
+            all.extend(new);
+        }
         let import = leetcode::load(&all).ok_or("import event missing")?;
         let lines: Vec<String> = all[from..].iter().map(progress::to_line).collect();
         Ok(json!({
@@ -858,6 +866,32 @@ mod tests {
 
     fn parse(s: &str) -> Value {
         serde_json::from_str(s).unwrap()
+    }
+
+    #[test]
+    fn a_refresh_that_changes_nothing_writes_nothing() {
+        let t = trainer();
+        let p = r#"{"username":"kid","solved":{"all":30,"easy":10,"medium":15,"hard":5},"tags":[],"recent":[]}"#;
+        let now = ms_of("2026-10-20T15:00:00Z");
+        let first = parse(&t.leetcode_import_json("", p, now, CHICAGO, true).unwrap());
+        let lines: Vec<&str> = first["lines"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|l| l.as_str().unwrap())
+            .collect();
+        let log = lines.join("\n") + "\n";
+        let again = parse(
+            &t.leetcode_import_json(&log, p, now + 3.6e6, CHICAGO, false)
+                .unwrap(),
+        );
+        assert_eq!(again["lines"].as_array().unwrap().len(), 0);
+        let more = p.replace(r#""all":30"#, r#""all":31"#);
+        let changed = parse(
+            &t.leetcode_import_json(&log, &more, now + 3.6e6, CHICAGO, false)
+                .unwrap(),
+        );
+        assert_eq!(changed["lines"].as_array().unwrap().len(), 1);
     }
 
     #[test]

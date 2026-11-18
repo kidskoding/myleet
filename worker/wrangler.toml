@@ -14,6 +14,10 @@ directory = "../web/dist"
 not_found_handling = "404-page"
 run_worker_first = ["/api/*"]
 
+# LeetCode sync while the app is closed: reads connected learners' public profiles.
+[triggers]
+crons = ["0 */3 * * *"]
+
 [[d1_databases]]
 binding = "DB"
 database_name = "myleet"

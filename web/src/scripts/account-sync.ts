@@ -186,7 +186,7 @@ export async function startAccountSync(me: Me): Promise<void> {
     const pending = takePending();
     if (r.kind === "uploaded" || r.kind === "merge" || (pending !== null && pending !== "calendar-sync")) toast("Saved to your account");
     if (r.kind !== "deferred") void uploadPlan().catch(() => undefined);
-    void import("../lib/leetcode").then((m) => m.refreshIfDue()).catch(() => undefined);
+    void syncLeetcode();
   } catch {
     syncFailed(() => {
       started = false;
@@ -196,9 +196,15 @@ export async function startAccountSync(me: Me): Promise<void> {
 
   addEventListener("myleet:progress", () => syncer.request());
   addEventListener("online", () => syncer.request(true));
+  // refreshIfDue keeps this to one LeetCode read an hour, however often it is called.
+  setInterval(() => void syncLeetcode(), 15 * 60 * 1000);
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") syncer.request(true);
-    else void pullNow();
+    else {
+      void pullNow();
+      // Back from a LeetCode tab: what was just solved shows up without a Refresh button.
+      void syncLeetcode();
+    }
   });
 
   // Settings changes go to the account, debounced; the Settings page shows Saved / Couldn't save.
@@ -221,4 +227,14 @@ export async function startAccountSync(me: Me): Promise<void> {
   };
   onPrefsChange(() => push());
   addEventListener("myleet:theme", () => push(true));
+}
+
+/** Runs the hourly LeetCode sync and says so when it found new solves. */
+async function syncLeetcode(): Promise<void> {
+  try {
+    const n = await (await import("../lib/leetcode")).refreshIfDue();
+    if (n > 0) toast(n === 1 ? "Picked up 1 new solve from LeetCode. It's in your reviews now" : `Picked up ${n} new solves from LeetCode. They're in your reviews now`);
+  } catch {
+    // The next visit tries again.
+  }
 }
