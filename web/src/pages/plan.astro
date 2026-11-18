@@ -331,7 +331,8 @@ import Base from "../layouts/Base.astro";
   .mc.st-missed .st { color: var(--ink-3); text-decoration: underline dotted; }
   .pcol.past .b { position: relative; background: none; box-shadow: inset 0 0 0 1.5px var(--line-strong); overflow: hidden; }
   .pcol.past .b .f { position: absolute; left: 0; right: 0; bottom: 0; background: var(--ink-3); }
-  .pcol.past.st-missed .b { box-shadow: inset 0 0 0 1.5px var(--control-edge); border-style: dashed; }
+  /* A real border: border-style alone falls back to the default 3px width */
+  .pcol.past.st-missed .b { box-shadow: none; border: 1.5px dashed var(--control-edge); }
   .lg-done { background: var(--ink-3); }
   .lg-missed { box-shadow: inset 0 0 0 1.5px var(--control-edge); background: none !important; }
   /* "Your goals" dialog: the shared editor as a draft, the change's cost pinned above the actions */
