@@ -575,7 +575,14 @@ fn auth_providers(app: &App) -> Result<Response> {
     );
     p.email = p.email || magic::print_link_instead(&app.site, false);
     p.demo = magic::print_link_instead(&app.site, email_configured(app));
+    p.find_interviews = find_interviews_on(app);
     json(&p, 200)
+}
+
+/// Reading calendar events waits for Google to verify the app, so production keeps it
+/// off until FIND_INTERVIEWS is "on"; local dev always has it.
+fn find_interviews_on(app: &App) -> bool {
+    magic::is_local(&app.site) || app.var("FIND_INTERVIEWS").is_ok_and(|v| v == "on")
 }
 
 /// `GET /api/auth/demo`: signs in as the seeded demo learner. Same local-only gate as printed links.
@@ -1821,7 +1828,7 @@ async fn gcal_connect(req: &Request, app: &App) -> Result<Response> {
     }
     let state = random_hex(oauth::STATE_BYTES)?;
     // `?interviews` also asks to read events, for "Find interviews in Google Calendar".
-    let find = query_param(req, "interviews")?.is_some();
+    let find = query_param(req, "interviews")?.is_some() && find_interviews_on(app);
     let url = gcal::authorize_url(
         &client_id(app, Provider::Google)?,
         &gcal::redirect_uri(&app.site),
@@ -1997,6 +2004,9 @@ async fn gcal_callback(req: &Request, app: &App) -> Result<Response> {
 /// `GET /api/calendar/google/interviews`: events in the next 90 days that look like
 /// interviews. `access: false` means the link can't read events yet.
 async fn gcal_interviews(req: &Request, app: &App) -> Result<Response> {
+    if !find_interviews_on(app) {
+        return json_error("not found", 404);
+    }
     let c = signed_in!(req, app);
     let db = app.db()?;
     let Some(row) = load_link(&db, &c.user_id).await? else {

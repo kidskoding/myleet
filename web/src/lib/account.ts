@@ -205,6 +205,8 @@ export interface Providers {
   email: boolean;
   /** Local dev only: one click signs in as the seeded demo learner. */
   demo?: boolean;
+  /** "Find interviews in Google Calendar" is switched on for this deployment. */
+  find_interviews?: boolean;
 }
 
 let providersPromise: Promise<Providers> | undefined;

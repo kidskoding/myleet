@@ -17,13 +17,17 @@ pub const PER_IP_LIMIT: u32 = 20;
 /// terminal instead of emailed. Only for an `http://localhost` or `http://127.0.0.1`
 /// site, which production's `https://` origin can never be.
 pub fn print_link_instead(site: &str, email_configured: bool) -> bool {
-    let local = ["http://localhost", "http://127.0.0.1"].iter().any(|h| {
+    is_local(site) && !email_configured
+}
+
+/// `http://localhost` or `http://127.0.0.1`, with or without a port: local dev only.
+pub fn is_local(site: &str) -> bool {
+    ["http://localhost", "http://127.0.0.1"].iter().any(|h| {
         site == *h
             || site
                 .strip_prefix(h)
                 .is_some_and(|rest| rest.starts_with(':'))
-    });
-    local && !email_configured
+    })
 }
 
 /// The seeded demo learner (`just dev` loads it from tools/demo/seed.py), local dev only.

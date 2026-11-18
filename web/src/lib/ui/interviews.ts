@@ -1,7 +1,7 @@
 // The interviews list: each row a date, an optional start time and an optional company, picked with the company
 // search. Used by Settings, onboarding and Change plan; the caller decides where it saves.
 import { requireAccount } from "../access";
-import { findInterviews, type FoundInterview } from "../account";
+import { fetchProviders, findInterviews, type FoundInterview } from "../account";
 import { companySlug, listedCompany } from "../catalog";
 import { clock, toMin } from "../schedule";
 import { companyLogo } from "../company-logos";
@@ -41,6 +41,17 @@ const when = (f: FoundInterview): string =>
 const search: { finding: boolean; found: FoundInterview[] | null; note: string } = { finding: false, found: null, note: "" };
 const SEARCHED = "myleet:iv-search";
 let returned = false;
+// Off on production until Google verifies the calendar read access; the Worker says which.
+let canFind = false;
+let asked = false;
+function askCanFind(): void {
+  if (asked) return;
+  asked = true;
+  void fetchProviders().then((p) => {
+    canFind = p.find_interviews === true;
+    dispatchEvent(new Event(SEARCHED));
+  });
+}
 
 async function runFind(taken: () => Interview[]): Promise<void> {
   if (!requireAccount("calendar-sync")) return;
@@ -66,6 +77,7 @@ export function mountInterviews(host: HTMLElement, playlists: Company[], o: Inte
   const fresh = (): FoundInterview[] => (search.found ?? []).filter((f) => !o.get().some((iv) => iv.date === f.date));
   const find = (): Promise<void> => runFind(o.get);
   addEventListener(SEARCHED, () => host.isConnected && paint());
+  askCanFind();
   const paint = (): void => {
     const list = o.get();
     const rows = list.length ? list : [{ date: "", company: host.dataset.pending || null }];
@@ -78,7 +90,7 @@ export function mountInterviews(host: HTMLElement, playlists: Company[], o: Inte
           <button type="button" class="company-trigger iv-co" data-iv-co="${i}" aria-haspopup="dialog">${iv.company ? html`${companyLogo(iv.company)}<span>${name}</span>` : html`<span class="text-secondary">No specific company</span>`}<span aria-hidden="true">⌕</span></button>
           ${list.length ? html`<button type="button" class="icon-btn" data-iv-remove="${i}" aria-label="Remove the ${name ?? ""} interview${iv.date ? ` on ${iv.date}` : ""}">${icon("x")}</button>` : ""}</li>`;
       })}</ul>
-      <div class="iv-actions">${list.length ? html`<button type="button" class="btn btn-ghost btn-sm" data-iv-add>${icon("plus")}Add another interview</button>` : ""}<button type="button" class="btn btn-ghost btn-sm" data-iv-find ${search.finding ? "disabled aria-busy=\"true\"" : ""}>${icon("calendar-search")}${search.finding ? "Looking through your calendar" : "Find interviews in Google Calendar"}</button></div>
+      <div class="iv-actions">${list.length ? html`<button type="button" class="btn btn-ghost btn-sm" data-iv-add>${icon("plus")}Add another interview</button>` : ""}${canFind ? html`<button type="button" class="btn btn-ghost btn-sm" data-iv-find ${search.finding ? "disabled aria-busy=\"true\"" : ""}>${icon("calendar-search")}${search.finding ? "Looking through your calendar" : "Find interviews in Google Calendar"}</button>` : ""}</div>
       ${fresh().length
         ? html`<ul class="iv-found" aria-label="Interviews found in your Google Calendar">${fresh().map((f, i) => {
             const co = companyIn(f.title, companies);

@@ -35,6 +35,9 @@ id = "39c7aef4210a474fa881da6d0cd499f3"
 [vars]
 # Public REST wrapper tried first for LeetCode profiles; GraphQL is the fallback.
 LEETCODE_API_BASE = "https://alfa-leetcode-api.onrender.com"
+# "Find interviews in Google Calendar" reads events, a sensitive Google scope: keep "off"
+# until Google verifies the app, then set "on". Local dev has it either way.
+FIND_INTERVIEWS = "off"
 SITE_ORIGIN = "https://myleet.anirudhkonidala.workers.dev"
 GITHUB_CLIENT_ID = "Ov23lifOFJZIw2RR9RMi"
 GOOGLE_CLIENT_ID = "733376621529-ciu4sa3ce1gf6ap54o8r2u9qb68vpfp6.apps.googleusercontent.com"
