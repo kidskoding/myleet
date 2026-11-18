@@ -16,6 +16,7 @@ pub mod savestate;
 pub mod schedule;
 pub mod session;
 pub mod skills;
+pub mod statement;
 pub mod stats;
 
 #[cfg(test)]

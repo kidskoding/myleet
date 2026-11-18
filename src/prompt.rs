@@ -232,7 +232,7 @@ struct Question {
 
 /// Superscripts become ^n so 10<sup>4</sup> reads as 10^4 in a terminal.
 pub fn to_markdown(html: &str) -> Result<String, String> {
-    let html = replace_sup(html).replace("&nbsp;", " ");
+    let html = myleet_core::statement::examples_as_code(&replace_sup(html)).replace("&nbsp;", " ");
     let md = htmd::convert(&html).map_err(|e| e.to_string())?;
     let md = collapse_blank_runs(md.trim());
     if md.is_empty() {

@@ -201,6 +201,8 @@ html:has(.wsx), body:has(.wsx) { height: 100%; overflow: hidden; }
 .statement .prose p > strong:only-child { font-family: var(--font-ui); font-size: var(--text-xs); font-weight: 650; color: var(--ink-3); display: block; margin-bottom: calc(var(--space-2) * -1); }
 .statement .prose ul { color: var(--ink-2); font-size: 0.9375rem; }
 .statement .prose code { white-space: nowrap; }
+/* Example values ("Input: nums = [...]") can be long, so they wrap */
+.statement .prose p:has(> strong:first-child + code) > code { white-space: normal; overflow-wrap: anywhere; }
 .statement .prose pre code { white-space: inherit; }
 .stmt-skel { padding-top: 2px; }
 .stmt-note { font-family: var(--font-ui); font-size: var(--text-sm); color: var(--ink-2); background: var(--surface-sunk); border-radius: var(--radius-sm); padding: var(--space-4); display: grid; gap: var(--space-3); justify-items: start; }

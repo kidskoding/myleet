@@ -124,7 +124,7 @@ pub fn parse_reply(text: &str) -> Result<Cached, String> {
 // Kept in step with `to_markdown` in src/prompt.rs so the CLI and web read alike.
 /// Superscripts become ^n so 10<sup>4</sup> reads as 10^4.
 pub fn to_markdown(html: &str) -> Result<String, String> {
-    let html = replace_sup(html).replace("&nbsp;", " ");
+    let html = myleet_core::statement::examples_as_code(&replace_sup(html)).replace("&nbsp;", " ");
     let md = htmd::convert(&html).map_err(|e| e.to_string())?;
     let md = collapse_blank_runs(md.trim());
     if md.is_empty() {
@@ -188,7 +188,8 @@ mod tests {
             "Koko loves to eat bananas",
             "`n`",
             "Example 1",
-            "piles = [3,6,7,11]",
+            "**Input:** `piles = [3,6,7,11], h = 8`",
+            "**Output:** `4`",
             "10^4",
         ] {
             assert!(

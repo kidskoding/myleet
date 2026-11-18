@@ -22,7 +22,8 @@ use crate::session::{self, CAL_STATE_COOKIE, SESSION_COOKIE, STATE_COOKIE};
 use crate::statement::{self, Cached};
 use crate::sync::{self, Write};
 
-const STATEMENT_KEY_PREFIX: &str = "stmt:v1:";
+// v2: example values became inline code, so v1 entries are refetched.
+const STATEMENT_KEY_PREFIX: &str = "stmt:v2:";
 const USER_AGENT: &str = "myleet (personal study tool)";
 const USER_ID_BYTES: usize = 16;
 const SMALL_BODY_BYTES: usize = 16 * 1024;
