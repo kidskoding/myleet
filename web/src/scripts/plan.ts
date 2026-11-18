@@ -328,7 +328,7 @@ function dayHeader(c: Ctx, d: PlanDay, g: Grid): SafeHtml {
     : d.off
     ? html`Day off`
     : interviewsOn(c, d.date).length
-      ? html`${interviewsOn(c, d.date).map(ivLabel).join(", ")}`
+      ? html`${interviewsOn(c, d.date).map((iv) => html`<span class="dh-iv">${iv.company ? companyLogo(iv.company) : icon("flag")}${ivLabel(iv)}</span>`)}`
     : !d.windows.length
       ? html`No window`
       : html`<span class="bar" aria-hidden="true"><span style="width:${Math.min(100, (planned / Math.max(1, d.cap)) * 100).toFixed(0)}%"></span></span>${planned}/${d.cap}m`;
