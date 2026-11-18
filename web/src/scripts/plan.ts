@@ -593,7 +593,7 @@ function profile(c: Ctx): SafeHtml {
     return html`<span class="${mon ? "mon" : thin ? "thin" : ""}">${named ? html`<em>${dt.toLocaleDateString(undefined, { month: "short" })}</em>` : ""}${dt.getDate()}</span>`;
   });
   return html`<section class="panel approach" aria-labelledby="ap-h">
-    <div class="section-head"><h2 id="ap-h">${date ? `${c.plan.summary.days_left} days to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${[mocks ? plural(mocks, "mock") : "", checks ? plural(checks, "check-in") : "", offs ? plural(offs, "day") + " off" : ""].filter(Boolean).join(", ")}</span></div>
+    <div class="section-head"><h2 id="ap-h">${date ? `${plural(c.plan.summary.days_left ?? 0, "day")} to ${short(date)}` : "Next 4 weeks"}</h2><span class="meta">${[mocks ? plural(mocks, "mock") : "", checks ? plural(checks, "check-in") : "", offs ? plural(offs, "day") + " off" : ""].filter(Boolean).join(", ")}</span></div>
     <div class="profile" style="--n:${n}" role="group" aria-label="Planned minutes per day${date ? " until the interview" : ""}, after the last week's outcomes. Choose a day to see it, arrow keys move between days">${pastHtml}${colsHtml}${tailHtml}${summit}<div class="bracket" data-bracket></div></div>
     <div class="paxis" style="--n:${n}" aria-hidden="true">${axis}<span class="end">${date ? short(date) : ""}</span></div>
     <div class="legend"><span><i style="background:var(--accent)"></i>Today</span><span><i style="background:var(--line-strong)"></i>Planned minutes</span><span><i class="lg-mock"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i class="lg-off"></i>Day off</span>${before.length ? html`<span><i class="lg-done"></i>Done</span><span><i class="lg-missed"></i>Missed, moved forward</span>` : ""}</div>
@@ -695,7 +695,10 @@ function head(c: Ctx): SafeHtml {
   const p = readPrefs().plan;
   const date = c.plan.interview_date;
   const later = (c.plan.interviews ?? []).find((i) => date && i.date > date);
-  const companies = p.companies.flatMap((s) => companyTitle(c.cat.catalog.playlists, s) ?? []);
+  // Interview companies are targets too (the planner adds them), so an interview today with
+  // no date after it still names its company in the title.
+  const ivCos = p.interviews.filter((i) => i.company && i.date >= c.plan.start).map((i) => i.company as string);
+  const companies = [...new Set([...ivCos, ...p.companies])].flatMap((s) => companyTitle(c.cat.catalog.playlists, s) ?? []);
   const topics = p.focusTopics.flatMap((t) => topicName(c.cat.catalog, t) ?? []);
   const copy = headCopy({ plan: c.plan, company: company(c), companies, topics, name: firstName(), windows: p.availability, weekday: p.dailyMinutes ?? undefined, weekend: p.weekendMinutes ?? p.dailyMinutes ?? undefined, today: c.plan.start, nextAfter: later ? { company: later.name ?? null, date: later.date } : null });
   // startedAt is per device; the synced ledger's first day keeps "Day N" right on a new one.

@@ -1909,15 +1909,26 @@ fn notes(
         } else {
             format!("{who} was {}. How did it go?", d.strftime("%b %-d"))
         };
+        // On the day itself the interview hasn't happened yet, so the note wishes luck.
+        let (body, set_label) = if d == today {
+            (
+                "Good luck! When it's done, add your next interview to plan towards it, or keep practising on a rolling four weeks.",
+                "Add your next interview",
+            )
+        } else {
+            (
+                "Set a new date to plan towards it, or keep practising on a rolling four weeks.",
+                "Set a new date",
+            )
+        };
         out.push(Note {
             kind: "date_passed".into(),
             title,
-            body: "Set a new date to plan towards it, or keep practising on a rolling four weeks."
-                .into(),
+            body: body.into(),
             actions: vec![
                 NoteAction {
                     kind: "set_date".into(),
-                    label: "Set a new date".into(),
+                    label: set_label.into(),
                     value: None,
                 },
                 NoteAction {
@@ -1937,9 +1948,14 @@ fn notes(
         out.push(Note {
             kind: "cram".into(),
             title: left,
-            body: format!(
-                "The plan is mostly reviews now, with a mock every {MOCK_EVERY_DAYS_NEAR} days. New topics stop {REVIEW_ONLY_DAYS} days before."
-            ),
+            // Inside the review-only tail, mocks and "new topics stop" no longer apply.
+            body: if n <= REVIEW_ONLY_DAYS {
+                "From here it's reviews only, to keep what you already know fresh.".to_string()
+            } else {
+                format!(
+                    "The plan is mostly reviews now, with a mock every {MOCK_EVERY_DAYS_NEAR} days. New topics stop {REVIEW_ONLY_DAYS} days before."
+                )
+            },
             actions: Vec::new(),
         });
     }
@@ -2641,6 +2657,36 @@ mod tests {
             serde_json::to_string(&a.days).unwrap(),
             serde_json::to_string(&b.days).unwrap()
         );
+    }
+
+    #[test]
+    fn the_last_days_note_says_reviews_only() {
+        let s = settings(r#"{"interviews":[{"date":"2026-11-15","company":"meta"}]}"#);
+        let p = run(&[], &s, at(11, 14, 8));
+        let n = p
+            .notes
+            .iter()
+            .find(|n| n.kind == "cram")
+            .expect("a cram note");
+        assert!(
+            n.body.starts_with("From here it's reviews only"),
+            "{}",
+            n.body
+        );
+    }
+
+    #[test]
+    fn an_interview_today_gets_a_good_luck_note() {
+        let s = settings(r#"{"interviews":[{"date":"2026-11-14","company":"meta"}]}"#);
+        let p = run(&[], &s, at(11, 14, 8));
+        let n = p
+            .notes
+            .iter()
+            .find(|n| n.kind == "date_passed")
+            .expect("a note on the interview day");
+        assert!(n.title.ends_with("is today."), "{}", n.title);
+        assert!(n.body.starts_with("Good luck!"), "{}", n.body);
+        assert_eq!(n.actions[0].label, "Add your next interview");
     }
 
     #[test]
