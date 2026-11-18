@@ -32,7 +32,7 @@ const links: { key: NavKey; href: string; label: string; icon: IconName }[] = [
     </button>
     <div class="account">
       <a class="streak" href={ROUTES.progress} data-streak hidden aria-current={nav === "progress" ? "page" : undefined}>
-        <Icon name="calendar-check" /><span class="num" data-streak-num>0</span><span class="unit" data-streak-unit>days</span>
+        <Icon name="flame" /><span class="num" data-streak-num>0</span><span class="unit" data-streak-unit>days</span>
       </a>
       <a class="btn btn-ghost btn-sm when-out" href={ROUTES.signin} data-signin-link="in">Sign in</a>
       <a class="btn btn-primary btn-sm when-out" href={`${ROUTES.signin}?mode=signup`} data-signin-link="up">Sign up for free</a>

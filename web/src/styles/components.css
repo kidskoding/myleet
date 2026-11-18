@@ -61,6 +61,16 @@
 @keyframes digit-roll { from { transform: translateY(70%); opacity: 0; } }
 .streak .unit { color: var(--ink-3); font-weight: 500; }
 .streak.at-risk, .streak.at-risk .unit { color: var(--due); }
+/* The flame heats up with the streak; data-heat is set from the day count in shell.ts */
+.streak .icon { transition: color var(--dur-base) var(--ease-out), filter var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+.streak[data-heat="0"] .icon { color: var(--ink-3); }
+.streak[data-heat="1"] .icon { color: var(--ctp-yellow); }
+.streak[data-heat="2"] .icon { color: var(--ctp-peach); transform: scale(1.06); }
+.streak[data-heat="3"] .icon { color: var(--ctp-peach); transform: scale(1.12); filter: drop-shadow(0 0 3px color-mix(in srgb, var(--ctp-peach) 55%, transparent)); }
+.streak[data-heat="4"] .icon { color: var(--ctp-red); transform: scale(1.18); filter: drop-shadow(0 0 5px color-mix(in srgb, var(--ctp-red) 65%, transparent)); animation: flicker 2.4s ease-in-out infinite; }
+@keyframes flicker { 50% { transform: scale(1.22) rotate(-3deg); filter: drop-shadow(0 0 7px color-mix(in srgb, var(--ctp-red) 75%, transparent)); } }
+@media (prefers-reduced-motion: reduce) { .streak[data-heat="4"] .icon { animation: none; } }
+:root[data-motion="reduce"] .streak[data-heat="4"] .icon { animation: none; }
 
 .avatar {
   text-decoration: none; width: 30px; height: 30px; border-radius: 50%; background: var(--surface-sunk);

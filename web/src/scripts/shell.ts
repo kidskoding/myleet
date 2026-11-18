@@ -153,6 +153,8 @@ function paintStreak(): void {
   }
   shownStreak = s.n;
   el.classList.toggle("at-risk", s.atRisk);
+  // The flame grows with the streak: out at 0, then 1-2, 3-6, 7-29 and 30+ days.
+  el.dataset.heat = String(s.n >= 30 ? 4 : s.n >= 7 ? 3 : s.n >= 3 ? 2 : s.n >= 1 ? 1 : 0);
   if (unit) unit.textContent = s.atRisk ? `${s.n === 1 ? "day" : "days"}, solve one to keep it` : s.n === 1 ? "day" : "days";
   el.setAttribute(
     "aria-label",
