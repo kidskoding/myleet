@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { parseEvents } from "./attempts";
-import { entryState, lastCleanSet, leans, leanText, perDay, readiness } from "./companies";
-import type { Catalog, Playlist, State } from "./types";
+import { entryState, focusOrder, lastCleanSet, leans, leanText, perDay, readiness, type Lean } from "./companies";
+import type { Catalog, Playlist, Skill, State } from "./types";
 
 const st = (p: Partial<State>): State => ({
   status: "learning", rung: 0, due_ms: null, last_ms: 1, first_ms: 1, attempts: 1, clean_passes: 1, fails: 0, hint_attempts: 0, best_secs: 60, ...p,
@@ -85,5 +85,22 @@ describe("companies", () => {
     expect(perDay(36, 23)).toBe(2);
     expect(perDay(36, null)).toBeNull();
     expect(perDay(0, 5)).toBe(1);
+  });
+});
+
+describe("focusOrder", () => {
+  const lean = (technique: string, count: number): Lean => ({ module: "m", technique, title: technique, count, ready: 0, mastery: null, status: { kind: "building" } });
+  const sk = (technique: string, o: Partial<Skill>): Skill => ({ module: "m", technique, need: 0.5, weak: false, weak_spot: false, seen: 4, level: "building", ...o }) as Skill;
+  it("puts what you need most and the company uses most first, strong topics last", () => {
+    const order = focusOrder(
+      [lean("graphs", 9), lean("hashing", 9), lean("dp", 3), lean("trees", 6)],
+      [sk("graphs", { need: 0.9, weak: true, weak_spot: true }), sk("hashing", { need: 0.1, level: "strong" }), sk("dp", { need: 0.6 })],
+    );
+    expect(order.map((f) => [f.technique, f.tag])).toEqual([
+      ["graphs", "weak"],
+      ["trees", "new"],
+      ["dp", "building"],
+      ["hashing", "strong"],
+    ]);
   });
 });

@@ -104,6 +104,39 @@ export function leans(p: Playlist, c: Catalog, states: Record<string, State>, cl
     .sort((a, b) => b.count - a.count);
 }
 
+export type FocusTag = "weak" | "new" | "building" | "strong";
+export const FOCUS_TEXT: Record<FocusTag, string> = { weak: "Weak spot", new: "New to you", building: "Building", strong: "Strong" };
+export type Focus = Lean & { tag: FocusTag; score: number };
+
+/**
+ * The set's techniques in the order the plan picks new work for this company: how much you
+ * need it times how much the set uses it, plus a bonus for weak ones (planner::priority in
+ * crates/core). With no skill reading a technique counts as fully needed.
+ */
+export function focusOrder(l: Lean[], skills: Skill[]): Focus[] {
+  const max = Math.max(1, ...l.map((x) => x.count));
+  const by = new Map(skills.map((s) => [`${s.module}/${s.technique}`, s]));
+  return l
+    .map((x) => {
+      const s = by.get(`${x.module}/${x.technique}`);
+      const tag: FocusTag = s?.weak_spot ? "weak" : !s || s.seen === 0 || s.level === "new" ? "new" : s.level === "solid" || s.level === "strong" ? "strong" : "building";
+      return { ...x, tag, score: (s?.need ?? 1) * (1 + x.count / max) + (s?.weak ? 0.5 : 0) };
+    })
+    .sort((a, b) => b.score - a.score || b.count - a.count);
+}
+
+/** The next problem to practice for this company: the first not-ready one in the top focus technique that has one. */
+export function focusNext(p: Playlist, c: Catalog, focus: Focus[], ready: (id: string) => boolean): string | null {
+  for (const f of focus) {
+    for (const e of p.entries) {
+      const meta = e.problem === null ? undefined : c.problems[e.problem];
+      const m = meta ? c.modules[meta.module] : undefined;
+      if (meta && m?.id === f.module && m.techniques[meta.technique]?.id === f.technique && !ready(meta.id)) return meta.id;
+    }
+  }
+  return null;
+}
+
 export const leanText = (s: LeanStatus): string => (s.kind === "ready" ? "Ready" : s.kind === "building" ? "Building" : `Not started on ${s.n}`);
 
 /** Problems a day to make every tracked entry ready by the date; null without a future date. */

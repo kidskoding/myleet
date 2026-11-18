@@ -4,7 +4,7 @@ import { setRow, SET_FOLD } from "../components/companies/rows";
 import { parseEvents } from "../lib/attempts";
 import { companySlug, loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { companyLogo } from "../lib/company-logos";
-import { entryState, lastCleanSet, leans, perDay, readiness, type Readiness } from "../lib/companies";
+import { entryState, FOCUS_TEXT, focusNext, focusOrder, lastCleanSet, leans, perDay, readiness, type Readiness } from "../lib/companies";
 import { sentenceCase } from "../lib/display";
 import { isDue, statusTag } from "../lib/learn";
 import { daysUntil, shortDate } from "../lib/plan";
@@ -59,13 +59,12 @@ function readyBar(r: Readiness, label: string): SafeHtml {
 
 const readyLabel = (r: Readiness) => `${r.ready} of ${r.tracked} ready: ${r.mastered} mastered, ${r.climbing} leveling up, ${r.started} started`;
 
-/** First tracked entry that isn't ready yet, in set order. */
+/** This company's techniques in the order your plan picks them: what you need most, weighted by how much the set uses it. */
+const focusOf = (c: Ctx, p: Playlist) => focusOrder(leans(p, c.cat.catalog, c.states, c.clean, c.skills), c.skills);
+
+/** The problem your plan would pick next from this set: the top focus technique's first one that isn't ready. */
 function nextEntry(c: Ctx, p: Playlist): string | null {
-  for (const e of p.entries) {
-    const meta = e.problem === null ? undefined : c.cat.catalog.problems[e.problem];
-    if (meta && entryState(c.states[meta.id], c.clean.has(meta.id)) !== "ready") return meta.id;
-  }
-  return null;
+  return focusNext(p, c.cat.catalog, focusOf(c, p), (id) => entryState(c.states[id], c.clean.has(id)) === "ready");
 }
 
 function renderPinned(c: Ctx): void {
@@ -81,6 +80,9 @@ function renderPinned(c: Ctx): void {
     html`${shown.map((p) => {
       const r = readiness(p, c.cat.catalog, c.states, c.clean, c.now);
       const next = nextEntry(c, p);
+      const nm = next ? c.cat.byId.get(next) : undefined;
+      const mod = nm ? c.cat.catalog.modules[nm.module] : undefined;
+      const top = nm && mod ? focusOf(c, p).find((f) => f.module === mod.id && f.technique === mod.techniques[nm.technique]?.id) : undefined;
       // Each company shows its own interview's countdown, and nothing without a date.
       const date = interviews.find((iv) => iv.company === companySlug(p.id) && daysUntil(iv.date) >= 0)?.date;
       const left = date ? daysUntil(date) : null;
@@ -88,7 +90,7 @@ function renderPinned(c: Ctx): void {
       return html`<li><a class="pin" href="${ROUTES.companies}/${companySlug(p.id)}">
         <div><div class="name">${companyLogo(companySlug(p.id))}<span>${p.title}</span></div><div class="grp">${p.group}, ${plural(p.entries.length, "problem")}</div></div>
         <div class="ready"><b>${r.ready}</b> of ${r.tracked} ready${readyBar(r, readyLabel(r))}</div>
-        <div class="next">${next ? html`Next from this set<strong>${c.cat.byId.get(next)?.title ?? next}</strong>` : "Every problem is ready"}</div>
+        <div class="next">${next ? html`Next for you<strong>${c.cat.byId.get(next)?.title ?? next}</strong>${top ? html`<small>${sentenceCase(top.title)}, ${FOCUS_TEXT[top.tag].toLowerCase()}</small>` : ""}` : "Every problem is ready"}</div>
         ${end}</a></li>`;
     })}${list.length > 5 ? html`<li class="pin-more">and ${list.length - 5} more</li>` : ""}`,
   );
@@ -218,16 +220,16 @@ function renderReadiness(c: Ctx, p: Playlist): void {
 }
 
 function renderLeans(c: Ctx, p: Playlist): void {
-  const l = leans(p, c.cat.catalog, c.states, c.clean, c.skills);
+  const l = focusOf(c, p);
   const row = (x: (typeof l)[number]) => {
     const key = `${x.module}/${x.technique}`;
     const label = `${x.ready} of ${x.count} ready`;
-    return html`<li><button type="button" class="technique-filter" data-technique="${key}" aria-label="${sentenceCase(x.title)}, ${plural(x.count, "problem")}, ${label}. Filter practice problems" aria-pressed="${technique === key}"><span>${sentenceCase(x.title)}</span><span class="st">${label}</span>${bar([{ value: x.ready / x.count, kind: "m" }], `${sentenceCase(x.title)}: ${label}`)}</button></li>`;
+    return html`<li><button type="button" class="technique-filter" data-technique="${key}" aria-label="${sentenceCase(x.title)}, ${FOCUS_TEXT[x.tag]}, ${plural(x.count, "problem")}, ${label}. Filter practice problems" aria-pressed="${technique === key}"><span>${sentenceCase(x.title)}<small class="focus-tag ft-${x.tag}">${FOCUS_TEXT[x.tag]} · ${plural(x.count, "problem")}</small></span><span class="st">${label}</span>${bar([{ value: x.ready / x.count, kind: "m" }], `${sentenceCase(x.title)}: ${label}`)}</button></li>`;
   };
   render(
     $("[data-leans]"),
-    html`<h2 id="ln">Techniques in this set</h2>
-      <p class="text-small text-muted">Choose a technique to filter the problems</p>
+    html`<h2 id="ln">Your ${p.title} focus</h2>
+      <p class="text-small text-muted">Your plan takes these in order: what you need most first, weighted by how much ${p.title} uses each one. Pick one to filter the problems</p>
       <ol>${l.slice(0, 5).map(row)}</ol>
       ${l.length > 5 ? html`<details><summary class="link">Show all ${l.length} techniques</summary><ol>${l.slice(5).map(row)}</ol></details>` : ""}`,
   );
@@ -380,7 +382,7 @@ async function load(): Promise<void> {
     if (events.trim()) {
       states = t.states(events);
       recordStats(t.stats(events, { now }));
-      if (root()?.dataset["cos"] === "prep") skills = t.skills(events, planSettings()).techniques;
+      skills = t.skills(events, planSettings()).techniques;
     }
   } catch {
     // Without the trainer the pages still list every set; progress fills in on the next load.
@@ -401,7 +403,8 @@ document.addEventListener("astro:page-load", () => {
   query = "";
   void load();
 });
-window.addEventListener("myleet:progress", () => void (root() && load()));
+// A sync from the account brings this device its history, so it reloads like a local solve.
+for (const ev of ["myleet:progress", "myleet:synced"]) window.addEventListener(ev, () => void (root() && load()));
 
 document.addEventListener("click", (e) => {
   const r = root();
