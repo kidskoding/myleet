@@ -41,9 +41,9 @@ describe("todaySummary", () => {
   });
   it("folds a short why and the plan into one paragraph", () => {
     const items = [item("new", "Hashing"), item("new", "Trees"), item("new", "Graphs")];
-    expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe("Today spreads three new problems across hashing, trees and graphs, with your interview 30 days away");
+    expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe("Today we'll work through three new problems in hashing, trees and graphs. Your interview is 30 days away");
     expect(todaySummary({ items: [item("review", "Arrays"), item("review", "Arrays"), ...items], skills: null, daysLeft: null, now })).toBe(
-      "Today starts with two reviews to keep you on schedule, then three new problems in hashing, trees and graphs",
+      "Today we'll start with two reviews to keep you on schedule, then move on to three new problems in hashing, trees and graphs",
     );
     expect(todaySummary({ items: [item("new", "Hashing"), item("new", "Hashing"), item("new", "Trees")], skills: null, daysLeft: 30, now })).toBe(
       "Today we're spending most of our time on hashing. Your interview is 30 days away, so we'll start with two hashing problems and then work through one more from another topic!",
@@ -54,7 +54,7 @@ describe("todaySummary", () => {
   });
   it("stays short with no history and leaves clauses out without data", () => {
     expect(todaySummary({ items: [item("new", "Hashing")], skills: null, daysLeft: null, now })).toBe("Today we're spending most of our time on hashing");
-    expect(todaySummary({ items: [item("review", "Hashing")], skills: null, daysLeft: null, now })).toBe("Today is a review day, with one older problem to keep you on schedule");
+    expect(todaySummary({ items: [item("review", "Hashing")], skills: null, daysLeft: null, now })).toBe("Today we'll review one older problem to keep you on schedule");
     expect(todaySummary({ items: [], skills: null, daysLeft: null, now })).toBeNull();
   });
 });

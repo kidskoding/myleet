@@ -739,24 +739,47 @@ impl Ctx<'_> {
     }
 
     fn review(&self, p: &Problem, s: &Sim) -> PlanItem {
-        // Full sentences, worded from today since the reason is read today even on a
-        // later day's item: "It came due 19 days ago, and it's still settling in."
-        let stage = match s.rung {
-            i32::MIN..=0 => "you're still new to it",
-            1 => "it's still settling in",
-            2 => "it's getting solid",
-            3 => "it's mastered, so this keeps it there",
-            _ => "it's locked in, so this is a quick check",
+        // Worded from today, since the reason is read today even on a later day's item:
+        // when you last solved it, then what a clean pass does for you now.
+        let ago = |d: Date| match days_between(d, self.today) {
+            0 => "today".to_string(),
+            1 => "yesterday".to_string(),
+            n => format!("{n} days ago"),
         };
-        let when = match days_between(s.due, self.today) {
-            n if n < 0 => format!("It comes due {}", day_name(s.due, self.today)),
-            0 => "It's due today".to_string(),
-            1 => "It came due yesterday".to_string(),
-            n => format!("It came due {n} days ago"),
+        let solved = self.states.get(&p.id).is_some_and(|st| st.attempts > 0);
+        let mut reason = if s.last > self.today || !solved {
+            // Planned, not done yet: a problem the plan teaches first, then brings back.
+            format!(
+                "This comes back after you practice it {}, to check that it stuck.",
+                day_name(s.last, self.today)
+            )
+        } else {
+            match s.rung {
+                i32::MIN..=0 => format!(
+                    "You first solved this {}, but it's still new to you. Solving it again now helps it stick.",
+                    ago(s.last)
+                ),
+                1 => format!(
+                    "You last solved this {}, but it hasn't fully stuck yet. A clean pass now moves it up a level.",
+                    ago(s.last)
+                ),
+                2 => format!(
+                    "You last solved this {}, and it's getting solid. A clean pass now brings it close to mastered.",
+                    ago(s.last)
+                ),
+                3 => format!(
+                    "You last solved this {}, and you've mastered it. A quick pass keeps it that way.",
+                    ago(s.last)
+                ),
+                _ => format!(
+                    "You last solved this {}, and it's locked in. This is a quick check.",
+                    ago(s.last)
+                ),
+            }
         };
-        let mut reason = format!("{when}, and {stage}.");
+        // A LeetCode solve is the whole story for a problem only solved there.
         if let Some(n) = self.lc_days.get(&p.id) {
-            reason = format!("{reason} {}.", reason::cap(&reason::leetcode_clause(*n)));
+            reason = format!("{}.", reason::cap(&reason::leetcode_clause(*n)));
         }
         // Like new work, a review says when its pattern matters for a target company.
         if let Some((co, n)) = self.company(p) {
@@ -779,7 +802,7 @@ impl Ctx<'_> {
             self.review_minutes(p),
             reason,
         );
-        let mut label = stage.to_string();
+        let mut label = crate::schedule::mastery_stage(s.rung).to_string();
         label[..1].make_ascii_uppercase();
         it.chips.push(chip("repeat", label));
         it
@@ -2589,13 +2612,16 @@ mod tests {
             .expect("the first new problem is reviewed later");
         assert_eq!(review.0, "2026-11-16", "1-day review the next practice day");
         assert!(
-            review.1.reason.contains("still new to it"),
+            review.1.reason.contains("to check that it stuck"),
             "{}",
             review.1.reason
         );
         // Read today, a later day's review says when it comes due, never "Due today".
         assert!(
-            review.1.reason.starts_with("It comes due tomorrow"),
+            review
+                .1
+                .reason
+                .starts_with("This comes back after you practice it today"),
             "{}",
             review.1.reason
         );
