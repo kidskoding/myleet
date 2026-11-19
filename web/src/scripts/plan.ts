@@ -52,7 +52,7 @@ import {
   type Win,
 } from "../lib/schedule";
 import { loadTrainer, type TrainerApi } from "../lib/trainer";
-import type { Habits, Interview, Plan, PlanDay, PlanFixes, PlanNote, PlanSession } from "../lib/types";
+import type { Habits, Interview, Plan, PlanDay, PlanFixes, PlanNote, PlanSession, PrepTopic } from "../lib/types";
 import { mountAvailability, type AvailabilityEditor } from "../lib/ui/availability";
 import { arrive, kbd, keepArriving, plural } from "../lib/ui/bits";
 import { openCalendarSync } from "../lib/ui/calendar-sync";
@@ -654,6 +654,48 @@ function road(c: Ctx): SafeHtml {
   </section>`;
 }
 
+/** Before an interview with a company: its topics as a checklist, ready now or by when. */
+function prepGoal(c: Ctx): SafeHtml {
+  const pc = c.plan.prep;
+  if (!pc?.topics.length) return html``;
+  const slug = (c.plan.interviews ?? []).find((i) => i.date === pc.date)?.company ?? null;
+  const n = pc.topics.length;
+  const ready = pc.topics.filter((t) => t.status === "ready").length;
+  const soon = pc.topics.filter((t) => t.status !== "ready" && t.ready_by).length;
+  const touched = pc.topics.filter((t) => t.status !== "ready" && !t.ready_by && t.practiced_by).length;
+  const missed = n - ready - soon - touched;
+  const last = (key: "ready_by" | "practiced_by") => pc.topics.flatMap((t) => (t[key] ? [t[key] as string] : [])).sort().at(-1);
+  const when = short(pc.date);
+  const now = `${ready} of ${n} topics ${ready === 1 ? "is" : "are"} ready now`;
+  const lead =
+    ready === n
+      ? `All ${n} topics ${pc.company} leans on are ready, so the time before ${when} goes to more of ${pc.company}'s problems`
+      : missed
+        ? `${now}. At your current pace, ${missed === 1 ? "one topic won't" : `${missed} topics won't`} get any practice before your interview on ${when}`
+        : touched
+          ? `${now}, and every other topic gets practice by ${short(last("practiced_by") ?? pc.date)}. More time each day would make ${touched === 1 ? "that one" : "them"} solid before your interview on ${when}`
+          : `${now}, and the plan makes the rest solid by ${short(last("ready_by") ?? pc.date)}, ahead of your interview on ${when}`;
+  const row = (t: PrepTopic) => {
+    const st = t.status === "ready" ? "ready" : t.ready_by ? "soon" : t.practiced_by ? "touched" : "late";
+    const text =
+      st === "ready"
+        ? t.from_leetcode
+          ? "Ready, based on your LeetCode history"
+          : "Ready"
+        : st === "soon"
+          ? `${t.status === "started" ? "In progress and solid" : "Solid"} by ${short(t.ready_by as string)}`
+          : st === "touched"
+            ? `Practice starts ${short(t.practiced_by as string)}, but it won't be solid by ${when}`
+            : `There's no room to practice it before ${when}`;
+    return html`<li class="pg-t pg-${st}"><span class="pg-ic" aria-hidden="true">${st === "ready" ? icon("check") : st === "late" ? icon("circle-alert") : icon("target")}</span><span class="pg-name">${sentenceCase(t.title)}</span>${pc.today === t.title ? html`<span class="pg-today">Today</span>` : ""}<span class="pg-when">${text}</span></li>`;
+  };
+  return html`<section class="panel prep-goal" aria-labelledby="pg-h">
+    <div class="pg-head">${slug ? companyLogo(slug) : icon("flag")}<div><h2 id="pg-h">Your ${pc.company} checklist</h2><p>${lead}</p></div><span class="pg-count" aria-hidden="true"><b>${ready}</b>/${n}</span></div>
+    <div class="pg-bar" role="progressbar" aria-label="Topics ready" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${ready}"><span style="width:${((ready / n) * 100).toFixed(0)}%"></span><span class="pg-soon" style="width:${((soon / n) * 100).toFixed(0)}%"></span><span class="pg-touched" style="width:${((touched / n) * 100).toFixed(0)}%"></span></div>
+    <ul class="pg-topics">${pc.topics.map(row)}</ul>
+  </section>`;
+}
+
 /** The chart's side card: the chosen day, or today when none is chosen, plus where the plan ends. */
 function dayCard(c: Ctx): SafeHtml {
   const days = c.plan.days.slice(0, PROFILE_MAX_DAYS);
@@ -827,12 +869,12 @@ function paint(): void {
   const note = currentNote(c);
   render(
     el,
-    html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { marks: marks(c), dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
+    html`<div class="plan-flow">${head(c)}${prepGoal(c)}${note ? replanNote(note, { marks: marks(c), dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
         <div class="legend cal-legend" aria-label="Session mix colors"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span>${readPrefs().plan.busy.length ? html`<span><i class="lg-busy"></i>Busy (Google Calendar)</span>` : ""}<span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
-      <div class="route">${road(c)}${forecast(c)}</div>
+      <div class="route">${road(c)}${c.plan.prep?.topics.length ? "" : forecast(c)}</div>
       ${you(c)}
     </div>`,
   );

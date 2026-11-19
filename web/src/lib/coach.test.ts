@@ -45,6 +45,17 @@ describe("todaySummary", () => {
       "Today we'll start with one review to keep you on schedule, then work through two problems from DRW's list. Your interview is 6 days away",
     );
   });
+  it("names today's checklist topic and how many are left", () => {
+    const topic = (title: string, status: "ready" | "started" | "new") => ({ module: title.toLowerCase(), title, status, ready_by: null, from_leetcode: false });
+    const prep = { company: "Meta", date: "2026-11-25", left: 10, planned: 4, topics: [topic("Graphs", "new"), topic("Trees", "started"), topic("Arrays", "ready")], today: "Graphs" };
+    expect(todaySummary({ items: [item("review", "Arrays"), item("new", "BFS")], skills: null, daysLeft: 6, now, prep })).toBe(
+      "Today we'll start with one review to keep you on schedule, then work on graphs, which is one of the two Meta topics you still need. Your interview is 6 days away",
+    );
+    const done = { ...prep, topics: prep.topics.map((t) => ({ ...t, status: "ready" as const })), today: null };
+    expect(todaySummary({ items: [item("new", "BFS"), item("new", "DFS")], skills: null, daysLeft: 6, now, prep: done })).toBe(
+      "Every topic Meta leans on is ready, so today we'll work through two more problems from Meta's list. Your interview is 6 days away",
+    );
+  });
   it("folds a short why and the plan into one paragraph", () => {
     const items = [item("new", "Hashing"), item("new", "Trees"), item("new", "Graphs")];
     expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe("Today we'll work through three new problems in hashing, trees and graphs. Your interview is 30 days away");

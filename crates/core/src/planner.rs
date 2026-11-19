@@ -23,7 +23,7 @@ use crate::catalog::{Catalog, Difficulty, Problem};
 use crate::progress::{Event, kind, mode};
 use crate::reason::{self, Facts};
 use crate::schedule::{self, Attempt, Outcome, RUNGS, State, Status, local_day};
-use crate::skills::{self, ActionKind, Cause, Report, Skill};
+use crate::skills::{self, ActionKind, Cause, Level, Report, Skill};
 use crate::{checkpoint, interview, session};
 
 /// Plan length when there is no interview date.
@@ -475,6 +475,38 @@ pub struct PrepCover {
     pub left: usize,
     /// How many of those the plan places before the interview.
     pub planned: usize,
+    /// The big topics the list leans on, most leaned on first: the interview's checklist.
+    #[serde(default)]
+    pub topics: Vec<PrepTopic>,
+    /// The topic today's first new work is on, when it's one still to get ready.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub today: Option<String>,
+}
+
+impl PrepCover {
+    /// Topics ready now or by the interview.
+    pub fn covered(&self) -> usize {
+        self.topics
+            .iter()
+            .filter(|t| t.status == "ready" || t.ready_by.is_some())
+            .count()
+    }
+}
+
+/// One checkbox: a module the company's list leans on.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct PrepTopic {
+    pub module: String,
+    pub title: String,
+    /// `ready` (solid already), `started` or `new`.
+    pub status: String,
+    /// The day the plan gets it to ready, when that's before the interview.
+    pub ready_by: Option<String>,
+    /// The first day the plan practices it before the interview.
+    #[serde(default)]
+    pub practiced_by: Option<String>,
+    /// Ready because of your LeetCode history rather than practice here.
+    pub from_leetcode: bool,
 }
 
 /// A re-plan note: what changed, in counts, and what it means for the date.
@@ -713,6 +745,63 @@ fn preps_for(c: &Catalog, settings: &Settings, today: Date) -> Vec<Prep> {
         .collect();
     out.sort_by_key(|pp| pp.date);
     out
+}
+
+/// One technique a company's list leans on, worked toward ready during prep.
+struct TopicQ {
+    /// Index into `techs` (and `Report::techniques`).
+    ti: usize,
+    module: usize,
+    /// Problems this technique alone would need; its module takes the most of these.
+    need: usize,
+    /// Never practiced here or on LeetCode: the note and a warm-up come first.
+    ramp: bool,
+    note_done: bool,
+    warm_done: bool,
+    /// Its list problems you haven't solved, easiest first.
+    list: VecDeque<usize>,
+    /// List problems the company has in it, for weighing topics against each other.
+    weight: usize,
+    placed: usize,
+    started: bool,
+    from_leetcode: bool,
+}
+
+/// One checkbox: a module the list leans on, ready once its weakest technique there is.
+struct ModQ {
+    module: usize,
+    /// Problems still to place before it counts as ready.
+    need: usize,
+    weight: usize,
+    placed: usize,
+    ready_by: Option<Date>,
+    /// The first day the plan practices it.
+    first: Option<Date>,
+    ready_now: bool,
+    started: bool,
+    from_leetcode: bool,
+}
+
+/// Problems to place before a technique counts as ready, by where it stands now.
+fn need_of(level: Level) -> usize {
+    match level {
+        Level::New => 3,
+        Level::Shaky => 2,
+        Level::Building => 1,
+        Level::Solid | Level::Strong => 0,
+    }
+}
+
+enum Step {
+    Note,
+    Warm(usize),
+    List(usize),
+    More(usize),
+}
+
+enum Undo {
+    Note(usize),
+    Problem(usize, usize, bool),
 }
 
 /// The interview a day prepares for: the soonest one after it, within `PREP_DAYS`.
@@ -1389,18 +1478,99 @@ fn build(
             note,
         });
     }
-    // The interview's list, minus what you've already solved or are reviewing.
-    let mut prep_qs: Vec<VecDeque<usize>> = preps
-        .iter()
-        .map(|pp| {
-            pp.problems
-                .iter()
-                .copied()
-                .filter(|pi| !sim.contains_key(pi))
-                .collect()
-        })
-        .collect();
+    // Each interview's list as topic checkboxes (the techniques it leans on, ready once
+    // your level there reaches solid), plus the whole list in order for after they're done.
+    let mut prep_topics: Vec<Vec<TopicQ>> = Vec::new();
+    let mut prep_mods: Vec<Vec<ModQ>> = Vec::new();
+    let mut prep_qs: Vec<VecDeque<usize>> = Vec::new();
+    for pp in &preps {
+        let left: Vec<usize> = pp
+            .problems
+            .iter()
+            .copied()
+            .filter(|pi| !sim.contains_key(pi))
+            .collect();
+        let mut topics: Vec<TopicQ> = Vec::new();
+        for &pi in &pp.problems {
+            let p = &c.problems()[pi];
+            let Some(ti) = (0..techs.len()).find(|&i| {
+                let s = &report.techniques[techs[i].skill];
+                (s.module, s.technique) == (p.module, p.technique)
+            }) else {
+                continue;
+            };
+            // Mixed practice chains other topics; it isn't a topic of its own.
+            if c.modules[p.module].id.contains("mixed") {
+                continue;
+            }
+            let t = match topics.iter().position(|t| t.ti == ti) {
+                Some(at) => &mut topics[at],
+                None => {
+                    let s = &report.techniques[techs[ti].skill];
+                    let from_leetcode = s.evidence.attempts == 0
+                        && lc
+                            .as_ref()
+                            .is_some_and(|i| i.strong(&c.modules[s.module].id));
+                    let need = if from_leetcode { 0 } else { need_of(s.level()) };
+                    topics.push(TopicQ {
+                        ti,
+                        module: s.module,
+                        need,
+                        ramp: s.evidence.attempts == 0 && !from_leetcode,
+                        note_done: false,
+                        warm_done: false,
+                        list: VecDeque::new(),
+                        weight: 0,
+                        placed: 0,
+                        started: s.evidence.attempts > 0,
+                        from_leetcode,
+                    });
+                    topics.last_mut().expect("just pushed")
+                }
+            };
+            t.weight += 1;
+            if left.contains(&pi) {
+                t.list.push_back(pi);
+            }
+        }
+        for t in &mut topics {
+            let mut v: Vec<usize> = t.list.drain(..).collect();
+            v.sort_by_key(|&pi| c.problems()[pi].difficulty as u8);
+            t.list = v.into();
+        }
+        let mut mods: Vec<ModQ> = Vec::new();
+        for t in &topics {
+            match mods.iter_mut().find(|m| m.module == t.module) {
+                Some(m) => {
+                    m.need = m.need.max(t.need);
+                    m.weight += t.weight;
+                    m.started |= t.started;
+                    m.from_leetcode &= t.from_leetcode || t.need == 0;
+                }
+                None => mods.push(ModQ {
+                    module: t.module,
+                    need: t.need,
+                    weight: t.weight,
+                    placed: 0,
+                    ready_by: None,
+                    first: None,
+                    ready_now: false,
+                    started: t.started,
+                    from_leetcode: t.from_leetcode,
+                }),
+            }
+        }
+        for m in &mut mods {
+            m.ready_now = m.need == 0;
+            m.from_leetcode &= m.ready_now;
+        }
+        mods.sort_by_key(|m| std::cmp::Reverse(m.weight));
+        prep_topics.push(topics);
+        prep_mods.push(mods);
+        prep_qs.push(left.into());
+    }
     let prep_left = prep_qs.clone();
+    let mut prep_today: Option<usize> = None;
     // Targeted drills from the skill model, most needed technique first.
     let mut pending: Vec<(f64, usize, usize)> = Vec::new();
     for (ti, t) in techs.iter().enumerate() {
@@ -1640,6 +1810,8 @@ fn build(
         // 4. New problems: techniques below their goal first, then by priority.
         let mut placed_new = 0;
         let active = prep_on(&preps, day);
+        let mut prep_undo: Vec<(usize, Undo)> = Vec::new();
+
         if !review_only {
             let slots =
                 settings
@@ -1656,12 +1828,160 @@ fn build(
                     .then(y.priority.total_cmp(&x.priority))
                     .then(x.order.cmp(&y.order))
             });
-            // Before an interview with a company, its list comes first and stands alone:
-            // other companies and the curriculum wait until the list runs out.
+            // Before an interview with a company, its topics come first and stand alone:
+            // the least-covered topic each time, so every one gets reached, then the
+            // rest of its list. Other companies and the curriculum wait.
             if let Some(a) = active {
                 // The list fills the time reviews leave, not the usual new-per-day count.
+                let mut mods_today: HashSet<usize> = HashSet::new();
                 loop {
-                    // A problem on two lists is placed once, from whichever comes first.
+                    let topics = &mut prep_topics[a];
+                    let step_of = |t: &TopicQ, techs: &[TechQ]| -> Option<Step> {
+                        let fresh =
+                            |pi: &usize| !sim.contains_key(pi) && !today_problems.contains(pi);
+                        if t.ramp
+                            && !t.note_done
+                            && c.modules[t.module].techniques
+                                [report.techniques[techs[t.ti].skill].technique]
+                                .note
+                                .is_some()
+                        {
+                            return Some(Step::Note);
+                        }
+                        if t.ramp && !t.warm_done {
+                            if let Some(&pi) = techs[t.ti].queue.iter().find(|pi| fresh(pi)) {
+                                return Some(Step::Warm(pi));
+                            }
+                        }
+                        if let Some(&pi) = t.list.iter().find(|pi| fresh(pi)) {
+                            return Some(Step::List(pi));
+                        }
+                        techs[t.ti]
+                            .queue
+                            .iter()
+                            .find(|pi| fresh(pi))
+                            .map(|&pi| Step::More(pi))
+                    };
+                    let minutes = |st: &Step| match st {
+                        Step::Note => NOTE_MINUTES,
+                        Step::Warm(pi) | Step::List(pi) | Step::More(pi) => {
+                            ctx.new_minutes(&c.problems()[*pi])
+                        }
+                    };
+                    let mod_placed = |m: usize, ts: &[TopicQ]| {
+                        ts.iter()
+                            .filter(|t| t.module == m)
+                            .map(|t| t.placed)
+                            .sum::<usize>()
+                    };
+                    // A topic with nothing left to practice is as covered as it can get.
+                    for m in prep_mods[a]
+                        .iter_mut()
+                        .filter(|m| m.need > 0 && m.placed > 0)
+                    {
+                        let left = topics.iter().filter(|t| t.module == m.module).any(|t| {
+                            t.list
+                                .iter()
+                                .chain(&techs[t.ti].queue)
+                                .any(|pi| !sim.contains_key(pi) && !today_problems.contains(pi))
+                        });
+                        if !left && day < preps[a].date {
+                            m.need = 0;
+                            m.ready_by.get_or_insert(day);
+                        }
+                    }
+                    let mods = &mut prep_mods[a];
+                    let modq = |m: usize, ms: &[ModQ]| {
+                        ms.iter()
+                            .position(|x| x.module == m)
+                            .expect("every topic has its module")
+                    };
+                    let mut cands: Vec<(usize, Step)> = topics
+                        .iter()
+                        .enumerate()
+                        .filter(|(_, t)| mods[modq(t.module, mods)].need > 0)
+                        .filter_map(|(i, t)| step_of(t, &techs).map(|st| (i, st)))
+                        .filter(|(_, st)| fits(used, minutes(st)))
+                        .collect();
+                    cands.sort_by_key(|(i, _)| {
+                        let t = &topics[*i];
+                        (
+                            mods_today.contains(&t.module),
+                            mod_placed(t.module, topics),
+                            std::cmp::Reverse(mods[modq(t.module, mods)].weight),
+                            t.placed,
+                            std::cmp::Reverse(t.weight),
+                        )
+                    });
+                    if let Some((i, st)) = cands.into_iter().next() {
+                        let t = &mut topics[i];
+                        mods_today.insert(t.module);
+                        let ti = t.ti;
+                        if let Step::Note = st {
+                            let tech = &c.modules[t.module].techniques
+                                [report.techniques[techs[ti].skill].technique];
+                            t.note_done = true;
+                            used += NOTE_MINUTES;
+                            if day < preps[a].date {
+                                let at = modq(t.module, mods);
+                                mods[at].first.get_or_insert(day);
+                            }
+                            prep_undo.push((chosen.len(), Undo::Note(i)));
+                            chosen.push(Chosen {
+                                item: PlanItem {
+                                    kind: ItemKind::Note,
+                                    tag: Tag::New,
+                                    problem: None,
+                                    title: format!("Read: {}", tech.title),
+                                    technique: Some(tech.title.clone()),
+                                    minutes: NOTE_MINUTES,
+                                    reason: format!(
+                                        "You haven't practiced {} yet, so the note comes first and the problems after it will make sense.",
+                                        skills::mid_sentence(&tech.title)
+                                    ),
+                                    note: tech
+                                        .note
+                                        .as_ref()
+                                        .map(|n| n.to_string_lossy().replace('\\', "/")),
+                                    chips: vec![chip("book-open", "Read the note first".into())],
+                                },
+                                effect: Effect::Note(ti),
+                            });
+                            continue;
+                        }
+                        let (pi, warm) = match st {
+                            Step::Warm(pi) => (pi, true),
+                            Step::List(pi) | Step::More(pi) => (pi, false),
+                            Step::Note => unreachable!("handled above"),
+                        };
+                        if warm {
+                            t.warm_done = true;
+                        }
+                        t.list.retain(|&q| q != pi);
+                        t.placed += 1;
+                        let at = modq(t.module, mods);
+                        let mq = &mut mods[at];
+                        mq.need -= 1;
+                        mq.placed += 1;
+                        if day < preps[a].date {
+                            mq.first.get_or_insert(day);
+                        }
+                        if mq.need == 0 && day < preps[a].date {
+                            mq.ready_by = Some(day);
+                        }
+                        techs[ti].queue.retain(|&q| q != pi);
+                        prep_undo.push((chosen.len(), Undo::Problem(i, pi, warm)));
+                        let p = &c.problems()[pi];
+                        used += ctx.new_minutes(p);
+                        placed_new += 1;
+                        today_problems.insert(pi);
+                        chosen.push(Chosen {
+                            item: ctx.new_item(p, &weak_mods),
+                            effect: Effect::New(Some(ti), pi),
+                        });
+                        continue;
+                    }
+                    // Every topic reached or out of room: the rest of the list, in order.
                     prep_qs[a].retain(|pi| !sim.contains_key(pi));
                     let Some(at) = prep_qs[a].iter().position(|&pi| {
                         !today_problems.contains(&pi)
@@ -1687,7 +2007,8 @@ fn build(
                     });
                 }
             }
-            let listing = active.is_some_and(|a| !prep_qs[a].is_empty());
+            let listing = active
+                .is_some_and(|a| !prep_qs[a].is_empty() || prep_mods[a].iter().any(|m| m.need > 0));
             let below = |t: &TechQ| t.started + t.placed < t.goal;
             // While a goal is open, spare minutes go to drills, not past-goal techniques.
             let any_below = order.iter().any(|&i| below(&techs[i]));
@@ -1846,6 +2167,58 @@ fn build(
         );
         slots.sort_by_key(|s| s.0);
         let fitted = fitted + extra;
+        // Topic progress placed on items that didn't fit goes back as it was.
+        if let Some(a) = active {
+            for (idx, u) in prep_undo.into_iter().rev().filter(|(i, _)| *i >= fitted) {
+                match u {
+                    Undo::Note(i) => {
+                        let t = &mut prep_topics[a][i];
+                        t.note_done = false;
+                        if let Some(m) = prep_mods[a].iter_mut().find(|m| m.module == t.module)
+                            && m.first == Some(day)
+                            && m.placed == 0
+                        {
+                            m.first = None;
+                        }
+                    }
+                    Undo::Problem(i, pi, warm) => {
+                        let t = &mut prep_topics[a][i];
+                        t.placed -= 1;
+                        if let Some(m) = prep_mods[a].iter_mut().find(|m| m.module == t.module) {
+                            m.need += 1;
+                            m.placed -= 1;
+                            if m.ready_by == Some(day) {
+                                m.ready_by = None;
+                            }
+                            if m.first == Some(day) && m.placed == 0 {
+                                m.first = None;
+                            }
+                        }
+                        if warm {
+                            t.warm_done = false;
+                        } else if preps[a].has(pi) {
+                            t.list.push_front(pi);
+                        }
+                    }
+                }
+                let _ = idx;
+            }
+        }
+        // Today's topic is the first one whose work actually fit today.
+        if day == today {
+            prep_today = active.and_then(|a| {
+                chosen.iter().take(fitted).find_map(|ch| match &ch.effect {
+                    Effect::New(Some(ti), _) | Effect::Note(ti) => {
+                        let m = report.techniques[techs[*ti].skill].module;
+                        prep_mods[a]
+                            .iter()
+                            .any(|q| q.module == m && !q.ready_now)
+                            .then_some(m)
+                    }
+                    _ => None,
+                })
+            });
+        }
         let mut chosen: Vec<Option<Chosen>> = chosen.into_iter().map(Some).collect();
         for ch in chosen.iter_mut().skip(fitted).rev() {
             if let Some(Chosen {
@@ -2031,6 +2404,25 @@ fn build(
                         && it.problem.as_deref().is_some_and(|id| ids.contains(id))
                 })
                 .count(),
+            topics: prep_mods[i]
+                .iter()
+                .map(|m| PrepTopic {
+                    module: c.modules[m.module].id.clone(),
+                    title: c.modules[m.module].title.clone(),
+                    status: if m.ready_now {
+                        "ready"
+                    } else if m.started {
+                        "started"
+                    } else {
+                        "new"
+                    }
+                    .into(),
+                    ready_by: m.ready_by.map(|d| d.to_string()),
+                    practiced_by: m.first.map(|d| d.to_string()),
+                    from_leetcode: m.from_leetcode,
+                })
+                .collect(),
+            today: prep_today.map(|m| c.modules[m].title.clone()),
             date,
         }
     });
@@ -2592,7 +2984,8 @@ fn prep_short_note(
     tz: &TimeZone,
     pc: &PrepCover,
 ) -> Result<Option<Note>, String> {
-    if pc.planned >= pc.left {
+    let total = pc.topics.len();
+    if pc.covered() >= total {
         return Ok(None);
     }
     let weekend = settings.weekend_minutes.unwrap_or(settings.daily_minutes);
@@ -2608,16 +3001,27 @@ fn prep_short_note(
         };
         if build(c, events, &s, now, tz, "")?
             .prep
-            .is_some_and(|p| p.planned >= p.left)
+            .is_some_and(|p| p.covered() >= p.topics.len())
         {
             fix = Some(m);
             break;
         }
     }
+    let date = pc
+        .date
+        .parse::<Date>()
+        .map_or(pc.date.clone(), |d| d.strftime("%b %-d").to_string());
     let tail = match fix {
-        Some(m) => format!("About {} on weekdays covers the rest.", fmt_minutes(m)),
+        Some(m) if total == 1 => format!(
+            "About {} on weekdays makes it solid in time.",
+            fmt_minutes(m)
+        ),
+        Some(m) => format!(
+            "About {} on weekdays makes all {total} solid in time.",
+            fmt_minutes(m)
+        ),
         None => format!(
-            "Even {} on weekdays doesn't cover it, but another window or more weekend time would.",
+            "Even {} on weekdays isn't enough, but another practice window or more weekend time would be.",
             fmt_minutes(FIX_STEPS[FIX_STEPS.len() - 1])
         ),
     };
@@ -2634,25 +3038,41 @@ fn prep_short_note(
         label: "Add a window".into(),
         value: None,
     });
+    let covered = pc.covered();
+    let practiced = pc
+        .topics
+        .iter()
+        .all(|t| t.status == "ready" || t.practiced_by.is_some());
     Ok(Some(Note {
         kind: "over_budget".into(),
-        title: if pc.planned == 0 {
+        title: if total == 1 {
             format!(
-                "At {} on weekdays, there's no room for the {} problems left on {}'s list before your interview.",
+                "At {} on weekdays, the one topic {} leans on won't be solid by {date}.",
                 fmt_minutes(settings.daily_minutes),
-                pc.left,
+                pc.company
+            )
+        } else if covered == 0 {
+            format!(
+                "At {} on weekdays, none of {}'s {total} topics will be solid by {date}.",
+                fmt_minutes(settings.daily_minutes),
                 pc.company
             )
         } else {
             format!(
-                "At {} on weekdays, you'll get through {} of the {} problems left on {}'s list before your interview.",
+                "At {} on weekdays, {covered} of {}'s {total} topics will be solid by {date}.",
                 fmt_minutes(settings.daily_minutes),
-                pc.planned,
-                pc.left,
                 pc.company
             )
         },
-        body: format!("Reviews still come first and none are dropped. {tail}"),
+        body: if practiced {
+            format!(
+                "Every topic still gets practice before then, and reviews still come first. {tail}"
+            )
+        } else {
+            format!(
+                "Some topics won't get any practice before then, and reviews still come first. {tail}"
+            )
+        },
         actions,
     }))
 }
@@ -3793,36 +4213,57 @@ mod tests {
     }
 
     #[test]
-    fn a_list_that_wont_fit_before_the_interview_says_what_would() {
-        // Monday is the one planning day before the last two review-only days; 15 minutes fits one problem.
+    fn topics_that_wont_be_ready_before_the_interview_say_so() {
+        // Monday's interview is two days out, so both days are reviews only.
         let s = settings(&format!(
-            r#"{{"interviews":[{{"date":"2026-11-19","company":"meta"}}],"daily_minutes":15,"weekend_minutes":15,{WINDOWS}}}"#
+            r#"{{"interviews":[{{"date":"2026-11-18","company":"meta"}}],{WINDOWS}}}"#
         ));
         let c = good_catalog();
         let p = run(&[], &s, at(11, 16, 8));
         let pc = p.prep.expect("prep for Meta");
-        assert_eq!(pc.left, 2);
-        assert!(pc.planned < pc.left, "{pc:?}");
+        assert_eq!(
+            pc.topics.len(),
+            1,
+            "two-sum's module; the logger is list-only"
+        );
+        assert_eq!(pc.topics[0].status, "new");
+        assert_eq!(pc.covered(), 0, "{pc:?}");
         let note = fixes(&c, &[], &s, at(11, 16, 8), &chicago())
             .unwrap()
             .note
-            .expect("a note when the list won't fit");
+            .expect("a note when a topic won't be ready");
         assert!(
-            note.title.contains(&format!(
-                "you'll get through {} of the 2 problems left on Meta's list",
-                pc.planned
-            )),
+            note.title
+                .contains("the one topic Meta leans on won't be solid by Nov 18"),
             "{}",
             note.title
         );
-        assert_eq!(note.actions[0].kind, "weekday_minutes");
-        let m = note.actions[0].value.expect("a budget that covers it");
-        let ok = Settings {
-            daily_minutes: m,
-            ..s.clone()
-        };
-        let pc = run(&[], &ok, at(11, 16, 8)).prep.unwrap();
-        assert_eq!(pc.planned, pc.left, "the named budget really fits the list");
+        // No weekday budget adds a practice day, so the note offers a window instead.
+        assert_eq!(note.actions[0].kind, "availability");
+
+        // With room, the topic is reached and the note goes away.
+        let roomy = settings(&format!(
+            r#"{{"interviews":[{{"date":"2026-11-21","company":"meta"}}],{WINDOWS}}}"#
+        ));
+        let pc = run(&[], &roomy, at(11, 16, 8)).prep.unwrap();
+        assert_eq!(pc.covered(), pc.topics.len(), "{pc:?}");
+        assert!(
+            fixes(&c, &[], &roomy, at(11, 16, 8), &chicago())
+                .unwrap()
+                .note
+                .is_none()
+        );
+    }
+
+    #[test]
+    fn a_topic_you_already_know_is_ready_from_the_start() {
+        // Clean solves of two-sum put beta/three at solid or better.
+        let events: Vec<Event> = (0..4)
+            .flat_map(|d| pass("two-sum", &format!("a{d}"), at(11, 2 + d * 3, 9), 10))
+            .collect();
+        let s = settings(r#"{"interviews":[{"date":"2026-11-21","company":"meta"}]}"#);
+        let pc = run(&events, &s, at(11, 16, 8)).prep.unwrap();
+        assert_eq!(pc.topics[0].status, "ready", "{pc:?}");
     }
 
     #[test]

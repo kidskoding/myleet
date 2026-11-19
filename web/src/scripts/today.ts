@@ -536,10 +536,17 @@ function paint(c: Ctx): void {
   }
   const plan = planInfo(c);
   const prep = c.plan?.prep;
-  // The list that won't fit is said here; the Plan page names the time that fixes it.
+  // A topic that won't be ready in time is said here; the Plan page names the time that fixes it.
+  const solidLater = prep?.topics.filter((t) => t.status !== "ready" && !t.ready_by).length ?? 0;
+  const unpracticed = prep?.topics.filter((t) => t.status !== "ready" && !t.ready_by && !t.practiced_by).length ?? 0;
   const short: PlanNote | null =
-    prep && prep.planned < prep.left
-      ? { kind: "over_budget" as PlanNote["kind"], title: prep.planned ? `You'll get through ${prep.planned} of the ${prep.left} problems left on ${prep.company}'s list before your interview.` : `There's no room for the ${prep.left} problems left on ${prep.company}'s list before your interview.`, body: "More weekday time or another practice window would cover the rest", actions: [] }
+    prep && solidLater
+      ? {
+          kind: "over_budget" as PlanNote["kind"],
+          title: `At your current pace, ${prep.topics.length - solidLater} of the ${prep.topics.length} topics ${prep.company} leans on will be solid by your interview.`,
+          body: unpracticed ? `${unpracticed === 1 ? "One topic won't" : `${unpracticed} topics won't`} get any practice before then, and more weekday time or another practice window would make room for them` : "Every topic still gets practice before then, and more weekday time or another practice window would make more of them solid",
+          actions: [],
+        }
       : null;
   const note = [...(short ? [short] : []), ...(c.plan?.notes ?? [])].find((n) => n.kind !== "date_passed" && !noteDismissed(n));
   const noteHtml = note ? replanNote(note, { marks: marks(c), dismiss: true, link: html`<a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">See the plan</a>` }) : html``;
@@ -558,7 +565,8 @@ function paint(c: Ctx): void {
   const check = status?.checkin && !noteDismissed({ kind: "checkin" as PlanNote["kind"], title: status.checkin.title }) ? status.checkin : null;
   const statusHtml = html`${check ? replanNote({ kind: "checkin" as PlanNote["kind"], title: check.title, body: check.body }, { marks: marks(c), link: html`<a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">Open check-in</a>` }) : ""}${slip ? replanNote({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }] }, { marks: marks(c), link: html`<a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">See the plan</a>` }) : ""}`;
   // The check-in already says how the week went, so the on-track line waits for another day.
-  const trackLine = check ? "" : status?.line || "";
+  // During interview prep the checklist speaks for the plan; the topic forecast would contradict it.
+  const trackLine = check || c.plan?.prep?.topics.length ? "" : status?.line || "";
 
   // With a plan for today, Today is that plan: its problems in its order, so the two
   // pages never disagree. The queue below only runs when today has no planned problems.
@@ -626,6 +634,7 @@ function paint(c: Ctx): void {
       leetcodeWeak: c.leetcode?.weak,
       sets: Object.fromEntries((c.plan?.forecast ?? []).map((f) => [f.title, f.companies])),
       focus: focusByTechnique(c),
+      prep: c.plan?.prep,
     });
     const cards = personalCards(work, c.skills ?? null, (id) => meta(c.cat, id)?.title ?? id, c.now, first.problem);
     const quiet = [onThisDay(work, c.skills ?? null, c.now), c.sample ? null : milestoneNote(states, c.now), c.sample ? null : momentum(streakNow(readStreak(), c.now).n, readStreak().rests)].filter(Boolean);

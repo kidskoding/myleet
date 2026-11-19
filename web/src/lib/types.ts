@@ -428,7 +428,7 @@ export interface Plan {
   };
   notes?: PlanNote[];
   /** The interview today's new work prepares for, and how much of its list fits before it. */
-  prep?: { company: string; date: string; left: number; planned: number } | null;
+  prep?: PrepCover | null;
 }
 
 export interface SkillAction {
@@ -502,4 +502,24 @@ export interface LeetcodeImport {
   weak: string[];
   /** Problems marked "solved on LeetCode". */
   marked: number;
+}
+
+/** One checkbox in an interview's checklist: a module the company's list leans on. */
+export interface PrepTopic {
+  module: string;
+  title: string;
+  status: "ready" | "started" | "new";
+  ready_by: string | null;
+  practiced_by?: string | null;
+  from_leetcode: boolean;
+}
+
+/** The interview today's new work prepares for: its topic checklist and list coverage. */
+export interface PrepCover {
+  company: string;
+  date: string;
+  left: number;
+  planned: number;
+  topics: PrepTopic[];
+  today?: string | null;
 }

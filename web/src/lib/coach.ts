@@ -4,7 +4,7 @@ import { addDays, localDay } from "./streak";
 import { names } from "./goals";
 import { midSentence } from "./schedule";
 import { RUNG_DAYS } from "./ui/ladder";
-import type { PlanItem, Skill, SkillAttempt, State, TodayEntry } from "./types";
+import type { PlanItem, PrepCover, Skill, SkillAttempt, State, TodayEntry } from "./types";
 
 /** What a level change means to the learner, as a clause about `tech`. */
 const LEVEL_OUTCOME: Record<string, (tech: string) => string> = {
@@ -53,6 +53,8 @@ export interface SummaryInput {
   sets?: Record<string, string[]> | undefined;
   /** Technique title to its focus topic mid-sentence ("graphs"), for techniques in one. */
   focus?: Record<string, string> | undefined;
+  /** The interview checklist, while new work prepares for one. */
+  prep?: PrepCover | null | undefined;
 }
 
 /**
@@ -64,12 +66,23 @@ export function todaySummary(input: SummaryInput): string | null {
   return summaryText(input)?.replace(/\.$/, "") ?? null;
 }
 
-function summaryText({ items, skills, daysLeft, now, leetcodeWeak, sets, focus }: SummaryInput): string | null {
+function summaryText({ items, skills, daysLeft, now, leetcodeWeak, sets, focus, prep }: SummaryInput): string | null {
   const counts = new Map<string, number>();
   for (const i of items) if (i.technique && i.kind !== "review") counts.set(i.technique, (counts.get(i.technique) ?? 0) + 1);
   const [theme, nTheme = 0] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
   const reviews = items.filter((i) => i.kind === "review").length;
   const nNew = items.filter((i) => i.kind !== "review").length;
+  // Before an interview, the day is about its checklist: which topic, and how many are left.
+  if (prep?.topics.length && nNew) {
+    const co = prep.company;
+    const left = prep.topics.filter((t) => t.status !== "ready").length;
+    const first = reviews ? `start with ${num(reviews)} ${reviews === 1 ? "review" : "reviews"} to keep you on schedule, then ` : "";
+    const soon = daysLeft !== null && daysLeft > 0 ? ` Your interview is ${days(daysLeft)} away.` : "";
+    if (prep.today && left)
+      return `Today we'll ${first}work on ${midSentence(prep.today)}, which is ${left === 1 ? `the last ${co} topic you still need` : `one of the ${num(left)} ${co} topics you still need`}.${soon}`;
+    if (!left)
+      return `Every topic ${co} leans on is ready, so today we'll ${first}work through ${num(nNew)} more ${nNew === 1 ? "problem" : "problems"} from ${co}'s list.${soon}`;
+  }
   // Before an interview, new work comes from that company's list: say so, plainly.
   const listed = items.flatMap((i) => (i.kind === "review" ? [] : (i.chips ?? []))).map((c) => /^On the (.+) list$/.exec(c.text)?.[1]).filter(Boolean);
   if (listed[0] && listed.length * 2 >= nNew) {

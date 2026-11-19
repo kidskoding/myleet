@@ -250,6 +250,31 @@ import Base from "../layouts/Base.astro";
   .ph-near { background: color-mix(in srgb, var(--mix-mock) 22%, transparent); }
   .ph-prep { background: color-mix(in srgb, var(--accent) 22%, transparent); }
   .ph-tail { background: color-mix(in srgb, var(--mix-review) 22%, transparent); }
+  /* Interview checklist: one row per topic the company leans on */
+  .prep-goal { display: grid; gap: var(--space-3); }
+  .pg-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); }
+  .pg-head > .co-logo, .pg-head > .icon { width: 28px !important; height: 28px !important; }
+  .pg-head h2 { font-size: var(--text-lg, 1.125rem); margin: 0; }
+  .pg-head p { margin: 2px 0 0; color: var(--ink-2); font-size: var(--text-sm); }
+  .pg-count { font-size: var(--text-sm); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .pg-count b { font-size: 1.5rem; color: var(--ink); font-weight: 700; }
+  .pg-bar { display: flex; height: 6px; border-radius: 999px; overflow: hidden; background: var(--surface-sunk); }
+  .pg-bar span { background: var(--ctp-green); transition: width var(--dur-base) var(--ease-out); }
+  .pg-bar .pg-soon { background: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .pg-topics { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: var(--space-2); }
+  .pg-t { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "ic name today" "ic when when"; column-gap: var(--space-2); row-gap: 1px; align-items: center; padding: var(--space-2) var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+  .pg-ic { grid-area: ic; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; }
+  .pg-ic .icon { width: 13px !important; height: 13px !important; }
+  .pg-name { grid-area: name; font-weight: 650; font-size: var(--text-sm); }
+  .pg-when { grid-area: when; font-size: var(--text-xs); color: var(--ink-3); }
+  .pg-today { grid-area: today; font-size: var(--text-2xs, 0.6875rem); font-weight: 700; padding: 1px 6px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+  .pg-ready .pg-ic { background: color-mix(in srgb, var(--ctp-green) 20%, transparent); color: var(--ctp-green); }
+  .pg-soon .pg-ic { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+  .pg-late .pg-ic { background: color-mix(in srgb, var(--ctp-peach) 20%, transparent); color: var(--ctp-peach); }
+  .pg-late .pg-when { color: var(--ctp-peach); }
+  .pg-bar span.pg-soon { background: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .pg-bar span.pg-touched { background: color-mix(in srgb, var(--accent) 20%, transparent); }
+  .pg-touched .pg-ic { background: color-mix(in srgb, var(--ink-3) 16%, transparent); color: var(--ink-2); }
   .ph-steady { background: color-mix(in srgb, var(--ink-3) 12%, transparent); }
   .road-line { position: relative; height: 2px; margin-top: 18px; background: var(--line-strong); border-radius: 1px; }
   .road-line .rm { position: absolute; top: 50%; transform: translate(-50%, -50%); }
