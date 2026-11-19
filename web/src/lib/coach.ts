@@ -70,6 +70,13 @@ function summaryText({ items, skills, daysLeft, now, leetcodeWeak, sets, focus }
   const [theme, nTheme = 0] = [...counts].sort((a, b) => b[1] - a[1])[0] ?? [];
   const reviews = items.filter((i) => i.kind === "review").length;
   const nNew = items.filter((i) => i.kind !== "review").length;
+  // Before an interview, new work comes from that company's list: say so, plainly.
+  const listed = items.flatMap((i) => (i.kind === "review" ? [] : (i.chips ?? []))).map((c) => /^On the (.+) list$/.exec(c.text)?.[1]).filter(Boolean);
+  if (listed[0] && listed.length * 2 >= nNew) {
+    const n = `${num(listed.length)} ${listed.length === 1 ? "problem" : "problems"} from ${listed[0]}'s list`;
+    const lead = reviews ? `Today we'll start with ${num(reviews)} ${reviews === 1 ? "review" : "reviews"} to keep you on schedule, then work through ${n}.` : `Today we'll work through ${n}.`;
+    return `${lead}${daysLeft !== null && daysLeft > 0 ? ` Your interview is ${days(daysLeft)} away.` : ""}`;
+  }
   if (!theme) return reviews ? `Today we'll review ${num(reviews)} older ${reviews === 1 ? "problem" : "problems"} to keep you on schedule.` : null;
   const near = daysLeft !== null && daysLeft > 0 && daysLeft <= 30 ? daysLeft : null;
   // One problem each from several techniques: no theme to claim, so say what the day holds.

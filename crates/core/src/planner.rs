@@ -64,6 +64,8 @@ const FOCUS_RELEVANCE: f64 = 1.0;
 /// How much more the next interview's company set counts than other targets.
 const NEXT_COMPANY_WEIGHT: usize = 2;
 const MOCK_EVERY_DAYS_NEAR: i64 = 3;
+/// Days before an interview with a company when new work comes only from that company's list.
+const PREP_DAYS: i64 = 21;
 const NEAR_DAYS: i64 = 14;
 /// Days ahead at which the interview starts weighting company relevance up.
 const PROXIMITY_DAYS: f64 = 60.0;
@@ -637,7 +639,8 @@ struct TechQ {
 
 enum Effect {
     Review(usize),
-    New(usize, usize),
+    /// The technique's queue (none for a playlist-only problem) and the problem.
+    New(Option<usize>, usize),
     Drill(usize),
     Note(usize),
     Mock,
@@ -648,6 +651,63 @@ enum Effect {
 struct Chosen {
     item: PlanItem,
     effect: Effect,
+}
+
+/// The interview being prepared for: the nearest one with a company within `PREP_DAYS`.
+struct Prep {
+    title: String,
+    date: Date,
+    /// The company's list, most asked first.
+    problems: Vec<usize>,
+}
+
+impl Prep {
+    fn has(&self, pi: usize) -> bool {
+        self.problems.contains(&pi)
+    }
+
+    /// "It's on the DRW list, and your interview is in 6 days."
+    fn sentence(&self, today: Date) -> String {
+        let when = match days_between(today, self.date) {
+            1 => "tomorrow".to_string(),
+            n => format!("in {n} days"),
+        };
+        format!(
+            "It's on the {} list, and your interview is {when}.",
+            self.title
+        )
+    }
+}
+
+/// Every upcoming interview with a company list, soonest first.
+fn preps_for(c: &Catalog, settings: &Settings, today: Date) -> Vec<Prep> {
+    let mut out: Vec<Prep> = settings
+        .interviews
+        .iter()
+        .filter_map(|i| {
+            let date = i.date.parse::<Date>().ok().filter(|d| *d > today)?;
+            let slug = i.company.as_ref()?;
+            let pl = c
+                .playlists
+                .iter()
+                .find(|pl| company_slug(&pl.id) == slug || pl.id == *slug)?;
+            Some(Prep {
+                title: pl.title.clone(),
+                date,
+                problems: pl.entries.iter().filter_map(|e| e.problem).collect(),
+            })
+        })
+        .collect();
+    out.sort_by_key(|pp| pp.date);
+    out
+}
+
+/// The interview a day prepares for: the soonest one after it, within `PREP_DAYS`.
+fn prep_on(preps: &[Prep], day: Date) -> Option<usize> {
+    preps
+        .iter()
+        .position(|pp| day < pp.date)
+        .filter(|&i| days_between(day, preps[i].date) <= PREP_DAYS)
 }
 
 struct Ctx<'a> {
@@ -662,6 +722,8 @@ struct Ctx<'a> {
     interview: Option<Date>,
     /// Days since each LeetCode-imported problem was solved there.
     lc_days: &'a HashMap<String, i64>,
+    /// While set, other target companies sit out: only this one is named.
+    prep: Option<&'a Prep>,
 }
 
 /// Up to three chips, no repeats.
@@ -724,10 +786,14 @@ impl Ctx<'_> {
     }
 
     fn company(&self, p: &Problem) -> Option<(&str, usize)> {
-        self.rel
-            .get(&(p.module, p.technique))?
-            .first()
-            .map(|(c, n)| (c.as_str(), *n))
+        let sets = self.rel.get(&(p.module, p.technique))?;
+        match self.prep {
+            // A problem on the list says so instead (`Prep::sentence`).
+            Some(pp) if pp.has(p.order) => None,
+            Some(pp) => sets.iter().find(|(c, _)| *c == pp.title),
+            None => sets.first(),
+        }
+        .map(|(c, n)| (c.as_str(), *n))
     }
 
     fn company_chip(&self, p: &Problem) -> Option<Chip> {
@@ -793,6 +859,9 @@ impl Ctx<'_> {
                 self.tech(p)
             );
         }
+        if let Some(pp) = self.prep.filter(|pp| pp.has(p.order)) {
+            reason = format!("{reason} {}", pp.sentence(self.today));
+        }
         // UI text never ends on a period; the ones between sentences stay.
         let reason = reason.trim_end_matches('.').to_string();
         let mut it = self.item(
@@ -842,7 +911,12 @@ impl Ctx<'_> {
             sets: self
                 .rel
                 .get(&(p.module, p.technique))
-                .map_or_else(Vec::new, |v| v.iter().map(|(c, _)| c.clone()).collect()),
+                .map_or_else(Vec::new, |v| {
+                    v.iter()
+                        .map(|(c, _)| c.clone())
+                        .filter(|c| self.prep.is_none_or(|pp| *c == pp.title))
+                        .collect()
+                }),
             focus: self
                 .focus
                 .contains(&p.module)
@@ -904,8 +978,22 @@ impl Ctx<'_> {
             );
             Tag::New
         };
+        let listed = self.prep.filter(|pp| pp.has(p.order));
+        if let Some(pp) = listed {
+            chips.insert(0, chip("building-2", format!("On the {} list", pp.title)));
+            chips.truncate(3);
+        }
         push_chip(&mut chips, self.company_chip(p));
-        let reason = reason::build(&self.facts(p, skill.is_some_and(Skill::warming_up)));
+        let mut reason = reason::build(&self.facts(p, skill.is_some_and(Skill::warming_up)));
+        if let Some(pp) = listed {
+            reason = format!(
+                "{}. {}",
+                reason.trim_end_matches('.'),
+                pp.sentence(self.today)
+            )
+            .trim_end_matches('.')
+            .to_string();
+        }
         let mut it = self.item(ItemKind::New, tag, p, self.new_minutes(p), reason);
         it.chips = chips;
         it
@@ -1121,8 +1209,10 @@ fn build(
     let today = local_day(now, tz);
     let interview = interview.filter(|d| *d > today);
     let lc_days = crate::leetcode::solved_days(events, &states, today, tz);
+    let preps = preps_for(c, settings, today);
     let ctx = Ctx {
         lc_days: &lc_days,
+        prep: prep_on(&preps, today).map(|i| &preps[i]),
         c,
         report: &report,
         pace: &pace,
@@ -1286,6 +1376,17 @@ fn build(
             note,
         });
     }
+    // The interview's list, minus what you've already solved or are reviewing.
+    let mut prep_qs: Vec<VecDeque<usize>> = preps
+        .iter()
+        .map(|pp| {
+            pp.problems
+                .iter()
+                .copied()
+                .filter(|pi| !sim.contains_key(pi))
+                .collect()
+        })
+        .collect();
     // Targeted drills from the skill model, most needed technique first.
     let mut pending: Vec<(f64, usize, usize)> = Vec::new();
     for (ti, t) in techs.iter().enumerate() {
@@ -1524,6 +1625,7 @@ fn build(
 
         // 4. New problems: techniques below their goal first, then by priority.
         let mut placed_new = 0;
+        let active = prep_on(&preps, day);
         if !review_only {
             let slots =
                 settings
@@ -1540,10 +1642,41 @@ fn build(
                     .then(y.priority.total_cmp(&x.priority))
                     .then(x.order.cmp(&y.order))
             });
+            // Before an interview with a company, its list comes first and stands alone:
+            // other companies and the curriculum wait until the list runs out.
+            if let Some(a) = active {
+                while placed_new < slots {
+                    // A problem on two lists is placed once, from whichever comes first.
+                    prep_qs[a].retain(|pi| !sim.contains_key(pi));
+                    let Some(at) = prep_qs[a].iter().position(|&pi| {
+                        !today_problems.contains(&pi)
+                            && fits(used, ctx.new_minutes(&c.problems()[pi]))
+                    }) else {
+                        break;
+                    };
+                    let pi = prep_qs[a].remove(at).expect("position is in range");
+                    let p = &c.problems()[pi];
+                    let ti = techs.iter().position(|t| {
+                        let s = &report.techniques[t.skill];
+                        (s.module, s.technique) == (p.module, p.technique)
+                    });
+                    if let Some(ti) = ti {
+                        techs[ti].queue.retain(|&q| q != pi);
+                    }
+                    used += ctx.new_minutes(p);
+                    placed_new += 1;
+                    today_problems.insert(pi);
+                    chosen.push(Chosen {
+                        item: ctx.new_item(p, &weak_mods),
+                        effect: Effect::New(ti, pi),
+                    });
+                }
+            }
+            let listing = active.is_some_and(|a| !prep_qs[a].is_empty());
             let below = |t: &TechQ| t.started + t.placed < t.goal;
             // While a goal is open, spare minutes go to drills, not past-goal techniques.
             let any_below = order.iter().any(|&i| below(&techs[i]));
-            for ti in order {
+            for ti in order.into_iter().filter(|_| !listing) {
                 if placed_new >= slots || (any_below && !below(&techs[ti])) {
                     break;
                 }
@@ -1582,7 +1715,7 @@ fn build(
                 today_problems.insert(pi);
                 chosen.push(Chosen {
                     item: ctx.new_item(p, &weak_mods),
-                    effect: Effect::New(ti, pi),
+                    effect: Effect::New(Some(ti), pi),
                 });
             }
         }
@@ -1705,7 +1838,12 @@ fn build(
                 ..
             }) = ch.take()
             {
-                techs[ti].queue.push_front(pi);
+                if let Some(ti) = ti {
+                    techs[ti].queue.push_front(pi);
+                }
+                if let Some(a) = active.filter(|&a| preps[a].has(pi)) {
+                    prep_qs[a].push_front(pi);
+                }
             }
         }
         let mut done_actions = Vec::new();
@@ -1734,7 +1872,9 @@ fn build(
                             },
                         );
                         // The forecast reads "by the interview", so later days don't count.
-                        if interview.is_none_or(|iv| day < iv) {
+                        if let Some(ti) = ti
+                            && interview.is_none_or(|iv| day < iv)
+                        {
                             techs[ti].placed += 1;
                         }
                         passes_since += 1;
@@ -2874,6 +3014,48 @@ mod tests {
                 .flat_map(|x| &x.items)
                 .all(|i| i.kind == ItemKind::Review),
             "reviews only"
+        );
+    }
+
+    #[test]
+    fn an_interview_within_three_weeks_puts_its_company_list_first() {
+        // Meta's list: two-sum, then the playlist-only logger, which no plan offers otherwise.
+        let s = settings(
+            r#"{"interviews":[{"date":"2026-11-21","company":"meta"}],"target_companies":["stripe"],"new_per_day":1}"#,
+        );
+        let p = run(&[], &s, at(11, 14, 8));
+        let new: Vec<_> = all_items(&p)
+            .into_iter()
+            .filter(|(_, i)| i.kind == ItemKind::New)
+            .collect();
+        let ids: Vec<_> = new.iter().map(|(_, i)| i.problem.as_deref()).collect();
+        assert_eq!(&ids[..2], &[Some("two-sum"), Some("logger-rate-limiter")]);
+        assert!(
+            new[0]
+                .1
+                .reason
+                .ends_with("It's on the Meta list, and your interview is in 7 days"),
+            "{}",
+            new[0].1.reason
+        );
+        assert!(!new[0].1.reason.contains("Stripe"), "{}", new[0].1.reason);
+        assert_eq!(new[0].1.chips[0].text, "On the Meta list");
+        // Once the list runs out, the curriculum fills the rest.
+        assert!(ids.len() > 2, "new work carries on after the list");
+
+        // A later interview's list takes over on the plan's own days once it's 3 weeks out.
+        let later = settings(
+            r#"{"interviews":[{"date":"2026-12-20","company":"stripe"}],"new_per_day":1}"#,
+        );
+        let p = run(&[], &later, at(11, 14, 8));
+        let logger = all_items(&p)
+            .into_iter()
+            .find(|(_, i)| i.problem.as_deref() == Some("logger-rate-limiter"))
+            .expect("Stripe's list is planned before its interview");
+        assert!(
+            logger.0 >= "2026-11-29" && logger.0 < "2026-12-20",
+            "{}",
+            logger.0
         );
     }
 

@@ -582,9 +582,10 @@ function agenda(c: Ctx): SafeHtml {
 
 /** Days from `a` to `b`, both `YYYY-MM-DD`. */
 const dayDiff = (a: string, b: string): number => Math.round((dateOf(b).getTime() - dateOf(a).getTime()) / 86_400_000);
-/** The planner's own phase lengths (crates/core/src/planner.rs NEAR_DAYS and REVIEW_ONLY_DAYS). */
+/** The planner's own phase lengths (crates/core/src/planner.rs NEAR_DAYS, REVIEW_ONLY_DAYS and PREP_DAYS). */
 const NEAR_DAYS = 14;
 const REVIEW_ONLY_DAYS = 2;
+const PREP_DAYS = 21;
 
 type Milestone = { date: string; kind: "interview" | "mock" | "check" | "off"; label: string; iv?: Interview };
 
@@ -611,8 +612,11 @@ function road(c: Ctx): SafeHtml {
       const f = from < prev ? prev : from;
       if (to > f) phases.push({ from: f, to, kind, label });
     };
-    push(prev, near, "learn", "New topics and reviews");
-    push(near, tail, "near", "Mocks closer together");
+    // With a company, the planner's last PREP_DAYS go to that company's list.
+    const prep = iv.company && iv.name ? addDays(iv.date, -PREP_DAYS) : near;
+    push(prev, prep, "learn", "New topics and reviews");
+    if (prep < near) push(prep, tail, "prep", `${iv.name} prep`);
+    else push(near, tail, "near", "Mocks closer together");
     push(tail, iv.date, "tail", "Reviews only");
     prev = iv.date;
   }

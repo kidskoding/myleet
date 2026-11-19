@@ -39,6 +39,12 @@ describe("todaySummary", () => {
       "Today we're spending most of our time on sliding window. 3 days ago on Sliding Window Maximum you needed a hint.\n\nWe'll start with one sliding window problem! Solve it cleanly and sliding window will start to feel solid",
     );
   });
+  it("says the day comes from the interview company's list", () => {
+    const listed = item("new", "Hashing", "new", [{ icon: "building-2", text: "On the DRW list" }]);
+    expect(todaySummary({ items: [item("review", "Arrays"), listed, listed], skills: null, daysLeft: 6, now })).toBe(
+      "Today we'll start with one review to keep you on schedule, then work through two problems from DRW's list. Your interview is 6 days away",
+    );
+  });
   it("folds a short why and the plan into one paragraph", () => {
     const items = [item("new", "Hashing"), item("new", "Trees"), item("new", "Graphs")];
     expect(todaySummary({ items, skills: null, daysLeft: 30, now })).toBe("Today we'll work through three new problems in hashing, trees and graphs. Your interview is 30 days away");
