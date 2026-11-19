@@ -974,9 +974,10 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 /* Interview and dream-company checklist: a compact card of the big topics */
 .prep-goal { display: grid; gap: var(--space-2); padding: var(--space-4) var(--space-4) var(--space-3); align-content: start; }
 .pg-head { display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
-.pg-head h2 { margin: 0; font-size: var(--text-sm); font-weight: 650; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.pg-logos { display: flex; align-items: center; gap: 4px; flex: none; }
-.pg-logos .co-logo, .pg-logos .icon { width: 16px !important; height: 16px !important; flex: none; }
+.pg-head h2 { margin: 0; font-size: var(--text-sm); font-weight: 650; line-height: 1.5; color: var(--ink-2); text-wrap: balance; }
+.pg-co { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; color: var(--ink); }
+.pg-co .co-logo, .pg-head h2 > .icon { width: 15px !important; height: 15px !important; flex: none; }
+.pg-head h2 > .icon { vertical-align: -2px; margin-right: 5px; }
 .pg-count { margin: var(--space-1) 0 0; font-size: var(--text-sm); color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .pg-count b { color: var(--ink); font-weight: 700; font-size: var(--text-lg, 1.125rem); margin-right: 2px; }
 .pg-bar { display: flex; height: 4px; border-radius: 999px; overflow: hidden; background: var(--surface-sunk); }

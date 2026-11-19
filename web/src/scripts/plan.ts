@@ -657,16 +657,17 @@ function road(c: Ctx): SafeHtml {
 
 /** Before an interview with a company: its topics as a checklist, ready now or by when. */
 function prepGoal(c: Ctx): SafeHtml {
+  const named = (slugs: string[]) => slugs.map((slug) => ({ slug, name: companyTitle(c.cat.catalog.playlists, slug) ?? slug }));
   const pc = c.plan.prep;
   if (pc?.topics.length) {
     const slug = (c.plan.interviews ?? []).find((i) => i.date === pc.date)?.company;
-    return prepChecklist(pc, slug ? [slug] : []);
+    return prepChecklist(pc, slug ? named([slug]) : []);
   }
   const dream = c.plan.dream;
   if (!dream?.topics.length) return html``;
   const p = readPrefs().plan;
   const slugs = [...new Set([...p.interviews.filter((i) => i.company && i.date >= c.plan.start).map((i) => i.company as string), ...p.companies])];
-  return prepChecklist(dream, slugs, true);
+  return prepChecklist(dream, named(slugs), true);
 }
 
 /** The chart's side card: the chosen day, or today when none is chosen, plus where the plan ends. */
@@ -1807,7 +1808,7 @@ function goTo(index: number, openFirst = false): void {
 function onClick(e: MouseEvent): void {
   if (!root() || !ctx) return;
   const t = e.target as Element;
-  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],[data-view],button[data-nav],[data-today],[data-unfold],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],[data-day-pop],.pcol[data-p],.ag-ses[data-ses],.pd-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
+  const a = t.closest<HTMLElement>("[data-act],[data-step],[data-fix],button[data-view],button[data-nav],[data-today],[data-unfold],[data-daymenu],[data-dayoff],[data-shorter],[data-goto],[data-day-pop],.pcol[data-p],.ag-ses[data-ses],.pd-ses[data-ses],[data-pop-close],[data-pop-move],[data-pop-skip],[data-move-to],[data-note-act],[data-note-dismiss],[data-use-suggest],[data-drawer-close],[data-start-href]");
   if (!t.closest(".daymenu-pop") && !t.closest("[data-daymenu]")) closeDayMenu();
   // Any click outside the popover closes it; a session click reopens it on that session.
   if (!t.closest("[data-pop]") && !t.closest(".ses") && !t.closest(".toast")) closePop();
@@ -1937,8 +1938,8 @@ function onKey(e: KeyboardEvent): void {
     t: () => goTo(0),
     "[": () => $<HTMLElement>('[data-nav="-1"]')?.click(),
     "]": () => $<HTMLElement>('[data-nav="1"]')?.click(),
-    w: () => $<HTMLElement>('[data-view="week"]')?.click(),
-    m: () => $<HTMLElement>('[data-view="month"]')?.click(),
+    w: () => $<HTMLElement>('button[data-view="week"]')?.click(),
+    m: () => $<HTMLElement>('button[data-view="month"]')?.click(),
     a: openDrawer,
     c: openSync,
     s: () => {

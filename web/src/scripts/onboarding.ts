@@ -5,7 +5,7 @@
 // shows on its own, and Continue goes back there.
 import { brandIcon } from "../lib/ui/brand";
 import { navigate } from "astro:transitions/client";
-import { loadCatalog, type LoadedCatalog } from "../lib/catalog";
+import { companySlug, loadCatalog, type LoadedCatalog } from "../lib/catalog";
 import { daysUntil, planWeeks, shortDate, TIME_OPTIONS } from "../lib/plan";
 import { aimsOf } from "../lib/goals";
 import { planSettings, readPrefs, updatePrefs, type Goal } from "../lib/prefs";
@@ -121,14 +121,15 @@ function planStep(): SafeHtml {
   if (!c || !t) return html`${head("plan", { skip: false })}<div class="q"><div class="skel" style="height:44px;width:60%"></div><div class="weeks">${[1, 2, 3].map(() => html`<div class="skel" style="height:52px;margin-top:8px"></div>`)}</div></div>`;
   const p = readPrefs().plan;
   const plan = t.plan(planEvents, planSettings());
+  const named = (slugs: string[]) => slugs.map((slug) => ({ slug, name: c.playlists.find((pl) => companySlug(pl.id) === slug)?.title ?? slug }));
   const weeks = planWeeks(plan);
   const title = p.interviewDate && daysUntil(p.interviewDate) > 0 ? `Your plan to ${shortDate(p.interviewDate)}` : "Your next 4 weeks";
   const later = plan.summary.behind.slice(0, 6);
   return html`${head("plan", { skip: false })}<section class="q" aria-labelledby="q5">
     <h1 id="q5">${title}</h1>
     ${plan.prep?.topics.length
-      ? html`<p class="sub">${plan.summary.headline} Until your interview, each day goes to whichever ${plan.prep.company} topic you're least ready for, so every topic gets practice before any of them gets a second pass</p>${prepChecklist(plan.prep, p.interviews.filter((i) => i.date === plan.prep?.date && i.company).map((i) => i.company as string))}`
-      : html`<p class="sub">${plan.summary.headline} Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>${plan.dream?.topics.length ? prepChecklist(plan.dream, [...new Set([...p.interviews.flatMap((i) => (i.company ? [i.company] : [])), ...p.companies])], true) : ""}`}
+      ? html`<p class="sub">${plan.summary.headline} Until your interview, each day goes to whichever ${plan.prep.company} topic you're least ready for, so every topic gets practice before any of them gets a second pass</p>${prepChecklist(plan.prep, named(p.interviews.filter((i) => i.date === plan.prep?.date && i.company).map((i) => i.company as string)))}`
+      : html`<p class="sub">${plan.summary.headline} Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>${plan.dream?.topics.length ? prepChecklist(plan.dream, named([...new Set([...p.interviews.flatMap((i) => (i.company ? [i.company] : [])), ...p.companies])]), true) : ""}`}
     <ol class="weeks" aria-label="Week by week">${weeks.map(
       (w) =>
         html`<li class="week"><div class="when">${w.label}<small>${shortDate(w.from)}${w.from !== w.to ? ` to ${shortDate(w.to)}` : ""}</small></div><div class="tech">${

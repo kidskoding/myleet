@@ -14,6 +14,19 @@ const dayWord = (d: string) => (d === localDay() ? "today" : d === addDays(local
 /** Topics the card lists before "See all". */
 const FIRST = 4;
 
+// The Plan page redraws when its layout changes, which opening "See all" does, so the card
+// remembers it was opened instead of snapping shut on the next paint.
+let showAll = false;
+if (typeof document !== "undefined")
+  document.addEventListener(
+    "toggle",
+    (e) => {
+      const d = e.target as HTMLElement;
+      if (d instanceof HTMLDetailsElement && d.classList.contains("pg-more")) showAll = d.open;
+    },
+    true,
+  );
+
 type State = "ready" | "soon" | "touched" | "late";
 const state = (t: PrepTopic): State => (t.status === "ready" ? "ready" : t.ready_by ? "soon" : t.practiced_by ? "touched" : "late");
 
@@ -21,7 +34,12 @@ const state = (t: PrepTopic): State => (t.status === "ready" ? "ready" : t.ready
  * The checklist card: for an interview (`dream` false), measured against its date; for
  * dream companies with no interview near, measured against the plan's last day.
  */
-export function prepChecklist(pc: PrepCover, slugs: string[], dream = false): SafeHtml {
+export interface ChecklistCompany {
+  slug: string;
+  name: string;
+}
+
+export function prepChecklist(pc: PrepCover, companies: ChecklistCompany[], dream = false): SafeHtml {
   const n = pc.topics.length;
   const count = (s: State) => pc.topics.filter((t) => state(t) === s).length;
   const ready = count("ready");
@@ -91,14 +109,21 @@ export function prepChecklist(pc: PrepCover, slugs: string[], dream = false): Sa
   const pinned = dream ? [] : order.filter((t) => state(t) === "late");
   const first = [...pinned, ...order.filter((t) => !pinned.includes(t))].slice(0, Math.max(FIRST, pinned.length));
   const rest = order.filter((t) => !first.includes(t));
-  const names = pc.company.split(/, | and /).length;
-  const title = dream ? (names > 2 ? "Dream company topics" : `${pc.company} topics`) : `${pc.company} interview, ${when}`;
+  // Each company's logo sits right before its name: "[logo] Meta and [logo] Google topics".
+  const co = (c: ChecklistCompany) => html`<span class="pg-co">${companyLogo(c.slug)}${c.name}</span>`;
+  const cos = companies.length ? companies : [];
+  const joined = cos.map((c, i) => html`${i === 0 ? "" : i === cos.length - 1 ? " and " : ", "}${co(c)}`);
+  const title = cos.length
+    ? dream
+      ? html`${joined} topics`
+      : html`${joined} interview, ${when}`
+    : html`${icon("flag")}${dream ? `${pc.company} topics` : `${pc.company} interview, ${when}`}`;
   return html`<section class="panel prep-goal" aria-labelledby="pg-h">
-    <div class="pg-head"><span class="pg-logos">${slugs.length ? slugs.slice(0, 3).map((s) => companyLogo(s)) : icon("flag")}</span><h2 id="pg-h">${title}</h2></div>
+    <div class="pg-head"><h2 id="pg-h">${title}</h2></div>
     <p class="pg-count"><b>${ready} of ${n}</b> topics ready</p>
     <div class="pg-bar" role="progressbar" aria-label="Topics ready" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${ready}" aria-valuetext="${ready} of ${n} topics ready"><span style="width:${((ready / n) * 100).toFixed(0)}%"></span><span class="pg-soon" style="width:${((soon / n) * 100).toFixed(0)}%"></span><span class="pg-touched" style="width:${((touched / n) * 100).toFixed(0)}%"></span></div>
     <p class="pg-lead">${lead}</p>
     <ul class="pg-topics">${first.map(row)}</ul>
-    ${rest.length ? html`<details class="pg-more"><summary>See all ${n} topics</summary><ul class="pg-topics">${rest.map(row)}</ul></details>` : ""}
+    ${rest.length ? html`<details class="pg-more" ${showAll ? "open" : ""}><summary>See all ${n} topics</summary><ul class="pg-topics">${rest.map(row)}</ul></details>` : ""}
   </section>`;
 }
