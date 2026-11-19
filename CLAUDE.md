@@ -67,6 +67,8 @@ myleet/
 └── tools/migrate/           one-time migration from the old multi-problem files
 ```
 
+Interview prep: in the `PREP_DAYS` (21) before an interview with a company, `crates/core/src/planner.rs` turns the big topics its list leans on (modules, mixed practice excluded) into a checklist. Readiness comes from the skill model, which placement feeds, plus LeetCode history. A never-practiced topic ramps with its note, then a warm-up. New work goes breadth first to the least-covered topic, list problems easiest first, and dream companies wait. `Plan.prep` carries the checklist; `web/src/lib/ui/prep-checklist.ts` renders it on Plan and the last onboarding step, and `prepChange` in `web/src/lib/sheet-note.ts` says what moved after a session.
+
 Progress lives outside the repo in `~/.local/share/myleet/` (or `state_dir` from
 `~/.config/myleet/config.toml`): `progress.toml` is the learner's editable save file
 (the source of truth for scheduling) and `events.jsonl` is history for stats. Never
@@ -158,7 +160,7 @@ Run `just ci` (everything) before a push that touches more than one area. Run th
 
 ## Writing for people
 
-Run the `humanizer` skill on every piece of prose a person will read: web pages (How it works, About, Privacy, Terms, landing), UI copy and descriptions, notes, READMEs, commit messages and PR descriptions. Docs pages should be thorough and long enough to answer the reader's real questions, with concrete numbers and examples taken from the code (for example the ladder rungs, time targets and skill thresholds in `crates/core`), never invented. Use full sentences with periods, sentence-case headings, and no em dashes. In UI copy, never end a text block with a trailing period, whether it is one sentence or several: periods go only between sentences, and the last sentence may end with "!" (at most one per block) where the voice calls for it. Long-form docs pages keep normal punctuation.
+Personalized copy (Today, Plan, reasons, notes, result sheet, onboarding) uses complete sentences and complete thoughts, never choppy fragments like "Due 19 days ago, still settling in". Run the `humanizer` skill on every piece of prose a person will read: web pages (How it works, About, Privacy, Terms, landing), UI copy and descriptions, notes, READMEs, commit messages and PR descriptions. Docs pages should be thorough and long enough to answer the reader's real questions, with concrete numbers and examples taken from the code (for example the ladder rungs, time targets and skill thresholds in `crates/core`), never invented. Use full sentences with periods, sentence-case headings, and no em dashes. In UI copy, never end a text block with a trailing period, whether it is one sentence or several: periods go only between sentences, and the last sentence may end with "!" (at most one per block) where the voice calls for it. Long-form docs pages keep normal punctuation.
 
 ______________________________________________________________________
 
