@@ -28,12 +28,14 @@
     rusty-man
     trunk
     wasm-pack
-    # cargo install worker-build (must match the worker crate version) needs these.
+
+    # cargo install worker-build (must match the worker crate version) needs these
     openssl
     pkg-config
     git
     just
-    # No wrangler here: use `bunx wrangler` in worker/ (or `just dev`), the version
-    # worker/package.json pins and CI deploys with.
+    
+    # execute wrangler with bun: `bunx wrangler dev` (nix version is not up to date)
+    # wrangler
   ];
 }
