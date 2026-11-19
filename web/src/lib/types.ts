@@ -427,6 +427,8 @@ export interface Plan {
     headline: string;
   };
   notes?: PlanNote[];
+  /** The interview today's new work prepares for, and how much of its list fits before it. */
+  prep?: { company: string; date: string; left: number; planned: number } | null;
 }
 
 export interface SkillAction {

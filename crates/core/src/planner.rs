@@ -462,6 +462,19 @@ pub struct Plan {
     /// What changed since the last plan, newest first; the UI shows the first.
     #[serde(default)]
     pub notes: Vec<Note>,
+    /// The interview today's new work prepares for, and how much of its list fits before it.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub prep: Option<PrepCover>,
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct PrepCover {
+    pub company: String,
+    pub date: String,
+    /// List problems not yet solved when the plan was made.
+    pub left: usize,
+    /// How many of those the plan places before the interview.
+    pub planned: usize,
 }
 
 /// A re-plan note: what changed, in counts, and what it means for the date.
@@ -1387,6 +1400,7 @@ fn build(
                 .collect()
         })
         .collect();
+    let prep_left = prep_qs.clone();
     // Targeted drills from the skill model, most needed technique first.
     let mut pending: Vec<(f64, usize, usize)> = Vec::new();
     for (ti, t) in techs.iter().enumerate() {
@@ -1645,7 +1659,8 @@ fn build(
             // Before an interview with a company, its list comes first and stands alone:
             // other companies and the curriculum wait until the list runs out.
             if let Some(a) = active {
-                while placed_new < slots {
+                // The list fills the time reviews leave, not the usual new-per-day count.
+                loop {
                     // A problem on two lists is placed once, from whichever comes first.
                     prep_qs[a].retain(|pi| !sim.contains_key(pi));
                     let Some(at) = prep_qs[a].iter().position(|&pi| {
@@ -1997,6 +2012,28 @@ fn build(
         }
     }
     let summary = summarize(&days, &forecast, today, interview);
+    let prep = prep_on(&preps, today).map(|i| {
+        let pp = &preps[i];
+        let ids: HashSet<&str> = prep_left[i]
+            .iter()
+            .map(|&pi| c.problems()[pi].id.as_str())
+            .collect();
+        let date = pp.date.to_string();
+        PrepCover {
+            company: pp.title.clone(),
+            left: ids.len(),
+            planned: days
+                .iter()
+                .filter(|d| d.date < date)
+                .flat_map(|d| d.sessions.iter().flat_map(|s| &s.items))
+                .filter(|it| {
+                    it.kind == ItemKind::New
+                        && it.problem.as_deref().is_some_and(|id| ids.contains(id))
+                })
+                .count(),
+            date,
+        }
+    });
     Ok(Plan {
         version: 1,
         generated_ms: now.as_millisecond(),
@@ -2018,6 +2055,7 @@ fn build(
         forecast,
         summary,
         notes: Vec::new(),
+        prep,
     })
 }
 
@@ -2419,9 +2457,17 @@ pub fn fixes(
 ) -> Result<Fixes, String> {
     let settings = &settings.resolved(local_day(now, tz));
     let base = build(c, events, settings, now, tz, "")?;
+    // During interview prep, the list is the target: its note replaces the topic one.
+    let prep_note = match &base.prep {
+        Some(pc) => prep_short_note(c, events, settings, now, tz, pc)?,
+        None => None,
+    };
     let behind: Vec<&Coverage> = base.forecast.iter().filter(|f| f.behind_by > 0).collect();
     if behind.is_empty() {
-        return Ok(Fixes::default());
+        return Ok(Fixes {
+            note: prep_note,
+            ..Fixes::default()
+        });
     }
     let mut out = Fixes {
         techniques: behind
@@ -2530,7 +2576,76 @@ pub fn fixes(
             actions,
         });
     }
+    if base.prep.is_some() {
+        out.note = prep_note;
+    }
     Ok(out)
+}
+
+/// When the plan can't fit the interview company's list before the date: the weekday
+/// budget that would, or a window when no budget on the stepper does.
+fn prep_short_note(
+    c: &Catalog,
+    events: &[Event],
+    settings: &Settings,
+    now: Timestamp,
+    tz: &TimeZone,
+    pc: &PrepCover,
+) -> Result<Option<Note>, String> {
+    if pc.planned >= pc.left {
+        return Ok(None);
+    }
+    let weekend = settings.weekend_minutes.unwrap_or(settings.daily_minutes);
+    let mut fix = None;
+    for m in FIX_STEPS
+        .into_iter()
+        .filter(|m| *m > settings.daily_minutes)
+    {
+        let s = Settings {
+            daily_minutes: m,
+            weekend_minutes: Some(weekend),
+            ..settings.clone()
+        };
+        if build(c, events, &s, now, tz, "")?
+            .prep
+            .is_some_and(|p| p.planned >= p.left)
+        {
+            fix = Some(m);
+            break;
+        }
+    }
+    let tail = match fix {
+        Some(m) => format!("About {} on weekdays covers the rest.", fmt_minutes(m)),
+        None => format!(
+            "Even {} on weekdays doesn't cover it, but another window or more weekend time would.",
+            fmt_minutes(FIX_STEPS[FIX_STEPS.len() - 1])
+        ),
+    };
+    let mut actions = Vec::new();
+    if let Some(m) = fix {
+        actions.push(NoteAction {
+            kind: "weekday_minutes".into(),
+            label: format!("Use {}", fmt_minutes(m)),
+            value: Some(m),
+        });
+    }
+    actions.push(NoteAction {
+        kind: "availability".into(),
+        label: "Add a window".into(),
+        value: None,
+    });
+    Ok(Some(Note {
+        kind: "over_budget".into(),
+        title: format!(
+            "At {} on weekdays, you'll get through {} of the {} problems left on {}'s list before your interview.",
+            fmt_minutes(settings.daily_minutes),
+            pc.planned,
+            pc.left,
+            pc.company
+        ),
+        body: format!("Reviews still come first and none are dropped. {tail}"),
+        actions,
+    }))
 }
 
 /// A session opens with one warm-up review, then the new problem, then the rest, so new
@@ -3666,6 +3781,39 @@ mod tests {
         }
         let on_track = fixes(&c, &[], &Settings::default(), at(11, 14, 8), &chicago()).unwrap();
         assert_eq!(on_track, Fixes::default());
+    }
+
+    #[test]
+    fn a_list_that_wont_fit_before_the_interview_says_what_would() {
+        // Monday is the one planning day before the last two review-only days; 15 minutes fits one problem.
+        let s = settings(&format!(
+            r#"{{"interviews":[{{"date":"2026-11-19","company":"meta"}}],"daily_minutes":15,"weekend_minutes":15,{WINDOWS}}}"#
+        ));
+        let c = good_catalog();
+        let p = run(&[], &s, at(11, 16, 8));
+        let pc = p.prep.expect("prep for Meta");
+        assert_eq!(pc.left, 2);
+        assert!(pc.planned < pc.left, "{pc:?}");
+        let note = fixes(&c, &[], &s, at(11, 16, 8), &chicago())
+            .unwrap()
+            .note
+            .expect("a note when the list won't fit");
+        assert!(
+            note.title.contains(&format!(
+                "you'll get through {} of the 2 problems left on Meta's list",
+                pc.planned
+            )),
+            "{}",
+            note.title
+        );
+        assert_eq!(note.actions[0].kind, "weekday_minutes");
+        let m = note.actions[0].value.expect("a budget that covers it");
+        let ok = Settings {
+            daily_minutes: m,
+            ..s.clone()
+        };
+        let pc = run(&[], &ok, at(11, 16, 8)).prep.unwrap();
+        assert_eq!(pc.planned, pc.left, "the named budget really fits the list");
     }
 
     #[test]

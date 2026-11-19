@@ -535,7 +535,13 @@ function paint(c: Ctx): void {
     }
   }
   const plan = planInfo(c);
-  const note = (c.plan?.notes ?? []).find((n) => n.kind !== "date_passed" && !noteDismissed(n));
+  const prep = c.plan?.prep;
+  // The list that won't fit is said here; the Plan page names the time that fixes it.
+  const short: PlanNote | null =
+    prep && prep.planned < prep.left
+      ? { kind: "over_budget" as PlanNote["kind"], title: `You'll get through ${prep.planned} of the ${prep.left} problems left on ${prep.company}'s list before your interview.`, body: "More weekday time or another practice window would cover the rest", actions: [] }
+      : null;
+  const note = [...(c.plan?.notes ?? []), ...(short ? [short] : [])].find((n) => n.kind !== "date_passed" && !noteDismissed(n));
   const noteHtml = note ? replanNote(note, { marks: marks(c), dismiss: true, link: html`<a class="btn btn-ghost btn-sm" href="${ROUTES.plan}">See the plan</a>` }) : html``;
 
   // Plan status: the on-track line, this week's check-in and the catch-up note. Each is empty without data.
