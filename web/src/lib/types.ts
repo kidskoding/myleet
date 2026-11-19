@@ -429,6 +429,8 @@ export interface Plan {
   notes?: PlanNote[];
   /** The interview today's new work prepares for, and how much of its list fits before it. */
   prep?: PrepCover | null;
+  /** With no interview prep running: the dream companies' topics as a checklist through the plan's last day. */
+  dream?: PrepCover | null;
 }
 
 export interface SkillAction {

@@ -130,8 +130,8 @@ const shortDate = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString("e
 
 /** How the interview checklist moved: a topic that just became ready, or one whose solid date shifted. */
 export function prepChange(before: Plan | null, after: Plan | null): string | null {
-  const a = after?.prep;
-  const b = before?.prep;
+  const a = after?.prep ?? after?.dream;
+  const b = before?.prep ?? before?.dream;
   if (!a?.topics.length || !b || b.company !== a.company) return null;
   const was = new Map(b.topics.map((t) => [t.module, t]));
   const ready = a.topics.filter((t) => t.status === "ready").length;
@@ -139,13 +139,13 @@ export function prepChange(before: Plan | null, after: Plan | null): string | nu
   const done = a.topics.find((t) => t.status === "ready" && was.get(t.module)?.status !== "ready");
   if (done)
     return ready === n
-      ? `${sentenceCase(done.title)} is ready now, which means every topic ${a.company} leans on is ready`
+      ? `${sentenceCase(done.title)} is ready now, which means every topic ${a.company} ${a.company.includes(" and ") ? "lean" : "leans"} on is ready`
       : `${sentenceCase(done.title)} is ready now, which makes ${ready} of the ${n} ${a.company} topics ready`;
   for (const t of a.topics) {
     const old = was.get(t.module);
     if (!old || t.status === "ready") continue;
     if (t.ready_by && (!old.ready_by || t.ready_by < old.ready_by)) return `${sentenceCase(t.title)} is now on track to be solid by ${shortDate(t.ready_by)}`;
-    if (old.ready_by && (!t.ready_by || t.ready_by > old.ready_by)) return `${sentenceCase(t.title)} needs another pass, so the plan gives it more practice before your interview`;
+    if (old.ready_by && (!t.ready_by || t.ready_by > old.ready_by)) return `${sentenceCase(t.title)} needs another pass, so the plan gives it more practice${after?.prep ? " before your interview" : ""}`;
   }
   return null;
 }

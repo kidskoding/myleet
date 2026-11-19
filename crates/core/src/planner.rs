@@ -465,6 +465,10 @@ pub struct Plan {
     /// The interview today's new work prepares for, and how much of its list fits before it.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub prep: Option<PrepCover>,
+    /// With no interview prep running: the dream companies' topics as the same checklist,
+    /// projected over the plan's days. `date` is the plan's last day.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub dream: Option<PrepCover>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -2444,6 +2448,11 @@ fn build(
             date,
         }
     });
+    let dream = if prep.is_none() {
+        dream_cover(c, &rel, &report, lc.as_ref(), &days, settings)
+    } else {
+        None
+    };
     Ok(Plan {
         version: 1,
         generated_ms: now.as_millisecond(),
@@ -2465,6 +2474,7 @@ fn build(
         forecast,
         summary,
         notes: Vec::new(),
+        dream,
         prep,
     })
 }
@@ -2557,6 +2567,97 @@ fn company_title(c: &Catalog, settings: &Settings) -> Option<String> {
         c,
         next_company(settings).or(settings.target_companies.first())?,
     )
+}
+
+/// The dream companies' checklist: each module their lists lean on, ready once its weakest
+/// technique there is solid, with when the plan first practices it and when it gets there.
+fn dream_cover(
+    c: &Catalog,
+    rel: &HashMap<(usize, usize), Vec<(String, usize)>>,
+    report: &Report,
+    lc: Option<&crate::leetcode::Import>,
+    days: &[Day],
+    settings: &Settings,
+) -> Option<PrepCover> {
+    let names: Vec<String> = settings
+        .target_companies
+        .iter()
+        .filter_map(|s| company_name(c, s))
+        .collect();
+    if names.is_empty() {
+        return None;
+    }
+    // (module, need, weight, started, from LeetCode)
+    let mut mods: Vec<(usize, usize, usize, bool, bool)> = Vec::new();
+    for (&(m, t), sets) in rel {
+        let module = &c.modules[m];
+        if module.bank || module.id.contains("mixed") {
+            continue;
+        }
+        let Some(s) = report.get(m, t) else { continue };
+        let lc_ready = s.evidence.attempts == 0 && lc.is_some_and(|i| i.strong(&module.id));
+        let need = if lc_ready { 0 } else { need_of(s.level()) };
+        let weight: usize = sets.iter().map(|x| x.1).sum();
+        match mods.iter_mut().find(|x| x.0 == m) {
+            Some(x) => {
+                x.1 = x.1.max(need);
+                x.2 += weight;
+                x.3 |= s.evidence.attempts > 0;
+                x.4 &= lc_ready || need == 0;
+            }
+            None => mods.push((m, need, weight, s.evidence.attempts > 0, lc_ready)),
+        }
+    }
+    if mods.is_empty() {
+        return None;
+    }
+    mods.sort_by_key(|x| (std::cmp::Reverse(x.2), x.0));
+    let topics = mods
+        .into_iter()
+        .map(|(m, need, _, started, lc_ready)| {
+            let mut placed = 0;
+            let (mut first, mut ready_by) = (None, None);
+            for d in days {
+                for it in d.sessions.iter().flat_map(|s| &s.items) {
+                    let here = it
+                        .problem
+                        .as_deref()
+                        .and_then(|id| c.problem(id))
+                        .is_some_and(|p| p.module == m);
+                    if it.kind == ItemKind::New && here {
+                        placed += 1;
+                        first.get_or_insert(d.date.clone());
+                        if need > 0 && placed == need {
+                            ready_by.get_or_insert(d.date.clone());
+                        }
+                    }
+                }
+            }
+            PrepTopic {
+                module: c.modules[m].id.clone(),
+                title: c.modules[m].title.clone(),
+                status: if need == 0 {
+                    "ready"
+                } else if started {
+                    "started"
+                } else {
+                    "new"
+                }
+                .into(),
+                ready_by: if need == 0 { None } else { ready_by },
+                practiced_by: if need == 0 { None } else { first },
+                from_leetcode: need == 0 && lc_ready,
+            }
+        })
+        .collect();
+    Some(PrepCover {
+        company: and_list(&names),
+        date: days.last().map(|d| d.date.clone()).unwrap_or_default(),
+        left: 0,
+        planned: 0,
+        topics,
+        today: None,
+    })
 }
 
 /// The company whose interview is `COMPANY_MOCK_DAYS` after `day`: that day gets its mock.
@@ -4294,6 +4395,29 @@ mod tests {
             "{}",
             first.reason
         );
+    }
+
+    #[test]
+    fn dream_companies_get_a_checklist_when_no_interview_is_near() {
+        let s = settings(r#"{"target_companies":["meta"]}"#);
+        let p = run(&[], &s, at(11, 16, 8));
+        assert!(p.prep.is_none());
+        let d = p.dream.expect("a checklist for Meta");
+        assert_eq!(d.company, "Meta");
+        assert_eq!(
+            d.topics.len(),
+            1,
+            "beta; the bank logger and mixed practice don't count"
+        );
+        assert_eq!(d.topics[0].status, "new");
+        assert!(d.topics[0].practiced_by.is_some(), "{d:?}");
+
+        // Interview prep takes over the checklist inside three weeks.
+        let near = settings(
+            r#"{"target_companies":["meta"],"interviews":[{"date":"2026-11-21","company":"meta"}]}"#,
+        );
+        let p = run(&[], &near, at(11, 16, 8));
+        assert!(p.prep.is_some() && p.dream.is_none());
     }
 
     #[test]

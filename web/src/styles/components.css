@@ -974,7 +974,11 @@ details.overlap summary { cursor: pointer; color: var(--accent); font-weight: 60
 /* Interview checklist: one row per topic the company leans on */
 .prep-goal { display: grid; gap: var(--space-3); }
 .pg-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); }
-.pg-head > .co-logo, .pg-head > .icon { width: 28px !important; height: 28px !important; }
+.pg-logos { display: flex; align-items: center; }
+.pg-logos .co-logo, .pg-logos .icon { width: 28px !important; height: 28px !important; }
+.pg-logos > * + * { margin-left: -8px; }
+.pg-t.pg-later .pg-ic { background: color-mix(in srgb, var(--ink-3) 12%, transparent); color: var(--ink-3); }
+.pg-t.pg-later .pg-when { color: var(--ink-3); }
 .pg-head h2 { font-size: var(--text-lg, 1.125rem); margin: 0; }
 .pg-head p { margin: 2px 0 0; color: var(--ink-2); font-size: var(--text-sm); }
 .pg-count { font-size: var(--text-sm); color: var(--ink-3); font-variant-numeric: tabular-nums; }

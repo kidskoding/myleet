@@ -658,8 +658,15 @@ function road(c: Ctx): SafeHtml {
 /** Before an interview with a company: its topics as a checklist, ready now or by when. */
 function prepGoal(c: Ctx): SafeHtml {
   const pc = c.plan.prep;
-  if (!pc?.topics.length) return html``;
-  return prepChecklist(pc, (c.plan.interviews ?? []).find((i) => i.date === pc.date)?.company ?? null);
+  if (pc?.topics.length) {
+    const slug = (c.plan.interviews ?? []).find((i) => i.date === pc.date)?.company;
+    return prepChecklist(pc, slug ? [slug] : []);
+  }
+  const dream = c.plan.dream;
+  if (!dream?.topics.length) return html``;
+  const p = readPrefs().plan;
+  const slugs = [...new Set([...p.interviews.filter((i) => i.company && i.date >= c.plan.start).map((i) => i.company as string), ...p.companies])];
+  return prepChecklist(dream, slugs, true);
 }
 
 /** The chart's side card: the chosen day, or today when none is chosen, plus where the plan ends. */
@@ -840,7 +847,7 @@ function paint(): void {
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
         <div class="legend cal-legend" aria-label="Session mix colors"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span>${readPrefs().plan.busy.length ? html`<span><i class="lg-busy"></i>Busy (Google Calendar)</span>` : ""}<span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>
       </section>
-      <div class="route">${road(c)}${c.plan.prep?.topics.length ? "" : forecast(c)}</div>
+      <div class="route">${road(c)}${c.plan.prep?.topics.length || c.plan.dream?.topics.length ? "" : forecast(c)}</div>
       ${you(c)}
     </div>`,
   );

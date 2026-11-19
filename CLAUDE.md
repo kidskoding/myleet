@@ -67,7 +67,7 @@ myleet/
 └── tools/migrate/           one-time migration from the old multi-problem files
 ```
 
-Interview prep: in the `PREP_DAYS` (21) before an interview with a company, `crates/core/src/planner.rs` turns the big topics its list leans on (modules, mixed practice excluded) into a checklist. Readiness comes from the skill model, which placement feeds, plus LeetCode history. A never-practiced topic ramps with its note, then a warm-up. New work goes breadth first to the least-covered topic, list problems easiest first, and dream companies wait. `Plan.prep` carries the checklist; `web/src/lib/ui/prep-checklist.ts` renders it on Plan and the last onboarding step, and `prepChange` in `web/src/lib/sheet-note.ts` says what moved after a session.
+Interview prep: in the `PREP_DAYS` (21) before an interview with a company, `crates/core/src/planner.rs` turns the big topics its list leans on (modules, mixed practice excluded) into a checklist. Readiness comes from the skill model, which placement feeds, plus LeetCode history. A never-practiced topic ramps with its note, then a warm-up. New work goes breadth first to the least-covered topic, list problems easiest first, and dream companies wait. `Plan.prep` carries the checklist, and with no interview near, `Plan.dream` projects the same checklist for the dream companies over the plan's days without changing what it schedules; `web/src/lib/ui/prep-checklist.ts` renders it on Plan and the last onboarding step, and `prepChange` in `web/src/lib/sheet-note.ts` says what moved after a session.
 
 Progress lives outside the repo in `~/.local/share/myleet/` (or `state_dir` from
 `~/.config/myleet/config.toml`): `progress.toml` is the learner's editable save file

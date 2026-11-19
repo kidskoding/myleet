@@ -127,8 +127,8 @@ function planStep(): SafeHtml {
   return html`${head("plan", { skip: false })}<section class="q" aria-labelledby="q5">
     <h1 id="q5">${title}</h1>
     ${plan.prep?.topics.length
-      ? html`<p class="sub">${plan.summary.headline} Until your interview, each day goes to whichever ${plan.prep.company} topic you're least ready for, so every topic gets practice before any of them gets a second pass</p>${prepChecklist(plan.prep, p.interviews.find((i) => i.date === plan.prep?.date)?.company ?? null)}`
-      : html`<p class="sub">${plan.summary.headline} Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>`}
+      ? html`<p class="sub">${plan.summary.headline} Until your interview, each day goes to whichever ${plan.prep.company} topic you're least ready for, so every topic gets practice before any of them gets a second pass</p>${prepChecklist(plan.prep, p.interviews.filter((i) => i.date === plan.prep?.date && i.company).map((i) => i.company as string))}`
+      : html`<p class="sub">${plan.summary.headline} Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>${plan.dream?.topics.length ? prepChecklist(plan.dream, [...new Set([...p.interviews.flatMap((i) => (i.company ? [i.company] : [])), ...p.companies])], true) : ""}`}
     <ol class="weeks" aria-label="Week by week">${weeks.map(
       (w) =>
         html`<li class="week"><div class="when">${w.label}<small>${shortDate(w.from)}${w.from !== w.to ? ` to ${shortDate(w.to)}` : ""}</small></div><div class="tech">${
