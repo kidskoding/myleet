@@ -762,6 +762,7 @@ function firstName(): string | null {
 
 function head(c: Ctx): SafeHtml {
   const p = readPrefs().plan;
+  const goal = prepGoal(c);
   const date = c.plan.interview_date;
   const later = (c.plan.interviews ?? []).find((i) => date && i.date > date);
   // Interview companies are targets too (the planner adds them), so an interview today with
@@ -775,12 +776,13 @@ function head(c: Ctx): SafeHtml {
   const prog = date ? progressLine(first ?? c.plan.start, date, c.plan.start) : null;
   const track = onTrackLine(standing(c.plan, c.events, c.now), date, company(c));
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
-    <header class="plan-head">
-      <div><h1>${markCompanies(copy.title, marks(c))}</h1>
+    <header class="plan-head${goal.toString() ? " has-goal" : ""}">
+      <div class="ph-copy"><h1>${markCompanies(copy.title, marks(c))}</h1>
         <p class="lede">${emphasize(copy.lede, companies, marks(c))}</p>
         ${prog ? html`<div class="plan-progress"><span class="pp-text">${prog.text}</span><span class="pp-bar" role="progressbar" aria-label="Plan progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(prog.share * 100)}"><span style="width:${(prog.share * 100).toFixed(1)}%"></span></span></div>` : ""}
         ${track ? html`<p class="on-track">${markCompanies(track, marks(c))}</p>` : ""}</div>
       <div class="head-actions"><button type="button" class="btn btn-secondary" data-act="change">${editGoalsLabel()}</button><button type="button" class="btn btn-secondary" data-act="avail" aria-keyshortcuts="a">${icon("clock-3")}Edit availability ${kbd("a")}</button><button type="button" class="btn btn-secondary when-out" data-act="save">${icon("calendar-check")}Save plan</button><button type="button" class="btn btn-secondary" data-act="sync" aria-keyshortcuts="c">${icon("calendar-plus")}Add to calendar</button></div>
+      ${goal}
     </header>`;
 }
 
@@ -842,7 +844,7 @@ function paint(): void {
   const note = currentNote(c);
   render(
     el,
-    html`<div class="plan-flow">${head(c)}${prepGoal(c)}${note ? replanNote(note, { marks: marks(c), dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
+    html`<div class="plan-flow">${head(c)}${note ? replanNote(note, { marks: marks(c), dismiss: !STICKY_NOTES.has(note.kind) }) : ""}
       <section class="week-sec" aria-labelledby="cal-h">${toolbar(c, g)}
         <div class="cal-split${openPopId && view === "week" ? " insp-open" : ""}" data-split><div class="cal-main">${view === "week" ? weekGrid(c, g) : monthGrid(c, view === "roadmap")}${agenda(c)}</div><aside class="pop" data-pop role="dialog" aria-modal="false" aria-labelledby="pop-h" hidden><div class="pop-in"></div></aside></div>
         <div class="legend cal-legend" aria-label="Session mix colors"><span><i style="background:var(--mix-review)"></i>Reviews</span><span><i style="background:var(--mix-weak)"></i>Weak spot</span><span><i style="background:var(--mix-new)"></i>New topic</span><span><i style="background:var(--mix-progress)"></i>In progress</span><span><i style="background:var(--mix-sharp)"></i>Keep sharp</span><span><i style="background:var(--mix-mock)"></i>Mock interview</span><span><i class="lg-check"></i>Check-in</span><span><i style="background:var(--window);box-shadow:inset 0 0 0 1px var(--window-edge)"></i>Your windows</span>${readPrefs().plan.busy.length ? html`<span><i class="lg-busy"></i>Busy (Google Calendar)</span>` : ""}<span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span></div>

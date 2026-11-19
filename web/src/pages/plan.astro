@@ -24,6 +24,14 @@ import Base from "../layouts/Base.astro";
   .plan .back:hover { color: var(--ink); }
   .plan .back .icon { width: 16px; height: 16px; }
   .plan-head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-6); margin-top: var(--space-3); flex-wrap: wrap; }
+  /* With a checklist, the card takes the empty space beside the headline. */
+  .plan-head.has-goal { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 340px); grid-template-areas: "copy goal" "acts goal"; grid-template-rows: auto 1fr; align-items: start; column-gap: var(--space-8, 48px); row-gap: var(--space-4); }
+  .plan-head.has-goal > .ph-copy { grid-area: copy; }
+  .plan-head.has-goal > .head-actions { grid-area: acts; align-self: start; }
+  .plan-head.has-goal > .prep-goal { grid-area: goal; margin: 0; }
+  @media (max-width: 1080px) {
+    .plan-head.has-goal { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "acts" "goal"; }
+  }
   .plan-head .lede :is(b, strong) { color: var(--ink); font-weight: 650; }
   .plan .head-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); max-width: 100%; }
   .plan > .replan, .plan .plan-flow > .replan { margin-top: var(--space-6); }
