@@ -774,7 +774,8 @@ function head(c: Ctx): SafeHtml {
   // startedAt is per device; the synced ledger's first day keeps "Day N" right on a new one.
   const first = [p.startedAt, Object.keys(readLedger()).sort()[0]].filter((d): d is string => !!d && d <= c.plan.start).sort()[0];
   const prog = date ? progressLine(first ?? c.plan.start, date, c.plan.start) : null;
-  const track = onTrackLine(standing(c.plan, c.events, c.now), date, company(c));
+  // During interview prep the checklist card says whether you'll be ready; a pace line would contradict it.
+  const track = c.plan.prep?.topics.length ? null : onTrackLine(standing(c.plan, c.events, c.now), date, company(c));
   return html`<a class="back" href="${ROUTES.today}">${icon("arrow-left")}Today</a>
     <header class="plan-head${goal.toString() ? " has-goal" : ""}">
       <div class="ph-copy"><h1>${markCompanies(copy.title, marks(c))}</h1>

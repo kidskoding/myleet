@@ -67,7 +67,7 @@ myleet/
 └── tools/migrate/           one-time migration from the old multi-problem files
 ```
 
-Interview prep: in the `PREP_DAYS` (21) before an interview with a company, `crates/core/src/planner.rs` turns the big topics its list leans on (modules, mixed practice excluded) into a checklist. Readiness comes from the skill model, which placement feeds, plus LeetCode history. A never-practiced topic ramps with its note, then a warm-up. New work goes breadth first to the least-covered topic, list problems easiest first, and dream companies wait. `Plan.prep` carries the checklist, and with no interview near, `Plan.dream` projects the same checklist for the dream companies over the plan's days without changing what it schedules; `web/src/lib/ui/prep-checklist.ts` renders it on Plan and the last onboarding step, and `prepChange` in `web/src/lib/sheet-note.ts` says what moved after a session.
+Interview prep: in the `PREP_DAYS` (21) before an interview with a company, `crates/core/src/planner.rs` turns the big topics its list leans on (modules, mixed practice excluded) into a checklist. Readiness comes from the skill model, which placement feeds, plus LeetCode history. A never-practiced topic ramps with its note, then a warm-up. New work goes breadth first to the least-covered topic, list problems easiest first, and dream companies wait. `Plan.prep` carries the checklist, and with no interview near, `Plan.dream` projects the same checklist for the dream companies over the plan's days without changing what it schedules; `web/src/lib/ui/prep-checklist.ts` renders it as a compact card beside the Plan headline and on the last onboarding step, and `prepChange` in `web/src/lib/sheet-note.ts` says what moved after a session.
 
 Progress lives outside the repo in `~/.local/share/myleet/` (or `state_dir` from
 `~/.config/myleet/config.toml`): `progress.toml` is the learner's editable save file
@@ -157,6 +157,10 @@ Every push to master runs CI (`.github/workflows/ci.yml`), and Deploy ships the 
 | The worker, migrations or deploy config                             | `just cd-check` (the Deploy build without deploying)           |
 
 Run `just ci` (everything) before a push that touches more than one area. Run the formatters inside the repo so they pick up `pyproject.toml` settings: `uv run ruff format .` and `uv run mdformat <file>`, never a global install. When other sessions have uncommitted work in the tree, check the commit on its own before pushing: extract it with `git archive HEAD` into a temp folder and run the checks there. A local pass on files that aren't in the commit proves nothing.
+
+## Designing UI
+
+Every UI change, however small, goes through the design skills before it ships: `impeccable` (critique and polish, plus its `impeccable detect` scan) and an independent `design-critic` review, with `apple-design` for motion and `design-taste-frontend` for new surfaces. Look at the rendered result at desktop and phone width before committing; the bar is Stripe and Linear polish in Catppuccin, with no italics.
 
 ## Writing for people
 

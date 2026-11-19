@@ -69,7 +69,20 @@ export function prepChecklist(pc: PrepCover, slugs: string[], dream = false): Sa
               ? `The plan reaches it after ${when}`
               : `There's no room for it before ${when}`;
     const calm = dream && st === "late";
-    return html`<li class="pg-t pg-${st}${calm ? " pg-later" : ""}"><span class="pg-ic" aria-hidden="true">${st === "ready" ? icon("check") : st === "late" && !calm ? icon("circle-alert") : icon("target")}</span><span class="pg-name">${sentenceCase(t.title)}</span>${pc.today === t.title ? html`<span class="pg-today">Today</span>` : ""}<span class="pg-when">${text}</span></li>`;
+    // One line per topic: a status mark, the name and a short date; the sentence is for
+    // screen readers and the hover tip.
+    const tag =
+      st === "ready"
+        ? "Ready"
+        : st === "soon"
+          ? `by ${dayWord(t.ready_by as string)}`
+          : st === "touched"
+            ? `starts ${dayWord(t.practiced_by as string)}`
+            : calm
+              ? `after ${when}`
+              : "no room";
+    const mark = st === "soon" && t.status === "started" ? "half" : st;
+    return html`<li class="pg-t pg-${st}${calm ? " pg-later" : ""}" title="${text}"><span class="pg-mark pg-mark-${mark}" aria-hidden="true">${st === "ready" ? icon("check") : ""}</span><span class="pg-name">${sentenceCase(t.title)}</span>${pc.today === t.title && !tag.includes("today") ? html`<span class="pg-today">Today</span>` : ""}<span class="pg-when" aria-hidden="true">${tag}</span><span class="visually-hidden">${text}</span></li>`;
   };
   // What's coming first, then what's ready, then what's further out.
   const rank: Record<State, number> = { soon: 0, touched: 1, late: 2, ready: 3 };
@@ -82,8 +95,8 @@ export function prepChecklist(pc: PrepCover, slugs: string[], dream = false): Sa
   const title = dream ? (names > 2 ? "Dream company topics" : `${pc.company} topics`) : `${pc.company} interview, ${when}`;
   return html`<section class="panel prep-goal" aria-labelledby="pg-h">
     <div class="pg-head"><span class="pg-logos">${slugs.length ? slugs.slice(0, 3).map((s) => companyLogo(s)) : icon("flag")}</span><h2 id="pg-h">${title}</h2></div>
-    <p class="pg-count"><b>${ready}</b> of ${n} topics ready</p>
-    <div class="pg-bar" role="progressbar" aria-label="Topics ready" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${ready}"><span style="width:${((ready / n) * 100).toFixed(0)}%"></span><span class="pg-soon" style="width:${((soon / n) * 100).toFixed(0)}%"></span><span class="pg-touched" style="width:${((touched / n) * 100).toFixed(0)}%"></span></div>
+    <p class="pg-count"><b>${ready} of ${n}</b> topics ready</p>
+    <div class="pg-bar" role="progressbar" aria-label="Topics ready" aria-valuemin="0" aria-valuemax="${n}" aria-valuenow="${ready}" aria-valuetext="${ready} of ${n} topics ready"><span style="width:${((ready / n) * 100).toFixed(0)}%"></span><span class="pg-soon" style="width:${((soon / n) * 100).toFixed(0)}%"></span><span class="pg-touched" style="width:${((touched / n) * 100).toFixed(0)}%"></span></div>
     <p class="pg-lead">${lead}</p>
     <ul class="pg-topics">${first.map(row)}</ul>
     ${rest.length ? html`<details class="pg-more"><summary>See all ${n} topics</summary><ul class="pg-topics">${rest.map(row)}</ul></details>` : ""}
