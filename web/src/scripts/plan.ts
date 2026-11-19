@@ -328,7 +328,7 @@ function dayHeader(c: Ctx, d: PlanDay, g: Grid): SafeHtml {
     : d.off
     ? html`Day off`
     : interviewsOn(c, d.date).length
-      ? html`${interviewsOn(c, d.date).map((iv) => html`<span class="dh-iv">${iv.company ? companyLogo(iv.company) : icon("flag")}${ivLabel(iv)}</span>`)}`
+      ? html`${interviewsOn(c, d.date).map((iv) => html`<span class="dh-iv" title="${ivLabel(iv)}">${iv.company ? companyLogo(iv.company) : icon("flag")}<span>${iv.time ? `Interview, ${clock(toMin(iv.time)).replace(" ", "\u00a0")}` : "Interview"}</span></span>`)}`
     : !d.windows.length
       ? html`No window`
       : html`<span class="bar" aria-hidden="true"><span style="width:${Math.min(100, (planned / Math.max(1, d.cap)) * 100).toFixed(0)}%"></span></span>${planned}/${d.cap}m`;
@@ -351,7 +351,7 @@ function sessionBlock(c: Ctx, d: PlanDay, s: PlanSession, g: Grid, first: boolea
   const cls = ["ses", isToday ? "today" : "", mock ? "mockses on-wall" : "", finished ? "mock-done" : "", isShort ? "short" : "", h >= 84 ? "tall" : ""].filter(Boolean).join(" ");
   const label = `${dayName(d.date)} ${span(a, a + len)}, ${fmtM(s.minutes)}: ${s.title}${s.moved_from ? `, moved from ${dayName(s.moved_from)}` : ""}. Open details`;
   return html`<li><div role="button" tabindex="0" aria-describedby="ses-hint" class="${cls}" style="top:${top.toFixed(1)}px;height:${h.toFixed(1)}px" data-m0="${a}" data-m1="${a + len}" data-minh="22" data-ses="${s.id}" data-date="${d.date}" aria-label="${label}" title="${s.title}, ${fmtM(s.minutes)}">
-    <span class="t">${isToday && h < 84 ? clock(a) : span(a, a + len)}${over ? html`, <span class="over">${over} min over</span>` : ""}</span>
+    <span class="t">${isToday && h < 84 ? clock(a) : html`${span(a, a + len).replace(/ [ap]m$/, "")}<span class="mer">${span(a, a + len).match(/ [ap]m$/)?.[0] ?? ""}</span>`}${over ? html`, <span class="over">${over} min over</span>` : ""}</span>
     <span class="h">${finished ? html`${icon("check")}Mock done` : s.title}</span><span class="mm">${fmtM(s.minutes)}</span>${mixBar(s.items)}
     ${isToday ? html`<a class="btn btn-primary btn-sm start" href="${startHref(s, d.date)}" data-start aria-label="Start session (s)">${h >= 84 ? html`Start session ${kbd("s")}` : "Start"}</a>` : ""}
   </div></li>`;
