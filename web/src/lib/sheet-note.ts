@@ -2,6 +2,7 @@ import { masteryAfter } from "./coach";
 // The personal copy on the workspace result sheet: the note about the attempt just finished,
 // why the next problem is next, and what changed in the plan. Pure, so it is tested.
 import { dayAgo } from "./coach";
+import { sentenceCase } from "./display";
 import { midSentence } from "./schedule";
 import type { Plan, SkillLevel } from "./types";
 
@@ -125,9 +126,35 @@ type Days = Plan["days"];
 const count = (days: Days, pick: (kind: string, technique: string | null) => boolean) =>
   days.flatMap((d) => d.sessions).flatMap((s) => s.items).filter((i) => pick(i.kind, i.technique)).length;
 
+const shortDate = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
+/** How the interview checklist moved: a topic that just became ready, or one whose solid date shifted. */
+export function prepChange(before: Plan | null, after: Plan | null): string | null {
+  const a = after?.prep;
+  const b = before?.prep;
+  if (!a?.topics.length || !b || b.company !== a.company) return null;
+  const was = new Map(b.topics.map((t) => [t.module, t]));
+  const ready = a.topics.filter((t) => t.status === "ready").length;
+  const n = a.topics.length;
+  const done = a.topics.find((t) => t.status === "ready" && was.get(t.module)?.status !== "ready");
+  if (done)
+    return ready === n
+      ? `${sentenceCase(done.title)} is ready now, which means every topic ${a.company} leans on is ready`
+      : `${sentenceCase(done.title)} is ready now, which makes ${ready} of the ${n} ${a.company} topics ready`;
+  for (const t of a.topics) {
+    const old = was.get(t.module);
+    if (!old || t.status === "ready") continue;
+    if (t.ready_by && (!old.ready_by || t.ready_by < old.ready_by)) return `${sentenceCase(t.title)} is now on track to be solid by ${shortDate(t.ready_by)}`;
+    if (old.ready_by && (!t.ready_by || t.ready_by > old.ready_by)) return `${sentenceCase(t.title)} needs another pass, so the plan gives it more practice before your interview`;
+  }
+  return null;
+}
+
 /** What this attempt changed in the plan, from the plan before and after; null when nothing moved. */
 export function planChange(before: Plan | null, after: Plan | null, technique: string | null): string | null {
   if (!before || !after) return null;
+  const prep = prepChange(before, after);
+  if (prep) return prep;
   const tomorrow = (p: Plan) => p.days.slice(1, 2);
   if (technique) {
     const was = count(tomorrow(before), (_, t) => t === technique);

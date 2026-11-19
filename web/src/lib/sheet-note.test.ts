@@ -69,6 +69,25 @@ describe("nextReason", () => {
   });
 });
 
+describe("checklist changes", () => {
+  const topic = (module: string, status: string, ready_by: string | null = null) => ({ module, title: module[0]?.toUpperCase() + module.slice(1), status, ready_by, from_leetcode: false });
+  const prep = (topics: ReturnType<typeof topic>[]) => ({ days: [], prep: { company: "Meta", date: "2026-12-10", left: 9, planned: 4, topics } }) as unknown as Plan;
+  it("names a topic that just became ready", () => {
+    expect(planChange(prep([topic("graphs", "started"), topic("trees", "new")]), prep([topic("graphs", "ready"), topic("trees", "new")]), null)).toBe(
+      "Graphs is ready now, which makes 1 of the 2 Meta topics ready",
+    );
+    expect(planChange(prep([topic("graphs", "started"), topic("trees", "ready")]), prep([topic("graphs", "ready"), topic("trees", "ready")]), null)).toBe(
+      "Graphs is ready now, which means every topic Meta leans on is ready",
+    );
+  });
+  it("says when a topic's solid date moves", () => {
+    expect(planChange(prep([topic("graphs", "started", "2026-12-05")]), prep([topic("graphs", "started", "2026-12-02")]), null)).toBe("Graphs is now on track to be solid by Dec 2");
+    expect(planChange(prep([topic("graphs", "started", "2026-12-02")]), prep([topic("graphs", "started", null)]), null)).toBe(
+      "Graphs needs another pass, so the plan gives it more practice before your interview",
+    );
+  });
+});
+
 describe("planChange", () => {
   const t = (technique: string) => ({ kind: "new", technique });
   it("notices the technique moving up tomorrow", () => {

@@ -19,6 +19,7 @@ import { loadTrainer, type TrainerApi } from "../lib/trainer";
 import { kbd, plural, tag } from "../lib/ui/bits";
 import { html, raw, render, type SafeHtml } from "../lib/ui/html";
 import { icon } from "../lib/ui/icons";
+import { prepChecklist } from "../lib/ui/prep-checklist";
 import { goalsOf, mountGoalsEditor, planPatch } from "../lib/ui/goals-editor";
 import { safeNext } from "../lib/gate";
 import { ROLES, roleOf } from "../lib/setup";
@@ -125,7 +126,9 @@ function planStep(): SafeHtml {
   const later = plan.summary.behind.slice(0, 6);
   return html`${head("plan", { skip: false })}<section class="q" aria-labelledby="q5">
     <h1 id="q5">${title}</h1>
-    <p class="sub">${plan.summary.headline} Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>
+    ${plan.prep?.topics.length
+      ? html`<p class="sub">${plan.summary.headline} Until your interview, each day goes to whichever ${plan.prep.company} topic you're least ready for, so every topic gets practice before any of them gets a second pass</p>${prepChecklist(plan.prep, p.interviews.find((i) => i.date === plan.prep?.date)?.company ?? null)}`
+      : html`<p class="sub">${plan.summary.headline} Techniques come in by how often they're asked${p.companies.length ? ", weighted toward what your companies lean on" : ""}${p.focusTopics.length ? `${p.companies.length ? " and" : ","} with extra time on your focus topics` : ""}, around your daily time</p>`}
     <ol class="weeks" aria-label="Week by week">${weeks.map(
       (w) =>
         html`<li class="week"><div class="when">${w.label}<small>${shortDate(w.from)}${w.from !== w.to ? ` to ${shortDate(w.to)}` : ""}</small></div><div class="tech">${
@@ -135,10 +138,10 @@ function planStep(): SafeHtml {
         }</div><span class="n">${plural(w.problems, "problem")}</span></li>`,
     )}</ol>
     ${later.length ? html`<p class="later-list">Short of the plan's goal at this pace: ${later.join(", ")}${plan.summary.behind.length > later.length ? ", and more" : ""}. More daily time, or an earlier start on them, closes the gap</p>` : ""}
-    <div class="how">
+    ${plan.prep?.topics.length ? "" : html`<div class="how">
       <p><strong>On track</strong> means a technique is projected to reach the plan's goal by the date</p>
       <p><strong>Behind</strong> pulls that technique into Today first, never past your daily time. The plan never hides a review to catch up</p>
-    </div>
+    </div>`}
     <div class="next"><button class="btn btn-primary btn-lg" type="button" data-finish-plan>${placeNext() ? "Find your level" : "Go to Today"}</button><button class="btn btn-secondary" type="button" data-add-cal>${icon("calendar-plus")}Add to calendar</button><button class="btn btn-ghost" type="button" data-change>Change answers</button></div>
   </section>`;
 }

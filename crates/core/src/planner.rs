@@ -711,8 +711,12 @@ impl Prep {
         self.problems.contains(&pi)
     }
 
-    /// "It's on the DRW list, and your interview is in 6 days."
-    fn sentence(&self, today: Date) -> String {
+    /// "It's on the DRW list, and your interview is in 6 days." Just the list when the
+    /// reason already said how far away the interview is.
+    fn sentence(&self, today: Date, reason: &str) -> String {
+        if reason.contains("interview is") {
+            return format!("It's on the {} list.", self.title);
+        }
         let when = match days_between(today, self.date) {
             1 => "tomorrow".to_string(),
             n => format!("in {n} days"),
@@ -962,7 +966,7 @@ impl Ctx<'_> {
             );
         }
         if let Some(pp) = self.prep.filter(|pp| pp.has(p.order)) {
-            reason = format!("{reason} {}", pp.sentence(self.today));
+            reason = format!("{reason} {}", pp.sentence(self.today, &reason));
         }
         // UI text never ends on a period; the ones between sentences stay.
         let reason = reason.trim_end_matches('.').to_string();
@@ -1091,7 +1095,7 @@ impl Ctx<'_> {
             reason = format!(
                 "{}. {}",
                 reason.trim_end_matches('.'),
-                pp.sentence(self.today)
+                pp.sentence(self.today, &reason)
             )
             .trim_end_matches('.')
             .to_string();
@@ -1834,6 +1838,8 @@ fn build(
             if let Some(a) = active {
                 // The list fills the time reviews leave, not the usual new-per-day count.
                 let mut mods_today: HashSet<usize> = HashSet::new();
+                // A note is read right before its warm-up, not stacked with other notes.
+                let mut follow: Option<usize> = None;
                 loop {
                     let topics = &mut prep_topics[a];
                     let step_of = |t: &TopicQ, techs: &[TechQ]| -> Option<Step> {
@@ -1906,6 +1912,7 @@ fn build(
                     cands.sort_by_key(|(i, _)| {
                         let t = &topics[*i];
                         (
+                            follow != Some(*i),
                             mods_today.contains(&t.module),
                             mod_placed(t.module, topics),
                             std::cmp::Reverse(mods[modq(t.module, mods)].weight),
@@ -1914,6 +1921,7 @@ fn build(
                         )
                     });
                     if let Some((i, st)) = cands.into_iter().next() {
+                        follow = matches!(st, Step::Note).then_some(i);
                         let t = &mut topics[i];
                         mods_today.insert(t.module);
                         let ti = t.ti;
@@ -2384,7 +2392,17 @@ fn build(
             }
         }
     }
-    let summary = summarize(&days, &forecast, today, interview);
+    // During interview prep the checklist measures readiness; the topic forecast would contradict it.
+    let summary = summarize(
+        &days,
+        if prep_on(&preps, today).is_some() {
+            &[]
+        } else {
+            &forecast
+        },
+        today,
+        interview,
+    );
     let prep = prep_on(&preps, today).map(|i| {
         let pp = &preps[i];
         let ids: HashSet<&str> = prep_left[i]
@@ -3578,7 +3596,7 @@ mod tests {
             new[0]
                 .1
                 .reason
-                .ends_with("It's on the Meta list, and your interview is in 7 days"),
+                .ends_with("Your interview is 7 days away. It's on the Meta list"),
             "{}",
             new[0].1.reason
         );
@@ -4252,6 +4270,29 @@ mod tests {
                 .unwrap()
                 .note
                 .is_none()
+        );
+    }
+
+    #[test]
+    fn a_topic_you_have_never_practiced_starts_with_a_warm_up() {
+        // The fixture's techniques have no notes, so the ramp is just the warm-up here.
+        let s = settings(r#"{"interviews":[{"date":"2026-11-21","company":"meta"}]}"#);
+        let p = run(&[], &s, at(11, 16, 8));
+        let (_, first) = all_items(&p)
+            .into_iter()
+            .find(|(_, i)| i.kind != ItemKind::Review)
+            .expect("new work before the interview");
+        assert_eq!(first.problem.as_deref(), Some("two-sum"));
+        assert_eq!(
+            first.reason.matches("interview is").count(),
+            1,
+            "the reason says how far away the interview is once: {}",
+            first.reason
+        );
+        assert!(
+            first.reason.ends_with("It's on the Meta list"),
+            "{}",
+            first.reason
         );
     }
 
