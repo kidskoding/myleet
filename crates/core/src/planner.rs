@@ -2636,13 +2636,22 @@ fn prep_short_note(
     });
     Ok(Some(Note {
         kind: "over_budget".into(),
-        title: format!(
-            "At {} on weekdays, you'll get through {} of the {} problems left on {}'s list before your interview.",
-            fmt_minutes(settings.daily_minutes),
-            pc.planned,
-            pc.left,
-            pc.company
-        ),
+        title: if pc.planned == 0 {
+            format!(
+                "At {} on weekdays, there's no room for the {} problems left on {}'s list before your interview.",
+                fmt_minutes(settings.daily_minutes),
+                pc.left,
+                pc.company
+            )
+        } else {
+            format!(
+                "At {} on weekdays, you'll get through {} of the {} problems left on {}'s list before your interview.",
+                fmt_minutes(settings.daily_minutes),
+                pc.planned,
+                pc.left,
+                pc.company
+            )
+        },
         body: format!("Reviews still come first and none are dropped. {tail}"),
         actions,
     }))

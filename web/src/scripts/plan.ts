@@ -222,8 +222,10 @@ function currentNote(c: Ctx): PlanNote | null {
   const slip = catchUp(st);
   if (slip)
     pool.push({ kind: "catch_up" as PlanNote["kind"], title: slip.title, body: slip.body, actions: [{ kind: "spread", label: "Spread it over 3 days", value: slip.minutes }, ...(more > wd ? [{ kind: "add_time", label: `Weekdays at ${fmtM(more)}`, value: more }] : []), { kind: "change_plan", label: p.interview_date ? "Move the date" : "Edit goals" }] } as PlanNote);
+  // Before an interview, fitting its company's list comes ahead of everything else.
+  if (c.fixes?.note && p.prep) pool.unshift(c.fixes.note);
   pool.push(...(p.notes ?? []));
-  if (c.fixes?.note) pool.push(c.fixes.note);
+  if (c.fixes?.note && !p.prep) pool.push(c.fixes.note);
   if (!p.interview_date && !(p.notes ?? []).some((n) => n.kind === "date_passed"))
     pool.push({
       kind: "no_date" as PlanNote["kind"],
