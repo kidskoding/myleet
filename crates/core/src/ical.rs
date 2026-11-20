@@ -303,31 +303,26 @@ pub(crate) mod tests {
         let ics = render(&plan, &o);
         let lines = check(&ics).unwrap_or_else(|e| panic!("{e}\n{ics}"));
         let events = lines.iter().filter(|l| *l == "BEGIN:VEVENT").count();
+        let has = |want: &str| lines.iter().any(|l| l == want);
         let sessions: usize = plan.days.iter().map(|d| d.sessions.len()).sum();
         assert!(sessions > 0);
         assert_eq!(events, sessions + 2);
-        assert!(
-            lines.contains(&"DTSTART;VALUE=DATE:20261128".to_string()),
-            "{ics}"
-        );
-        assert!(lines.contains(&"DTEND;VALUE=DATE:20261129".to_string()));
-        assert!(lines.contains(&"SUMMARY:Meta interview".to_string()));
-        assert!(lines.contains(&"SUMMARY:Stripe interview".to_string()));
-        assert!(lines.contains(&"X-WR-CALNAME:myleet plan".to_string()));
-        assert!(lines.contains(&"X-WR-TIMEZONE:America/Chicago".to_string()));
+        assert!(has("DTSTART;VALUE=DATE:20261128"), "{ics}");
+        assert!(has("DTEND;VALUE=DATE:20261129"));
+        assert!(has("SUMMARY:Meta interview"));
+        assert!(has("SUMMARY:Stripe interview"));
+        assert!(has("X-WR-CALNAME:myleet plan"));
+        assert!(has("X-WR-TIMEZONE:America/Chicago"));
         // Saturday Nov 14 19:00 Chicago (CST, UTC-6) is 01:00Z on the 15th.
-        assert!(
-            lines.contains(&"DTSTART:20261115T010000Z".to_string()),
-            "{ics}"
-        );
-        assert!(lines.contains(&"UID:2026-11-14-1-ab12@myleet".to_string()));
+        assert!(has("DTSTART:20261115T010000Z"), "{ics}");
+        assert!(has("UID:2026-11-14-1-ab12@myleet"));
         assert!(
             lines
                 .iter()
                 .any(|l| l.starts_with("SUMMARY:myleet · ") && l.ends_with(" min)"))
         );
         assert!(lines.iter().any(|l| l.contains("https://myleet.dev/p/")));
-        assert!(lines.contains(&"TRIGGER:-PT15M".to_string()));
+        assert!(has("TRIGGER:-PT15M"));
         let quiet = render(
             &plan,
             &IcsOptions {

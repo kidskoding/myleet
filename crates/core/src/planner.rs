@@ -3744,7 +3744,7 @@ mod tests {
         );
         let r = s.resolved(jiff::civil::date(2026, 11, 14));
         assert_eq!(r.interview_date.as_deref(), Some("2026-12-20"));
-        assert!(r.target_companies.contains(&"meta".to_string()));
+        assert!(r.target_companies.iter().any(|c| c == "meta"));
         let only = settings(r#"{"interviews":[{"date":"2026-11-14","company":"meta"}]}"#);
         let r = only.resolved(jiff::civil::date(2026, 11, 14));
         assert_eq!(r.interview_date.as_deref(), Some("2026-11-14"));

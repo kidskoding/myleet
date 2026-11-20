@@ -1,9 +1,7 @@
 {pkgs, ...}: {
   languages.rust = {
     enable = true;
-    channel = "nightly";
-    targets = ["wasm32-unknown-unknown"];
-    components = ["rustc" "cargo" "clippy" "rustfmt" "rust-analyzer"];
+    toolchainFile = ./rust-toolchain.toml;
   };
 
   languages.javascript = {
