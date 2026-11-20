@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   languages.rust = {
     enable = true;
-    channel = "stable";
+    channel = "nightly";
     targets = ["wasm32-unknown-unknown"];
     components = ["rustc" "cargo" "clippy" "rustfmt" "rust-analyzer"];
   };
