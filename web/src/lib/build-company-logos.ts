@@ -20,6 +20,8 @@ interface ManifestEntry {
   file?: string;
   treatment?: "mono" | "light-background" | "dark-background";
   brandColor?: string;
+  /** Dark colours drawn with nothing behind them (a wordmark): the page's text colour on dark themes. */
+  inkOnDark?: string[];
 }
 
 /** Light and current site surfaces used to keep company marks legible. */
@@ -65,11 +67,25 @@ export const visibleOn = (hex: string, surfaces: string[]): boolean => surfaces.
 function readableBrand(hex: string, surfaces: string[], dark: boolean): string {
   const rgb = [1, 3, 5].map((offset) => Number.parseInt(hex.slice(offset, offset + 2), 16));
   if (Math.max(...rgb) - Math.min(...rgb) < 24) return dark ? INK_DARK : INK_LIGHT;
-  for (let step = 1; step <= 20; step++) {
-    const tint = `#${rgb.map((v) => Math.round(v + ((dark ? 255 : 0) - v) * step / 20).toString(16).padStart(2, "0")).join("")}`;
+  // Move lightness only: mixing toward white or black also drains the colour (United's navy went grey).
+  const [h, s, l] = toHsl(rgb);
+  for (let step = 1; step <= 40; step++) {
+    const tint = hsl(h, s, dark ? l + ((100 - l) * step) / 40 : l * (1 - step / 40));
     if (visibleOn(tint, surfaces)) return tint;
   }
   return hex;
+}
+
+function toHsl(rgb: number[]): [number, number, number] {
+  const [r = 0, g = 0, b = 0] = rgb.map((v) => v / 255);
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  const d = max - min;
+  if (!d) return [0, 0, l * 100];
+  const s = d / (1 - Math.abs(2 * l - 1));
+  const h = max === r ? ((g - b) / d + 6) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  return [h * 60, s * 100, l * 100];
 }
 
 function hsl(h: number, s: number, l: number): string {
@@ -142,7 +158,7 @@ export interface Symbolized {
 }
 
 /** Turns a logo SVG into `<symbol id>`: ids namespaced, metadata dropped, colours made visible on both themes. */
-export function symbolize(svg: string, id: string): Symbolized | null {
+export function symbolize(svg: string, id: string, opts: { inkOnDark?: string[] } = {}): Symbolized | null {
   const open = /<svg\b[^>]*>/i.exec(svg)?.[0];
   if (!open) return null;
   let inner = svg.slice(svg.indexOf(open) + open.length, svg.lastIndexOf("</svg>"));
@@ -179,7 +195,16 @@ export function symbolize(svg: string, id: string): Symbolized | null {
   let body = rootAttrs ? group(rootAttrs, inner) : inner;
   if (!explicitFill) body = group('fill="#000000"', body);
 
-  if (unique.length !== 1) return { kind: "full-colour", symbol: `<symbol id="${id}" viewBox="${viewBox}">${body}</symbol>`, colours: unique };
+  if (unique.length !== 1) {
+    const ink = (opts.inkOnDark ?? []).map(toHex).filter((c): c is string => !!c && unique.includes(c));
+    const first = ink[0];
+    if (!first) return { kind: "full-colour", symbol: `<symbol id="${id}" viewBox="${viewBox}">${body}</symbol>`, colours: unique };
+    const listed = (v: string) => ink.includes(toHex(v) ?? "");
+    body = body
+      .replace(COLOUR_ATTR, (m, prop: string, v: string) => (listed(v) ? `${prop}="currentColor"` : m))
+      .replace(COLOUR_DECL, (m, prop: string, v: string) => (listed(v) ? `${prop}:currentColor` : m));
+    return { kind: "full-colour", symbol: `<symbol id="${id}" viewBox="${viewBox}"><g style="color:light-dark(${first}, ${INK_DARK})">${body}</g></symbol>`, colours: unique };
+  }
 
   const c = unique[0] as string;
   const okLight = visibleOn(c, LIGHT);
@@ -211,7 +236,8 @@ export function logoFor(p: Pick<Playlist, "id" | "title">): LogoResult {
   const slug = companySlug(p.id);
   const id = `co-${slug}`;
   const src = sourceSvg(slug);
-  const s = src ? symbolize(src, id) : null;
+  const inkOnDark = readManifest()[slug]?.inkOnDark;
+  const s = src ? symbolize(src, id, inkOnDark ? { inkOnDark } : {}) : null;
   return s ? { slug, kind: s.kind, symbol: s.symbol } : { slug, kind: "monogram", symbol: monogramSymbol(id, p.title) };
 }
 

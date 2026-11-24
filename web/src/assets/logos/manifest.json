@@ -214,8 +214,10 @@
   "url": "https://svgl.app/library/reddit.svg"
  },
  "expedia": {
-  "source": "simple-icons",
-  "icon": "expedia"
+  "source": "wikimedia",
+  "domain": "expediagroup.com",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Expedia_Group_logo.svg",
+  "file": "expedia.svg"
  },
  "instacart": {
   "source": "website-icon",
@@ -512,7 +514,10 @@
  "cerebras": {
   "source": "svgl",
   "file": "cerebras.svg",
-  "url": "https://svgl.app/library/cerebras-dark.svg"
+  "url": "https://svgl.app/library/cerebras-dark.svg",
+  "inkOnDark": [
+   "#000000"
+  ]
  },
  "baseten": {
   "source": "gilbarbara/logos",
@@ -559,7 +564,11 @@
   "url": "https://www.google.com/s2/favicons?domain=zoox.com&sz=128",
   "file": "zoox.svg"
  },
- "ramp": { "source": "website-icon", "file": "ramp.svg", "url": "https://ramp.com/favicon-32x32.png" },
+ "ramp": {
+  "source": "website-icon",
+  "file": "ramp.svg",
+  "url": "https://ramp.com/favicon-32x32.png"
+ },
  "rippling": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/rippling/default.svg",
@@ -1036,7 +1045,10 @@
  "best_buy": {
   "source": "thesvg",
   "url": "https://raw.githubusercontent.com/glincker/thesvg/5c8bf9e866c44d3361b443d70e503734f3d3f298/public/icons/best-buy/default.svg",
-  "file": "best_buy.svg"
+  "file": "best_buy.svg",
+  "inkOnDark": [
+   "#1c252c"
+  ]
  },
  "northrop_grumman": {
   "source": "website-logo",
