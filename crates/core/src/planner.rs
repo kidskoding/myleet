@@ -3055,7 +3055,7 @@ pub fn fixes(
         let tail = match out.all {
             Some(m) => format!("About {} on weekdays covers {them}.", fmt_minutes(m)),
             None => format!(
-                "Even {} on weekdays doesn't close {}; another window or more weekend time would.",
+                "Even {} on weekdays doesn't close {}, so add another window or more weekend time.",
                 fmt_minutes(FIX_STEPS[FIX_STEPS.len() - 1]),
                 if behind.len() == 1 { "it" } else { "them" }
             ),
@@ -3140,7 +3140,7 @@ fn prep_short_note(
             fmt_minutes(m)
         ),
         None => format!(
-            "Even {} on weekdays isn't enough, but another practice window or more weekend time would be.",
+            "Even {} on weekdays isn't enough to get them all solid in time, so add another practice window or more weekend time.",
             fmt_minutes(FIX_STEPS[FIX_STEPS.len() - 1])
         ),
     };

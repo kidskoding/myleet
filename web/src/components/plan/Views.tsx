@@ -204,9 +204,10 @@ export function Toolbar(p: { s: PlanState }) {
           Today {raw(kbd("t"))}
         </button>
         <h2 id="cal-h">{range()}</h2>
-        <button type="button" class="budget budget-read" data-act="change" aria-label={`Daily time: ${fmtM(budget().wd)} on weekdays, ${fmtM(budget().we)} on weekends. Edit goals`} onClick={() => s.setChange({})}>
-          <span class="bl">Daily time</span>
+        <button type="button" class="budget-chip" aria-label={`Daily time: ${fmtM(budget().wd)} on weekdays, ${fmtM(budget().we)} on weekends. Edit goals`} onClick={() => s.setChange({})}>
+          {raw(icon("clock-3"))}
           <span>{fmtM(budget().wd)} weekdays</span>
+          <span class="sep" aria-hidden="true">·</span>
           <span>{fmtM(budget().we)} weekends</span>
         </button>
         <div class="seg" role="group" aria-label="View" style={{ "--on": String(s.view() === "week" ? 1 : s.view() === "month" ? 2 : 3) }}>
@@ -216,6 +217,11 @@ export function Toolbar(p: { s: PlanState }) {
           {seg("roadmap", () => "Roadmap")}
         </div>
       </div>
+      <Show when={s.view() === "week"}>
+        <p class="cal-hint">
+          Drag a session to move it, or focus one and press {raw(kbd("Space"))}. Use a day's {raw(icon("ellipsis"))} menu to take that day off
+        </p>
+      </Show>
       <p id="plan-live" class="live" role="status" aria-live="polite">
         <Show when={s.live()}>
           {(l) => (

@@ -359,7 +359,6 @@ export default function PlanApp() {
                       Busy (Google Calendar)
                     </span>
                   </Show>
-                  <span class="hint">Drag a session, or focus it and press Space, to move it. Day menu (…) takes a day off</span>
                 </div>
               </section>
               <Show when={s.ctx()} keyed>
