@@ -1,19 +1,11 @@
 ---
+import PlanApp from "../components/plan/PlanApp";
+import Skeleton from "../components/plan/Skeleton";
 import Base from "../layouts/Base.astro";
 ---
 
 <Base title="Plan" nav="plan" noindex description="Your practice schedule, with sessions that fit your available hours and explanations for each problem">
-  <div class="page plan" data-plan>
-    <div class="plan-loading" aria-busy="true" aria-label="Loading your plan">
-      <div class="skel" style="height:16px;width:60px"></div>
-      <div class="skel" style="height:32px;width:260px;margin-top:16px"></div>
-      <div class="skel" style="height:20px;width:520px;max-width:100%;margin-top:12px"></div>
-      <div class="skel" style="height:32px;width:100%;margin-top:32px"></div>
-      <div class="panel" style="margin-top:12px;padding:var(--space-4)"><div class="skel" style="height:460px"></div></div>
-      <div class="route"><div class="panel panel-pad"><div class="skel" style="height:16px;width:140px"></div><div class="skel" style="height:92px;margin-top:20px"></div></div><div class="panel panel-pad" style="display:grid;gap:14px"><div class="skel" style="height:16px;width:160px"></div><div class="skel" style="height:28px"></div><div class="skel" style="height:28px"></div><div class="skel" style="height:28px"></div></div></div>
-    </div>
-  </div>
-  <aside class="drawer" data-av-drawer role="dialog" aria-modal="false" aria-labelledby="dr-h" hidden></aside>
+  <PlanApp client:only="solid-js"><div slot="fallback" class="page plan"><Skeleton /></div></PlanApp>
   <p class="visually-hidden" id="plan-sr" aria-live="assertive"></p>
   <p class="visually-hidden" id="ses-hint">Enter opens the session. Space picks it up to move; arrows choose a window</p>
 </Base>
@@ -282,32 +274,6 @@ import Base from "../layouts/Base.astro";
   @media (max-width: 640px) { .road-track { display: none; } .road-list { grid-template-columns: 1fr; } }
   .approach .section-head h2, .fc-panel h2, .you h2 { font-size: var(--text-base); }
   .approach .section-head { margin-bottom: var(--space-4); }
-  /* The chart and its axis share one fixed summit column, so day labels sit under their bars. */
-  .approach { --summit-w: 9.5rem; }
-  /* No max-height: the side card shares this row, and a capped row let a tall card push the bars over the dates */
-  .profile { position: relative; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)) var(--summit-w); align-items: end; flex: 1; min-height: 110px; }
-  .pcol { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; border-radius: 4px; padding: 0; background: none; }
-  .pcol:hover { background: var(--surface-sunk); }
-  .pcol:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
-  .pcol .b { width: min(60%, 14px); border-radius: var(--radius-xs) var(--radius-xs) 0 0; background: var(--line-strong); transition: height var(--dur-base) var(--ease-spring), background-color var(--dur-fast) var(--ease-out); }
-  .pcol.today .b { background: var(--accent); }
-  .pcol.off .b { height: 0 !important; }
-  .pcol.off::after { content: ""; position: absolute; left: 20%; right: 20%; bottom: 0; border-bottom: 1.5px dashed var(--control-edge); }
-  .pcol .mk { position: absolute; left: 50%; transform: translateX(-50%); width: 9px; height: 9px; transition: bottom var(--dur-base) var(--ease-spring); }
-  .pcol .mk.mock { background: var(--mix-mock); transform: translateX(-50%) rotate(45deg); width: 8px; height: 8px; }
-  .pcol .mk.check { border: 1.5px solid var(--ink-2); border-radius: 50%; background: var(--surface); }
-  .pcol .offl { position: absolute; bottom: 6px; font-size: 10px; font-weight: 650; color: var(--ink-3); font-variation-settings: "wdth" 75; }
-  .profile .bracket { position: absolute; inset: 0; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--accent) 8%, transparent); box-shadow: inset 0 -2px 0 var(--accent); pointer-events: none; }
-  /* The side card shows the chosen day (today by default); its dashed edge still marks the end of the chart */
-  .summit { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 2px; min-width: 0; padding-left: var(--space-3); height: 100%; border-left: 1.5px dashed var(--line-strong); margin-left: var(--space-2); }
-  .pday .pd-when { font-size: var(--text-2xs); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
-  .pday .pd-when.pd-today { color: var(--accent); }
-  .pday .pd-date { font-size: var(--text-lg); font-weight: 700; line-height: 1.15; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .pday .pd-load { font-size: var(--text-xs); font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
-  .pday .pd-tag { display: inline-flex; align-items: center; gap: 6px; font-size: var(--text-xs); color: var(--ink-2); }
-  .pday .pd-tag i { width: 8px; height: 8px; flex: none; }
-  .pday .pd-end { display: flex; align-items: flex-start; gap: 5px; margin-top: var(--space-2); font-size: var(--text-2xs); color: var(--ink-3); line-height: 1.35; }
-  .pday .pd-end + .pd-end { margin-top: 0; }
   /* Month view's day panel: the day's interviews, then its sessions */
   .day-ivs { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; gap: var(--space-1); }
   .day-ivs li { display: flex; align-items: center; gap: 6px; font-weight: 650; color: var(--accent); }
@@ -322,33 +288,11 @@ import Base from "../layouts/Base.astro";
   .dh-iv + .dh-iv { margin-left: 6px; }
   .dh-iv > span { white-space: normal; line-height: 1.25; }
   .dh-iv .co-logo, .dh-iv .icon { width: 13px !important; height: 13px !important; flex: none; vertical-align: 0 !important; }
-  .pday .pd-iv { display: flex; align-items: center; gap: 6px; margin-block: 2px; font-size: var(--text-sm); font-weight: 650; color: var(--accent); }
-  .pday .pd-iv .icon, .pday .pd-iv .co-logo { width: 14px !important; height: 14px !important; flex: none; vertical-align: 0 !important; }
-  .pday .pd-list { list-style: none; margin: var(--space-1) 0 0; padding: 0; display: grid; gap: 1px; width: 100%; }
-  .pday .pd-ses { display: grid; gap: 1px; width: calc(100% + 12px); margin-inline: -6px; padding: 3px 6px; border: 0; border-radius: var(--radius-sm); background: none; color: var(--ink); font-size: var(--text-xs); text-align: left; cursor: pointer; }
-  .pday .pd-ses:hover { background: var(--surface-sunk); }
-  .pday .pd-ses:focus-visible { outline: 2px solid var(--focus); outline-offset: 0; }
-  .pday .pd-ses .t { color: var(--ink-3); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .pday .pd-ses .h { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .pday .nw { white-space: nowrap; }
-  .pday .pd-end .icon, .pday .pd-end .co-logo { width: 12px !important; height: 12px !important; flex: none; margin-top: 1px; vertical-align: 0 !important; }
-  .pcol.picked { background: color-mix(in srgb, var(--accent) 12%, transparent); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 60%, transparent); }
-  .pcol.picked .b { background: var(--ink); }
-  .pcol.today.picked .b { background: var(--accent); }
-  .paxis { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)) var(--summit-w); margin-top: 18px; font-size: var(--text-2xs); font-weight: 600; color: var(--ink-3); font-variation-settings: "wdth" 75; font-variant-numeric: tabular-nums; }
-  .paxis span { position: relative; text-align: center; white-space: nowrap; }
-  .paxis span em { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-style: normal; font-weight: 700; color: var(--ink-2); line-height: 1.3; }
-  .pcol.empty, .pcol.iv { pointer-events: none; }
-  .pcol.empty .b { background: var(--line); }
-  .pcol.iv .b { background: var(--accent); }
   .dh.past, .ag-day.past { color: var(--ink-3); }
   .dh.past .dn, .dh.past .dn b { color: var(--ink-3); }
   .dh.past.st-done .load { color: var(--pass); }
   .dh.past.st-missed .load { color: var(--fail); }
   .col.past { background: color-mix(in srgb, var(--ink) 3%, transparent); }
-  .paxis span.mon { color: var(--ink); }
-  .paxis span.thin { visibility: hidden; }
-  .paxis .end { visibility: hidden; }
   .approach .legend { margin-top: var(--space-4); }
   .fc-panel .section-head { flex-wrap: wrap; row-gap: var(--space-1); }
   .fc-panel .section-head h2 { flex: none; }
@@ -391,12 +335,7 @@ import Base from "../layouts/Base.astro";
   .mc.st-done .st { color: var(--success, var(--ink-2)); }
   .mc.st-partial .st { color: var(--ink-2); }
   .mc.st-missed .st { color: var(--ink-3); text-decoration: underline dotted; }
-  .pcol.past .b { position: relative; background: none; box-shadow: inset 0 0 0 1.5px var(--line-strong); overflow: hidden; }
-  .pcol.past .b .f { position: absolute; left: 0; right: 0; bottom: 0; background: var(--ink-3); }
   /* A real border: border-style alone falls back to the default 3px width */
-  .pcol.past.st-missed .b { box-shadow: none; border: 1.5px dashed var(--control-edge); }
-  .lg-done { background: var(--ink-3); }
-  .lg-missed { box-shadow: inset 0 0 0 1.5px var(--control-edge); background: none !important; }
   /* "Your goals" dialog: the shared editor as a draft, the change's cost pinned above the actions */
   .change-dlg { --dlg-w: 640px; flex-direction: column; overflow: hidden; }
   .change-dlg[open] { display: flex; }
@@ -416,10 +355,6 @@ import Base from "../layouts/Base.astro";
 
   @media (max-width: 1100px) {
     .plan .route { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .paxis span:not(.mon) { visibility: hidden; }
-    /* Its column is 0px wide here, and hidden text still sticks out and scrolls the page */
-    .paxis .end { display: none; }
-    .pcol .offl { display: none; }
     .cal-bar .budget { margin-left: 0; order: 5; width: 100%; }
     .ses { padding: 5px 6px; }
   }
@@ -428,13 +363,6 @@ import Base from "../layouts/Base.astro";
     .plan .head-actions .btn { flex: 1; }
     .plan .head-actions .btn kbd { display: none; }
     .approach { padding: var(--space-4); }
-    /* The side card moves above the bars, so the bars keep the full width */
-    .approach { --summit-w: 0px; }
-    .profile { grid-template-rows: auto 96px; min-height: 0; max-height: none; }
-    .profile .bracket { grid-row: 2; }
-    .summit { grid-row: 1; grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: baseline; column-gap: var(--space-2); height: auto; margin: 0 0 var(--space-4); padding: 0; border: 0; }
-    .pday .pd-date { font-size: var(--text-base); }
-    .pday .pd-end { width: 100%; margin-top: var(--space-1); }
     .you, .plan .route { grid-template-columns: 1fr; }
     .plan .week-sec { margin-top: var(--space-6); }
     .cal-bar .budget .bl { width: 100%; }
@@ -453,6 +381,3 @@ import Base from "../layouts/Base.astro";
   }
 </style>
 
-<script>
-  import "../scripts/plan";
-</script>
