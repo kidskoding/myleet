@@ -12,6 +12,7 @@
     "@astral-sh/ruff-wasm-web": "^0.17.5",
     "@astrojs/check": "^0.9.12",
     "@astrojs/markdown-remark": "^7.3.9",
+    "@astrojs/solid-js": "^7.1.6",
     "@catppuccin/palette": "1.8.0",
     "@codemirror/autocomplete": "^6.20.4",
     "@codemirror/commands": "^6.11.1",
@@ -33,6 +34,7 @@
     "lucide-static": "^1.73.0",
     "marked": "^18.2.0",
     "simple-icons": "^16.37.0",
+    "solid-js": "^1.9.20",
     "typescript": "^6"
   },
   "devDependencies": {

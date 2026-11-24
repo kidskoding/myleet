@@ -38,7 +38,9 @@ myleet/
 │   ├── core/                `myleet-core`: catalog model, schedule, session, placement, checkpoint,
 │   │                        interview, stats, event lines, save-file text; no fs, builds for wasm32
 │   └── wasm/                `myleet-wasm`: wasm-bindgen JSON API over core (`just wasm`); see its README
-├── web/                     the web app (Astro + Bun); web/public/data (`just export`) and web/src/wasm are generated.
+├── web/                     the web app (Astro + SolidJS islands + Bun); web/public/data (`just export`) and web/src/wasm are generated.
+│                            New or reworked interactive UI is a Solid `.tsx` island; a src/scripts page script moves to
+│                            Solid only when that screen is next worked on, with the full design pass (see Designing UI).
 │                            `bun run dev` re-exports on content edits and proxies /api/statement to production.
 │                            `just dev` serves the built site and the Worker API on localhost:8787 with a local D1,
 │                            signed in as the demo learner (tools/demo/seed.py, reset each run; localhost origins only).

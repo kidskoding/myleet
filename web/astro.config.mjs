@@ -1,6 +1,7 @@
 import { spawn } from "node:child_process";
 import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import solidJs from "@astrojs/solid-js";
 import { defineConfig } from "astro/config";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
@@ -42,12 +43,15 @@ export default defineConfig({
   output: "static",
   outDir: "dist",
   trailingSlash: "ignore",
+
   // Old route names from before the screens landed.
   redirects: { "/map": "/learn", "/playlists": "/companies", "/review": "/progress#calendar" },
+
   vite: {
     worker: { format: "es" },
     plugins: [liveContent()],
     // Dev has no Worker; problem statements are public and cached, so borrow production's.
     server: { proxy: { "/api/statement": { target: "https://myleet.anirudhkonidala.workers.dev", changeOrigin: true } } },
   },
+  integrations: [solidJs()],
 });
